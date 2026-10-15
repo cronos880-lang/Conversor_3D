@@ -1,5 +1,9 @@
 # Conversor 3D · STL → STEP
 
+[Abrir el conversor en el navegador](https://cronos880-lang.github.io/Conversor_3D/) · [Estado del despliegue](https://github.com/cronos880-lang/Conversor_3D/actions/workflows/pages.yml)
+
+El enlace público requiere que el despliegue de GitHub Pages termine correctamente. No se ha podido confirmar ese estado desde el entorno de desarrollo.
+
 Interfaz HTML y conversión CAD **íntegramente en el navegador**. Sin instalaciones, Python, cuentas adicionales ni subida de archivos a un servidor. Abre el enlace de GitHub Pages que aparece en **Deployments → github-pages** cuando el despliegue esté completado.
 
 1. Abre la web y selecciona tu STL.
@@ -24,7 +28,7 @@ Cada push a `main` ejecuta `.github/workflows/pages.yml` para publicar `index.ht
 
 No hay compilación ni dependencias npm para ejecutar la aplicación. Sirve este directorio con cualquier servidor HTTP estático; por ejemplo, `python -m http.server 8010`. Abrir el HTML mediante `file://` no permite cargar los módulos y el motor WebAssembly.
 
-Las pruebas de navegador están en `tests/`. Requieren herramientas de desarrollo; no son necesarias para usar la web. El motor se ejecuta en un Worker independiente que se destruye al terminar o cancelar para liberar memoria.
+Las pruebas de navegador están en `tests/`. Se verificaron 11 casos del motor WebAssembly: caja, cilindro, esfera, varias piezas, toro, unidades en centímetros y pulgadas, repetición, y rechazo de malla abierta, envolventes anidadas y datos inválidos. Los STEP se reimportan con Open CASCADE independiente y se comprueba volumen y validez. Requieren herramientas de desarrollo; no son necesarias para usar la web. El motor se ejecuta en un Worker independiente que se destruye al terminar o cancelar para liberar memoria.
 
 ## Componentes de terceros
 
