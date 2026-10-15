@@ -1,45 +1,32 @@
-# Conversor 3D: STL → STEP
+# Conversor 3D · STL → STEP
 
-Aplicación con interfaz HTML en español. Carga STL binario o ASCII, visualiza la pieza con giro, zoom, desplazamiento, centrado y aristas, y descarga un STEP generado con Open CASCADE. Three.js está incluido: el visor no necesita una CDN.
+Interfaz HTML y conversión CAD **íntegramente en el navegador**. Sin instalaciones, Python, cuentas adicionales ni subida de archivos a un servidor. Abre el enlace de GitHub Pages que aparece en **Deployments → github-pages** cuando el despliegue esté completado.
 
-## Abrir el programa
+1. Abre la web y selecciona tu STL.
+2. Gira arrastrando, acerca con la rueda y desplaza con el botón derecho.
+3. Selecciona las unidades y pulsa **Convertir y descargar STEP**.
 
-Requiere **Python 3.12 de 64 bits**, navegador con WebGL y conexión durante la primera instalación. Descarga el repositorio, descomprime y ejecuta:
+El motor CAD descarga unos 22 MB al convertir por primera vez. Los archivos permanecen en el navegador. Puedes cancelar una conversión.
 
-```sh
-python iniciar.py
-```
+## Alcance real
 
-En Windows puedes abrir `Iniciar.bat` con doble clic. Instala las dependencias en `.venv` y abre el navegador automáticamente. Mantén la consola abierta; para terminar, pulsa Ctrl+C. La instalación CAD ocupa varios cientos de MB.
+Genera sólidos B-rep STEP con Open CASCADE compilado a WebAssembly. Valida la malla, une caras coplanares, exporta STEP, vuelve a abrirlo y comprueba validez y volumen antes de descargar.
 
-La interfaz es HTML, pero la conversión necesita el servidor Python local. Abrir `static/index.html` directamente o alojarlo en GitHub Pages no ejecuta la conversión. No se ha desplegado un servicio público.
+**No reconstruye el historial paramétrico, las cotas ni las curvas originales.** Las superficies curvas conservan las facetas del STL. No se garantiza una conversión perfecta de cualquier malla ni se ha validado la importación en Onshape o Autodesk.
 
-## Qué convierte realmente
+Límites: 20 MB, 20.000 triángulos; malla cerrada y con orientación coherente, sin caras degeneradas. Se rechazan componentes con cajas envolventes superpuestas, incluidas envolventes anidadas, para evitar rellenar cavidades por error. Esto puede rechazar algunas piezas válidas. Las comprobaciones no detectan necesariamente todas las autointersecciones. El STL no declara unidades: elige las correctas. El STEP se exporta en milímetros; el visor no altera las coordenadas.
 
-STL contiene triángulos, no el diseño original. Se construyen sólidos B-rep, se unen caras coplanares y se exporta STEP; cada resultado se vuelve a importar, se valida y se comprueba su volumen antes de entregarlo. El archivo permite edición directa de geometría en aplicaciones CAD que importen STEP.
+## Publicación
 
-**No recupera historial paramétrico, cotas, restricciones, cilindros ni curvas originales. Las curvas quedan facetadas como en el STL. No existe garantía de conversión perfecta de cualquier STL.** La compatibilidad específica con Onshape y Autodesk requiere importar el resultado en esos productos; todavía no se ha probado allí.
+Cada push a `main` ejecuta `.github/workflows/pages.yml` para publicar `index.html` y `static/` en GitHub Pages. El workflow intenta habilitar Pages. Si GitHub no permite activarlo con el token de Actions, un administrador debe elegir **Settings → Pages → Source: GitHub Actions**. La disponibilidad de Pages para repositorios privados depende del plan de GitHub. Un archivo guardado en GitHub no es por sí solo una web publicada; el enlace solo funciona tras un despliegue correcto.
 
-Límites: 20 MB, 20.000 triángulos; malla cerrada, con volumen y orientación coherente. No repara automáticamente archivos. Se rechazan componentes cuyas cajas envolventes se superponen (incluye envolventes anidadas y algunas piezas separadas de geometría compleja) para evitar rellenar cavidades por error. La validación topológica y de volumen no garantiza detectar todas las autointersecciones. Las unidades de entrada se eligen explícitamente porque STL no las declara; el STEP se exporta en milímetros. Los controles del visor solo cambian la vista, no las coordenadas exportadas.
+## Desarrollo
 
-Los STL se procesan en el equipo que ejecuta el servidor y los archivos temporales de conversión se eliminan al terminar. Sin cuentas, claves API ni servicios externos. El servidor de desarrollo escucha solo en el equipo local por defecto; no está preparado para un servicio público con usuarios no confiables.
+No hay compilación ni dependencias npm para ejecutar la aplicación. Sirve este directorio con cualquier servidor HTTP estático; por ejemplo, `python -m http.server 8010`. Abrir el HTML mediante `file://` no permite cargar los módulos y el motor WebAssembly.
 
-## Desarrollo y pruebas
+Las pruebas de navegador están en `tests/`. Requieren herramientas de desarrollo; no son necesarias para usar la web. El motor se ejecuta en un Worker independiente que se destruye al terminar o cancelar para liberar memoria.
 
-```sh
-python -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python -m pytest -q
-.venv/bin/python -m uvicorn app:app --host 127.0.0.1 --port 8001
-```
+## Componentes de terceros
 
-En Windows usa `.venv\Scripts\python.exe`. Las pruebas convierten caja, cilindro, esfera y varias piezas, vuelven a abrir el STEP y comparan volumen. Incluyen unidades, conversiones repetidas, STL ASCII, mallas abiertas, archivos inválidos, cavidades no soportadas y tamaño excesivo.
-
-Prueba opcional de navegador, con el servidor en el puerto 8001:
-
-```sh
-.venv/bin/python -m pip install playwright==1.64.0
-.venv/bin/python tests/browser_smoke.py
-```
-
-Ese script utiliza Chromium instalado en `/usr/bin/chromium` (entorno Linux de desarrollo), carga una pieza de prueba, maneja el visor y verifica la descarga. No implica validación en otros navegadores o sistemas operativos.
+- Three.js 0.180.0, licencia MIT incluida en `static/vendor/THREE-LICENSE`.
+- replicad-opencascadejs 1.1.0, licencia LGPL-2.1 incluida en `static/vendor/OPENCASCADE-LICENSE`. Distribución original: https://www.npmjs.com/package/replicad-opencascadejs . El JavaScript y el WebAssembly se conservan como archivos separados y reemplazables, sin modificaciones.

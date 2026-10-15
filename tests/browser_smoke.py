@@ -8,13 +8,13 @@ with sync_playwright() as p:
     page=browser.new_page(accept_downloads=True)
     errors=[]
     page.on('pageerror',lambda error:errors.append(str(error)))
-    page.goto('http://127.0.0.1:8001')
+    page.goto('http://127.0.0.1:8010')
     page.locator('#file').set_input_files(str(Path(gettempdir()) / 'browser-box.stl'))
     page.wait_for_function("document.querySelector('#status').textContent.includes('Listo')")
     page.mouse.move(700,300);page.mouse.down();page.mouse.move(800,350,steps=10);page.mouse.up()
     page.mouse.wheel(0,200)
     page.locator('#fit').click();page.locator('#wire').click()
-    with page.expect_download(timeout=60000) as event:
+    with page.expect_download(timeout=180000) as event:
         page.locator('#convert').click()
     download=event.value
     assert download.suggested_filename=='browser-box.step'
