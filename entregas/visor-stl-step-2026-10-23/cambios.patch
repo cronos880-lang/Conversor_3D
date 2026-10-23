@@ -1,0 +1,1830 @@
+--- /dev/null
++++ b/ESTADO_VALIDACION.md
+@@ -0,0 +1,17 @@
++# AVANCE EXPERIMENTAL — NO APTO PARA SUSTITUIR R1
++
++Esta copia contiene una implementación de diagnóstico y reparación conservadora.
++No es una versión declarada terminada. Consultar `INFORME_RESULTADOS.md` y las
++evidencias incluidas en la entrega para conocer los resultados reales.
++
++La unión de la malla del cubo-carrito y la conversión CAD son puertas distintas.
++Un STL reparado no autoriza a declarar válido el STEP. El motor sigue rechazando
++los candidatos que no pasan sus controles geométricos originales.
++
++Windows y la edición Move face de Onshape requieren ejecución real externa.
++La disponibilidad de dependencias Windows no equivale a haber probado Windows.
++
++Trabajar en esta carpeta independiente. El servidor experimental usa el puerto
++8766; la R1 original usa 8765. El HTML, sus cuatro botones, título y flujo Nuevo
++se conservan sin cambios. `VISOR_PREPROCESADOR=0` permite ejecutar el núcleo de
++entrada histórico para comparar; no convierte un fallo en éxito.
+--- /dev/null
++++ b/GUIA_REPRODUCIR.md
+@@ -0,0 +1,89 @@
++# Reproducir y continuar el trabajo
++
++Primero leer `ESTADO_VALIDACION.md` y el informe de resultados de la entrega.
++No sobrescribir una instalación estable. La carpeta `Visor_experimental_fuentes`
++contiene la aplicación completa; no incluye un Python preinstalado.
++
++## Entorno
++
++Windows: ejecutar `Instalar_Entorno.bat`. Para las pruebas, instalar además:
++
++```bat
++.venv\Scripts\python.exe -m pip install -r requirements_pruebas.txt
++set VISOR_MATERIAL_PRUEBAS=..\material_pruebas
++.venv\Scripts\python.exe -m pytest -q
++```
++
++Linux de referencia (Python 3.12, 64 bits):
++
++```sh
++python3.12 -m venv .venv
++.venv/bin/python -m pip install -r requirements_pruebas.txt
++VISOR_MATERIAL_PRUEBAS=../material_pruebas .venv/bin/python -m pytest -q --junitxml=../nuevas_pruebas/pruebas.xml
++```
++
++El TestClient de FastAPI necesita sockets locales permitidos por el entorno.
++Los tests no envían piezas a servicios remotos. El freeze completo del entorno
++de referencia está en las evidencias; el instalador Windows usa las dependencias
++principales fijadas de R1, Manifold/psutil fijados y networkx 3.6.1, que la ruta
++de perfiles ya utilizaba pero la R1 no declaraba.
++
++## Diagnóstico y reparación independientes
++
++```sh
++python diagnosticar_stl.py original.stl --completo --salida diagnostico.json
++python preparar_stl.py original.stl preparado.stl
++python preparar_stl.py abierto.stl cerrado.stl --referencia-cierre referencia_cerrada.stl
++```
++
++El cierre local requiere la referencia explícita, los mismos vértices, entre 1 y
++4 triángulos faltantes y un defecto de diámetro máximo 1 mm / 5 % de diagonal.
++Sin referencia se rechaza la ambigüedad, también en agujeros pequeños de escáner.
++Una abertura funcional no se sella por el hecho de que sea pequeña.
++
++Las uniones se limitan a 20.000 triángulos y 8 cuerpos cerrados. Se conservan los
++componentes pequeños. Los contactos por punto/arista y cuerpos separados se
++rechazan. Una interfaz plana que ya comparte aristas puede normalizarse dentro
++de 0,000020 mm para corregir redondeo STL; no se unen cuerpos por proximidad.
++La malla serializada vuelve a contrastarse con la unión poliédrica independiente
++OCC: caja y máximo superficial observado 0,002 mm, volumen 0,001 %. Son límites
++adicionales: los controles CAD originales no cambian.
++
++## Conversión y batería
++
++```sh
++python motor_v2.py preparado.stl salida.step
++python bateria_reparacion.py --motor . --stl ../material_pruebas/stl_regresion_14 --salida ../nuevas_pruebas/experimental
++python bateria_reparacion.py --motor . --stl ../material_pruebas/caso_cubo_carrito --solo cubo-carrito.stl --salida ../nuevas_pruebas/cubo
++```
++
++Para obtener una nueva referencia, extraer el ZIP original de R1 a otra carpeta
++y ejecutar la misma batería con `--motor` apuntando a esa carpeta intacta. Usar
++el mismo entorno y los mismos STL, comprobar SHA-256 y evitar carga concurrente
++para comparar tiempos de forma representativa.
++
++```sh
++python evaluar_aceptacion.py --referencia ../nuevas_pruebas/referencia --experimental ../nuevas_pruebas/experimental --cubo ../nuevas_pruebas/cubo/cubo-carrito.resultado.json --pruebas ../nuevas_pruebas/pruebas.xml --salida ../nuevas_pruebas/aceptacion.json
++```
++
++La puerta exige las 14 conversiones, comparación de calidad, reimportación de
++cada STEP y conversión válida del cubo-carrito. Mantiene Windows pendiente hasta
++aportar evidencia nativa; no lo deduce del sistema donde se preparan los paquetes.
++Las pruebas unitarias y rotaciones son puertas adicionales documentadas en el
++informe: una ejecución correcta de la app no sustituye esas pruebas.
++
++## Evidencias del servidor
++
++`Registros_Conversion/<id>.entrada.json` conserva el diagnóstico. Si se repara,
++también conserva `<id>.original.stl` y `<id>.reparado.stl`, incluso si el CAD falla.
++El diagnóstico incluye rutas `/reparacion/<id>/informe`, `/original` y `/reparado`.
++El proceso CAD y sus descendientes se supervisan por tiempo/RAM y se detienen al
++cancelar con Nuevo. La evidencia Windows de taskkill sigue pendiente.
++
++## Trabajo que requiere otra puerta de calidad
++
++No sustituir el núcleo para sortear un rechazo. Si se desarrolla una corrección
++del exportador B-Rep/STEP, probarla solo en una rama separada, reimportar el STEP,
++comparar contra la unión de referencia y repetir las 14 piezas con los mismos
++límites. No usar `_close_mesh` ni suavizado como atajo. No entregar un STEP
++facetado de auditoría como si fuese el CAD editable final del Visor.
+--- /dev/null
++++ b/INFORME_RESULTADOS.md
+@@ -0,0 +1,181 @@
++# Resultado del desarrollo — Visor STL → STEP
++
++**AVANCE EXPERIMENTAL NO VALIDADO. No sustituir la R1 estable.**
++
++23/10/2026. Cierre de evidencias: 13:07 CEST, Europe/Madrid. Trabajo transcurrido: aproximadamente 51 minutos, por debajo del límite de cinco horas.
++
++## Resultado principal
++
++Se ha implementado la reparación conservadora de la **malla** del cubo-carrito,
++con contraste independiente y pruebas rotadas. **No se ha conseguido una
++conversión STEP final aceptada del cubo-carrito con el motor actual**. La ejecución
++completa terminó por tiempo a los 420.143 s, con pico observado de
++735.95 MB. Los candidatos que se pudieron evaluar no superaron
++los controles de volumen/caja. No se entrega ninguno como resultado válido.
++
++La batería completa dio **12/14 conversiones válidas en R1 y 12/14
++en la experimental** con este entorno y protocolo. 12 piezas tienen calidad
++conservada según la comparación estricta y sus STEP se reimportaron otra vez.
++Los fallos de la referencia se conservan como fallos: no permiten afirmar que
++las 14 conversiones funcionan. **35/35 pruebas unitarias y de API
++pasaron**, sin omitir las pruebas con STL reales. Windows y Onshape no se ejecutaron.
++
++Por estas razones, la puerta automática de aceptación devuelve
++`apto_para_entrega_validada = false`. Se entrega código completo de trabajo,
++parche y evidencias como **progreso**, no una versión experimental aprobada.
++
++## Cambios implementados
++
++- Clasificador independiente: incidencias de aristas 1/2/>2, duplicados,
++  degenerados, orientación, componentes cerrados/abiertos y ruta/gravedad JSON.
++  El modo completo usa `BRepAlgoAPI_Check` para autointerferencias y analiza
++  contacto/solapamiento. Informa si no pudo completar una comprobación.
++- Unión de componentes cerrados con Manifold 3.4.0 en doble precisión y contraste
++  con una unión poliédrica OpenCascade construida desde la entrada. Nunca se
++  borran islas por porcentaje de triángulos ni se unen cuerpos por cercanía.
++- Normalización de interfaces planas **ya conectadas por aristas coincidentes**
++  para evitar el alabeo nanométrico que introduce STL float32 al rotar. Movimiento
++  y simplificación numérica limitados a 0,000020 mm; comprobación geométrica posterior.
++  La referencia usa la misma definición explícita de interfaz y un booleano distinto;
++  no se construye desde la malla candidata.
++- Cierre local conservador mediante **referencia cerrada explícita**, entre 1 y
++  4 triángulos faltantes y diámetro limitado. Conserva los vértices y todas las
++  caras existentes. Sin referencia, una abertura sigue siendo ambigua y se rechaza.
++- Integración antes de **todas** las estrategias de entrada. Las mallas sanas
++  usan el mismo archivo, sin reescritura. Brick conserva la soldadura microscópica
++  que la lectura histórica `trimesh.process=True` ya realizaba.
++- Evidencias JSON/STL conservadas incluso si falla el CAD; vigilancia de tiempo
++  y RAM del proceso existente y sus descendientes. API y cancelación probadas en Linux.
++- Batería reproducible con SHA-256, tiempos, RAM, resultado real y puerta de aceptación.
++  El HTML es idéntico; la copia experimental usa 8766 para separarse de la R1 (8765).
++- Corrección de empaquetado: `networkx==3.6.1`, dependencia no declarada que la
++  ruta de perfiles histórica requiere. Se repitió Spur en R1 tras instalarla;
++  la experimental usa también ese entorno. El primer ensayo interrumpido por
++  esa carencia se conserva aparte y no se contabiliza como resultado geométrico.
++
++No se copiaron los umbrales permisivos de EasyMeshFit, `_close_mesh`, suavizado
++global ni eliminación de cuerpos pequeños. Se adaptaron las ideas de guardia,
++QC reimportado y batería, preservando el núcleo CAD del Visor.
++
++## Cubo-carrito: medidas de la reparación
++
++| Medida | Entrada | STL reparado reimportado |
++|---|---:|---:|
++| Triángulos | 1880 | 1872 |
++| Componentes | 2 | 1 |
++| Aristas abiertas | 0 | 0 |
++| Aristas >2 caras | 4 | 0 |
++| Euler del sólido reparado | — | 0 |
++
++Volumen de referencia independiente: **59242.563132597 mm³**.
++Error de volumen del STL preparado: **6.14081939525e-14 %**.
++Error de caja: **0 mm**. p95 bidireccional observado:
++**5.46721434891e-16 mm**. Máximo superficial observado:
++**1.00485917356e-14 mm**, con [6808, 6808] muestras por dirección
++(todos los vértices, centroides y puntos de área deterministas).
++
++El STL final tiene SHA-256 `62b965480624020bf2a3db180337d519dda4906886e53cfab8144337c229ec2f` y es **idéntico en bytes**
++al STL preparado de la prueba completa CAD que agotó el tiempo. Por tanto, los
++cambios finales de diagnóstico no ocultan una prueba CAD hecha con otra geometría.
++Se contrastó también con el archivo reparado aportado, sin reutilizarlo para generar
++la solución. Se preserva el túnel de la pieza (Euler 0 / género 1).
++
++Las tres rotaciones 3D se prueban automáticamente tras serializar y reimportar
++el STL. Esto demuestra la reparación de malla en esos casos, **no** una conversión
++CAD rotada que todavía no ha pasado en el caso base.
++
++## Batería real de las 14 piezas
++
++Valores de error de la experimental aceptada; caras antes → después. El máximo
++es observado en muestras, no una cota Hausdorff global. Las columnas vacías no
++significan error cero: no existe un resultado STEP aceptado.
++
++| STL | R1 original | Experimental | Caras | Volumen error % | Caja mm | p95 mm | Máximo mm |
++|---|---|---|---:|---:|---:|---:|---:|
++| 1x1-lego-brick.stl | válido | válido | 33 → 33 | 0.031434 | 0.000294 | 0.003205 | 0.004228 |
++| Bancada_Motor.stl | válido | válido | 89 → 89 | 0.224992 | 0.000561 | 0.005200 | 0.029947 |
++| Estefi.stl | válido | válido | 228 → 228 | 0.029257 | 0.007909 | 0.011725 | 0.036159 |
++| Fast+Funnel+large.stl | tiempo_agotado | tiempo_agotado | — → — | — | — | — | — |
++| Grapa.stl | válido | válido | 18 → 18 | 0.023370 | 0.010337 | 0.002298 | 0.009310 |
++| LLanta_Trasera.stl | válido | válido | 42 → 42 | 0.032442 | 0.000058 | 0.002040 | 0.002109 |
++| M3 PClip - 2mm.stl | válido | válido | 54 → 54 | 0.037385 | 0.002792 | 0.004743 | 0.007472 |
++| Spoiler_arrière_Porsche_-_5.stl | válido | válido | 28 → 28 | 0.012459 | 0.000051 | 0.002332 | 0.002602 |
++| Tirante.stl | válido | válido | 22 → 22 | 0.109325 | 0.000951 | 0.003463 | 0.004875 |
++| chasis - Part 2.stl | válido | válido | 215 → 215 | 0.246375 | 0.016289 | 0.029307 | 0.054200 |
++| conector.stl | tiempo_agotado | tiempo_agotado | — → — | — | — | — | — |
++| maneta.stl | válido | válido | 42 → 42 | 0.107602 | 0.000057 | 0.007588 | 0.014472 |
++| pinza.stl | válido | válido | 131 → 131 | 0.068255 | 0.000712 | 0.005840 | 0.035241 |
++| spur.stl | válido | válido | 1405 → 1405 | 0.007408 | 0.000000 | 0.001249 | 0.003014 |
++
++Spur se volvió a ejecutar en la referencia tras detectar que `networkx` faltaba
++en los requisitos originales. Es el único STL de esta colección que entra en la
++ruta de perfiles de 20.000–60.000 triángulos; las otras trece pruebas no usaron
++esa ruta. Los registros anteriores se conservan en `evidencias/ensayo_spur_sin_networkx`.
++
++Detalles completos, límites específicos, tolerancias de aristas, tipos de caras,
++RAM y segundos están en `COMPARATIVA_14.csv` y `evidencias/*/bateria.json`.
++Las reimportaciones independientes están en `evidencias/aceptacion.json`.
++
++Se usaron los límites temporales del servidor: 420 s (<1 MB), 600 s (1–5 MB),
++900 s (≥5 MB). Dos baterías y algunos ensayos coexistieron en el entorno; los
++segundos son tiempo de pared observado, **no un benchmark justo de velocidad**.
++Un tiempo agotado demuestra que no se completó la prueba con este protocolo,
++no que la pieza sea imposible de convertir en otro entorno. No se amplió el
++límite para presentar una conversión como terminada.
++
++## Tolerancias y conservación del programa
++
++Comprobación estructural del código: `_calidad`, `convertir`, comparadores y
++todas las estrategias de `main` son iguales a R1 (el antiguo main solo se renombra
++para envolver la entrada). Todos los módulos de `motor_superficies` y el HTML
++mantienen sus bytes originales. Los 47 archivos de la copia R1 coinciden con su ZIP.
++
++- Caja CAD: 0,020 mm; volumen: 0,5 %.
++- p95: el criterio original de 0,020–0,030 mm según escala y densidad.
++- Máximo observado: 0,060 mm, más **solo** el margen de simplificación que ya
++  tenía R1, acotado a 0,010 mm. La reparación no añade margen CAD.
++- Verificación adicional de unión: caja/máximo superficial observado 0,002 mm;
++  volumen 0,001 %. La tolerancia de cosido/booleano OCC es 0,0000001 mm.
++
++Los límites CAD no se relajaron. No se aceptó uniones solo por `is_watertight`.
++El informe explica que las comprobaciones superficiales son muestreadas.
++
++## Bloqueos y trabajo pendiente
++
++- Fast+Funnel+large.stl: la conversión completa no pasa en ambas copias.
++- conector.stl: la conversión completa no pasa en ambas copias.
++- Cubo-carrito: falta una conversión STEP completa que pase los controles.
++- Pruebas nativas Windows pendientes; disponibilidad de wheels no equivale a ejecución.
++
++El bloqueo principal es la reconstrucción/exportación CAD del cubo-carrito:
++en ensayos dirigidos, un candidato de 71 caras pasó validez interna pero al
++reimportar STEP presentó 1,612 % de error de volumen y 0,1016 mm de caja. Otros
++ensayos de segmentación, refinamiento de entrada y rotación tampoco superaron
++los mismos límites. Los logs están en `evidencias/candidatos/`. Son ensayos de
++diagnóstico y no forman nuevas estrategias de producción.
++
++Para continuar, hace falta una corrección acotada y probada del recorrido
++B-Rep → STEP o del ajuste que lo alimenta. Esta entrega mantiene esos módulos
++intactos conforme al encargo y **no sustituye su rechazo por un STEP facetado**.
++Las conversiones históricas que no completaron deberán repetirse sin carga
++concurrente, con el mismo protocolo, antes de declarar su estado definitivo.
++
++No se dispone de un ejecutor Windows ni sesión Onshape. Se verificó que existen
++wheels Windows x64 de Manifold y psutil para Python 3.12 y 3.13;
++esto **no** prueba instalación/ejecución Windows, UI real Windows ni Move face.
++Las pruebas automatizadas no garantizan preservar cualquier rosca/ranura de
++cualquier STL: se ensayan el túnel del caso real y canales pasantes sintéticos.
++El clasificador completo limita autointerferencias a 20.000 caras / 8 cuerpos;
++las comprobaciones no realizadas se indican expresamente.
++
++## Contenido y reproducción
++
++`AVANCE_NO_VALIDADO_Visor_STL_STEP_2026-10-23.zip` contiene la copia completa de
++fuentes experimentales, archivos modificados y nuevos, material STL de prueba,
++parche unificado, resultados antes/después, STEP históricos aceptados, registros,
++JUnit XML y freeze del entorno. **No es una publicación ni instalación estable.**
++La fuente original se conserva en el ZIP aportado; no se ha modificado el proyecto
++Edu3d del entorno ni se ha subido nada a GitHub u otros servicios.
++
++Ver `Visor_experimental_fuentes/GUIA_REPRODUCIR.md`. Ejecutar las pruebas completas
++con `VISOR_MATERIAL_PRUEBAS` configurado: omitir los STL reales bloquea la aceptación.
+--- a/Iniciar.bat
++++ b/Iniciar.bat
+@@ -7,13 +7,14 @@
+  pause
+  exit /b 1
+ )
+-".venv\Scripts\python.exe" -c "import cadquery,trimesh,scipy,numpy,shapely,vtk,fastapi,uvicorn,multipart" >nul 2>&1
++".venv\Scripts\python.exe" -c "import cadquery,trimesh,scipy,numpy,shapely,vtk,fastapi,uvicorn,multipart,manifold3d,psutil,networkx" >nul 2>&1
+ if errorlevel 1 (
+  echo Dependencias incompletas. Ejecuta Instalar_Entorno.bat.
+  pause
+  exit /b 1
+ )
+ set "PYTHONIOENCODING=utf-8"
+-start "" "http://127.0.0.1:8765"
++echo Copia EXPERIMENTAL. Consultar ESTADO_VALIDACION.md antes de usar los resultados.
++start "" "http://127.0.0.1:8766"
+ ".venv\Scripts\python.exe" servidor.py
+ if errorlevel 1 pause
+--- a/Instalar_Entorno.bat
++++ b/Instalar_Entorno.bat
+@@ -1,7 +1,7 @@
+ @echo off
+ setlocal
+ cd /d "%~dp0"
+-echo Preparando entorno independiente del Visor STL V4.0 Uso R1...
++echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R1...
+ py -3.13 -V >nul 2>&1
+ if not errorlevel 1 (
+   set "PYTHON=py -3.13"
+@@ -21,7 +21,7 @@
+ if errorlevel 1 goto error
+ ".venv\Scripts\python.exe" -m pip install -r "requirements_bloqueadas.txt"
+ if errorlevel 1 goto error
+-".venv\Scripts\python.exe" -c "import cadquery,numpy,scipy,trimesh,vtk,shapely,uvicorn,fastapi; print('Entorno CAD preparado')"
++".venv\Scripts\python.exe" -c "import cadquery,numpy,scipy,trimesh,vtk,shapely,uvicorn,fastapi,manifold3d,psutil,networkx; print('Entorno CAD experimental preparado')"
+ if errorlevel 1 goto error
+ echo.
+ echo Instalacion terminada. Ejecuta Iniciar.bat.
+--- a/LEEME.txt
++++ b/LEEME.txt
+@@ -1,3 +1,7 @@
++AVANCE EXPERIMENTAL NO VALIDADO. NO SUSTITUIR LA R1 ESTABLE.
++Leer ESTADO_VALIDACION.md y el informe de resultados de la entrega.
++
++--- LEEME ORIGINAL DE REFERENCIA ---
+ VISOR STL V4.0 USO R1 (Windows)
+ 
+ 1. Descomprimir el ZIP en una carpeta NUEVA.
+--- a/MANIFIESTO_SHA256.txt
++++ b/MANIFIESTO_SHA256.txt
+@@ -1,15 +1,22 @@
+ e7de564b7e684f74294c17af3ab37e1e20616295e51616aa0272c76db2bf4a5d  Abrir_Registros.bat
+ 89ea1afdc3ecdf5ea47c34b6252e60a4d30eebe9aaf69dc9f51557e77efd9c71  CREDITOS_MOTOR.txt
+-db593d76b1bf8aa549c1c84b8f747ce15d42d9bfd28053bbabbd53ef45e651c1  Iniciar.bat
+-be51e7ffe5d09f52993fdbedcf328cbd8519dfc729c079e635e58fc400da3305  Instalar_Entorno.bat
+-9b7ae0fb736a02126d28fb604737efe59313d2e18771ccc13bf52b940458d7eb  LEEME.txt
+-29220cf1f18ebacb3cefd59c008b948753fb8a80b6282f16498dac7ea310d9b2  QA_R1.txt
+-89823e5106314f76b24f38f668c84f0e7fb6284ffac096f769da6bbb632840fe  VERSION.txt
++4bd7920afe625a4b0c6565a0376a43d767bc034d3abfd5dd8c6619e708ac74e7  ESTADO_VALIDACION.md
++171cf2b916795344b2b80442eb10ba6e9d56b3d042ddbb34e043e6f761d5fe0f  GUIA_REPRODUCIR.md
++574d113912ebffeb59f04e04c17c621bc9cdb851ba66148004b48a2e47afcfeb  INFORME_RESULTADOS.md
++b92089588998d25240ad72dc5e23fd9197a7dbdfc48c4df7cfdfb88053f4553f  Iniciar.bat
++7701cfbe3517ce874a8b16a06c19018b01f02e7e5487713d431d711f5a3c8a7d  Instalar_Entorno.bat
++a0c76b2e70ede4c233dea00a72121bdcbd09f654bb7a05277e604e0be0e11987  LEEME.txt
++a4ee9e8a6dd0639898db2138e3504bc6602b05885a3cfd6c373268e27ab543f5  QA_R1.txt
++0cdbd1cd07c5176dde48e6470da7c70d5ece8172e1c8eb05300e56bb0a547548  VERSION.txt
+ f4ec816aaf11049b09f96faff4c87cf3f455d8f492819d577e62bae2f88d5748  Visor_STL_STEP.html
+ aabb215db37015cd628ce83397854fb79db514214f5985d2eb5849428bac3751  analisis_superficies.py
+ 5db23d6deb4647dc991c9258132e9ec104555a46a33319b20d7038cd6f94853d  avance_conversion.py
+ d56d065313a382767cec5002ea41d13f8be89e180461e5a6348c648fedeee937  axial_recognition.py
++159e9c84feae85c8d3564aca3f352e727fe30c9f976ab369dc3c0d1b6d6e921a  bateria_reparacion.py
+ 6ed953ddcf6e4abcfcb37a2a27bcbe00936575fee15ab890596107652debdc20  calidad_topologica.py
++dfec7d877048b895d3c2822f49cfc51ca0a84f7cd6feddf4cd31707ef303882b  control_recursos.py
++2985c5f47c88d44f5ff6479b8af8a5ed65d0b8993a67778f56d8316333aac265  diagnosticar_stl.py
++8a071f3a5edff6019ab371b699694642e47b39b5d6c9104224aaad51bf0fe690  evaluar_aceptacion.py
+ d59ce94b64a01d2bbf7148e561e594269ee35f9d158f8e49dbcc5646623edd7c  limpieza_franjas.py
+ 91a4c50ce098464444ea881c398000161cdede961235d35a6aa1c960ea615ae6  motor_amigo_aislado.py
+ 1e3fd749cb9fc0429e8e1406f81ee27295597eaa55aba7169e37b506e15c41de  motor_original_amigo/__init__.py
+@@ -35,12 +42,18 @@
+ a2d5d7a8dca456ab8f2cb94ae4f77a30269bd07bb46aa58ff77ae92a3a7ed8c3  motor_superficies/meshfit_ransac.py
+ 57a63577295e9ce1e8c148596e5f9f5d119e2c5659e694db4db4887af0c688d6  motor_superficies/meshfit_repair.py
+ 291982580ed59d68458ddea67c95979be57d4e90e208d8bb96833bb990068dfd  motor_superficies/meshfit_step.py
+-adeecf37ff261e10429e99273feadadb26059ead33727d5bf6d068ad17ebb435  motor_v2.py
++bb6a9c053ca18b5987cc979adc443420e273cbf2d9cec6700724b4c48f5fcad4  motor_v2.py
+ 042b7ac146dbf758088466695010c947e10716138231fdec17ce3ebf2fc5f9a7  perfiles_cad.py
++dc6873ac2452683a4aa83d71e9b97736366128e4a69c383fe29fef2f1aad5283  preparar_stl.py
++325a85035bba255e251626ddec2fb3fd55658ee3362b5a3d5862e19cec6336d8  preprocesador_stl.py
+ baf9aa18bd3e28ab86ecf55222cdbae1e74b0c7de2ef501c1f8afb6fc587c9b1  prueba_web.py
+ 10162cb0ae40e43f302c00e4b66ad745286a01f53d40650aaf71dab633507f3f  reconocimiento_diseno.py
+ 95386d6dc6c3192dd81cc4dd253bab58ba2a42c720fdf49644068c89156c4b7f  refinamiento_analitico.py
+-5a708a5b38dbc42b5daada5c75e89db9b2d908cf9e9f74b3375e612c628399c5  requirements.txt
+-c424b48d5f934febe73f8636b135ccb4bb6a4ab8b4b7de8dd6757d8f660330fb  requirements_bloqueadas.txt
+-b22055a89f9ff336c640716031978b79338de011a1df24fd8168da41993291f5  servidor.py
++e34d37f1985f7771d695d8af2c78785aaedfdce378f696ab4f191993eb18b574  requirements.txt
++9ff80e09186017a7bcfdbdbddca3a91ea9a943b72140343faca5db157712aa24  requirements_bloqueadas.txt
++e92594bdc4d5303211b01bb8f6adba0d4638cb6a5bfb77419817781faf48e8a9  requirements_pruebas.txt
++7171e5a0c62f431b8ce4b606c183dfca82655d09a8c6b9e712d7ee058e5a94a3  servidor.py
++1309c2c43040673f38dd250516113ab7ac5ba2b4939a6a21f69d63aa9d1c22cd  test_preprocesador.py
++c5466b4e923af4649f41667be1b67e3870b17e41c581fe1384a9bdb49c4ead92  test_servidor_reparacion.py
+ 19b69d6bfd66ee5c96600c017f3013b9edee1d3909080d2646945bf4460c34b6  validacion_local.py
++99632936657b5dfc1e4d619f681e920886fc2540cd73ce8d22f3c70a0ae8206c  verificacion_reparacion.py
+--- a/QA_R1.txt
++++ b/QA_R1.txt
+@@ -1,3 +1,6 @@
++HISTÓRICO DE LA R1 ORIGINAL; NO SON LAS PRUEBAS DE ESTE AVANCE.
++Resultados actuales: INFORME_RESULTADOS.md y evidencias.
++
+ VISOR STL STEP V4.0 USO R1 - RESULTADOS DE PRUEBAS
+ Fecha: 2026-10-20
+ 
+--- a/VERSION.txt
++++ b/VERSION.txt
+@@ -1,4 +1,4 @@
+-Visor STL -> STEP V4.0 Uso R1
+-2026-10-20
+-Rescate CAD de curvaturas verificadas (1.3 grados) antes de repetir segmentaciones.
+-Validez CAD, volumen y fidelidad superficial sin umbrales relajados.
++AVANCE EXPERIMENTAL NO VALIDADO — Visor STL → STEP V4 R1
++2026-10-23
++Leer ESTADO_VALIDACION.md e INFORME_RESULTADOS.md.
++No sustituir la R1 estable.
+--- /dev/null
++++ b/bateria_reparacion.py
+@@ -0,0 +1,99 @@
++"""Batería reproducible: proceso aislado, huellas, RAM y resultados reales.
++
++Uso: python bateria_reparacion.py --motor CARPETA --stl CARPETA --salida CARPETA
++No sustituye errores por éxito ni omite piezas ausentes. Una conversión a la vez.
++"""
++from __future__ import annotations
++import argparse
++import hashlib
++import importlib.metadata
++import json
++import os
++from pathlib import Path
++import platform
++import signal
++import subprocess
++import sys
++import time
++import psutil
++
++
++def ejecutar(motor, source, destination, *, limite=None, memoria_mb=5500, extra_env=None):
++    destination.parent.mkdir(parents=True, exist_ok=True)
++    limit = limite or (420 if source.stat().st_size < 1_000_000 else
++                      600 if source.stat().st_size < 5_000_000 else 900)
++    env = {**os.environ, 'PYTHONUNBUFFERED': '1', 'PYTHONIOENCODING': 'utf-8',
++           'OPENBLAS_NUM_THREADS': '1', 'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1',
++           **(extra_env or {})}
++    row = {'archivo': source.name, 'sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
++           'limite_s': limit, 'limite_ram_mb': memoria_mb}
++    start, peak = time.monotonic(), 0
++    with destination.with_suffix('.stdout.txt').open('w', encoding='utf-8') as out, \
++         destination.with_suffix('.stderr.txt').open('w', encoding='utf-8') as err:
++        p = subprocess.Popen([sys.executable, str(motor/'motor_v2.py'), str(source), str(destination)],
++                             cwd=motor, env=env, stdout=out, stderr=err,
++                             start_new_session=os.name != 'nt',
++                             creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == 'nt' else 0)
++        proc = psutil.Process(p.pid)
++        while p.poll() is None:
++            try:
++                ram = sum(c.memory_info().rss for c in [proc, *proc.children(recursive=True)]
++                          if c.is_running())
++                peak = max(peak, ram)
++            except psutil.Error:
++                pass
++            why = ('tiempo_agotado' if time.monotonic()-start > limit else
++                   'memoria_agotada' if peak > memoria_mb*1024**2 else None)
++            if why:
++                row['interrupcion'] = why
++                if os.name == 'nt':
++                    subprocess.run(['taskkill', '/F', '/T', '/PID', str(p.pid)], capture_output=True)
++                else:
++                    os.killpg(p.pid, signal.SIGKILL)
++                break
++            time.sleep(.2)
++        p.wait()
++    row.update(segundos=round(time.monotonic()-start, 3), ram_pico_mb=round(peak/1024**2, 2),
++               codigo=p.returncode)
++    try:
++        row['informe_motor'] = json.loads(destination.with_suffix('.stdout.txt').read_text(
++            encoding='utf-8').strip().splitlines()[-1])
++    except (ValueError, IndexError):
++        row['informe_motor'] = {'ok': False, 'error': row.get('interrupcion', 'Sin informe JSON')}
++    row['ok'] = bool(p.returncode == 0 and row['informe_motor'].get('ok') and destination.exists())
++    if row['ok']:
++        row['sha256_step'] = hashlib.sha256(destination.read_bytes()).hexdigest()
++    destination.with_suffix('.resultado.json').write_text(json.dumps(row, indent=2, ensure_ascii=False), encoding='utf-8')
++    return row
++
++
++def main():
++    ap = argparse.ArgumentParser(description=__doc__)
++    ap.add_argument('--motor', type=Path, default=Path(__file__).resolve().parent)
++    ap.add_argument('--stl', type=Path, required=True)
++    ap.add_argument('--salida', type=Path, required=True)
++    ap.add_argument('--solo', nargs='*')
++    ap.add_argument('--limite', type=int)
++    a = ap.parse_args()
++    a.motor, a.stl, a.salida = a.motor.resolve(), a.stl.resolve(), a.salida.resolve()
++    sources = sorted(a.stl.glob('*.stl'))
++    if a.solo:
++        sources = [p for p in sources if any(s.lower() in p.name.lower() for s in a.solo)]
++    if not sources:
++        ap.error('No hay STL; la batería no se considera superada.')
++    a.salida.mkdir(parents=True, exist_ok=True)
++    report = {'plataforma': platform.platform(), 'python': sys.version,
++              'dependencias': {n: importlib.metadata.version(n) for n in
++                               ('cadquery', 'cadquery-ocp', 'trimesh', 'numpy', 'scipy', 'vtk', 'shapely', 'manifold3d', 'psutil', 'networkx')},
++              'resultados': []}
++    for i, source in enumerate(sources):
++        print(f'[{i+1}/{len(sources)}] {source.name}', flush=True)
++        row = ejecutar(a.motor, source, a.salida/(source.stem+'.step'), limite=a.limite)
++        report['resultados'].append(row)
++        (a.salida/'bateria.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
++        print(f'  ok={row["ok"]} segundos={row["segundos"]} RAM={row["ram_pico_mb"]} MB', flush=True)
++    return 0 if all(r['ok'] for r in report['resultados']) else 1
++
++
++if __name__ == '__main__':
++    sys.exit(main())
+--- /dev/null
++++ b/control_recursos.py
+@@ -0,0 +1,59 @@
++"""Vigilar el proceso CAD ya aislado; sin crear otro motor ni relajar límites.
++
++Ideas de meshfit_guard adaptadas al árbol del servidor y a cancelación existente.
++"""
++from __future__ import annotations
++import os
++import subprocess
++import time
++import psutil
++
++
++class LimiteRecursos(RuntimeError):
++    def __init__(self, message, stdout='', stderr='', pico_mb=0):
++        super().__init__(message)
++        self.stdout, self.stderr, self.pico_mb = stdout, stderr, pico_mb
++
++
++def limite_memoria_bytes():
++    # Límite absoluto conservador y mitad de RAM disponible al iniciar.
++    # En Linux respetar además cgroup v2 del entorno de referencia.
++    total = psutil.virtual_memory().total
++    try:
++        from pathlib import Path
++        value = Path('/sys/fs/cgroup/memory.max').read_text().strip()
++        if value != 'max':
++            total = min(total, int(value))
++    except (OSError, ValueError):
++        pass
++    return min(6*1024**3, int(total*.5))
++
++
++def comunicar_vigilado(proc, timeout, detener, *, memoria_bytes=None):
++    cap = limite_memoria_bytes() if memoria_bytes is None else memoria_bytes
++    if timeout <= 0 or cap <= 0:
++        raise ValueError('Límites de recursos inválidos.')
++    start, peak = time.monotonic(), 0
++    process = psutil.Process(proc.pid)
++    while True:
++        try:
++            ram = sum(p.memory_info().rss for p in [process, *process.children(recursive=True)]
++                      if p.is_running())
++            peak = max(peak, ram)
++        except psutil.NoSuchProcess:
++            pass
++        except psutil.AccessDenied as exc:
++            detener(proc)
++            out, err = proc.communicate()
++            raise LimiteRecursos('No se puede supervisar la memoria del motor; detenido.', out, err, peak/1024**2) from exc
++        why = (f'La conversión se detuvo al superar {timeout} segundos.' if time.monotonic()-start > timeout else
++               f'La conversión se detuvo por memoria: {peak/1024**2:.0f} MB > {cap/1024**2:.0f} MB.' if peak > cap else None)
++        if why:
++            detener(proc)
++            out, err = proc.communicate()
++            raise LimiteRecursos(why, out, err, peak/1024**2)
++        try:
++            out, err = proc.communicate(timeout=min(.5, max(.01, timeout-(time.monotonic()-start))))
++            return out, err, round(peak/1024**2, 2)
++        except subprocess.TimeoutExpired:
++            continue
+--- /dev/null
++++ b/diagnosticar_stl.py
+@@ -0,0 +1,69 @@
++"""Diagnóstico JSON independiente. No modifica el STL.
++
++python diagnosticar_stl.py pieza.stl --completo --salida informe.json
++El modo completo comprueba autointerferencias con OCC y contactos/solapamientos.
++Tiene los límites de tamaño de la unión experimental; informa si no se ejecutó.
++"""
++import argparse
++import hashlib
++import json
++from pathlib import Path
++from preprocesador_stl import cargar_exacto, diagnosticar, componentes, _manifold
++
++
++def diagnostico_completo(mesh):
++    from verificacion_reparacion import solido_poliedrico
++    report = diagnosticar(mesh)
++    parts = componentes(mesh)
++    if len(mesh.faces) > 20_000 or len(parts) > 8:
++        report['autointersecciones'] = 'no evaluadas: supera límite experimental 20.000 caras / 8 cuerpos'
++        report['completo'] = False
++        return report
++    if not all(p.is_watertight and p.is_winding_consistent and p.volume > 0 for p in parts):
++        report['autointersecciones'] = 'no evaluadas: hay componentes abiertos o mal orientados'
++        report['completo'] = False
++        return report
++    report['completo'] = True
++    try:
++        for p in parts:
++            solido_poliedrico(p)
++        report['autointersecciones'] = 'OpenCascade BRepAlgoAPI_Check no detecta interferencias'
++        solids = [_manifold(p) for p in parts]
++        contacts = []
++        for i, a in enumerate(solids):
++            for j in range(i+1, len(solids)):
++                b = solids[j]
++                volume = (a ^ b).volume()
++                union = a+b
++                contact_area = max(0., (a.surface_area()+b.surface_area()-union.surface_area())/2)
++                contacts.append({'componentes': [i, j], 'interseccion_mm3': volume,
++                                 'area_contacto_o_interior_mm2': contact_area,
++                                 'separacion_acotada_mm': a.min_gap(b, .020),
++                                 'tipo': 'solapamiento' if volume > 1e-9 else
++                                         'contacto_superficial' if contact_area > 1e-9 else
++                                         'separados_o_contacto_sin_area'})
++        report['contactos'] = contacts
++    except Exception as exc:
++        report.update(autointersecciones='no se pudo validar: '+str(exc),
++                      ruta='rechazar_interferencia_o_ambiguedad', gravedad='error')
++    return report
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('stl', type=Path)
++    parser.add_argument('--completo', action='store_true')
++    parser.add_argument('--salida', type=Path)
++    args = parser.parse_args()
++    mesh = cargar_exacto(args.stl)
++    data = diagnostico_completo(mesh) if args.completo else diagnosticar(mesh)
++    data['sha256'] = hashlib.sha256(args.stl.read_bytes()).hexdigest()
++    text = json.dumps(data, ensure_ascii=False, indent=2)
++    if args.salida:
++        args.salida.write_text(text, encoding='utf-8')
++    print(text)
++    return 1 if data['gravedad'] == 'error' else 0
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())
+--- /dev/null
++++ b/evaluar_aceptacion.py
+@@ -0,0 +1,117 @@
++"""Puerta de aceptación: exige las 14 piezas, cubo-carrito y evidencia Windows.
++
++No convierte pruebas ausentes, tiempos agotados ni fallos heredados en éxito.
++Cada STEP aceptado se reimporta otra vez de forma independiente.
++"""
++from __future__ import annotations
++import argparse
++import hashlib
++import json
++from pathlib import Path
++import xml.etree.ElementTree as ET
++import cadquery as cq
++from OCP.BRepCheck import BRepCheck_Analyzer
++
++
++def reimportar(path):
++    root = cq.importers.importStep(str(path)).val()
++    solids = root.Solids()
++    valid = bool(BRepCheck_Analyzer(root.wrapped, True).IsValid())
++    return {'valido': valid, 'solidos': len(solids), 'caras': len(root.Faces()),
++            'volumen_mm3': sum(s.Volume() for s in solids)}
++
++
++def comparar_quality(before, after):
++    reasons = []
++    for key in ['caras_step', 'volumen_error_pct', 'caja_error_mm']:
++        if after[key] > before[key]+1e-6:
++            reasons.append(f'{key}: {before[key]} -> {after[key]}')
++    for key in ['tolerancia_max_mm', 'tolerancia_p95_mm']:
++        if after['integridad_cad'][key] > before['integridad_cad'][key]+1e-7:
++            reasons.append(f'{key} empeora')
++    for direction in ['distancia_stl_step_mm', 'distancia_step_stl_mm']:
++        for metric in ['p95', 'max_muestreado']:
++            if after[direction][metric] > before[direction][metric]+1e-6:
++                reasons.append(f'{direction}/{metric} empeora')
++    if after['limites_validacion'] != before['limites_validacion']:
++        reasons.append('Los límites de validación cambian')
++    return reasons
++
++
++def evaluar(base, experimental, cube, *, pruebas=None, windows=False, onshape=False):
++    reasons, rows = [], []
++    before = json.loads((base/'bateria.json').read_text())['resultados']
++    after = json.loads((experimental/'bateria.json').read_text())['resultados']
++    by_name = {r['archivo']: r for r in before}
++    if len(before) != 14 or len(after) != 14 or set(by_name) != {r['archivo'] for r in after}:
++        reasons.append('Batería incompleta: se exigen las 14 piezas idénticas antes y después.')
++    for row in after:
++        old = by_name.get(row['archivo'])
++        verdict = {'archivo': row['archivo'], 'referencia_ok': bool(old and old['ok']),
++                   'experimental_ok': row['ok'], 'regresiones': []}
++        if not old or old['sha256'] != row['sha256']:
++            verdict['regresiones'].append('No coincide el STL de referencia')
++        elif not old['ok'] or not row['ok']:
++            reasons.append(row['archivo']+': la conversión completa no pasa en ambas copias.')
++        else:
++            verdict['regresiones'] = comparar_quality(old['informe_motor']['resultado']['calidad'],
++                                                       row['informe_motor']['resultado']['calidad'])
++        if row['ok']:
++            try:
++                step = experimental/(Path(row['archivo']).stem+'.step')
++                if hashlib.sha256(step.read_bytes()).hexdigest() != row.get('sha256_step'):
++                    verdict['regresiones'].append('El STEP actual no coincide con el que produjo las métricas guardadas.')
++                verdict['reimportacion_independiente'] = checked = reimportar(step)
++                if not checked['valido'] or checked['solidos'] != 1:
++                    verdict['regresiones'].append('La reimportación independiente no es un sólido válido.')
++                if checked['caras'] != row['informe_motor']['resultado']['calidad']['caras_step']:
++                    verdict['regresiones'].append('El número de caras reimportado no coincide con el validado.')
++            except Exception as exc:
++                verdict['regresiones'].append('Falló la reimportación: '+str(exc))
++        if verdict['regresiones']:
++            reasons.append(row['archivo']+': '+', '.join(verdict['regresiones']))
++        rows.append(verdict)
++    cube_report = None
++    if cube and cube.is_file():
++        cube_report = json.loads(cube.read_text())
++    if not cube_report or not cube_report.get('ok'):
++        reasons.append('Cubo-carrito: falta una conversión STEP completa que pase los controles.')
++    else:
++        cube_step = cube.with_name(cube.name.replace('.resultado.json', '.step'))
++        checked = reimportar(cube_step)
++        if not checked['valido'] or checked['solidos'] != 1:
++            reasons.append('El STEP del cubo-carrito no pasa reimportación independiente.')
++    if not windows:
++        reasons.append('Pruebas nativas Windows pendientes; disponibilidad de wheels no equivale a ejecución.')
++    unit_report = None
++    try:
++        cases = list(ET.parse(pruebas).getroot().iter('testcase')) if pruebas else []
++        unit_report = {'casos': len(cases), 'fallidos': sum(c.find('failure') is not None or c.find('error') is not None for c in cases),
++                       'omitidos': sum(c.find('skipped') is not None for c in cases)}
++        if len(cases) < 35 or unit_report['fallidos'] or unit_report['omitidos']:
++            reasons.append('Faltan 35 pruebas de topología, reparación, rotaciones y API sin fallos ni omisiones.')
++    except (OSError, ET.ParseError) as exc:
++        reasons.append('No se pudo leer la evidencia de pruebas: '+str(exc))
++    return {'apto_para_entrega_validada': not reasons, 'motivos_bloqueo': reasons,
++            'comparacion_14': rows, 'windows_ejecutado': windows,
++            'pruebas': unit_report,
++            'onshape_move_face_ejecutado': onshape,
++            'nota_onshape': 'La editabilidad Move face requiere prueba funcional externa.'}
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--referencia', type=Path, required=True)
++    parser.add_argument('--experimental', type=Path, required=True)
++    parser.add_argument('--cubo', type=Path)
++    parser.add_argument('--pruebas', type=Path, help='JUnit XML de las 35 pruebas, incluidos los STL reales')
++    parser.add_argument('--salida', type=Path, required=True)
++    args = parser.parse_args()
++    report = evaluar(args.referencia, args.experimental, args.cubo, pruebas=args.pruebas)
++    args.salida.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
++    print(json.dumps(report, ensure_ascii=False, indent=2))
++    return 0 if report['apto_para_entrega_validada'] else 1
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())
+--- a/motor_v2.py
++++ b/motor_v2.py
+@@ -446,7 +446,7 @@
+     return True, f'Menos caras CAD: {n0} → {n1}, sin incumplir controles de fidelidad.'
+ 
+ 
+-def main():
++def _main_cad():
+     if len(sys.argv)!=3:
+         print(json.dumps({'ok':False,'error':'Uso: motor_v2.py entrada.stl salida.step'}))
+         return 1
+@@ -732,5 +732,75 @@
+         print(json.dumps({'ok':False,'error':str(exc)},ensure_ascii=True))
+         return 2
+ 
++class _SalidaCad(io.StringIO):
++    """Conservar los mensajes en vivo aunque OCC termine por tiempo/memoria.
++
++    Solo retiene la línea de resultado para adjuntarle el diagnóstico de entrada.
++    El servidor ya interpreta el último JSON del proceso.
++    """
++    def __init__(self, target):
++        super().__init__()
++        self.target = target
++        self.pending = ''
++
++    def write(self, value):
++        count = super().write(value)
++        self.pending += value
++        while '\n' in self.pending:
++            line, self.pending = self.pending.split('\n', 1)
++            if not line.startswith('{"ok":'):
++                self.target.write(line+'\n')
++                self.target.flush()
++        return count
++
++    def flush(self):
++        self.target.flush()
++
++
++def main():
++    """Preparar una sola vez ANTES de todas las estrategias CAD existentes.
++
++    VISOR_PREPROCESADOR=0 conserva la entrada histórica para comparaciones.
++    No se modifica _calidad ni el margen de simplificación.
++    """
++    if len(sys.argv) != 3:
++        return _main_cad()
++    from preprocesador_stl import preparar, ReparacionRechazada
++    src, dst = map(Path, sys.argv[1:])
++    args = sys.argv[:]
++    report = None
++    report_path = dst.with_suffix('.entrada.json')
++    try:
++        if not src.is_file() or src.stat().st_size > MAX_INPUT_BYTES:
++            raise ValueError('No se encuentra el STL o supera el límite de 30 MB.')
++        if os.environ.get('VISOR_PREPROCESADOR', '1') == '0':
++            return _main_cad()
++        avance(12, 'Diagnosticando topología y posible unión conservadora')
++        prepared, report = preparar(src, dst.with_suffix('.reparado.stl'))
++        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
++        sys.argv = [args[0], str(prepared), str(dst)]
++        # El núcleo conserva sus retornos y rutas de rescate. Solo se adjunta
++        # el diagnóstico al JSON final que ya consume el servidor.
++        output = _SalidaCad(sys.stdout)
++        with contextlib.redirect_stdout(output):
++            code = _main_cad()
++        lines = output.getvalue().splitlines()
++        payload = json.loads(lines[-1])
++        payload['preprocesamiento'] = report
++        print(json.dumps(payload, ensure_ascii=True))
++        return code
++    except Exception as exc:
++        if isinstance(exc, ReparacionRechazada):
++            report = exc.informe
++        report = report or {'reparado': False}
++        report['error'] = str(exc)
++        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
++        dst.unlink(missing_ok=True)
++        print(json.dumps({'ok': False, 'error': str(exc), 'preprocesamiento': report}, ensure_ascii=True))
++        return 2
++    finally:
++        sys.argv = args
++
++
+ if __name__=='__main__':
+     sys.exit(main())
+--- /dev/null
++++ b/preparar_stl.py
+@@ -0,0 +1,57 @@
++"""Reparación sin abrir la UI, conservando el STL original.
++
++python preparar_stl.py original.stl preparado.stl
++python preparar_stl.py abierto.stl preparado.stl --referencia-cierre cerrado.stl
++El cierre local exige una referencia cerrada explícita con los mismos vértices.
++"""
++import argparse
++import hashlib
++import json
++from pathlib import Path
++import shutil
++from preprocesador_stl import cargar_exacto, preparar, reparar_agujero_local, diagnosticar, ReparacionRechazada
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('entrada', type=Path)
++    parser.add_argument('salida', type=Path)
++    parser.add_argument('--referencia-cierre', type=Path)
++    args = parser.parse_args()
++    if args.entrada.resolve() == args.salida.resolve():
++        parser.error('La salida debe ser distinta: el original se conserva.')
++    if args.salida.exists():
++        parser.error('La salida ya existe; elige otro nombre para conservarla.')
++    report, code = {}, 0
++    try:
++        if args.referencia_cierre:
++            original = cargar_exacto(args.entrada)
++            reference = cargar_exacto(args.referencia_cierre)
++            candidate, validation = reparar_agujero_local(original, reference)
++            candidate.export(str(args.salida))
++            reread = cargar_exacto(args.salida)
++            if diagnosticar(reread)['ruta'] != 'paso_directo':
++                raise ValueError('La serialización no conserva el cierre.')
++            report = {'reparado': True, 'ruta_seleccionada': 'cierre_local_referencia_explicita',
++                      'entrada': diagnosticar(original), 'salida': diagnosticar(reread),
++                      'validacion': validation,
++                      'original_sha256': hashlib.sha256(args.entrada.read_bytes()).hexdigest(),
++                      'referencia_sha256': hashlib.sha256(args.referencia_cierre.read_bytes()).hexdigest()}
++        else:
++            selected, report = preparar(args.entrada, args.salida)
++            if selected == args.entrada:
++                shutil.copyfile(selected, args.salida)
++    except Exception as exc:
++        args.salida.unlink(missing_ok=True)
++        report = exc.informe if isinstance(exc, ReparacionRechazada) else report
++        report.update(ok=False, error=str(exc))
++        code = 2
++    report.setdefault('ok', True)
++    report_path = args.salida.with_suffix('.reparacion.json')
++    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
++    print(json.dumps(report, ensure_ascii=False, indent=2))
++    return code
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())
+--- /dev/null
++++ b/preprocesador_stl.py
+@@ -0,0 +1,296 @@
++"""Entrada conservadora opcional. No modifica las estrategias ni tolerancias CAD.
++
++Mallas sanas pasan con el mismo archivo; nunca se borran islas por tamaño.
++La unión usa Manifold en doble precisión y se contrasta con OpenCascade.
++Las aberturas requieren referencia cerrada explícita: su intención no se infiere.
++"""
++from __future__ import annotations
++import hashlib
++import json
++from pathlib import Path
++import numpy as np
++import trimesh
++
++MAX_UNION_FACES = 20_000
++MAX_UNION_PARTS = 8
++
++
++def componentes(mesh):
++    """Separar sin fill_holes; recuperar interfaces coincidentes con sus caras
++    originales cuando la soldadura STL comparte todos los vértices del contacto.
++    No crear triángulos, no invertirlos y no descartar ninguno.
++    """
++    groups = list(trimesh.graph.connected_components(mesh.face_adjacency,
++                  nodes=np.arange(len(mesh.faces)), min_len=1))
++    parts = list(mesh.submesh(groups, repair=False))
++    if all(p.is_watertight for p in parts):
++        return parts
++    anchors = [list(g) for g in groups if len(g) >= 4]
++    pool = {int(i) for g in groups if len(g) < 4 for i in g}
++    if not anchors or not pool or len(pool) > 200:
++        return parts
++    from collections import Counter
++    recovered = []
++    for ids in anchors:
++        while True:
++            faces = mesh.faces[ids]
++            directed = Counter((int(a), int(b)) for f in faces for a, b in zip(f, np.roll(f, -1)))
++            boundary = {e for e, c in directed.items() if c == 1 and directed[e[::-1]] == 0}
++            if not boundary:
++                break
++            eligible = []
++            for i in sorted(pool):
++                f = mesh.faces[i]
++                edges = [(int(a), int(b)) for a, b in zip(f, np.roll(f, -1))]
++                if any(e[::-1] in boundary for e in edges) and all(
++                        directed[e] == 0 and directed[e[::-1]] <= 1 for e in edges):
++                    eligible.append(i)
++            if not eligible:
++                return parts
++            chosen = eligible[0]
++            ids.append(chosen)
++            pool.remove(chosen)
++        p = mesh.submesh([ids], repair=False)[0]
++        if not p.is_watertight or not p.is_winding_consistent or p.volume <= 0:
++            return parts
++        recovered.append(p)
++    return recovered if not pool else parts
++
++
++class ReparacionRechazada(ValueError):
++    def __init__(self, message, informe):
++        super().__init__(message)
++        self.informe = informe
++
++
++def cargar_exacto(path):
++    raw = trimesh.load(str(path), force='mesh', process=False)
++    # Soldar exclusivamente coordenadas idénticas; sin mover vértices ni limpiar
++    # caras degeneradas/duplicadas antes de diagnosticarlas.
++    vertices, inverse = np.unique(raw.vertices, axis=0, return_inverse=True)
++    return trimesh.Trimesh(vertices, inverse[raw.faces], process=False)
++
++
++def diagnosticar(mesh):
++    edges, counts = np.unique(np.sort(mesh.edges, axis=1), axis=0, return_counts=True)
++    _, inverse, face_counts = np.unique(np.sort(mesh.faces, axis=1), axis=0, return_counts=True, return_inverse=True)
++    opposite = 0
++    for group in np.flatnonzero(face_counts == 2):
++        pair = mesh.faces[np.flatnonzero(inverse == group)]
++        signs = np.prod(pair-np.roll(pair, -1, axis=1), axis=1)
++        if np.sign(signs[0]) != np.sign(signs[1]) and signs[0] != 0 and signs[1] != 0:
++            opposite += 1
++    degenerate = int(np.count_nonzero(mesh.area_faces <= 1e-14))
++    parts = componentes(mesh) if len(mesh.faces) else []
++    components = [{'caras': len(p.faces), 'estanco': bool(p.is_watertight),
++                   'orientacion_consistente': bool(p.is_winding_consistent),
++                   'volumen_firmado_mm3': float(p.volume), 'euler': int(p.euler_number)} for p in parts]
++    opened, nonmanifold = int(np.count_nonzero(counts == 1)), int(np.count_nonzero(counts > 2))
++    duplicates = int(np.sum(face_counts-1))
++    if not len(mesh.faces) or not np.isfinite(mesh.vertices).all():
++        route, severity = 'rechazar_entrada', 'error'
++    elif degenerate or duplicates > opposite:
++        route, severity = 'rechazar_caras_defectuosas', 'error'
++    elif opened:
++        route, severity = 'abertura_ambigua_requiere_referencia', 'error'
++    elif any(not c['orientacion_consistente'] or c['volumen_firmado_mm3'] <= 1e-9 for c in components):
++        route, severity = 'rechazar_orientacion', 'error'
++    elif len(parts) == 1 and not nonmanifold and mesh.is_watertight:
++        route, severity = 'paso_directo', 'informacion'
++    elif len(parts) > 1 and all(c['estanco'] for c in components):
++        route, severity = 'analizar_union_cuerpos_cerrados', 'advertencia'
++    else:
++        route, severity = 'rechazar_union_no_manifold', 'error'
++    return {'caras': len(mesh.faces), 'vertices': len(mesh.vertices),
++            'aristas_1_cara': opened, 'aristas_2_caras': int(np.count_nonzero(counts == 2)),
++            'aristas_mas_2_caras': nonmanifold, 'caras_degeneradas': degenerate,
++            'caras_duplicadas': duplicates, 'pares_caras_contacto_opuestas': opposite,
++            'componentes': components,
++            'numero_componentes': len(parts), 'estanco_global': bool(mesh.is_watertight),
++            'caja_mm': mesh.bounds.tolist() if len(mesh.vertices) else [],
++            'ruta': route, 'gravedad': severity,
++            'autointersecciones': 'no evaluadas en diagnóstico rápido; OCC obligatorio para unión',
++            'contactos': 'pendiente de booleano; no inferido solo por caja envolvente'}
++
++
++def _manifold(mesh):
++    import manifold3d as m
++    solid = m.Manifold(m.Mesh64(np.asarray(mesh.vertices, dtype=np.float64),
++                                np.asarray(mesh.faces, dtype=np.uint64)))
++    if solid.status() != m.Error.NoError or solid.is_empty():
++        raise ValueError('El booleano robusto rechaza un componente: '+str(solid.status()))
++    return solid
++
++
++def _marco_contacto(mesh):
++    """Marco local para contactos YA unidos por aristas coincidentes.
++
++    El float32 de STL puede alabear decenas de nanómetros una interfaz plana
++    tras girarla. No se busca proximidad entre piezas separadas. El único
++    movimiento permitido es proyectar esa interfaz dentro de 0,000020 mm.
++    """
++    edges, counts = np.unique(np.sort(mesh.edges, axis=1), axis=0, return_counts=True)
++    shared = np.unique(edges[counts > 2])
++    identity = np.eye(4)
++    if len(shared) < 3:
++        return mesh, identity, {'aplicado': False}
++    if len(componentes(mesh)) != 2:
++        return mesh, identity, {'aplicado': False, 'motivo': 'normalización limitada a dos cuerpos con contacto explícito'}
++    points = mesh.vertices[shared]
++    origin = points.mean(axis=0)
++    _, values, axes = np.linalg.svd(points-origin, full_matrices=False)
++    epsilon = min(.000020, float(np.linalg.norm(mesh.extents))*1e-7)
++    if len(values) < 3 or values[1] < epsilon or np.max(np.abs((points-origin)@axes[2])) > epsilon:
++        return mesh, identity, {'aplicado': False, 'motivo': 'interfaz no plana o ambigua'}
++    # Matriz ortonormal con determinante positivo; traslación fuera del plano.
++    x, z = axes[0], axes[2]
++    y = np.cross(z, x)
++    basis = np.column_stack((x, y, z))
++    local = (mesh.vertices-origin)@basis
++    # El bucle compartido puede ser el BORDE INTERIOR de un contacto anular.
++    # La interfaz abarca entonces el anillo exterior al bucle: proyectar todos
++    # sus vértices en el plano, con el mismo límite de movimiento nanométrico.
++    mask = np.abs(local[:, 2]) <= epsilon
++    displacement = float(np.max(np.abs(local[mask, 2])))
++    local[mask, 2] = 0.
++    transformed = trimesh.Trimesh(local, mesh.faces.copy(), process=False)
++    restore = np.eye(4)
++    restore[:3, :3], restore[:3, 3] = basis, origin
++    return transformed, restore, {'aplicado': True, 'aristas_preexistentes': int(np.count_nonzero(counts > 2)),
++                                 'vertices_interfaz': int(mask.sum()), 'max_movimiento_mm': displacement,
++                                 'limite_movimiento_mm': epsilon,
++                                 'nota': 'Solo interfaz con aristas compartidas; no unión por cercanía.'}
++
++
++def unir_cerrados(mesh):
++    from verificacion_reparacion import validar_union
++    parts = componentes(mesh)
++    if len(mesh.faces) > MAX_UNION_FACES or len(parts) > MAX_UNION_PARTS:
++        raise ValueError('Unión compleja fuera del límite experimental de 20.000 caras / 8 cuerpos.')
++    local, restore, contact_report = _marco_contacto(mesh)
++    local_parts = componentes(local)
++    if len(local_parts) != len(parts) or any(not p.is_watertight for p in local_parts):
++        raise ValueError('La normalización de contacto altera la descomposición original.')
++    solids = [_manifold(p) for p in local_parts]
++    result = solids[0]
++    relations = []
++    for i, other in enumerate(solids[1:], 1):
++        overlap = (result ^ other).volume()
++        gap = result.min_gap(other, .020)
++        relations.append({'componente': i, 'volumen_interseccion_mm3': overlap,
++                          'separacion_mm_acotada': gap,
++                          'tipo': 'solapamiento' if overlap > 1e-9 else 'contacto_o_separacion'})
++        result = result + other
++    if len(result.decompose()) != 1:
++        raise ValueError('Múltiples cuerpos separados o contacto solo puntual/por arista: '
++                         'no se fusionan por cercanía ni se eliminan cuerpos pequeños.')
++    # El STL float32 no puede almacenar las microcaras de intersecciones de
++    # planos redondeados. Retirar solo redundancias bajo 20 nanómetros;
++    # cualquier efecto se vuelve a medir contra OCC y tras serializar STL.
++    numerical_limit = min(.000020, float(np.linalg.norm(mesh.extents))*1e-7)
++    result = result.simplify(numerical_limit)
++    data = result.to_mesh64()
++    candidate = trimesh.Trimesh(data.vert_properties[:, :3], data.tri_verts, process=False)
++    candidate.apply_transform(restore)
++    diag = diagnosticar(candidate)
++    if diag['ruta'] != 'paso_directo':
++        raise ValueError('Unión no manifold: el resultado no es un único sólido orientado.')
++    # Protección adicional: no aceptar la desaparición de todos los túneles de
++    # un cuerpo. El contraste geométrico independiente sigue siendo obligatorio.
++    genus_before = max(max(0, (2-p.euler_number)//2) for p in parts)
++    genus_after = max(0, (2-candidate.euler_number)//2)
++    if genus_after < genus_before:
++        raise ValueError('No se puede garantizar la preservación de agujeros interiores.')
++    validation = validar_union(parts, candidate)
++    validation.update(relaciones=relations, genero_antes=genus_before, genero_despues=genus_after,
++                      normalizacion_contacto=contact_report)
++    validation['limite_simplificacion_numerica_mm'] = numerical_limit
++    return candidate, validation
++
++
++def reparar_agujero_local(mesh, referencia):
++    """Solo triangulaciones faltantes identificadas por una referencia cerrada.
++
++    No inventa la superficie del escáner: conserva todos los vértices y caras
++    originales y añade únicamente triángulos de la referencia local explícita.
++    Nunca se invoca automáticamente desde la UI.
++    """
++    from verificacion_reparacion import distancia_malla, puntos_superficie
++    diag, refdiag = diagnosticar(mesh), diagnosticar(referencia)
++    if refdiag['ruta'] != 'paso_directo' or diag['caras_duplicadas'] or diag['caras_degeneradas']:
++        raise ValueError('Se requiere una referencia cerrada y sin defectos.')
++    if not diag['aristas_1_cara'] or diag['aristas_mas_2_caras']:
++        raise ValueError('No es un agujero local simple.')
++    if mesh.vertices.shape != referencia.vertices.shape or not np.array_equal(mesh.vertices, referencia.vertices):
++        raise ValueError('Referencia ambigua: las coordenadas deben ser idénticas.')
++    old = {tuple(sorted(f)) for f in mesh.faces}
++    ref = {tuple(sorted(f)) for f in referencia.faces}
++    if not old.issubset(ref):
++        raise ValueError('Referencia ambigua: modifica superficies existentes.')
++    missing = [f for f in referencia.faces if tuple(sorted(f)) not in old]
++    if not 1 <= len(missing) <= 4:
++        raise ValueError('Abertura grande: solo se permiten de 1 a 4 triángulos locales.')
++    pts = mesh.vertices[np.unique(missing)]
++    diameter = float(np.max(np.linalg.norm(pts[:, None]-pts[None, :], axis=2)))
++    if diameter > min(1.0, .05*float(np.linalg.norm(mesh.extents))):
++        raise ValueError('Abertura grande o funcional: no se rellena automáticamente.')
++    candidate = trimesh.Trimesh(mesh.vertices.copy(), np.vstack((mesh.faces, missing)), process=False)
++    if diagnosticar(candidate)['ruta'] != 'paso_directo':
++        raise ValueError('La reparación local no da un sólido válido.')
++    distances = distancia_malla(referencia, puntos_superficie(candidate))
++    if distances.max() > 1e-7 or abs(candidate.volume-referencia.volume) > 1e-7:
++        raise ValueError('La reparación local no coincide con la referencia.')
++    from verificacion_reparacion import solido_poliedrico
++    solido_poliedrico(candidate)  # incluidas autointerferencias de la referencia
++    return candidate, {'triangulos_añadidos': len(missing), 'diametro_mm': diameter,
++                       'referencia': 'cerrada explícita con coordenadas y caras existentes idénticas',
++                       'max_observado_mm': float(distances.max()), 'vertices_movidos': 0}
++
++
++def preparar(source: Path, destination: Path, *, habilitado=True):
++    report = {'version': 1, 'original_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
++              'habilitado': habilitado, 'reparado': False, 'original_conservado': True}
++    mesh = cargar_exacto(source)
++    if len(mesh.faces) > 250_000:
++        raise ReparacionRechazada('El STL supera el límite histórico de 250.000 triángulos.', report)
++    report['entrada'] = diag = diagnosticar(mesh)
++    route = diag['ruta']
++    # Compatibilidad: el motor histórico ya hace trimesh process=True. Brick
++    # contiene costuras de redondeo que esa lectura suelda. Si ESA misma
++    # lectura ya es sana, dejar pasar el archivo original sin reescribirlo.
++    # Nunca usar esta excepción para duplicados, degenerados ni orientación.
++    if route == 'abertura_ambigua_requiere_referencia' and not diag['caras_duplicadas'] and not diag['caras_degeneradas']:
++        legacy = trimesh.load(str(source), force='mesh', process=True)
++        legacy_diag = diagnosticar(legacy)
++        if legacy_diag['ruta'] == 'paso_directo':
++            report['lectura_heredada_motor'] = legacy_diag
++            report['nota_costura'] = 'La lectura histórica process=True ya suelda esta costura de redondeo; archivo original intacto.'
++            route = 'paso_directo'
++    if route == 'paso_directo':
++        report['ruta_seleccionada'] = 'paso_directo'
++        report['resultado'] = 'mismo archivo; sin reescritura ni cambio de estrategia'
++        return source, report
++    if not habilitado:
++        raise ReparacionRechazada('Preprocesador desactivado; '+route, report)
++    reasons = {'rechazar_caras_defectuosas': 'Caras degeneradas o duplicadas: reparación ambigua.',
++               'abertura_ambigua_requiere_referencia': 'Borde abierto: no se puede distinguir un agujero accidental de un canal funcional; se requiere referencia explícita.',
++               'rechazar_orientacion': 'Orientación inconsistente o invertida; no se cambia silenciosamente.',
++               'rechazar_union_no_manifold': 'Unión no manifold: no se pudo garantizar reparación sin cambiar cotas.'}
++    if route != 'analizar_union_cuerpos_cerrados':
++        raise ReparacionRechazada(reasons.get(route, 'Entrada no válida.'), report)
++    try:
++        report['ruta_seleccionada'] = 'union_booleana_verificada'
++        candidate, report['verificacion_independiente'] = unir_cerrados(mesh)
++        candidate.export(str(destination))
++        # Validar de nuevo después de serializar en float32 (formato STL).
++        reread = cargar_exacto(destination)
++        if diagnosticar(reread)['ruta'] != 'paso_directo':
++            raise ValueError('El STL serializado pierde su topología.')
++        from verificacion_reparacion import validar_union
++        report['verificacion_stl_reimportado'] = validar_union(componentes(mesh), reread)
++    except Exception as exc:
++        destination.unlink(missing_ok=True)
++        raise ReparacionRechazada(str(exc), report) from exc
++    report.update(reparado=True, resultado='unión verificada', salida=diagnosticar(reread),
++                  reparado_sha256=hashlib.sha256(destination.read_bytes()).hexdigest())
++    return destination, report
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -8,3 +8,6 @@
+ vtk>=9.2,<10
+ 
+ shapely>=2.0,<3
++manifold3d==3.4.0
++psutil==7.2.2
++networkx==3.6.1
+--- a/requirements_bloqueadas.txt
++++ b/requirements_bloqueadas.txt
+@@ -8,3 +8,6 @@
+ fastapi==0.128.2
+ uvicorn==0.48.0
+ python-multipart==0.0.29
++manifold3d==3.4.0
++psutil==7.2.2
++networkx==3.6.1
+--- /dev/null
++++ b/requirements_pruebas.txt
+@@ -0,0 +1,3 @@
++-r requirements_bloqueadas.txt
++pytest==9.0.2
++httpx==0.28.1
+--- a/servidor.py
++++ b/servidor.py
+@@ -50,6 +50,7 @@
+ import threading
+ import shutil
+ import signal
++from control_recursos import comunicar_vigilado, LimiteRecursos
+ 
+ # Las conversiones OCC pueden consumir mucha memoria. Evitar ejecuciones
+ # simultáneas y conservar un informe de cualquier fallo o éxito.
+@@ -59,7 +60,7 @@
+ 
+ def _diagnostico(id, meta, salida, errores, motor_log):
+     meta['motor_stdout_ultimas_lineas'] = salida[-4000:]
+-    meta['version_programa'] = 'V4.0 Uso R1'
++    meta['version_programa'] = 'V4.0 R1 EXPERIMENTAL reparación'
+     meta['python_version'] = sys.version.split()[0] + ' (' + platform.platform() + ')'
+     try:
+         import importlib.metadata as _dist
+@@ -81,6 +82,34 @@
+     if not path.is_file():
+         raise HTTPException(404, 'Registro no encontrado.')
+     return FileResponse(path, media_type='text/plain',filename=f'Diagnostico_{id}.txt')
++
++
++def _guardar_preproceso(id, dst, src, meta):
++    """Conservar evidencias antes de que desaparezca el temporal del trabajo."""
++    report = dst.with_suffix('.entrada.json')
++    if report.is_file():
++        shutil.copyfile(report, LOG_DIR / f'{id}.entrada.json')
++        try:
++            meta['preprocesamiento'] = json.loads(report.read_text(encoding='utf-8'))
++        except ValueError:
++            meta['preprocesamiento'] = {'error': 'Informe de entrada incompleto; proceso interrumpido.'}
++        repaired = dst.with_suffix('.reparado.stl')
++        if repaired.is_file():
++            shutil.copyfile(repaired, LOG_DIR / f'{id}.reparado.stl')
++            shutil.copyfile(src, LOG_DIR / f'{id}.original.stl')
++            meta['archivos_reparacion'] = {
++                kind: f'/reparacion/{id}/{kind}' for kind in ('informe', 'original', 'reparado')}
++
++
++@app.get('/reparacion/{id}/{tipo}')
++def obtener_reparacion(id: str, tipo: str):
++    suffixes = {'informe': '.entrada.json', 'original': '.original.stl', 'reparado': '.reparado.stl'}
++    if not re.fullmatch(r'[0-9a-f]{12}', id) or tipo not in suffixes:
++        raise HTTPException(404, 'Evidencia no encontrada.')
++    path = LOG_DIR / (id+suffixes[tipo])
++    if not path.is_file():
++        raise HTTPException(404, 'Evidencia no encontrada.')
++    return FileResponse(path, filename=path.name)
+ 
+ @app.post('/convertir')
+ async def convertir(archivo: UploadFile = File(...)):
+@@ -115,25 +144,28 @@
+                 timeout = 1200 if len(data)>5_000_000 else (600 if len(data)>1_000_000 else 300)
+                 status='fallo'
+                 try:
+-                    proc = await asyncio.to_thread(subprocess.run,args,cwd=str(ROOT),
+-                        capture_output=True,text=True,timeout=timeout,
+-                        encoding='utf-8',errors='replace',
+-                        env={**os.environ,'PYTHONUNBUFFERED':'1',
+-                             'OPENBLAS_NUM_THREADS':'1','OMP_NUM_THREADS':'1','MKL_NUM_THREADS':'1'})
+-                    salida, errores = proc.stdout, proc.stderr
+-                    meta['codigo_motor'] = proc.returncode
+-                except subprocess.TimeoutExpired as e:
+-                    salida = e.stdout or b''
+-                    errores = e.stderr or b''
+-                    if isinstance(salida,bytes): salida=salida.decode('utf-8','replace')
+-                    if isinstance(errores,bytes): errores=errores.decode('utf-8','replace')
+-                    proc=None
+-                    meta['resultado']='tiempo_agotado'
++                    with subprocess.Popen(args,cwd=str(ROOT),stdout=subprocess.PIPE,
++                        stderr=subprocess.PIPE,text=True,encoding='utf-8',errors='replace',
++                        start_new_session=os.name != 'nt',
++                        creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == 'nt' else 0,
++                        env={**os.environ,'PYTHONUNBUFFERED':'1','OPENBLAS_NUM_THREADS':'1',
++                             'OMP_NUM_THREADS':'1','MKL_NUM_THREADS':'1'}) as child:
++                        salida, errores, pico = await asyncio.to_thread(
++                            comunicar_vigilado, child, timeout, _detener_arbol)
++                        proc = subprocess.CompletedProcess(args, child.returncode, salida, errores)
++                        meta['ram_pico_mb'] = pico
++                        meta['codigo_motor'] = proc.returncode
++                except LimiteRecursos as e:
++                    salida, errores = e.stdout, e.stderr
++                    meta.update(resultado='limite_recursos', error=str(e), ram_pico_mb=e.pico_mb)
++                    proc = None
++                finally:
++                    _guardar_preproceso(id, dst, src, meta)
+                 meta['segundos']=round(time.monotonic()-t0,3)
+                 motor_log_path=dst.with_suffix('.motor.log')
+                 motor_log=motor_log_path.read_text(encoding='utf-8',errors='replace') if motor_log_path.exists() else ''
+                 if proc is None:
+-                    meta['error']=f'La conversión superó {timeout} segundos.'
++                    meta.setdefault('error', f'La conversión superó {timeout} segundos.')
+                     _diagnostico(id,meta,salida,errores,motor_log)
+                     raise HTTPException(422,f"{meta['error']} Diagnóstico: /diagnostico/{id}")
+                 try:
+@@ -253,11 +285,12 @@
+                     if cancelar_ya:
+                         _detener_arbol(proc)
+                     try:
+-                        out, err = proc.communicate(timeout=limit)
+-                    except subprocess.TimeoutExpired as ex:
+-                        _detener_arbol(proc)
+-                        out, err = proc.communicate(timeout=10)
+-                        raise RuntimeError(f'La conversión se detuvo al superar {limit} segundos.') from ex
++                        out, err, pico = comunicar_vigilado(proc, limit, _detener_arbol)
++                        metadata['ram_pico_mb'] = pico
++                    except LimiteRecursos as ex:
++                        out, err = ex.stdout, ex.stderr
++                        metadata['ram_pico_mb'] = ex.pico_mb
++                        raise
+                     finally:
+                         with JOBS_LOCK:
+                             if job['process'] is proc:
+@@ -270,6 +303,7 @@
+                 logfile = dst.with_suffix('.motor.log')
+                 if logfile.exists():
+                     motor_log = logfile.read_text(encoding='utf-8',errors='replace')
++                _guardar_preproceso(job_id, dst, src, metadata)
+             try:
+                 report = json.loads(out.strip().splitlines()[-1])
+             except (IndexError,ValueError):
+@@ -437,4 +471,4 @@
+ 
+ 
+ if __name__ == '__main__':
+-    uvicorn.run(app, host='127.0.0.1',port=8765,log_level='warning')
++    uvicorn.run(app, host='127.0.0.1',port=8766,log_level='warning')
+--- /dev/null
++++ b/test_preprocesador.py
+@@ -0,0 +1,231 @@
++"""Casos positivos y negativos sin red; geometría real con OCC y Manifold."""
++from pathlib import Path
++import os
++import subprocess
++import sys
++import time
++import numpy as np
++import pytest
++import trimesh
++from preprocesador_stl import (cargar_exacto, diagnosticar, preparar,
++                               reparar_agujero_local, unir_cerrados, ReparacionRechazada)
++from control_recursos import comunicar_vigilado, LimiteRecursos
++
++
++def canonical(mesh):
++    v, inverse = np.unique(mesh.vertices, axis=0, return_inverse=True)
++    return trimesh.Trimesh(v, inverse[mesh.faces], process=False)
++
++
++def boxes(offset):
++    a = trimesh.creation.box(extents=[10, 10, 10])
++    b = a.copy()
++    b.apply_translation(offset)
++    return trimesh.util.concatenate([a, b])
++
++
++def test_diagnostico_no_repara_agujeros_al_separar():
++    m = trimesh.creation.box()
++    m.update_faces(np.arange(len(m.faces)) != 0)
++    before = m.faces.copy()
++    d = diagnosticar(m)
++    assert d['aristas_1_cara'] == 3
++    assert not d['componentes'][0]['estanco']
++    assert np.array_equal(before, m.faces)
++
++
++def test_duplicados_degenerados_orientacion():
++    box = trimesh.creation.box()
++    duplicate = trimesh.Trimesh(box.vertices, np.vstack([box.faces, box.faces[:1]]), process=False)
++    assert diagnosticar(duplicate)['caras_duplicadas'] == 1
++    assert diagnosticar(duplicate)['aristas_mas_2_caras'] == 3
++    deg = trimesh.Trimesh(box.vertices, np.vstack([box.faces, [0, 0, 1]]), process=False)
++    assert diagnosticar(deg)['caras_degeneradas'] == 1
++    box.invert()
++    assert diagnosticar(box)['ruta'] == 'rechazar_orientacion'
++
++
++def test_paso_directo_bytes_identicos(tmp_path):
++    src = tmp_path/'box.stl'
++    trimesh.creation.box().export(src)
++    before = src.read_bytes()
++    target = tmp_path/'reparado.stl'
++    selected, rep = preparar(src, target)
++    assert selected == src and not rep['reparado']
++    assert src.read_bytes() == before and not target.exists()
++
++
++@pytest.mark.parametrize('offset,volume', [([10, 0, 0], 2000), ([8, 0, 0], 1800)])
++@pytest.mark.parametrize('rotation', [None, [.37, -.61, 1.03]])
++def test_union_contacto_solapamiento_rotados(offset, volume, rotation):
++    source = boxes(offset)
++    if rotation:
++        source.apply_transform(trimesh.transformations.euler_matrix(*rotation))
++    source = canonical(source)
++    result, rep = unir_cerrados(source)
++    d = diagnosticar(result)
++    assert d['ruta'] == 'paso_directo' and d['numero_componentes'] == 1
++    assert abs(result.volume-volume) < 1e-5
++    assert rep['max_observado_mm'] < .002
++
++
++@pytest.mark.parametrize('offset', [[10.000001, 0, 0], [10.001, 0, 0], [12, 0, 0], [10, 10, 0], [10, 10, 10]])
++def test_no_fusionar_separados_o_contacto_sin_area(offset):
++    with pytest.raises(ValueError):
++        unir_cerrados(canonical(boxes(offset)))
++
++
++def test_no_elimina_cuerpo_pequeno(tmp_path):
++    a = trimesh.creation.icosphere(subdivisions=3, radius=10)
++    b = trimesh.creation.box(extents=[.1, .1, .1])
++    b.apply_translation([30, 0, 0])
++    src = tmp_path/'isla.stl'
++    trimesh.util.concatenate([a, b]).export(src)
++    with pytest.raises(ReparacionRechazada, match='Múltiples cuerpos'):
++        preparar(src, tmp_path/'salida.stl')
++
++
++def test_agujero_local_referencia_explicita_sin_mover_vertices():
++    ref = canonical(trimesh.creation.icosphere(subdivisions=3, radius=2))
++    mesh = trimesh.Trimesh(ref.vertices.copy(), ref.faces[1:].copy(), process=False)
++    candidate, rep = reparar_agujero_local(mesh, ref)
++    assert candidate.is_watertight and np.array_equal(mesh.vertices, candidate.vertices)
++    assert abs(candidate.volume-ref.volume) < 1e-10
++    assert rep['triangulos_añadidos'] == 1
++
++
++def test_abertura_pequena_tampoco_se_sella_sin_referencia(tmp_path):
++    mesh = trimesh.creation.icosphere(subdivisions=3, radius=2)
++    mesh.update_faces(np.arange(len(mesh.faces)) != 0)
++    src = tmp_path/'scan.stl'
++    mesh.export(src)
++    with pytest.raises(ReparacionRechazada, match='Borde abierto'):
++        preparar(src, tmp_path/'out.stl')
++
++
++def test_pared_ausente_rechazada_incluso_con_referencia():
++    ref = canonical(trimesh.creation.box(extents=[10, 10, 10]))
++    mesh = trimesh.Trimesh(ref.vertices, ref.faces[2:], process=False)
++    with pytest.raises(ValueError, match='Abertura grande'):
++        reparar_agujero_local(mesh, ref)
++
++
++def test_no_rellena_canal_pasante(tmp_path):
++    # Tubo: el hueco funcional tiene una superficie cerrada; pasa sin tocarlo.
++    tube = trimesh.creation.annulus(r_min=3, r_max=5, height=10, sections=40)
++    src = tmp_path/'canal.stl'
++    tube.export(src)
++    selected, rep = preparar(src, tmp_path/'out.stl')
++    assert selected == src and not rep['reparado']
++    assert rep['entrada']['componentes'][0]['euler'] == 0
++
++
++def test_no_tapa_canal_durante_union():
++    tube = trimesh.creation.annulus(r_min=3, r_max=5, height=10, sections=32)
++    ring = tube.copy()
++    ring.apply_translation([0, 0, 8])
++    result, rep = unir_cerrados(canonical(trimesh.util.concatenate([tube, ring])))
++    assert result.euler_number == 0 and rep['genero_despues'] == 1
++    assert abs(result.volume-tube.volume*1.8) < 1e-6
++
++
++def test_aleta_sin_volumen_no_crea_solido(tmp_path):
++    mesh = trimesh.Trimesh([[0, 0, 0], [1, 0, 0], [0, 1, 0]], [[0, 1, 2]], process=False)
++    src = tmp_path/'aleta.stl'
++    mesh.export(src)
++    with pytest.raises(ReparacionRechazada):
++        preparar(src, tmp_path/'out.stl')
++
++
++def test_fallo_backend_no_exporta_exito(tmp_path, monkeypatch):
++    import preprocesador_stl
++    src = tmp_path/'contacto.stl'
++    boxes([10, 0, 0]).export(src)
++    def broken(_):
++        raise RuntimeError('backend no disponible')
++    monkeypatch.setattr(preprocesador_stl, '_manifold', broken)
++    with pytest.raises(ReparacionRechazada, match='backend no disponible'):
++        preparar(src, tmp_path/'out.stl')
++    assert not (tmp_path/'out.stl').exists()
++
++
++def test_union_compleja_fuera_limite_falla_claro():
++    parts = [trimesh.creation.box().apply_translation([i*2, 0, 0]) for i in range(9)]
++    with pytest.raises(ValueError, match='límite experimental'):
++        unir_cerrados(canonical(trimesh.util.concatenate(parts)))
++
++
++@pytest.mark.parametrize('kind', ['tiempo', 'memoria'])
++def test_vigilante_detiene_proceso(kind):
++    p = subprocess.Popen([sys.executable, '-c', 'import time; a=bytearray(8000000); time.sleep(30)'],
++                         stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
++    start = time.monotonic()
++    with pytest.raises(LimiteRecursos):
++        comunicar_vigilado(p, .2 if kind == 'tiempo' else 10,
++                          lambda process: process.kill(),
++                          memoria_bytes=1 if kind == 'memoria' else 512*1024**2)
++    assert p.poll() is not None and time.monotonic()-start < 5
++
++
++def test_los_umbrales_cad_no_cambian():
++    import motor_v2 as m
++    assert (m.MAX_VOLUME_ERROR, m.MAX_BBOX_ERROR, m.MAX_SURFACE_P95,
++            m.MAX_SURFACE_OBSERVED, m.MAX_WORK_SURFACE_DIFFERENCE) == (.005, .020, .020, .060, .010)
++
++
++def test_interfaces_no_descartan_ninguna_cara_original():
++    from preprocesador_stl import componentes
++    source = canonical(boxes([10, 0, 0]))
++    parts = componentes(source)
++    assert len(parts) == 2 and sum(len(p.faces) for p in parts) == len(source.faces)
++    assert all(p.is_watertight for p in parts)
++
++
++def test_autointerferencia_explicita_rechazada():
++    from verificacion_reparacion import solido_poliedrico
++    mesh = trimesh.creation.box()
++    mesh.vertices[0] = [2, 2, 2]
++    with pytest.raises(ValueError):
++        solido_poliedrico(mesh)
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_MATERIAL_PRUEBAS'), reason='STL privados no indicados')
++def test_cubo_carrito_y_referencia_real(tmp_path):
++    from verificacion_reparacion import distancia_malla, puntos_superficie
++    root = Path(os.environ['VISOR_MATERIAL_PRUEBAS'])
++    src = root/'caso_cubo_carrito/cubo-carrito.stl'
++    selected, rep = preparar(src, tmp_path/'cubo.stl')
++    candidate = cargar_exacto(selected)
++    ref = cargar_exacto(root/'caso_cubo_carrito/cubo-carrito_REPARADO.stl')
++    assert rep['entrada']['aristas_mas_2_caras'] == 4
++    assert rep['salida']['numero_componentes'] == 1
++    assert candidate.euler_number == ref.euler_number == 0
++    assert abs(candidate.volume-ref.volume)/ref.volume < .00001
++    assert max(distancia_malla(candidate, puntos_superficie(ref)).max(),
++               distancia_malla(ref, puntos_superficie(candidate)).max()) < .020
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_MATERIAL_PRUEBAS'), reason='STL privados no indicados')
++@pytest.mark.parametrize('angles', [[.37, -.61, 1.03], [0, 0, .71], [1.57, .29, -.45]])
++def test_cubo_carrito_reparacion_rotada(tmp_path, angles):
++    source = Path(os.environ['VISOR_MATERIAL_PRUEBAS'])/'caso_cubo_carrito/cubo-carrito.stl'
++    mesh = cargar_exacto(source)
++    mesh.apply_transform(trimesh.transformations.euler_matrix(*angles))
++    rotated = tmp_path/'rotado.stl'
++    mesh.export(rotated)
++    selected, rep = preparar(rotated, tmp_path/'reparado.stl')
++    assert rep['reparado'] and rep['salida']['ruta'] == 'paso_directo'
++    assert rep['verificacion_stl_reimportado']['volumen_error_pct'] < .001
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_MATERIAL_PRUEBAS'), reason='STL privados no indicados')
++def test_14_historicos_no_se_reescriben(tmp_path):
++    import hashlib
++    files = sorted((Path(os.environ['VISOR_MATERIAL_PRUEBAS'])/'stl_regresion_14').glob('*.stl'))
++    assert len(files) == 14
++    for i, source in enumerate(files):
++        digest = hashlib.sha256(source.read_bytes()).hexdigest()
++        destination = tmp_path/f'{i}.stl'
++        selected, report = preparar(source, destination)
++        assert selected == source and not report['reparado'] and not destination.exists()
++        assert hashlib.sha256(source.read_bytes()).hexdigest() == digest
+--- /dev/null
++++ b/test_servidor_reparacion.py
+@@ -0,0 +1,92 @@
++"""API real local: mismo HTML, conversión, evidencias y cancelación del árbol."""
++import io
++import json
++import os
++from pathlib import Path
++import signal
++import subprocess
++import sys
++import time
++import pytest
++import psutil
++import trimesh
++from fastapi.testclient import TestClient
++import servidor
++
++
++@pytest.fixture
++def client(tmp_path, monkeypatch):
++    monkeypatch.setattr(servidor, 'LOG_DIR', tmp_path)
++    with servidor.JOBS_LOCK:
++        servidor.JOBS.clear()
++    with TestClient(servidor.app) as c:
++        yield c
++
++
++def stl_bytes(mesh):
++    return mesh.export(file_type='stl')
++
++
++def test_api_no_sella_abertura_y_guarda_diagnostico(client, tmp_path):
++    mesh = trimesh.creation.box()
++    mesh.update_faces(list(range(2, 12)))
++    r = client.post('/convertir', files={'archivo': ('abierto.stl', stl_bytes(mesh))})
++    assert r.status_code == 422 and 'Borde abierto' in r.json()['detail']
++    reports = list(tmp_path.glob('*.entrada.json'))
++    assert len(reports) == 1
++    data = json.loads(reports[0].read_text())
++    assert data['entrada']['aristas_1_cara'] > 0 and not data['reparado']
++
++
++def test_api_union_asincrona_step_y_evidencias(client, tmp_path):
++    a = trimesh.creation.box(extents=[10, 10, 10])
++    b = a.copy().apply_translation([8, 0, 0])
++    r = client.post('/iniciar-conversion', files={'archivo': ('union.stl', stl_bytes(trimesh.util.concatenate([a, b])))})
++    assert r.status_code == 200
++    job = r.json()['id']
++    deadline = time.monotonic()+60
++    while time.monotonic() < deadline:
++        state = client.get('/estado-conversion/'+job).json()
++        if state['estado'] != 'ejecutando':
++            break
++        time.sleep(.1)
++    assert state['estado'] == 'terminado', state
++    assert client.get('/descargar-conversion/'+job).content.startswith(b'ISO-10303-21;')
++    import cadquery as cq
++    solids = cq.importers.importStep(str(tmp_path/(job+'.step'))).solids().vals()
++    assert len(solids) == 1 and solids[0].isValid()
++    assert abs(solids[0].Volume()-1800) < .001
++    for kind in ['informe', 'original', 'reparado']:
++        assert client.get(f'/reparacion/{job}/{kind}').status_code == 200
++    data = json.loads((tmp_path/(job+'.json')).read_text())
++    assert data['preprocesamiento']['reparado'] and data['ram_pico_mb'] > 0
++
++
++def test_html_conservado_y_rutas_restringidas(client):
++    assert client.get('/').content == (servidor.ROOT/'Visor_STL_STEP.html').read_bytes()
++    assert client.get('/reparacion/0123456789ab/otro').status_code == 404
++    assert client.get('/reparacion/mal/original').status_code == 404
++
++
++@pytest.mark.skipif(os.name == 'nt', reason='variante Windows taskkill requiere ejecución nativa Windows')
++def test_nuevo_cancelacion_detiene_arbol_real():
++    child = subprocess.Popen([sys.executable, '-c',
++        'import subprocess,sys,time; p=subprocess.Popen([sys.executable,"-c","import time;time.sleep(60)"]);print(p.pid,flush=True);time.sleep(60)'],
++        start_new_session=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
++    descendant = int(child.stdout.readline())
++    servidor._detener_arbol(child)
++    child.communicate(timeout=5)
++    assert child.poll() is not None
++    # SIGKILL puede quedar pendiente hasta el siguiente turno del descendiente.
++    # Exigir que todo el árbol cese en un plazo acotado, no en el mismo ciclo.
++    deadline = time.monotonic()+3
++    while time.monotonic() < deadline:
++        try:
++            process = psutil.Process(descendant)
++            if not process.is_running() or process.status() == psutil.STATUS_ZOMBIE:
++                return
++        except psutil.NoSuchProcess:
++            return
++        time.sleep(.01)
++    process.kill()
++    pytest.fail('La cancelación dejó un descendiente ejecutándose más de 3 segundos.')
+--- /dev/null
++++ b/verificacion_reparacion.py
+@@ -0,0 +1,124 @@
++"""Contraste independiente del booleano de mallas con OpenCascade.
++
++Usa las facetas originales como planos, sin ajustar cilindros ni suavizar.
++La comprobación de interferencias no sustituye una demostración matemática.
++"""
++from __future__ import annotations
++import numpy as np
++
++
++def solido_poliedrico(mesh):
++    import cadquery as cq
++    from OCP.BRepBuilderAPI import (BRepBuilderAPI_MakePolygon, BRepBuilderAPI_MakeFace,
++                                   BRepBuilderAPI_Sewing, BRepBuilderAPI_MakeSolid)
++    from OCP.TopoDS import TopoDS
++    from OCP.gp import gp_Pnt
++    from OCP.ShapeUpgrade import ShapeUpgrade_UnifySameDomain
++    from OCP.BRepAlgoAPI import BRepAlgoAPI_Check
++    sew = BRepBuilderAPI_Sewing(1e-7)
++    for triangle in mesh.triangles:
++        polygon = BRepBuilderAPI_MakePolygon()
++        for xyz in triangle:
++            polygon.Add(gp_Pnt(*map(float, xyz)))
++        polygon.Close()
++        sew.Add(BRepBuilderAPI_MakeFace(polygon.Wire()).Face())
++    sew.Perform()
++    shape = cq.Shape.cast(BRepBuilderAPI_MakeSolid(TopoDS.Shell_s(sew.SewedShape())).Solid())
++    unify = ShapeUpgrade_UnifySameDomain(shape.wrapped, True, True, False)
++    unify.Build()
++    shape = cq.Shape.cast(unify.Shape())
++    if not shape.isValid() or len(shape.Solids()) != 1 or shape.Volume() <= 0:
++        raise ValueError('El componente no forma un sólido poliédrico válido en OpenCascade.')
++    if not BRepAlgoAPI_Check(shape.wrapped, False, True).IsValid():
++        raise ValueError('OpenCascade detecta autointersecciones o interferencias ambiguas.')
++    return shape
++
++
++def union_independiente(parts):
++    import cadquery as cq
++    from OCP.BRepAlgoAPI import BRepAlgoAPI_Fuse
++    shapes = [solido_poliedrico(p) for p in parts]
++    shape = shapes[0]
++    for other in shapes[1:]:
++        op = BRepAlgoAPI_Fuse(shape.wrapped, other.wrapped)
++        op.SetFuzzyValue(1e-7)
++        op.Build()
++        if not op.IsDone():
++            raise ValueError('No se pudo calcular la unión independiente con OpenCascade.')
++        shape = cq.Shape.cast(op.Shape())
++    if not shape.isValid() or len(shape.Solids()) != 1:
++        raise ValueError('Múltiples cuerpos: la unión independiente no produce un sólido válido.')
++    return shape
++
++
++def puntos_superficie(mesh, n=4000):
++    import trimesh
++    points, _ = trimesh.sample.sample_surface(mesh, n, seed=17023)
++    return np.vstack((mesh.vertices, mesh.triangles_center, points))
++
++
++def distancia_malla(mesh, points):
++    import vtk
++    from vtk.util.numpy_support import numpy_to_vtk, numpy_to_vtkIdTypeArray
++    points = np.asarray(points, dtype=float)
++    poly = vtk.vtkPolyData()
++    vp = vtk.vtkPoints()
++    vp.SetData(numpy_to_vtk(np.asarray(mesh.vertices, dtype=np.float64), deep=True))
++    poly.SetPoints(vp)
++    cells = vtk.vtkCellArray()
++    cells.SetData(numpy_to_vtkIdTypeArray(np.arange(0, 3*(len(mesh.faces)+1), 3,
++                      dtype=np.int64), deep=True),
++                  numpy_to_vtkIdTypeArray(np.asarray(mesh.faces, dtype=np.int64).ravel(), deep=True))
++    poly.SetPolys(cells)
++    locator = vtk.vtkStaticCellLocator()
++    locator.SetDataSet(poly)
++    locator.BuildLocator()
++    closest = [0., 0., 0.]
++    cid, subid, dist2 = vtk.reference(0), vtk.reference(0), vtk.reference(0.)
++    out = []
++    for p in points:
++        locator.FindClosestPoint(p, closest, cid, subid, dist2)
++        out.append(float(dist2)**.5)
++    return np.asarray(out)
++
++
++def malla_cad(shape):
++    import trimesh
++    vertices, faces = shape.tessellate(.001)
++    return trimesh.Trimesh([p.toTuple() for p in vertices], faces, process=True)
++
++
++def validar_union(parts, candidate):
++    # Referencia construida desde los componentes de ENTRADA, nunca desde la
++    # malla candidata. Calcular ambos booleanos en el marco exacto del contacto
++    # evita que las triangulaciones casi coplanares de float32 dejen caras
++    # interiores espurias en la teselación de OCC tras rotar un STL.
++    import trimesh
++    from preprocesador_stl import _marco_contacto, componentes
++    merged = trimesh.util.concatenate(parts)
++    vertices, inverse = np.unique(merged.vertices, axis=0, return_inverse=True)
++    merged = trimesh.Trimesh(vertices, inverse[merged.faces], process=False)
++    normalized, restore, normalization = _marco_contacto(merged)
++    ref = union_independiente(componentes(normalized))
++    refmesh = malla_cad(ref)  # Planos: la teselación no introduce curvatura.
++    refmesh.apply_transform(restore)
++    # Contraste de superficie bidireccional con todos los vértices, centroides
++    # y 4.000 puntos de área por dirección. No compara superficies interiores.
++    a = distancia_malla(refmesh, puntos_superficie(candidate))
++    b = distancia_malla(candidate, puntos_superficie(refmesh))
++    volume_error = abs(candidate.volume-ref.Volume())/max(ref.Volume(), 1e-12)
++    bbox_error = float(np.max(np.abs(candidate.bounds-refmesh.bounds)))
++    max_dist = max(float(a.max()), float(b.max()))
++    p95 = max(float(np.percentile(a, 95)), float(np.percentile(b, 95)))
++    if volume_error > .00001 or bbox_error > .002 or max_dist > .002:
++        raise ValueError('No se pudo garantizar reparación sin cambiar cotas: '
++                         f'contraste OCC volumen={volume_error:.6%}, caja={bbox_error:.6f}, '
++                         f'superficie={max_dist:.6f} mm.')
++    return {'referencia': 'unión poliédrica independiente OpenCascade; fuzzy 0,0000001 mm',
++            'volumen_referencia_mm3': ref.Volume(), 'volumen_error_pct': volume_error*100,
++            'caja_error_mm': bbox_error, 'p95_mm': p95, 'max_observado_mm': max_dist,
++            'muestras_direcciones': [len(a), len(b)], 'brep_valido': ref.isValid(),
++            'solidos_referencia': len(ref.Solids()),
++            'normalizacion_referencia': normalization,
++            'limites': {'volumen_pct': .001, 'caja_mm': .002, 'superficie_mm': .002},
++            'nota': 'Mediciones deterministas muestreadas, no cota Hausdorff global.'}
