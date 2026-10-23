@@ -1,0 +1,429 @@
+--- a/ESTADO_VALIDACION.md
++++ b/ESTADO_VALIDACION.md
+@@ -1,12 +1,23 @@
+-# AVANCE EXPERIMENTAL — NO APTO PARA SUSTITUIR R1
++# perfeccion_Visualizador — fase cubo-carrito
+ 
+ Esta copia contiene una implementación de diagnóstico y reparación conservadora.
+-No es una versión declarada terminada. Consultar `INFORME_RESULTADOS.md` y las
++No es una sustitución estable de R1. Consultar `../INFORME_RESULTADOS.md` y las
+ evidencias incluidas en la entrega para conocer los resultados reales.
+ 
+ La unión de la malla del cubo-carrito y la conversión CAD son puertas distintas.
+ Un STL reparado no autoriza a declarar válido el STEP. El motor sigue rechazando
+ los candidatos que no pasan sus controles geométricos originales.
++
++Esta fase añade una ruta CAD de mayor precisión únicamente tras una reparación
++booleana verificada y para mallas de hasta 5.000 triángulos. No depende del nombre
++del archivo. Las entradas sanas siguen sus estrategias anteriores. La nueva
++ruta limita ajustes de regiones a 0,015 mm, B-splines a 0,005 mm y aristas a
++0,003 mm; rechaza coeficientes numéricamente desproporcionados. El validador
++histórico y todos sus límites conservan su código original.
++
++Los resultados efectivos del cubo y tres giros, las regresiones repetidas y
++las pruebas pendientes se detallan en el informe. El embudo se ha aplazado
++por indicación del propietario. No se declara superada la batería global de 14.
+ 
+ Windows y la edición Move face de Onshape requieren ejecución real externa.
+ La disponibilidad de dependencias Windows no equivale a haber probado Windows.
+--- a/GUIA_REPRODUCIR.md
++++ b/GUIA_REPRODUCIR.md
+@@ -1,6 +1,6 @@
+ # Reproducir y continuar el trabajo
+ 
+-Primero leer `ESTADO_VALIDACION.md` y el informe de resultados de la entrega.
++Primero leer `ESTADO_VALIDACION.md` y `../INFORME_RESULTADOS.md`.
+ No sobrescribir una instalación estable. La carpeta `Visor_experimental_fuentes`
+ contiene la aplicación completa; no incluye un Python preinstalado.
+ 
+@@ -87,3 +87,31 @@
+ comparar contra la unión de referencia y repetir las 14 piezas con los mismos
+ límites. No usar `_close_mesh` ni suavizado como atajo. No entregar un STEP
+ facetado de auditoría como si fuese el CAD editable final del Visor.
++
++## Repetir la fase cubo-carrito de esta entrega
++
++Desde `Visor_experimental_fuentes`, preparar una carpeta que contenga solo los
++cuatro `cubo-carrito*.stl` de prueba (excluir `cubo-carrito_REPARADO.stl`, que es
++una referencia aportada). Sus tres giros están definidos en `verificar_cubo_step.py`.
++Después ejecutar:
++
++```sh
++python bateria_reparacion.py --stl ../casos_cubo --salida ../nuevas_pruebas/cubo
++python verificar_cubo_step.py --corpus ../casos_cubo --resultados ../nuevas_pruebas/cubo
++```
++
++La primera orden usa el mismo punto de entrada que el servidor. La segunda
++reimporta los archivos escritos, comprueba sus huellas, autointerferencias,
++volumen adaptativo convergente, todos los vértices y centroides del STL más
++4.000 puntos de área, y una teselación CAD fina con centroides y aristas.
++También comprueba puntos del canal central y del material de sus paredes.
++
++Los STEP incluyen superficies analíticas y B-splines; algunas esquinas siguen
++representadas por parches planos. No incluyen un historial de operaciones CAD.
++La edición concreta en Onshape debe comprobarse allí.
++
++La ruta CAD precisa se activa únicamente tras una reparación verificada y
++para entradas de hasta 5.000 triángulos. Si falla el intento directo, prueba un
++marco rígido local inferido de normales de caras grandes. El STEP se restaura
++y vuelve a pasar el validador histórico en coordenadas originales; el pequeño
++error de serialización local no amplía ninguna tolerancia.
+--- a/LEEME.txt
++++ b/LEEME.txt
+@@ -1,5 +1,13 @@
+-AVANCE EXPERIMENTAL NO VALIDADO. NO SUSTITUIR LA R1 ESTABLE.
+-Leer ESTADO_VALIDACION.md y el informe de resultados de la entrega.
++perfeccion_Visualizador — COPIA EXPERIMENTAL INDEPENDIENTE.
++Leer ../INFORME_RESULTADOS.md y ESTADO_VALIDACION.md.
++
++Para probar: descomprimir el paquete en una carpeta nueva. No copiar archivos
++encima del Visor estable. Esta entrega es la aplicación Python de referencia;
++no actualiza la aplicación WebAssembly publicada en GitHub Pages.
++
++En Windows: ejecutar Instalar_Entorno.bat y después Iniciar.bat.
++El navegador abre http://127.0.0.1:8766 (puerto de esta copia experimental).
++Las pruebas nativas Windows y Move face en Onshape siguen pendientes.
+ 
+ --- LEEME ORIGINAL DE REFERENCIA ---
+ VISOR STL V4.0 USO R1 (Windows)
+@@ -7,7 +15,7 @@
+ 1. Descomprimir el ZIP en una carpeta NUEVA.
+ 2. Ejecutar Instalar_Entorno.bat la primera vez. Requiere Internet, Python 3.12/3.13 de 64 bits y puede tardar varios minutos.
+ 3. Ejecutar Iniciar.bat y mantener abierta la consola.
+-4. Interfaz http://127.0.0.1:8765
++4. En la copia experimental, interfaz http://127.0.0.1:8766
+ 5. Si deseas cancelar una conversion, pulsa Nuevo.
+ 
+ REVISION R1 (20/10/2026): rescata curvaturas cilindricas y toroidales mediante segmentacion fina verificada cuando el primer CAD cambia el volumen. Soluciona el fallo reproducido de maneta (volumen +16.573%). Tambien comprobados Brick y Clip.
+--- a/VERSION.txt
++++ b/VERSION.txt
+@@ -1,4 +1,4 @@
+-AVANCE EXPERIMENTAL NO VALIDADO — Visor STL → STEP V4 R1
++perfeccion_Visualizador — experimental sobre Visor STL → STEP V4 R1
+ 2026-10-23
+-Leer ESTADO_VALIDACION.md e INFORME_RESULTADOS.md.
++Leer ESTADO_VALIDACION.md y ../INFORME_RESULTADOS.md.
+ No sustituir la R1 estable.
+--- a/motor_superficies/meshfit_brep.py
++++ b/motor_superficies/meshfit_brep.py
+@@ -164,6 +164,17 @@
+         ty = np.linspace(bb[2], bb[3], kv + 2)[1:-1]
+         try:
+             sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
++            if getattr(mesh, 'precision_reparacion', False):
++                # Un ajuste puede seguir las muestras y tener polos enormes:
++                # entonces su volumen depende catastróficamente del giro.
++                coeffs = sp.get_coeffs()
++                # Algunos sistemas mal condicionados no emiten aviso FITPACK.
++                # Sus polos pueden estar a 10^15 mm de una banda de 25 mm.
++                # Una cota holgada respecto al tamaño LOCAL evita esa
++                # extrapolación; no es un margen de aceptación geométrica.
++                coeff_limit = float(np.max(np.abs(h))) + 10 * max(lu, lv, 1e-3)
++                if not np.isfinite(coeffs).all() or float(np.max(np.abs(coeffs))) > coeff_limit:
++                    continue
+         except Exception:
+             continue
+         res = np.abs(sp.ev(u, v) - h)
+@@ -1920,7 +1931,7 @@
+ 
+ 
+ def build_solid(result, mesh, verbose=True, max_rounds=5, extra_regions=None, organic="auto",
+-                organic_smooth=0.0, ajuste_ia=False):
++                organic_smooth=0.0, ajuste_ia=False, precision_reparacion=False):
+     """Devuelve (shape, info). shape = sólido si se cierra; si no, el shell arreglado.
+     info: dict con 'solid', 'valid', 'free_edges', 'faces', 'volume', 'round'.
+     `organic`: "auto" (decide `meshfit_organic.looks_organic`), True o False. Una pieza
+@@ -1941,6 +1952,7 @@
+         if not mesh.is_winding_consistent:
+             mesh.fix_normals()
+         mesh = _FrozenMesh(mesh)
++    mesh.precision_reparacion = bool(precision_reparacion)
+     # ruido de la malla ORIGINAL (la simetrización del Ajuste IA lo baja: 7.4° -> 5.5° en un
+     # escaneo sintético, y con otros umbrales la segmentación salía distinta y PEOR)
+     _NOISE["deg"] = float(np.degrees(np.median(mesh.face_adjacency_angles)))
+@@ -2041,7 +2053,13 @@
+                 print(f"  [brep] {info['error']}: se omite el sólido")
+             return None, info
+         prims_l = []
+-        labels0, surfs = _region_surfaces(result, mesh, ff_tol, bs_tol, extra=extra_regions,
++        # Ruta experimental EXPLÍCITA para una entrada reparada y verificada.
++        # Ajustar/absorber regiones con el umbral escalado por la diagonal podía
++        # fundir una pared plana con su redondeo y crear ondas de >0,1 mm.
++        # Se exige un ajuste más fino; los controles finales siguen intactos.
++        region_ff = min(ff_tol, 0.015) if precision_reparacion else ff_tol
++        region_bs = min(bs_tol, 0.005) if precision_reparacion else bs_tol
++        labels0, surfs = _region_surfaces(result, mesh, region_ff, region_bs, extra=extra_regions,
+                                           prims_out=prims_l)
+         if ajuste_ia:
+             # AJUSTE IA, paso 2: MEDIDAS EXACTAS (ejes rectos, coaxiales, radios y
+@@ -2092,7 +2110,9 @@
+             # unas pocas tolerancias de ajuste (si salta más, cayó en la zona extrapolada)
+             _t1 = _time.time()
+             _place_seams(mesh, labels, comp_surf)
+-            shell, faces = _build(mesh, labels, comp_surf, tol, max_move=4 * ff_tol,
++            edge_tol = min(tol, 0.003) if precision_reparacion else tol
++            movement = min(4 * ff_tol, 0.020) if precision_reparacion else 4 * ff_tol
++            shell, faces = _build(mesh, labels, comp_surf, edge_tol, max_move=movement,
+                                   smooth_len=smooth_len)
+             _tb = _time.time() - _t1
+         except Exception as e:
+--- a/motor_superficies/meshfit_step.py
++++ b/motor_superficies/meshfit_step.py
+@@ -885,7 +885,7 @@
+ def export_step(result, mesh, out_path, organic=True, extra_nurbs_regions=None,
+                 extra_nurbs_smooth=None, extra_helix_regions=None, extra_nurbs_grow=None,
+                 extra_nurbs_grid=None, extra_nurbs_edits=None, solid=True, organic_smooth=0.0,
+-                ajuste_ia=False, require_solid=False):
++                ajuste_ia=False, require_solid=False, precision_reparacion=False):
+     """Construye una cara recortada por primitiva (+ NURBS para regiones freeform si
+     organic=True), las cose y escribe el STEP. Devuelve nº caras.
+ 
+@@ -919,7 +919,8 @@
+             extra = _user_surfaces(mesh, extra_nurbs_regions, extra_nurbs_smooth,
+                                    extra_nurbs_grid, extra_nurbs_edits, extra_helix_regions)
+             shape, info = build_solid(result, mesh, extra_regions=extra,
+-                                      organic_smooth=organic_smooth, ajuste_ia=ajuste_ia)
++                                      organic_smooth=organic_smooth, ajuste_ia=ajuste_ia,
++                                      precision_reparacion=precision_reparacion)
+             if shape is not None and info.get("solid") and info.get("valid"):
+                 LAST_INFO = info
+                 _write_step(shape, out_path)
+--- a/motor_v2.py
++++ b/motor_v2.py
+@@ -246,7 +246,7 @@
+ 
+ 
+ def convertir(path_stl: Path, path_step: Path, log, *, flat_tol_deg=8.0,
+-             digital=False, analitico=False, sin_simplificar=False):
++             digital=False, analitico=False, sin_simplificar=False, precision_reparacion=False):
+     from meshfit_detect import detect
+     from meshfit_step import export_step
+     avance(20, "Comprobando la malla STL")
+@@ -342,7 +342,8 @@
+         avance(55, "Reconstruyendo el B-Rep con el motor estable")
+         with contextlib.redirect_stdout(log):
+             export_step(res,working,str(candidate),organic=True,solid=True,
+-                        organic_smooth=0.0,ajuste_ia=False,require_solid=True)
++                        organic_smooth=0.0,ajuste_ia=False,require_solid=True,
++                        precision_reparacion=precision_reparacion)
+         from meshfit_step import LAST_INFO
+         if not LAST_INFO.get('solid') or not LAST_INFO.get('valid'):
+             raise ValueError('No se ha reconstruido un B-Rep cerrado válido. '
+@@ -779,6 +780,47 @@
+         prepared, report = preparar(src, dst.with_suffix('.reparado.stl'))
+         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+         sys.argv = [args[0], str(prepared), str(dst)]
++        if report.get('reparado') and report.get('salida', {}).get('caras', 0) <= 5000:
++            # Esta ruta nunca toca las 14 entradas sanas: solo sigue a una
++            # reparación booleana ya contrastada y vuelve a pasar _calidad.
++            # Los indicadores y tolerancias del validador histórico no cambian.
++            flags = ('VISOR_CENTROID_GATE', 'VISOR_REFINAMIENTO_BREP', 'VISOR_STL_DIGITAL')
++            previous = {key: os.environ.get(key) for key in flags}
++            try:
++                os.environ['VISOR_CENTROID_GATE'] = '1'
++                os.environ['VISOR_REFINAMIENTO_BREP'] = '1'
++                avance(18, 'Reconstruyendo entrada reparada con ajuste CAD preciso')
++                with dst.with_suffix('.motor.log').open('w', encoding='utf-8', buffering=1) as log:
++                    print('[Reparación CAD] Ajuste de regiones 0.015 mm, B-spline 0.005 mm, '
++                          'aristas 0.003 mm; validación histórica sin cambios.', file=log, flush=True)
++                    try:
++                        result = convertir(prepared, dst, log, flat_tol_deg=1.3,
++                                           digital=True, analitico=True, precision_reparacion=True)
++                    except ValueError as direct_error:
++                        print(f'[Reparación CAD] Intento directo rechazado: {direct_error}. '
++                              'Probando marco rígido local y validación en coordenadas originales.',
++                              file=log, flush=True)
++                        from reparacion_cad import convertir_marco_local
++                        result = convertir_marco_local(prepared, dst, log, convertir, _calidad)
++                        result['rechazo_cad_directo'] = str(direct_error)
++                result['estrategia'] = 'entrada_reparada_cad_preciso_verificado'
++                print(json.dumps({'ok': True, 'resultado': result, 'preprocesamiento': report},
++                                 ensure_ascii=True))
++                return 0
++            except Exception as exc:
++                dst.unlink(missing_ok=True)
++                report['intento_cad_preciso_rechazado'] = str(exc)
++                report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
++                # Conservar evidencia del intento antes de abrir el log heredado.
++                failed_log = dst.with_suffix('.motor.log')
++                if failed_log.exists():
++                    shutil.copyfile(failed_log, dst.with_suffix('.cad_preciso_rechazado.log'))
++            finally:
++                for key, value in previous.items():
++                    if value is None:
++                        os.environ.pop(key, None)
++                    else:
++                        os.environ[key] = value
+         # El núcleo conserva sus retornos y rutas de rescate. Solo se adjunta
+         # el diagnóstico al JSON final que ya consume el servidor.
+         output = _SalidaCad(sys.stdout)
+--- a/reparacion_cad.py
++++ b/reparacion_cad.py
+@@ -0,0 +1,54 @@
++"""Rescate de una entrada reparada mediante un marco rígido local verificable.
++
++No ajusta cotas ni acepta tolerancias nuevas. La rotación facilita el cálculo
++del mismo B-Rep; el STEP se restaura y valida contra la entrada en su marco real.
++"""
++from __future__ import annotations
++from pathlib import Path
++import tempfile
++import numpy as np
++
++
++def convertir_marco_local(source, destination, log, convertir, calidad):
++    import cadquery as cq
++    import trimesh
++    from OCP.gp import gp_Trsf
++    from meshfit_step import _write_step
++    mesh = trimesh.load(str(source), force='mesh', process=True)
++    order = np.argsort(-mesh.area_faces, kind='stable')
++    first = mesh.face_normals[order[0]]
++    second = next((mesh.face_normals[i] for i in order
++                   if mesh.area_faces[i] >= .01*mesh.area_faces[order[0]]
++                   and abs(mesh.face_normals[i]@first) < .01), None)
++    if second is None:
++        raise ValueError('No hay dos direcciones ortogonales suficientemente sustentadas para el marco CAD.')
++    x = first/np.linalg.norm(first)
++    y = second - (second@x)*x
++    y /= np.linalg.norm(y)
++    basis = np.column_stack((x, y, np.cross(x,y)))
++    origin = mesh.bounds.mean(axis=0)
++    local_points = (mesh.vertices-origin)@basis
++    quantized = local_points.astype(np.float32).astype(float)
++    quant_error = float(np.max(np.linalg.norm(quantized-local_points, axis=1)))
++    if quant_error > .000020:
++        raise ValueError('La serialización del marco local supera 0,000020 mm; rescate omitido.')
++    with tempfile.TemporaryDirectory(prefix='visor_cad_marco_') as directory:
++        directory = Path(directory)
++        local_stl, local_step = directory/'local.stl', directory/'local.step'
++        trimesh.Trimesh(local_points, mesh.faces.copy(), process=False).export(local_stl)
++        result = convertir(local_stl, local_step, log, flat_tol_deg=1.3,
++                           digital=True, analitico=True, precision_reparacion=True)
++        shape = cq.importers.importStep(str(local_step)).solids().val()
++        transform = gp_Trsf()
++        transform.SetValues(*[float(v) for v in np.column_stack((basis,origin)).ravel()])
++        restored = shape.transformShape(cq.Matrix(transform))
++        _write_step(restored.wrapped, str(directory/'restaurado.step'))
++        # Validar en coordenadas REALES y contra el STL reparado original.
++        # El error de serialización NO se añade a ningún límite de aceptación.
++        result['calidad'] = calidad(source, directory/'restaurado.step', mesh)
++        destination.write_bytes((directory/'restaurado.step').read_bytes())
++        result['marco_local'] = {'matriz_restauracion':np.column_stack((basis,origin)).tolist(),
++                                 'max_serializacion_local_mm':quant_error,
++                                 'limite_serializacion_local_mm':.000020,
++                                 'validacion_final':'STEP restaurado frente al STL reparado en coordenadas originales; mismos límites'}
++        return result
+--- a/verificar_cubo_step.py
++++ b/verificar_cubo_step.py
+@@ -0,0 +1,110 @@
++"""Reimportación independiente del cubo-carrito y sus tres giros de prueba.
++
++Uso: python verificar_cubo_step.py --corpus CARPETA --resultados CARPETA
++La batería debe haberse ejecutado antes con bateria_reparacion.py. Los puntos
++del canal son expectativas de ESTE caso de prueba, nunca reglas del motor.
++"""
++from __future__ import annotations
++import argparse
++import hashlib
++import json
++from pathlib import Path
++import numpy as np
++
++GIROS = {'cubo-carrito.stl': (0., 0., 0.),
++         'cubo-carrito_giro_1.stl': (.37, -.61, 1.03),
++         'cubo-carrito_giro_2.stl': (0., 0., .71),
++         'cubo-carrito_giro_3.stl': (1.57, .29, -.45)}
++
++
++def verificar(source, step, row):
++    import cadquery as cq
++    import trimesh
++    from OCP.BRepAlgoAPI import BRepAlgoAPI_Check
++    from OCP.BRepClass3d import BRepClass3d_SolidClassifier
++    from OCP.BRepGProp import BRepGProp
++    from OCP.GProp import GProp_GProps
++    from OCP.gp import gp_Pnt
++    from OCP.TopAbs import TopAbs_IN, TopAbs_OUT
++    from motor_v2 import _calidad, _estadisticas
++    from preprocesador_stl import cargar_exacto
++    from validacion_local import _distancias_cad, _puntos_brep
++    from verificacion_reparacion import distancia_malla, puntos_superficie
++
++    if (not row['ok'] or hashlib.sha256(step.read_bytes()).hexdigest() != row['sha256_step']
++            or hashlib.sha256(source.read_bytes()).hexdigest() != row['sha256']):
++        raise ValueError('Conversión fallida o huella del STEP distinta de la batería.')
++    repaired = step.with_suffix('.reparado.stl')
++    prepared = cargar_exacto(repaired)
++    if (hashlib.sha256(repaired.read_bytes()).hexdigest() !=
++            row['informe_motor']['preprocesamiento']['reparado_sha256']
++            or not prepared.is_watertight or prepared.euler_number != 0):
++        raise ValueError('La malla reparada no coincide con la evidencia o pierde el túnel del cubo.')
++    original = cargar_exacto(source)
++    solid = cq.importers.importStep(str(step)).solids().val()
++    quality = _calidad(repaired, step, prepared)  # mismo control histórico, sin márgenes nuevos
++    if not BRepAlgoAPI_Check(solid.wrapped, False, True).IsValid():
++        raise ValueError('El STEP reimportado presenta autointerferencias.')
++    volumes = []
++    for epsilon in (1e-6, 1e-8):
++        g = GProp_GProps()
++        BRepGProp.VolumeProperties_s(solid.wrapped, g, epsilon)
++        volumes.append(float(g.Mass()))
++    ref = row['informe_motor']['preprocesamiento']['verificacion_stl_reimportado']['volumen_referencia_mm3']
++    if (not np.isfinite(volumes).all() or abs(volumes[0]-volumes[1])/ref > 1e-5
++            or abs(volumes[-1]-ref)/ref > .005):
++        raise ValueError('Volumen adaptativo no convergente o fuera del límite original.')
++    # Todos los vértices, centroides y 4.000 puntos de área deterministas del
++    # STL unido. Las tapas de contacto internas del original no son superficie
++    # exterior; su retirada ya está contrastada con la unión OCC independiente.
++    a = _distancias_cad(solid, puntos_superficie(prepared))
++    verts, tris = solid.tessellate(.003, angularTolerance=.04)
++    points = np.asarray([p.toTuple() for p in verts])
++    tris = np.asarray(tris)
++    cad_points = np.vstack((points, points[tris].mean(axis=1), _puntos_brep(solid, 3000)))
++    b = distancia_malla(prepared, cad_points)
++    qa, qb = _estadisticas(a), _estadisticas(b)
++    limit = quality['limites_validacion']['p95_superficie_max_mm']
++    if (not np.isfinite(a).all() or not np.isfinite(b).all()
++            or max(np.percentile(a,95), np.percentile(b,95)) > limit or max(a.max(),b.max()) > .060):
++        raise ValueError('La inspección densa no supera los mismos límites superficiales.')
++    rotation = trimesh.transformations.euler_matrix(*GIROS[source.name])
++    control = [(22.4,22.4,z) for z in (12.,25.4,80.,170.)] + [(.5,22.4,12.),(4.5,22.4,80.)]
++    transformed = trimesh.transform_points(control, rotation)
++    expected = [TopAbs_OUT]*4 + [TopAbs_IN]*2
++    states = [BRepClass3d_SolidClassifier(solid.wrapped,gp_Pnt(*map(float,p)),1e-7).State()
++              for p in transformed]
++    if states != expected:
++        raise ValueError('El canal o las paredes no conservan la ocupación esperada.')
++    return {'ok': True, 'sha256_original': hashlib.sha256(source.read_bytes()).hexdigest(),
++            'sha256_step': row['sha256_step'], 'calidad_historica_repetida': quality,
++            'autointerferencias_occ': False, 'volumen_adaptativo_mm3': volumes,
++            'volumen_referencia_mm3': ref, 'volumen_adaptativo_error_pct': 100*abs(volumes[-1]-ref)/ref,
++            'caja_reparada_vs_original_mm': float(np.max(abs(prepared.bounds-original.bounds))),
++            'superficie_stl_step_densa_mm': qa, 'superficie_step_stl_densa_mm': qb,
++            'canal_y_paredes': [{'punto_mm': p.tolist(), 'esperado': str(e), 'obtenido': str(s)}
++                                for p,e,s in zip(transformed,expected,states)],
++            'nota': 'Control de distancias muestreado; no cota Hausdorff global ni prueba de editabilidad Onshape.'}
++
++
++def main():
++    ap = argparse.ArgumentParser(description=__doc__)
++    ap.add_argument('--corpus', type=Path, required=True)
++    ap.add_argument('--resultados', type=Path, required=True)
++    args = ap.parse_args()
++    battery = json.loads((args.resultados/'bateria.json').read_text())
++    rows = {r['archivo']: r for r in battery['resultados']}
++    results = {}
++    for name in GIROS:
++        try:
++            results[name] = verificar(args.corpus/name, args.resultados/(Path(name).stem+'.step'), rows[name])
++        except Exception as exc:
++            results[name] = {'ok': False, 'error': str(exc)}
++        print(name, results[name]['ok'], flush=True)
++        (args.resultados/'verificacion_independiente.json').write_text(
++            json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8')
++    return 0 if len(results)==4 and all(r['ok'] for r in results.values()) else 1
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())
