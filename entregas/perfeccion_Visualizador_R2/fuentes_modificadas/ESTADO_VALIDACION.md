@@ -24,5 +24,5 @@ El embudo queda aplazado por indicación del propietario. El conector agotaba
 900 segundos en la referencia y no se repite aquí. No se afirma 14/14.
 
 Windows nativo, Onshape Move face y el conversor WebAssembly no están validados
-por estas pruebas del Visor Python. El HTML del Visor permanece idéntico.
+por estas pruebas del Visor Python. La interfaz se conserva; solo se actualiza su etiqueta de versión a R2 experimental.
 Usar esta carpeta independiente; puerto experimental 8766. No sobrescribir R1.

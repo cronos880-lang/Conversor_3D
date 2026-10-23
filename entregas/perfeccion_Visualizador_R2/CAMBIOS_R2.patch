@@ -50,7 +50,7 @@
 -se conservan sin cambios. `VISOR_PREPROCESADOR=0` permite ejecutar el núcleo de
 -entrada histórico para comparar; no convierte un fallo en éxito.
 +Windows nativo, Onshape Move face y el conversor WebAssembly no están validados
-+por estas pruebas del Visor Python. El HTML del Visor permanece idéntico.
++por estas pruebas del Visor Python. La interfaz se conserva; solo se actualiza su etiqueta de versión a R2 experimental.
 +Usar esta carpeta independiente; puerto experimental 8766. No sobrescribir R1.
 --- anterior/GUIA_REPRODUCIR.md
 +++ R2/GUIA_REPRODUCIR.md
@@ -168,6 +168,26 @@
 -No sustituir la R1 estable.
 +AVANCE EXPERIMENTAL: Fallo_Dimensional validado; Pieza ambigua y 4600_fixed pendientes.
 +Visor Python; no actualiza el conversor WebAssembly de GitHub Pages.
+--- anterior/Visor_STL_STEP.html
++++ R2/Visor_STL_STEP.html
+@@ -3,7 +3,7 @@
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+-  <title>Visor STL V4.0 Uso R1</title>
++  <title>Visor STL V4.0 Uso R2 experimental</title>
+   <style>
+     :root { color-scheme: dark; --bg:#0e121b; --surface:#171d28; --edge:#2c3544; --text:#e9eef7; --muted:#8e9caf; --blue:#458fff; }
+     * { box-sizing:border-box; }
+@@ -52,7 +52,7 @@
+       <div class="brand-icon" aria-hidden="true">
+         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 7 9 5v10l-9-5V7Zm18 0-9 5v10l9-5V7Z"/></svg>
+       </div>
+-      <div><div class="brand-name" title="V4.0 Uso R1 · recuperación CAD verificada">Visor STL V4.0 Uso R1</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
++      <div><div class="brand-name" title="V4.0 Uso R2 experimental · recuperación CAD verificada">Visor STL V4.0 Uso R2 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
+     </div>
+     <div class="buttons">
+       <button id="newBtn" title="Limpiar el visor (Ctrl+N)">
 --- anterior/comparar_regresion_cubo.py
 +++ R2/comparar_regresion_cubo.py
 @@ -0,0 +1,43 @@
@@ -655,6 +675,17 @@
 +               'validacion':'STEP reimportado, mismos límites y sin interferencias OCC'}
 +        step.write_bytes(target.read_bytes())
 +        return quality,proof
+--- anterior/servidor.py
++++ R2/servidor.py
+@@ -60,7 +60,7 @@
+ 
+ def _diagnostico(id, meta, salida, errores, motor_log):
+     meta['motor_stdout_ultimas_lineas'] = salida[-4000:]
+-    meta['version_programa'] = 'V4.0 R1 EXPERIMENTAL reparación'
++    meta['version_programa'] = 'V4.0 R2 EXPERIMENTAL reparación'
+     meta['python_version'] = sys.version.split()[0] + ' (' + platform.platform() + ')'
+     try:
+         import importlib.metadata as _dist
 --- anterior/test_correcciones_r2.py
 +++ R2/test_correcciones_r2.py
 @@ -0,0 +1,136 @@

@@ -58,7 +58,9 @@ entradas sanas. La ruta precisa posterior a una reparación verificada admite ha
 12.000 triángulos. El muestreo trabaja sobre una única copia para conservar la
 secuencia de teselado histórica sin modificar la topología que se inspecciona.
 Los mensajes de avance describen la reimportación, el muestreo y el número de
-puntos verificados durante el 78 %. El HTML permanece byte a byte idéntico.
+puntos verificados durante el 78 %. La interfaz se conserva; tras detectar la etiqueta R1 heredada se actualizan
+el título, el encabezado y los metadatos de registro a R2 experimental.
+El HTML normalizado a la etiqueta anterior coincide byte a byte con R1.
 
 `saneamiento_cad.py` ensaya un recálculo de intersecciones de caras y reparación
 de aristas pequeñas con precisión 0,001 mm y booleano sin fuzzy adicional. Solo
