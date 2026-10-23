@@ -1,0 +1,25 @@
+{
+  "version": "perfeccion_Visualizador_R2",
+  "estado": "AVANCE EXPERIMENTAL, VALIDACIÓN GLOBAL PENDIENTE",
+  "fecha_utc": "2026-10-23T18:59:13.857454+00:00",
+  "zip_sha256": "abd90d6a26e75dc553a70abc3c9ae6831e9359e5bd8c90e6ae86823948149274",
+  "zip_bytes": 18869006,
+  "archivos": 267,
+  "cambios": [
+    "ESTADO_VALIDACION.md",
+    "GUIA_REPRODUCIR.md",
+    "LEEME.txt",
+    "VERSION.txt",
+    "comparar_regresion_cubo.py",
+    "contactos_numericos.py",
+    "motor_v2.py",
+    "preprocesador_stl.py",
+    "regularizacion_planar.py",
+    "saneamiento_cad.py",
+    "test_correcciones_r2.py",
+    "validacion_densa.py",
+    "validacion_local.py",
+    "verificacion_reparacion.py",
+    "verificar_casos_usuario.py"
+  ]
+}

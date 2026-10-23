@@ -1,0 +1,4 @@
+perfeccion_Visualizador_R2
+2026-10-23
+AVANCE EXPERIMENTAL: Fallo_Dimensional validado; Pieza ambigua y 4600_fixed pendientes.
+Visor Python; no actualiza el conversor WebAssembly de GitHub Pages.

@@ -1,0 +1,1052 @@
+--- anterior/ESTADO_VALIDACION.md
++++ R2/ESTADO_VALIDACION.md
+@@ -1,28 +1,28 @@
+-# perfeccion_Visualizador — fase cubo-carrito
++# perfeccion_Visualizador R2 — avance experimental
+ 
+-Esta copia contiene una implementación de diagnóstico y reparación conservadora.
+-No es una sustitución estable de R1. Consultar `../INFORME_RESULTADOS.md` y las
+-evidencias incluidas en la entrega para conocer los resultados reales.
++La primera de las tres piezas nuevas, Fallo_Dimensional.stl, se repara y convierte
++con verificación independiente. Pieza ambigua.stl y 4600_fixed.stl siguen pendientes
++de un STEP que supere todas las puertas. No es una versión estable terminada.
++Consultar ../INFORME_RESULTADOS.md y las evidencias reales de esta entrega.
+ 
+-La unión de la malla del cubo-carrito y la conversión CAD son puertas distintas.
+-Un STL reparado no autoriza a declarar válido el STEP. El motor sigue rechazando
+-los candidatos que no pasan sus controles geométricos originales.
++Se conservan los límites geométricos: caja 0,020 mm, volumen 0,5 %, p95
++0,020–0,030 mm según la escala histórica, máximo observado 0,060 mm.
++La inspección densa y la comprobación avanzada de interferencias añaden motivos
++de rechazo; no autorizan un resultado porque simplemente abra en un programa.
++Los resultados son muestreados, no una garantía Hausdorff global.
+ 
+-Esta fase añade una ruta CAD de mayor precisión únicamente tras una reparación
+-booleana verificada y para mallas de hasta 5.000 triángulos. No depende del nombre
+-del archivo. Las entradas sanas siguen sus estrategias anteriores. La nueva
+-ruta limita ajustes de regiones a 0,015 mm, B-splines a 0,005 mm y aristas a
+-0,003 mm; rechaza coeficientes numéricamente desproporcionados. El validador
+-histórico y todos sus límites conservan su código original.
++La unión de cuerpos se contrasta con una referencia poliédrica OCC independiente.
++La cancelación plana solo elimina superficies opuestas que coinciden exactamente,
++sin inventar ni mover vértices. No rellena cavidades ni agujeros funcionales.
++La normalización numérica de contactos exige contacto/solapamiento preexistente;
++no une cuerpos separados por cercanía.
+ 
+-Los resultados efectivos del cubo y tres giros, las regresiones repetidas y
+-las pruebas pendientes se detallan en el informe. El embudo se ha aplazado
+-por indicación del propietario. No se declara superada la batería global de 14.
++La ruta de construcción precisa se permite tras reparación verificada y hasta
++12.000 triángulos. Las entradas históricas sanas conservan sus estrategias.
++Se han repetido las 12 piezas que ya convertían y los cuatro cubo-carrito.
++El embudo queda aplazado por indicación del propietario. El conector agotaba
++900 segundos en la referencia y no se repite aquí. No se afirma 14/14.
+ 
+-Windows y la edición Move face de Onshape requieren ejecución real externa.
+-La disponibilidad de dependencias Windows no equivale a haber probado Windows.
+-
+-Trabajar en esta carpeta independiente. El servidor experimental usa el puerto
+-8766; la R1 original usa 8765. El HTML, sus cuatro botones, título y flujo Nuevo
+-se conservan sin cambios. `VISOR_PREPROCESADOR=0` permite ejecutar el núcleo de
+-entrada histórico para comparar; no convierte un fallo en éxito.
++Windows nativo, Onshape Move face y el conversor WebAssembly no están validados
++por estas pruebas del Visor Python. El HTML del Visor permanece idéntico.
++Usar esta carpeta independiente; puerto experimental 8766. No sobrescribir R1.
+--- anterior/GUIA_REPRODUCIR.md
++++ R2/GUIA_REPRODUCIR.md
+@@ -111,7 +111,43 @@
+ La edición concreta en Onshape debe comprobarse allí.
+ 
+ La ruta CAD precisa se activa únicamente tras una reparación verificada y
+-para entradas de hasta 5.000 triángulos. Si falla el intento directo, prueba un
++para entradas de hasta 12.000 triángulos. Si falla el intento directo, prueba un
+ marco rígido local inferido de normales de caras grandes. El STEP se restaura
+ y vuelve a pasar el validador histórico en coordenadas originales; el pequeño
+ error de serialización local no amplía ninguna tolerancia.
++
++
++## Casos nuevos R2 y regresiones de rechazo
++
++Los STEP en `material_pruebas/regresiones_cad_no_aceptados` son defectuosos
++por diseño de la prueba: NO son resultados aprobados.
++
++Desde `Visor_experimental_fuentes`, en Linux:
++
++```sh
++VISOR_MATERIAL_PRUEBAS=../material_pruebas VISOR_CASOS_R2=../material_pruebas/casos_usuario_r2 VISOR_FIXTURE_CACHE_R2=../material_pruebas/regresiones_cad_no_aceptados/4600_fixed.step VISOR_FIXTURE_DENSO_R2="../material_pruebas/regresiones_cad_no_aceptados/Pieza ambigua.step" python -m pytest -q --junitxml=../nuevas_pruebas.xml
++python bateria_reparacion.py --stl ../material_pruebas/casos_usuario_r2 --salida ../nuevos_resultados
++python verificar_casos_usuario.py --casos ../material_pruebas/casos_usuario_r2 --resultados ../nuevos_resultados
++```
++
++La batería y el verificador devuelven código 1 si algún caso no pasa; es el
++resultado esperado mientras sigan pendientes dos piezas. Los informes JSON
++individuales permiten distinguir un rechazo real de una interrupción por recursos.
++En Windows definir las mismas cuatro variables con `set VARIABLE=valor` antes
++de ejecutar `.venv\Scripts\python.exe -m pytest`; no se ha probado allí.
++
++El nuevo muestreo denso automático cubre 3.000 puntos STL, incluidos puntos
++interiores de triángulos con semilla fija. En sentido inverso mide vértices y
++centroides de teselación fina CAD y puntos de aristas. Mantiene los umbrales
++originales de p95 y máximo. Un BRepCheck válido y cero interferencias no
++sustituyen este control geométrico.
++
++Para certificar la identidad de los STEP del cubo con los ensayados en la entrega
++anterior, sin repetir las mismas mediciones sobre geometría idéntica:
++
++```sh
++python comparar_regresion_cubo.py --referencia ../evidencias/cubo_referencia_previa --resultados ../evidencias/entrega_cubo
++```
++
++La prueba exige identidad binaria de DATA, de los STL y de las métricas; no
++acepta una comparación visual. Los ficheros de referencia están incluidos.
+--- anterior/LEEME.txt
++++ R2/LEEME.txt
+@@ -1,36 +1,24 @@
+-perfeccion_Visualizador — COPIA EXPERIMENTAL INDEPENDIENTE.
+-Leer ../INFORME_RESULTADOS.md y ESTADO_VALIDACION.md.
++perfeccion_Visualizador R2 — AVANCE EXPERIMENTAL
+ 
+-Para probar: descomprimir el paquete en una carpeta nueva. No copiar archivos
+-encima del Visor estable. Esta entrega es la aplicación Python de referencia;
+-no actualiza la aplicación WebAssembly publicada en GitHub Pages.
++Descomprimir el ZIP en una carpeta nueva. En su raíz están:
++  Instalar_Entorno.bat: preparar Python/dependencias una vez.
++  Iniciar.bat: abrir el Visor experimental, puerto 8766.
++La carpeta Visor_experimental_fuentes contiene el programa completo.
++No hace falta buscar una carpeta de fuentes dentro de otro ZIP de GitHub.
++Requiere Python 3.12 de 64 bits; el ZIP no trae Python preinstalado.
++La instalación/ejecución nativa de Windows sigue sin probarse en esta sesión.
+ 
+-En Windows: ejecutar Instalar_Entorno.bat y después Iniciar.bat.
+-El navegador abre http://127.0.0.1:8766 (puerto de esta copia experimental).
+-Las pruebas nativas Windows y Move face en Onshape siguen pendientes.
++IMPORTANTE: Leer INFORME_RESULTADOS.md antes de sustituir nada.
++Fallo_Dimensional supera las verificaciones. Las otras dos piezas nuevas
++siguen sin un STEP aprobado. Un STL reparado no implica un CAD correcto.
++Los candidatos CAD defectuosos incluidos como fixtures están marcados
++NO ACEPTADOS y solo sirven para reproducir los tests de rechazo.
+ 
+---- LEEME ORIGINAL DE REFERENCIA ---
+-VISOR STL V4.0 USO R1 (Windows)
++Se conserva la interfaz anterior y el motor, con correcciones conservadoras.
++No se relajan límites dimensionales o superficiales.
++En operaciones largas al 78 % se muestran fases y puntos verificados;
++ese porcentaje no es una estimación lineal del tiempo restante.
++Las conversiones tienen límites de tiempo/RAM; Nuevo cancela el proceso.
+ 
+-1. Descomprimir el ZIP en una carpeta NUEVA.
+-2. Ejecutar Instalar_Entorno.bat la primera vez. Requiere Internet, Python 3.12/3.13 de 64 bits y puede tardar varios minutos.
+-3. Ejecutar Iniciar.bat y mantener abierta la consola.
+-4. En la copia experimental, interfaz http://127.0.0.1:8766
+-5. Si deseas cancelar una conversion, pulsa Nuevo.
+-
+-REVISION R1 (20/10/2026): rescata curvaturas cilindricas y toroidales mediante segmentacion fina verificada cuando el primer CAD cambia el volumen. Soluciona el fallo reproducido de maneta (volumen +16.573%). Tambien comprobados Brick y Clip.
+-
+-Esta variante evita depender de las versiones de paquetes ya instaladas en Windows. Los motores y sus validaciones siguen siendo los de V4; si las alternativas no cumplen fidelidad, NO se exporta un STEP incorrecto. Se ha ampliado la busqueda geometrica y eliminado la repeticion inutil del motor inicial.
+-
+-LIMITES
+-- No hay garantia de conversion para todos los STL.
+-- Solidos STEP validos no implican que Move face funcione en todas sus caras.
+-- Si falla una conversion, comparte los informes de Registros_Conversion.
+-- Esta build se ha probado en Linux con la misma version de Python y librerias especificadas, no de forma presencial en Windows.
+-- Conserva la V3 estable como respaldo.
+-
+-PRUEBAS DE ESTA REVISION
+-- Maneta: 42 caras CAD, error de volumen 0.1076%, B-Rep valido.
+-- Brick: 33 caras CAD, error de volumen 0.0314%, B-Rep valido.
+-- Clip: 54 caras CAD, error de volumen 0.0374%, B-Rep valido.
+-- Comprobado en Linux. La ejecucion de R1 en Windows aun requiere validacion del usuario.
++Esta entrega corresponde al Visor Python aportado. No instala cambios en
++la página WebAssembly publicada en GitHub Pages.
+--- anterior/VERSION.txt
++++ R2/VERSION.txt
+@@ -1,4 +1,4 @@
+-perfeccion_Visualizador — experimental sobre Visor STL → STEP V4 R1
++perfeccion_Visualizador_R2
+ 2026-10-23
+-Leer ESTADO_VALIDACION.md y ../INFORME_RESULTADOS.md.
+-No sustituir la R1 estable.
++AVANCE EXPERIMENTAL: Fallo_Dimensional validado; Pieza ambigua y 4600_fixed pendientes.
++Visor Python; no actualiza el conversor WebAssembly de GitHub Pages.
+--- anterior/comparar_regresion_cubo.py
++++ R2/comparar_regresion_cubo.py
+@@ -0,0 +1,43 @@
++"""Certifica identidad de geometría STEP con la batería independiente previa.
++
++Uso: python comparar_regresion_cubo.py --referencia CARPETA --resultados CARPETA
++No vuelve a ejecutar el verificador denso; exige identidad binaria de DATA,
++de los STL originales/reparados y de los indicadores históricos del CAD.
++"""
++import argparse,hashlib,json
++from pathlib import Path
++
++
++def main():
++    ap=argparse.ArgumentParser(description=__doc__)
++    ap.add_argument('--referencia',type=Path,required=True)
++    ap.add_argument('--resultados',type=Path,required=True)
++    a=ap.parse_args()
++    old=json.loads((a.referencia/'bateria.json').read_text())['resultados']
++    new=json.loads((a.resultados/'bateria.json').read_text())['resultados']
++    checks=json.loads((a.referencia/'verificacion_independiente.json').read_text())
++    assert len(old)==len(new)==len(checks)==4
++    reports=[]
++    for row in new:
++        name=row['archivo'];previous=next(x for x in old if x['archivo']==name)
++        assert row['ok'] and previous['ok'] and row['sha256']==previous['sha256']
++        check=checks[name];assert check['ok'] and check['sha256_step']==previous['sha256_step']
++        q=row['informe_motor']['resultado']['calidad'];bq=previous['informe_motor']['resultado']['calidad']
++        for key in bq:assert q[key]==bq[key],(name,key)
++        assert q['inspeccion_densa']['aceptado'] and q['autointerferencias_occ'] is False
++        paths=[d/(Path(name).stem+'.step') for d in (a.referencia,a.resultados)]
++        contents=[p.read_bytes() for p in paths]
++        assert [hashlib.sha256(c).hexdigest() for c in contents]==[previous['sha256_step'],row['sha256_step']]
++        data=[c.split(b'DATA;',1)[1] for c in contents];assert data[0]==data[1]
++        repair=[p.with_suffix('.reparado.stl').read_bytes() for p in paths];assert repair[0]==repair[1]
++        reports.append({'archivo':name,'ok':True,'data_step_identico_sha256':hashlib.sha256(data[0]).hexdigest(),
++                        'sha256_step_anterior':previous['sha256_step'],'sha256_step_actual':row['sha256_step'],
++                        'sha256_stl_original':row['sha256'],'sha256_stl_reparado':hashlib.sha256(repair[0]).hexdigest(),
++                        'metricas_historicas_identicas':True,'nueva_inspeccion_densa':q['inspeccion_densa'],
++                        'verificacion_independiente_previa':check})
++    target=a.resultados/'identidad_geometria_previamente_verificada.json'
++    target.write_text(json.dumps({'verificador_independiente_reejecutado':False,'motivo':'Identidad binaria de DATA STEP y STL, con prueba previa aprobada y comprobada por SHA256.','casos':reports},indent=2,ensure_ascii=False))
++    print('4 casos: identidad de geometría STEP y STL certificada; pruebas independientes previas válidas para la misma geometría.')
++
++
++if __name__=='__main__':main()
+--- anterior/contactos_numericos.py
++++ R2/contactos_numericos.py
+@@ -0,0 +1,79 @@
++"""Estabilizar planos de contacto SOLO si ya existe unión volumétrica o superficial.
++
++No une piezas separadas por proximidad. Movimiento absoluto máximo 0,000020
++mm; el resultado debe contrastarse después con la referencia OCC ORIGINAL.
++"""
++from __future__ import annotations
++import numpy as np
++
++
++def normalizar_contactos_solapados(mesh):
++    import shapely
++    import trimesh
++    from preprocesador_stl import componentes,_manifold
++    parts=componentes(mesh)
++    solids=[_manifold(p) for p in parts]
++    original=np.asarray(mesh.vertices,float)
++    vertices=original.copy()
++    restore=np.eye(4)
++    working=None
++    epsilon=min(.000020,float(np.linalg.norm(mesh.extents))*1e-7)
++    proofs=[]
++    for i,a in enumerate(parts):
++        for j in range(i+1,len(parts)):
++            b=parts[j]
++            overlap=(solids[i]^solids[j]).volume()
++            united=solids[i]+solids[j]
++            contact_area=(solids[i].surface_area()+solids[j].surface_area()-united.surface_area())/2
++            if overlap<=1e-10 and (len(united.decompose())!=1 or contact_area<=1e-8):
++                continue  # Ni solapamiento ni contacto superficial ya unido: NO aproximar.
++            found=None
++            # Buscar soporte plano significativo, no astillas casi degeneradas.
++            ia=np.argsort(-a.area_faces)[:40];ib=np.argsort(-b.area_faces)[:80]
++            for fa in ia:
++                if a.area_faces[fa]<.001*a.area:continue
++                n=a.face_normals[fa]
++                candidates=ib[(b.face_normals[ib]@n)<-1+1e-10]
++                for fb in candidates:
++                    if b.area_faces[fb]<.001*b.area:continue
++                    pa,pb=a.triangles[fa],b.triangles[fb]
++                    if np.max(abs((pb-pa.mean(0))@n))>epsilon:continue
++                    ref=np.eye(3)[np.argmin(abs(n))]
++                    x=np.cross(n,ref);x/=np.linalg.norm(x);y=np.cross(n,x)
++                    uv=lambda p:np.column_stack((p@x,p@y))
++                    area=shapely.Polygon(uv(pa)).intersection(shapely.Polygon(uv(pb))).area
++                    if area<=1e-8:continue
++                    found=(n,(pa.mean(0)+pb.mean(0))/2,area)
++                    break
++                if found is not None:break
++            if found is None:continue
++            n,origin,area=found
++            if working is None:
++                ref=np.eye(3)[np.argmin(abs(n))]
++                x=np.cross(n,ref);x/=np.linalg.norm(x)
++                basis=np.column_stack((x,np.cross(n,x),n))
++                restore[:3,:3]=basis;restore[:3,3]=origin
++                working=(original-origin)@basis
++                vertices=working.copy()
++                level=0.
++            else:
++                if abs(n@restore[:3,2])<1-1e-10:continue
++                level=float((origin-restore[:3,3])@restore[:3,2])
++            mask=abs(vertices[:,2]-level)<=epsilon
++            # Todos los vértices del mismo plano, incluidos otros cuerpos que
++            # ya lo ocupan. La comprobación final limita el movimiento TOTAL.
++            # En este marco la interfaz ES z constante, idéntica en bits:
++            # reproyectar en 3D dejaba microseparaciones de redondeo en OCC.
++            vertices[mask,2]=float(np.mean(vertices[mask,2])) if abs(level)>epsilon else 0.
++            proofs.append({'componentes':[i,j],'interseccion_preexistente_mm3':float(overlap),
++                           'area_contacto_preexistente_mm2':float(contact_area),
++                           'area_soporte_mm2':float(area),'vertices_plano':int(mask.sum())})
++    if not proofs:return mesh,restore,{'aplicado':False}
++    movement=np.linalg.norm(vertices-working,axis=1)
++    if movement.max()>epsilon:
++        raise ValueError('La estabilización de contactos excede su límite nanométrico.')
++    candidate=trimesh.Trimesh(vertices,mesh.faces.copy(),process=False)
++    return candidate,restore,{'aplicado':True,'contactos':proofs,'max_movimiento_mm':float(movement.max()),
++                      'limite_movimiento_mm':epsilon,'uniones_por_cercania':0,
++                      'matriz_restauracion':restore.tolist(),
++                      'condicion':'solapamiento o contacto superficial YA unido; caras planas opuestas con área común'}
+--- anterior/motor_v2.py
++++ R2/motor_v2.py
+@@ -142,10 +142,12 @@
+     from collections import Counter
+     from vtk.util.numpy_support import vtk_to_numpy
+ 
++    avance(78, 'Releyendo STEP y comprobando sólido, volumen y cotas')
+     solids = cq.importers.importStep(str(step_path)).solids().vals()
+     if len(solids) != 1 or not solids[0].isValid():
+         raise ValueError('El STEP no contiene exactamente un sólido cerrado y válido.')
+     solid = solids[0]
++    sampling_solid = solid.copy()
+     bounds = solid.BoundingBox()  # Antes de la teselación, que altera la caché de OCC
+     bbox = np.asarray([[bounds.xmin,bounds.ymin,bounds.zmin],
+                        [bounds.xmax,bounds.ymax,bounds.zmax]])
+@@ -153,7 +155,7 @@
+     bbox_error = bbox_error_analitico
+     caja_modo='OpenCascade'
+     if bbox_error_analitico > MAX_BBOX_ERROR:
+-        bbox_error = _caja_cad_teselada(solid,original)
++        bbox_error = _caja_cad_teselada(sampling_solid,original)
+         caja_modo='triangulacion CAD a dos resoluciones + margen 0.003 mm'
+         print(f'[Caja V4] CAD analítico={bbox_error_analitico:.6f} mm, '
+               f'CAD recortado={bbox_error:.6f} mm (margen incluido)',flush=True)
+@@ -171,7 +173,12 @@
+     raw = vtk_to_numpy(srcpoly.GetPoints().GetData())
+     # CAD -> STL: usar puntos pertenecientes a la superficie reconstruida.
+     # La teselación CAD se emplea solo para tomar muestras; no se exporta como malla.
+-    mesh_vertices, triangles = solid.tessellate(0.010)
++    # OCC puede adjuntar a la forma polígonos de triangulación defectuosos
++    # durante el muestreo y hacer que BRepCheck rechace después ese caché.
++    # Muestrear una copia profunda; juzgar el B-Rep STEP recién importado.
++    # No se cambia ninguna superficie, muestra ni límite geométrico.
++    avance(78, 'Muestreando las superficies CAD del STEP')
++    mesh_vertices, triangles = sampling_solid.tessellate(0.010)
+     cadpts = np.asarray([[p.x,p.y,p.z] for p in mesh_vertices], dtype=float)
+     if len(cadpts)==0:
+         raise ValueError('No se ha podido inspeccionar la superficie del STEP.')
+@@ -186,7 +193,9 @@
+     src_sample = raw[np.linspace(0,len(raw)-1,min(len(raw),n_muestras),dtype=int)]
+     shell = solid.Shells()[0].wrapped
+     dlist = []
+-    for p in src_sample:
++    for sample_index, p in enumerate(src_sample):
++        if sample_index % 100 == 0:
++            avance(78, f'Midiendo STL frente al CAD: {sample_index}/{len(src_sample)} puntos')
+         vertex = BRepBuilderAPI_MakeVertex(gp_Pnt(*[float(x) for x in p])).Vertex()
+         dist = BRepExtrema_DistShapeShape(vertex,shell)
+         dist.Perform()
+@@ -224,11 +233,12 @@
+         raise ValueError('STEP válido, pero la fidelidad superficial no supera el control: '+', '.join(reasons))
+     types = Counter(str(BRepAdaptor_Surface(face.wrapped).GetType()).split('.')[-1]
+                     for face in solid.Faces())
++    avance(78, 'Comprobando integridad final del B-Rep STEP')
+     from calidad_topologica import inspeccionar
+     topologia=inspeccionar(solid)
+     if not topologia['brep_valido'] or topologia['solidos']!=1 or topologia['aristas_parametrizacion_incoherente']:
+         raise ValueError('La reconstrucción presenta defectos topológicos en aristas o caras.')
+-    return {
++    result = {
+         'integridad_cad':topologia,
+         'caras_step':face_count, 'bytes_step':step_path.stat().st_size,
+         'volumen_error_pct':round(100*volume_error,6),
+@@ -243,6 +253,23 @@
+             'desviacion_max_observada_mm':surface_max_limit,'margen_preparacion_mm':prep},
+         'nota':'Mediciones de muestras, no garantía absoluta de desviación global.'
+     }
++    # Puerta adicional solo para entradas reparadas o cuando el muestreo
++    # reproduce el falso rechazo de caché. Las entradas históricas sanas
++    # mantienen el recorrido y los umbrales de sus comprobaciones.
++    if (os.environ.get('VISOR_VERIFICAR_INTERFERENCIAS_CAD')=='1'
++            or not sampling_solid.isValid()):
++        avance(78, 'Comprobando interferencias entre caras y aristas CAD')
++        from saneamiento_cad import comprobar_interferencias, InterferenciasCAD
++        valid, count = comprobar_interferencias(solid)
++        if not valid:
++            raise InterferenciasCAD(count,result)
++        result['autointerferencias_occ'] = False
++    if os.environ.get('VISOR_VERIFICAR_INTERFERENCIAS_CAD')=='1':
++        avance(78, 'Inspección densa de caras y aristas del STEP frente al STL reparado')
++        from validacion_densa import exigir_denso
++        result['inspeccion_densa'] = exigir_denso(original,solid,
++            limite_p95=surface_p95_limit,limite_max=surface_max_limit)
++    return result
+ 
+ 
+ def convertir(path_stl: Path, path_step: Path, log, *, flat_tol_deg=8.0,
+@@ -365,8 +392,21 @@
+             limpieza={'aplicado':False,'motivo':f'Error no bloqueante: {exc}'}
+             print(f'[Franjas] {limpieza}',file=log,flush=True)
+         avance(78, "Validando sólido, cotas y precisión")
+-        quality = _calidad(path_stl,candidate,original,
+-                           error_preparacion_mm=prep['distancia_mm'] if prep else 0.0)
++        from saneamiento_cad import InterferenciasCAD, intentar_sanear
++        saneamiento = {'aplicado':False}
++        try:
++            quality = _calidad(path_stl,candidate,original,
++                               error_preparacion_mm=prep['distancia_mm'] if prep else 0.0)
++        except InterferenciasCAD as initial:
++            print(f'[Saneamiento CAD] {initial}; probando intersecciones y aristas.',file=log,flush=True)
++            avance(78,'Resolviendo interferencias del candidato CAD; se conservarán los límites')
++            try:
++                quality,saneamiento = intentar_sanear(path_stl,candidate,original,
++                    lambda src,step,mesh: _calidad(src,step,mesh,
++                        error_preparacion_mm=prep['distancia_mm'] if prep else 0.0))
++            except Exception as repair_error:
++                print(f'[Saneamiento CAD] Descartado: {repair_error}',file=log,flush=True)
++                raise initial from repair_error
+         if os.environ.get('VISOR_VALIDACION_LOCAL') == '1':
+             import cadquery as cq
+             from validacion_local import inspeccionar_local
+@@ -387,6 +427,7 @@
+                             'segmentacion_grados': flat_tol_deg},
+             'modo':'superficies',
+             'preparacion':prep,
++            'saneamiento_cad':saneamiento,
+             'reconocimiento_original_experimental':inventario,
+             'cilindros_analiticos_verificados':cilindros_analiticos,
+             'limpieza_franjas':limpieza,
+@@ -769,6 +810,7 @@
+     from preprocesador_stl import preparar, ReparacionRechazada
+     src, dst = map(Path, sys.argv[1:])
+     args = sys.argv[:]
++    previous_interference_flag = os.environ.get('VISOR_VERIFICAR_INTERFERENCIAS_CAD')
+     report = None
+     report_path = dst.with_suffix('.entrada.json')
+     try:
+@@ -779,8 +821,10 @@
+         avance(12, 'Diagnosticando topología y posible unión conservadora')
+         prepared, report = preparar(src, dst.with_suffix('.reparado.stl'))
+         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
++        if report.get('reparado'):
++            os.environ['VISOR_VERIFICAR_INTERFERENCIAS_CAD'] = '1'
+         sys.argv = [args[0], str(prepared), str(dst)]
+-        if report.get('reparado') and report.get('salida', {}).get('caras', 0) <= 5000:
++        if report.get('reparado') and report.get('salida', {}).get('caras', 0) <= 12000:
+             # Esta ruta nunca toca las 14 entradas sanas: solo sigue a una
+             # reparación booleana ya contrastada y vuelve a pasar _calidad.
+             # Los indicadores y tolerancias del validador histórico no cambian.
+@@ -842,6 +886,10 @@
+         return 2
+     finally:
+         sys.argv = args
++        if previous_interference_flag is None:
++            os.environ.pop('VISOR_VERIFICAR_INTERFERENCIAS_CAD',None)
++        else:
++            os.environ['VISOR_VERIFICAR_INTERFERENCIAS_CAD'] = previous_interference_flag
+ 
+ 
+ if __name__=='__main__':
+--- anterior/preprocesador_stl.py
++++ R2/preprocesador_stl.py
+@@ -162,7 +162,7 @@
+                                  'nota': 'Solo interfaz con aristas compartidas; no unión por cercanía.'}
+ 
+ 
+-def unir_cerrados(mesh):
++def unir_cerrados(mesh, *, _permitir_rescate_contacto=True):
+     from verificacion_reparacion import validar_union
+     parts = componentes(mesh)
+     if len(mesh.faces) > MAX_UNION_FACES or len(parts) > MAX_UNION_PARTS:
+@@ -201,7 +201,23 @@
+     genus_after = max(0, (2-candidate.euler_number)//2)
+     if genus_after < genus_before:
+         raise ValueError('No se puede garantizar la preservación de agujeros interiores.')
+-    validation = validar_union(parts, candidate)
++    try:
++        validation = validar_union(parts, candidate)
++    except ValueError as initial_error:
++        if not _permitir_rescate_contacto:
++            raise
++        from contactos_numericos import normalizar_contactos_solapados
++        stabilized, restore_contact, contact_proof = normalizar_contactos_solapados(mesh)
++        if not contact_proof['aplicado']:
++            raise
++        candidate, _ = unir_cerrados(stabilized, _permitir_rescate_contacto=False)
++        candidate.apply_transform(restore_contact)
++        # La referencia sigue siendo la entrada ORIGINAL, sin estabilizar.
++        # El error nanométrico no se suma al límite de ninguna comprobación.
++        validation = validar_union(parts, candidate)
++        validation['estabilizacion_contactos'] = contact_proof
++        validation['rechazo_booleano_inicial'] = str(initial_error)
++        genus_after = max(0, (2-candidate.euler_number)//2)
+     validation.update(relaciones=relations, genero_antes=genus_before, genero_despues=genus_after,
+                       normalizacion_contacto=contact_report)
+     validation['limite_simplificacion_numerica_mm'] = numerical_limit
+--- anterior/regularizacion_planar.py
++++ R2/regularizacion_planar.py
+@@ -0,0 +1,98 @@
++"""Cancelar exclusivamente superficies planas coincidentes de sentidos opuestos.
++
++Un fondo de cavidad de espesor cero puede coincidir con una cara exterior.
++La carcasa es estanca topológicamente, pero se interseca consigo misma. Aquí
++se resta la cobertura opuesta en el mismo plano; no se rellenan aberturas,
++no se inventan vértices y se exige la misma frontera orientada del parche.
++"""
++from __future__ import annotations
++from collections import Counter, defaultdict
++import numpy as np
++
++PLANO_EPS_MM = 5e-10
++
++
++def _frontera(faces):
++    edges = Counter()
++    for tri in faces:
++        for a,b in zip(tri,np.roll(tri,-1)):
++            a,b=int(a),int(b)
++            edges[(min(a,b),max(a,b))] += 1 if a<b else -1
++    return {key:value for key,value in edges.items() if value}
++
++
++def regularizar_cancelaciones_planas(mesh):
++    import shapely
++    import trimesh
++    from scipy.spatial import cKDTree
++    groups=defaultdict(list)
++    normals=mesh.face_normals
++    for i,n in enumerate(normals):
++        canonical=n.copy()
++        if canonical[np.argmax(abs(canonical))]<0:canonical=-canonical
++        offset=float(mesh.triangles_center[i]@canonical)
++        key=tuple(np.round(canonical,10))+ (round(offset,9),)
++        groups[key].append(i)
++    tree=cKDTree(mesh.vertices)
++    replacements={}; details=[]
++    for ids in groups.values():
++        ids=np.asarray(ids,int)
++        if len(ids)<4:continue
++        n=normals[ids[0]].copy()
++        if n[np.argmax(abs(n))]<0:n=-n
++        signs=normals[ids]@n
++        if not ((signs>0).any() and (signs<0).any()):continue
++        points=mesh.vertices[np.unique(mesh.faces[ids])]
++        origin=points.mean(0)
++        if np.max(abs((points-origin)@n))>PLANO_EPS_MM:continue
++        if np.min(abs(signs))<1-1e-12:continue
++        ref=np.eye(3)[np.argmin(abs(n))]
++        x=np.cross(n,ref);x/=np.linalg.norm(x);y=np.cross(n,x)
++        uv=np.column_stack(((mesh.vertices-origin)@x,(mesh.vertices-origin)@y))
++        positive=[shapely.Polygon(uv[mesh.faces[i]]) for i in ids[signs>0]]
++        negative=[shapely.Polygon(uv[mesh.faces[i]]) for i in ids[signs<0]]
++        pos,neg=shapely.union_all(positive),shapely.union_all(negative)
++        area_eps=max(1e-10,(pos.area+neg.area)*1e-10)
++        overlap=pos.intersection(neg).area
++        if overlap<=area_eps:continue
++        if (abs(sum(p.area for p in positive)-pos.area)>area_eps or
++                abs(sum(p.area for p in negative)-neg.area)>area_eps):
++            raise ValueError('Cobertura plana con multiplicidad del mismo sentido: no se regulariza.')
++        new_faces=[]
++        for region,sign in ((pos.difference(neg),1),(neg.difference(pos),-1)):
++            if region.is_empty:continue
++            for tri in shapely.constrained_delaunay_triangles(region).geoms:
++                coords=np.asarray(tri.exterior.coords)[:3]
++                xyz=origin+coords[:,0,None]*x+coords[:,1,None]*y
++                distance,indices=tree.query(xyz)
++                if np.max(distance)>1e-9:
++                    raise ValueError('La cancelación requeriría inventar vértices; entrada ambigua.')
++                verts=mesh.vertices[indices]
++                direction=float(np.cross(verts[1]-verts[0],verts[2]-verts[0])@n)
++                if direction*sign<0:indices=indices[::-1]
++                new_faces.append(indices)
++        if _frontera(mesh.faces[ids]) != _frontera(new_faces):
++            raise ValueError('La regularización altera la frontera orientada del parche.')
++        signed_before=float(mesh.area_faces[ids]@np.sign(signs))
++        signed_after=pos.area-neg.area
++        if abs(signed_before-signed_after)>area_eps:
++            raise ValueError('La cancelación plana no conserva el área orientada.')
++        replacements[int(ids[0])]=(ids,np.asarray(new_faces,dtype=int).reshape(-1,3))
++        details.append({'normal':n.tolist(),'punto_plano':origin.tolist(),
++                        'caras_antes':len(ids),'caras_despues':len(new_faces),
++                        'area_coincidente_cancelada_mm2':float(overlap),
++                        'frontera_orientada_identica':True,'vertices_nuevos':0,'vertices_movidos':0})
++    if not replacements:return mesh,{'aplicado':False}
++    removed=set(int(i) for ids,_ in replacements.values() for i in ids)
++    faces=[f for i,f in enumerate(mesh.faces) if i not in removed]
++    for _,new in replacements.values():faces.extend(new)
++    candidate=trimesh.Trimesh(mesh.vertices.copy(),np.asarray(faces),process=False)
++    candidate.remove_unreferenced_vertices()
++    difference=abs(candidate.volume-mesh.volume)
++    if (not candidate.is_watertight or not candidate.is_winding_consistent or candidate.volume<=0
++            or difference>max(1e-8,abs(mesh.volume)*1e-10)
++            or np.max(abs(candidate.bounds-mesh.bounds))>1e-9):
++        raise ValueError('La cancelación no conserva volumen, caja o cierre; descartada.')
++    return candidate,{'aplicado':True,'parches':details,'diferencia_volumen_mm3':float(difference),
++                      'limite_coplanaridad_mm':PLANO_EPS_MM,
++                      'principio':'misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta'}
+--- anterior/saneamiento_cad.py
++++ R2/saneamiento_cad.py
+@@ -0,0 +1,69 @@
++"""Rescate acotado de un B-Rep con interferencias, conservando sus superficies.
++
++Recalcula intersecciones de caras y fusiona aristas cortas con precisión 0,001
++mm. Exige un sólido, los controles STL/STEP originales y cero interferencias
++tras escribir y releer. Nunca cambia los límites de aceptación del Visor.
++"""
++from pathlib import Path
++import tempfile
++
++
++class InterferenciasCAD(ValueError):
++    def __init__(self, cantidad, calidad):
++        super().__init__(f'La reconstrucción presenta defectos topológicos avanzados: '
++                         f'{cantidad} posibles interferencias entre caras, aristas o vértices.')
++        self.cantidad, self.calidad = cantidad, calidad
++
++
++def comprobar_interferencias(shape):
++    from OCP.BRepAlgoAPI import BRepAlgoAPI_Check
++    check=BRepAlgoAPI_Check(shape.wrapped,False,True)
++    return check.IsValid(),len(list(check.Result()))
++
++
++def intentar_sanear(source, step, original, validar):
++    import cadquery as cq
++    from OCP.BOPAlgo import BOPAlgo_MakerVolume
++    from OCP.ShapeFix import ShapeFix_Wireframe
++    from calidad_topologica import inspeccionar
++    shape=cq.importers.importStep(str(step)).solids().val()
++    before=inspeccionar(shape)
++    maker=BOPAlgo_MakerVolume()
++    maker.SetIntersect(True);maker.SetAvoidInternalShapes(True)
++    maker.SetNonDestructive(True);maker.SetFuzzyValue(0.);maker.SetRunParallel(False)
++    for face in shape.Faces():maker.AddArgument(face.wrapped)
++    maker.Perform()
++    if maker.HasErrors():raise ValueError('No se pudieron resolver las intersecciones CAD.')
++    rebuilt=cq.Shape.cast(maker.Shape())
++    if not rebuilt.isValid() or len(rebuilt.Solids())!=1:
++        raise ValueError('El saneamiento no produce un único sólido válido; descartado.')
++    # Fusionar segmentos cortos de una forma ya cerrada, sin cerrar agujeros
++    # STL ni eliminar cuerpos. El resultado vuelve a medirse íntegramente.
++    wire=ShapeFix_Wireframe(rebuilt.wrapped)
++    wire.SetPrecision(.001);wire.SetMaxTolerance(.001);wire.SetMinTolerance(1e-7)
++    changed=wire.FixSmallEdges()
++    healed=cq.Shape.cast(wire.Shape())
++    if not healed.isValid() or len(healed.Solids())!=1:
++        raise ValueError('El ajuste de aristas deja un B-Rep inválido; descartado.')
++    with tempfile.TemporaryDirectory(prefix='visor_saneamiento_') as directory:
++        target=Path(directory)/'verificado.step'
++        cq.exporters.export(healed,str(target))
++        quality=validar(source,target,original)
++        back=cq.importers.importStep(str(target)).solids().val()
++        ok,count=comprobar_interferencias(back)
++        if not ok:raise ValueError(f'El saneamiento conserva {count} interferencias; descartado.')
++        from avance_conversion import avance
++        from validacion_local import inspeccionar_local
++        avance(78,'Verificando aristas y encuentros del CAD saneado frente al STL')
++        local=inspeccionar_local(source,back,puntos_stl=700,puntos_cad=3000,tolerancia_max=.060)
++        if local['supera_umbral_observado']:
++            raise ValueError('Las aristas saneadas superan el máximo geométrico original de 0,060 mm.')
++        quality['autointerferencias_occ']=False
++        proof={'aplicado':True,'intersecciones_recalculadas':True,
++               'fuzzy_booleano_mm':0.,'precision_aristas_mm':.001,
++               'aristas_cortas_fusionadas':bool(changed),
++               'topologia_antes':before,'topologia_despues':inspeccionar(back),
++               'control_local_aristas':local,
++               'validacion':'STEP reimportado, mismos límites y sin interferencias OCC'}
++        step.write_bytes(target.read_bytes())
++        return quality,proof
+--- anterior/test_correcciones_r2.py
++++ R2/test_correcciones_r2.py
+@@ -0,0 +1,136 @@
++"""Regresiones de fondos coincidentes, contactos y caché de teselación CAD."""
++from pathlib import Path
++import os
++import hashlib
++import numpy as np
++import pytest
++import trimesh
++from regularizacion_planar import regularizar_cancelaciones_planas
++from contactos_numericos import normalizar_contactos_solapados
++from preprocesador_stl import componentes, _manifold, cargar_exacto, preparar
++from verificacion_reparacion import distancia_malla, puntos_superficie, solido_poliedrico
++
++
++def fondo_cavidad(espesor=0.):
++    """Anillo con dos discos de fondo; espesor cero = caras superpuestas."""
++    import shapely
++    from scipy.spatial import cKDTree
++    ring=trimesh.creation.annulus(r_min=1.,r_max=3.,height=2.,sections=24)
++    bottom=ring.vertices[:,2].min()
++    cap=np.all(abs(ring.triangles[:,:,2]-bottom)<1e-10,axis=1)
++    ids=np.unique(ring.faces[cap])
++    radius=np.linalg.norm(ring.vertices[ids,:2],axis=1)
++    tree=cKDTree(ring.vertices)
++    disks=[]
++    for wanted,orientation in ((3.,-1),(1.,1)):
++        vertices=ids[abs(radius-wanted)<1e-8]
++        points=ring.vertices[vertices,:2]
++        points=points[np.argsort(np.arctan2(points[:,1],points[:,0]))]
++        for tri in shapely.constrained_delaunay_triangles(shapely.Polygon(points)).geoms:
++            uv=np.asarray(tri.exterior.coords)[:3]
++            _,face=tree.query(np.column_stack((uv,np.full(3,bottom))))
++            xyz=ring.vertices[face]
++            if np.cross(xyz[1]-xyz[0],xyz[2]-xyz[0])[2]*orientation<0:face=face[::-1]
++            disks.append(face)
++    mesh=trimesh.Trimesh(ring.vertices.copy(),np.vstack((ring.faces[~cap],disks)),process=False)
++    inner=ids[abs(radius-1)<1e-8]
++    mesh.vertices[inner,2]+=espesor
++    assert mesh.is_watertight and mesh.is_winding_consistent
++    return mesh,ring
++
++
++def test_cancelacion_plana_conserva_anillo_y_frontera():
++    mesh,expected=fondo_cavidad()
++    vertices,faces=mesh.vertices.copy(),mesh.faces.copy()
++    fixed,report=regularizar_cancelaciones_planas(mesh)
++    assert report['aplicado'] and fixed.euler_number==0
++    assert all(p['frontera_orientada_identica'] for p in report['parches'])
++    assert abs(mesh.volume-fixed.volume)<1e-10
++    assert np.array_equal(mesh.vertices,vertices) and np.array_equal(mesh.faces,faces)
++    assert {tuple(p) for p in fixed.vertices}<={tuple(p) for p in vertices}
++    assert max(distancia_malla(fixed,puntos_superficie(expected)).max(),
++               distancia_malla(expected,puntos_superficie(fixed)).max())<1e-9
++    assert solido_poliedrico(fixed).isValid()
++
++
++def test_no_elimina_fondo_fino_real():
++    mesh,_=fondo_cavidad(.0001)
++    candidate,report=regularizar_cancelaciones_planas(mesh)
++    assert not report['aplicado'] and candidate is mesh
++    assert mesh.euler_number==2 and solido_poliedrico(mesh).isValid()
++
++
++@pytest.mark.parametrize('offset',[[10.000001,0,0],[10,10,0],[10,10,10]])
++def test_contactos_numericos_no_cierran_separaciones(offset):
++    a=trimesh.creation.box(extents=[10,10,10]);b=a.copy().apply_translation(offset)
++    source=trimesh.util.concatenate([a,b])
++    candidate,restore,proof=normalizar_contactos_solapados(source)
++    assert not proof['aplicado'] and candidate is source and np.array_equal(restore,np.eye(4))
++
++
++def test_estabilizacion_solo_con_contacto_preexistente():
++    a=trimesh.creation.box(extents=[10,10,10]);b=a.copy().apply_translation([9.9999999,0,0])
++    source=trimesh.util.concatenate([a,b])
++    normalized,restore,proof=normalizar_contactos_solapados(source)
++    assert proof['aplicado'] and proof['max_movimiento_mm']<=proof['limite_movimiento_mm']
++    assert proof['uniones_por_cercania']==0
++    solids=[_manifold(p) for p in componentes(normalized)]
++    united=solids[0]+solids[1]
++    assert len(united.decompose())==1 and abs(united.volume()-1999.99999)<1e-7
++    assert np.allclose(restore[:3,:3].T@restore[:3,:3],np.eye(3),atol=1e-12)
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_CASOS_R2'),reason='STL aportados no indicados')
++@pytest.mark.parametrize('name',['Fallo_Dimensional.stl','Pieza ambigua.stl'])
++def test_reparacion_real_r2_contrasta_original(tmp_path,name):
++    source=Path(os.environ['VISOR_CASOS_R2'])/name
++    digest=hashlib.sha256(source.read_bytes()).hexdigest()
++    selected,report=preparar(source,tmp_path/'reparado.stl')
++    assert report['reparado'] and report['verificacion_stl_reimportado']['max_observado_mm']<.002
++    assert report['salida']['numero_componentes']==1
++    assert hashlib.sha256(source.read_bytes()).hexdigest()==digest
++    if name=='Pieza ambigua.stl':
++        assert len(report['verificacion_stl_reimportado']['regularizaciones_planas_referencia'])==4
++        assert cargar_exacto(selected).euler_number==-16  # nueve túneles de la unión física
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_FIXTURE_CACHE_R2'),reason='STEP de regresión de caché no indicado')
++def test_muestreo_no_corrompe_juicio_del_brep(tmp_path,monkeypatch):
++    import cadquery as cq
++    from motor_v2 import _calidad
++    source=Path(os.environ['VISOR_CASOS_R2'])/'4600_fixed.stl'
++    step=Path(os.environ['VISOR_FIXTURE_CACHE_R2'])
++    digest=hashlib.sha256(step.read_bytes()).hexdigest()
++    shape=cq.importers.importStep(str(step)).solids().val()
++    assert shape.isValid()
++    sampled=shape.copy();sampled.tessellate(.010)
++    assert not sampled.isValid() and shape.isValid()  # reproduce el falso rechazo previo
++    progress=tmp_path/'avance.jsonl';monkeypatch.setenv('VISOR_AVANCE_PATH',str(progress))
++    # Aislar la caché no autoriza a ignorar las interferencias geométricas
++    # adicionales del candidato. Debe rechazarse por ese motivo real.
++    from saneamiento_cad import InterferenciasCAD
++    with pytest.raises(InterferenciasCAD) as rejected:
++        _calidad(source,step,trimesh.load(source,force='mesh'))
++    q=rejected.value.calidad
++    assert rejected.value.cantidad>0
++    assert q['integridad_cad']['brep_valido'] and q['integridad_cad']['solidos']==1
++    assert q['limites_validacion']['caja_error_max_mm']==.020
++    assert q['limites_validacion']['volumen_error_max_pct']==.5
++    assert '700/800 puntos' in progress.read_text()
++    assert hashlib.sha256(step.read_bytes()).hexdigest()==digest
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_FIXTURE_DENSO_R2'),reason='STEP de regresión densa no indicado')
++def test_no_acepta_cad_solo_por_ser_valido_sin_interferencias():
++    import cadquery as cq
++    from saneamiento_cad import comprobar_interferencias
++    from validacion_densa import exigir_denso
++    step=Path(os.environ['VISOR_FIXTURE_DENSO_R2'])
++    mesh=trimesh.load(step.with_suffix('.reparado.stl'),force='mesh')
++    solid=cq.importers.importStep(str(step)).solids().val()
++    assert solid.isValid() and comprobar_interferencias(solid)==(True,0)
++    with pytest.raises(ValueError,match='Inspección densa rechazada') as rejected:
++        exigir_denso(mesh,solid,limite_p95=.020,limite_max=.060)
++    report=rejected.value.informe_denso
++    assert not report['aceptado'] and report['stl_a_cad']['max_mm']>.3
++    assert report['limite_max_mm']==.060
+--- anterior/validacion_densa.py
++++ R2/validacion_densa.py
+@@ -0,0 +1,50 @@
++"""Puerta adicional muestreada para CAD procedente de reparaciones.
++
++Cubre interiores de caras además de aristas. No demuestra una cota Hausdorff
++global y no modifica los límites geométricos del motor.
++"""
++import numpy as np
++
++
++def inspeccionar_denso(mesh, solid, *, limite_p95, limite_max):
++    import trimesh
++    from validacion_local import _esparcir, _distancias_cad, _puntos_brep
++    from verificacion_reparacion import distancia_malla
++
++    area, _ = trimesh.sample.sample_surface(mesh, 1000, seed=20261023)
++    points = np.vstack((_esparcir(np.vstack((mesh.vertices, mesh.triangles_center)), 2000), area))
++    from avance_conversion import avance
++    a = _distancias_cad(solid, points, progreso=lambda n,total:
++        avance(78,f'Inspección densa STL→STEP: {n}/{total} puntos verificados'))
++    avance(78,'Inspección densa STEP→STL: caras y aristas del CAD')
++    verts, tris = solid.copy().tessellate(.003, angularTolerance=.04)
++    vertices = np.asarray([p.toTuple() for p in verts])
++    triangles = np.asarray(tris)
++    cad_points = np.vstack((vertices, vertices[triangles].mean(axis=1), _puntos_brep(solid, 10000)))
++    b = distancia_malla(mesh, cad_points)
++
++    def stats(values, cloud):
++        if not len(values) or not np.isfinite(values).all():
++            raise ValueError('Inspección densa sin mediciones geométricas finitas.')
++        return {'muestras': len(values), 'p95_mm': float(np.percentile(values, 95)),
++                'max_mm': float(values.max()),
++                'zonas_sospechosas': [{'xyz_mm': cloud[k].tolist(), 'distancia_mm': float(values[k])}
++                                     for k in np.argsort(-values)[:5] if values[k] > limite_max]}
++
++    report = {'stl_a_cad': stats(a, points), 'cad_a_stl': stats(b, cad_points),
++              'limite_p95_mm': limite_p95, 'limite_max_mm': limite_max,
++              'nota': 'Muestreo determinista, no garantía Hausdorff global.'}
++    report['aceptado'] = all(v['p95_mm'] <= limite_p95 and v['max_mm'] <= limite_max
++                             for v in (report['stl_a_cad'], report['cad_a_stl']))
++    return report
++
++
++def exigir_denso(mesh, solid, *, limite_p95, limite_max):
++    report = inspeccionar_denso(mesh, solid, limite_p95=limite_p95, limite_max=limite_max)
++    if not report['aceptado']:
++        error = ValueError('Inspección densa rechazada: desviación máxima '
++                           f"{max(report['stl_a_cad']['max_mm'], report['cad_a_stl']['max_mm']):.6f} mm; "
++                           f'límite original {limite_max:.6f} mm.')
++        error.informe_denso = report
++        raise error
++    return report
+--- anterior/validacion_local.py
++++ R2/validacion_local.py
+@@ -51,19 +51,23 @@
+     return _esparcir(np.vstack(out) if out else mesh.vertices,total)
+ 
+ 
+-def _distancias_cad(solido,puntos):
++def _distancias_cad(solido,puntos,progreso=None):
+     from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeVertex
+     from OCP.BRepExtrema import BRepExtrema_DistShapeShape
+     from OCP.gp import gp_Pnt
+     shell=solido.Shells()[0].wrapped
+     distances=[]
+-    for p in puntos:
++    for i,p in enumerate(puntos):
++        if progreso is not None and i % 100 == 0:
++            progreso(i,len(puntos))
+         vert=BRepBuilderAPI_MakeVertex(gp_Pnt(*map(float,p))).Vertex()
+         ext=BRepExtrema_DistShapeShape(vert,shell)
+         ext.Perform()
+         if not ext.IsDone():
+             raise ValueError('No se pudo evaluar distancia local STL->STEP.')
+         distances.append(float(ext.Value()))
++    if progreso is not None:
++        progreso(len(puntos),len(puntos))
+     return np.asarray(distances,dtype=float)
+ 
+ 
+--- anterior/verificacion_reparacion.py
++++ R2/verificacion_reparacion.py
+@@ -7,7 +7,7 @@
+ import numpy as np
+ 
+ 
+-def solido_poliedrico(mesh):
++def solido_poliedrico(mesh, *, _permitir_regularizacion=True):
+     import cadquery as cq
+     from OCP.BRepBuilderAPI import (BRepBuilderAPI_MakePolygon, BRepBuilderAPI_MakeFace,
+                                    BRepBuilderAPI_Sewing, BRepBuilderAPI_MakeSolid)
+@@ -30,6 +30,13 @@
+     if not shape.isValid() or len(shape.Solids()) != 1 or shape.Volume() <= 0:
+         raise ValueError('El componente no forma un sólido poliédrico válido en OpenCascade.')
+     if not BRepAlgoAPI_Check(shape.wrapped, False, True).IsValid():
++        if _permitir_regularizacion:
++            from regularizacion_planar import regularizar_cancelaciones_planas
++            regularized, proof = regularizar_cancelaciones_planas(mesh)
++            if proof['aplicado']:
++                checked = solido_poliedrico(regularized, _permitir_regularizacion=False)
++                checked.regularizacion_plana = proof
++                return checked
+         raise ValueError('OpenCascade detecta autointersecciones o interferencias ambiguas.')
+     return shape
+ 
+@@ -38,6 +45,8 @@
+     import cadquery as cq
+     from OCP.BRepAlgoAPI import BRepAlgoAPI_Fuse
+     shapes = [solido_poliedrico(p) for p in parts]
++    regularizations = [{'componente': i, **s.regularizacion_plana}
++                       for i,s in enumerate(shapes) if hasattr(s,'regularizacion_plana')]
+     shape = shapes[0]
+     for other in shapes[1:]:
+         op = BRepAlgoAPI_Fuse(shape.wrapped, other.wrapped)
+@@ -48,6 +57,7 @@
+         shape = cq.Shape.cast(op.Shape())
+     if not shape.isValid() or len(shape.Solids()) != 1:
+         raise ValueError('Múltiples cuerpos: la unión independiente no produce un sólido válido.')
++    shape.regularizaciones_planas = regularizations
+     return shape
+ 
+ 
+@@ -119,6 +129,7 @@
+             'caja_error_mm': bbox_error, 'p95_mm': p95, 'max_observado_mm': max_dist,
+             'muestras_direcciones': [len(a), len(b)], 'brep_valido': ref.isValid(),
+             'solidos_referencia': len(ref.Solids()),
++            'regularizaciones_planas_referencia': ref.regularizaciones_planas,
+             'normalizacion_referencia': normalization,
+             'limites': {'volumen_pct': .001, 'caja_mm': .002, 'superficie_mm': .002},
+             'nota': 'Mediciones deterministas muestreadas, no cota Hausdorff global.'}
+--- anterior/verificar_casos_usuario.py
++++ R2/verificar_casos_usuario.py
+@@ -0,0 +1,122 @@
++"""Verificación independiente de las piezas aportadas: STEP, geometría y material.
++
++Uso: python verificar_casos_usuario.py --casos CARPETA --resultados CARPETA
++Lee bateria.json. Un caso rechazado sigue siendo pendiente, nunca se cuenta
++como conversión aprobada. No envía piezas a servicios externos.
++"""
++from pathlib import Path
++import argparse
++import hashlib
++import json
++import numpy as np
++
++
++def verificar(source,step,row):
++    import cadquery as cq
++    import trimesh
++    from OCP.BRepGProp import BRepGProp
++    from OCP.GProp import GProp_GProps
++    from OCP.BRepClass3d import BRepClass3d_SolidClassifier
++    from OCP.gp import gp_Pnt
++    from OCP.TopAbs import TopAbs_IN,TopAbs_OUT
++    from preprocesador_stl import cargar_exacto,componentes
++    from verificacion_reparacion import union_independiente,malla_cad,distancia_malla
++    from validacion_local import _esparcir,_distancias_cad,_puntos_brep
++    from saneamiento_cad import comprobar_interferencias
++    from motor_v2 import _calidad,_estadisticas
++
++    assert hashlib.sha256(source.read_bytes()).hexdigest()==row['sha256']
++    assert hashlib.sha256(step.read_bytes()).hexdigest()==row['sha256_step']
++    original=cargar_exacto(source)
++    prep=row['informe_motor']['preprocesamiento']
++    reference_path=step.with_suffix('.reparado.stl') if prep['reparado'] else source
++    if prep['reparado']:
++        assert hashlib.sha256(reference_path.read_bytes()).hexdigest()==prep['reparado_sha256']
++    mesh=cargar_exacto(reference_path)
++    q=_calidad(reference_path,step,mesh)
++    solid=cq.importers.importStep(str(step)).solids().val()
++    clean,issues=comprobar_interferencias(solid)
++    if not clean:raise ValueError(f'El STEP conserva {issues} interferencias OCC.')
++    # Referencia de material obtenida desde los componentes ORIGINALES.
++    ref=union_independiente(componentes(original)).Solids()[0]
++    refmesh=malla_cad(ref.copy())
++    masses=[]
++    for epsilon in (1e-6,1e-8):
++        g=GProp_GProps();BRepGProp.VolumeProperties_s(solid.wrapped,g,epsilon);masses.append(float(g.Mass()))
++    refmass=float(ref.Volume())
++    if (not np.isfinite(masses).all() or abs(masses[0]-masses[1])/refmass>1e-5
++            or abs(masses[-1]-refmass)/refmass>.005):
++        raise ValueError('Volumen adaptativo no convergente o fuera del límite original.')
++    area,_=trimesh.sample.sample_surface(mesh,1000,seed=20261023)
++    points=np.vstack((_esparcir(np.vstack((mesh.vertices,mesh.triangles_center)),2000),area))
++    a=_distancias_cad(solid,points)
++    verts,tris=solid.copy().tessellate(.003,angularTolerance=.04)
++    vertices=np.array([p.toTuple() for p in verts]);triangles=np.asarray(tris)
++    cad_points=np.vstack((vertices,vertices[triangles].mean(axis=1),_puntos_brep(solid,10000)))
++    b=distancia_malla(mesh,cad_points)
++    dense={'stl_a_cad_denso_mm':_estadisticas(a),'cad_a_stl_denso_mm':_estadisticas(b),
++           'stl_hotspots':[{'xyz_mm':points[k].tolist(),'distancia_mm':float(a[k])} for k in np.argsort(-a)[:10]],
++           'cad_hotspots':[{'xyz_mm':cad_points[k].tolist(),'distancia_mm':float(b[k])} for k in np.argsort(-b)[:10]]}
++    step.with_suffix('.denso.json').write_text(json.dumps(dense,indent=2))
++    limit=q['limites_validacion']['p95_superficie_max_mm']
++    if (not np.isfinite(a).all() or not np.isfinite(b).all()
++            or max(np.percentile(a,95),np.percentile(b,95))>limit or max(a.max(),b.max())>.060):
++        raise ValueError('La inspección densa no pasa los límites originales: '
++                         f'p95 {max(np.percentile(a,95),np.percentile(b,95)):.6f} mm; '
++                         f'máximo {max(a.max(),b.max()):.6f} mm. Ver .denso.json.')
++    # Comparación de ocupación, lejos de la banda máxima permitida de 0,060 mm.
++    rng=np.random.default_rng(23102026)
++    probes=rng.uniform(original.bounds[0],original.bounds[1],size=(2000,3))
++    distances=distancia_malla(refmesh,probes)
++    probes=probes[distances>.060]
++    special=[]
++    if source.name=='Pieza ambigua.stl':
++        for x in (-12.,-4.,4.,12.):
++            special.extend([(x,0.,10.4),(x+2.,0.,10.4)])
++        probes=np.vstack((probes,np.asarray(special)))
++    mismatch=[];states=[]
++    for p in probes:
++        expected=BRepClass3d_SolidClassifier(ref.wrapped,gp_Pnt(*map(float,p)),1e-7).State()
++        actual=BRepClass3d_SolidClassifier(solid.wrapped,gp_Pnt(*map(float,p)),1e-7).State()
++        states.append((expected,actual))
++        if expected not in (TopAbs_IN,TopAbs_OUT) or expected!=actual:
++            mismatch.append({'xyz_mm':p.tolist(),'referencia':str(expected),'step':str(actual)})
++    if mismatch:raise ValueError(f'El CAD cambia la ocupación en {len(mismatch)} puntos de control; ejemplo {mismatch[0]}.')
++    holes=[]
++    if special:
++        for i,(p,(expected,actual)) in enumerate(zip(special,states[-len(special):])):
++            desired=TopAbs_OUT if i%2==0 else TopAbs_IN
++            if expected!=desired or actual!=desired:raise ValueError('No se conservan cavidades o paredes de los salientes.')
++            holes.append({'xyz_mm':p,'esperado':str(desired),'obtenido':str(actual)})
++    return {'ok':True,'sha256_stl':row['sha256'],'sha256_step':row['sha256_step'],
++            'calidad_repetida':q,'autointerferencias_occ':False,'solidos':len(solid.Solids()),
++            'volumen_adaptativo_mm3':masses,'volumen_referencia_mm3':refmass,
++            'volumen_adaptativo_error_pct':100*abs(masses[-1]-refmass)/refmass,
++            'stl_a_cad_denso_mm':_estadisticas(a),'cad_a_stl_denso_mm':_estadisticas(b),
++            'ocupacion_puntos':len(probes),'ocupacion_discrepancias':0,
++            'cavidades_y_paredes':holes,
++            'nota':'Muestreo determinista; no garantía Hausdorff global ni prueba Move face en Onshape.'}
++
++
++def main():
++    ap=argparse.ArgumentParser(description=__doc__)
++    ap.add_argument('--casos',type=Path,required=True)
++    ap.add_argument('--resultados',type=Path,required=True)
++    ap.add_argument('--solo',nargs='*')
++    args=ap.parse_args();battery=json.loads((args.resultados/'bateria.json').read_text())
++    previous=args.resultados/'verificacion_independiente.json'
++    results=json.loads(previous.read_text()) if args.solo and previous.exists() else {}
++    for row in battery['resultados']:
++        name=row['archivo']
++        if args.solo and name not in args.solo:continue
++        if not row['ok']:
++            results[name]={'ok':False,'pendiente':True,'error':row['informe_motor'].get('error')}
++        else:
++            try:results[name]=verificar(args.casos/name,args.resultados/(Path(name).stem+'.step'),row)
++            except Exception as exc:results[name]={'ok':False,'error':str(exc)}
++        print(name,results[name]['ok'],results[name].get('error',''),flush=True)
++        (args.resultados/'verificacion_independiente.json').write_text(json.dumps(results,indent=2,ensure_ascii=False))
++    return 0 if results and all(r['ok'] for r in results.values()) else 1
++
++
++if __name__=='__main__':raise SystemExit(main())
