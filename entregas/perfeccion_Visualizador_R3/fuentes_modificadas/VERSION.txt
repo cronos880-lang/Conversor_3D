@@ -1,0 +1,5 @@
+perfeccion_Visualizador_R3
+2026-10-23
+AVANCE EXPERIMENTAL NO ESTABLE: regresión de precisión 10/12; cubo-carrito 4/4.
+Las cuatro piezas nuevas no se consideran resueltas por el arranque del programa.
+Puerto 8767. El Visor Python no actualiza el conversor WebAssembly de GitHub Pages.

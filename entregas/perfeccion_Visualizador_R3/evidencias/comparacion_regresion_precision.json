@@ -1,0 +1,76 @@
+[
+  {
+    "archivo": "1x1-lego-brick.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "Bancada_Motor.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "Estefi.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "Grapa.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "LLanta_Trasera.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "M3 PClip - 2mm.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "Spoiler_arrière_Porsche_-_5.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "Tirante.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "chasis - Part 2.stl",
+    "sha_stl_igual": true,
+    "ok": false,
+    "cambios_metricas": [],
+    "error": "Inspección densa rechazada: Máximo CAD→STL: 0.071166 mm > 0.062873 mm."
+  },
+  {
+    "archivo": "maneta.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  },
+  {
+    "archivo": "pinza.stl",
+    "sha_stl_igual": true,
+    "ok": false,
+    "cambios_metricas": [],
+    "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: Reconstrucción deformada: Desviación de cotas exteriores: 0.038480 mm > 0.020000 mm.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato."
+  },
+  {
+    "archivo": "spur.stl",
+    "sha_stl_igual": true,
+    "ok": true,
+    "cambios_metricas": []
+  }
+]

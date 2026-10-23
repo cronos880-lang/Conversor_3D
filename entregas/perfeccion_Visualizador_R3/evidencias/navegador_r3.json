@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "id": "5dbb425f74c3",
+  "estado": {
+    "id": "5dbb425f74c3",
+    "estado": "terminado",
+    "perfil": "impresion",
+    "presupuesto": {
+      "triangulos": 2072,
+      "inicial_s": 420,
+      "maximo_s": 840,
+      "ampliar_si_cpu_activa": true,
+      "incremento_s": 30,
+      "criterio": "Triángulos y actividad CPU; nunca superar el máximo absoluto.",
+      "plazo_actual_s": 420,
+      "cpu_activa": true,
+      "consumo_cpu_porcentaje": 63.7,
+      "ram_pico_mb": 1061.5
+    },
+    "porcentaje": 100,
+    "sin_avances_segundos": 59.9,
+    "segundos": 59.9,
+    "fase": "",
+    "error": null,
+    "tipo_error": null,
+    "diagnostico": "/diagnostico/5dbb425f74c3"
+  },
+  "perfil": {
+    "id": "impresion",
+    "nombre": "Impresión 0,08 mm",
+    "caja_mm": 0.04,
+    "p95_mm": 0.04,
+    "max_mm": 0.08,
+    "volumen_pct": 0.5
+  },
+  "errores_js": [],
+  "flujo": [
+    "importar",
+    "elegir impresión",
+    "convertir",
+    "100%",
+    "descargar STEP",
+    "cambiar perfil invalida STEP",
+    "Nuevo"
+  ]
+}

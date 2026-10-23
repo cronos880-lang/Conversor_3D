@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "actualizaciones": [
+    {
+      "plazo_actual_s": 3.0,
+      "maximo_s": 6.0,
+      "cpu_activa": true,
+      "consumo_cpu_porcentaje": 65.7,
+      "ram_pico_mb": 6.1
+    }
+  ],
+  "ram_pico_mb": 6.14,
+  "salida": "terminado\n"
+}
