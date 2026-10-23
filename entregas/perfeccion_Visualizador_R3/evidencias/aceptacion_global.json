@@ -1,0 +1,22 @@
+{
+  "version": "R3 experimental",
+  "lista_para_sustituir_R2": false,
+  "precision_regresion_aceptadas": 10,
+  "precision_regresion_total_repetida": 12,
+  "regresion_14_completa_superada": false,
+  "cubo_carrito_4_casos": true,
+  "piezas_nuevas_aceptadas": 0,
+  "piezas_nuevas_ensayadas": 4,
+  "tests_automaticos": 57,
+  "tests_omitidos": 0,
+  "windows_nativo": false,
+  "onshape_move_face": false,
+  "k1c_impresion_fisica": false,
+  "motivos_pendientes": [
+    "chasis excede máximo superficial de precisión",
+    "pinza: interferencias en recuperación",
+    "cuatro piezas nuevas sin STEP aprobado",
+    "embudo aplazado y conector no repetido",
+    "Windows y Onshape no probados"
+  ]
+}

@@ -1,0 +1,670 @@
+{
+  "plataforma": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "dependencias": {
+    "cadquery": "2.8.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "trimesh": "4.11.1",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "vtk": "9.6.2",
+    "shapely": "2.1.2",
+    "manifold3d": "3.4.0",
+    "psutil": "7.2.2",
+    "networkx": "3.6.1"
+  },
+  "resultados": [
+    {
+      "archivo": "Con fallos pero si step.stl",
+      "sha256": "fdc909246bca0fc4bbc9347e783233555dc7af8d839cb588c41f538d08541177",
+      "limite_s": 600,
+      "limite_ram_mb": 5500,
+      "segundos": 248.883,
+      "ram_pico_mb": 775.03,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: La reconstrucción presenta defectos topológicos avanzados: 32 posibles interferencias entre caras, aristas o vértices.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato.",
+        "tipo_error": "reconstruccion_cad_rechazada",
+        "criterios": [],
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "fdc909246bca0fc4bbc9347e783233555dc7af8d839cb588c41f538d08541177",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 10214,
+            "vertices": 5109,
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 15321,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 10214,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 476.2831233610175,
+                "euler": 2
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -8.003199577331543,
+                -7.199999809265137,
+                2.384185791015625e-07
+              ],
+              [
+                8.003199577331543,
+                7.199999809265137,
+                4.793600082397461
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "paso_directo",
+          "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+        }
+      },
+      "ok": false
+    },
+    {
+      "archivo": "Dimensiones.stl",
+      "sha256": "a03ae8e341132111cceed7b9bfb3e1175ba9989d36f7e7458011908c5a62c5a1",
+      "limite_s": 600,
+      "limite_ram_mb": 5500,
+      "segundos": 77.367,
+      "ram_pico_mb": 708.41,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: STEP válido, pero la fidelidad superficial no supera el control: Desviación superficial máxima muestreada: 0.145013 mm > 0.060000 mm.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato.",
+        "tipo_error": "reconstruccion_cad_rechazada",
+        "criterios": [],
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "a03ae8e341132111cceed7b9bfb3e1175ba9989d36f7e7458011908c5a62c5a1",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 6180,
+            "vertices": 3092,
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 9270,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 6180,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 1010.5772409755405,
+                "euler": 2
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -16.006399154663086,
+                -7.993600368499756,
+                -4.76837158203125e-07
+              ],
+              [
+                16.006399154663086,
+                7.993600368499756,
+                9.587200164794922
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "paso_directo",
+          "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+        }
+      },
+      "ok": false
+    },
+    {
+      "archivo": "Pieza ambigua.stl",
+      "sha256": "8c45445f67fd8ff557355e7ff4d997980e946a6af1d3067fb5bde70e8270cd8f",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 508.248,
+      "ram_pico_mb": 843.05,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: Reconstrucción deformada: Error de volumen: 0.597480 % > 0.500000 %.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato.",
+        "tipo_error": "reconstruccion_cad_rechazada",
+        "criterios": [],
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "8c45445f67fd8ff557355e7ff4d997980e946a6af1d3067fb5bde70e8270cd8f",
+          "habilitado": true,
+          "reparado": true,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 8490,
+            "vertices": 4255,
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 12735,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 418,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 21.18265033462138,
+                "euler": 2
+              },
+              {
+                "caras": 418,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 21.182656780248447,
+                "euler": 2
+              },
+              {
+                "caras": 418,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 21.18264906724922,
+                "euler": 2
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.073481610108924,
+                "euler": 2
+              },
+              {
+                "caras": 4180,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 1302.8300003713687,
+                "euler": -4
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.073481610116342,
+                "euler": 2
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.073473462083005,
+                "euler": 2
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.07347409872403,
+                "euler": 2
+              }
+            ],
+            "numero_componentes": 8,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -16.000003814697266,
+                -4.0,
+                4.76837158203125e-07
+              ],
+              [
+                16.000003814697266,
+                4.0,
+                11.199999809265137
+              ]
+            ],
+            "ruta": "analizar_union_cuerpos_cerrados",
+            "gravedad": "advertencia",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "union_booleana_verificada",
+          "verificacion_independiente": {
+            "referencia": "unión poliédrica independiente OpenCascade; fuzzy 0,0000001 mm",
+            "volumen_referencia_mm3": 1427.4332612278554,
+            "volumen_error_pct": 1.875940436887088e-09,
+            "caja_error_mm": 0.0,
+            "p95_mm": 2.220446049250313e-16,
+            "max_observado_mm": 3.197749720544037e-07,
+            "muestras_direcciones": [
+              18504,
+              17886
+            ],
+            "brep_valido": true,
+            "solidos_referencia": 1,
+            "regularizaciones_planas_referencia": [
+              {
+                "componente": 3,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -12.000001912315687,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 5,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      -0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      12.000002011656761,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 6,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      4.000000763063629,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.03673427187594,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 3.552713678800501e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 7,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -4.00000060411791,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036733368741604,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 7.105427357601002e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              }
+            ],
+            "normalizacion_referencia": {
+              "aplicado": false
+            },
+            "limites": {
+              "volumen_pct": 0.001,
+              "caja_mm": 0.002,
+              "superficie_mm": 0.002
+            },
+            "nota": "Mediciones deterministas muestreadas, no cota Hausdorff global.",
+            "relaciones": [
+              {
+                "componente": 1,
+                "volumen_interseccion_mm3": 0.0,
+                "separacion_mm_acotada": 0.02,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 2,
+                "volumen_interseccion_mm3": 0.0,
+                "separacion_mm_acotada": 0.02,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 3,
+                "volumen_interseccion_mm3": 0.0,
+                "separacion_mm_acotada": 0.02,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 4,
+                "volumen_interseccion_mm3": 3.238606106664418,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "solapamiento"
+              },
+              {
+                "componente": 5,
+                "volumen_interseccion_mm3": 1.6740081543176188e-16,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 6,
+                "volumen_interseccion_mm3": -2.8479064572361438e-15,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 7,
+                "volumen_interseccion_mm3": -2.7480953769843676e-15,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "contacto_o_separacion"
+              }
+            ],
+            "genero_antes": 3,
+            "genero_despues": 9,
+            "normalizacion_contacto": {
+              "aplicado": false
+            },
+            "limite_simplificacion_numerica_mm": 3.4834472485279512e-06
+          },
+          "verificacion_stl_reimportado": {
+            "referencia": "unión poliédrica independiente OpenCascade; fuzzy 0,0000001 mm",
+            "volumen_referencia_mm3": 1427.4332612278554,
+            "volumen_error_pct": 7.622575025282416e-09,
+            "caja_error_mm": 0.0,
+            "p95_mm": 2.2519950297093865e-08,
+            "max_observado_mm": 3.998254017419915e-07,
+            "muestras_direcciones": [
+              18504,
+              17886
+            ],
+            "brep_valido": true,
+            "solidos_referencia": 1,
+            "regularizaciones_planas_referencia": [
+              {
+                "componente": 3,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -12.000001912315687,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 5,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      -0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      12.000002011656761,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 6,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      4.000000763063629,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.03673427187594,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 3.552713678800501e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 7,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -4.00000060411791,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036733368741604,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 7.105427357601002e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              }
+            ],
+            "normalizacion_referencia": {
+              "aplicado": false
+            },
+            "limites": {
+              "volumen_pct": 0.001,
+              "caja_mm": 0.002,
+              "superficie_mm": 0.002
+            },
+            "nota": "Mediciones deterministas muestreadas, no cota Hausdorff global."
+          },
+          "resultado": "unión verificada",
+          "salida": {
+            "caras": 9680,
+            "vertices": 4824,
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 14520,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 9680,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 1427.4332611190482,
+                "euler": -16
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -16.000003814697266,
+                -4.0,
+                4.76837158203125e-07
+              ],
+              [
+                16.000003814697266,
+                4.0,
+                11.199999809265137
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "reparado_sha256": "e25ef84e3b35070a58b40444b31a91aa4bd7db4033cf5979a2cd9bdb0c31de1f",
+          "intento_cad_preciso_rechazado": "La reconstrucción presenta defectos topológicos avanzados: 48 posibles interferencias entre caras, aristas o vértices."
+        }
+      },
+      "ok": false
+    },
+    {
+      "archivo": "6558_fixed.stl",
+      "sha256": "6811a538af4fa3b2a69bbbccf9db416522f1913ce1700764528427c12d317bea",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 587.323,
+      "ram_pico_mb": 557.94,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: El motor B-Rep no ha reconstruido un sólido CAD válido.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato.",
+        "tipo_error": "reconstruccion_cad_rechazada",
+        "criterios": [],
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "6811a538af4fa3b2a69bbbccf9db416522f1913ce1700764528427c12d317bea",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 11566,
+            "vertices": 5732,
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 17349,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 11566,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 241.4472526982009,
+                "euler": -51
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -3.1968002319335938,
+                -3.1200008392333984,
+                0.0
+              ],
+              [
+                3.1967990398406982,
+                3.1200008392333984,
+                23.999996185302734
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "paso_directo",
+          "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+        }
+      },
+      "ok": false
+    }
+  ]
+}
