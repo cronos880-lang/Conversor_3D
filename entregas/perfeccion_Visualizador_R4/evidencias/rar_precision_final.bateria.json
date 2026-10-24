@@ -1,0 +1,1720 @@
+{
+  "plataforma": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "dependencias": {
+    "cadquery": "2.8.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "trimesh": "4.11.1",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "vtk": "9.6.2",
+    "shapely": "2.1.2",
+    "manifold3d": "3.4.0",
+    "psutil": "7.2.2",
+    "networkx": "3.6.1"
+  },
+  "resultados": [
+    {
+      "archivo": "30383_alternate_fixed.stl",
+      "sha256": "988b58727f500babff18579ac97f4f4c5f12c88527d17b911df43ebd991e7e66",
+      "limite_s": 420,
+      "limite_ram_mb": 5500,
+      "segundos": 59.304,
+      "ram_pico_mb": 590.31,
+      "codigo": 0,
+      "informe_motor": {
+        "ok": true,
+        "resultado": {
+          "caras_stl": 1118,
+          "diagnostico": {
+            "caras_de_planos_dudosos": 0,
+            "proporcion": 0.0,
+            "segmentacion_grados": 8.0
+          },
+          "modo": "superficies",
+          "preparacion": null,
+          "saneamiento_cad": {
+            "aplicado": true,
+            "intersecciones_recalculadas": true,
+            "fuzzy_booleano_mm": 0.0,
+            "precision_aristas_mm": 0.001,
+            "aristas_cortas_fusionadas": false,
+            "topologia_antes": {
+              "brep_valido": true,
+              "solidos": 1,
+              "aristas": 461,
+              "aristas_parametrizacion_incoherente": 0,
+              "tolerancia_max_mm": 0.0138371,
+              "tolerancia_p95_mm": 0.0036144,
+              "tolerancia_media_mm": 0.0006273,
+              "aristas_tol_mayor_001mm": 6
+            },
+            "topologia_despues": {
+              "brep_valido": true,
+              "solidos": 1,
+              "aristas": 460,
+              "aristas_parametrizacion_incoherente": 0,
+              "tolerancia_max_mm": 0.0138371,
+              "tolerancia_p95_mm": 0.0036144,
+              "tolerancia_media_mm": 0.0006282,
+              "aristas_tol_mayor_001mm": 6
+            },
+            "control_local_aristas": {
+              "stl_caracteristicas_a_step": {
+                "muestras": 699,
+                "p95_mm": 0.006929,
+                "max_mm": 0.013079,
+                "zonas_sospechosas": []
+              },
+              "aristas_step_a_stl": {
+                "muestras": 2760,
+                "p95_mm": 0.007112,
+                "max_mm": 0.014448,
+                "zonas_sospechosas": []
+              },
+              "tolerancia_informativa_mm": 0.06,
+              "supera_umbral_observado": false,
+              "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+            },
+            "validacion": "STEP reimportado, mismos límites y sin interferencias OCC"
+          },
+          "reconocimiento_original_experimental": null,
+          "cilindros_analiticos_verificados": [],
+          "bandas_revolucion_verificadas": [
+            {
+              "tipo": "cone",
+              "triangulos": 32,
+              "max_vertices_centroides_mm": 0.0056094816871445595
+            },
+            {
+              "tipo": "cone",
+              "triangulos": 32,
+              "max_vertices_centroides_mm": 0.008540253521020728
+            },
+            {
+              "tipo": "cylinder",
+              "triangulos": 32,
+              "max_vertices_centroides_mm": 0.008989686796544105
+            },
+            {
+              "tipo": "cylinder",
+              "triangulos": 32,
+              "max_vertices_centroides_mm": 0.008989686855395251
+            },
+            {
+              "tipo": "cone",
+              "triangulos": 40,
+              "max_vertices_centroides_mm": 0.009561616801688242
+            }
+          ],
+          "limpieza_franjas": {
+            "aplicado": false,
+            "motivo": "Sin franjas largas, estrechas y casi coplanares."
+          },
+          "calidad": {
+            "integridad_cad": {
+              "brep_valido": true,
+              "solidos": 1,
+              "aristas": 460,
+              "aristas_parametrizacion_incoherente": 0,
+              "tolerancia_max_mm": 0.0138371,
+              "tolerancia_p95_mm": 0.0036144,
+              "tolerancia_media_mm": 0.0006282,
+              "aristas_tol_mayor_001mm": 6
+            },
+            "perfil_validacion": {
+              "id": "precision",
+              "nombre": "Precisión",
+              "caja_mm": 0.02,
+              "p95_mm": null,
+              "max_mm": 0.06,
+              "volumen_pct": 0.5
+            },
+            "caras_step": 182,
+            "bytes_step": 1113167,
+            "volumen_error_pct": 0.035851,
+            "caja_error_mm": 0.00259,
+            "caja_error_analitico_mm": 0.00259,
+            "caja_modo_verificacion": "OpenCascade",
+            "distancia_stl_step_mm": {
+              "media": 0.001176,
+              "p95": 0.006921,
+              "p99": 0.008495,
+              "max_muestreado": 0.010019,
+              "muestras": 561
+            },
+            "distancia_step_stl_mm": {
+              "media": 0.0031,
+              "p95": 0.010715,
+              "p99": 0.013478,
+              "max_muestreado": 0.014641,
+              "muestras": 800
+            },
+            "contraste_muestreo_cad": {
+              "muestras_proyectadas": 0,
+              "max_distancia_al_brep_mm": 0.0
+            },
+            "tipos_caras": {
+              "GeomAbs_Plane": 173,
+              "GeomAbs_Cone": 3,
+              "GeomAbs_Cylinder": 6
+            },
+            "limites_validacion": {
+              "volumen_error_max_pct": 0.5,
+              "caja_error_max_mm": 0.02,
+              "p95_superficie_max_mm": 0.02,
+              "desviacion_max_observada_mm": 0.06,
+              "margen_preparacion_mm": 0.0
+            },
+            "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+            "autointerferencias_occ": false,
+            "inspeccion_densa": {
+              "stl_a_cad": {
+                "muestras": 2679,
+                "p95_mm": 0.007245458829942622,
+                "max_mm": 0.012768022477523719,
+                "zonas_sospechosas": []
+              },
+              "cad_a_stl": {
+                "muestras": 20651,
+                "p95_mm": 0.010498094988198597,
+                "max_mm": 0.015035871298307536,
+                "zonas_sospechosas": []
+              },
+              "limite_p95_mm": 0.02,
+              "limite_max_mm": 0.06,
+              "contraste_muestras_cad": {
+                "muestras_proyectadas": 0,
+                "max_distancia_al_brep_mm": 0.0
+              },
+              "nota": "Muestreo determinista, no garantía Hausdorff global.",
+              "aceptado": true
+            },
+            "precision_alcanzada": "precision",
+            "desviacion_max_verificada_mm": 0.015036,
+            "limites_precision_originales": {
+              "caja_mm": 0.02,
+              "p95_mm": 0.02,
+              "max_mm": 0.06
+            }
+          },
+          "motor": "Reconstrucción CAD de superficies, sin idealización",
+          "estrategia": "bandas_circulares_verificadas",
+          "comparacion_fragmentacion": {
+            "caras_antes": 227,
+            "caras_despues": 182,
+            "criterio": "Menos caras, precisión conservada y errores superficiales globales no mayores.",
+            "calidad_anterior": {
+              "integridad_cad": {
+                "brep_valido": true,
+                "solidos": 1,
+                "aristas": 547,
+                "aristas_parametrizacion_incoherente": 0,
+                "tolerancia_max_mm": 0.0138371,
+                "tolerancia_p95_mm": 0.001474,
+                "tolerancia_media_mm": 0.0005083,
+                "aristas_tol_mayor_001mm": 6
+              },
+              "perfil_validacion": {
+                "id": "precision",
+                "nombre": "Precisión",
+                "caja_mm": 0.02,
+                "p95_mm": null,
+                "max_mm": 0.06,
+                "volumen_pct": 0.5
+              },
+              "caras_step": 227,
+              "bytes_step": 917450,
+              "volumen_error_pct": 0.001961,
+              "caja_error_mm": 0.000427,
+              "caja_error_analitico_mm": 0.000427,
+              "caja_modo_verificacion": "OpenCascade",
+              "distancia_stl_step_mm": {
+                "media": 0.000251,
+                "p95": 0.001304,
+                "p99": 0.003346,
+                "max_muestreado": 0.010019,
+                "muestras": 561
+              },
+              "distancia_step_stl_mm": {
+                "media": 0.002962,
+                "p95": 0.014488,
+                "p99": 0.016185,
+                "max_muestreado": 0.016762,
+                "muestras": 800
+              },
+              "contraste_muestreo_cad": {
+                "muestras_proyectadas": 0,
+                "max_distancia_al_brep_mm": 0.0
+              },
+              "tipos_caras": {
+                "GeomAbs_Plane": 221,
+                "GeomAbs_Cylinder": 6
+              },
+              "limites_validacion": {
+                "volumen_error_max_pct": 0.5,
+                "caja_error_max_mm": 0.02,
+                "p95_superficie_max_mm": 0.02,
+                "desviacion_max_observada_mm": 0.06,
+                "margen_preparacion_mm": 0.0
+              },
+              "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+              "inspeccion_densa": {
+                "stl_a_cad": {
+                  "muestras": 2679,
+                  "p95_mm": 0.0018090933196220917,
+                  "max_mm": 0.01518553650781891,
+                  "zonas_sospechosas": []
+                },
+                "cad_a_stl": {
+                  "muestras": 14120,
+                  "p95_mm": 0.014522532250304187,
+                  "max_mm": 0.016800318485864687,
+                  "zonas_sospechosas": []
+                },
+                "limite_p95_mm": 0.02,
+                "limite_max_mm": 0.06,
+                "contraste_muestras_cad": {
+                  "muestras_proyectadas": 0,
+                  "max_distancia_al_brep_mm": 0.0
+                },
+                "nota": "Muestreo determinista, no garantía Hausdorff global.",
+                "aceptado": true
+              },
+              "precision_alcanzada": "precision",
+              "desviacion_max_verificada_mm": 0.0168,
+              "limites_precision_originales": {
+                "caja_mm": 0.02,
+                "p95_mm": 0.02,
+                "max_mm": 0.06
+              }
+            }
+          }
+        },
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "988b58727f500babff18579ac97f4f4c5f12c88527d17b911df43ebd991e7e66",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 1118,
+            "vertices": 561,
+            "topologia_vertices": {
+              "vertices_no_manifold": 0,
+              "vertices_de_borde": 0,
+              "ejemplos": [],
+              "enlaces_regulares_cerrados": true,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 1677,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 1118,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 388.3871187313453,
+                "euler": 2
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -7.9599995613098145,
+                -3.9599993228912354,
+                0.0
+              ],
+              [
+                7.958001136779785,
+                3.96000075340271,
+                8.034000396728516
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "paso_directo",
+          "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+        }
+      },
+      "ok": true,
+      "sha256_step": "7a47ec45be2deefd900f0b3958b057eac03cf19da66b8c5d463002555ddba1f7"
+    },
+    {
+      "archivo": "6558_fixed.stl",
+      "sha256": "6811a538af4fa3b2a69bbbccf9db416522f1913ce1700764528427c12d317bea",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 1.003,
+      "ram_pico_mb": 112.03,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "El STL cierra sus aristas, pero tiene 33 vértices no manifold: se juntan abanicos de caras independientes. La reparación automática no puede resolver esos contactos con garantías; no es un error de dimensiones ni de tiempo.",
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "6811a538af4fa3b2a69bbbccf9db416522f1913ce1700764528427c12d317bea",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 11566,
+            "vertices": 5732,
+            "topologia_vertices": {
+              "vertices_no_manifold": 33,
+              "vertices_de_borde": 0,
+              "ejemplos": [
+                {
+                  "vertice": 372,
+                  "xyz_mm": [
+                    -2.2175991535186768,
+                    -0.921600341796875,
+                    15.196798324584961
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 374,
+                  "xyz_mm": [
+                    -2.2175991535186768,
+                    0.9120001196861267,
+                    15.196798324584961
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 376,
+                  "xyz_mm": [
+                    -2.2175989151000977,
+                    -0.921600341796875,
+                    16.799999237060547
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 377,
+                  "xyz_mm": [
+                    -2.2175989151000977,
+                    0.9120001196861267,
+                    16.799999237060547
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 444,
+                  "xyz_mm": [
+                    -2.092799663543701,
+                    -1.180800437927246,
+                    16.617597579956055
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 447,
+                  "xyz_mm": [
+                    -2.092799663543701,
+                    1.171200156211853,
+                    15.369598388671875
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 466,
+                  "xyz_mm": [
+                    -2.0735998153686523,
+                    -1.2000004053115845,
+                    16.607999801635742
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 467,
+                  "xyz_mm": [
+                    -2.0735998153686523,
+                    1.200000286102295,
+                    15.37919807434082
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 491,
+                  "xyz_mm": [
+                    -2.006399631500244,
+                    -1.3152004480361938,
+                    16.58879852294922
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 492,
+                  "xyz_mm": [
+                    -2.006399631500244,
+                    1.3056004047393799,
+                    15.398398399353027
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 516,
+                  "xyz_mm": [
+                    -1.996799111366272,
+                    -1.4304004907608032,
+                    15.993598937988281
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 519,
+                  "xyz_mm": [
+                    -1.996799111366272,
+                    1.3248002529144287,
+                    15.407998085021973
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 521,
+                  "xyz_mm": [
+                    -1.996799111366272,
+                    1.4208003282546997,
+                    15.993598937988281
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 522,
+                  "xyz_mm": [
+                    -1.9967989921569824,
+                    -1.3344004154205322,
+                    16.579198837280273
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 575,
+                  "xyz_mm": [
+                    -1.977599859237671,
+                    1.4112004041671753,
+                    15.55199909210205
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 576,
+                  "xyz_mm": [
+                    -1.9775997400283813,
+                    -1.4208005666732788,
+                    16.435199737548828
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 5138,
+                  "xyz_mm": [
+                    1.9775999784469604,
+                    -1.4208005666732788,
+                    15.55199909210205
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 5145,
+                  "xyz_mm": [
+                    1.97760009765625,
+                    1.4112004041671753,
+                    16.435199737548828
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 5202,
+                  "xyz_mm": [
+                    1.9968000650405884,
+                    -1.4304004907608032,
+                    15.993598937988281
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 5204,
+                  "xyz_mm": [
+                    1.9968000650405884,
+                    -1.3344004154205322,
+                    15.407997131347656
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                }
+              ],
+              "enlaces_regulares_cerrados": false,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 17349,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 11566,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 241.4472526982009,
+                "euler": -51
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -3.1968002319335938,
+                -3.1200008392333984,
+                0.0
+              ],
+              [
+                3.1967990398406982,
+                3.1200008392333984,
+                23.999996185302734
+              ]
+            ],
+            "ruta": "rechazar_vertices_no_manifold",
+            "gravedad": "error",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "codigo_error": "entrada_vertices_no_manifold",
+          "error": "El STL cierra sus aristas, pero tiene 33 vértices no manifold: se juntan abanicos de caras independientes. La reparación automática no puede resolver esos contactos con garantías; no es un error de dimensiones ni de tiempo."
+        },
+        "tipo_error": "entrada_vertices_no_manifold",
+        "criterios": []
+      },
+      "ok": false
+    },
+    {
+      "archivo": "Con fallos pero si step.stl",
+      "sha256": "fdc909246bca0fc4bbc9347e783233555dc7af8d839cb588c41f538d08541177",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 188.718,
+      "ram_pico_mb": 704.44,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: La reconstrucción presenta defectos topológicos avanzados: 32 posibles interferencias entre caras, aristas o vértices.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato.",
+        "tipo_error": "reconstruccion_cad_rechazada",
+        "criterios": [],
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "fdc909246bca0fc4bbc9347e783233555dc7af8d839cb588c41f538d08541177",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 10214,
+            "vertices": 5109,
+            "topologia_vertices": {
+              "vertices_no_manifold": 0,
+              "vertices_de_borde": 0,
+              "ejemplos": [],
+              "enlaces_regulares_cerrados": true,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 15321,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 10214,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 476.2831233610175,
+                "euler": 2
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -8.003199577331543,
+                -7.199999809265137,
+                2.384185791015625e-07
+              ],
+              [
+                8.003199577331543,
+                7.199999809265137,
+                4.793600082397461
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "paso_directo",
+          "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+        }
+      },
+      "ok": false
+    },
+    {
+      "archivo": "Dimensiones tambien.stl",
+      "sha256": "aaf4fe1e061b6574b7fc06c223983e3bdf84470f279b2f436052e4512a3f1891",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 1.206,
+      "ram_pico_mb": 103.69,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "El STL cierra sus aristas, pero tiene 14 vértices no manifold: se juntan abanicos de caras independientes. La reparación automática no puede resolver esos contactos con garantías; no es un error de dimensiones ni de tiempo.",
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "aaf4fe1e061b6574b7fc06c223983e3bdf84470f279b2f436052e4512a3f1891",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 9536,
+            "vertices": 4748,
+            "topologia_vertices": {
+              "vertices_no_manifold": 14,
+              "vertices_de_borde": 0,
+              "ejemplos": [
+                {
+                  "vertice": 238,
+                  "xyz_mm": [
+                    -10.640642166137695,
+                    0.2611207664012909,
+                    2.001920700073242
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 247,
+                  "xyz_mm": [
+                    -10.618882179260254,
+                    -0.26111963391304016,
+                    2.001920700073242
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 253,
+                  "xyz_mm": [
+                    -10.608001708984375,
+                    -0.26111963391304016,
+                    1.9475207328796387
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 256,
+                  "xyz_mm": [
+                    -10.608001708984375,
+                    -0.26111963391304016,
+                    2.001920700073242
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 266,
+                  "xyz_mm": [
+                    -10.575362205505371,
+                    0.25023993849754333,
+                    2.001920700073242
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 274,
+                  "xyz_mm": [
+                    -10.564481735229492,
+                    0.25023993849754333,
+                    1.9475207328796387
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 276,
+                  "xyz_mm": [
+                    -10.564481735229492,
+                    0.25023993849754333,
+                    1.9910404682159424
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 277,
+                  "xyz_mm": [
+                    -10.564481735229492,
+                    0.25023993849754333,
+                    2.001920700073242
+                  ],
+                  "abanicos": 5,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 278,
+                  "xyz_mm": [
+                    -10.564481735229492,
+                    0.25023993849754333,
+                    2.012800455093384
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 311,
+                  "xyz_mm": [
+                    -10.499201774597168,
+                    0.20672020316123962,
+                    1.9584004878997803
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 4437,
+                  "xyz_mm": [
+                    10.455683708190918,
+                    0.17408010363578796,
+                    1.9910404682159424
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 4438,
+                  "xyz_mm": [
+                    10.455683708190918,
+                    0.17408010363578796,
+                    2.001920700073242
+                  ],
+                  "abanicos": 5,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 4485,
+                  "xyz_mm": [
+                    10.575362205505371,
+                    0.25023993849754333,
+                    2.001920700073242
+                  ],
+                  "abanicos": 4,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 4502,
+                  "xyz_mm": [
+                    10.608001708984375,
+                    -0.26111963391304016,
+                    2.045440673828125
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                }
+              ],
+              "enlaces_regulares_cerrados": false,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 14304,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 9536,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 807.240938678818,
+                "euler": -20
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -13.60000228881836,
+                -7.996800422668457,
+                4.76837158203125e-07
+              ],
+              [
+                13.60000228881836,
+                7.996800422668457,
+                5.592321395874023
+              ]
+            ],
+            "ruta": "rechazar_vertices_no_manifold",
+            "gravedad": "error",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "codigo_error": "entrada_vertices_no_manifold",
+          "error": "El STL cierra sus aristas, pero tiene 14 vértices no manifold: se juntan abanicos de caras independientes. La reparación automática no puede resolver esos contactos con garantías; no es un error de dimensiones ni de tiempo."
+        },
+        "tipo_error": "entrada_vertices_no_manifold",
+        "criterios": []
+      },
+      "ok": false
+    },
+    {
+      "archivo": "Dimensiones.stl",
+      "sha256": "a03ae8e341132111cceed7b9bfb3e1175ba9989d36f7e7458011908c5a62c5a1",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 91.383,
+      "ram_pico_mb": 634.82,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: STEP válido, pero la fidelidad superficial no supera el control: Desviación superficial máxima muestreada: 0.145013 mm > 0.060000 mm.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato.",
+        "tipo_error": "reconstruccion_cad_rechazada",
+        "criterios": [],
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "a03ae8e341132111cceed7b9bfb3e1175ba9989d36f7e7458011908c5a62c5a1",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 6180,
+            "vertices": 3092,
+            "topologia_vertices": {
+              "vertices_no_manifold": 0,
+              "vertices_de_borde": 0,
+              "ejemplos": [],
+              "enlaces_regulares_cerrados": true,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 9270,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 6180,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 1010.5772409755405,
+                "euler": 2
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -16.006399154663086,
+                -7.993600368499756,
+                -4.76837158203125e-07
+              ],
+              [
+                16.006399154663086,
+                7.993600368499756,
+                9.587200164794922
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "paso_directo",
+          "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+        }
+      },
+      "ok": false
+    },
+    {
+      "archivo": "Pieza ambigua.stl",
+      "sha256": "8c45445f67fd8ff557355e7ff4d997980e946a6af1d3067fb5bde70e8270cd8f",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 266.74,
+      "ram_pico_mb": 782.73,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "No se obtuvo un STEP CAD fiel y valido. La reconstruccion estable fallo: Reconstrucción deformada: Error de volumen: 0.597480 % > 0.500000 %.. Las alternativas geometricas tampoco superaron las mismas comprobaciones de volumen, dimensiones y topologia. Consulta el diagnostico para ver cada candidato.",
+        "tipo_error": "reconstruccion_cad_rechazada",
+        "criterios": [],
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "8c45445f67fd8ff557355e7ff4d997980e946a6af1d3067fb5bde70e8270cd8f",
+          "habilitado": true,
+          "reparado": true,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 8490,
+            "vertices": 4255,
+            "topologia_vertices": {
+              "vertices_no_manifold": 0,
+              "vertices_de_borde": 0,
+              "ejemplos": [],
+              "enlaces_regulares_cerrados": true,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 12735,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 418,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 21.18265033462138,
+                "euler": 2
+              },
+              {
+                "caras": 418,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 21.182656780248447,
+                "euler": 2
+              },
+              {
+                "caras": 418,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 21.18264906724922,
+                "euler": 2
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.073481610108924,
+                "euler": 2
+              },
+              {
+                "caras": 4180,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 1302.8300003713687,
+                "euler": -4
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.073481610116342,
+                "euler": 2
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.073473462083005,
+                "euler": 2
+              },
+              {
+                "caras": 764,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 16.07347409872403,
+                "euler": 2
+              }
+            ],
+            "numero_componentes": 8,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -16.000003814697266,
+                -4.0,
+                4.76837158203125e-07
+              ],
+              [
+                16.000003814697266,
+                4.0,
+                11.199999809265137
+              ]
+            ],
+            "ruta": "analizar_union_cuerpos_cerrados",
+            "gravedad": "advertencia",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "ruta_seleccionada": "union_booleana_verificada",
+          "verificacion_independiente": {
+            "referencia": "unión poliédrica independiente OpenCascade; fuzzy 0,0000001 mm",
+            "volumen_referencia_mm3": 1427.4332612278554,
+            "volumen_error_pct": 1.875940436887088e-09,
+            "caja_error_mm": 0.0,
+            "p95_mm": 2.220446049250313e-16,
+            "max_observado_mm": 3.197749720544037e-07,
+            "muestras_direcciones": [
+              18504,
+              17886
+            ],
+            "brep_valido": true,
+            "solidos_referencia": 1,
+            "regularizaciones_planas_referencia": [
+              {
+                "componente": 3,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -12.000001912315687,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 5,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      -0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      12.000002011656761,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 6,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      4.000000763063629,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.03673427187594,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 3.552713678800501e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 7,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -4.00000060411791,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036733368741604,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 7.105427357601002e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              }
+            ],
+            "normalizacion_referencia": {
+              "aplicado": false
+            },
+            "limites": {
+              "volumen_pct": 0.001,
+              "caja_mm": 0.002,
+              "superficie_mm": 0.002
+            },
+            "nota": "Mediciones deterministas muestreadas, no cota Hausdorff global.",
+            "relaciones": [
+              {
+                "componente": 1,
+                "volumen_interseccion_mm3": 0.0,
+                "separacion_mm_acotada": 0.02,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 2,
+                "volumen_interseccion_mm3": 0.0,
+                "separacion_mm_acotada": 0.02,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 3,
+                "volumen_interseccion_mm3": 0.0,
+                "separacion_mm_acotada": 0.02,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 4,
+                "volumen_interseccion_mm3": 3.238606106664418,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "solapamiento"
+              },
+              {
+                "componente": 5,
+                "volumen_interseccion_mm3": 1.6740081543176188e-16,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 6,
+                "volumen_interseccion_mm3": -2.8479064572361438e-15,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "contacto_o_separacion"
+              },
+              {
+                "componente": 7,
+                "volumen_interseccion_mm3": -2.7480953769843676e-15,
+                "separacion_mm_acotada": 0.0,
+                "tipo": "contacto_o_separacion"
+              }
+            ],
+            "genero_antes": 3,
+            "genero_despues": 9,
+            "normalizacion_contacto": {
+              "aplicado": false
+            },
+            "limite_simplificacion_numerica_mm": 3.4834472485279512e-06
+          },
+          "verificacion_stl_reimportado": {
+            "referencia": "unión poliédrica independiente OpenCascade; fuzzy 0,0000001 mm",
+            "volumen_referencia_mm3": 1427.4332612278554,
+            "volumen_error_pct": 7.622575025282416e-09,
+            "caja_error_mm": 0.0,
+            "p95_mm": 2.2519950297093865e-08,
+            "max_observado_mm": 3.998254017419915e-07,
+            "muestras_direcciones": [
+              18504,
+              17886
+            ],
+            "brep_valido": true,
+            "solidos_referencia": 1,
+            "regularizaciones_planas_referencia": [
+              {
+                "componente": 3,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -12.000001912315687,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 5,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      -0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      12.000002011656761,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036732851210058,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 1.4210854715202004e-14,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 6,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      4.000000763063629,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.03673427187594,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 3.552713678800501e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              },
+              {
+                "componente": 7,
+                "aplicado": true,
+                "parches": [
+                  {
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "punto_plano": [
+                      -4.00000060411791,
+                      1.0116503279533617e-07,
+                      9.600000381469727
+                    ],
+                    "caras_antes": 188,
+                    "caras_despues": 192,
+                    "area_coincidente_cancelada_mm2": 8.036733368741604,
+                    "frontera_orientada_identica": true,
+                    "vertices_nuevos": 0,
+                    "vertices_movidos": 0
+                  }
+                ],
+                "diferencia_volumen_mm3": 7.105427357601002e-15,
+                "limite_coplanaridad_mm": 5e-10,
+                "principio": "misma frontera orientada, mismo plano y mismos vértices; cancelación de cobertura opuesta"
+              }
+            ],
+            "normalizacion_referencia": {
+              "aplicado": false
+            },
+            "limites": {
+              "volumen_pct": 0.001,
+              "caja_mm": 0.002,
+              "superficie_mm": 0.002
+            },
+            "nota": "Mediciones deterministas muestreadas, no cota Hausdorff global."
+          },
+          "resultado": "unión verificada",
+          "salida": {
+            "caras": 9680,
+            "vertices": 4824,
+            "topologia_vertices": {
+              "vertices_no_manifold": 0,
+              "vertices_de_borde": 0,
+              "ejemplos": [],
+              "enlaces_regulares_cerrados": true,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 14520,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 9680,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 1427.4332611190482,
+                "euler": -16
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -16.000003814697266,
+                -4.0,
+                4.76837158203125e-07
+              ],
+              [
+                16.000003814697266,
+                4.0,
+                11.199999809265137
+              ]
+            ],
+            "ruta": "paso_directo",
+            "gravedad": "informacion",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "reparado_sha256": "e25ef84e3b35070a58b40444b31a91aa4bd7db4033cf5979a2cd9bdb0c31de1f",
+          "intento_cad_preciso_rechazado": "La reconstrucción presenta defectos topológicos avanzados: 48 posibles interferencias entre caras, aristas o vértices."
+        }
+      },
+      "ok": false
+    },
+    {
+      "archivo": "Pieza_Nueva_Detenida.stl",
+      "sha256": "3e756da87a638a487263d912253cc3a482d6636c10f66f1e85b9419e6ce38d1e",
+      "limite_s": 900,
+      "limite_ram_mb": 5500,
+      "segundos": 1.208,
+      "ram_pico_mb": 110.34,
+      "codigo": 2,
+      "informe_motor": {
+        "ok": false,
+        "error": "El STL cierra sus aristas, pero tiene 54 vértices no manifold: se juntan abanicos de caras independientes. La reparación automática no puede resolver esos contactos con garantías; no es un error de dimensiones ni de tiempo.",
+        "preprocesamiento": {
+          "version": 1,
+          "original_sha256": "3e756da87a638a487263d912253cc3a482d6636c10f66f1e85b9419e6ce38d1e",
+          "habilitado": true,
+          "reparado": false,
+          "original_conservado": true,
+          "entrada": {
+            "caras": 20126,
+            "vertices": 9987,
+            "topologia_vertices": {
+              "vertices_no_manifold": 54,
+              "vertices_de_borde": 0,
+              "ejemplos": [
+                {
+                  "vertice": 184,
+                  "xyz_mm": [
+                    -10.40256404876709,
+                    -9.191683769226074,
+                    7.994563102722168
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 856,
+                  "xyz_mm": [
+                    -6.439681529998779,
+                    12.067523002624512,
+                    4.953600883483887
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 868,
+                  "xyz_mm": [
+                    -6.42592191696167,
+                    12.122562408447266,
+                    4.871041297912598
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 883,
+                  "xyz_mm": [
+                    -6.412161827087402,
+                    12.177602767944336,
+                    4.788481712341309
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 923,
+                  "xyz_mm": [
+                    -6.384641647338867,
+                    12.23264217376709,
+                    4.692160606384277
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 932,
+                  "xyz_mm": [
+                    -6.370882034301758,
+                    12.28768253326416,
+                    4.609601020812988
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1068,
+                  "xyz_mm": [
+                    -6.013121604919434,
+                    12.342721939086914,
+                    4.155523300170898
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1196,
+                  "xyz_mm": [
+                    -5.517761707305908,
+                    12.328963279724121,
+                    4.348160743713379
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1209,
+                  "xyz_mm": [
+                    -5.393921852111816,
+                    12.315202713012695,
+                    4.348160743713379
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1367,
+                  "xyz_mm": [
+                    -4.527040481567383,
+                    12.384002685546875,
+                    4.045440673828125
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1370,
+                  "xyz_mm": [
+                    -4.513280868530273,
+                    12.384002685546875,
+                    4.045440673828125
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1468,
+                  "xyz_mm": [
+                    -3.605120897293091,
+                    10.80160140991211,
+                    18.204486846923828
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1510,
+                  "xyz_mm": [
+                    -3.4812803268432617,
+                    10.031042098999023,
+                    17.805448532104492
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1521,
+                  "xyz_mm": [
+                    -3.4537601470947266,
+                    10.017282485961914,
+                    17.805448532104492
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1562,
+                  "xyz_mm": [
+                    -3.3987209796905518,
+                    9.879682540893555,
+                    17.736648559570312
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1563,
+                  "xyz_mm": [
+                    -3.3987209796905518,
+                    9.893442153930664,
+                    17.750408172607422
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1570,
+                  "xyz_mm": [
+                    -3.3849599361419678,
+                    9.714561462402344,
+                    17.65408706665039
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1636,
+                  "xyz_mm": [
+                    -3.261119842529297,
+                    9.907201766967773,
+                    17.750408172607422
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1716,
+                  "xyz_mm": [
+                    -3.178560495376587,
+                    9.232961654663086,
+                    17.406408309936523
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                },
+                {
+                  "vertice": 1717,
+                  "xyz_mm": [
+                    -3.178560495376587,
+                    9.232961654663086,
+                    17.420167922973633
+                  ],
+                  "abanicos": 2,
+                  "grados_distintos_de_dos": 0
+                }
+              ],
+              "enlaces_regulares_cerrados": false,
+              "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+            },
+            "aristas_1_cara": 0,
+            "aristas_2_caras": 30189,
+            "aristas_mas_2_caras": 0,
+            "caras_degeneradas": 0,
+            "caras_duplicadas": 0,
+            "pares_caras_contacto_opuestas": 0,
+            "componentes": [
+              {
+                "caras": 20126,
+                "estanco": true,
+                "orientacion_consistente": true,
+                "volumen_firmado_mm3": 2153.944502602509,
+                "euler": -76
+              }
+            ],
+            "numero_componentes": 1,
+            "estanco_global": true,
+            "caja_mm": [
+              [
+                -11.998724937438965,
+                -17.20000457763672,
+                -9.5367431640625e-07
+              ],
+              [
+                11.998723030090332,
+                17.20000457763672,
+                31.99201202392578
+              ]
+            ],
+            "ruta": "rechazar_vertices_no_manifold",
+            "gravedad": "error",
+            "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+            "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+          },
+          "codigo_error": "entrada_vertices_no_manifold",
+          "error": "El STL cierra sus aristas, pero tiene 54 vértices no manifold: se juntan abanicos de caras independientes. La reparación automática no puede resolver esos contactos con garantías; no es un error de dimensiones ni de tiempo."
+        },
+        "tipo_error": "entrada_vertices_no_manifold",
+        "criterios": []
+      },
+      "ok": false
+    }
+  ]
+}

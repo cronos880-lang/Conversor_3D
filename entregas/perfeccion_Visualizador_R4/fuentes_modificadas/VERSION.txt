@@ -1,0 +1,6 @@
+perfeccion_Visualizador_R4
+2026-10-24
+AVANCE EXPERIMENTAL NO ESTABLE. No sustituir una instalación de referencia.
+Mejora parcial de fragmentación, topología de vértices y selección automática.
+Puerto 8768. El Visor Python no actualiza GitHub Pages/WebAssembly.
+Leer INFORME_RESULTADOS.md para resultados reales y pruebas pendientes.

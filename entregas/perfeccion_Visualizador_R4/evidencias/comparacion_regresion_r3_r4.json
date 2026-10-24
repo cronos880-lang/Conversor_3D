@@ -1,0 +1,121 @@
+{
+  "aceptadas_R3": 10,
+  "aceptadas_R4": 10,
+  "total": 12,
+  "nuevas_regresiones": 0,
+  "geometrias_aceptadas_identicas": true,
+  "casos": [
+    {
+      "archivo": "1x1-lego-brick.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "ac17c6ff151203c4e251e0042fd6dca90e81a74c51bfb348f0ca96fc3bfc7453",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "Bancada_Motor.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "2a6ef2435a30461f96fb8916cf4c78514e903c029c1daf1480fe7bfb8936a7e7",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "Estefi.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "4cba36cecaed7d2685063f9d50f424f1cc45900c7e74d582e859b61194f4b4cf",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "Grapa.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "bbbd06c5c69dd3abc884c49081e950501bfbcd684a17a47febbf118878a324a7",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "LLanta_Trasera.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "481b578f49b69cea72974a42a2a27e0507489b36627eb922c5ff2177c62e4980",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "M3 PClip - 2mm.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "45e2e35938e0426a10cb34c3f5560414b2ac9d3d0d3eb7ed4500ddaf82323ff9",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "Spoiler_arrière_Porsche_-_5.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "9c6ccf4fdd76f69b4ad33768773c80f743c2059e41cf3829cf7bfa714b8d37d4",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "Tirante.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "c5f5f4fe775207c692547f1ea1e699674fd086df7b16d368629d666982b76e13",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "chasis - Part 2.stl",
+      "ok_R3": false,
+      "ok_R4": false,
+      "sin_nueva_regresion": true
+    },
+    {
+      "archivo": "maneta.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "e142543255033488818b81e67103c274a91e402e25bd179a3189964e8bf7ddb5",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    },
+    {
+      "archivo": "pinza.stl",
+      "ok_R3": false,
+      "ok_R4": false,
+      "sin_nueva_regresion": true
+    },
+    {
+      "archivo": "spur.stl",
+      "ok_R3": true,
+      "ok_R4": true,
+      "sin_nueva_regresion": true,
+      "geometria_data_step_identica": true,
+      "sha256_data": "13e44d129681f42215ed1bd17000c65c833c8c1616373af107a0f5bd8357a53d",
+      "metricas_con_diferencias": [],
+      "refinamiento_fragmentacion_elegible": false
+    }
+  ]
+}

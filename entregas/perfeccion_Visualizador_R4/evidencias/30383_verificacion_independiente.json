@@ -1,0 +1,119 @@
+{
+  "30383_alternate_fixed.stl": {
+    "ok": true,
+    "sha256_stl": "988b58727f500babff18579ac97f4f4c5f12c88527d17b911df43ebd991e7e66",
+    "sha256_step": "7a47ec45be2deefd900f0b3958b057eac03cf19da66b8c5d463002555ddba1f7",
+    "calidad_repetida": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 460,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 0.0138371,
+        "tolerancia_p95_mm": 0.0036144,
+        "tolerancia_media_mm": 0.0006282,
+        "aristas_tol_mayor_001mm": 6
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 182,
+      "bytes_step": 1113167,
+      "volumen_error_pct": 0.035851,
+      "caja_error_mm": 0.00259,
+      "caja_error_analitico_mm": 0.00259,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 0.001176,
+        "p95": 0.006921,
+        "p99": 0.008495,
+        "max_muestreado": 0.010019,
+        "muestras": 561
+      },
+      "distancia_step_stl_mm": {
+        "media": 0.0031,
+        "p95": 0.010715,
+        "p99": 0.013478,
+        "max_muestreado": 0.014641,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "tipos_caras": {
+        "GeomAbs_Plane": 173,
+        "GeomAbs_Cone": 3,
+        "GeomAbs_Cylinder": 6
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0.0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 2679,
+          "p95_mm": 0.007245458829942622,
+          "max_mm": 0.012768022477523719,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 20651,
+          "p95_mm": 0.010498094988198597,
+          "max_mm": 0.015035871298307536,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.015036,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      }
+    },
+    "autointerferencias_occ": false,
+    "solidos": 1,
+    "volumen_adaptativo_mm3": [
+      388.42867889428135,
+      388.4286788938558
+    ],
+    "volumen_referencia_mm3": 388.38711873134537,
+    "volumen_adaptativo_error_pct": 0.01070070568926308,
+    "stl_a_cad_denso_mm": {
+      "media": 0.000912,
+      "p95": 0.007245,
+      "p99": 0.011455,
+      "max_muestreado": 0.012768,
+      "muestras": 2679
+    },
+    "cad_a_stl_denso_mm": {
+      "media": 0.003084,
+      "p95": 0.010498,
+      "p99": 0.013369,
+      "max_muestreado": 0.015036,
+      "muestras": 20651
+    },
+    "ocupacion_puntos": 1870,
+    "ocupacion_discrepancias": 0,
+    "cavidades_y_paredes": [],
+    "nota": "Muestreo determinista; no garantía Hausdorff global ni prueba Move face en Onshape."
+  }
+}

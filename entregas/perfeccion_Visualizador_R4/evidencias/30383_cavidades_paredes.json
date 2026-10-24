@@ -1,0 +1,346 @@
+{
+  "ok": true,
+  "puntos": [
+    {
+      "zona": "cavidad lateral",
+      "xyz_mm": [
+        -4.0,
+        -1.5,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_OUT",
+      "step": "TopAbs_State.TopAbs_OUT",
+      "ok": true
+    },
+    {
+      "zona": "cavidad lateral",
+      "xyz_mm": [
+        -4.0,
+        -1.1,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_OUT",
+      "step": "TopAbs_State.TopAbs_OUT",
+      "ok": true
+    },
+    {
+      "zona": "cavidad lateral",
+      "xyz_mm": [
+        -4.0,
+        -0.6,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_OUT",
+      "step": "TopAbs_State.TopAbs_OUT",
+      "ok": true
+    },
+    {
+      "zona": "tabique central",
+      "xyz_mm": [
+        -4.0,
+        0,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "cavidad lateral",
+      "xyz_mm": [
+        -4.0,
+        0.6,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_OUT",
+      "step": "TopAbs_State.TopAbs_OUT",
+      "ok": true
+    },
+    {
+      "zona": "cavidad lateral",
+      "xyz_mm": [
+        -4.0,
+        1.1,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_OUT",
+      "step": "TopAbs_State.TopAbs_OUT",
+      "ok": true
+    },
+    {
+      "zona": "cavidad lateral",
+      "xyz_mm": [
+        -4.0,
+        1.5,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_OUT",
+      "step": "TopAbs_State.TopAbs_OUT",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -2.7,
+        -0.3,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -3.0807611844574883,
+        -0.3,
+        6.499238815542512
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.0,
+        -0.3,
+        6.88
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.919238815542512,
+        -0.3,
+        6.499238815542512
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -5.3,
+        -0.3,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.919238815542512,
+        -0.3,
+        4.660761184457488
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.0,
+        -0.3,
+        4.28
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -3.0807611844574883,
+        -0.3,
+        4.660761184457488
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -2.7,
+        0,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -3.0807611844574883,
+        0,
+        6.499238815542512
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.0,
+        0,
+        6.88
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.919238815542512,
+        0,
+        6.499238815542512
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -5.3,
+        0,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.919238815542512,
+        0,
+        4.660761184457488
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.0,
+        0,
+        4.28
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -3.0807611844574883,
+        0,
+        4.660761184457488
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -2.7,
+        0.3,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -3.0807611844574883,
+        0.3,
+        6.499238815542512
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.0,
+        0.3,
+        6.88
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.919238815542512,
+        0.3,
+        6.499238815542512
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -5.3,
+        0.3,
+        5.58
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.919238815542512,
+        0.3,
+        4.660761184457488
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -4.0,
+        0.3,
+        4.28
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    },
+    {
+      "zona": "pared",
+      "xyz_mm": [
+        -3.0807611844574883,
+        0.3,
+        4.660761184457488
+      ],
+      "referencia": "TopAbs_State.TopAbs_IN",
+      "step": "TopAbs_State.TopAbs_IN",
+      "ok": true
+    }
+  ]
+}

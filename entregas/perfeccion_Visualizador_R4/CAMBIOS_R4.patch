@@ -1,0 +1,938 @@
+--- R3/ESTADO_VALIDACION.md
++++ R4/ESTADO_VALIDACION.md
+@@ -1,27 +1,23 @@
+-# perfeccion_Visualizador R3 — AVANCE NO ESTABLE
++# R4 experimental: mejora parcial, aceptación global pendiente
+ 
+-R3 añade perfiles explícitos, diagnósticos con valores/límites, consultas CAD
+-más eficientes y vigilancia de tiempo según triángulos y actividad del proceso.
+-El perfil predeterminado sigue siendo Precisión; Impresión debe seleccionarse.
++Esta copia no está certificada como sustituto estable. El informe y los JSON
++adjuntos distinguen conversiones aceptadas, rechazos y pruebas no realizadas.
+ 
+-No sustituir R2 con esta copia como si hubiera superado todas las regresiones.
+-La comprobación ampliada descubre dos problemas en STEP históricos que antes
+-pasaban el muestreo: chasis - Part 2 supera el máximo superficial del perfil de
+-precisión; pinza presenta interferencias avanzadas en una ruta de recuperación.
+-En la batería repetida pasan 10 de los 12 casos antes aceptados. Las métricas
+-históricas de esos diez no cambian. El cubo-carrito y sus tres giros pasan y
+-conservan idéntica geometría STEP a la referencia independientemente verificada.
++Se mantiene el motor de superficies anterior. La nueva reconstrucción de bandas
++circulares solo se ensaya para STEP ya válidos con mucha fragmentación planar,
++malla moderada y evidencia geométrica de revolución. El original se conserva
++si la alternativa falla. Nunca se acepta un STEP únicamente porque tiene menos
++caras: se reimporta, se validan cotas, volumen, superficies e interferencias.
+ 
+-Las cuatro piezas nuevas siguen en investigación; consultar los resultados
+-individuales y el informe actualizado junto al ZIP. No interpretar 57 tests
+-unitarios aprobados como 57 conversiones ni como una validación global 14/14.
+-El embudo continúa aplazado por indicación del propietario; no se repite conector.
++El nuevo diagnóstico del enlace de vértices detecta un defecto que un recuento
++de aristas cerradas no encuentra. Rechazar temprano los tres STL afectados es
++un avance de diagnóstico; su reparación automática sigue pendiente.
+ 
+-Precisión: caja 0,020 mm, p95 0,020–0,030 mm, máximo superficial 0,060 mm más
+-únicamente el margen histórico de preparación medido cuando corresponda.
+-Impresión: caja 0,040 mm, p95 0,040 mm, máximo superficial 0,080 mm incluyendo
+-el posible error de preparación. Volumen 0,5 % en ambos perfiles. La verificación
+-de unión conserva 0,002 mm y 0,001 %. Ningún perfil autoriza cierres ambiguos.
++Automático conserva los límites de precisión originales. Impresión es una
++opción explícita; no se activa silenciosamente si precisión falla. La interfaz
++informa del nivel alcanzado, que puede ser mejor que el presupuesto solicitado.
++No se escala la pieza ni se cambian unidades o coordenadas para pasar controles.
+ 
+-Puerto R3: 8767. R2 usa 8766. Windows nativo y Onshape Move face pendientes.
+-Las pruebas de navegador son del Visor Python local, no del conversor WebAssembly.
++Las distancias son muestreadas: no constituyen una cota Hausdorff universal.
++La prueba Linux del servidor local no valida la aplicación WASM ni Windows.
++Move face en Onshape e impresión física K1C no se han comprobado.
+--- R3/GUIA_REPRODUCIR.md
++++ R4/GUIA_REPRODUCIR.md
+@@ -1,7 +1,7 @@
+-# Reproducir R3 y continuar la reparación
++# Reproducir R4 y continuar la reparación
+ 
+ Leer `ESTADO_VALIDACION.md` y `../INFORME_RESULTADOS.md`. Esta es una copia de
+-investigación con dos rechazos históricos nuevos. No sustituir la instalación R2.
++investigación con aceptación global pendiente. No sustituir la instalación R2.
+ 
+ ## Entorno y pruebas
+ 
+@@ -12,10 +12,10 @@
+ Desde `Visor_experimental_fuentes`:
+ 
+ ```sh
+-VISOR_MATERIAL_PRUEBAS=../material_pruebas VISOR_CASOS_R2=../material_pruebas/casos_usuario_r2 VISOR_CASOS_R3=../material_pruebas/casos_usuario_r3 VISOR_FIXTURE_CACHE_R2=../material_pruebas/regresiones_cad_no_aceptados/4600_fixed.step VISOR_FIXTURE_DENSO_R2="../material_pruebas/regresiones_cad_no_aceptados/Pieza ambigua.step" VISOR_FIXTURE_RESCATE_R3="../material_pruebas/regresiones_cad_no_aceptados/Con fallos pero si step.step" python -m pytest -q --junitxml=../pruebas_repetidas.xml
++VISOR_MATERIAL_PRUEBAS=../material_pruebas VISOR_CASOS_R2=../material_pruebas/casos_usuario_r2 VISOR_CASOS_R3=../material_pruebas/casos_usuario_r3 VISOR_CASOS_R4=../material_pruebas/casos_usuario_r4 VISOR_FIXTURE_CACHE_R2=../material_pruebas/regresiones_cad_no_aceptados/4600_fixed.step VISOR_FIXTURE_DENSO_R2="../material_pruebas/regresiones_cad_no_aceptados/Pieza ambigua.step" VISOR_FIXTURE_RESCATE_R3="../material_pruebas/regresiones_cad_no_aceptados/Con fallos pero si step.step" python -m pytest -q --junitxml=../pruebas_repetidas.xml
+ ```
+ 
+-En Windows definir estas mismas seis variables con `set "VARIABLE=valor"` y
++En Windows definir estas mismas siete variables con `set "VARIABLE=valor"` y
+ usar `.venv\Scripts\python.exe`. El test Linux de cancelación se omite en Windows;
+ se necesita evidencia nativa independiente del árbol de procesos/taskkill.
+ 
+@@ -41,7 +41,7 @@
+ ## Baterías y evidencia
+ 
+ ```sh
+-python bateria_reparacion.py --stl ../material_pruebas/casos_usuario_r3 --salida ../resultados_nuevos --limite 900
++python bateria_reparacion.py --stl ../material_pruebas/casos_usuario_r4 --salida ../resultados_nuevos --limite 900
+ python bateria_reparacion.py --stl ../material_pruebas/stl_regresion_14 --salida ../regresion_completa
+ python bateria_reparacion.py --stl ../material_pruebas/casos_cubo --salida ../cubo_repetido
+ python comparar_regresion_cubo.py --referencia ../evidencias/cubo_referencia_previa --resultados ../cubo_repetido
+@@ -62,6 +62,6 @@
+ 
+ ## Navegador
+ 
+-El registro y la captura de Chromium Linux están en `evidencias/navegador_r3.*`.
++El registro y la captura de Chromium Linux están en `evidencias/navegador_r4.*`.
+ El STEP descargado se vuelve a importar y comprobar. Esa prueba corresponde al
+ servidor Python local. No demuestra que funcione Windows ni el conversor WASM.
+--- R3/Iniciar.bat
++++ R4/Iniciar.bat
+@@ -15,6 +15,6 @@
+ )
+ set "PYTHONIOENCODING=utf-8"
+ echo Copia EXPERIMENTAL. Consultar ESTADO_VALIDACION.md antes de usar los resultados.
+-start "" "http://127.0.0.1:8767"
++start "" "http://127.0.0.1:8768"
+ ".venv\Scripts\python.exe" servidor.py
+ if errorlevel 1 pause
+--- R3/Instalar_Entorno.bat
++++ R4/Instalar_Entorno.bat
+@@ -1,7 +1,7 @@
+ @echo off
+ setlocal
+ cd /d "%~dp0"
+-echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R1...
++echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R4...
+ py -3.13 -V >nul 2>&1
+ if not errorlevel 1 (
+   set "PYTHON=py -3.13"
+--- R3/LEEME.txt
++++ R4/LEEME.txt
+@@ -1,27 +1,34 @@
+-perfeccion_Visualizador R3 — AVANCE EXPERIMENTAL NO ESTABLE
++perfeccion_Visualizador R4 — AVANCE EXPERIMENTAL
+ 
+-No reemplazar R2. Hay dos rechazos nuevos en la regresión histórica al ampliar
+-los controles. Leer INFORME_RESULTADOS.md antes de utilizar los resultados.
++Extraer el ZIP completo en una carpeta NUEVA. En su raíz:
++  1. Instalar_Entorno.bat: preparar el entorno una vez.
++  2. Iniciar.bat: abrir http://127.0.0.1:8768.
++Requiere Python 3.12 de 64 bits. Windows nativo no se ha probado en esta sesión.
++El programa está en Visor_experimental_fuentes. Mantener la instalación anterior.
+ 
+-Extraer el ZIP completo en una carpeta nueva. En su raíz:
+-  1. Instalar_Entorno.bat: preparar el entorno una vez.
+-  2. Iniciar.bat: abrir http://127.0.0.1:8767.
+-Requiere Python 3.12 de 64 bits. Windows nativo sigue pendiente de prueba.
+-La aplicación completa está en Visor_experimental_fuentes.
++Modo predeterminado: Automático (precisión).
++El programa elige estrategias, comprueba el resultado y conserva los límites
++anteriores: cotas 0,020 mm, p95 superficial original y máximo 0,060 mm más
++el margen medido de preparación cuando corresponde. No decide por su cuenta
++aceptar 0,08 mm si falla precisión.
+ 
+-El selector de Perfil está abajo, junto al estado de la conversión:
+-  Precisión (predeterminado): mantiene los límites anteriores.
+-  Impresión 0,08 mm: permite caja 0,04 mm, p95 0,04 mm y máximo 0,08 mm.
+-Los 0,08 mm son una tolerancia de conversión, no una garantía de la impresora.
+-Cambiar de perfil invalida el STEP anterior. Hay que convertir otra vez.
+-El nombre sugerido para exportación en impresión termina en _impresion.
++Impresión 3D es opcional. Permite cotas 0,040 mm, p95 0,040 mm y máximo
++0,080 mm incluyendo la preparación. Intenta alcanzar precisión cuando puede.
++Al terminar se informa la precisión REAL alcanzada y el máximo muestreado.
++0,08 mm es un presupuesto de conversión, no una garantía de la impresora.
++Cambiar de modo invalida el STEP: es necesario volver a convertir.
+ 
+-El tiempo se asigna por triángulos y puede ampliarse mientras el proceso
+-consume CPU, hasta un máximo absoluto. El porcentaje indica etapas, no tiempo
+-restante. Nuevo sigue cancelando el proceso y sus descendientes.
+-Los registros distinguen tiempo, memoria y criterios geométricos incumplidos.
++30383: se implementa una reconstrucción alternativa de bandas circulares para
++reducir caras; no se dibujan piezas por nombre ni se editan los STL originales.
++La reducción es parcial: aún quedan parches. Leer el informe de pruebas.
++Tres STL tienen vértices no manifold: se rechazan con diagnóstico temprano.
++Un rechazo más rápido NO significa que esas piezas estén reparadas.
+ 
+-Los STEP en carpetas de regresiones NO ACEPTADAS son fixtures defectuosos para
+-probar su rechazo. No son piezas finales. Registros y pruebas están en evidencias.
+-QA_R1.txt es documentación histórica de referencia, no una certificación de R3.
+-Esta entrega no modifica ni valida GitHub Pages/WebAssembly.
++El porcentaje indica etapas, no minutos restantes. El tiempo puede ampliarse
++si hay actividad de CPU, con máximo absoluto. Nuevo cancela el proceso y sus
++hijos. El registro diferencia tiempo, memoria, dimensiones y topología.
++
++Leer INFORME_RESULTADOS.md y ESTADO_VALIDACION.md antes de usar un STEP.
++Las carpetas NO ACEPTADOS contienen fixtures defectuosos, nunca piezas finales.
++QA_R1.txt es documentación histórica, no una certificación de R4.
++El ensayo de Chromium Linux corresponde al servidor Python, no a WebAssembly.
+--- R3/VERSION.txt
++++ R4/VERSION.txt
+@@ -1,5 +1,6 @@
+-perfeccion_Visualizador_R3
+-2026-10-23
+-AVANCE EXPERIMENTAL NO ESTABLE: regresión de precisión 10/12; cubo-carrito 4/4.
+-Las cuatro piezas nuevas no se consideran resueltas por el arranque del programa.
+-Puerto 8767. El Visor Python no actualiza el conversor WebAssembly de GitHub Pages.
++perfeccion_Visualizador_R4
++2026-10-24
++AVANCE EXPERIMENTAL NO ESTABLE. No sustituir una instalación de referencia.
++Mejora parcial de fragmentación, topología de vértices y selección automática.
++Puerto 8768. El Visor Python no actualiza GitHub Pages/WebAssembly.
++Leer INFORME_RESULTADOS.md para resultados reales y pruebas pendientes.
+--- R3/Visor_STL_STEP.html
++++ R4/Visor_STL_STEP.html
+@@ -3,7 +3,7 @@
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+-  <title>Visor STL V4.0 Uso R3 experimental</title>
++  <title>Visor STL V4.0 Uso R4 experimental</title>
+   <style>
+     :root { color-scheme: dark; --bg:#0e121b; --surface:#171d28; --edge:#2c3544; --text:#e9eef7; --muted:#8e9caf; --blue:#458fff; }
+     * { box-sizing:border-box; }
+@@ -54,7 +54,7 @@
+       <div class="brand-icon" aria-hidden="true">
+         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 7 9 5v10l-9-5V7Zm18 0-9 5v10l9-5V7Z"/></svg>
+       </div>
+-      <div><div class="brand-name" title="V4.0 Uso R3 experimental · perfiles y validación CAD">Visor STL V4.0 Uso R3 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
++      <div><div class="brand-name" title="V4.0 Uso R4 experimental · perfiles y validación CAD">Visor STL V4.0 Uso R4 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
+     </div>
+     <div class="buttons">
+       <button id="newBtn" title="Limpiar el visor (Ctrl+N)">
+@@ -80,7 +80,7 @@
+     <div class="drop" id="drop">Suelta el archivo STL</div>
+     <div class="error-toast" id="error" role="alert"></div>
+   </main>
+-  <footer class="status"><span id="fileName" class="filename">Sin archivo</span><label>Perfil <select id="conversionProfile" aria-label="Perfil de conversión" title="Precisión conserva los límites anteriores. Impresión permite hasta 0,04 mm en cotas y 0,08 mm de desviación superficial; no garantiza la precisión de la impresora."><option value="precision" selected>Precisión</option><option value="impresion">Impresión 0,08 mm</option></select></label><span class="status-right"><strong class="progress-num" id="conversionPercent" hidden aria-live="polite">0 %</strong><span class="details" id="details">Listo para importar STL</span></span></footer>
++  <footer class="status"><span id="fileName" class="filename">Sin archivo</span><label>Modo <select id="conversionProfile" aria-label="Modo de conversión" title="Automático elige las estrategias y conserva los límites de precisión. Impresión 3D es opcional: permite hasta 0,04 mm en cotas y 0,08 mm de desviación, buscando mayor precisión cuando es posible."><option value="precision" selected>Automático (precisión)</option><option value="impresion">Impresión 3D</option></select></label><span class="status-right"><strong class="progress-num" id="conversionPercent" hidden aria-live="polite">0 %</strong><span class="details" id="details">Listo para importar STL</span></span></footer>
+ </div>
+ <input type="file" id="fileInput" accept=".stl" hidden>
+ <script>
+@@ -96,7 +96,7 @@
+   const exportBtn = document.getElementById('exportBtn');
+   const profileSelect = document.getElementById('conversionProfile');
+   let stepProfile='precision';
+-  profileSelect.addEventListener('change',()=>{resetStep();details.textContent='Perfil seleccionado: '+profileSelect.options[profileSelect.selectedIndex].text;});
++  profileSelect.addEventListener('change',()=>{resetStep();details.textContent='Modo seleccionado: '+profileSelect.options[profileSelect.selectedIndex].text;});
+   function resetStep(){ stepBlob=null; exportBtn.disabled=true; convertBtn.disabled=!currentFile || !!activeOp || cancelInProgress || cancellationError; conversionPercent.hidden=true; conversionPercent.classList.remove('failed'); }
+   const canvas = document.getElementById('view');
+   const viewport = document.getElementById('viewport');
+@@ -379,7 +379,11 @@
+       stepProfile=op.perfil;
+       exportBtn.disabled=false;
+       conversionPercent.textContent='100 %';
+-      details.textContent='STEP CAD generado · '+(op.perfil==='impresion'?'Impresión 0,08 mm':'Precisión')+' · '+response.headers.get('X-STEP-Faces')+' caras · '+(blob.size/1048576).toFixed(2)+' MB';
++      const reached=response.headers.get('X-STEP-Achieved-Profile')||op.perfil;
++      const deviationText=response.headers.get('X-STEP-Max-Deviation');
++      const deviation=deviationText&&deviationText.trim()?Number(deviationText):NaN;
++      const measured=Number.isFinite(deviation)?' · máx. medido '+deviation.toLocaleString('es-ES',{maximumFractionDigits:6})+' mm':'';
++      details.textContent='STEP CAD generado · '+(reached==='precision'?'Precisión alcanzada':'Límites de impresión')+measured+' · '+response.headers.get('X-STEP-Faces')+' caras';
+     }catch(e){
+       console.error(e);
+       if(!op.cancelled && chosenFile===currentFile){
+--- R3/motor_v2.py
++++ R4/motor_v2.py
+@@ -35,6 +35,9 @@
+ MAX_INPUT_BYTES = 30 * 1024 * 1024
+ MAX_WORK_FACES = 20_000
+ MAX_WORK_FACES_DENSO = 40_000
++# Una entrada apenas por encima de 20k también puede usar una malla de trabajo
++# ya contrastada. Todas las mediciones finales siguen usando el STL original.
++MAX_RECOVERY_INPUT_FACES = 60_000
+ MAX_WORK_SURFACE_DIFFERENCE = 0.010  # mm; medido en todos los vértices del STL
+ MAX_VOLUME_ERROR = 0.005            # 0,5 %, además del control de superficies
+ MAX_BBOX_ERROR = 0.020              # mm
+@@ -226,10 +229,23 @@
+     # admite ese margen documentado; el p95 no se relaja. Nunca se usa la
+     # diferencia de volumen para justificar una desviación superficial.
+     prep = max(0.0, min(float(error_preparacion_mm), MAX_WORK_SURFACE_DIFFERENCE))
++    strict_p95_limit=surface_p95_limit
+     if perfil['p95_mm'] is not None:
+         surface_p95_limit=perfil['p95_mm']
+     surface_max_limit = (MAX_SURFACE_OBSERVED + prep if perfil['id']=='precision'
+                          else perfil['max_mm'])
++    # Una teselación puede ofrecer vértices fuera del recorte real. Antes de
++    # rechazar por CAD→STL, medir el punto correspondiente del B-Rep exacto.
++    projection={'muestras_proyectadas':0,'max_distancia_al_brep_mm':0.}
++    if result2['p95']>surface_p95_limit or result2['max_muestreado']>surface_max_limit:
++        from validacion_local import proyectar_en_brep
++        cutoff=surface_p95_limit if result2['p95']>surface_p95_limit else surface_max_limit
++        suspect=np.flatnonzero(cad_to_stl>cutoff)
++        if len(suspect):
++            projected,offset=proyectar_en_brep(solid,cadpts[suspect])
++            cad_to_stl[suspect]=[abs(query.EvaluateFunction(p)) for p in projected]
++            result2=_estadisticas(cad_to_stl)
++            projection={'muestras_proyectadas':len(suspect),'max_distancia_al_brep_mm':float(offset.max())}
+     p95_observed = max(result1['p95'],result2['p95'])
+     max_observed = max(result1['max_muestreado'],result2['max_muestreado'])
+     print(f"[Calidad] p95 STL->CAD {result1['p95']:.5f} CAD->STL {result2['p95']:.5f}; "
+@@ -262,6 +278,7 @@
+         'caja_modo_verificacion':caja_modo,
+         'distancia_stl_step_mm':result1,
+         'distancia_step_stl_mm':result2,
++        'contraste_muestreo_cad':projection,
+         'tipos_caras':dict(types),
+         'limites_validacion':{'volumen_error_max_pct': MAX_VOLUME_ERROR*100,
+             'caja_error_max_mm':bbox_limit,'p95_superficie_max_mm':surface_p95_limit,
+@@ -283,6 +300,15 @@
+     from validacion_densa import exigir_denso
+     result['inspeccion_densa'] = exigir_denso(original,solid,
+         limite_p95=surface_p95_limit,limite_max=surface_max_limit)
++    dense=result['inspeccion_densa']
++    observed_max=max(max_observed,dense['stl_a_cad']['max_mm'],dense['cad_a_stl']['max_mm'])
++    observed_p95=max(p95_observed,dense['stl_a_cad']['p95_mm'],dense['cad_a_stl']['p95_mm'])
++    strict=(bbox_error<=MAX_BBOX_ERROR and volume_error<=MAX_VOLUME_ERROR
++            and observed_p95<=strict_p95_limit and observed_max<=MAX_SURFACE_OBSERVED+prep)
++    result['precision_alcanzada']='precision' if strict else 'impresion'
++    result['desviacion_max_verificada_mm']=round(float(observed_max),6)
++    result['limites_precision_originales']={'caja_mm':MAX_BBOX_ERROR,'p95_mm':strict_p95_limit,
++                                           'max_mm':MAX_SURFACE_OBSERVED+prep}
+     return result
+ 
+ 
+@@ -291,7 +317,8 @@
+ 
+ @evitar_repetidos
+ def convertir(path_stl: Path, path_step: Path, log, *, flat_tol_deg=8.0,
+-             digital=False, analitico=False, sin_simplificar=False, precision_reparacion=False, control_avanzado=False):
++             digital=False, analitico=False, sin_simplificar=False, precision_reparacion=False, control_avanzado=False,
++             bandas_revolucion=False):
+     from meshfit_detect import detect
+     from meshfit_step import export_step
+     avance(20, "Comprobando la malla STL")
+@@ -355,6 +382,13 @@
+         res,working = detect(str(mesh_path),angle_tol_deg=32.0,rms_tol_rel=0.01,
+                              flat_tol_deg=flat_tol_deg,
+                              scan_mode=False)
++        bandas=[]
++        if bandas_revolucion:
++            from revolucion_verificada import incorporar
++            bandas=incorporar(res,working)
++            if not bandas:
++                raise ValueError('Sin bandas circulares completas verificadas para reducir fragmentación.')
++            print(f'[Bandas circulares verificadas] {bandas}',file=log,flush=True)
+         if reconocimiento_bruto is not None and prep is not None:
+             from reconocimiento_diseno import transferir_etiquetas
+             transferencia = transferir_etiquetas(reconocimiento_bruto, working)
+@@ -450,6 +484,7 @@
+             'saneamiento_cad':saneamiento,
+             'reconocimiento_original_experimental':inventario,
+             'cilindros_analiticos_verificados':cilindros_analiticos,
++            'bandas_revolucion_verificadas':bandas,
+             'limpieza_franjas':limpieza,
+             'calidad':quality,
+             'motor':'Reconstrucción CAD de superficies, sin idealización',
+@@ -463,7 +498,10 @@
+     No examina nombres de archivos, ni reutiliza resultados CAD de terceros.
+     """
+     a, b = original['calidad'], refinado['calidad']
+-    if b['caras_step'] > 0.85 * a['caras_step']:
++    upgrade=a.get('precision_alcanzada','precision')=='impresion' and b.get('precision_alcanzada','precision')=='precision'
++    if a.get('precision_alcanzada','precision')=='precision' and b.get('precision_alcanzada','precision')=='impresion':
++        return False,'La alternativa pierde el nivel de precisión ya alcanzado.'
++    if not upgrade and b['caras_step'] > 0.85 * a['caras_step']:
+         return False, 'La reducción de caras no es sustancial.'
+     if b['volumen_error_pct'] > a['volumen_error_pct'] * 1.05:
+         return False, 'Empeora la coincidencia de volumen.'
+@@ -478,7 +516,8 @@
+         old, new = a[direction],b[direction]
+         if new['p95'] > old['p95'] + 0.004 or new['max_muestreado'] > old['max_muestreado'] + .010:
+             return False, 'La desviación superficial de la alternativa empeora.'
+-    return True, 'Menos caras planas residuales, sólido validado y precisión conservada.'
++    return True, ('Mayor precisión verificada, sin empeorar los otros controles.' if upgrade else
++                  'Menos caras planas residuales, sólido validado y precisión conservada.')
+ 
+ def _comparar_candidatos_cad(anterior, nuevo):
+     """Permitir menos caras solo si NO empeoran materialmente la precisión y la topología.
+@@ -487,8 +526,11 @@
+     no cambian ni relajan el validador dimensional y volumétrico.
+     """
+     a,b=anterior['calidad'],nuevo['calidad']
++    upgrade=a.get('precision_alcanzada','precision')=='impresion' and b.get('precision_alcanzada','precision')=='precision'
++    if a.get('precision_alcanzada','precision')=='precision' and b.get('precision_alcanzada','precision')=='impresion':
++        return False,'Se conserva el candidato que ya alcanza precisión.'
+     n0,n1=a['caras_step'],b['caras_step']
+-    if n1 >= n0-max(4,int(n0*.05)):
++    if not upgrade and n1 >= n0-max(4,int(n0*.05)):
+         return False, 'La reducción de caras es insuficiente.'
+     if b['caja_error_mm'] > a['caja_error_mm']+.003:
+         return False, 'Empeoran las dimensiones.'
+@@ -505,7 +547,8 @@
+     b_bs=sum(v for k,v in b['tipos_caras'].items() if 'BSpline' in k)
+     if b_bs > a_bs+max(2,int(.10*a_bs)):
+         return False, 'Aumenta la fragmentación B-spline.'
+-    return True, f'Menos caras CAD: {n0} → {n1}, sin incumplir controles de fidelidad.'
++    return True, ('Mayor precisión verificada sin empeorar materialmente los demás controles.' if upgrade else
++                  f'Menos caras CAD: {n0} → {n1}, sin incumplir controles de fidelidad.')
+ 
+ 
+ def _main_cad():
+@@ -654,7 +697,7 @@
+                 # ~16.6% de volumen; sin este rescate se rechaza inutilmente.
+                 # Probar solo mallas pequenas tras fallo real, sin excepciones
+                 # por nombre y sin relajar NINGUNA validacion geometrica.
+-                if (triangles <= 18_000 and
++                if (triangles <= MAX_RECOVERY_INPUT_FACES and
+                         os.getenv('VISOR_RECUPERACION_CURVAS','1') == '1'):
+                     vars_curvas=('VISOR_CENTROID_GATE',
+                                  'VISOR_REFINAMIENTO_BREP',
+@@ -692,7 +735,7 @@
+                 # resultados previos. Examinar varias segmentaciones y conservar
+                 # únicamente STEP reimportados válidos con menos caras reales.
+                 if (os.environ.get('VISOR_RECUPERACION_CAD','1') == '1'
+-                        and triangles <= MAX_WORK_FACES):
++                        and triangles <= MAX_RECOVERY_INPUT_FACES):
+                     with tempfile.TemporaryDirectory(prefix='visor_cad_refinar_') as td:
+                         mejor=None;resumen=[]; ruta_mejor=None; validos=0
+                         for angulo in (4.0, 6.0, 3.0, 5.0, 7.0):
+@@ -739,16 +782,41 @@
+                         'comprobaciones de volumen, dimensiones y topologia. '
+                         'Consulta el diagnostico para ver cada candidato.')
+ 
++            # Una sola alternativa acotada para STEP válidos muy fragmentados.
++            # El original permanece disponible si cualquier control falla.
++            from revolucion_verificada import conviene, mejora
++            if conviene(result['calidad'],triangles) and not recuperado_experimental:
++                alternativa=dst.with_name(dst.stem+'_bandas.step')
++                try:
++                    propuesta=convertir(src,alternativa,log,bandas_revolucion=True,
++                                        control_avanzado=True)
++                    aceptar,razon=mejora(result['calidad'],propuesta['calidad'])
++                    print(f'[Fragmentación] aceptada={aceptar}; {razon}',file=log,flush=True)
++                    if aceptar:
++                        anterior=result['calidad']
++                        alternativa.replace(dst);result=propuesta
++                        result['estrategia']='bandas_circulares_verificadas'
++                        result['comparacion_fragmentacion']={'caras_antes':anterior['caras_step'],
++                            'caras_despues':result['calidad']['caras_step'],'criterio':razon,
++                            'calidad_anterior':anterior}
++                except Exception as exc:
++                    print(f'[Fragmentación] Se conserva el STEP anterior: {exc}',file=log,flush=True)
++                finally:
++                    alternativa.unlink(missing_ok=True)
++
+             # Refinamiento localizado por DIAGNÓSTICO, no por archivo.
+             # Solo se intenta cuando una parte dominante de la malla se ha
+             # clasificado como plano pese a no ser realmente plana.
+             mezcla_curva_extensa = result.get('diagnostico',{}).get('proporcion',0) >= 0.45
+-            if mezcla_curva_extensa and not recuperado_experimental:
++            mejorar_precision=(result['calidad'].get('precision_alcanzada')=='impresion'
++                                and triangles<=MAX_RECOVERY_INPUT_FACES)
++            if (mezcla_curva_extensa or mejorar_precision) and not recuperado_experimental:
+                 alt=dst.with_name(dst.stem + '_refinada.step')
+                 os.environ['VISOR_CENTROID_GATE']='1'
+                 os.environ['VISOR_REFINAMIENTO_BREP']='1'
+                 try:
+-                    print('[Adaptativa] Region no plana dominante: intentando segmentación 1.3°',file=log,flush=True)
++                    print('[Adaptativa] '+('Buscando precisión dentro del uso impresión' if mejorar_precision else 'Región no plana dominante')+
++                          ': intentando segmentación 1.3°',file=log,flush=True)
+                     finer=convertir(src,alt,log,flat_tol_deg=1.3,digital=False,control_avanzado=True)
+                     accepted,reason=_mejora_suficiente(result,finer)
+                     print(f'[Adaptativa] aceptada={accepted}; {reason}',file=log,flush=True)
+--- R3/preprocesador_stl.py
++++ R4/preprocesador_stl.py
+@@ -61,6 +61,7 @@
+     def __init__(self, message, informe):
+         super().__init__(message)
+         self.informe = informe
++        self.codigo = informe.get('codigo_error','entrada_no_reparable_conservadoramente')
+ 
+ 
+ def cargar_exacto(path):
+@@ -72,6 +73,8 @@
+ 
+ 
+ def diagnosticar(mesh):
++    from topologia_vertices import inspeccionar_vertices
++    vertex_topology=inspeccionar_vertices(mesh)
+     edges, counts = np.unique(np.sort(mesh.edges, axis=1), axis=0, return_counts=True)
+     _, inverse, face_counts = np.unique(np.sort(mesh.faces, axis=1), axis=0, return_counts=True, return_inverse=True)
+     opposite = 0
+@@ -96,12 +99,13 @@
+     elif any(not c['orientacion_consistente'] or c['volumen_firmado_mm3'] <= 1e-9 for c in components):
+         route, severity = 'rechazar_orientacion', 'error'
+     elif len(parts) == 1 and not nonmanifold and mesh.is_watertight:
+-        route, severity = 'paso_directo', 'informacion'
++        route, severity = ('rechazar_vertices_no_manifold','error') if vertex_topology['vertices_no_manifold'] else ('paso_directo','informacion')
+     elif len(parts) > 1 and all(c['estanco'] for c in components):
+         route, severity = 'analizar_union_cuerpos_cerrados', 'advertencia'
+     else:
+         route, severity = 'rechazar_union_no_manifold', 'error'
+     return {'caras': len(mesh.faces), 'vertices': len(mesh.vertices),
++            'topologia_vertices':vertex_topology,
+             'aristas_1_cara': opened, 'aristas_2_caras': int(np.count_nonzero(counts == 2)),
+             'aristas_mas_2_caras': nonmanifold, 'caras_degeneradas': degenerate,
+             'caras_duplicadas': duplicates, 'pares_caras_contacto_opuestas': opposite,
+@@ -289,10 +293,12 @@
+     if not habilitado:
+         raise ReparacionRechazada('Preprocesador desactivado; '+route, report)
+     reasons = {'rechazar_caras_defectuosas': 'Caras degeneradas o duplicadas: reparación ambigua.',
++               'rechazar_vertices_no_manifold': f"El STL cierra sus aristas, pero tiene {diag['topologia_vertices']['vertices_no_manifold']} vértices no manifold: se juntan abanicos de caras independientes. La reparación automática no puede resolver esos contactos con garantías; no es un error de dimensiones ni de tiempo.",
+                'abertura_ambigua_requiere_referencia': 'Borde abierto: no se puede distinguir un agujero accidental de un canal funcional; se requiere referencia explícita.',
+                'rechazar_orientacion': 'Orientación inconsistente o invertida; no se cambia silenciosamente.',
+                'rechazar_union_no_manifold': 'Unión no manifold: no se pudo garantizar reparación sin cambiar cotas.'}
+     if route != 'analizar_union_cuerpos_cerrados':
++        if route=='rechazar_vertices_no_manifold':report['codigo_error']='entrada_vertices_no_manifold'
+         raise ReparacionRechazada(reasons.get(route, 'Entrada no válida.'), report)
+     try:
+         report['ruta_seleccionada'] = 'union_booleana_verificada'
+--- R3/revolucion_verificada.py
++++ R4/revolucion_verificada.py
+@@ -0,0 +1,153 @@
++"""Propuestas acotadas de bandas circulares, sin modificar la malla original.
++
++Solo se ensayan como alternativa a un STEP ya válido y muy fragmentado.
++Una propuesta no es una conversión: el B-Rep exportado debe volver a pasar
++todos los controles geométricos y topológicos del motor.
++"""
++from __future__ import annotations
++import numpy as np
++from scipy.optimize import least_squares
++from scipy.sparse import coo_matrix
++from scipy.sparse.csgraph import connected_components
++
++
++def conviene(calidad, triangulos):
++    tipos=calidad.get('tipos_caras',{})
++    n=calidad.get('caras_step',0)
++    return (triangulos<=5000 and n>=150 and
++            tipos.get('GeomAbs_Plane',0)>=.90*n and
++            tipos.get('GeomAbs_Cylinder',0)>0 and
++            not any(v for k,v in tipos.items() if 'BSpline' in k))
++
++
++def proponer(result, mesh):
++    """Bandas conexas >=300°, vértices y centroides a <=0,011 mm.
++
++    Las aristas con diedro >=30° y los cambios de inclinación delimitan
++    bandas diferentes. Se protege así un hexágono y los escalones reales.
++    Los ejes provienen de las primitivas existentes y de la base del STL.
++    No se redondean centros ni radios a medidas nominales.
++    """
++    axes=list(np.eye(3))
++    for p in result['primitives']:
++        if p.get('type') not in ('cone','cylinder'):continue
++        a=np.asarray(p['axis'],float);a/=np.linalg.norm(a)
++        if not any(abs(np.dot(a,b))>1-1e-6 for b in axes):axes.append(a)
++        if len(axes)>=12:break
++    F=np.asarray(mesh.faces);V=np.asarray(mesh.vertices)
++    C=np.asarray(mesh.triangles_center);N=np.asarray(mesh.face_normals)
++    adj=mesh.face_adjacency;patches=[]
++    # No superar tampoco la tolerancia local original del constructor.
++    tol=min(.011,max(.006,6e-4*float(np.linalg.norm(mesh.extents))))
++    for axis in axes:
++        ref=np.eye(3)[int(np.argmin(np.abs(axis)))]
++        u=np.cross(axis,ref);u/=np.linalg.norm(u);v=np.cross(axis,u)
++        basis=np.column_stack((u,v));comp=N@axis
++        allowed=((np.abs(comp[adj[:,0]]-comp[adj[:,1]])<.015)&
++                 (mesh.face_adjacency_angles<np.radians(30))&
++                 (np.abs(comp[adj[:,0]])<.99)&(np.abs(comp[adj[:,1]])<.99))
++        links=adj[allowed]
++        graph=coo_matrix((np.ones(2*len(links)),
++            (np.r_[links[:,0],links[:,1]],np.r_[links[:,1],links[:,0]])),
++            shape=(len(F),len(F))).tocsr()
++        _,labels=connected_components(graph,directed=False)
++        ids,counts=np.unique(labels,return_counts=True)
++        for label in ids[counts>=24]:
++            faces=np.where(labels==label)[0]
++            # Una región plana puede producir un círculo algebraico lejano y
++            # un cono casi plano. Exigir giro real de las normales impide ese
++            # falso positivo, también en tapas y hexágonos subdivididos.
++            nn=N[faces]@basis
++            if np.min(np.linalg.norm(nn,axis=1))<.05:continue
++            angles=np.sort(np.arctan2(nn[:,1],nn[:,0])%(2*np.pi))
++            normal_arc=2*np.pi-np.diff(np.r_[angles,angles[0]+2*np.pi]).max()
++            if normal_arc<np.radians(300):continue
++            pts=V[np.unique(F[faces])];z=pts@axis;span=float(np.ptp(z))
++            if span<.005:continue
++            xy=pts@basis
++            cx,cy,_=np.linalg.lstsq(np.c_[2*xy,np.ones(len(xy))],
++                                   (xy*xy).sum(axis=1),rcond=None)[0]
++            center=np.array([cx,cy]);t0=float(z.mean())
++            radius=np.linalg.norm(xy-center,axis=1)
++            slope,rad=np.polyfit(z-t0,radius,1)
++            cc=C[faces]@basis-center
++            phi=np.sort(np.arctan2(cc[:,1],cc[:,0])%(2*np.pi))
++            arc=2*np.pi-np.diff(np.r_[phi,phi[0]+2*np.pi]).max()
++            if arc<np.radians(300):continue
++            samples=np.vstack((pts,C[faces]));zz=samples@axis-t0
++            projected=samples@basis
++            def residual(x):
++                return (np.linalg.norm(projected-x[:2],axis=1)-x[2]-x[3]*zz)/np.sqrt(1+x[3]**2)
++            fit=least_squares(residual,[cx,cy,rad,slope],max_nfev=100,
++                              xtol=1e-12,ftol=1e-12,gtol=1e-12)
++            if not fit.success:continue
++            x=fit.x;error=residual(x)
++            x[2]+=(error.min()+error.max())/2*np.sqrt(1+x[3]**2)
++            # A slope rounded to zero must be checked again as a cylinder.
++            if abs(x[3])<1e-4:x[3]=0.
++            maximum=float(np.max(np.abs(residual(x))))
++            if (not np.isfinite(x).all() or maximum>tol or x[2]<.15 or
++                    x[2]>3*float(np.linalg.norm(mesh.extents))):continue
++            if np.min(x[2]+x[3]*(z-t0))<=.05:continue
++            radial=C[faces]@basis-x[:2]
++            radial/=np.linalg.norm(radial,axis=1)[:,None]
++            normal=(radial@basis.T-x[3]*axis)/np.sqrt(1+x[3]**2)
++            if np.min(np.abs((normal*N[faces]).sum(axis=1)))<np.cos(np.radians(10)):continue
++            origin=basis@x[:2]+axis*t0;a=axis.copy()
++            if x[3]==0:
++                p={'type':'cylinder','point':origin.tolist(),'axis':a.tolist(),'radius':float(x[2])}
++            else:
++                if x[3]<0:a=-a
++                t=(pts-origin)@a
++                p={'type':'cone','axis':a.tolist(),'origin':origin.tolist(),
++                   'b':float(x[2]),'slope':float(abs(x[3])),
++                   'half_angle':float(np.arctan(abs(x[3]))),
++                   'r_base':float(x[2]+abs(x[3])*t.min()),
++                   'r_top':float(x[2]+abs(x[3])*t.max())}
++            t=(pts-origin)@a
++            p.update(faces=faces.tolist(),n_faces=len(faces),tmin=float(t.min()),
++                     tmax=float(t.max()),rms=maximum,max=maximum)
++            patches.append(p)
++    accepted=[];used=set()
++    for p in sorted(patches,key=lambda p:(p['max'],-p['n_faces'])):
++        if used.intersection(p['faces']):continue
++        accepted.append(p);used.update(p['faces'])
++    return accepted
++
++
++def incorporar(result, mesh):
++    patches=proponer(result,mesh)
++    if not patches:return []
++    used=set(f for p in patches for f in p['faces']);remaining=[]
++    for p in result['primitives']:
++        faces=set(p['faces'])-used
++        if faces:remaining.append(dict(p,faces=sorted(faces),n_faces=len(faces)))
++    result['primitives']=patches+remaining
++    result['freeform_regions']=[sorted(set(r)-used) for r in result.get('freeform_regions',[]) if set(r)-used]
++    result['freeform_faces']=sum(map(len,result['freeform_regions']))
++    return [{'tipo':p['type'],'triangulos':p['n_faces'],'max_vertices_centroides_mm':p['max']} for p in patches]
++
++
++def mejora(antes, despues):
++    """Comparar STEP ya validados; conservar precisión y error superficial global.
++
++    Se limita el cambio de volumen a 0,04 puntos porcentuales y el de caja a
++    0,003 mm, además de los límites originales. El peor p95 y máximo de ambas
++    direcciones densas NO pueden aumentar; no basta con reducir caras.
++    """
++    if despues['precision_alcanzada']!=antes['precision_alcanzada']:
++        return False,'Se conserva el nivel de precisión del STEP inicial.'
++    if despues['caras_step']>.85*antes['caras_step']:
++        return False,'Reducción de caras inferior al 15 %.'
++    if despues['volumen_error_pct']>antes['volumen_error_pct']+.04:
++        return False,'Cambio de volumen excesivo respecto al candidato inicial.'
++    if despues['caja_error_mm']>antes['caja_error_mm']+.003:
++        return False,'Cambio de caja excesivo respecto al candidato inicial.'
++    a,b=antes['integridad_cad'],despues['integridad_cad']
++    if b['tolerancia_max_mm']>a['tolerancia_max_mm']+.001 or b['tolerancia_p95_mm']>a['tolerancia_p95_mm']+.003:
++        return False,'Las tolerancias de las aristas empeoran demasiado.'
++    for metric in ('p95_mm','max_mm'):
++        old=max(antes['inspeccion_densa'][d][metric] for d in ('stl_a_cad','cad_a_stl'))
++        new=max(despues['inspeccion_densa'][d][metric] for d in ('stl_a_cad','cad_a_stl'))
++        if new>old+1e-6:return False,'Empeora la desviación superficial densa global.'
++    return True,'Menos caras, precisión conservada y errores superficiales globales no mayores.'
+--- R3/servidor.py
++++ R4/servidor.py
+@@ -62,7 +62,7 @@
+ 
+ def _diagnostico(id, meta, salida, errores, motor_log):
+     meta['motor_stdout_ultimas_lineas'] = salida[-4000:]
+-    meta['version_programa'] = 'V4.0 R3 EXPERIMENTAL reparación'
++    meta['version_programa'] = 'V4.0 R4 EXPERIMENTAL diagnóstico y precisión automática'
+     meta['python_version'] = sys.version.split()[0] + ' (' + platform.platform() + ')'
+     try:
+         import importlib.metadata as _dist
+@@ -102,6 +102,10 @@
+             meta['preprocesamiento'] = json.loads(report.read_text(encoding='utf-8'))
+         except ValueError:
+             meta['preprocesamiento'] = {'error': 'Informe de entrada incompleto; proceso interrumpido.'}
++        if meta['preprocesamiento'].get('error'):
++            shutil.copyfile(src,LOG_DIR/f'{id}.original.stl')
++            meta['archivos_reparacion']={'informe':f'/reparacion/{id}/informe',
++                                        'original':f'/reparacion/{id}/original'}
+         repaired = dst.with_suffix('.reparado.stl')
+         if repaired.is_file():
+             shutil.copyfile(repaired, LOG_DIR / f'{id}.reparado.stl')
+@@ -202,6 +206,8 @@
+                     meta['advertencia']='Tolerancia CAD de ciertas aristas mayor de 0,02 unidades; comprobar edición en Onshape.'
+                 _diagnostico(id,meta,salida,errores,motor_log)
+                 return Response(content=body,media_type='application/step',headers={
++                    'X-STEP-Achieved-Profile':quality.get('precision_alcanzada',perfil),
++                    'X-STEP-Max-Deviation':str(quality.get('desviacion_max_verificada_mm','')),
+                     'X-STEP-Faces':str(quality['caras_step']),
+                     'X-STL-Triangles':str(result['caras_stl']),
+                     'X-STEP-Method':('superficies' if result.get('modo') == 'extrusiones_y_vaciados' else str(result.get('modo','superficies'))),
+@@ -209,7 +215,7 @@
+                     'X-STEP-Reduction':f"{(1-quality['caras_step']/result['caras_stl'])*100:.1f}",
+                     'X-Volume-Error':str(quality['volumen_error_pct']),
+                     'X-Diagnostic-ID':id,
+-                    'Access-Control-Expose-Headers':'X-STEP-Faces, X-STL-Triangles, X-STEP-Method, X-STEP-Bytes, X-STEP-Reduction, X-Volume-Error, X-Diagnostic-ID',
++                    'Access-Control-Expose-Headers':'X-STEP-Faces, X-STL-Triangles, X-STEP-Method, X-STEP-Bytes, X-STEP-Reduction, X-Volume-Error, X-Diagnostic-ID, X-STEP-Achieved-Profile, X-STEP-Max-Deviation',
+                     'Cache-Control':'no-store',
+                 })
+     except HTTPException:
+@@ -472,6 +478,8 @@
+         except (OSError,PermissionError):
+             pass
+     return {'id':id,'estado':job['status'],
++            'precision_alcanzada':job.get('calidad',{}).get('precision_alcanzada'),
++            'desviacion_max_mm':job.get('calidad',{}).get('desviacion_max_verificada_mm'),
+             'perfil':job.get('perfil','precision'),'presupuesto':job.get('presupuesto'),
+             'porcentaje':percent,'sin_avances_segundos':since_progress,
+             'segundos':round(time.monotonic()-job['inicio'],1),
+@@ -491,14 +499,16 @@
+     if not path.is_file():
+         raise HTTPException(404,'El resultado ya no está disponible.')
+     return FileResponse(path,media_type='application/step',filename='modelo.step',headers={
++        'X-STEP-Achieved-Profile':job.get('calidad',{}).get('precision_alcanzada',job.get('perfil','precision')),
++        'X-STEP-Max-Deviation':str(job.get('calidad',{}).get('desviacion_max_verificada_mm','')),
+         'X-STEP-Faces':str(job['caras']),
+         'X-STL-Triangles':str(job['triangulos']),
+         'X-STEP-Method':str(job['modo']),
+         'X-STEP-Bytes':str(job['size']),
+         'X-Diagnostic-ID':id,
+         'Cache-Control':'no-store',
+-        'Access-Control-Expose-Headers':'X-STEP-Faces, X-STL-Triangles, X-STEP-Method, X-STEP-Bytes, X-Diagnostic-ID'})
++        'Access-Control-Expose-Headers':'X-STEP-Faces, X-STL-Triangles, X-STEP-Method, X-STEP-Bytes, X-Diagnostic-ID, X-STEP-Achieved-Profile, X-STEP-Max-Deviation'})
+ 
+ 
+ if __name__ == '__main__':
+-    uvicorn.run(app, host='127.0.0.1',port=8767,log_level='warning')
++    uvicorn.run(app, host='127.0.0.1',port=8768,log_level='warning')
+--- R3/test_mejoras_r4.py
++++ R4/test_mejoras_r4.py
+@@ -0,0 +1,194 @@
++"""Topología de vértices y selección automática con límites explícitos."""
++from pathlib import Path
++import hashlib,json,os,copy
++import numpy as np
++import pytest
++import trimesh
++from topologia_vertices import inspeccionar_vertices
++
++
++@pytest.mark.parametrize('rotation',[False,True])
++def test_revolucion_recupera_cilindro_completo_sin_modificar_stl(rotation):
++    from revolucion_verificada import proponer,incorporar
++    mesh=trimesh.creation.cylinder(radius=1,height=3,sections=32)
++    axis=np.array([0.,0.,1.])
++    if rotation:
++        matrix=trimesh.transformations.rotation_matrix(.713,[1,2,3])
++        mesh.apply_transform(matrix);axis=matrix[:3,:3]@axis
++    vertices=mesh.vertices.copy();faces=mesh.faces.copy()
++    result={'primitives':[{'type':'cylinder','axis':axis.tolist(),
++            'faces':list(range(len(mesh.faces))),'n_faces':len(mesh.faces)}],
++            'freeform_regions':[]}
++    proposals=proponer(result,mesh)
++    assert len(proposals)==1 and proposals[0]['type']=='cylinder'
++    assert proposals[0]['max']<.004 and proposals[0]['n_faces']==64
++    assert incorporar(result,mesh)
++    coverage=[f for p in result['primitives'] for f in p['faces']]
++    assert sorted(coverage)==list(range(len(mesh.faces)))
++    assert np.array_equal(vertices,mesh.vertices) and np.array_equal(faces,mesh.faces)
++
++
++def test_revolucion_no_redondea_hexagono_mecanico():
++    from revolucion_verificada import proponer
++    mesh=trimesh.creation.cylinder(radius=2,height=3,sections=6)
++    mesh=mesh.subdivide().subdivide()
++    assert not proponer({'primitives':[]},mesh)
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_CASOS_R4'),reason='RAR de pruebas no indicado')
++def test_bandas_reales_tienen_evidencia_y_cobertura_sin_editar_vertices():
++    import motor_v2
++    from meshfit_detect import detect
++    from revolucion_verificada import incorporar
++    source=Path(os.environ['VISOR_CASOS_R4'])/'30383_alternate_fixed.stl'
++    digest=hashlib.sha256(source.read_bytes()).hexdigest()
++    result,mesh=detect(str(source));vertices=mesh.vertices.copy()
++    bands=incorporar(result,mesh)
++    assert len(bands)==5 and sum(b['tipo']=='cone' for b in bands)==3
++    assert max(b['max_vertices_centroides_mm'] for b in bands)<=.011
++    coverage=[f for p in result['primitives'] for f in p['faces']]
++    coverage.extend(f for r in result['freeform_regions'] for f in r)
++    assert len(coverage)==len(set(coverage))
++    assert np.array_equal(vertices,mesh.vertices) and hashlib.sha256(source.read_bytes()).hexdigest()==digest
++
++
++def test_fragmentacion_no_acepta_fewer_faces_si_empeora_error_denso():
++    from revolucion_verificada import mejora
++    q={'precision_alcanzada':'precision','caras_step':200,'volumen_error_pct':.01,
++       'caja_error_mm':.001,'integridad_cad':{'tolerancia_max_mm':.01,'tolerancia_p95_mm':.002},
++       'inspeccion_densa':{d:{'p95_mm':.012,'max_mm':.025} for d in ('stl_a_cad','cad_a_stl')}}
++    other=copy.deepcopy(q);other['caras_step']=150
++    assert mejora(q,other)[0]
++    other['inspeccion_densa']['stl_a_cad']['max_mm']=.03
++    assert not mejora(q,other)[0]
++
++
++def pinzamiento_cerrado():
++    mesh=trimesh.creation.icosphere(subdivisions=1)
++    a=int(np.argmin(mesh.vertices[:,0]));b=int(np.argmax(mesh.vertices[:,0]))
++    mesh.vertices[b]=mesh.vertices[a];mesh.merge_vertices(digits_vertex=12)
++    return mesh
++
++
++def test_cerrado_por_aristas_no_garantiza_vertices_manifold(tmp_path):
++    from preprocesador_stl import preparar,ReparacionRechazada
++    mesh=pinzamiento_cerrado();assert mesh.is_watertight and mesh.is_winding_consistent
++    report=inspeccionar_vertices(mesh)
++    assert report['vertices_no_manifold']==1 and report['ejemplos'][0]['abanicos']==2
++    source=tmp_path/'pinzado.stl';source.write_bytes(mesh.export(file_type='stl'));digest=hashlib.sha256(source.read_bytes()).hexdigest()
++    with pytest.raises(ReparacionRechazada) as rejected:preparar(source,tmp_path/'salida.stl')
++    assert rejected.value.codigo=='entrada_vertices_no_manifold'
++    assert hashlib.sha256(source.read_bytes()).hexdigest()==digest and not (tmp_path/'salida.stl').exists()
++
++
++def test_borde_abierto_no_se_confunde_con_pinza_de_vertices():
++    mesh=trimesh.creation.box();mesh.update_faces(np.arange(1,len(mesh.faces)))
++    report=inspeccionar_vertices(mesh)
++    assert report['vertices_no_manifold']==0 and report['vertices_de_borde']==3
++    assert not report['enlaces_regulares_cerrados']
++
++
++@pytest.mark.skipif(not os.getenv('VISOR_CASOS_R4'),reason='RAR de pruebas no indicado')
++@pytest.mark.parametrize('name,count',[('6558_fixed.stl',33),('Dimensiones tambien.stl',14),('Pieza_Nueva_Detenida.stl',54)])
++def test_vertices_reales_se_diagnostican_antes_de_reconstruir(tmp_path,name,count):
++    from preprocesador_stl import preparar,ReparacionRechazada
++    source=Path(os.environ['VISOR_CASOS_R4'])/name;digest=hashlib.sha256(source.read_bytes()).hexdigest()
++    with pytest.raises(ReparacionRechazada) as rejected:preparar(source,tmp_path/'salida.stl')
++    r=rejected.value.informe['entrada']
++    assert r['estanco_global'] and r['aristas_mas_2_caras']==0
++    assert r['topologia_vertices']['vertices_no_manifold']==count
++    assert rejected.value.codigo=='entrada_vertices_no_manifold' and hashlib.sha256(source.read_bytes()).hexdigest()==digest
++
++
++@pytest.mark.parametrize('offset,achieved',[(.005,'precision'),(.03,'impresion')])
++def test_impresion_informa_precision_real_alcanzada(tmp_path,monkeypatch,offset,achieved):
++    import cadquery as cq
++    from motor_v2 import _calidad
++    source=tmp_path/'cubo.stl';step=tmp_path/'cubo.step';mesh=trimesh.creation.box(extents=[10]*3);source.write_bytes(mesh.export(file_type='stl'))
++    cq.exporters.export(cq.Workplane('XY').box(10,10,10).translate((offset,0,0)),str(step))
++    monkeypatch.setenv('VISOR_PERFIL','impresion')
++    q=_calidad(source,step,mesh)
++    assert q['precision_alcanzada']==achieved and q['perfil_validacion']['id']=='impresion'
++    assert abs(q['desviacion_max_verificada_mm']-offset)<1e-6
++    assert q['limites_precision_originales']['caja_mm']==.020
++
++
++def test_muestra_cad_fuera_del_recorte_se_contrasta_con_superficie_exacta(tmp_path,monkeypatch):
++    import cadquery as cq
++    from motor_v2 import _calidad
++    mesh=trimesh.creation.annulus(r_min=1,r_max=3,height=2,sections=64);source=tmp_path/'anillo.stl';source.write_bytes(mesh.export(file_type='stl'))
++    solid=cq.Workplane('XY').circle(3).circle(1).extrude(2).translate((0,0,-1)).val();step=tmp_path/'anillo.step';cq.exporters.export(solid,str(step))
++    class TeseladoDefectuoso:
++        def tessellate(self,*args,**kwargs):return [cq.Vector(-2,0,1),cq.Vector(2,0,1),cq.Vector(0,2,1),cq.Vector(0,.7,1)],[(0,1,2)]
++        def isValid(self):return True
++    monkeypatch.setattr(type(solid),'copy',lambda self:TeseladoDefectuoso())
++    q=_calidad(source,step,mesh,control_avanzado=True)
++    assert q['contraste_muestreo_cad']['muestras_proyectadas']>=1
++    assert q['contraste_muestreo_cad']['max_distancia_al_brep_mm']>.29
++    assert q['inspeccion_densa']['aceptado'] and q['limites_validacion']['desviacion_max_observada_mm']==.060
++
++
++def candidatos():
++    def q(faces,p95,maximum,box,level):
++        return {'calidad':{'caras_step':faces,'volumen_error_pct':.01,'caja_error_mm':box,
++               'integridad_cad':{'tolerancia_max_mm':.001,'tolerancia_p95_mm':.001},
++               'distancia_stl_step_mm':{'p95':p95,'max_muestreado':maximum},
++               'distancia_step_stl_mm':{'p95':p95,'max_muestreado':maximum},
++               'tipos_caras':{'GeomAbs_Plane':faces},'precision_alcanzada':level}}
++    return q(20,.025,.07,.03,'impresion'),q(25,.005,.01,.001,'precision')
++
++
++@pytest.mark.parametrize('selector',['_mejora_suficiente','_comparar_candidatos_cad'])
++def test_prioriza_precision_sobre_reduccion_de_caras(selector):
++    import motor_v2
++    old,new=candidatos();compare=getattr(motor_v2,selector)
++    assert compare(old,new)[0] and not compare(new,old)[0]
++
++
++def test_recuperacion_no_se_corta_automaticamente_al_superar_20000(tmp_path,monkeypatch,capsys):
++    import cadquery as cq
++    import motor_v2 as m
++    source=tmp_path/'malla_grande.stl';step=tmp_path/'salida.step';mesh=trimesh.creation.box(extents=[10]*3)
++    for _ in range(6):mesh=mesh.subdivide()
++    assert len(mesh.faces)==49152;source.write_bytes(mesh.export(file_type='stl'))
++    calls=[]
++    def construir(src,dst,log,**kw):
++        calls.append(kw)
++        if len(calls)==1:raise ValueError('El motor B-Rep no ha reconstruido un sólido CAD válido.')
++        cq.exporters.export(cq.Workplane('XY').box(10,10,10),str(dst))
++        return {'caras_stl':len(mesh.faces),'modo':'superficies','calidad':m._calidad(src,dst,mesh,control_avanzado=True)}
++    monkeypatch.setattr(m,'convertir',construir);monkeypatch.setattr(m.sys,'argv',['motor_v2.py',str(source),str(step)])
++    assert m._main_cad()==0 and len(calls)==2 and calls[1]['flat_tol_deg']==1.3
++    assert calls[1]['control_avanzado'] and step.exists()
++    result=json.loads(capsys.readouterr().out.splitlines()[-1]);assert result['ok']
++
++
++def test_busca_precision_automaticamente_en_uso_impresion(tmp_path,monkeypatch,capsys):
++    import cadquery as cq
++    import motor_v2 as m
++    source=tmp_path/'cubo.stl';target=tmp_path/'salida.step';mesh=trimesh.creation.box(extents=[10]*3);source.write_bytes(mesh.export(file_type='stl'))
++    monkeypatch.setenv('VISOR_PERFIL','impresion');calls=[]
++    def construir(src,dst,log,**kw):
++        calls.append(kw)
++        offset=.03 if len(calls)==1 else 0.
++        cq.exporters.export(cq.Workplane('XY').box(10,10,10).translate((offset,0,0)),str(dst))
++        return {'caras_stl':len(mesh.faces),'modo':'superficies','calidad':m._calidad(src,dst,mesh,control_avanzado=True)}
++    monkeypatch.setattr(m,'convertir',construir);monkeypatch.setattr(m.sys,'argv',['motor_v2.py',str(source),str(target)])
++    assert m._main_cad()==0 and len(calls)==2
++    result=json.loads(capsys.readouterr().out.splitlines()[-1])['resultado']
++    assert result['calidad']['perfil_validacion']['id']=='impresion'
++    assert result['calidad']['precision_alcanzada']=='precision' and result['calidad']['caja_error_mm']<1e-6
++
++
++def test_api_guarda_original_y_causa_de_vertices_pinzdos(tmp_path,monkeypatch):
++    from fastapi.testclient import TestClient
++    import servidor
++    monkeypatch.setattr(servidor,'LOG_DIR',tmp_path)
++    raw=pinzamiento_cerrado().export(file_type='stl')
++    with TestClient(servidor.app) as client:
++        response=client.post('/convertir',files={'archivo':('pinzado.stl',raw)},data={'perfil':'precision'})
++        assert response.status_code==422 and 'vértices no manifold' in response.json()['detail']
++        meta=json.loads(next(p for p in tmp_path.glob('*.json') if not p.name.endswith('.entrada.json')).read_text())
++        assert meta['tipo_error']=='entrada_vertices_no_manifold'
++        saved=client.get(meta['archivos_reparacion']['original']);assert saved.status_code==200 and saved.content==raw
++        assert not list(tmp_path.glob('*.step')) and 'reparado' not in meta['archivos_reparacion']
+--- R3/topologia_vertices.py
++++ R4/topologia_vertices.py
+@@ -0,0 +1,33 @@
++"""Enlaces de vértices: dos caras por arista no bastan para una superficie regular."""
++from collections import Counter
++
++
++def inspeccionar_vertices(mesh, *, limite_ejemplos=20):
++    incident=[[] for _ in mesh.vertices]
++    for a,b,c in mesh.faces:
++        incident[a].append((int(b),int(c)))
++        incident[b].append((int(c),int(a)))
++        incident[c].append((int(a),int(b)))
++    errors=[];boundary=0
++    for index,pairs in enumerate(incident):
++        if not pairs:continue
++        adj={}
++        for a,b in pairs:
++            adj.setdefault(a,set()).add(b);adj.setdefault(b,set()).add(a)
++        unseen=set(adj);fans=0
++        while unseen:
++            fans+=1;stack=[unseen.pop()]
++            while stack:
++                for vertex in adj[stack.pop()]:
++                    if vertex in unseen:unseen.remove(vertex);stack.append(vertex)
++        degrees=Counter(x for pair in pairs for x in pair)
++        ends=sum(d==1 for d in degrees.values())
++        valid=fans==1 and all(d in (1,2) for d in degrees.values()) and ends in (0,2)
++        if valid and ends==2:boundary+=1
++        if not valid:
++            errors.append({'vertice':index,'xyz_mm':mesh.vertices[index].tolist(),
++                           'abanicos':fans,'grados_distintos_de_dos':sum(d!=2 for d in degrees.values())})
++    return {'vertices_no_manifold':len(errors),'vertices_de_borde':boundary,
++            'ejemplos':errors[:limite_ejemplos],
++            'enlaces_regulares_cerrados':bool(len(mesh.faces) and not errors and boundary==0),
++            'criterio':'Un ciclo por vértice interior; un camino por vértice de borde.'}
