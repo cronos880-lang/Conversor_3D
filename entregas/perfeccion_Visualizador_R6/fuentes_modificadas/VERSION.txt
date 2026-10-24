@@ -1,0 +1,4 @@
+perfeccion_Visualizador_R6
+2026-10-24
+AVANCE EXPERIMENTAL NO ESTABLE. Validación completa de cavidades corregida; dos conversiones STEP pendientes.
+Python 3.12 de 64 bits. Puerto 8770. No modifica GitHub Pages/WebAssembly.
