@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "sha256": "64e8d88816120de12ae37519911edbccd8a82188f644200a5f4e77276e3344a1",
+  "autointersecciones_exactas": 0,
+  "topologia_vertices": {
+    "vertices_no_manifold": 0,
+    "vertices_de_borde": 0,
+    "ejemplos": [],
+    "enlaces_regulares_cerrados": true,
+    "criterio": "Un ciclo por v\u00e9rtice interior; un camino por v\u00e9rtice de borde."
+  },
+  "job_id": "eb87c580929a",
+  "version_programa": "V4.0 R5 EXPERIMENTAL reparaci\u00f3n local verificada",
+  "sin_STEP": true
+}

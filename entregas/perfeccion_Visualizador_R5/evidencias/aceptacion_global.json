@@ -1,0 +1,19 @@
+{
+  "version": "R5 experimental",
+  "lista_para_actualizacion_estable": false,
+  "mallas_regularizadas_verificadas": 2,
+  "casos_nuevos_total": 2,
+  "step_casos_nuevos_aprobados": 0,
+  "regresion_precision_aceptadas": 10,
+  "regresion_precision_repetidas": 12,
+  "regresion_14_completa_superada": false,
+  "cubo_carrito": 4,
+  "cubo_carrito_total": 4,
+  "tests_automaticos_distintos": 90,
+  "tests_omitidos": 0,
+  "chromium_linux_python": true,
+  "windows_nativo": false,
+  "wasm_validado": false,
+  "onshape_move_face": false,
+  "k1c_impresion_fisica": false
+}

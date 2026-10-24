@@ -1,0 +1,16 @@
+cadquery>=2.4,<3
+trimesh>=4,<5
+fastapi>=0.110,<1
+uvicorn>=0.29,<1
+python-multipart>=0.0.9
+numpy>=1.24,<3
+scipy>=1.10,<2
+vtk>=9.2,<10
+
+shapely>=2.0,<3
+manifold3d==3.4.0
+psutil==7.2.2
+networkx==3.6.1
+gpytoolbox==0.3.8
+cgal==6.0.1.post202410241521
+libigl==2.6.3
