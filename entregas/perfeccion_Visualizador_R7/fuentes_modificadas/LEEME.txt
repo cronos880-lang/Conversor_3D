@@ -1,0 +1,25 @@
+perfeccion_Visualizador R7 — RECUPERACIÓN GEOMÉTRICA EXPERIMENTAL
+
+Extraer TODO el ZIP en una carpeta nueva. Conservar la instalación anterior.
+Ejecutar Instalar_Entorno.bat una vez y después Iniciar.bat.
+Fuentes completas en Visor_experimental_fuentes. Python 3.12 de 64 bits.
+Dirección http://127.0.0.1:8771; encabezado R7 experimental.
+Windows nativo permanece pendiente de prueba.
+
+El motor CAD anterior conserva prioridad. Cuando rechaza una frontera cerrada,
+la nueva ruta intenta regularizar sus contactos microscópicos y construir
+un STEP con topología compartida. Solo habilita la descarga tras reimportarlo
+y verificar integridad, interferencias, cavidades y geometría del original.
+La interfaz identifica esta ruta: «STEP de recuperación · curvas facetadas».
+Es un sólido CAD facetado: no reconstruye cilindros ni un historial paramétrico.
+
+Automático mantiene la precisión histórica. No se activa 0,08 mm en secreto.
+La recuperación no elimina cuerpos pequeños ni rellena cavidades para pasar.
+Cada rechazo conserva el diagnóstico; una malla reparada sola no certifica STEP.
+Los STL originales permanecen intactos. Nuevo cancela el árbol de procesos.
+
+Consultar INFORME_RESULTADOS.md para los resultados reales, incluidos los fallos
+y pruebas no realizadas. No sustituir archivos sueltos de la versión anterior.
+Esta aplicación Python experimental es independiente de GitHub Pages/WebAssembly.
+No se ha probado en Onshape, laminador ni impresora K1C.
+Licencias de CGAL/gpytoolbox y libigl incluidas en LICENCIAS_REPARADOR.

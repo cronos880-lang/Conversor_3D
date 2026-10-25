@@ -1,0 +1,952 @@
+--- R6/ESTADO_VALIDACION.md
++++ R7/ESTADO_VALIDACION.md
+@@ -1,9 +1,23 @@
+-# R6 experimental: avance parcial
++# R7 experimental: recuperación de STEP verificada
+ 
+-Se corrige el validador para medir todos los shells de las cavidades. Dos pruebas nuevas verifican una cavidad conservada y el rechazo de su relleno. Los umbrales permanecen iguales.
++6558 y Pieza Nueva superan la conversión completa, relectura STEP, control denso,
++interferencias y topología. Conservan una y cuatro cavidades respectivamente.
++También se recuperan Dimensiones y Con fallos pero si step. La nueva ruta genera
++un sólido CAD facetado, sin reconstrucción paramétrica; aparece identificado.
++El núcleo analítico anterior mantiene prioridad.
+ 
+-Cubo-carrito: 4/4; regresión: 10/12, igual que R5, con DATA STEP idéntico en las diez aceptadas. Chasis y pinza siguen rechazados. No están superadas las 14 piezas originales. Embudo aplazado por el usuario y conector no repetido.
++Cubo-carrito 4/4. Regresión histórica 12/12 frente a 10/12 en R6: pinza y chasis
++pasan ahora. Las diez conversiones anteriores mantienen DATA STEP idéntico.
++Conector supera el motor completo en 460,705 s tras adelantar el rechazo de
++un volumen inviable; el ensayo previo agotó 2300 s. Su recuperación es facetada.
++El embudo sigue aplazado: no se afirma haber superado las 14 originales.
+ 
+-Las mallas R5 de 6558 y Pieza Nueva siguen regularizadas; la conversión STEP de ambas continúa pendiente. Los modelos de laboratorio no se aceptan por arrancar ni por isValid. Los resultados completos, rechazos, pruebas finales y limitaciones se detallan en ../INFORME_RESULTADOS.md.
++Dimensiones también sigue rechazada por pérdida de topología. Pieza ambigua
++se rechaza por superar el máximo superficial original; no se amplía ese límite.
++Perfiles, inspección densa, control topológico y núcleo CAD histórico idénticos a R6.
++Se añade un rechazo anticipado del mismo error de volumen del 0,5 %, antes de
++medir caja o teselar candidatos inviables; puertas adicionales
++para la nueva recuperación. Resultados y pruebas completas en el informe adjunto.
+ 
+-Windows nativo, WebAssembly, Onshape y K1C sin validar en esta fase. Esta copia no sustituye la versión estable ni modifica main.
++Windows nativo, WebAssembly, Onshape y K1C sin validar en esta fase. Esta copia
++experimental no sustituye la instalación anterior ni modifica main.
+--- R6/GUIA_REPRODUCIR.md
++++ R7/GUIA_REPRODUCIR.md
+@@ -1,7 +1,6 @@
+-# Reproducir R6 y continuar la reparación
++# Reproducir R7 y verificar la recuperación
+ 
+-Leer `ESTADO_VALIDACION.md` y `../INFORME_RESULTADOS.md`. Esta es una copia de
+-investigación con aceptación global pendiente. Conservar la instalación anterior.
++Leer `ESTADO_VALIDACION.md` y `../INFORME_RESULTADOS.md`. Esta es una copia experimental con recuperación B-Rep facetada verificada. Conservar la instalación anterior.
+ 
+ ## Entorno y pruebas
+ 
+@@ -12,7 +11,7 @@
+ Desde `Visor_experimental_fuentes`:
+ 
+ ```sh
+-VISOR_MATERIAL_PRUEBAS=../material_pruebas VISOR_CASOS_R2=../material_pruebas/casos_usuario_r2 VISOR_CASOS_R3=../material_pruebas/casos_usuario_r3 VISOR_CASOS_R4=../material_pruebas/casos_usuario_r4 VISOR_CASOS_R5=../material_pruebas/casos_usuario_r5 VISOR_RESULTADOS_R5=../evidencias/referencia_R5/reparador_integrado VISOR_FIXTURE_CACHE_R2=../material_pruebas/regresiones_cad_no_aceptados/4600_fixed.step VISOR_FIXTURE_DENSO_R2="../material_pruebas/regresiones_cad_no_aceptados/Pieza ambigua.step" VISOR_FIXTURE_RESCATE_R3="../material_pruebas/regresiones_cad_no_aceptados/Con fallos pero si step.step" python -m pytest -q --junitxml=../pruebas_repetidas.xml
++VISOR_MATERIAL_PRUEBAS=../material_pruebas VISOR_CASOS_R2=../material_pruebas/casos_usuario_r2 VISOR_CASOS_R3=../material_pruebas/casos_usuario_r3 VISOR_CASOS_R4=../material_pruebas/casos_usuario_r4 VISOR_CASOS_R5=../material_pruebas/casos_usuario_r5 VISOR_RESULTADOS_R5=../material_pruebas/fixtures_reparador_r5 VISOR_FIXTURE_CACHE_R2=../material_pruebas/regresiones_cad_no_aceptados/4600_fixed.step VISOR_FIXTURE_DENSO_R2="../material_pruebas/regresiones_cad_no_aceptados/Pieza ambigua.step" VISOR_FIXTURE_RESCATE_R3="../material_pruebas/regresiones_cad_no_aceptados/Con fallos pero si step.step" python -m pytest -q --junitxml=../pruebas_repetidas.xml
+ ```
+ 
+ En Windows definir estas mismas nueve variables con `set "VARIABLE=valor"` y
+@@ -44,7 +43,7 @@
+ python bateria_reparacion.py --stl ../material_pruebas/casos_usuario_r4 --salida ../resultados_nuevos --limite 900
+ python bateria_reparacion.py --stl ../material_pruebas/stl_regresion_14 --salida ../regresion_completa
+ python bateria_reparacion.py --stl ../material_pruebas/casos_cubo --salida ../cubo_repetido
+-python comparar_regresion_cubo.py --referencia ../evidencias/referencia_R5/cubo_referencia_previa --resultados ../cubo_repetido
++python comparar_regresion_cubo.py --referencia ../evidencias/cubo_referencia_previa --resultados ../cubo_repetido
+ ```
+ 
+ Las baterías devuelven código 1 cuando algún caso falla. Los timeouts explícitos
+@@ -62,7 +61,7 @@
+ 
+ ## Navegador
+ 
+-El registro y la captura de Chromium Linux están en `evidencias/navegador_r6_sano.* (la prueba con rechazo reparado de R5 se conserva como referencia)`.
++El registro y la captura de Chromium Linux están en `evidencias/navegador_r7_sano.* y navegador_Pieza_Nueva_Detenida_r7.*`.
+ El STEP descargado se vuelve a importar y comprobar. Esa prueba corresponde al
+ servidor Python local. No demuestra que funcione Windows ni el conversor WASM.
+ 
+@@ -79,6 +78,33 @@
+ Python 3.12 es necesario para los wheels Windows de CGAL de esta versión.
+ Las licencias del componente exacto están en LICENCIAS_REPARADOR.
+ 
+-## Investigación R6
++## Recuperación numérica integrada
+ 
+-Los ensayos separados están en laboratorio_r6. Sus STEP fueron rechazados y no se distribuyen como resultados aceptados. Los scripts conservan rutas del entorno de investigación; requieren adaptarlas para repetirlos. No son una ruta integrada del Visor.
++El motor intenta primero las rutas anteriores. Si fallan, puede construir un
++B-Rep facetado de una frontera cerrada, orientada y regularizable. La protección
++local limita el movimiento adicional a 0,002 mm respecto de la malla preparada,
++con correspondencia de triángulos y cota global calculada. Esta cota no representa
++la desviación global respecto del STL original. La aceptación final reimporta el
++STEP y usa siempre el original con sus umbrales de precisión sin ampliarlos.
++La preparación de entradas densas mantiene el presupuesto histórico de 0,010 mm.
++
++```sh
++python recuperacion_numerica.py original.stl preparado.stl recuperado.step informe.json
++```
++
++Código 0: STEP aprobado. Código 2: rechazo. El informe incluye los SHA256 de las
++entradas y del STEP; conserva cavidades, Euler y clasificación de puntos de vacío
++y material. Las curvas siguen facetadas; no se promete editabilidad paramétrica.
++`VISOR_RECUPERACION_NUMERICA=0` permite reproducir la ruta anterior para comparar.
++
++Las pruebas nuevas incluyen cavidades con pared casi tangente, también rotadas,
++y controles negativos que rellenan una cavidad o un taladro sin superar el límite
++de volumen. Ambos cambios indebidos deben rechazarse. La unidad de medida es mm.
++
++## Rechazo anticipado de un candidato inviable
++
++La validación conserva el límite de volumen del 0,5 %. Si el STEP ya lo supera,
++lo rechaza antes de medir su caja o teselar sus superficies. Esas operaciones
++pueden consumir mucho tiempo en un B-Rep defectuoso y no podrían rescatar un
++volumen incorrecto. El núcleo continúa con las demás rutas de reconstrucción.
++Las pruebas comprueban que un volumen inviable no llega a caja ni teselación.
+--- R6/Iniciar.bat
++++ R7/Iniciar.bat
+@@ -15,6 +15,6 @@
+ )
+ set "PYTHONIOENCODING=utf-8"
+ echo Copia EXPERIMENTAL. Consultar ESTADO_VALIDACION.md antes de usar los resultados.
+-start "" "http://127.0.0.1:8770"
++start "" "http://127.0.0.1:8771"
+ ".venv\Scripts\python.exe" servidor.py
+ if errorlevel 1 pause
+--- R6/Instalar_Entorno.bat
++++ R7/Instalar_Entorno.bat
+@@ -1,10 +1,10 @@
+ @echo off
+ setlocal
+ cd /d "%~dp0"
+-echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R6...
++echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R7...
+ py -3.12 -V >nul 2>&1
+ if errorlevel 1 (
+-  echo Esta copia R6 requiere Python 3.12 de 64 bits para el reparador exacto.
++  echo Esta copia R7 requiere Python 3.12 de 64 bits para el reparador exacto.
+   pause
+   exit /b 1
+ )
+--- R6/LEEME.txt
++++ R7/LEEME.txt
+@@ -1,33 +1,25 @@
+-perfeccion_Visualizador R6 — AVANCE EXPERIMENTAL NO ESTABLE
++perfeccion_Visualizador R7 — RECUPERACIÓN GEOMÉTRICA EXPERIMENTAL
+ 
+-R6 corrige la medición CAD de cavidades interiores. Las dos piezas nuevas
+-(6558 y Pieza Nueva) todavía NO tienen un STEP aprobado. Los ensayos nuevos
+-se entregan como investigación separada, sin incorporarlos al motor de uso.
++Extraer TODO el ZIP en una carpeta nueva. Conservar la instalación anterior.
++Ejecutar Instalar_Entorno.bat una vez y después Iniciar.bat.
++Fuentes completas en Visor_experimental_fuentes. Python 3.12 de 64 bits.
++Dirección http://127.0.0.1:8771; encabezado R7 experimental.
++Windows nativo permanece pendiente de prueba.
+ 
+-Extraer TODO el ZIP en una carpeta nueva. Mantener la instalación anterior.
+-En la raíz: Instalar_Entorno.bat una vez y después Iniciar.bat.
+-La aplicación completa está en Visor_experimental_fuentes.
+-Esta copia requiere Python 3.12 de 64 bits por las dependencias del reparador.
+-Se abre http://127.0.0.1:8770 y el encabezado indica R6 experimental.
+-La instalación y ejecución nativas de Windows no se han probado en esta sesión.
++El motor CAD anterior conserva prioridad. Cuando rechaza una frontera cerrada,
++la nueva ruta intenta regularizar sus contactos microscópicos y construir
++un STEP con topología compartida. Solo habilita la descarga tras reimportarlo
++y verificar integridad, interferencias, cavidades y geometría del original.
++La interfaz identifica esta ruta: «STEP de recuperación · curvas facetadas».
++Es un sólido CAD facetado: no reconstruye cilindros ni un historial paramétrico.
+ 
+-El reparador nuevo se activa solo en la clase de STL cerrados con contactos no
+-manifold que antes se rechazaban. Las entradas sanas mantienen su ruta anterior.
+-Conserva el STL original y verifica la malla regularizada después de guardarla.
+-No basta que la malla esté cerrada: se comprueban intersecciones, superficie,
+-volumen, cotas y ocupación de material. El STEP se comprueba por separado.
++Automático mantiene la precisión histórica. No se activa 0,08 mm en secreto.
++La recuperación no elimina cuerpos pequeños ni rellena cavidades para pasar.
++Cada rechazo conserva el diagnóstico; una malla reparada sola no certifica STEP.
++Los STL originales permanecen intactos. Nuevo cancela el árbol de procesos.
+ 
+-Si el STL se repara pero el CAD no supera las pruebas, aparece un error explícito
+-sin habilitar la exportación STEP. Puede descargarse la malla regularizada desde
+-el aviso o desde el diagnóstico. Eso NO significa que haya un STEP aprobado.
+-El STL regularizado es ASCII de doble precisión para conservar la reparación.
+-No guardarlo encima del original. La impresión física y el laminador de la K1C
+-no se han probado en esta sesión.
+-
+-Dejar Automático (precisión) para uso habitual. No se activa 0,08 mm en secreto.
+-Impresión 3D sigue siendo opcional. Los límites CAD y los controles avanzados
+-conservan sus valores anteriores. Nuevo cancela el árbol de procesos.
+-
+-El reparador exacto usa gpytoolbox/CGAL (GPL) y libigl; se incluyen sus avisos y
+-licencias. No se incorpora MeshLib ni PyMeshFix como dependencia de producción.
+-Leer INFORME_RESULTADOS.md, ESTADO_VALIDACION.md y GUIA_REPRODUCIR.md.
++Consultar INFORME_RESULTADOS.md para los resultados reales, incluidos los fallos
++y pruebas no realizadas. No sustituir archivos sueltos de la versión anterior.
++Esta aplicación Python experimental es independiente de GitHub Pages/WebAssembly.
++No se ha probado en Onshape, laminador ni impresora K1C.
++Licencias de CGAL/gpytoolbox y libigl incluidas en LICENCIAS_REPARADOR.
+--- R6/VERSION.txt
++++ R7/VERSION.txt
+@@ -1,4 +1,6 @@
+-perfeccion_Visualizador_R6
+-2026-10-24
+-AVANCE EXPERIMENTAL NO ESTABLE. Validación completa de cavidades corregida; dos conversiones STEP pendientes.
+-Python 3.12 de 64 bits. Puerto 8770. No modifica GitHub Pages/WebAssembly.
++perfeccion_Visualizador_R7
++2026-10-25
++EXPERIMENTAL. Recuperación B-Rep facetada verificada de fronteras cerradas.
++6558 y Pieza Nueva convierten; cavidades conservadas y tolerancias originales.
++Python 3.12 de 64 bits. Puerto 8771. No modifica GitHub Pages/WebAssembly.
++Windows nativo y validación histórica de 14 piezas pendientes.
+--- R6/Visor_STL_STEP.html
++++ R7/Visor_STL_STEP.html
+@@ -3,7 +3,7 @@
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+-  <title>Visor STL V4.0 Uso R6 experimental</title>
++  <title>Visor STL V4.0 Uso R7 experimental</title>
+   <style>
+     :root { color-scheme: dark; --bg:#0e121b; --surface:#171d28; --edge:#2c3544; --text:#e9eef7; --muted:#8e9caf; --blue:#458fff; }
+     * { box-sizing:border-box; }
+@@ -54,7 +54,7 @@
+       <div class="brand-icon" aria-hidden="true">
+         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 7 9 5v10l-9-5V7Zm18 0-9 5v10l9-5V7Z"/></svg>
+       </div>
+-      <div><div class="brand-name" title="V4.0 Uso R6 experimental · perfiles y validación CAD">Visor STL V4.0 Uso R6 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
++      <div><div class="brand-name" title="V4.0 Uso R7 experimental · perfiles y validación CAD">Visor STL V4.0 Uso R7 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
+     </div>
+     <div class="buttons">
+       <button id="newBtn" title="Limpiar el visor (Ctrl+N)">
+@@ -385,7 +385,9 @@
+       const deviationText=response.headers.get('X-STEP-Max-Deviation');
+       const deviation=deviationText&&deviationText.trim()?Number(deviationText):NaN;
+       const measured=Number.isFinite(deviation)?' · máx. medido '+deviation.toLocaleString('es-ES',{maximumFractionDigits:6})+' mm':'';
+-      details.textContent='STEP CAD generado · '+(reached==='precision'?'Precisión alcanzada':'Límites de impresión')+measured+' · '+response.headers.get('X-STEP-Faces')+' caras';
++      const recovery=response.headers.get('X-STEP-Method')==='recuperacion_facetada';
++      details.textContent=(recovery?'STEP de recuperación · curvas facetadas · ':'STEP CAD generado · ')+(reached==='precision'?'Precisión alcanzada':'Límites de impresión')+measured+' · '+response.headers.get('X-STEP-Faces')+' caras';
++      details.title=details.textContent;
+     }catch(e){
+       console.error(e);
+       if(!op.cancelled && chosenFile===currentFile){
+--- R6/brep_poliedrico_indices.py
++++ R7/brep_poliedrico_indices.py
+@@ -0,0 +1,49 @@
++"""B-Rep de facetas con vértices y aristas compartidos por índice."""
++import numpy as np
++
++def construir(mesh,*,unificar=True,proteger_micro=False,conservar_nodos=None,tolerancia_plana=1e-9,tolerancia_angular=1e-8,umbral_proteccion=1e-5):
++ import cadquery as cq
++ from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace,BRepBuilderAPI_MakeSolid
++ from OCP.BRep import BRep_Builder
++ from OCP.TopoDS import TopoDS,TopoDS_Shell,TopoDS_Vertex,TopoDS_Edge,TopoDS_Wire
++ from OCP.gp import gp_Pnt,gp_Dir,gp_Pln
++ from OCP.Geom import Geom_Line
++ from OCP.TopAbs import TopAbs_FORWARD,TopAbs_REVERSED
++ from OCP.ShapeUpgrade import ShapeUpgrade_UnifySameDomain
++ import trimesh
++ V,F=mesh.vertices,mesh.faces;groups=list(trimesh.graph.connected_components(mesh.face_adjacency,nodes=np.arange(len(F)),min_len=1));labels=np.empty(len(F),int)
++ for gi,group in enumerate(groups):labels[group]=gi
++ T=V[F];cross=np.cross(T[:,1]-T[:,0],T[:,2]-T[:,0]);areas=np.linalg.norm(cross,axis=1)
++ if np.any(areas==0):raise ValueError('Hay facetas exactamente degeneradas')
++ normals=cross/areas[:,None];builder=BRep_Builder();vertices=[];tol=1e-10
++ for p in V:
++  v=TopoDS_Vertex();builder.MakeVertex(v,gp_Pnt(*map(float,p)),tol);vertices.append(v)
++ edges={};shells=[]
++ for _ in groups:
++  shell=TopoDS_Shell();builder.MakeShell(shell);shells.append(shell)
++ for fi,face in enumerate(F):
++  shell=shells[labels[fi]]
++  wire=TopoDS_Wire();builder.MakeWire(wire)
++  for a,b in zip(face,np.roll(face,-1)):
++   key=tuple(sorted((int(a),int(b))))
++   if key not in edges:
++    p0,p1=V[list(key)];distance=float(np.linalg.norm(p1-p0));edge=TopoDS_Edge();curve=Geom_Line(gp_Pnt(*map(float,p0)),gp_Dir(*map(float,p1-p0)));builder.MakeEdge(edge,curve,tol);builder.Range(edge,0.,distance);va=TopoDS.Vertex_s(vertices[key[0]].Oriented(TopAbs_FORWARD));vb=TopoDS.Vertex_s(vertices[key[1]].Oriented(TopAbs_REVERSED));builder.Add(edge,va);builder.Add(edge,vb);builder.UpdateVertex(va,0.,edge,tol);builder.UpdateVertex(vb,distance,edge,tol);builder.SameParameter(edge,True);builder.SameRange(edge,True);edges[key]=edge
++   builder.Add(wire,edges[key] if a<b else TopoDS.Edge_s(edges[key].Reversed()))
++  wire.Closed(True);plane=gp_Pln(gp_Pnt(*map(float,V[face[0]])),gp_Dir(*map(float,normals[fi])));builder.Add(shell,BRepBuilderAPI_MakeFace(plane,wire,True).Face())
++ maker=BRepBuilderAPI_MakeSolid()
++ for shell in shells:shell.Closed(True);maker.Add(shell)
++ shape=cq.Shape.cast(maker.Solid())
++ if unificar:
++  unify=ShapeUpgrade_UnifySameDomain(shape.wrapped,True,True,False);unify.SetLinearTolerance(tolerancia_plana);unify.SetAngularTolerance(tolerancia_angular)
++  if proteger_micro:
++   longest=np.linalg.norm(T-np.roll(T,-1,axis=1),axis=2).max(1);bad=areas/longest<umbral_proteccion
++   for face in F[bad]:
++    for a,b in zip(face,np.roll(face,-1)):
++     key=tuple(sorted((int(a),int(b))));unify.KeepShape(edges[key]);unify.KeepShape(vertices[int(a)])
++  if conservar_nodos is not None:
++   keep=set(map(int,conservar_nodos))
++   for key,edge in edges.items():
++    if any(v in keep for v in key):unify.KeepShape(edge)
++   for v in keep:unify.KeepShape(vertices[v])
++  unify.Build();shape=cq.Shape.cast(unify.Shape())
++ return shape
+--- R6/holgura_geometrica.py
++++ R7/holgura_geometrica.py
+@@ -0,0 +1,180 @@
++"""Separación local de características no incidentes con control CGAL exacto."""
++import time,numpy as np
++from proximidad_triangular import punto_mas_cercano,baricentricas
++
++def puntos_segmentos(a,b,c,d):
++ u=b-a;v=d-c;w=a-c;A=np.sum(u*u,axis=-1);B=np.sum(u*v,axis=-1);C=np.sum(v*v,axis=-1);D=np.sum(u*w,axis=-1);E=np.sum(v*w,axis=-1);den=A*C-B*B
++ s=np.divide(B*E-C*D,den,out=np.zeros_like(den),where=abs(den)>1e-14*A*C);t=np.divide(A*E-B*D,den,out=np.zeros_like(den),where=abs(den)>1e-14*A*C)
++ ss=np.stack([s,np.zeros_like(s),np.ones_like(s),np.clip(-D/np.maximum(A,1e-300),0,1),np.clip((B-D)/np.maximum(A,1e-300),0,1)],axis=-1)
++ tt=np.stack([t,np.clip(E/np.maximum(C,1e-300),0,1),np.clip((E+B)/np.maximum(C,1e-300),0,1),np.zeros_like(s),np.ones_like(s)],axis=-1)
++ pp=a[...,None,:]+ss[...,None]*u[...,None,:];qq=c[...,None,:]+tt[...,None]*v[...,None,:];dist=np.sum((pp-qq)**2,axis=-1);dist[...,0]=np.where((s>=0)&(s<=1)&(t>=0)&(t<=1)&(abs(den)>1e-14*A*C),dist[...,0],np.inf);ix=np.argmin(dist,axis=-1)
++ return np.take_along_axis(pp,ix[...,None,None],axis=-2)[...,0,:],np.take_along_axis(qq,ix[...,None,None],axis=-2)[...,0,:]
++
++def _locator(V,F,lines=False):
++ import vtk
++ from vtk.util.numpy_support import numpy_to_vtk,numpy_to_vtkIdTypeArray
++ p=vtk.vtkPolyData();points=vtk.vtkPoints();points.SetData(numpy_to_vtk(V,deep=True));p.SetPoints(points);cells=vtk.vtkCellArray();width=F.shape[1];cells.SetData(numpy_to_vtkIdTypeArray(np.arange(0,width*(len(F)+1),width,dtype=np.int64),deep=True),numpy_to_vtkIdTypeArray(np.asarray(F,dtype=np.int64).ravel(),deep=True));(p.SetLines if lines else p.SetPolys)(cells);loc=vtk.vtkStaticCellLocator();loc.SetDataSet(p);loc.BuildLocator();return loc
++
++def candidatos(mesh,radio=1e-4):
++ import vtk,trimesh
++ V,F=mesh.vertices,mesh.faces;edges=mesh.edges_unique;locator=_locator(V,F);ids=vtk.vtkIdList();vfs=[]
++ for i,p in enumerate(V):
++  b=np.c_[p-radio,p+radio].ravel();locator.FindCellsWithinBounds(b,ids);near=np.array([ids.GetId(j) for j in range(ids.GetNumberOfIds())],int)
++  if len(near):
++   near=near[np.all(F[near]!=i,axis=1)]
++   if len(near):
++    q=punto_mas_cercano(V[F[near]],np.tile(p,(len(near),1)));near=near[np.linalg.norm(q-p,axis=1)<radio];vfs.extend((i,int(j)) for j in near)
++ print('VF_CANDIDATOS',len(vfs),flush=True);locator=_locator(V,edges,True);ees=[]
++ for i,edge in enumerate(edges):
++  xyz=V[edge];b=np.c_[xyz.min(0)-radio,xyz.max(0)+radio].ravel();locator.FindCellsWithinBounds(b,ids);near=np.array([ids.GetId(j) for j in range(ids.GetNumberOfIds()) if ids.GetId(j)>i],int)
++  if not len(near):continue
++  near=near[~np.any(np.isin(edges[near],edge),axis=1)]
++  if not len(near):continue
++  a,b=xyz;c,d=np.moveaxis(V[edges[near]],1,0);p,q=puntos_segmentos(np.tile(a,(len(near),1)),np.tile(b,(len(near),1)),c,d);near=near[np.linalg.norm(p-q,axis=1)<radio];ees.extend((i,int(j)) for j in near)
++ print('EE_CANDIDATOS',len(ees),flush=True)
++ return np.asarray(vfs,dtype=int).reshape(-1,2),np.asarray(ees,dtype=int).reshape(-1,2),edges
++
++def mejorar(mesh,control_path,*,objetivo=5e-6,deadline=None,max_vueltas=12):
++ import trimesh
++ from reparador_exacto_aislado import ControlExacto,medidas_superficie
++ deadline=deadline or time.monotonic()+600;V=mesh.vertices.copy();base=V.copy();F=mesh.faces;check=ControlExacto(mesh,control_path)
++ if check.pares():raise ValueError('Se requiere una malla sin autointersecciones')
++ vf,ee,edges=candidatos(mesh);inc=[set() for _ in V]
++ for i,f in enumerate(F):
++  for v in f:inc[v].add(i)
++ def altura(T):return np.linalg.norm(np.cross(T[:,1]-T[:,0],T[:,2]-T[:,0]),axis=1)/np.maximum(np.linalg.norm(T-np.roll(T,-1,axis=1),axis=2).max(1),1e-300)
++ moves=[];trials=0
++ def aplicar(ids,delta):
++  nonlocal trials
++  if time.monotonic()>deadline:raise TimeoutError('Separación local agotada')
++  ids=np.asarray(ids,dtype=int);old=V[ids].copy();new=old+delta
++  if np.max(np.linalg.norm(new-base[ids],axis=1))>.0005:return False
++  affected=np.array(sorted(set().union(*(inc[v] for v in ids))));oldheight=altura(V[F[affected]]).min();V[ids]=new;h=altura(V[F[affected]]).min()
++  if h<min(5e-7,oldheight*.8):V[ids]=old;return False
++  for i,p in zip(ids,new):check.mover(int(i),p)
++  trials+=1
++  if check.pares():
++   for i,p in zip(ids,old):check.mover(int(i),p)
++   V[ids]=old;return False
++  moves.append({'vertices':ids.tolist(),'desplazamiento_max_mm':float(np.linalg.norm(delta,axis=1).max())});return True
++ for iteration in range(max_vueltas):
++  if time.monotonic()>deadline:raise TimeoutError('Separación local agotada')
++  count=0;changes=0;minimum=np.inf
++  if len(vf):
++   vs=vf[:,0];fs=F[vf[:,1]];q=punto_mas_cercano(V[fs],V[vs]);ds=np.linalg.norm(V[vs]-q,axis=1);order=np.argsort(ds)
++   for j in order:
++    vi=int(vs[j]);face=fs[j];p=V[vi];q=punto_mas_cercano(V[face][None,:,:],p[None,:])[0];d=float(np.linalg.norm(p-q));minimum=min(minimum,d)
++    if d>=objetivo:continue
++    count+=1
++    if d<1e-14:continue
++    direction=(p-q)/d;delta=direction*(objetivo-d)*1.25
++    if aplicar([vi],delta[None,:]) or aplicar(face,np.tile(-delta,(3,1))) or aplicar(np.r_[vi,face],np.r_[delta[None,:]*.5,np.tile(-delta*.5,(3,1))]):changes+=1
++  if len(ee):
++   first,second=edges[ee[:,0]],edges[ee[:,1]];p,q=puntos_segmentos(V[first[:,0]],V[first[:,1]],V[second[:,0]],V[second[:,1]]);ds=np.linalg.norm(p-q,axis=1)
++   for j in np.argsort(ds):
++    a,b=first[j],second[j];p,q=puntos_segmentos(V[a[0]],V[a[1]],V[b[0]],V[b[1]]);d=float(np.linalg.norm(p-q));minimum=min(minimum,d)
++    if d>=objetivo:continue
++    count+=1
++    if d<1e-14:continue
++    delta=(p-q)/d*(objetivo-d)*1.25
++    if aplicar(a,np.tile(delta,(2,1))) or aplicar(b,np.tile(-delta,(2,1))) or aplicar(np.r_[a,b],np.r_[np.tile(delta*.5,(2,1)),np.tile(-delta*.5,(2,1))]):changes+=1
++  print('HOLGURA',iteration,'insuficientes',count,'cambios',changes,'min',minimum,flush=True)
++  if not changes or not count:break
++ candidate=trimesh.Trimesh(V,F,process=False);proof=medidas_superficie(mesh,candidate)
++ if check.pares() or proof['max_mm']>.002:raise ValueError('No se conserva la geometría o la validez exacta')
++ return candidate,{'movimientos':len(moves),'ensayos_cgal':trials,'objetivo_mm':objetivo,'superficie':proof,'desplazamiento_vertices_max_mm':float(np.linalg.norm(V-base,axis=1).max())}
++
++def acoplar(mesh,control_path,*,objetivo=5e-6,deadline=None,max_vueltas=12,objetivo_altura=None,validar_extra=None):
++ """Mover conjuntamente grupos de contactos para evitar el ciclo de empujes."""
++ import trimesh
++ from scipy.optimize import linprog
++ from scipy.sparse import coo_matrix,hstack,vstack,eye
++ from reparador_exacto_aislado import ControlExacto,medidas_superficie
++ deadline=deadline or time.monotonic()+600;V=mesh.vertices.copy();base=V.copy();F=mesh.faces;check=ControlExacto(mesh,control_path)
++ if check.pares():raise ValueError('La entrada debe estar libre de intersecciones')
++ vf,ee,edges=candidatos(mesh);history=[]
++ def distances():
++  d=[]
++  if len(vf):d.extend(np.linalg.norm(V[vf[:,0]]-punto_mas_cercano(V[F[vf[:,1]]],V[vf[:,0]]),axis=1))
++  if len(ee):
++   a,b=edges[ee[:,0]],edges[ee[:,1]];p,q=puntos_segmentos(V[a[:,0]],V[a[:,1]],V[b[:,0]],V[b[:,1]]);d.extend(np.linalg.norm(p-q,axis=1))
++  d=np.asarray(d);loss=float(np.square(np.maximum(0,1-d/objetivo)).sum());bad=int((d<objetivo*.999).sum())
++  if objetivo_altura:
++   T=V[F];h=np.linalg.norm(np.cross(T[:,1]-T[:,0],T[:,2]-T[:,0]),axis=1)/np.maximum(np.linalg.norm(T-np.roll(T,-1,axis=1),axis=2).max(1),1e-300);loss+=float(np.square(np.maximum(0,1-h/objetivo_altura)).sum());bad+=int((h<objetivo_altura*.999).sum())
++  return loss,bad,float(d.min(initial=np.inf))
++ def rows():
++  records=[]
++  if len(vf):
++   ps=V[vf[:,0]];tris=V[F[vf[:,1]]];qs=punto_mas_cercano(tris,ps);ds=np.linalg.norm(ps-qs,axis=1)
++   for j in np.where((ds<objetivo*3)&(ds>1e-14))[0]:
++    n=(ps[j]-qs[j])/ds[j];tri=tris[j];bary=baricentricas(tri[None,:,:],qs[j,None,:])[0];bary=np.clip(bary,0,1);bary/=bary.sum();ids=np.r_[vf[j,0],F[vf[j,1]]];g=np.vstack([n,-bary[:,None]*n]);records.append((ids,g,float(ds[j]),'VF'))
++  if len(ee):
++   aa,bb=edges[ee[:,0]],edges[ee[:,1]];ps,qs=puntos_segmentos(V[aa[:,0]],V[aa[:,1]],V[bb[:,0]],V[bb[:,1]]);ds=np.linalg.norm(ps-qs,axis=1)
++   for j in np.where((ds<objetivo*3)&(ds>1e-14))[0]:
++    a,b=aa[j],bb[j];u=V[a[1]]-V[a[0]];v=V[b[1]]-V[b[0]];s=np.clip((ps[j]-V[a[0]])@u/(u@u),0,1);t=np.clip((qs[j]-V[b[0]])@v/(v@v),0,1);n=(ps[j]-qs[j])/ds[j];ids=np.r_[a,b];g=np.array([(1-s)*n,s*n,-(1-t)*n,-t*n]);records.append((ids,g,float(ds[j]),'EE'))
++  if objetivo_altura:
++   T=V[F];cross=np.cross(T[:,1]-T[:,0],T[:,2]-T[:,0]);areas=np.linalg.norm(cross,axis=1);longest=np.linalg.norm(T-np.roll(T,-1,axis=1),axis=2).max(1);heights=areas/np.maximum(longest,1e-300)
++   for j in np.where(heights<3*objetivo_altura)[0]:
++    n=cross[j]/max(areas[j],1e-300);a,b,c=T[j];g=np.array([np.cross(b-c,n),np.cross(c-a,n),np.cross(a-b,n)])/max(longest[j],1e-300);records.append((F[j],g,float(heights[j]),'ALTURA'))
++  return records
++ def old_full_with(ids,positions):
++  candidate=V.copy();candidate[ids]=positions;return candidate
++ for iteration in range(max_vueltas):
++  if time.monotonic()>deadline:raise TimeoutError('Separación acoplada agotada')
++  from avance_conversion import avance
++  avance(80+min(10,iteration*2),f'Preparando geometría para STEP · paso {iteration+1}')
++  loss,bad,minimum=distances();print('ACOPLADO',iteration,'perdida',loss,'malas',bad,'min',minimum,flush=True)
++  if bad==0:break
++  records=rows();parents={}
++  def find(x):
++   parents.setdefault(x,x)
++   while parents[x]!=x:parents[x]=parents[parents[x]];x=parents[x]
++   return x
++  for ids,g,d,kind in records:
++   active=ids[np.linalg.norm(g,axis=1)>1e-10]
++   for v in active:parents[find(int(v))]=find(int(active[0]))
++  groups={}
++  for row in records:
++   active=row[0][np.linalg.norm(row[1],axis=1)>1e-10];groups.setdefault(find(int(active[0])),[]).append(row)
++  changes=0
++  for rr in groups.values():
++   if all(d>=(objetivo_altura if kind=='ALTURA' else objetivo) for _,_,d,kind in rr):continue
++   ids=np.unique(np.concatenate([a[np.linalg.norm(g,axis=1)>1e-10] for a,g,_,_ in rr]));mapping={int(v):i for i,v in enumerate(ids)};N=3*len(ids);ri=[];ci=[];vv=[];bounds=[];rowid=0
++   for vertices,grad,d,kind in rr:
++    for v,g in zip(vertices,grad):
++     if int(v) not in mapping:continue
++     for k in range(3):ri.append(rowid);ci.append(3*mapping[int(v)]+k);vv.append(float(g[k]))
++    bounds.append(((objetivo_altura if kind=='ALTURA' else objetivo)-d)/objetivo);rowid+=1
++   affected=np.where(np.any(np.isin(F,ids),axis=1))[0];T=V[F[affected]];cross=np.cross(T[:,1]-T[:,0],T[:,2]-T[:,0]);area=np.linalg.norm(cross,axis=1);normal=cross/area[:,None]
++   for tri,n,ar,xyz in zip(F[affected],normal,area,T):
++    grad=np.array([np.cross(xyz[1]-xyz[2],n),np.cross(xyz[2]-xyz[0],n),np.cross(xyz[0]-xyz[1],n)])*objetivo/max(ar,1e-30)
++    for v,g in zip(tri,grad):
++     if int(v) not in mapping:continue
++     for k in range(3):ri.append(rowid);ci.append(3*mapping[int(v)]+k);vv.append(float(g[k]))
++    bounds.append(-.4);rowid+=1
++   A=coo_matrix((vv,(ri,ci)),shape=(rowid,N)).tocsr();I=eye(N,format='csr');Z=coo_matrix((rowid,N)).tocsr();AA=vstack([hstack([-A,Z]),hstack([I,-I]),hstack([-I,-I])],format='csr');bb=np.r_[-np.array(bounds),np.zeros(2*N)]
++   result=linprog(np.r_[np.zeros(N),np.ones(N)],A_ub=AA,b_ub=bb,bounds=[(-10,10)]*N+[(0,None)]*N,method='highs',options={'time_limit':max(1.,min(30.,deadline-time.monotonic()))})
++   if not result.success:print('LP_RECHAZADO',len(ids),result.message,flush=True);continue
++   delta=result.x[:N].reshape(-1,3)*objetivo;old=V[ids].copy();before_loss,_,_=distances()
++   for factor in (1.,.5,.25,.125,.0625):
++    new=old+delta*factor
++    if np.max(np.linalg.norm(new-base[ids],axis=1))>.0005:continue
++    V[ids]=new;newtri=V[F[affected]];newcross=np.cross(newtri[:,1]-newtri[:,0],newtri[:,2]-newtri[:,0])
++    if not np.all(np.isfinite(newcross)) or np.any(np.sum(newcross*normal,axis=1)<area*.1):V[ids]=old;continue
++    newloss,newbad,_=distances()
++    if not np.isfinite(newloss):V[ids]=old;continue
++    if newloss>=before_loss-1e-7:V[ids]=old;continue
++    valid=True
++    for fraction in (.25,.5,.75,1.):
++     for i,p in zip(ids,old+(new-old)*fraction):check.mover(int(i),p)
++     if check.pares():valid=False;break
++     if validar_extra is not None and not validar_extra(old_full_with(ids,old+(new-old)*fraction)):valid=False;break
++    if valid:
++     history.append({'grupo_vertices':len(ids),'factor':factor,'perdida_antes':before_loss,'perdida_despues':newloss,'malas_despues':newbad});changes+=1;print('LP_ACEPTADO',history[-1],flush=True);break
++    for i,p in zip(ids,old):check.mover(int(i),p)
++    V[ids]=old
++   else:V[ids]=old
++  if not changes:break
++ candidate=trimesh.Trimesh(V,F,process=False);proof=medidas_superficie(mesh,candidate);loss,bad,minimum=distances()
++ if check.pares() or proof['max_mm']>.002:raise ValueError('Separación acoplada no válida')
++ return candidate,{'grupos_movidos':history,'objetivo_mm':objetivo,'perdida':loss,'pares_bajo_objetivo':bad,'min_holgura_mm':None if not np.isfinite(minimum) else minimum,'superficie':proof}
+--- R6/invariantes_material.py
++++ R7/invariantes_material.py
+@@ -0,0 +1,24 @@
++"""Conservar orientación y anidamiento de todas las componentes cerradas."""
++import numpy as np
++
++class InvariantesMaterial:
++ def __init__(self,mesh):
++  import trimesh
++  self.faces=mesh.faces.copy();groups=list(trimesh.graph.connected_components(mesh.face_adjacency,nodes=np.arange(len(mesh.faces)),min_len=1));self.groups=[np.asarray(g,int) for g in groups];self.signs=[];self.positive=[];self.negative=[]
++  for i,g in enumerate(self.groups):
++   sign=1 if self.volumen(mesh.vertices,self.faces[g])>0 else -1;self.signs.append(sign);(self.positive if sign>0 else self.negative).append(i)
++  if len(self.positive)!=1:raise ValueError('Se requiere exactamente una componente positiva; no se descartan cuerpos')
++  self.body_faces=self.faces[self.groups[self.positive[0]]];self.probes=[int(self.faces[self.groups[i][0],0]) for i in self.negative]
++  if not self.comprobar(mesh.vertices):raise ValueError('El material no presenta un anidamiento válido')
++ @staticmethod
++ def volumen(V,F):
++  xyz=np.asarray(V[F],dtype=np.longdouble);origin=xyz.reshape(-1,3).mean(0);xyz=xyz-origin
++  return np.sum(np.sum(xyz[:,0]*np.cross(xyz[:,1],xyz[:,2]),axis=1))/6
++ def comprobar(self,V):
++  import igl
++  for g,sign in zip(self.groups,self.signs):
++   if self.volumen(V,self.faces[g])*sign<=0:return False
++  if self.probes:
++   w=igl.winding_number(np.asarray(V,dtype=np.float64),self.body_faces,np.asarray(V[self.probes],dtype=np.float64))
++   if not np.all(w>.75):return False
++  return True
+--- R6/motor_v2.py
++++ R7/motor_v2.py
+@@ -156,6 +156,13 @@
+     if len(solids) != 1 or not solids[0].isValid():
+         raise ValueError('El STEP no contiene exactamente un sólido cerrado y válido.')
+     solid = solids[0]
++    # Un candidato con volumen inviable ya debe rechazarse. Algunas superficies
++    # recortadas defectuosas hacen muy costosa la caja o su teselación; ninguna
++    # de esas mediciones puede rescatar un volumen que supera el límite vigente.
++    volume_error_early = float(abs(solid.Volume()-abs(original.volume))/max(abs(original.volume),1e-12))
++    if volume_error_early > MAX_VOLUME_ERROR:
++        raise ErrorGeometrico('Reconstrucción deformada', [
++            criterio('Error de volumen',100*volume_error_early,MAX_VOLUME_ERROR*100,'%')])
+     sampling_solid = solid.copy()
+     bounds = solid.BoundingBox()  # Antes de la teselación, que altera la caché de OCC
+     bbox = np.asarray([[bounds.xmin,bounds.ymin,bounds.zmin],
+@@ -923,6 +930,15 @@
+         return _main_cad()
+     from preprocesador_stl import preparar, ReparacionRechazada
+     src, dst = map(Path, sys.argv[1:])
++    numeric=dst.with_name(dst.stem+'_numerico_candidato.step')
++    outputs=[dst,dst.with_suffix('.entrada.json'),dst.with_suffix('.rechazos.jsonl'),
++             dst.with_suffix('.reparado.stl'),dst.with_suffix('.motor.log'),
++             dst.with_suffix('.reparado.reparacion.json'),dst.with_suffix('.reparado.reparacion.log'),
++             dst.with_suffix('.reparado.control.off'),dst.with_suffix('.reparado.pendiente.stl'),
++             dst.with_name(dst.stem+'_local_candidato.step'),numeric,numeric.with_suffix('.recuperacion.json')]
++    if any(p.resolve()==src.resolve() or (p.exists() and src.exists() and p.samefile(src)) for p in outputs):
++        print(json.dumps({'ok':False,'tipo_error':'rutas_incompatibles','error':'La entrada y sus archivos de salida deben ser distintos.'}))
++        return 2
+     args = sys.argv[:]
+     previous_interference_flag = os.environ.get('VISOR_VERIFICAR_INTERFERENCIAS_CAD')
+     previous_rejections = os.environ.get('VISOR_RECHAZOS_PATH')
+@@ -965,6 +981,20 @@
+                         attempts.append({'proteccion_local':protected,'error':str(exc)})
+                         print(f'[CAD tras reparación local] Descartado: {exc}',file=log,flush=True)
+                     finally:candidate.unlink(missing_ok=True)
++            if os.environ.get('VISOR_RECUPERACION_NUMERICA','1')=='1':
++                candidate=dst.with_name(dst.stem+'_numerico_candidato.step')
++                try:
++                    from recuperacion_numerica import ejecutar_aislado
++                    with dst.with_suffix('.motor.log').open('a',encoding='utf-8',buffering=1) as log:
++                        result=ejecutar_aislado(src,prepared,candidate,log)
++                    candidate.replace(dst)
++                    report['intentos_cad']=attempts
++                    report_path.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
++                    print(json.dumps({'ok':True,'resultado':result,'preprocesamiento':report},ensure_ascii=True))
++                    return 0
++                except Exception as exc:
++                    attempts.append({'estrategia':'recuperacion_numerica','error':str(exc)})
++                finally:candidate.unlink(missing_ok=True)
+             report['intentos_cad']=attempts
+             report['error']='La malla se ha regularizado y verificado, pero el STEP no supera la reconstrucción CAD. El STL regularizado está disponible en el diagnóstico; no se ha generado un STEP aprobado.'
+             report_path.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+@@ -1020,6 +1050,18 @@
+             code = _main_cad()
+         lines = output.getvalue().splitlines()
+         payload = json.loads(lines[-1])
++        if not payload.get('ok') and os.environ.get('VISOR_RECUPERACION_NUMERICA','1')=='1':
++            candidate=dst.with_name(dst.stem+'_numerico_candidato.step')
++            try:
++                from recuperacion_numerica import ejecutar_aislado
++                with dst.with_suffix('.motor.log').open('a',encoding='utf-8',buffering=1) as log:
++                    result=ejecutar_aislado(src,prepared,candidate,log)
++                candidate.replace(dst)
++                payload={'ok':True,'resultado':result,'rechazo_motor_anterior':payload.get('error')}
++                code=0
++            except Exception as exc:
++                payload['recuperacion_numerica_rechazada']={'error':str(exc),'tipo':getattr(exc,'codigo','recuperacion_numerica_rechazada')}
++            finally:candidate.unlink(missing_ok=True)
+         payload['preprocesamiento'] = report
+         print(json.dumps(payload, ensure_ascii=True))
+         return code
+--- R6/proximidad_triangular.py
++++ R7/proximidad_triangular.py
+@@ -0,0 +1,11 @@
++"""Proximidad a triángulos sin umbrales absolutos dependientes de la escala."""
++import numpy as np
++
++def baricentricas(triangles,points):
++ T=np.asarray(triangles,float);P=np.asarray(points,float);u=T[:,1]-T[:,0];v=T[:,2]-T[:,0];w=P-T[:,0];n=np.cross(u,v);den=np.einsum('ij,ij->i',n,n)
++ b=np.divide(np.einsum('ij,ij->i',np.cross(w,v),n),den,out=np.zeros(len(T)),where=den>0);c=np.divide(np.einsum('ij,ij->i',np.cross(u,w),n),den,out=np.zeros(len(T)),where=den>0)
++ return np.c_[1-b-c,b,c]
++
++def punto_mas_cercano(triangles,points):
++ T=np.asarray(triangles,float);P=np.asarray(points,float);u=T[:,1]-T[:,0];v=T[:,2]-T[:,0];n=np.cross(u,v);den=np.einsum('ij,ij->i',n,n);h=np.divide(np.einsum('ij,ij->i',P-T[:,0],n),den,out=np.zeros(len(T)),where=den>0);plane=P-h[:,None]*n;bary=baricentricas(T,plane);inside=(den>0)&np.all(bary>=0,axis=1)
++ starts=T;ends=np.roll(T,-1,axis=1);edges=ends-starts;dd=np.einsum('ijk,ijk->ij',edges,edges);ts=np.divide(np.einsum('ijk,ijk->ij',P[:,None,:]-starts,edges),dd,out=np.zeros_like(dd),where=dd>0);q=starts+np.clip(ts,0,1)[:,:,None]*edges;dist=np.sum((q-P[:,None,:])**2,axis=2);ix=np.argmin(dist,axis=1);answer=q[np.arange(len(T)),ix];answer[inside]=plane[inside];return answer
+--- R6/recuperacion_numerica.py
++++ R7/recuperacion_numerica.py
+@@ -0,0 +1,157 @@
++"""Recuperación CAD de una frontera regularizada, con triangulación conservada.
++
++Las superficies curvas se conservan facetadas. Esta ruta no reconstruye un
++historial paramétrico ni amplía límites de aceptación. El núcleo analítico
++existente conserva prioridad; la recuperación sigue a sus intentos fallidos.
++"""
++from __future__ import annotations
++import hashlib,json,os,subprocess,sys,tempfile,time,traceback
++from pathlib import Path
++
++MAX_FACES=25_000
++
++def _sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
++
++def _rutas_seguras(source,prepared,destination,report):
++ reads=[source,prepared];writes=[destination,report]
++ if len({p.resolve() for p in writes})!=len(writes):return False
++ for a in writes:
++  for b in reads:
++   if a.resolve()==b.resolve() or (a.exists() and b.exists() and a.samefile(b)):return False
++ if all(p.exists() for p in writes) and writes[0].samefile(writes[1]):return False
++ return True
++
++def _chi(shape):
++ from validacion_reconstruccion import euler_brep
++ return euler_brep(shape)
++
++def _nodos_singulares(shape,mesh,*,todos=False):
++ import numpy as np
++ from scipy.spatial import cKDTree
++ from collections import Counter
++ tree=cKDTree(mesh.vertices);keep=set()
++ for face in shape.Faces():
++  if len(face.Wires())<2:continue
++  loops=[]
++  for wire in face.Wires():
++   points=np.asarray([v.Center().toTuple() for v in wire.Vertices()]);dist,idx=tree.query(points)
++   if np.max(dist)>1e-8:raise ValueError('No se puede preservar la correspondencia de un contorno CAD')
++   loops.append(set(map(int,idx)))
++  counts=Counter(v for loop in loops for v in loop)
++  keep.update(v for v,n in counts.items() if todos or n>1)
++ return keep
++
++def reconstruir(source,prepared,destination,report,*,segundos=900):
++ source,prepared,destination,report=map(Path,[source,prepared,destination,report])
++ if not _rutas_seguras(source,prepared,destination,report):
++  print('La entrada y sus archivos de salida deben ser distintos.',flush=True);return 2
++ start=time.monotonic();record={'ok':False,'tipo_cad':'recuperacion_facetada','version_recuperacion':1,'aceptacion_sin_relajar':True}
++ try:
++  import numpy as np,trimesh,cadquery as cq
++  from OCP.ShapeFix import ShapeFix_Shape
++  from preprocesador_stl import cargar_exacto
++  from invariantes_material import InvariantesMaterial
++  from holgura_geometrica import acoplar
++  from brep_poliedrico_indices import construir
++  from validacion_reconstruccion import certificar_malla,certificar_topologia_step
++  from reparador_exacto_aislado import ControlExacto,validar_material
++  from motor_v2 import _calidad
++  from avance_conversion import avance
++  for input_path in (source,prepared):
++   if not input_path.is_file() or input_path.stat().st_size>30*1024**2:raise ValueError('No se encuentra la entrada o supera 30 MB')
++  hashes=[_sha(source),_sha(prepared)];reference=cargar_exacto(prepared)
++  if len(reference.faces)>250_000:raise ValueError('La entrada supera el límite de 250.000 caras')
++  if not reference.is_watertight or not reference.is_winding_consistent:raise ValueError('La recuperación requiere una frontera cerrada y orientada')
++  original=cargar_exacto(source)
++  if not original.is_watertight or not original.is_winding_consistent:raise ValueError('La referencia original debe estar cerrada y orientada')
++  destination.parent.mkdir(parents=True,exist_ok=True)
++  with tempfile.TemporaryDirectory(prefix='visor_numerico_',dir=destination.parent) as tmp:
++   tmp=Path(tmp)
++   if len(reference.faces)>MAX_FACES:
++    from motor_v2 import _preparar_trabajo
++    failures=[];reduced=None
++    for target_faces in (20_000,25_000):
++     try:
++      preparation=_preparar_trabajo(prepared,tmp/'trabajo.stl',reference,sys.stdout,work_face_limit=target_faces)
++      proposal=cargar_exacto(tmp/'trabajo.stl')
++      if proposal.euler_number!=reference.euler_number:raise ValueError('La preparación altera túneles o cavidades')
++      if len(proposal.faces)>MAX_FACES:raise ValueError('La preparación excede el presupuesto de caras')
++      reduced=proposal;record['preparacion_verificada']=preparation;break
++     except Exception as exc:failures.append(str(exc))
++    if reduced is None:raise ValueError('No existe una reducción segura para la recuperación: '+'; '.join(failures))
++    reference=reduced
++   try:needs_repair=bool(ControlExacto(reference,tmp/'entrada.off').pares())
++   except ValueError:needs_repair=True
++   if needs_repair:
++    avance(76,'Resolviendo intersecciones de la frontera cerrada')
++    from reparador_exacto_aislado import ejecutar
++    fixed=tmp/'frontera.stl';repair_report=tmp/'frontera.json'
++    repair_input=prepared
++    if record.get('preparacion_verificada'):
++     repair_input=tmp/'trabajo_exacto.stl';repair_input.write_text(trimesh.exchange.stl.export_stl_ascii(reference),encoding='ascii')
++    code=ejecutar(repair_input,fixed,repair_report)
++    repair=json.loads(repair_report.read_text(encoding='utf-8'));record['reparacion_previa']=repair
++    if code!=0 or not repair.get('reparado'):raise ValueError(repair.get('error','La frontera original no se puede regularizar conservando geometría'))
++    reference=cargar_exacto(fixed)
++    if len(reference.faces)>MAX_FACES:raise ValueError('La frontera reparada supera el límite de 25.000 caras')
++   invariants=InvariantesMaterial(reference)
++   avance(79,'Preparando la recuperación geométrica del STEP')
++   mesh,optimization=acoplar(reference,tmp/'control.off',deadline=start+segundos,max_vueltas=20,objetivo_altura=2e-6,validar_extra=invariants.comprobar)
++   record['estabilizacion']=optimization;record['geometria_local']=certificar_malla(reference,mesh)
++   if not invariants.comprobar(mesh.vertices) or ControlExacto(mesh,tmp/'control_final.off').pares():raise ValueError('No se conservan el material o la validez exacta')
++   record['material_original']=validar_material(original,mesh,[])
++   candidate=tmp/'candidato.step';keep=set();failures=[];approved=None
++   for attempt in range(4):
++    avance(92,'Construyendo el STEP de recuperación y conservando sus contornos')
++    use_unify=attempt<3
++    if not use_unify and len(mesh.faces)>=len(original.faces):continue
++    shape=construir(mesh,unificar=use_unify,proteger_micro=True,conservar_nodos=keep);fix=ShapeFix_Shape(shape.wrapped);fix.SetPrecision(1e-8);fix.SetMinTolerance(1e-10);fix.SetMaxTolerance(1e-7);fix.Perform();shape=cq.Shape.cast(fix.Shape());shape.exportStep(str(candidate));back=cq.importers.importStep(str(candidate)).val()
++    if _chi(back)!=mesh.euler_number or len(back.Shells())!=len(invariants.groups):
++     more=_nodos_singulares(back,mesh,todos=attempt>0)-keep
++     if not more:
++      failures.append({'intento':attempt,'motivo':'No se conserva la topología; se prueba otra representación'});continue
++     keep.update(more);failures.append({'intento':attempt,'motivo':'Contornos con vértices compartidos requieren protección','nodos_protegidos':len(keep)});continue
++    topology=certificar_topologia_step(back,mesh,invariants)
++    quality=_calidad(source,candidate,original,control_avanzado=True)
++    quality['recuperacion_numerica']={'original_sha256':hashes[0],'preparado_sha256':hashes[1],'geometria_local':record['geometria_local'],'topologia':topology,'material_original':record['material_original'],'reparacion_previa':record.get('reparacion_previa'),'preparacion_verificada':record.get('preparacion_verificada')}
++    approved=quality;record['topologia']=topology;break
++   if approved is None:raise ValueError('No se ha obtenido una consolidación topológica segura')
++   if hashes!=[_sha(source),_sha(prepared)]:raise ValueError('La referencia de entrada ha cambiado durante la conversión')
++   candidate.replace(destination)
++   result={'caras_stl':int(len(original.faces)),'modo':'recuperacion_facetada','estrategia':'recuperacion_numerica_verificada','motor':'Recuperación B-Rep facetada verificada; las curvas conservan las facetas del STL','calidad':approved,'diagnostico':{'consolidaciones_rechazadas':failures,'nodos_protegidos':len(keep)},'reconstruccion_parametrica':False}
++   record.update(ok=True,resultado=result,original_sha256=hashes[0],preparado_sha256=hashes[1],step_sha256=_sha(destination))
++ except Exception as exc:
++  record.update(error=str(exc),tipo_error='recuperacion_numerica_rechazada');traceback.print_exc()
++ finally:
++  record['segundos']=round(time.monotonic()-start,3);report.parent.mkdir(parents=True,exist_ok=True);report.write_text(json.dumps(record,indent=2,ensure_ascii=False),encoding='utf-8')
++ print(json.dumps({'ok':record['ok'],'error':record.get('error'),'segundos':record['segundos']},ensure_ascii=True),flush=True)
++ return 0 if record['ok'] else 2
++
++def ejecutar_aislado(source,prepared,destination,log):
++ from control_recursos import comunicar_vigilado,LimiteRecursos
++ import psutil
++ report=destination.with_suffix('.recuperacion.json')
++ def stop(proc):
++  try:
++   parent=psutil.Process(proc.pid)
++   for child in parent.children(recursive=True):
++    try:child.kill()
++    except psutil.NoSuchProcess:pass
++   parent.kill()
++  except psutil.NoSuchProcess:pass
++ with subprocess.Popen([sys.executable,str(Path(__file__).resolve()),str(source),str(prepared),str(destination),str(report)],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',env={**os.environ,'OPENBLAS_NUM_THREADS':'1','OMP_NUM_THREADS':'1','MKL_NUM_THREADS':'1','PYTHONUNBUFFERED':'1','PYTHONIOENCODING':'utf-8'}) as proc:
++  try:out,_,peak=comunicar_vigilado(proc,1000,stop)
++  except LimiteRecursos as exc:
++   if exc.stdout:print(exc.stdout,file=log,flush=True)
++   raise
++ if out:print(out,file=log,flush=True)
++ if proc.returncode!=0 or not report.exists():raise ValueError('La recuperación numérica no ha producido un STEP aprobado')
++ data=json.loads(report.read_text(encoding='utf-8'))
++ if not data.get('ok') or not destination.is_file():raise ValueError(data.get('error','Recuperación numérica rechazada'))
++ if data.get('step_sha256')!=_sha(destination) or data.get('original_sha256')!=_sha(Path(source)) or data.get('preparado_sha256')!=_sha(Path(prepared)):raise ValueError('El resultado no coincide con la referencia verificada')
++ data['resultado']['ram_numerica_pico_mb']=peak
++ return data['resultado']
++
++if __name__=='__main__':
++ if len(sys.argv)!=5:raise SystemExit('Uso: recuperacion_numerica.py original.stl preparado.stl salida.step informe.json')
++ raise SystemExit(reconstruir(*map(Path,sys.argv[1:])))
+--- R6/servidor.py
++++ R7/servidor.py
+@@ -62,7 +62,7 @@
+ 
+ def _diagnostico(id, meta, salida, errores, motor_log):
+     meta['motor_stdout_ultimas_lineas'] = salida[-4000:]
+-    meta['version_programa'] = 'V4.0 R6 EXPERIMENTAL validación completa de cavidades'
++    meta['version_programa'] = 'V4.0 R7 EXPERIMENTAL validación completa de cavidades'
+     meta['python_version'] = sys.version.split()[0] + ' (' + platform.platform() + ')'
+     try:
+         import importlib.metadata as _dist
+@@ -515,4 +515,4 @@
+ 
+ 
+ if __name__ == '__main__':
+-    uvicorn.run(app, host='127.0.0.1',port=8770,log_level='warning')
++    uvicorn.run(app, host='127.0.0.1',port=8771,log_level='warning')
+--- R6/test_recuperacion_numerica.py
++++ R7/test_recuperacion_numerica.py
+@@ -0,0 +1,123 @@
++from pathlib import Path
++import hashlib,json,os
++import numpy as np
++import pytest,trimesh
++from proximidad_triangular import punto_mas_cercano,baricentricas
++
++@pytest.mark.parametrize('scale',[1e-8,1e-6,1e-4,1.,100.])
++@pytest.mark.parametrize('rotated',[False,True])
++def test_proximidad_conserva_la_escala_de_triangulos_microscopicos(scale,rotated):
++ from scipy.spatial.transform import Rotation
++ R=Rotation.from_rotvec([.31,-.57,.83]).as_matrix() if rotated else np.eye(3);origin=np.array([2.4,-.0096,16.790347644]);T=np.array([[0,0,0],[2,0,0],[0,3,0.]])*scale;P=np.array([[.5,.5,.3],[1,-.2,.3]])*scale;expected=np.array([[.5,.5,0],[1,0,0.]])*scale
++ tri=np.repeat((T@R.T+origin)[None,:,:],2,axis=0);p=P@R.T+origin;answer=punto_mas_cercano(tri,p);assert np.allclose(answer,expected@R.T+origin,rtol=0,atol=max(1e-13,scale*1e-8));b=baricentricas(tri,answer);assert np.all(np.isfinite(b)) and np.allclose(b.sum(1),1)
++
++def test_proximidad_triangulo_degenerado_no_devuelve_nan():
++ T=np.array([[[0,0,0],[1,0,0],[2,0,0.]]]);p=np.array([[.5,1,0.]])
++ assert np.array_equal(punto_mas_cercano(T,p),[[.5,0,0.]])
++
++def cavidad():
++ outer=trimesh.creation.box(extents=[10]*3);inner=trimesh.creation.box(extents=[1]*3);inner.invert();return trimesh.util.concatenate((outer,inner))
++
++def test_invariantes_rechazan_sacar_una_cavidad_fuera_del_material():
++ from invariantes_material import InvariantesMaterial
++ m=cavidad();inv=InvariantesMaterial(m);v=m.vertices.copy();void=np.unique(m.faces[inv.groups[inv.negative[0]]]);v[void]+=[20,0,0];assert not inv.comprobar(v)
++
++def test_cota_global_rechaza_movimientos_excesivos_aunque_el_volumen_no_cambie():
++ from validacion_reconstruccion import certificar_malla
++ m=trimesh.creation.box();candidate=m.copy();candidate.apply_translation([.003,0,0])
++ with pytest.raises(ValueError,match='presupuesto'):certificar_malla(m,candidate)
++
++@pytest.mark.parametrize('hardlink',[False,True])
++def test_worker_no_sobrescribe_referencias_ni_aliases(tmp_path,hardlink,capsys):
++ from recuperacion_numerica import reconstruir
++ src=tmp_path/'original.stl';src.write_bytes(trimesh.creation.box().export(file_type='stl'));before=src.read_bytes();dst=tmp_path/'salida.step'
++ if hardlink:os.link(src,dst)
++ else:dst=src
++ report=tmp_path/'informe.json';assert reconstruir(src,src,dst,report)==2;assert src.read_bytes()==before and not report.exists()
++
++def test_worker_rechaza_entrada_abierta_sin_publicar_step(tmp_path,capsys):
++ from recuperacion_numerica import reconstruir
++ m=trimesh.creation.box();m.update_faces(np.arange(1,len(m.faces)));src=tmp_path/'abierta.stl';src.write_bytes(m.export(file_type='stl'));dst=tmp_path/'salida.step';report=tmp_path/'informe.json'
++ assert reconstruir(src,src,dst,report)==2 and not dst.exists();assert not json.loads(report.read_text())['ok']
++
++def test_worker_convierte_caja_y_conserva_los_limites_originales(tmp_path,monkeypatch,capsys):
++ from recuperacion_numerica import reconstruir
++ monkeypatch.setenv('VISOR_PERFIL','precision');src=tmp_path/'caja.stl';src.write_bytes(trimesh.creation.box(extents=[4]*3).export(file_type='stl'));before=src.read_bytes();dst=tmp_path/'caja.step';report=tmp_path/'informe.json';assert reconstruir(src,src,dst,report)==0;r=json.loads(report.read_text());json.dumps(r,allow_nan=False);q=r['resultado']['calidad'];assert q['autointerferencias_occ'] is False and q['inspeccion_densa']['aceptado'];assert q['limites_validacion']['caja_error_max_mm']==.020 and q['limites_validacion']['volumen_error_max_pct']==.5 and q['limites_validacion']['desviacion_max_observada_mm']==.060;assert src.read_bytes()==before
++
++def test_guardia_topologica_no_admite_rellenar_una_cavidad(tmp_path):
++ import cadquery as cq
++ from invariantes_material import InvariantesMaterial
++ from validacion_reconstruccion import certificar_topologia_step
++ m=cavidad();filled=cq.Solid.makeBox(10,10,10,cq.Vector(-5,-5,-5))
++ with pytest.raises(ValueError,match='cavidades'):certificar_topologia_step(filled,m,InvariantesMaterial(m))
++
++def test_motor_conserva_prioridad_del_cad_anterior(tmp_path,monkeypatch,capsys):
++ import motor_v2 as motor,preprocesador_stl as prep,recuperacion_numerica as numeric
++ src=tmp_path/'origen.stl';src.write_bytes(trimesh.creation.box().export(file_type='stl'));dst=tmp_path/'salida.step'
++ def prepare(source,target):
++  target.write_bytes(source.read_bytes());return target,{'reparado':True,'ruta_seleccionada':'contactos_locales_exactos_verificados','salida':{'cavidades_cerradas':0}}
++ def native(source,target,log,**kwargs):target.write_text('native');return {'calidad':{},'caras_stl':12}
++ monkeypatch.setattr(prep,'preparar',prepare);monkeypatch.setattr(motor,'convertir',native);monkeypatch.setattr(motor,'_calidad',lambda *a,**k:{});monkeypatch.setattr(numeric,'ejecutar_aislado',lambda *a,**k:pytest.fail('No debe sustituir un CAD ya válido'));monkeypatch.setattr(motor.sys,'argv',['motor_v2.py',str(src),str(dst)])
++ assert motor.main()==0 and dst.read_text()=='native';assert json.loads(capsys.readouterr().out.splitlines()[-1])['ok']
++
++def test_motor_activa_recuperacion_solo_despues_de_los_rechazos(tmp_path,monkeypatch,capsys):
++ import motor_v2 as motor,preprocesador_stl as prep,recuperacion_numerica as numeric
++ src=tmp_path/'origen.stl';src.write_bytes(trimesh.creation.box().export(file_type='stl'));dst=tmp_path/'salida.step';calls=[]
++ def prepare(source,target):
++  target.write_bytes(source.read_bytes());return target,{'reparado':True,'ruta_seleccionada':'contactos_locales_exactos_verificados','salida':{'cavidades_cerradas':0}}
++ def native(*args,**kwargs):calls.append('native');raise ValueError('rechazo analítico')
++ def recover(source,prepared,target,log):calls.append('numeric');target.write_text('verificado');return {'calidad':{},'caras_stl':12}
++ monkeypatch.setattr(prep,'preparar',prepare);monkeypatch.setattr(motor,'convertir',native);monkeypatch.setattr(numeric,'ejecutar_aislado',recover);monkeypatch.setattr(motor.sys,'argv',['motor_v2.py',str(src),str(dst)]);monkeypatch.setenv('VISOR_RECUPERACION_NUMERICA','1')
++ assert motor.main()==0 and calls==['native','native','numeric'];assert dst.read_text()=='verificado';assert json.loads(capsys.readouterr().out.splitlines()[-1])['ok']
++
++@pytest.mark.parametrize('rotated',[False,True])
++def test_cavidad_con_pared_subresolucion_se_recupera_sin_borrar_material(tmp_path,monkeypatch,rotated,capsys):
++ from recuperacion_numerica import reconstruir
++ from scipy.spatial.transform import Rotation
++ monkeypatch.setenv('VISOR_PERFIL','precision');outer=trimesh.creation.box(extents=[10]*3);inner=trimesh.creation.box(extents=[.01,1,1]);inner.apply_translation([4.99499995,0,0]);inner.invert();mesh=trimesh.util.concatenate((outer,inner))
++ if rotated:mesh.apply_transform(trimesh.transformations.rotation_matrix(.43,[1,2,3]))
++ src=tmp_path/'caso_nuevo.stl';src.write_text(trimesh.exchange.stl.export_stl_ascii(mesh));dst=tmp_path/'salida.step';report=tmp_path/'informe.json';assert reconstruir(src,src,dst,report)==0;r=json.loads(report.read_text());assert r['topologia']['cavidades_preservadas']==1;assert r['topologia']['euler_brep']==r['topologia']['euler_malla']==4;assert r['geometria_local']['cota_global_superficie_mm']<=.002
++
++def test_guardia_topologica_detecta_un_taladro_rellenado_con_volumen_en_tolerancia():
++ import cadquery as cq
++ from invariantes_material import InvariantesMaterial
++ from validacion_reconstruccion import certificar_topologia_step
++ outer=cq.Solid.makeBox(10,10,10,cq.Vector(-5,-5,-5));hole=cq.Solid.makeCylinder(.05,10,cq.Vector(0,0,-5));perforated=outer.cut(hole);v,f=perforated.tessellate(.001);m=trimesh.Trimesh([p.toTuple() for p in v],f,process=True);assert m.is_watertight and m.euler_number==0;assert abs(outer.Volume()-perforated.Volume())/outer.Volume()<.005
++ with pytest.raises(ValueError,match='túneles'):certificar_topologia_step(outer,m,InvariantesMaterial(m))
++
++def test_no_se_admite_un_original_abierto_con_una_preparacion_cerrada(tmp_path,capsys):
++ from recuperacion_numerica import reconstruir
++ closed=trimesh.creation.box();opened=closed.copy();opened.update_faces(np.arange(1,len(opened.faces)));src=tmp_path/'abierta.stl';prepared=tmp_path/'cerrada.stl';src.write_bytes(opened.export(file_type='stl'));prepared.write_bytes(closed.export(file_type='stl'));dst=tmp_path/'salida.step';report=tmp_path/'informe.json'
++ assert reconstruir(src,prepared,dst,report)==2 and not dst.exists();assert 'original debe estar cerrada' in json.loads(report.read_text())['error']
++
++def test_no_se_elimina_una_isla_material_pequena_para_forzar_un_solo_solido():
++ from invariantes_material import InvariantesMaterial
++ a=trimesh.creation.box();b=trimesh.creation.box(extents=[.0001]*3);b.apply_translation([2,0,0]);m=trimesh.util.concatenate((a,b))
++ with pytest.raises(ValueError,match='no se descartan cuerpos'):InvariantesMaterial(m)
++
++@pytest.mark.parametrize('alias',['destino','informe','preparado','hardlink'])
++def test_motor_protege_el_original_antes_de_limpiar_salidas(tmp_path,monkeypatch,capsys,alias):
++ import motor_v2 as motor
++ dst=tmp_path/'salida.step';src={'destino':dst,'informe':dst.with_suffix('.entrada.json'),'preparado':dst.with_suffix('.reparado.stl'),'hardlink':tmp_path/'origen.stl'}[alias];src.write_bytes(trimesh.creation.box().export(file_type='stl'));before=src.read_bytes()
++ if alias=='hardlink':os.link(src,dst)
++ monkeypatch.setattr(motor.sys,'argv',['motor_v2.py',str(src),str(dst)]);assert motor.main()==2;assert src.read_bytes()==before;assert json.loads(capsys.readouterr().out)['tipo_error']=='rutas_incompatibles'
++
++def test_recuperacion_general_sigue_al_rechazo_del_motor_historico(tmp_path,monkeypatch,capsys):
++ import motor_v2 as motor,preprocesador_stl as prep,recuperacion_numerica as numeric
++ src=tmp_path/'origen.stl';src.write_bytes(trimesh.creation.box().export(file_type='stl'));dst=tmp_path/'salida.step';calls=[]
++ monkeypatch.setattr(prep,'preparar',lambda source,target:(source,{'reparado':False,'ruta_seleccionada':'paso_directo'}))
++ def failed():calls.append('historico');print(json.dumps({'ok':False,'error':'fidelidad no superada'}));return 2
++ def recover(source,prepared,target,log):calls.append('numeric');target.write_text('verificado');return {'calidad':{},'caras_stl':12}
++ monkeypatch.setattr(motor,'_main_cad',failed);monkeypatch.setattr(numeric,'ejecutar_aislado',recover);monkeypatch.setattr(motor.sys,'argv',['motor_v2.py',str(src),str(dst)]);monkeypatch.setenv('VISOR_RECUPERACION_NUMERICA','1')
++ assert motor.main()==0 and calls==['historico','numeric'];assert json.loads(capsys.readouterr().out.splitlines()[-1])['ok']
++
++def test_volumen_inviable_se_rechaza_antes_de_medir_caja_o_teselar(tmp_path,monkeypatch):
++ import cadquery as cq
++ from motor_v2 import _calidad
++ from diagnostico_validacion import ErrorGeometrico
++ original=trimesh.creation.box();source=tmp_path/'original.stl';source.write_bytes(original.export(file_type='stl'));step=tmp_path/'deformado.step'
++ cq.Solid.makeBox(2,2,2).exportStep(str(step))
++ def expensive(*args,**kwargs):pytest.fail('No se debe medir o teselar un candidato cuyo volumen ya es inviable')
++ monkeypatch.setattr(cq.Shape,'BoundingBox',expensive);monkeypatch.setattr(cq.Shape,'tessellate',expensive)
++ with pytest.raises(ErrorGeometrico) as exc:_calidad(source,step,original)
++ assert exc.value.criterios[0]['nombre']=='Error de volumen' and exc.value.criterios[0]['limite']==.5
+--- R6/test_reparacion_local_r5.py
++++ R7/test_reparacion_local_r5.py
+@@ -60,6 +60,7 @@
+ 
+ 
+ def test_cad_rechazado_conserva_stl_y_no_publica_step(tmp_path,monkeypatch,capsys):
++    monkeypatch.setenv('VISOR_RECUPERACION_NUMERICA','0')
+     import motor_v2 as m,preprocesador_stl as p
+     source=tmp_path/'source.stl';source.write_bytes(trimesh.creation.box().export(file_type='stl'));dst=tmp_path/'salida.step';calls=[]
+     def prepare(src,out):
+--- R6/validacion_reconstruccion.py
++++ R7/validacion_reconstruccion.py
+@@ -0,0 +1,56 @@
++"""Invariantes adicionales de la recuperación numérica, sin ampliar tolerancias."""
++import numpy as np
++
++def certificar_malla(reference,candidate):
++ if not np.array_equal(reference.faces,candidate.faces) or len(reference.vertices)!=len(candidate.vertices):raise ValueError('La reparación numérica ha cambiado la triangulación o sus componentes')
++ delta=np.linalg.norm(candidate.vertices-reference.vertices,axis=1);roundoff=64*np.finfo(float).eps*(1+np.max(np.abs(reference.vertices)));bound=float(delta.max(initial=0.)+roundoff);volume=100*abs(candidate.volume-reference.volume)/max(abs(reference.volume),1e-30);bbox=float(np.abs(candidate.bounds-reference.bounds).max())
++ if bound>.002 or volume>.001 or bbox>.002:raise ValueError('La estabilización excede el presupuesto geométrico local')
++ return {'cota_global_superficie_mm':bound,'margen_redondeo_mm':float(roundoff),'volumen_error_pct':float(volume),'caja_error_mm':bbox,'caras_con_correspondencia':len(reference.faces),'fundamento':'Misma triangulación: cada punto baricéntrico se desplaza como máximo el mayor desplazamiento de sus vértices.','limites':{'superficie_mm':.002,'volumen_pct':.001,'caja_mm':.002}}
++
++def euler_brep(solid):
++ # Los contornos de un plano pueden tocarse en vértices compartidos. Contar
++ # cada wire como agujero independiente atribuiría túneles inexistentes.
++ contribution=0
++ for face in solid.Faces():
++  wires=face.Wires();parents=list(range(len(wires)));nodes=[wire.Vertices() for wire in wires]
++  def find(i):
++   while parents[i]!=i:parents[i]=parents[parents[i]];i=parents[i]
++   return i
++  for i in range(len(wires)):
++   for j in range(i):
++    if any(a.wrapped.IsSame(b.wrapped) for a in nodes[i] for b in nodes[j]):parents[find(i)]=find(j)
++  contribution+=2-len({find(i) for i in range(len(wires))})
++ return len(solid.Vertices())-len(solid.Edges())+contribution
++
++def certificar_topologia_step(solid,mesh,invariants):
++ import igl
++ from OCP.BRepClass3d import BRepClass3d_SolidClassifier
++ from OCP.TopAbs import TopAbs_IN,TopAbs_OUT
++ from OCP.gp import gp_Pnt
++ from proximidad_triangular import punto_mas_cercano
++ expected_shells=len(invariants.groups);chi=euler_brep(solid)
++ if len(solid.Solids())!=1 or len(solid.Shells())!=expected_shells or chi!=mesh.euler_number:raise ValueError('El STEP cambia cavidades o túneles de la malla de referencia')
++ classifier=BRepClass3d_SolidClassifier(solid.wrapped);records=[];V,F=mesh.vertices,mesh.faces
++ for gi in invariants.negative:
++  faces=F[invariants.groups[gi]];T=V[faces];cross=np.cross(T[:,1]-T[:,0],T[:,2]-T[:,0]);normals=cross/np.linalg.norm(cross,axis=1)[:,None];centers=T.mean(1);points=[]
++  for eps in np.geomspace(1e-8,.001,24):points.extend(centers+eps*normals)
++  points=np.asarray(points);winds=igl.winding_number(V,faces,points);points=points[winds<-.75]
++  if not len(points):raise ValueError('No se encuentra un punto interior verificable de una cavidad')
++  distances=[]
++  for p in points:
++   q=punto_mas_cercano(T,np.tile(p,(len(T),1)));distances.append(float(np.linalg.norm(q-p,axis=1).min()))
++  order=np.argsort(-np.asarray(distances));chosen=None
++  for idx in order:
++   if distances[idx]<4e-7:break
++   p=points[idx];classifier.Perform(gp_Pnt(*map(float,p)),1e-10)
++   if classifier.State()==TopAbs_OUT:chosen=(p,distances[idx]);break
++  if chosen is None:raise ValueError('La cavidad ha desaparecido o su interior no es verificable en el STEP')
++  material=None
++  for eps in np.geomspace(5e-7,.001,16):
++   for p in centers-eps*normals:
++    classifier.Perform(gp_Pnt(*map(float,p)),1e-10)
++    if classifier.State()==TopAbs_IN:material=p;break
++   if material is not None:break
++  if material is None:raise ValueError('No se verifica material alrededor de una cavidad')
++  records.append({'componente':gi,'punto_vacio_mm':chosen[0].tolist(),'holgura_vacio_mm':chosen[1],'punto_material_mm':material.tolist(),'clasificacion_vacio':'OUT','clasificacion_material':'IN'})
++ return {'euler_malla':int(mesh.euler_number),'euler_brep':int(chi),'shells':len(solid.Shells()),'cavidades_preservadas':len(records),'probes_cavidades':records}

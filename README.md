@@ -1,3 +1,13 @@
+# Entrega experimental del Visor R7
+
+[Descargar el ZIP completo de R7](./entregas/perfeccion_Visualizador_R7/perfeccion_Visualizador_R7_EXPERIMENTAL.zip?raw=true) · [Resultados reales y límites](./entregas/perfeccion_Visualizador_R7/INFORME_RESULTADOS.md).
+
+Este ZIP incluye `Visor_experimental_fuentes`, los lanzadores, las pruebas y el material. Extraer todo en una carpeta nueva; ejecutar `Instalar_Entorno.bat` y después `Iniciar.bat`. Requiere Python 3.12 de 64 bits. Encabezado R7 experimental, puerto 8771; Windows nativo pendiente de prueba.
+
+La entrega recupera 6558, Pieza Nueva, Dimensiones y Con fallos pero si step. También desbloquea el conector en el motor completo: 461 s frente al timeout previo de 2300 s. La nueva ruta mantiene las curvas facetadas y conserva la prioridad del motor CAD anterior. Cubo 4/4, regresión 12/12 y 123 pruebas aprobadas, sin relajar las tolerancias. El informe detalla los casos aún rechazados y las pruebas pendientes. Esta aplicación experimental Python es independiente del conversor WebAssembly descrito a continuación y no modifica la web de main.
+
+---
+
 # Conversor 3D · STL → STEP
 
 [Abrir el conversor en el navegador](https://cronos880-lang.github.io/Conversor_3D/) · [Estado del despliegue](https://github.com/cronos880-lang/Conversor_3D/actions/workflows/pages.yml)
