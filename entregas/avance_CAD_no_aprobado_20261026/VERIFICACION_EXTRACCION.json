@@ -1,0 +1,16 @@
+{
+  "archivos_verificados": true,
+  "prueba_sobre_STEP_extraidos": {
+    "tests": 6,
+    "failures": 3,
+    "errors": 0,
+    "skipped": 0
+  },
+  "fallos_reales_reproducidos": [
+    "Bancada",
+    "pinza",
+    "Lego4x2"
+  ],
+  "actualizacion_aprobada": false,
+  "nota": "La extracción reproduce los fallos; este resultado no aprueba el programa."
+}

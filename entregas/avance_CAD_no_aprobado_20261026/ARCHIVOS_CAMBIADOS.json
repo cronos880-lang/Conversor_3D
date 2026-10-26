@@ -1,0 +1,92 @@
+[
+  {
+    "archivo": "ESTADO_VALIDACION.md",
+    "nuevo": false,
+    "sha256": "a94134b546b0926681aa311587483cbf4f824556b58f38c344125998d99ad946"
+  },
+  {
+    "archivo": "LEEME.txt",
+    "nuevo": false,
+    "sha256": "f953727f7a24fc8bfcb06cce7ad7cec969ec02abf4ee15a969ec7d94a0774c36"
+  },
+  {
+    "archivo": "Visor_STL_STEP.html",
+    "nuevo": false,
+    "sha256": "bd62c63d4ce9e3c8a2f87f1f14ab47e1583dd8c73805e96b3d2f868087063b96"
+  },
+  {
+    "archivo": "calidad_topologica.py",
+    "nuevo": false,
+    "sha256": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d"
+  },
+  {
+    "archivo": "fixtures_cad/Bancada_104_NO_APROBADO.step",
+    "nuevo": true,
+    "sha256": "30da94eead31a1cd598e70f2c7263b65cb71e7d3c6cf31727bb3e0f79788a884"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_brep.py",
+    "nuevo": false,
+    "sha256": "9c7e1dd86d666859b237e8a8198c15108f63c4e2ce40fa4fb92c13366867930e"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_step.py",
+    "nuevo": false,
+    "sha256": "032463d8b89e1858ff161f05d506b78a43b9d061c216dd69d5db71d134f87ab7"
+  },
+  {
+    "archivo": "motor_v2.py",
+    "nuevo": false,
+    "sha256": "5582892ca5bc4a918bbfacbb882721683155b88615195f72b55846d6844e0503"
+  },
+  {
+    "archivo": "preprocesador_stl.py",
+    "nuevo": false,
+    "sha256": "b58796726505d56cf0467fc02d1423247d63036fcea2108ff2c6261aa958f849"
+  },
+  {
+    "archivo": "reconstruccion_curvas.py",
+    "nuevo": true,
+    "sha256": "3236277928c82470de1c7b90644703dc12c8b486df67c4dd71fb3bcfe3396b99"
+  },
+  {
+    "archivo": "recuperacion_numerica.py",
+    "nuevo": false,
+    "sha256": "8814fed3878f6b4f61c4d6019ed6ec33a35f38ef36230cab6d40b841b5afdc96"
+  },
+  {
+    "archivo": "saneamiento_malla.py",
+    "nuevo": true,
+    "sha256": "127ecfc4b33b7d649c3b644c28a73a88c7670ed8cce932217da4c86444f222ed"
+  },
+  {
+    "archivo": "servidor.py",
+    "nuevo": false,
+    "sha256": "f6c9ad75d98ceb23654b821425beb67d5e8c3c5c175fcf979eeec5df8d3179af"
+  },
+  {
+    "archivo": "test_correcciones_r2.py",
+    "nuevo": false,
+    "sha256": "f9604bd77d3457182a4480e513c429b1b0ffc43460f01432691e094b11ec8667"
+  },
+  {
+    "archivo": "test_reconstruccion_curvas.py",
+    "nuevo": true,
+    "sha256": "b8c54f2881f420080e95c94c7cc20abd8087d15ab7f85cb7d71802f4fab8f199"
+  },
+  {
+    "archivo": "test_reintento_curvas.py",
+    "nuevo": true,
+    "sha256": "1b527d98fe239c7bae064d312539144d05a0f0ac0b50f9b8d3aded47d90e58e7"
+  },
+  {
+    "archivo": "test_saneamiento_verificado.py",
+    "nuevo": true,
+    "sha256": "dd876ee4df9ac908cb2604134523fd4aa6fe2f375bfe9997c18f824f17cd3a51"
+  },
+  {
+    "archivo": "test_servidor_reparacion.py",
+    "nuevo": false,
+    "sha256": "1f1e9c1c1a6027962d43f6f319304ef4ed99eb961a60b041a0a65e27d6121361"
+  }
+]
