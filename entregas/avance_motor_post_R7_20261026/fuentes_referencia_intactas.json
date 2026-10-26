@@ -1,0 +1,11 @@
+{
+  "snapshot_A": {
+    "archivos": 98,
+    "todos_intactos": true
+  },
+  "referencia_R7": {
+    "archivos_contrastados": 96,
+    "todos_identicos": true,
+    "diferencias": []
+  }
+}

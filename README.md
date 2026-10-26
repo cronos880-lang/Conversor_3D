@@ -1,3 +1,13 @@
+# Avance del motor después de R7 · 26/10/2026
+
+[Informe, código y STEP verificados](./entregas/avance_motor_post_R7_20261026/README.md).
+
+El preprocesador ya convierte Lego 4×2, soporte móvil y PEGS con controles geométricos independientes y sin ampliar tolerancias. No se publica una nueva versión: Bancada_Motor pierde sus superficies CAD al pasar a recuperación facetada. Las 21 conversiones de regresión terminan, con 20 DATA STEP idénticos a R7; el cubo conserva sus cuatro variantes. Hay 144 pruebas distintas aprobadas. El informe distingue pruebas aprobadas, entradas fuera de calibración y límites de recursos.
+
+R7 continúa siendo la última entrega del programa. Las líneas de 6558 en Onshape siguen pendientes y main no se modifica. El estudio externo anterior queda como antecedente: la medición corregida contra la frontera completa detecta que los STL 11 y 16 exceden la calibración de entrada. Consultar el nuevo informe para los resultados actuales.
+
+---
+
 # Batería externa de R7 · 26/10/2026
 
 [Descargar 20 piezas para probar](./entregas/bateria_independiente_R7_20261026/Piezas_para_probar_R7.zip?raw=true) · [Resultados y fallos encontrados](./entregas/bateria_independiente_R7_20261026/INFORME_CAPACIDAD_R7.md) · [Kit reproducible completo](./entregas/bateria_independiente_R7_20261026/Bateria_independiente_R7.zip?raw=true).

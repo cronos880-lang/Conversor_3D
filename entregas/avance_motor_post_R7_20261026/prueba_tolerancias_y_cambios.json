@@ -1,0 +1,137 @@
+{
+  "cambios": [
+    {
+      "archivo": "test_correcciones_r2.py",
+      "estado": "modificado",
+      "sha256": "f9604bd77d3457182a4480e513c429b1b0ffc43460f01432691e094b11ec8667"
+    },
+    {
+      "archivo": "calidad_topologica.py",
+      "estado": "modificado",
+      "sha256": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d"
+    },
+    {
+      "archivo": "saneamiento_malla.py",
+      "estado": "nuevo",
+      "sha256": "127ecfc4b33b7d649c3b644c28a73a88c7670ed8cce932217da4c86444f222ed"
+    },
+    {
+      "archivo": "preprocesador_stl.py",
+      "estado": "modificado",
+      "sha256": "b58796726505d56cf0467fc02d1423247d63036fcea2108ff2c6261aa958f849"
+    },
+    {
+      "archivo": "test_saneamiento_verificado.py",
+      "estado": "nuevo",
+      "sha256": "dd876ee4df9ac908cb2604134523fd4aa6fe2f375bfe9997c18f824f17cd3a51"
+    },
+    {
+      "archivo": "motor_v2.py",
+      "estado": "modificado",
+      "sha256": "e01eeff8574a7d8dc5140fa1a2152152347be33497b26577b4a359259b5664c9"
+    },
+    {
+      "archivo": "recuperacion_numerica.py",
+      "estado": "modificado",
+      "sha256": "8814fed3878f6b4f61c4d6019ed6ec33a35f38ef36230cab6d40b841b5afdc96"
+    },
+    {
+      "archivo": "servidor.py",
+      "estado": "modificado",
+      "sha256": "cb27fdacd546e73c4ba480bc94b4934a23ab9359cc29653127a24d2ecab44aba"
+    },
+    {
+      "archivo": "test_servidor_reparacion.py",
+      "estado": "modificado",
+      "sha256": "1f1e9c1c1a6027962d43f6f319304ef4ed99eb961a60b041a0a65e27d6121361"
+    }
+  ],
+  "modulos_geometricos_identicos": [
+    {
+      "archivo": "perfiles_precision.py",
+      "identico": true,
+      "sha256": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a"
+    },
+    {
+      "archivo": "validacion_densa.py",
+      "identico": true,
+      "sha256": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1"
+    },
+    {
+      "archivo": "frontera_cad.py",
+      "identico": true,
+      "sha256": "d7c3647fcedacde69edb49d4a6d6dfbf62d980f3940f1d953c7502fb6c14e651"
+    },
+    {
+      "archivo": "holgura_geometrica.py",
+      "identico": true,
+      "sha256": "07a41db37495f81eef45b73c5e9c4ab7b4139e546ded3a10e1ef2a4dcce5e595"
+    },
+    {
+      "archivo": "invariantes_material.py",
+      "identico": true,
+      "sha256": "a2426f0deba6bac82518dcb8fc194a6ba24cec2bf84d9128e79ed5f6b2e3cab3"
+    },
+    {
+      "archivo": "validacion_reconstruccion.py",
+      "identico": true,
+      "sha256": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d"
+    },
+    {
+      "archivo": "motor_superficies/meshfit_brep.py",
+      "identico": true,
+      "sha256": "878574ca7c0959cdd2740175d2e31334697108d73ab444217239d3be8f313a9b"
+    },
+    {
+      "archivo": "motor_superficies/meshfit_detect.py",
+      "identico": true,
+      "sha256": "67e8f9a9c270967ba75271bf7028ce5070020f6be39968848b17f4568b713d85"
+    },
+    {
+      "archivo": "motor_superficies/meshfit_step.py",
+      "identico": true,
+      "sha256": "4f1212a73d1e5f61933ca7d38dee33360da32a556d224b15df4fa1c9e4cb4c3b"
+    },
+    {
+      "archivo": "Visor_STL_STEP.html",
+      "identico": true,
+      "sha256": "89aaad32f825d4ee6786ea1188f9817b1b3ecd88d392f82e483099ec79de656c"
+    },
+    {
+      "archivo": "politica_conversion.py",
+      "identico": true,
+      "sha256": "d39a331f55095658b4065a3b6fbe966a4a5af1e24b5e64527e8a2e5b32b181b7"
+    },
+    {
+      "archivo": "requirements.txt",
+      "identico": true,
+      "sha256": "1f7bf0c1720ae0855ab28cf30484a2d0b8ae5950a103e5e0599e5012e4dfaf22"
+    },
+    {
+      "archivo": "requirements_bloqueadas.txt",
+      "identico": true,
+      "sha256": "ebf785fc2206d65912767949a834feb46d898c1f43c3e8376a75e5fa898855bc"
+    }
+  ],
+  "constantes": {
+    "caja_mm": 0.02,
+    "volumen_pct": 0.5,
+    "p95_mm": "0.020–0.030 por escala",
+    "max_mm": 0.06
+  },
+  "constantes_MAX_del_motor_ast": {
+    "identicas": true,
+    "nombres": [
+      "MAX_BBOX_ERROR",
+      "MAX_INPUT_BYTES",
+      "MAX_INPUT_FACES",
+      "MAX_RECOVERY_INPUT_FACES",
+      "MAX_SURFACE_OBSERVED",
+      "MAX_SURFACE_P95",
+      "MAX_VOLUME_ERROR",
+      "MAX_WORK_FACES",
+      "MAX_WORK_FACES_DENSO",
+      "MAX_WORK_SURFACE_DIFFERENCE"
+    ]
+  }
+}
