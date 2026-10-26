@@ -1,0 +1,11 @@
+﻿id,tipo,estado,motor_acepta,segundos_motor,ram_pico_mib,objetivo_previsto,objetivo_cumplido,reparacion_demostrada,contraste_cad,p95_max_bidireccional_mm,desviacion_max_muestreada_mm,error_volumen_pct,error_caja_mm,interferencias_occ,incidencia,configuracion_extra
+D01_caras_duplicadas,defecto_controlado,RECHAZADO,False,2.665,98.01,reparar,False,False,,,,,,,Caras degeneradas o duplicadas: reparación ambigua.,{}
+D02_orientacion_parcial,defecto_controlado,RECHAZADO,False,2.222,97.47,reparar,False,False,,,,,,,Orientación inconsistente o invertida; no se cambia silenciosamente.,{}
+D03_ruido_micrometrico,defecto_controlado,REPARADO_Y_VERIFICADO,True,6.94,569.1,reparar,True,True,True,0.0002092255649358338,0.00031765158425112357,3.6901593549300175e-05,0.00031447311899945873,False,,{}
+D04_hueco_grande,defecto_controlado,RECHAZADO,False,1.607,98.18,rechazo_o_reparacion_verificada,True,False,,,,,,,Borde abierto: no se puede distinguir un agujero accidental de un canal funcional; se requiere referencia explícita.,{}
+D05_isla_pequena_separada,defecto_controlado,RECHAZADO,False,1.615,95.91,rechazar_sin_eliminar_cuerpos,True,False,,,,,,,Múltiples cuerpos separados o contacto solo puntual/por arista: no se fusionan por cercanía ni se eliminan cuerpos pequeños.,{}
+D06_solidos_solapados,defecto_controlado,REPARADO_Y_VERIFICADO,True,16.999,575.75,reparar,True,True,True,1.9336532188553655e-05,1.9351309792544223e-05,2.6107506288020083e-05,0.0,False,,{}
+R_02_taladro,rotacion,CONVERTIDO_Y_VERIFICADO,True,4.725,569.47,convertir_y_preservar,True,False,True,5.852833087522537e-07,6.968272923544549e-07,4.498860824042689e-06,6.309900015821768e-07,False,,{}
+R_09_pared_delgada,rotacion,CONVERTIDO_Y_VERIFICADO,True,338.463,1419.17,convertir_y_preservar,True,False,True,0.0005093028827147483,0.0005357389495904491,0.0007948872818792166,0.00030035541888651096,False,,{}
+R_16_loft,rotacion,CONVERTIDO_Y_VERIFICADO,True,427.689,2086.22,convertir_y_preservar,True,False,True,0.0008004651563513977,0.0016988130359670511,0.00928532507150635,9.377300003166056e-07,False,,{}
+G17_control_interferencias,diagnostico_bandera_existente,CONVERTIDO_Y_VERIFICADO,True,750.0,2088.85,comparar_sin_contar_como_R7_predeterminada,True,False,True,0.001422055764222399,0.0019119871483046298,0.016387640656946995,0.0007000529003562406,False,,"{""VISOR_VERIFICAR_INTERFERENCIAS_CAD"": ""1""}"

@@ -1,0 +1,205 @@
+{
+  "seleccion_antes_de_ejecutar": true,
+  "nota": "La calibración STL/CAD no es requisito en defectos introducidos deliberadamente. Se conservan todas las puertas geométricas, de material y topología. Un rechazo seguro no se cuenta como reparación.",
+  "casos": [
+    {
+      "id": "D01_caras_duplicadas",
+      "tipo": "defecto_controlado",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+      "stl": "stl_secundarios/D01_caras_duplicadas.stl",
+      "referencia_step": "referencias_secundarios/D01_caras_duplicadas.step",
+      "sha256_stl": "1fd11a0848d44bb070d8682602447e0f79ccd2cfb45cf696cd17c7c9d05f5dbe",
+      "sha256_step_referencia": "f9715d50c7adf0a850fa8a729f294dc54fe00ecf2ca0eb17443e8c3c834e3851",
+      "euler_cad": 0,
+      "solidos_referencia": 1,
+      "objetivo": "reparar",
+      "limite_motor_s": 300,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {}
+    },
+    {
+      "id": "D02_orientacion_parcial",
+      "tipo": "defecto_controlado",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+      "stl": "stl_secundarios/D02_orientacion_parcial.stl",
+      "referencia_step": "referencias_secundarios/D02_orientacion_parcial.step",
+      "sha256_stl": "99a1ca0570c2f8dac85d1427bdfeffa3bf54e0bbfeebc679ea73a91972da4f15",
+      "sha256_step_referencia": "418cdd1e62049e78e66a9d48be38b6a9b346b717246e1523c96ecf8131768ce0",
+      "euler_cad": 0,
+      "solidos_referencia": 1,
+      "objetivo": "reparar",
+      "limite_motor_s": 300,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {}
+    },
+    {
+      "id": "D03_ruido_micrometrico",
+      "tipo": "defecto_controlado",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+      "stl": "stl_secundarios/D03_ruido_micrometrico.stl",
+      "referencia_step": "referencias_secundarios/D03_ruido_micrometrico.step",
+      "sha256_stl": "6f3c961d2ba117faaf1e2e0fbe4cfe3b1f29bee0159f0b42ddc1ed341f143d5f",
+      "sha256_step_referencia": "b76abb05cd6ea39ab292e53c2024994292397aa672285b8e1ec8b021a8e775cd",
+      "euler_cad": 0,
+      "solidos_referencia": 1,
+      "objetivo": "reparar",
+      "limite_motor_s": 600,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {
+        "sigma_mm": 0.00015,
+        "max_desplazamiento_mm": 0.0005940242120131922
+      }
+    },
+    {
+      "id": "D04_hueco_grande",
+      "tipo": "defecto_controlado",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+      "stl": "stl_secundarios/D04_hueco_grande.stl",
+      "referencia_step": "referencias_secundarios/D04_hueco_grande.step",
+      "sha256_stl": "8fa7ca9dfb7740136fae2bbb0a7bc4a732f7b48014a826a4015d4e0a1cb8bcfb",
+      "sha256_step_referencia": "65e515fc3c9fdf6cc69503087646eef193f6d05ced97f2e71b961b8bb5c85d3c",
+      "euler_cad": 0,
+      "solidos_referencia": 1,
+      "objetivo": "rechazo_o_reparacion_verificada",
+      "limite_motor_s": 300,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {}
+    },
+    {
+      "id": "D05_isla_pequena_separada",
+      "tipo": "defecto_controlado",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+      "stl": "stl_secundarios/D05_isla_pequena_separada.stl",
+      "referencia_step": "referencias_secundarios/D05_isla_pequena_separada.step",
+      "sha256_stl": "674764a4c3390b86584970f837dfbc60ecd86d61cccc4de8be8ecad1b047e243",
+      "sha256_step_referencia": "158a36bc71abb53a6c7aefede1cf2b290261f9640769b81e61dfc6285a671692",
+      "euler_cad": 2,
+      "solidos_referencia": 2,
+      "objetivo": "rechazar_sin_eliminar_cuerpos",
+      "limite_motor_s": 300,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {}
+    },
+    {
+      "id": "D06_solidos_solapados",
+      "tipo": "defecto_controlado",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+      "stl": "stl_secundarios/D06_solidos_solapados.stl",
+      "referencia_step": "referencias_secundarios/D06_solidos_solapados.step",
+      "sha256_stl": "1bdd8182f794b2c50f5b317b401bf7ff308f73ae2ad9d7b12d27c82ce139414f",
+      "sha256_step_referencia": "2770d7fe98cc8d2347916e30eb68876f2cfc402fe6b9adc7e693bfd5e070e388",
+      "euler_cad": -2,
+      "solidos_referencia": 1,
+      "objetivo": "reparar",
+      "limite_motor_s": 600,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {
+        "referencia_de_intencion": "Unión CAD de las dos copias, definida antes de convertir",
+        "traslacion_mm": [
+          20,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "R_02_taladro",
+      "tipo": "rotacion",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+      "stl": "stl_secundarios/R_02_taladro.stl",
+      "referencia_step": "referencias_secundarios/R_02_taladro.step",
+      "sha256_stl": "7c1bbdcbd508c65120f07f82367b0b025a9df5ec975e3b3ddd14cdd6dd0df581",
+      "sha256_step_referencia": "e8fd853a886388ede2e965ef6ff0c52c61023714cc5b243c8c3bfc7d36c62809",
+      "euler_cad": 0,
+      "solidos_referencia": 1,
+      "objetivo": "convertir_y_preservar",
+      "limite_motor_s": 900,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {
+        "url_fuente": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex002_Block_With_Bored_Center_Hole.py",
+        "angulo_rad": 0.43,
+        "eje": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R_09_pared_delgada",
+      "tipo": "rotacion",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex017_Shelling_to_Create_Thin_Features.py",
+      "stl": "stl_secundarios/R_09_pared_delgada.stl",
+      "referencia_step": "referencias_secundarios/R_09_pared_delgada.step",
+      "sha256_stl": "e56d1db2d5f9db357e5c71da78f8486b0ea6baeede241921274c7d9e13529919",
+      "sha256_step_referencia": "540256f6f0ec42944a8bfc081f7b17cc4670ea9a068f8bb417bc99bb5bf46216",
+      "euler_cad": 2,
+      "solidos_referencia": 1,
+      "objetivo": "convertir_y_preservar",
+      "limite_motor_s": 900,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {
+        "url_fuente": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex017_Shelling_to_Create_Thin_Features.py",
+        "angulo_rad": 0.43,
+        "eje": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "R_16_loft",
+      "tipo": "rotacion",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex018_Making_Lofts.py",
+      "stl": "stl_secundarios/R_16_loft.stl",
+      "referencia_step": "referencias_secundarios/R_16_loft.step",
+      "sha256_stl": "c088e164eb61df85fa122ad742302fcf3ecf3408e0598ca07ee33d5eb53fdad7",
+      "sha256_step_referencia": "a6b25ebe2ed6081abd85756be1fcb8c7c32c3d44b3bb11fa020a319842e12346",
+      "euler_cad": 2,
+      "solidos_referencia": 1,
+      "objetivo": "convertir_y_preservar",
+      "limite_motor_s": 900,
+      "limite_oraculo_s": 600,
+      "extra_env": {},
+      "detalles": {
+        "url_fuente": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex018_Making_Lofts.py",
+        "angulo_rad": 0.43,
+        "eje": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "G17_control_interferencias",
+      "tipo": "diagnostico_bandera_existente",
+      "origen_externo": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex023_Sweep.py",
+      "stl": "stl_secundarios/G17_control_interferencias.stl",
+      "referencia_step": "referencias_secundarios/G17_control_interferencias.step",
+      "sha256_stl": "5aa1cced48c18cb6d1811e1a1b37891436295c8f1f865e2b6cc61a9a5c84d1dd",
+      "sha256_step_referencia": "a3976ae9753b72fec41a9013f075609901d11832a68cc600ed875a1da7a35752",
+      "euler_cad": 2,
+      "solidos_referencia": 1,
+      "objetivo": "comparar_sin_contar_como_R7_predeterminada",
+      "limite_motor_s": 900,
+      "limite_oraculo_s": 600,
+      "extra_env": {
+        "VISOR_VERIFICAR_INTERFERENCIAS_CAD": "1"
+      },
+      "detalles": {
+        "url_fuente": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex023_Sweep.py",
+        "nota": "Bandera ya incluida en R7; el código del motor permanece idéntico."
+      }
+    }
+  ]
+}

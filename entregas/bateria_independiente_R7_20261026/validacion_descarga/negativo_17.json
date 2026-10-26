@@ -1,0 +1,21 @@
+{
+  "id": "17_barrido_spline",
+  "ok": false,
+  "ejecutado": true,
+  "version_oraculo": 4,
+  "limites": {
+    "volumen_pct": 0.5,
+    "caja_mm": 0.02,
+    "p95_mm": 0.02,
+    "max_mm": 0.06
+  },
+  "nota": "Muestreo exacto de caras/aristas CAD y clasificación de material; no cota Hausdorff global. Ambos CAD se leen con OpenCascade.",
+  "solidos": 1,
+  "brep_valido": true,
+  "interferencias_occ": true,
+  "criterios": {
+    "interferencias": false
+  },
+  "error": "Interferencias CAD en lectura fría: rechazo antes de mallar el STEP",
+  "segundos": 1.921439089001069
+}

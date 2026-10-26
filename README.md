@@ -1,3 +1,13 @@
+# Batería externa de R7 · 26/10/2026
+
+[Descargar 20 piezas para probar](./entregas/bateria_independiente_R7_20261026/Piezas_para_probar_R7.zip?raw=true) · [Resultados y fallos encontrados](./entregas/bateria_independiente_R7_20261026/INFORME_CAPACIDAD_R7.md) · [Kit reproducible completo](./entregas/bateria_independiente_R7_20261026/Bateria_independiente_R7.zip?raw=true).
+
+Se han contrastado veinte geometrías externas con su CAD original: dieciocho entradas sanas pasan, una placa requiere repetir su discretización y después pasa como entrada problemática, y el barrido spline 17 revela un falso positivo: R7 aprueba un STEP con autointersección CAD. No se debe dar esa salida por correcta. El informe conserva los intentos excluidos, las reparaciones y los rechazos por separado.
+
+Este material sirve para probar la R7 que ya tienes. **El motor y sus tolerancias siguen intactos; no es una actualización del programa.** El siguiente desarrollo debe cerrar el falso positivo y reducir las salidas con miles de facetas. La batería no valida Windows nativo ni la web WebAssembly de main.
+
+---
+
 # Entrega experimental del Visor R7
 
 [Descargar el ZIP completo de R7](./entregas/perfeccion_Visualizador_R7/perfeccion_Visualizador_R7_EXPERIMENTAL.zip?raw=true) · [Resultados reales y límites](./entregas/perfeccion_Visualizador_R7/INFORME_RESULTADOS.md).

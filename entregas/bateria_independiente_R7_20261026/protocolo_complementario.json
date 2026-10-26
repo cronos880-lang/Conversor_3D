@@ -1,0 +1,105 @@
+{
+  "declarado_utc": "2026-10-26T09:21:19.204404+00:00",
+  "seleccion_antes_de_ejecutar": true,
+  "motivo": "Calibración de entrada original: 0.0053766 mm > 0.005 mm. Repetición con mallado más fino, no nueva geometría.",
+  "casos": [
+    {
+      "id": "C20_remallado_fino",
+      "nivel": 4,
+      "descripcion": "Placa fina de doble curvatura",
+      "grupo": "cadquery",
+      "archivo_fuente": "fuentes_cadquery/Ex101_InterpPlate.py",
+      "url_fuente": "https://github.com/CadQuery/cadquery/blob/8178185a24a035c9af7f4679033be14267f6a6ef/examples/Ex101_InterpPlate.py",
+      "commit_fuente": "8178185a24a035c9af7f4679033be14267f6a6ef",
+      "sha256_fuente": "ea67372c4b3b80e84d330d927f005f3835454f17b054d6b8a76c3ca70f09a466",
+      "variable": "plate_1",
+      "parametros": {},
+      "limite_motor_s": 900,
+      "limite_oraculo_s": 600,
+      "limite_ram_mb": 4096,
+      "preparacion_ok": true,
+      "dimensiones_fuente_mm": [
+        16.48914742942246,
+        14.06016495705035,
+        6.743316421513272
+      ],
+      "escala_preparacion": 2.4258379744137577,
+      "referencia_step": "referencias/20_placa_curva.step",
+      "stl": "stl_complementarios/C20_remallado_fino.stl",
+      "sha256_step_referencia": "d1327746f56b22d34662b7c2f3305d31582a94b9424224d6f219fd39c30e71cc",
+      "sha256_stl": "4bbc6e0c25dadb06ff0cb053e5ba3bce0a4949087cca9ab9e4386a01ce0b8e00",
+      "triangulos": 97208,
+      "vertices": 48606,
+      "volumen_cad_mm3": 372.9146258931397,
+      "volumen_stl_mm3": 372.8431214849534,
+      "euler_cad": 2,
+      "euler_stl": 2,
+      "caras_cad": 6,
+      "tipos_caras": {
+        "GeomAbs_BSplineSurface": 5,
+        "GeomAbs_OffsetSurface": 1
+      },
+      "dimensiones_normalizadas_mm": [
+        39.999488830566406,
+        34.10648155212402,
+        16.355652809143066
+      ],
+      "topologia_vertices": {
+        "vertices_no_manifold": 0,
+        "vertices_de_borde": 0,
+        "ejemplos": [],
+        "enlaces_regulares_cerrados": true,
+        "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+      },
+      "intersecciones_cgal": 44,
+      "preparacion": {
+        "dimension_maxima_cad_mm": 40,
+        "deflexion_absoluta_solicitada_mm": 0.00025,
+        "angulo_rad": 0.02,
+        "rejilla_union_vertices_mm": 1e-08,
+        "formato_stl": "binario float32",
+        "normalizacion_antes_de_convertir": true
+      },
+      "segundos_preparacion": 2.976664595000102,
+      "tipo": "calibracion_entrada_complementaria",
+      "extra_env": {},
+      "calibracion_previa": {
+        "deflexion_solicitada_mm": 0.00025,
+        "angular_rad": 0.02,
+        "triangulos": 97208,
+        "vertices": 48606,
+        "cerrado": true,
+        "orientacion_consistente": true,
+        "euler_stl": 2,
+        "intersecciones_cgal": 44,
+        "sha256_stl": "4bbc6e0c25dadb06ff0cb053e5ba3bce0a4949087cca9ab9e4386a01ce0b8e00",
+        "cad_a_stl": {
+          "muestras": 98,
+          "media_mm": 0.00023706782947208492,
+          "p95_mm": 0.0008150978588201572,
+          "max_mm": 0.003194708899305994
+        },
+        "stl_a_cad": {
+          "muestras": 600,
+          "media_mm": 0.0003475902253770386,
+          "p95_mm": 0.001148449575530732,
+          "max_mm": 0.0024118255524123227
+        },
+        "calibracion_max_mm": 0.005,
+        "calibracion_ok": true
+      },
+      "nota": "Mismo CAD y transformación que el caso 20 original. Nueva discretización absoluta 0.00025 mm y 0.02 rad, sin cambiar el motor ni aflojar la calibración 0.005 mm. El intento original queda registrado y excluido de éxitos.",
+      "entrada_sana": false,
+      "preparacion_original": {
+        "dimension_maxima_cad_mm": 40,
+        "deflexion_absoluta_solicitada_mm": 0.003,
+        "angulo_rad": 0.08,
+        "rejilla_union_vertices_mm": 1e-08,
+        "formato_stl": "binario float32",
+        "normalizacion_antes_de_convertir": true
+      },
+      "observacion_posterior": "Verificación exacta posterior: misma SHA-256 al regenerar, 44 pares de triángulos intersectan. Entrada calibrada pero no sana; salida evaluada aparte. Se corrigen metadatos de vértices y preparación heredados del caso original."
+    }
+  ],
+  "metadatos_actualizados_utc": "2026-10-26T09:32:59.692251+00:00"
+}

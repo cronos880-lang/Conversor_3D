@@ -1,0 +1,184 @@
+{
+  "casos": [
+    {
+      "id": "01_bloque",
+      "sha256_step_referencia": "9ce6cd239ce050babe151827639e47fb79872634076399ef0340fc060e879a5d",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.006348632000026555
+    },
+    {
+      "id": "02_taladro",
+      "sha256_step_referencia": "9fe6bec88cc5601d59e16a3eec342749f51e61fa85436c2d712843bfdc0aa5b2",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.006463647000146011
+    },
+    {
+      "id": "03_disco_hueco",
+      "sha256_step_referencia": "4cae56e00b09d5fd72941a0c572b5ebbb24f251ab132d7d874b49dc5347d55f5",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.006310206999842194
+    },
+    {
+      "id": "04_contorno_arcos",
+      "sha256_step_referencia": "05d368e5a697e3d841191d333997b29e4a60fb8ce7bb3bc6b25058c5211f2f0b",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.010645857999861619
+    },
+    {
+      "id": "05_dos_hexagonos",
+      "sha256_step_referencia": "342c143eebaaad7328b43a138dbaba758816209afc4ffbecad06c6bac33d6e33",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.012673285999881045
+    },
+    {
+      "id": "06_soporte_cojinete",
+      "sha256_step_referencia": "15ace283e450a62a8dd4b03f2f3321f6cb481f9ab1eb302de60b1714a1710f40",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.057341751999956614
+    },
+    {
+      "id": "07_patron_taladros",
+      "sha256_step_referencia": "07231480d07ad6eb1cc1f07a72da101ad1a81c3da78cc4298142cb7f59b1e866",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.0062831919999553065
+    },
+    {
+      "id": "08_taladros_inclinados",
+      "sha256_step_referencia": "7fe2ce166101be90b6aaf251e45c79021743a7073e93557c4b771a68be1b0428",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.05801270900019517
+    },
+    {
+      "id": "09_pared_delgada",
+      "sha256_step_referencia": "21bced5d39f657d8d77735704e87890d14f5d1c568096abcf91ac0fffad78ff9",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.07496291100005692
+    },
+    {
+      "id": "10_avellanados",
+      "sha256_step_referencia": "e43b03ebd335018aefdb9d3792a2248393b0d12548fc55cd7a22c169e6c75353",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.012100895999992645
+    },
+    {
+      "id": "11_perfil_spline",
+      "sha256_step_referencia": "dd9b53e7e129f86d64a61047fb3b8ced4d213cf321ff837f22db118987dcbd17",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.016741225000259874
+    },
+    {
+      "id": "12_ladrillo_3x2",
+      "sha256_step_referencia": "4566fa1114a67a59a668418e62291348f46c21ce6182e409f86731200878612a",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.024829619999763963
+    },
+    {
+      "id": "13_mfcad_chaflanes",
+      "sha256_step_referencia": "cc98be35266f044195372e68fda372d3c59261a4f478061f9801ba9552cd52da",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.010947423000288836
+    },
+    {
+      "id": "14_mfcad_mixto",
+      "sha256_step_referencia": "f9a9d9a5feab28f906a19ff2710bc42c8c62836f65da9e03092f98c979e8a94a",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.008861565999723098
+    },
+    {
+      "id": "15_mfcad_combinado",
+      "sha256_step_referencia": "44874cde3b7583b16e810a633146424bcea7d5d8632d5f362ee59556fb2fd0f7",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.01909592700030771
+    },
+    {
+      "id": "16_loft",
+      "sha256_step_referencia": "f20a6a5fd3404120a043de7c3149dd7a4877d997333d1aafa9c9c8fe7af9be2e",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.25091426700009833
+    },
+    {
+      "id": "17_barrido_spline",
+      "sha256_step_referencia": "daa613a017631c2c5b420b8890dedc841c58698b6c2e1ae48956570b5eba0813",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.007606984000176453
+    },
+    {
+      "id": "18_barrido_variable",
+      "sha256_step_referencia": "1823f686fdb8ee82498d2f73629564ddc8160f886d561af53d2682e3275d8f34",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.22438237300002584
+    },
+    {
+      "id": "19_helice",
+      "sha256_step_referencia": "91971c8bcb67909e4f8bb6f186fc8deb586a4a1da256a3e4b9a192c2659bd2fb",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 3.831721840999762
+    },
+    {
+      "id": "20_placa_curva",
+      "sha256_step_referencia": "d1327746f56b22d34662b7c2f3305d31582a94b9424224d6f219fd39c30e71cc",
+      "solidos": 1,
+      "isValid": true,
+      "interferencias_occ": false,
+      "ok": true,
+      "segundos": 0.925160741000127
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "archivos": [
+    {
+      "archivo": "Piezas_para_probar_R7.zip",
+      "bytes": 8154691,
+      "sha256": "d0752360b464434be060f5bb4eed1641f510335d412202a95049daf9420688dd",
+      "git_blob_sha1": "ce8a0e6b6eed39cd2936d30e0bddf0072e15268c"
+    },
+    {
+      "archivo": "Bateria_independiente_R7.zip",
+      "bytes": 95416433,
+      "sha256": "2fb508244cc6184f97df95775427bda584585ffd01be1cada0298e610966f485",
+      "git_blob_sha1": "52ff3c9ad8cef72cef4607538091e7167718f601"
+    }
+  ]
+}
