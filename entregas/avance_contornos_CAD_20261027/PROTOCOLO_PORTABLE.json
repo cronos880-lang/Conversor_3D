@@ -1,0 +1,195 @@
+{
+  "casos": [
+    {
+      "id": "cubo-carrito",
+      "grupo": "cubo4",
+      "source": "material_pruebas/casos_cubo/cubo-carrito.stl",
+      "referencia_step": "referencias_R7/cubo-carrito.step",
+      "sha256": "b01a54cc18b65532bd4e0f388742c35291987c3dde5ba9f1d32c2ee78fa16600",
+      "limite_s": 900,
+      "ok_previo": true
+    },
+    {
+      "id": "cubo-carrito_giro_1",
+      "grupo": "cubo4",
+      "source": "material_pruebas/casos_cubo/cubo-carrito_giro_1.stl",
+      "referencia_step": "referencias_R7/cubo-carrito_giro_1.step",
+      "sha256": "23af55a2f063e152547250648c3a0bd2123b8e0ae43b1667a0cde870fb0564c9",
+      "limite_s": 900,
+      "ok_previo": true
+    },
+    {
+      "id": "cubo-carrito_giro_2",
+      "grupo": "cubo4",
+      "source": "material_pruebas/casos_cubo/cubo-carrito_giro_2.stl",
+      "referencia_step": "referencias_R7/cubo-carrito_giro_2.step",
+      "sha256": "56d7013015f9ac52693b697a159b108965682a1608e12893b72b451d2d77d71c",
+      "limite_s": 900,
+      "ok_previo": true
+    },
+    {
+      "id": "cubo-carrito_giro_3",
+      "grupo": "cubo4",
+      "source": "material_pruebas/casos_cubo/cubo-carrito_giro_3.stl",
+      "referencia_step": "referencias_R7/cubo-carrito_giro_3.step",
+      "sha256": "ca340a5e77d73748816c6a2bf0810c8e08a3018a69b19727a9c2ffa15dde85a6",
+      "limite_s": 900,
+      "ok_previo": true
+    },
+    {
+      "id": "1x1-lego-brick",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/1x1-lego-brick.stl",
+      "referencia_step": "referencias_R7/1x1-lego-brick.step",
+      "sha256": "d4d10b56cbc29e941b7bce823b052e8403fe2c6d6e82acd11a72959ac3c69f2a",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "Bancada_Motor",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/Bancada_Motor.stl",
+      "referencia_step": "referencias_R7/Bancada_Motor.step",
+      "sha256": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "Estefi",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/Estefi.stl",
+      "referencia_step": "referencias_R7/Estefi.step",
+      "sha256": "5fe8837a20045ce6a669575de11e41515093afbaebec2d0bb3b3680b2d7c3b9d",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "Grapa",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/Grapa.stl",
+      "referencia_step": "referencias_R7/Grapa.step",
+      "sha256": "679f77d60cd7a52c662956e05f7330737f60e9fda26b47a509702bdc0aba5a1c",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "LLanta_Trasera",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/LLanta_Trasera.stl",
+      "referencia_step": "referencias_R7/LLanta_Trasera.step",
+      "sha256": "ea2e1508b5766f2a3ac17aaa077544c79fb49a33de1d1e3aea9ccd24835597c1",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "M3 PClip - 2mm",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/M3 PClip - 2mm.stl",
+      "referencia_step": "referencias_R7/M3 PClip - 2mm.step",
+      "sha256": "efdbb2489474e3d1cd0c486980c0aede256cd4577ae3957a4460849738538743",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "Spoiler_arrière_Porsche_-_5",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/Spoiler_arrière_Porsche_-_5.stl",
+      "referencia_step": "referencias_R7/Spoiler_arrière_Porsche_-_5.step",
+      "sha256": "af06f20112ed3b134ac8d2235be0edd9e84651dcdb0c03e573be0ac9bee5cbca",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "Tirante",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/Tirante.stl",
+      "referencia_step": "referencias_R7/Tirante.step",
+      "sha256": "8e43440fa46395d66528571401946aed80207e68255cfe292937a509948f6883",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "chasis - Part 2",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/chasis - Part 2.stl",
+      "referencia_step": "referencias_R7/chasis - Part 2.step",
+      "sha256": "3b7e731e88402a2cb88d088bec9e1a9164b25aa1747093e7988a663b14ad026c",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "maneta",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/maneta.stl",
+      "referencia_step": "referencias_R7/maneta.step",
+      "sha256": "9dcf990e18273731a9d15176a224a94e7f65158164e98c2769b6b03dc1f929b3",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "pinza",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/pinza.stl",
+      "referencia_step": "referencias_R7/pinza.step",
+      "sha256": "dde8c6b4e723db51b3571525b06550f864a90745592874139d4a2c7ff2a51d34",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "spur",
+      "grupo": "historica12",
+      "source": "material_pruebas/stl_regresion_14/spur.stl",
+      "referencia_step": "referencias_R7/spur.step",
+      "sha256": "224dd26593686bc9908039a7b92add4841e6b86b281db78a1424a9b5bc505eef",
+      "limite_s": 1800,
+      "ok_previo": true
+    },
+    {
+      "id": "conector",
+      "grupo": "otras_aceptadas_R7",
+      "source": "material_pruebas/stl_regresion_14/conector.stl",
+      "referencia_step": "referencias_R7/conector.step",
+      "sha256": "35e4dec24c14d2fb21c5a7bfc6bf184f6152cd13ed91bed6f6f7dc9fbc3187f2",
+      "limite_s": 2300,
+      "ok_previo": true
+    },
+    {
+      "id": "6558_fixed",
+      "grupo": "otras_aceptadas_R7",
+      "source": "material_pruebas/casos_usuario_r5/6558_fixed.stl",
+      "referencia_step": "referencias_R7/6558_fixed.step",
+      "sha256": "6811a538af4fa3b2a69bbbccf9db416522f1913ce1700764528427c12d317bea",
+      "limite_s": 1400,
+      "ok_previo": true
+    },
+    {
+      "id": "Dimensiones",
+      "grupo": "otras_aceptadas_R7",
+      "source": "material_pruebas/casos_usuario_r4/Dimensiones.stl",
+      "referencia_step": "referencias_R7/Dimensiones.step",
+      "sha256": "a03ae8e341132111cceed7b9bfb3e1175ba9989d36f7e7458011908c5a62c5a1",
+      "limite_s": 1400,
+      "ok_previo": true
+    },
+    {
+      "id": "Con fallos pero si step",
+      "grupo": "otras_aceptadas_R7",
+      "source": "material_pruebas/casos_usuario_r4/Con fallos pero si step.stl",
+      "referencia_step": "referencias_R7/Con fallos pero si step.step",
+      "sha256": "fdc909246bca0fc4bbc9347e783233555dc7af8d839cb588c41f538d08541177",
+      "limite_s": 1400,
+      "ok_previo": true
+    },
+    {
+      "id": "Pieza_Nueva_Detenida",
+      "grupo": "otras_aceptadas_R7",
+      "source": "material_pruebas/casos_usuario_r5/Pieza_Nueva_Detenida.stl",
+      "referencia_step": "referencias_R7/Pieza_Nueva_Detenida.step",
+      "sha256": "3e756da87a638a487263d912253cc3a482d6636c10f66f1e85b9419e6ce38d1e",
+      "limite_s": 1800,
+      "ok_previo": true
+    }
+  ],
+  "ruta_nueva_activada": false,
+  "nota": "Conversión completa de regresión; no equivale a validar contornos_compartidos=True en estas piezas."
+}

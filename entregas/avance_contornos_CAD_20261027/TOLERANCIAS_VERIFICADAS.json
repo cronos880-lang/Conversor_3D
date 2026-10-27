@@ -1,0 +1,50 @@
+{
+  "constantes_R7": {
+    "MAX_INPUT_FACES": "250000",
+    "MAX_INPUT_BYTES": "30 * 1024 * 1024",
+    "MAX_WORK_FACES": "20000",
+    "MAX_WORK_FACES_DENSO": "40000",
+    "MAX_RECOVERY_INPUT_FACES": "60000",
+    "MAX_WORK_SURFACE_DIFFERENCE": "0.01",
+    "MAX_VOLUME_ERROR": "0.005",
+    "MAX_BBOX_ERROR": "0.02",
+    "MAX_SURFACE_P95": "0.02",
+    "MAX_SURFACE_OBSERVED": "0.06"
+  },
+  "constantes_actuales": {
+    "MAX_INPUT_FACES": "250000",
+    "MAX_INPUT_BYTES": "30 * 1024 * 1024",
+    "MAX_WORK_FACES": "20000",
+    "MAX_WORK_FACES_DENSO": "40000",
+    "MAX_RECOVERY_INPUT_FACES": "60000",
+    "MAX_WORK_SURFACE_DIFFERENCE": "0.01",
+    "MAX_VOLUME_ERROR": "0.005",
+    "MAX_BBOX_ERROR": "0.02",
+    "MAX_SURFACE_P95": "0.02",
+    "MAX_SURFACE_OBSERVED": "0.06"
+  },
+  "constantes_R7_sin_relajar": true,
+  "controles_identicos_R7": [
+    {
+      "archivo": "perfiles_precision.py",
+      "identico_R7": true,
+      "sha256": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a"
+    },
+    {
+      "archivo": "holgura_geometrica.py",
+      "identico_R7": true,
+      "sha256": "07a41db37495f81eef45b73c5e9c4ab7b4139e546ded3a10e1ef2a4dcce5e595"
+    },
+    {
+      "archivo": "validacion_densa.py",
+      "identico_R7": true,
+      "sha256": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1"
+    },
+    {
+      "archivo": "politica_conversion.py",
+      "identico_R7": true,
+      "sha256": "d39a331f55095658b4065a3b6fbe966a4a5af1e24b5e64527e8a2e5b32b181b7"
+    }
+  ],
+  "api_nueva_por_defecto": false
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "archivo": "motor_superficies/contornos_compatibles.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "78a032ae7f69c605236ee7293f1c6ff7c3796c31fac8aa55b598c490e2858683"
+  },
+  {
+    "archivo": "motor_superficies/fijacion_contornos.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "d29d05e4d8c02ee18d7294b0f5a48c86596747102cccd4f6c44a1cba3b1c3aa4"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_brep.py",
+    "nuevo_en_esta_fase": false,
+    "sha256": "edbe24f0374e0d3aadaa739c79eb99dab5877e9e83acbe3ce9b85d090e1cfff1"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_step.py",
+    "nuevo_en_esta_fase": false,
+    "sha256": "9c0da9a1e4d4abfbbbf5c4abfe5ecd67b4c2f904ea109a7b588e0caba51d1087"
+  },
+  {
+    "archivo": "motor_superficies/parches_triangulares.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "ffc3109664962d813f1554a477c2bb0f61e80fb26efab2847b12edd3443573f9"
+  },
+  {
+    "archivo": "motor_superficies/pcurvas_compartidas.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "77bfb1f001c52277d3b2a33581296ec3ced42d292d8722153ff1d5a1f0e38597"
+  },
+  {
+    "archivo": "motor_superficies/planos_canonicos.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "fc77314101341d562fd97ea05da6ebe23ac296dd4e6ea8e20aec6c33c36c1075"
+  },
+  {
+    "archivo": "test_contornos_compatibles.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "959cc2517905b615c3ae7d047f292fef840e72c167a8a6d6cce3f219394616db"
+  },
+  {
+    "archivo": "test_parches_triangulares.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "340297fd29b0d56542dce2775388af475ed5d04bd45305000d707b90218d8c97"
+  },
+  {
+    "archivo": "test_pcurvas_compartidas.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "b4c639d56ebbdda4d7339c2bae0d5ce48d858efcf00abd2c9aec19e391c6957a"
+  },
+  {
+    "archivo": "test_planos_canonicos.py",
+    "nuevo_en_esta_fase": true,
+    "sha256": "35128dfd01876342470f3d35cbdc4a0245b959fde7b5c93191ed219f89d2b12a"
+  }
+]

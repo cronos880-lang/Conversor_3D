@@ -1,0 +1,612 @@
+{
+  "actualizacion_aprobada": false,
+  "publicar_instalador": false,
+  "nueva_ruta_activada_por_defecto": false,
+  "pinza_API": {
+    "control_cad": {
+      "actualizacion_aprobada": false,
+      "api_real": true,
+      "step_exacto": true,
+      "bop": 0,
+      "caras": 447,
+      "solidos": 1,
+      "puerta_cad_superada": true,
+      "segundos": 51.70390437600145
+    },
+    "geometria_y_frontera": {
+      "actualizacion_aprobada": false,
+      "evaluador": "/workspace/work/paquete_perfeccion_Visualizador_R7/Visor_experimental_fuentes",
+      "alcance": "Geometría y frontera. Las interferencias BOP se evalúan por separado y siguen bloqueando la aceptación.",
+      "geometria_R7": {
+        "integridad_cad": {
+          "brep_valido": true,
+          "solidos": 1,
+          "aristas": 919,
+          "aristas_parametrizacion_incoherente": 0,
+          "tolerancia_max_mm": 1e-07,
+          "tolerancia_p95_mm": 1e-07,
+          "tolerancia_media_mm": 1e-07,
+          "aristas_tol_mayor_001mm": 0
+        },
+        "perfil_validacion": {
+          "id": "precision",
+          "nombre": "Precisión",
+          "caja_mm": 0.02,
+          "p95_mm": null,
+          "max_mm": 0.06,
+          "volumen_pct": 0.5
+        },
+        "caras_step": 447,
+        "bytes_step": 2384750,
+        "volumen_error_pct": 0.036864,
+        "caja_error_mm": 0.000495,
+        "caja_error_analitico_mm": 0.000495,
+        "caja_modo_verificacion": "OpenCascade",
+        "distancia_stl_step_mm": {
+          "media": 2.1e-05,
+          "p95": 0.000112,
+          "p99": 0.000195,
+          "max_muestreado": 0.001091,
+          "muestras": 800
+        },
+        "distancia_step_stl_mm": {
+          "media": 0.000136,
+          "p95": 0.000567,
+          "p99": 0.002972,
+          "max_muestreado": 0.003779,
+          "muestras": 800
+        },
+        "contraste_muestreo_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "tipos_caras": {
+          "GeomAbs_Plane": 261,
+          "GeomAbs_Cylinder": 11,
+          "GeomAbs_BSplineSurface": 175
+        },
+        "limites_validacion": {
+          "volumen_error_max_pct": 0.5,
+          "caja_error_max_mm": 0.02,
+          "p95_superficie_max_mm": 0.02,
+          "desviacion_max_observada_mm": 0.06,
+          "margen_preparacion_mm": 0.0
+        },
+        "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+        "inspeccion_densa": {
+          "stl_a_cad": {
+            "muestras": 3000,
+            "p95_mm": 0.00123672296286303,
+            "max_mm": 0.0037863626556246797,
+            "zonas_sospechosas": []
+          },
+          "cad_a_stl": {
+            "muestras": 25916,
+            "p95_mm": 0.0005903198346980884,
+            "max_mm": 0.003787421512500682,
+            "zonas_sospechosas": []
+          },
+          "limite_p95_mm": 0.02,
+          "limite_max_mm": 0.06,
+          "contraste_muestras_cad": {
+            "muestras_proyectadas": 0,
+            "max_distancia_al_brep_mm": 0.0
+          },
+          "nota": "Muestreo determinista, no garantía Hausdorff global.",
+          "aceptado": true
+        },
+        "precision_alcanzada": "precision",
+        "desviacion_max_verificada_mm": 0.003787,
+        "limites_precision_originales": {
+          "caja_mm": 0.02,
+          "p95_mm": 0.02,
+          "max_mm": 0.06
+        }
+      },
+      "step_exacto": true,
+      "cilindros_respaldados": {
+        "confirmados": 10,
+        "preservados": 10,
+        "control_mm": 0.008,
+        "cilindros": [
+          {
+            "radio_entrada_mm": 2.0000457655787667,
+            "max_ajuste_entrada_mm": 0.0004791231689288906,
+            "max_control_cara_recortada_mm": 0.00046373828937439277,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 2.0000457269466105,
+            "max_ajuste_entrada_mm": 0.0004793473378380227,
+            "max_control_cara_recortada_mm": 0.00046715108922076566,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 1.0499999815501246,
+            "max_ajuste_entrada_mm": 0.00022273097909337214,
+            "max_control_cara_recortada_mm": 0.0002224869454725703,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 1.100000039327497,
+            "max_ajuste_entrada_mm": 0.00023364506793079805,
+            "max_control_cara_recortada_mm": 0.00023328103763718195,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 1.6000641139303544,
+            "max_ajuste_entrada_mm": 0.00037059155656571607,
+            "max_control_cara_recortada_mm": 0.0003547672977744,
+            "muestras": 35
+          },
+          {
+            "radio_entrada_mm": 1.6000640206145922,
+            "max_ajuste_entrada_mm": 0.00036857950719565354,
+            "max_control_cara_recortada_mm": 0.0003494031808923935,
+            "muestras": 35
+          },
+          {
+            "radio_entrada_mm": 1.599999843825049,
+            "max_ajuste_entrada_mm": 0.00033770421667671355,
+            "max_control_cara_recortada_mm": 0.00033753014050823835,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 1.5999997665447196,
+            "max_ajuste_entrada_mm": 0.0003379657237091734,
+            "max_control_cara_recortada_mm": 0.00033759048091211777,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 0.11736068239543637,
+            "max_ajuste_entrada_mm": 0.0011481166085416867,
+            "max_control_cara_recortada_mm": 0.0011481166080523034,
+            "muestras": 26
+          },
+          {
+            "radio_entrada_mm": 0.11713421060592669,
+            "max_ajuste_entrada_mm": 0.0011015123797540353,
+            "max_control_cara_recortada_mm": 0.0011015123743140826,
+            "muestras": 26
+          }
+        ]
+      },
+      "topologia_material": {
+        "euler_malla": -2,
+        "euler_brep": -2,
+        "shells": 1,
+        "cavidades_preservadas": 0,
+        "probes_cavidades": []
+      },
+      "frontera_tres_resoluciones": {
+        "resoluciones": [
+          {
+            "cerrado": true,
+            "orientado": true,
+            "euler": -2,
+            "intersecciones_cgal": 0,
+            "caras": 11328,
+            "deflexion_mm": 0.00025,
+            "angulo_rad": 0.04,
+            "superficie": {
+              "max_mm": 0.003787934539413475,
+              "p95_mm": 0.001429716109558252,
+              "muestras": [
+                20990,
+                10796
+              ]
+            },
+            "margen_microbucles_mm": 0.0
+          },
+          {
+            "cerrado": true,
+            "orientado": true,
+            "euler": -2,
+            "intersecciones_cgal": 0,
+            "caras": 10754,
+            "deflexion_mm": 0.0005,
+            "angulo_rad": 0.04,
+            "superficie": {
+              "max_mm": 0.0037876788187503146,
+              "p95_mm": 0.0011674057546407562,
+              "muestras": [
+                20129,
+                10796
+              ]
+            },
+            "margen_microbucles_mm": 0.0
+          },
+          {
+            "cerrado": true,
+            "orientado": true,
+            "euler": -2,
+            "intersecciones_cgal": 0,
+            "caras": 11000,
+            "deflexion_mm": 0.001,
+            "angulo_rad": 0.04,
+            "superficie": {
+              "max_mm": 0.003787934539413475,
+              "p95_mm": 0.0010088737049808152,
+              "muestras": [
+                20498,
+                10796
+              ]
+            },
+            "margen_microbucles_mm": 0.0
+          }
+        ],
+        "step_modificado": false,
+        "limites_geometricos_modificados": false
+      },
+      "segundos": 25.57590001099743
+    }
+  },
+  "pytest": {
+    "pasadas": 170,
+    "fallidas": 0,
+    "omitidas": 0
+  },
+  "regresion_habitual": {
+    "planificadas": 21,
+    "ejecutadas": 21,
+    "pasadas": 21,
+    "no_ejecutadas": 0,
+    "completa": true,
+    "superada": true
+  },
+  "lego_API": {
+    "actualizacion_aprobada": false,
+    "api_real": true,
+    "error": "El motor B-Rep no ha reconstruido un sólido CAD válido.",
+    "segundos": 46.100721947004786
+  },
+  "bancada_API": {
+    "actualizacion_aprobada": false,
+    "api_real": true,
+    "step_exacto": true,
+    "bop": 0,
+    "caras": 2080,
+    "solidos": 1,
+    "puerta_cad_superada": true,
+    "segundos": 291.3531279210001
+  },
+  "bancada_vigilancia": {
+    "codigo_proceso": 124,
+    "limite_s": 300,
+    "informe_trabajador_escrito": true,
+    "segundos_informe_trabajador": 291.3531279210001,
+    "bop_informado_trabajador": 0,
+    "lectura_fria_exacta_informada": true,
+    "observacion": "El trabajador escribió su informe final antes del límite; el proceso terminó por timeout durante su salida. No se registra como terminación normal ni como actualización aprobada."
+  },
+  "bancada_contraste": {
+    "actualizacion_aprobada": false,
+    "evaluador": "/workspace/work/paquete_perfeccion_Visualizador_R7/Visor_experimental_fuentes",
+    "alcance": "Geometría y frontera. Las interferencias BOP se evalúan por separado y siguen bloqueando la aceptación.",
+    "geometria_R7": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 3856,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-07,
+        "tolerancia_p95_mm": 1e-07,
+        "tolerancia_media_mm": 1e-07,
+        "aristas_tol_mayor_001mm": 0
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 2080,
+      "bytes_step": 8963256,
+      "volumen_error_pct": 0.002782,
+      "caja_error_mm": 0.000561,
+      "caja_error_analitico_mm": 0.000561,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 3e-06,
+        "p95": 1e-05,
+        "p99": 3.3e-05,
+        "max_muestreado": 5.6e-05,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 4.1e-05,
+        "p95": 0.000412,
+        "p99": 0.000577,
+        "max_muestreado": 0.000595,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "tipos_caras": {
+        "GeomAbs_Plane": 1323,
+        "GeomAbs_BSplineSurface": 743,
+        "GeomAbs_Cylinder": 14
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0.0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 0.0005342090170956273,
+          "max_mm": 0.0007302175608427089,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 54564,
+          "p95_mm": 0.0004572215184401015,
+          "max_mm": 0.000620967629534052,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.00073,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      }
+    },
+    "step_exacto": true,
+    "error": "El rescate pierde un cilindro respaldado por el STL.",
+    "segundos": 288.11288590599725
+  },
+  "pendiente": [
+    "Resolver Lego 4x2 conservando sus ocho cavidades.",
+    "Conservar todos los cilindros respaldados de Bancada y superar todos los controles.",
+    "Integración automática en motor_v2, servidor e interfaz.",
+    "Pruebas del flujo real en navegador.",
+    "Windows nativo, Onshape y WebAssembly.",
+    "Embudo, aplazado por el usuario."
+  ],
+  "fecha_corte_utc": "2026-10-27T01:12:34.529345+00:00",
+  "variante_prioridad_cilindros": {
+    "actualizacion_aprobada": false,
+    "api_solo_bajo_opcion_explicita": true,
+    "bancada_caso_completo": false,
+    "bancada_API": {
+      "actualizacion_aprobada": false,
+      "api_real": true,
+      "step_exacto": true,
+      "bop": 0,
+      "caras": 1896,
+      "solidos": 1,
+      "puerta_cad_superada": true,
+      "segundos": 349.16635875799693
+    },
+    "bancada_contraste": {
+      "actualizacion_aprobada": false,
+      "evaluador": "/workspace/work/paquete_perfeccion_Visualizador_R7/Visor_experimental_fuentes",
+      "alcance": "Geometría y frontera. Las interferencias BOP se evalúan por separado y siguen bloqueando la aceptación.",
+      "geometria_R7": {
+        "integridad_cad": {
+          "brep_valido": true,
+          "solidos": 1,
+          "aristas": 3490,
+          "aristas_parametrizacion_incoherente": 0,
+          "tolerancia_max_mm": 1e-07,
+          "tolerancia_p95_mm": 1e-07,
+          "tolerancia_media_mm": 1e-07,
+          "aristas_tol_mayor_001mm": 0
+        },
+        "perfil_validacion": {
+          "id": "precision",
+          "nombre": "Precisión",
+          "caja_mm": 0.02,
+          "p95_mm": null,
+          "max_mm": 0.06,
+          "volumen_pct": 0.5
+        },
+        "caras_step": 1896,
+        "bytes_step": 8134624,
+        "volumen_error_pct": 0.003693,
+        "caja_error_mm": 0.000561,
+        "caja_error_analitico_mm": 0.000561,
+        "caja_modo_verificacion": "OpenCascade",
+        "distancia_stl_step_mm": {
+          "media": 3e-06,
+          "p95": 1.1e-05,
+          "p99": 3.3e-05,
+          "max_muestreado": 5.6e-05,
+          "muestras": 800
+        },
+        "distancia_step_stl_mm": {
+          "media": 5.3e-05,
+          "p95": 0.000493,
+          "p99": 0.000581,
+          "max_muestreado": 0.000595,
+          "muestras": 800
+        },
+        "contraste_muestreo_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "tipos_caras": {
+          "GeomAbs_Plane": 1140,
+          "GeomAbs_BSplineSurface": 741,
+          "GeomAbs_Cylinder": 15
+        },
+        "limites_validacion": {
+          "volumen_error_max_pct": 0.5,
+          "caja_error_max_mm": 0.02,
+          "p95_superficie_max_mm": 0.02,
+          "desviacion_max_observada_mm": 0.06,
+          "margen_preparacion_mm": 0.0
+        },
+        "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+        "autointerferencias_occ": false,
+        "inspeccion_densa": {
+          "stl_a_cad": {
+            "muestras": 3000,
+            "p95_mm": 0.0005447887364275536,
+            "max_mm": 0.0007302175608427089,
+            "zonas_sospechosas": []
+          },
+          "cad_a_stl": {
+            "muestras": 55068,
+            "p95_mm": 0.00047919173087147284,
+            "max_mm": 0.000620967629534052,
+            "zonas_sospechosas": []
+          },
+          "limite_p95_mm": 0.02,
+          "limite_max_mm": 0.06,
+          "contraste_muestras_cad": {
+            "muestras_proyectadas": 0,
+            "max_distancia_al_brep_mm": 0.0
+          },
+          "nota": "Muestreo determinista, no garantía Hausdorff global.",
+          "aceptado": true
+        },
+        "precision_alcanzada": "precision",
+        "desviacion_max_verificada_mm": 0.00073,
+        "limites_precision_originales": {
+          "caja_mm": 0.02,
+          "p95_mm": 0.02,
+          "max_mm": 0.06
+        }
+      },
+      "step_exacto": true,
+      "cilindros_respaldados": {
+        "confirmados": 15,
+        "preservados": 15,
+        "control_mm": 0.008,
+        "cilindros": [
+          {
+            "radio_entrada_mm": 3.000000718686265,
+            "max_ajuste_entrada_mm": 0.0006380479990360354,
+            "max_control_cara_recortada_mm": 0.0006331510188416652,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 2.424999854492425,
+            "max_ajuste_entrada_mm": 0.0005186094535403927,
+            "max_control_cara_recortada_mm": 0.0005145715229792668,
+            "muestras": 38
+          },
+          {
+            "radio_entrada_mm": 1.4999880675615254,
+            "max_ajuste_entrada_mm": 0.0003416780904431814,
+            "max_control_cara_recortada_mm": 0.00033547524539327776,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 2.4250002690644776,
+            "max_ajuste_entrada_mm": 0.0005222542214247884,
+            "max_control_cara_recortada_mm": 0.0005180870035122339,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 1.2499997956998246,
+            "max_ajuste_entrada_mm": 0.00027278302592823636,
+            "max_control_cara_recortada_mm": 0.00026966297980493493,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 1.24999996193801,
+            "max_ajuste_entrada_mm": 0.0002736396153293819,
+            "max_control_cara_recortada_mm": 0.0002712400122139329,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 1.3000000857116734,
+            "max_ajuste_entrada_mm": 0.0002806264252828137,
+            "max_control_cara_recortada_mm": 0.0002801765834549693,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 1.1000004395004277,
+            "max_ajuste_entrada_mm": 0.00025828605104808057,
+            "max_control_cara_recortada_mm": 0.00024116415288142555,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 1.1000009709691037,
+            "max_ajuste_entrada_mm": 0.00024100450143039895,
+            "max_control_cara_recortada_mm": 0.000239116622094744,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 0.999999905849104,
+            "max_ajuste_entrada_mm": 0.0002234034726531494,
+            "max_control_cara_recortada_mm": 0.00022340347879177777,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 2.500000106585501,
+            "max_ajuste_entrada_mm": 0.000529858803719272,
+            "max_control_cara_recortada_mm": 0.0005246732376961157,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 2.5000000843574512,
+            "max_ajuste_entrada_mm": 0.0005388938756432615,
+            "max_control_cara_recortada_mm": 0.0005357752250046339,
+            "muestras": 37
+          },
+          {
+            "radio_entrada_mm": 3.1000002346098174,
+            "max_ajuste_entrada_mm": 0.0006629652949257486,
+            "max_control_cara_recortada_mm": 0.0006577985544408746,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 3.1000002346004294,
+            "max_ajuste_entrada_mm": 0.0006629652847648285,
+            "max_control_cara_recortada_mm": 0.0006618812443313572,
+            "muestras": 36
+          },
+          {
+            "radio_entrada_mm": 2.500000569278135,
+            "max_ajuste_entrada_mm": 0.0005436743042781854,
+            "max_control_cara_recortada_mm": 0.000539960904454171,
+            "muestras": 36
+          }
+        ]
+      },
+      "topologia_material": {
+        "euler_malla": -14,
+        "euler_brep": -14,
+        "shells": 1,
+        "cavidades_preservadas": 0,
+        "probes_cavidades": []
+      },
+      "error": "El mallado fino del STEP cambia la frontera o deja zonas abiertas; descartado.",
+      "segundos": 385.10312089900253
+    },
+    "pinza_completa": true,
+    "suite_candidato": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "173",
+      "time": "876.800",
+      "timestamp": "2026-10-27T00:47:41.189893+00:00",
+      "hostname": "4c3b5413d1da"
+    },
+    "regresion_21_en_esta_variante": "NO REPETIDA: corresponde a M3; no se transfiere automáticamente."
+  }
+}
