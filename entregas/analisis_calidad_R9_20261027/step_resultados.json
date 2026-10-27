@@ -1,0 +1,2454 @@
+[
+  {
+    "version": "usuario",
+    "nombre": "LLanta_Trasera",
+    "archivo": "/workspace/work/analisis_usuario_R9_20261027/entradas/step/LLanta_Trasera.step",
+    "sha256": "f13b5664af533399bb93978e61aedf8195c2c48c7305b5f52a059efe682681dd",
+    "bytes": 591242,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 53,
+    "tipos": {
+      "Cylinder": 30,
+      "Plane": 23
+    },
+    "areas_mm2": {
+      "Cylinder": 1062.3567297936563,
+      "Plane": 545.2425685461069
+    },
+    "area_total_mm2": 1607.5992983397632,
+    "volumen_mm3": 667.8355250441126,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 146,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": true,
+    "cilindros": [
+      {
+        "cara": 0,
+        "radio_mm": 1.124999294865,
+        "eje": [
+          0.9999999998699143,
+          -3.3898559597527093e-07,
+          1.6126273973688616e-05
+        ],
+        "centro": [
+          8.073130231917,
+          -2.417096044418e-08,
+          8.614578343122
+        ],
+        "area_mm2": 2.880819254649362
+      },
+      {
+        "cara": 1,
+        "radio_mm": 0.62500000838,
+        "eje": [
+          1.0,
+          -2.441325606715e-11,
+          1.39522062753e-08
+        ],
+        "centro": [
+          -1.877618047722,
+          -4.240155014844e-09,
+          8.614580373872
+        ],
+        "area_mm2": 3.0531098740550084
+      },
+      {
+        "cara": 2,
+        "radio_mm": 0.62500000838,
+        "eje": [
+          1.0,
+          -2.441325606715e-11,
+          1.39522062753e-08
+        ],
+        "centro": [
+          -1.877618047722,
+          -4.240155014844e-09,
+          8.614580373872
+        ],
+        "area_mm2": 3.0531085667041493
+      },
+      {
+        "cara": 4,
+        "radio_mm": 0.62500000838,
+        "eje": [
+          1.0,
+          -2.441325606729e-11,
+          -1.39522062753e-08
+        ],
+        "centro": [
+          1.877618047722,
+          4.240155014844e-09,
+          8.614580373872
+        ],
+        "area_mm2": 3.053109698539455
+      },
+      {
+        "cara": 5,
+        "radio_mm": 0.62500000838,
+        "eje": [
+          1.0,
+          -2.441325606729e-11,
+          -1.39522062753e-08
+        ],
+        "centro": [
+          1.877618047722,
+          4.240155014844e-09,
+          8.614580373872
+        ],
+        "area_mm2": 3.0531088409259546
+      },
+      {
+        "cara": 7,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          2.6645352591e-15,
+          -1.435439873931e-16,
+          6.5
+        ],
+        "area_mm2": 25.918139325160737
+      },
+      {
+        "cara": 8,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          2.6645352591e-15,
+          -1.435439873931e-16,
+          6.5
+        ],
+        "area_mm2": 25.918139325160737
+      },
+      {
+        "cara": 10,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          -1.7763568394e-15,
+          -1.435439873931e-16,
+          4.5
+        ],
+        "area_mm2": 25.918139325160737
+      },
+      {
+        "cara": 11,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          -1.7763568394e-15,
+          -1.435439873931e-16,
+          4.5
+        ],
+        "area_mm2": 25.918139325160737
+      },
+      {
+        "cara": 14,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          7.105427357601e-15,
+          1.435439873931e-16,
+          0.5
+        ],
+        "area_mm2": 25.918139325157995
+      },
+      {
+        "cara": 15,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          7.105427357601e-15,
+          1.435439873931e-16,
+          0.5
+        ],
+        "area_mm2": 25.918139325157995
+      },
+      {
+        "cara": 18,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          7.177199369654e-17,
+          2.5
+        ],
+        "area_mm2": 25.918139325160737
+      },
+      {
+        "cara": 19,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          7.177199369654e-17,
+          2.5
+        ],
+        "area_mm2": 25.918139325160737
+      },
+      {
+        "cara": 25,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          1.490777987168e-19,
+          5.5
+        ],
+        "area_mm2": 27.48893615012122
+      },
+      {
+        "cara": 26,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          1.490777987168e-19,
+          5.5
+        ],
+        "area_mm2": 27.48893615012122
+      },
+      {
+        "cara": 28,
+        "radio_mm": 8.250000010581,
+        "eje": [
+          4.9166889476495174e-05,
+          3.17750992184898e-09,
+          0.9999999987913085
+        ],
+        "centro": [
+          9.913216350609e-09,
+          -4.371137099012e-10,
+          8.29994877512
+        ],
+        "area_mm2": 29.820429329366085
+      },
+      {
+        "cara": 29,
+        "radio_mm": 7.749991476487,
+        "eje": [
+          -1.67126460547357e-05,
+          7.318689232429497e-08,
+          -0.999999999860341
+        ],
+        "centro": [
+          -4.310466581548e-06,
+          -5.297085638706e-08,
+          5.447444127799
+        ],
+        "area_mm2": 184.05940742638222
+      },
+      {
+        "cara": 30,
+        "radio_mm": 7.749991476487,
+        "eje": [
+          -1.67126460547357e-05,
+          7.318689232429497e-08,
+          -0.999999999860341
+        ],
+        "centro": [
+          -4.310466581548e-06,
+          -5.297085638706e-08,
+          5.447444127799
+        ],
+        "area_mm2": 184.05940701240476
+      },
+      {
+        "cara": 31,
+        "radio_mm": 1.194999998248,
+        "eje": [
+          3.329850651006e-22,
+          1.207454309353e-22,
+          1.0
+        ],
+        "centro": [
+          -3.813214525978e-18,
+          2.445578639553e-17,
+          7.332561684359
+        ],
+        "area_mm2": 36.267842847423594
+      },
+      {
+        "cara": 32,
+        "radio_mm": 1.194999998248,
+        "eje": [
+          3.329850651006e-22,
+          1.207454309353e-22,
+          1.0
+        ],
+        "centro": [
+          -3.813214525978e-18,
+          2.445578639553e-17,
+          7.332561684359
+        ],
+        "area_mm2": 36.26784284752508
+      },
+      {
+        "cara": 35,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.195457178928e-16,
+          5.634138123922e-17,
+          7.429040886388
+        ],
+        "area_mm2": 0.11780973639434039
+      },
+      {
+        "cara": 36,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.195457178928e-16,
+          5.634138123922e-17,
+          7.429040886388
+        ],
+        "area_mm2": 0.11780973639434039
+      },
+      {
+        "cara": 37,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.195457178928e-16,
+          5.634138123922e-17,
+          7.429040886388
+        ],
+        "area_mm2": 74.98731749969468
+      },
+      {
+        "cara": 38,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.195457178928e-16,
+          5.634138123922e-17,
+          7.429040886388
+        ],
+        "area_mm2": 74.98731749816035
+      },
+      {
+        "cara": 39,
+        "radio_mm": 8.749998424566,
+        "eje": [
+          0.00011277319718651031,
+          1.5172131395681388e-07,
+          0.9999999936410915
+        ],
+        "centro": [
+          -1.21871373088e-06,
+          2.685168092777e-09,
+          7.518898411076
+        ],
+        "area_mm2": 27.149779186253145
+      },
+      {
+        "cara": 40,
+        "radio_mm": 8.749998424566,
+        "eje": [
+          0.00011277319718651031,
+          1.5172131395681388e-07,
+          0.9999999936410915
+        ],
+        "centro": [
+          -1.21871373088e-06,
+          2.685168092777e-09,
+          7.518898411076
+        ],
+        "area_mm2": 27.149778936776432
+      },
+      {
+        "cara": 43,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          6.776560336762e-17,
+          3.5
+        ],
+        "area_mm2": 27.48893615012122
+      },
+      {
+        "cara": 44,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          6.776560336762e-17,
+          3.5
+        ],
+        "area_mm2": 27.48893615012122
+      },
+      {
+        "cara": 48,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          6.7711393259e-17,
+          1.5
+        ],
+        "area_mm2": 27.48893615012122
+      },
+      {
+        "cara": 49,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          6.7711393259e-17,
+          1.5
+        ],
+        "area_mm2": 27.48893615012122
+      }
+    ],
+    "geometria_identica_R9": null,
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/LLanta_Trasera.stl",
+    "sha256_stl": "ea2e1508b5766f2a3ac17aaa077544c79fb49a33de1d1e3aea9ccd24835597c1",
+    "caja_error_mm": 5.831675383483059e-05,
+    "volumen_error_pct": 0.032699420617593865,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 4.8e-05,
+        "max_mm": 0.001963,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.001712,
+        "max_mm": 0.002045,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 1.1530476070183795
+  },
+  {
+    "version": "usuario",
+    "nombre": "Bancada_Motor",
+    "archivo": "/workspace/work/analisis_usuario_R9_20261027/entradas/step/Bancada_Motor.step",
+    "sha256": "b97a9f4e3b1068b1baac06eab04728c85ca9dc09ddac5b22ed17640e3784f257",
+    "bytes": 8141716,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 1896,
+    "tipos": {
+      "Plane": 1140,
+      "BSplineSurface": 741,
+      "Cylinder": 15
+    },
+    "areas_mm2": {
+      "Plane": 3168.440540495766,
+      "BSplineSurface": 106.48186242321853,
+      "Cylinder": 1028.1076051659659
+    },
+    "area_total_mm2": 4303.030008084948,
+    "volumen_mm3": 3280.632662283699,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 3487,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": true,
+    "cilindros": [
+      {
+        "cara": 386,
+        "radio_mm": 2.500000569278,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          254.94696326708,
+          -15.57290610008,
+          6.979459458428
+        ],
+        "area_mm2": 75.96234408763367
+      },
+      {
+        "cara": 387,
+        "radio_mm": 2.425000269072,
+        "eje": [
+          0.4263763638780092,
+          0.9045458508700195,
+          4.725413629150102e-11
+        ],
+        "centro": [
+          248.33147220255,
+          -12.48029953989,
+          7.483440905324
+        ],
+        "area_mm2": 37.32998709480192
+      },
+      {
+        "cara": 697,
+        "radio_mm": 2.424999854489,
+        "eje": [
+          0.4263768919982065,
+          0.9045456019294381,
+          -2.459542632453191e-07
+        ],
+        "centro": [
+          240.66510961296,
+          -28.74428179501,
+          7.483440957554
+        ],
+        "area_mm2": 43.81251583325049
+      },
+      {
+        "cara": 704,
+        "radio_mm": 1.249999795685,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          234.41399320029,
+          -25.27325725555,
+          7.500000054472
+        ],
+        "area_mm2": 13.351747928297373
+      },
+      {
+        "cara": 705,
+        "radio_mm": 2.500000106588,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          247.3961332077,
+          -31.85391200962,
+          7.0
+        ],
+        "area_mm2": 101.18942653249087
+      },
+      {
+        "cara": 880,
+        "radio_mm": 2.500000084366,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          205.68153794996,
+          -2.596300366871,
+          7.0
+        ],
+        "area_mm2": 101.13178302944691
+      },
+      {
+        "cara": 1210,
+        "radio_mm": 1.249999961929,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          222.11399244541,
+          -25.57325839996,
+          7.500000054454
+        ],
+        "area_mm2": 18.064178853556065
+      },
+      {
+        "cara": 1214,
+        "radio_mm": 3.000000718686,
+        "eje": [
+          0.42637548730997255,
+          0.9045462640579417,
+          -6.452003502111585e-08
+        ],
+        "centro": [
+          243.85632212084,
+          -21.97420922027,
+          7.483440712837
+        ],
+        "area_mm2": 286.57410326944375
+      },
+      {
+        "cara": 1216,
+        "radio_mm": 1.300000085717,
+        "eje": [
+          -0.4263762986069439,
+          -0.904545881636881,
+          1.543307073884797e-12
+        ],
+        "centro": [
+          244.60494273149,
+          -20.3860306204,
+          7.483440952768
+        ],
+        "area_mm2": 122.7671666574151
+      },
+      {
+        "cara": 1457,
+        "radio_mm": 1.100000439491,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          254.94696431939,
+          -15.57290667558,
+          7.0
+        ],
+        "area_mm2": 52.52745279122301
+      },
+      {
+        "cara": 1538,
+        "radio_mm": 1.100000970962,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          205.68153842378,
+          -2.596300619326,
+          7.0
+        ],
+        "area_mm2": 52.52747817012984
+      },
+      {
+        "cara": 1544,
+        "radio_mm": 0.999999905849,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          247.3961322787,
+          -31.85391213622,
+          7.0
+        ],
+        "area_mm2": 47.75220623548871
+      },
+      {
+        "cara": 1689,
+        "radio_mm": 1.499988067557,
+        "eje": [
+          -5.635976997436806e-05,
+          0.9999999984117882,
+          -7.475685650976417e-09
+        ],
+        "centro": [
+          234.41399144512,
+          -26.73070397873,
+          7.500000036327
+        ],
+        "area_mm2": 9.360365979977171
+      },
+      {
+        "cara": 1887,
+        "radio_mm": 3.100000234599,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          228.26399432963,
+          -25.57325839996,
+          7.499999807894
+        ],
+        "area_mm2": 32.8784492358481
+      },
+      {
+        "cara": 1888,
+        "radio_mm": 3.100000234607,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          228.26399432963,
+          8.926741838455,
+          7.499999807893
+        ],
+        "area_mm2": 32.87839946696302
+      }
+    ],
+    "geometria_identica_R9": null,
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/Bancada_Motor.stl",
+    "sha256_stl": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+    "caja_error_mm": 0.0005606230778880672,
+    "volumen_error_pct": 0.0036931492502807394,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 1.5e-05,
+        "max_mm": 0.000578,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 1e-05,
+        "max_mm": 0.000576,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 8.226276418979978
+  },
+  {
+    "version": "usuario",
+    "nombre": "maneta",
+    "archivo": "/workspace/work/analisis_usuario_R9_20261027/entradas/step/maneta.step",
+    "sha256": "bff75a0ad40427c76d5ae8946810633597403b62eab844682ae116b2dcda7d5e",
+    "bytes": 23507178,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 9351,
+    "tipos": {
+      "Plane": 9351
+    },
+    "areas_mm2": {
+      "Plane": 3087.998101500457
+    },
+    "area_total_mm2": 3087.998101500457,
+    "volumen_mm3": 3012.8250977827565,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 14935,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": true,
+    "cilindros": [],
+    "geometria_identica_R9": "/workspace/work/mejora_cilindros_post_R8_20261027/regresion_cli/maneta.step",
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/maneta.stl",
+    "sha256_stl": "9dcf990e18273731a9d15176a224a94e7f65158164e98c2769b6b03dc1f929b3",
+    "caja_error_mm": 1.0160761121369433e-12,
+    "volumen_error_pct": 3.0338374967540975e-11,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 19.68499133401201
+  },
+  {
+    "version": "usuario",
+    "nombre": "Tirante",
+    "archivo": "/workspace/work/analisis_usuario_R9_20261027/entradas/step/Tirante_impresion.step",
+    "sha256": "0caa007c72c99996ff5f41014b87eee0702255f000b23f76472b19a1679c85a4",
+    "bytes": 32696148,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 13122,
+    "tipos": {
+      "Plane": 13122
+    },
+    "areas_mm2": {
+      "Plane": 888.6357848910484
+    },
+    "area_total_mm2": 888.6357848910484,
+    "volumen_mm3": 662.3187605671975,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 20750,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": true,
+    "cilindros": [],
+    "geometria_identica_R9": "/workspace/work/mejora_cilindros_post_R8_20261027/regresion_cli/Tirante.step",
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/Tirante.stl",
+    "sha256_stl": "8e43440fa46395d66528571401946aed80207e68255cfe292937a509948f6883",
+    "caja_error_mm": 2.2666313270747196e-12,
+    "volumen_error_pct": 3.5703144247106266e-12,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 22.117420481983572
+  },
+  {
+    "version": "usuario",
+    "nombre": "1x1-lego-brick",
+    "archivo": "/workspace/work/analisis_usuario_R9_20261027/entradas/step/1x1-lego-brick_impresion.step",
+    "sha256": "34aee33b6d54b921ada65fad27f5c1533774e4174c76274c40d1f6a5ea250593",
+    "bytes": 6309824,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 2672,
+    "tipos": {
+      "Plane": 2672
+    },
+    "areas_mm2": {
+      "Plane": 610.8113296493908
+    },
+    "area_total_mm2": 610.8113296493908,
+    "volumen_mm3": 463.1744608508169,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 4094,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": true,
+    "cilindros": [],
+    "geometria_identica_R9": "/workspace/work/mejora_cilindros_post_R8_20261027/regresion_cli/1x1-lego-brick.step",
+    "stl_referencia": "/workspace/work/easymesh/material/stl_regresion_14/1x1-lego-brick.stl",
+    "sha256_stl": "d4d10b56cbc29e941b7bce823b052e8403fe2c6d6e82acd11a72959ac3c69f2a",
+    "caja_error_mm": 2.5579538487363607e-13,
+    "volumen_error_pct": 9.081703226842354e-13,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 6.037032594002085
+  },
+  {
+    "version": "usuario",
+    "nombre": "Estefi",
+    "archivo": "/workspace/work/analisis_usuario_R9_20261027/entradas/step/Estefi_impresion.step",
+    "sha256": "18410f28c1a2752878554b965a03e6695d30a285bb1e12239496e7a6eb487eda",
+    "bytes": 5182249,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 1769,
+    "tipos": {
+      "Plane": 1769
+    },
+    "areas_mm2": {
+      "Plane": 2535.187256351486
+    },
+    "area_total_mm2": 2535.187256351486,
+    "volumen_mm3": 3422.5916944259698,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 3571,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": true,
+    "cilindros": [],
+    "geometria_identica_R9": "/workspace/work/mejora_cilindros_post_R8_20261027/regresion_cli/Estefi.step",
+    "stl_referencia": "/workspace/work/easymesh/material/stl_regresion_14/Estefi.stl",
+    "sha256_stl": "5fe8837a20045ce6a669575de11e41515093afbaebec2d0bb3b3680b2d7c3b9d",
+    "caja_error_mm": 3.9257486150745535e-13,
+    "volumen_error_pct": 1.2130700019974951e-11,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.0,
+        "max_mm": 0.0,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 5.581105004006531
+  },
+  {
+    "version": "usuario",
+    "nombre": "Soporte_Muelle",
+    "archivo": "/workspace/work/analisis_usuario_R9_20261027/entradas/step/Soporte_Muelle_impresion.step",
+    "sha256": "ea2b45ef0cc5cbf998f75df27b5085cb036bca65dacf1ca912930c9df0a53aff",
+    "bytes": 47508324,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 19563,
+    "tipos": {
+      "Plane": 19563
+    },
+    "areas_mm2": {
+      "Plane": 241.65323171138965
+    },
+    "area_total_mm2": 241.65323171138965,
+    "volumen_mm3": 158.69235675202162,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 29561,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": true,
+    "cilindros": [],
+    "geometria_identica_R9": null,
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/Soporte_Muelle.stl",
+    "sha256_stl": "8941cb527d90d15633d79614ffe5cfee7949b063aa189a24c2c303c0a3437f21",
+    "caja_error_mm": 0.0001003742218395054,
+    "volumen_error_pct": 0.0009025968720050478,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.000466,
+        "max_mm": 0.000471,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.000464,
+        "max_mm": 0.000755,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 31.131151529989438
+  },
+  {
+    "version": "original",
+    "nombre": "Bancada_Motor",
+    "archivo": "/workspace/work/easymesh/resultados/baseline/Bancada_Motor.step",
+    "sha256": "0243e0e8e6972f36dd19475edadea80cb9938b4221058827c421feae02fa021d",
+    "bytes": 580174,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 89,
+    "tipos": {
+      "Cylinder": 25,
+      "Plane": 59,
+      "BSplineSurface": 5
+    },
+    "areas_mm2": {
+      "Cylinder": 1136.9409811987848,
+      "Plane": 3064.177887111009,
+      "BSplineSurface": 101.53697606086463
+    },
+    "area_total_mm2": 4302.65584437066,
+    "volumen_mm3": 3287.8924094473687,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 256,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 0.0238187,
+      "tolerancia_p95_mm": 0.0159003,
+      "tolerancia_media_mm": 0.0041163,
+      "aristas_tol_mayor_001mm": 53
+    },
+    "cad_exacto": false,
+    "cilindros": [
+      {
+        "cara": 0,
+        "radio_mm": 0.837757980617,
+        "eje": [
+          -0.8281175407615574,
+          0.5605544918657005,
+          1.8226814175280263e-05
+        ],
+        "centro": [
+          213.64297354883,
+          -10.14455991679,
+          2.848449215463
+        ],
+        "area_mm2": 7.026018391188717
+      },
+      {
+        "cara": 2,
+        "radio_mm": 0.850888034053,
+        "eje": [
+          8.324740561484554e-07,
+          0.9999999999830665,
+          5.759682799558383e-06
+        ],
+        "centro": [
+          211.2502340308,
+          -6.491539794154,
+          2.344439053135
+        ],
+        "area_mm2": 4.366346794721514
+      },
+      {
+        "cara": 6,
+        "radio_mm": 0.868869381128,
+        "eje": [
+          -0.8281300449278586,
+          0.5605360184639043,
+          -2.6313810029385507e-05
+        ],
+        "centro": [
+          214.66435834456,
+          -5.986067713909,
+          2.861391378311
+        ],
+        "area_mm2": 7.862653352470222
+      },
+      {
+        "cara": 9,
+        "radio_mm": 0.863402518843,
+        "eje": [
+          -0.00010106746361899893,
+          -0.00010449588059059889,
+          0.9999999894329893
+        ],
+        "centro": [
+          218.12186177806,
+          -23.55427623745,
+          3.128517112973
+        ],
+        "area_mm2": 3.8269627579403678
+      },
+      {
+        "cara": 10,
+        "radio_mm": 0.855591614175,
+        "eje": [
+          -1.472683578016447e-06,
+          -0.9999999999986245,
+          -7.631337845631135e-07
+        ],
+        "centro": [
+          218.11715368358,
+          -6.260821070005,
+          2.862598084579
+        ],
+        "area_mm2": 33.19117839347217
+      },
+      {
+        "cara": 15,
+        "radio_mm": 1.249999961938,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          222.11399244541,
+          -25.57325839996,
+          7.500000054457
+        ],
+        "area_mm2": 18.064176323633212
+      },
+      {
+        "cara": 20,
+        "radio_mm": 0.860064332081,
+        "eje": [
+          1.0331085425817273e-05,
+          -0.999999999904736,
+          -9.154061133625583e-06
+        ],
+        "centro": [
+          238.40783448745,
+          -1.42096915422,
+          2.866254091544
+        ],
+        "area_mm2": 33.53561900533434
+      },
+      {
+        "cara": 22,
+        "radio_mm": 0.853932705512,
+        "eje": [
+          0.0001037289798288433,
+          0.00011581650864114834,
+          0.9999999879134175
+        ],
+        "centro": [
+          238.41160045645,
+          6.91563730542,
+          2.976464612676
+        ],
+        "area_mm2": 2.9423986741105206
+      },
+      {
+        "cara": 23,
+        "radio_mm": 0.838951099032,
+        "eje": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "centro": [
+          235.41349374406,
+          8.926741838455,
+          5.843772865828
+        ],
+        "area_mm2": 2.9010698452671235
+      },
+      {
+        "cara": 28,
+        "radio_mm": 3.1000002346,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          228.26399432963,
+          8.926741838455,
+          7.499999807893
+        ],
+        "area_mm2": 32.8783413905511
+      },
+      {
+        "cara": 38,
+        "radio_mm": 0.999999905849,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          247.3961322787,
+          -31.85391213622,
+          7.0
+        ],
+        "area_mm2": 47.752206235496296
+      },
+      {
+        "cara": 39,
+        "radio_mm": 2.500000106586,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          247.3961332077,
+          -31.85391200962,
+          7.0
+        ],
+        "area_mm2": 101.18942654335846
+      },
+      {
+        "cara": 41,
+        "radio_mm": 2.500000569278,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          254.94696326708,
+          -15.57290610008,
+          6.979459458428
+        ],
+        "area_mm2": 82.41462968531862
+      },
+      {
+        "cara": 42,
+        "radio_mm": 1.1000004395,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          254.94696431939,
+          -15.57290667558,
+          7.0
+        ],
+        "area_mm2": 52.527452791652784
+      },
+      {
+        "cara": 44,
+        "radio_mm": 2.425000269064,
+        "eje": [
+          0.4263763638780092,
+          0.9045458508700195,
+          4.725413629150102e-11
+        ],
+        "centro": [
+          248.33147220255,
+          -12.48029953989,
+          7.483440905323
+        ],
+        "area_mm2": 37.32997937833744
+      },
+      {
+        "cara": 46,
+        "radio_mm": 1.300000085712,
+        "eje": [
+          -0.4263762986069439,
+          -0.904545881636881,
+          1.5432754774137971e-12
+        ],
+        "centro": [
+          244.60494273149,
+          -20.3860306204,
+          7.483440952764
+        ],
+        "area_mm2": 122.76716731136365
+      },
+      {
+        "cara": 48,
+        "radio_mm": 2.424999854492,
+        "eje": [
+          0.4263768919982065,
+          0.9045456019294381,
+          -2.459542632453191e-07
+        ],
+        "centro": [
+          240.66510961296,
+          -28.74428179501,
+          7.483440957552
+        ],
+        "area_mm2": 43.81247478150223
+      },
+      {
+        "cara": 56,
+        "radio_mm": 3.000000718686,
+        "eje": [
+          0.42637548730997255,
+          0.9045462640579417,
+          -6.452003501525585e-08
+        ],
+        "centro": [
+          243.85632212084,
+          -21.97420922027,
+          7.483440712837
+        ],
+        "area_mm2": 286.57735032271046
+      },
+      {
+        "cara": 60,
+        "radio_mm": 1.499988067562,
+        "eje": [
+          -5.635976997436806e-05,
+          0.9999999984117882,
+          -7.475685649642417e-09
+        ],
+        "centro": [
+          234.41399144512,
+          -26.73070397873,
+          7.50000003633
+        ],
+        "area_mm2": 9.375532365758147
+      },
+      {
+        "cara": 62,
+        "radio_mm": 1.2499997957,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          234.41399320029,
+          -25.27325725555,
+          7.500000054477
+        ],
+        "area_mm2": 13.351750603293187
+      },
+      {
+        "cara": 67,
+        "radio_mm": 3.10000023461,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          228.26399432963,
+          -25.57325839996,
+          7.499999807897
+        ],
+        "area_mm2": 32.878409215402925
+      },
+      {
+        "cara": 74,
+        "radio_mm": 0.845134384768,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          221.11052775027,
+          8.926741838455,
+          5.848987596272
+        ],
+        "area_mm2": 2.863080432123841
+      },
+      {
+        "cara": 76,
+        "radio_mm": 0.868267857411,
+        "eje": [
+          -8.286412252597518e-05,
+          9.680231367923111e-05,
+          0.9999999918814246
+        ],
+        "centro": [
+          218.12546532238,
+          6.903758897705,
+          2.986418501041
+        ],
+        "area_mm2": 3.8474953705088053
+      },
+      {
+        "cara": 82,
+        "radio_mm": 1.100000970969,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          205.68153842378,
+          -2.596300619331,
+          7.0
+        ],
+        "area_mm2": 52.52747817046411
+      },
+      {
+        "cara": 83,
+        "radio_mm": 2.500000084357,
+        "eje": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "centro": [
+          205.68153794996,
+          -2.596300366872,
+          7.0
+        ],
+        "area_mm2": 101.1317830628045
+      }
+    ],
+    "geometria_identica_R9": null,
+    "caras_no_validas_exacto": [
+      {
+        "cara": 10,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 15,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 16,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 17,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 22,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 33,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 43,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 44,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 46,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 48,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 56,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 60,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 62,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 67,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 72,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 85,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      }
+    ],
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/Bancada_Motor.stl",
+    "sha256_stl": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+    "caja_error_mm": 0.0005605230788603421,
+    "volumen_error_pct": 0.22499239315629255,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.005,
+        "max_mm": 0.023025,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.00871,
+        "max_mm": 0.014968,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 6.095814984000754
+  },
+  {
+    "version": "original",
+    "nombre": "maneta",
+    "archivo": "/workspace/work/easymesh/resultados/baseline/maneta.step",
+    "sha256": "302eacc73831e80b95da2024988ae05323276c45b2c7a0c9c1e3415632dbf2b9",
+    "bytes": 387649,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 42,
+    "tipos": {
+      "Cylinder": 5,
+      "Torus": 4,
+      "Plane": 31,
+      "BSplineSurface": 2
+    },
+    "areas_mm2": {
+      "Cylinder": 745.372090335264,
+      "Torus": 38.32221225521405,
+      "Plane": 2276.9844465805018,
+      "BSplineSurface": 25.1080814800344
+    },
+    "area_total_mm2": 3085.7868306510136,
+    "volumen_mm3": 3009.5832510616965,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 109,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 0.0146502,
+      "tolerancia_p95_mm": 0.0146401,
+      "tolerancia_media_mm": 0.0038342,
+      "aristas_tol_mayor_001mm": 20
+    },
+    "cad_exacto": false,
+    "cilindros": [
+      {
+        "cara": 0,
+        "radio_mm": 9.748690859477,
+        "eje": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "centro": [
+          6.2923276233e-16,
+          -4.069241554238,
+          1.35965667993e-14
+        ],
+        "area_mm2": 53.085524395403155
+      },
+      {
+        "cara": 4,
+        "radio_mm": 9.748690859477,
+        "eje": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "centro": [
+          6.2923276233e-16,
+          -4.069241554238,
+          1.35965667993e-14
+        ],
+        "area_mm2": 53.08552439540438
+      },
+      {
+        "cara": 11,
+        "radio_mm": 11.24999982527,
+        "eje": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "centro": [
+          -1.508209521717e-07,
+          -3.71875,
+          -1.549263916943e-07
+        ],
+        "area_mm2": 325.8084322635156
+      },
+      {
+        "cara": 35,
+        "radio_mm": 2.500000019264,
+        "eje": [
+          0.0,
+          -1.0,
+          1.338758709231e-16
+        ],
+        "centro": [
+          8.881784197001e-16,
+          -23.5,
+          -3.174786738133e-15
+        ],
+        "area_mm2": 109.9557437229075
+      },
+      {
+        "cara": 41,
+        "radio_mm": 6.899999293643,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          7.478057391097e-07,
+          -4.75,
+          1.911936706175e-08
+        ],
+        "area_mm2": 203.4368655580333
+      }
+    ],
+    "geometria_identica_R9": null,
+    "caras_no_validas_exacto": [
+      {
+        "cara": 0,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 1,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 2,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 4,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 5,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 6,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 11,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 12,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 14,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 41,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      }
+    ],
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/maneta.stl",
+    "sha256_stl": "9dcf990e18273731a9d15176a224a94e7f65158164e98c2769b6b03dc1f929b3",
+    "caja_error_mm": 5.719758859434876e-05,
+    "volumen_error_pct": 0.10760155723473212,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.010182,
+        "max_mm": 0.014473,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.003592,
+        "max_mm": 0.00992,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 9.629019287996925
+  },
+  {
+    "version": "original",
+    "nombre": "Tirante",
+    "archivo": "/workspace/work/easymesh/resultados/baseline/Tirante.step",
+    "sha256": "6444db01e44a7563f22add5ace75b465d3c4524a5d2ab1f7f6d8b69fb526d05d",
+    "bytes": 143321,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 22,
+    "tipos": {
+      "Cylinder": 10,
+      "Plane": 10,
+      "SurfaceOfRevolution": 2
+    },
+    "areas_mm2": {
+      "Cylinder": 292.1548134704287,
+      "Plane": 475.1413622050616,
+      "SurfaceOfRevolution": 120.87917846152334
+    },
+    "area_total_mm2": 888.1753541370135,
+    "volumen_mm3": 661.5946831438021,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 61,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 0.0087199,
+      "tolerancia_p95_mm": 0.0087182,
+      "tolerancia_media_mm": 0.0007182,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": false,
+    "cilindros": [
+      {
+        "cara": 0,
+        "radio_mm": 1.000000135246,
+        "eje": [
+          -2.750913570576571e-06,
+          1.309938020277272e-07,
+          -0.9999999999962077
+        ],
+        "centro": [
+          28.393588100188,
+          -2.000000030638,
+          1.814523466269
+        ],
+        "area_mm2": 16.720269092556446
+      },
+      {
+        "cara": 1,
+        "radio_mm": 0.599999854861,
+        "eje": [
+          -1.1353164110913899e-06,
+          -1.555509987483534e-07,
+          -0.9999999999993434
+        ],
+        "centro": [
+          45.651178107368,
+          -2.000000054743,
+          -2.38251450928
+        ],
+        "area_mm2": 10.024503130083104
+      },
+      {
+        "cara": 2,
+        "radio_mm": 0.600000105098,
+        "eje": [
+          -1.2555316999262553e-06,
+          -1.2954586403602635e-07,
+          0.9999999999992034
+        ],
+        "centro": [
+          28.393588078373,
+          -1.99999998582,
+          -2.38251451647
+        ],
+        "area_mm2": 10.024496949224199
+      },
+      {
+        "cara": 11,
+        "radio_mm": 95.676826945469,
+        "eje": [
+          4.7531958384049944e-08,
+          -0.9999999999999989,
+          2.736753182710997e-09
+        ],
+        "centro": [
+          40.021580356958,
+          -1.999999982456,
+          98.381647225883
+        ],
+        "area_mm2": 24.13201713475606
+      },
+      {
+        "cara": 12,
+        "radio_mm": 4.000000139717,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          50.272383204912,
+          -2.0,
+          -0.287345846078
+        ],
+        "area_mm2": 69.05345089222378
+      },
+      {
+        "cara": 13,
+        "radio_mm": 95.677140220342,
+        "eje": [
+          -4.512966230859539e-07,
+          0.9999999999998979,
+          3.0172914783546915e-08
+        ],
+        "centro": [
+          40.021559876172,
+          -1.999665525791,
+          -98.95665163765
+        ],
+        "area_mm2": 26.147097734097095
+      },
+      {
+        "cara": 14,
+        "radio_mm": 4.000000101251,
+        "eje": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "centro": [
+          23.772383316105,
+          -2.0,
+          -0.287345932764
+        ],
+        "area_mm2": 69.05345205739891
+      },
+      {
+        "cara": 19,
+        "radio_mm": 95.676193459266,
+        "eje": [
+          -1.0053192831104951e-06,
+          -0.9999999999994925,
+          6.546402897479224e-08
+        ],
+        "centro": [
+          34.023147992582,
+          -1.999999489118,
+          98.381014886611
+        ],
+        "area_mm2": 24.13220076440122
+      },
+      {
+        "cara": 20,
+        "radio_mm": 1.000000084484,
+        "eje": [
+          -2.7366742505206745e-06,
+          1.3342818039333286e-07,
+          0.9999999999962464
+        ],
+        "centro": [
+          45.651178638709,
+          -1.999999940665,
+          1.814523463472
+        ],
+        "area_mm2": 16.720266532908337
+      },
+      {
+        "cara": 21,
+        "radio_mm": 95.676339315972,
+        "eje": [
+          1.4112725586269863e-07,
+          0.9999999999999901,
+          3.05684487006897e-09
+        ],
+        "centro": [
+          34.02315728633,
+          -2.000335043428,
+          -98.95585224492
+        ],
+        "area_mm2": 26.147059182779515
+      }
+    ],
+    "geometria_identica_R9": null,
+    "caras_no_validas_exacto": [
+      {
+        "cara": 1,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 4,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 8,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 11,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 13,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 19,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 21,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      }
+    ],
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/Tirante.stl",
+    "sha256_stl": "8e43440fa46395d66528571401946aed80207e68255cfe292937a509948f6883",
+    "caja_error_mm": 0.0009512907838278295,
+    "volumen_error_pct": 0.10932461324196481,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 0.00058,
+        "max_mm": 0.015192,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.000913,
+        "max_mm": 0.002956,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 8.30487691500457
+  },
+  {
+    "version": "original",
+    "nombre": "LLanta_Trasera",
+    "archivo": "/workspace/work/easymesh/resultados/baseline/LLanta_Trasera.step",
+    "sha256": "937883ff22727d47c6bd9fe423e557be07f169ac808e55ab16b5e7714964a92b",
+    "bytes": 731977,
+    "raices": 1,
+    "solidos": 1,
+    "shells": 1,
+    "objetos_sueltos": [],
+    "caras": 42,
+    "tipos": {
+      "Cylinder": 19,
+      "Plane": 23
+    },
+    "areas_mm2": {
+      "Cylinder": 1062.3804336306537,
+      "Plane": 545.2424645319193
+    },
+    "area_total_mm2": 1607.622898162573,
+    "volumen_mm3": 667.8338093074706,
+    "integridad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 120,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 0.0019678,
+      "tolerancia_p95_mm": 0.000643,
+      "tolerancia_media_mm": 0.0001097,
+      "aristas_tol_mayor_001mm": 0
+    },
+    "cad_exacto": false,
+    "cilindros": [
+      {
+        "cara": 0,
+        "radio_mm": 1.124999294865,
+        "eje": [
+          0.9999999998699143,
+          -3.3898559597527093e-07,
+          1.6126273973688616e-05
+        ],
+        "centro": [
+          8.073130231917,
+          -2.417096044418e-08,
+          8.614578343122
+        ],
+        "area_mm2": 2.8815213455925246
+      },
+      {
+        "cara": 1,
+        "radio_mm": 0.62500000838,
+        "eje": [
+          1.0,
+          -2.441325606715e-11,
+          1.39522062753e-08
+        ],
+        "centro": [
+          -1.877618047722,
+          -4.240169225699e-09,
+          8.614580373872
+        ],
+        "area_mm2": 6.105894158269732
+      },
+      {
+        "cara": 3,
+        "radio_mm": 0.62500000838,
+        "eje": [
+          1.0,
+          -2.441325606729e-11,
+          -1.39522062753e-08
+        ],
+        "centro": [
+          1.877618047722,
+          4.240169225698e-09,
+          8.614580373872
+        ],
+        "area_mm2": 6.10606003637575
+      },
+      {
+        "cara": 5,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          7.177199369654e-17,
+          6.5
+        ],
+        "area_mm2": 51.83627865031466
+      },
+      {
+        "cara": 7,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          1.7763568394e-15,
+          -7.177199369654e-17,
+          4.5
+        ],
+        "area_mm2": 51.836278650322896
+      },
+      {
+        "cara": 10,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          7.177199369654e-17,
+          0.5
+        ],
+        "area_mm2": 51.83627865031321
+      },
+      {
+        "cara": 13,
+        "radio_mm": 8.249999978687,
+        "eje": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          -7.177199369654e-17,
+          2.5
+        ],
+        "area_mm2": 51.8362786503229
+      },
+      {
+        "cara": 19,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          1.490777987168e-19,
+          5.5
+        ],
+        "area_mm2": 54.97787230024247
+      },
+      {
+        "cara": 21,
+        "radio_mm": 8.250000010581,
+        "eje": [
+          4.9166889476495174e-05,
+          3.17750992184898e-09,
+          0.9999999987913085
+        ],
+        "centro": [
+          9.913212797895e-09,
+          -4.371142040818e-10,
+          8.29994877512
+        ],
+        "area_mm2": 29.819605598446927
+      },
+      {
+        "cara": 22,
+        "radio_mm": 7.749991476487,
+        "eje": [
+          -1.67126460547357e-05,
+          7.318689232429497e-08,
+          -0.999999999860341
+        ],
+        "centro": [
+          -4.310466583324e-06,
+          -5.297085638706e-08,
+          5.447444127799
+        ],
+        "area_mm2": 368.1329508295461
+      },
+      {
+        "cara": 23,
+        "radio_mm": 1.194999998248,
+        "eje": [
+          3.329850651006e-22,
+          1.207454309353e-22,
+          1.0
+        ],
+        "centro": [
+          5.86243590003e-17,
+          9.963420723689e-17,
+          7.332561684359
+        ],
+        "area_mm2": 36.26793092175001
+      },
+      {
+        "cara": 24,
+        "radio_mm": 1.194999998248,
+        "eje": [
+          3.329850651006e-22,
+          1.207454309353e-22,
+          1.0
+        ],
+        "centro": [
+          5.86243590003e-17,
+          9.963420723689e-17,
+          7.332561684359
+        ],
+        "area_mm2": 36.26793092174434
+      },
+      {
+        "cara": 27,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.130760785873e-16,
+          3.276613161255e-17,
+          7.429040886388
+        ],
+        "area_mm2": 0.11780973639524198
+      },
+      {
+        "cara": 28,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.130760785873e-16,
+          3.276613161255e-17,
+          7.429040886388
+        ],
+        "area_mm2": 0.11780973639524198
+      },
+      {
+        "cara": 29,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.130760785873e-16,
+          3.276613161255e-17,
+          7.429040886388
+        ],
+        "area_mm2": 74.98518976521402
+      },
+      {
+        "cara": 30,
+        "radio_mm": 2.699999991457,
+        "eje": [
+          -1.990615544995e-22,
+          8.841183665264e-22,
+          1.0
+        ],
+        "centro": [
+          2.130760785873e-16,
+          3.276613161255e-17,
+          7.429040886388
+        ],
+        "area_mm2": 74.9851897652141
+      },
+      {
+        "cara": 31,
+        "radio_mm": 8.749998424566,
+        "eje": [
+          0.00011277319718651031,
+          1.5172131395681388e-07,
+          0.9999999936410915
+        ],
+        "centro": [
+          -1.218713745091e-06,
+          2.685168200247e-09,
+          7.518898411076
+        ],
+        "area_mm2": 54.31380931372616
+      },
+      {
+        "cara": 34,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          6.776560336762e-17,
+          3.5
+        ],
+        "area_mm2": 54.97787230023372
+      },
+      {
+        "cara": 38,
+        "radio_mm": 8.750000137258,
+        "eje": [
+          -0.0,
+          -2.710505431214e-20,
+          -1.0
+        ],
+        "centro": [
+          0.0,
+          6.7711393259e-17,
+          1.5
+        ],
+        "area_mm2": 54.97787230023372
+      }
+    ],
+    "geometria_identica_R9": null,
+    "caras_no_validas_exacto": [
+      {
+        "cara": 0,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 1,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 3,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 22,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 23,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 24,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      },
+      {
+        "cara": 31,
+        "estado": [
+          "BRepCheck_Status.BRepCheck_UnorientableShape"
+        ]
+      }
+    ],
+    "stl_referencia": "/workspace/work/analisis_usuario_R9_20261027/entradas/stl/LLanta_Trasera.stl",
+    "sha256_stl": "ea2e1508b5766f2a3ac17aaa077544c79fb49a33de1d1e3aea9ccd24835597c1",
+    "caja_error_mm": 5.828893088555276e-05,
+    "volumen_error_pct": 0.03244242655039917,
+    "contraste_local": {
+      "stl_caracteristicas_a_step": {
+        "muestras": 240,
+        "p95_mm": 8.4e-05,
+        "max_mm": 0.001963,
+        "zonas_sospechosas": []
+      },
+      "aristas_step_a_stl": {
+        "muestras": 360,
+        "p95_mm": 0.001742,
+        "max_mm": 0.002015,
+        "zonas_sospechosas": []
+      },
+      "tolerancia_informativa_mm": 0.06,
+      "supera_umbral_observado": false,
+      "nota": "Diagnóstico muestreado; validar si cada discrepancia proviene del STL facetado."
+    },
+    "inspeccion_completada": true,
+    "segundos": 2.531834635999985
+  }
+]

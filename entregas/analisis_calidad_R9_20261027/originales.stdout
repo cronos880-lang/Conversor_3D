@@ -1,0 +1,5 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+Bancada_Motor errores 35 estados ['BRepCheck_Status.BRepCheck_InvalidCurveOnSurface', 'BRepCheck_Status.BRepCheck_InvalidSameParameterFlag', 'BRepCheck_Status.BRepCheck_UnorientableShape']
+maneta errores 18 estados ['BRepCheck_Status.BRepCheck_InvalidCurveOnSurface', 'BRepCheck_Status.BRepCheck_InvalidSameParameterFlag', 'BRepCheck_Status.BRepCheck_UnorientableShape']
+Tirante errores 13 estados ['BRepCheck_Status.BRepCheck_InvalidCurveOnSurface', 'BRepCheck_Status.BRepCheck_InvalidSameParameterFlag', 'BRepCheck_Status.BRepCheck_UnorientableShape']

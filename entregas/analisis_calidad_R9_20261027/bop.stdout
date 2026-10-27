@@ -1,0 +1,16 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+EMPIEZA LLanta_Trasera.step
+FIN LLanta_Trasera True 0.8
+EMPIEZA Bancada_Motor.step
+FIN Bancada_Motor True 150.63
+EMPIEZA maneta.step
+FIN maneta True 12.55
+EMPIEZA Tirante_impresion.step
+FIN Tirante True 27.92
+EMPIEZA 1x1-lego-brick_impresion.step
+FIN 1x1-lego-brick True 5.21
+EMPIEZA Estefi_impresion.step
+FIN Estefi True 3.65
+EMPIEZA Soporte_Muelle_impresion.step
+FIN Soporte_Muelle True 40.71
