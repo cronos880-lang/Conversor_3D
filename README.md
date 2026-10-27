@@ -1,3 +1,17 @@
+# Visor completo para Windows · R9 experimental · 27/10/2026
+
+[**Descargar R9 completa**](./entregas/perfeccion_Visualizador_R9/perfeccion_Visualizador_R9_EXPERIMENTAL_COMPLETA.zip?raw=true) · [**STEP de llanta y Lego para comparar**](./entregas/perfeccion_Visualizador_R9/R9_CILINDROS_PARA_COMPARAR.zip?raw=true) · [Informe real](./entregas/perfeccion_Visualizador_R9/INFORME_RESULTADOS.md)
+
+Extrae todo en una carpeta nueva y abre **Iniciar.bat**. Incluye `Visor_experimental_fuentes` y puede reutilizar el entorno de R7 o R8 sin modificarlo. Si descargas el repositorio entero mediante Code → Download ZIP, entra en `entregas/perfeccion_Visualizador_R9` y abre allí Iniciar.bat. Encabezado **R9 experimental**, puerto **8775**. Python 3.12 de 64 bits.
+
+La llanta pasa de **4.195 caras planas a 53 caras** y conserva sus quince regiones cilíndricas confirmadas. Lego4×2 pasa de **1.692 a 1.149 caras**, con doce caras cilíndricas y ocho cavidades conservadas; otras zonas siguen facetadas. La reconstrucción mantiene los límites geométricos originales y exige CAD exacto, BOP y tres mallados finos en sus rutas adicionales.
+
+**233 pruebas automáticas, 21/21 conversiones principales y tres recientes adicionales aprobadas.** Cubo-carrito y sus tres giros incluidos; trece de las catorce históricas, con Embudo aplazado por el usuario. [Auditoría, fuentes y todos los STEP](./entregas/perfeccion_Visualizador_R9/README.md).
+
+**Windows nativo, Onshape y K1C siguen pendientes de prueba.** No se declara resuelto el defecto visual de 6558 en Onshape ni una reconstrucción analítica para todas las piezas. Se conserva R8, R7 y la web de main.
+
+---
+
 # Visor completo para Windows · R8 experimental · 27/10/2026
 
 [**Descargar R8 completa**](./entregas/perfeccion_Visualizador_R8/perfeccion_Visualizador_R8_EXPERIMENTAL_COMPLETA.zip?raw=true) · [Resultados reales y límites](./entregas/perfeccion_Visualizador_R8/INFORME_RESULTADOS.md) · [Auditoría y STEP](./entregas/perfeccion_Visualizador_R8/README.md)
