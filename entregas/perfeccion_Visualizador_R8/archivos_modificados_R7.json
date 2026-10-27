@@ -1,0 +1,194 @@
+[
+  {
+    "archivo": "ESTADO_VALIDACION.md",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "GUIA_REPRODUCIR.md",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "Iniciar.bat",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "Instalar_Entorno.bat",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "LEEME.txt",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "VERSION.txt",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "Visor_STL_STEP.html",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "arrancar.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "calidad_topologica.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "entorno_local.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "fixtures_cad/Bancada_104_NO_APROBADO.step",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "motor_superficies/contornos_compatibles.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "motor_superficies/contornos_periodicos.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "motor_superficies/fijacion_contornos.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_brep.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_step.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "motor_superficies/parches_triangulares.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "motor_superficies/pcurvas_compartidas.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "motor_superficies/planos_canonicos.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "motor_v2.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "normalizacion_referencia.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "preprocesador_stl.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "prueba_cad.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "reconstruccion_curvas.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "recuperacion_numerica.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "recuperacion_union_certificada.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "saneamiento_cad.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "saneamiento_malla.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "servidor.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "test_arranque_r8.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_coherencia_exacta_r8.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_contornos_compatibles.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_contornos_periodicos.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_correcciones_r2.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "test_entorno_local.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_normalizacion_referencia.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_parches_triangulares.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_pcurvas_compartidas.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_planos_canonicos.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_politica_reintentos.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_prueba_cad.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_reconstruccion_curvas.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_recuperacion_numerica.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "test_reintento_curvas.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_saneamiento_verificado.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "test_servidor_reparacion.py",
+    "tipo": "modificado"
+  },
+  {
+    "archivo": "test_union_certificada.py",
+    "tipo": "nuevo"
+  },
+  {
+    "archivo": "version_programa.py",
+    "tipo": "nuevo"
+  }
+]

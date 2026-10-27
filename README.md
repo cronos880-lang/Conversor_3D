@@ -1,10 +1,22 @@
+# Visor completo para Windows · R8 experimental · 27/10/2026
+
+[**Descargar R8 completa**](./entregas/perfeccion_Visualizador_R8/perfeccion_Visualizador_R8_EXPERIMENTAL_COMPLETA.zip?raw=true) · [Resultados reales y límites](./entregas/perfeccion_Visualizador_R8/INFORME_RESULTADOS.md) · [Auditoría y STEP](./entregas/perfeccion_Visualizador_R8/README.md)
+
+Extrae todo en una carpeta nueva y abre **Iniciar.bat**. Incluye `Visor_experimental_fuentes`. Si descargas el repositorio entero mediante **Code → Download ZIP**, entra en `entregas/perfeccion_Visualizador_R8` y abre allí **Iniciar.bat**. Puede reutilizar el entorno de R7 sin modificarlo; si necesitas instalar uno, ejecuta `Instalar_Entorno.bat` con Python 3.12 de 64 bits. Encabezado R8, puerto 8772.
+
+21/21 conversiones de regresión y 213 pruebas automáticas aprobadas, sin relajar tolerancias. Incluye el cubo-carrito y tres giros; se probaron trece de las catorce piezas históricas, con Embudo aplazado por petición del usuario. Pinza conserva diez cilindros y reduce caras de 2.144 a 448; Bancada conserva quince cilindros y corrige encuentros de contornos. Se exige control CAD exacto del STEP exportado, además de geometría y BOP.
+
+En algunas piezas la recuperación genera más caras; no se promete menor triangulación ni mayor velocidad en todos los casos. **Windows nativo y la revisión visual de 6558 en Onshape siguen pendientes.** La validación real se ejecutó en Linux y Chromium. Esta copia experimental no modifica R7 ni el conversor web de main.
+
+---
+
 # Avance del motor después de R7 · 26/10/2026
 
 [Informe, código y STEP verificados](./entregas/avance_motor_post_R7_20261026/README.md).
 
 El preprocesador ya convierte Lego 4×2, soporte móvil y PEGS con controles geométricos independientes y sin ampliar tolerancias. No se publica una nueva versión: Bancada_Motor pierde sus superficies CAD al pasar a recuperación facetada. Las 21 conversiones de regresión terminan, con 20 DATA STEP idénticos a R7; el cubo conserva sus cuatro variantes. Hay 144 pruebas distintas aprobadas. El informe distingue pruebas aprobadas, entradas fuera de calibración y límites de recursos.
 
-R7 continúa siendo la última entrega del programa. Las líneas de 6558 en Onshape siguen pendientes y main no se modifica. El estudio externo anterior queda como antecedente: la medición corregida contra la frontera completa detecta que los STL 11 y 16 exceden la calibración de entrada. Consultar el nuevo informe para los resultados actuales.
+En ese avance R7 seguía siendo la última entrega del programa. Las líneas de 6558 en Onshape siguen pendientes y main no se modifica. El estudio externo anterior queda como antecedente: la medición corregida contra la frontera completa detecta que los STL 11 y 16 exceden la calibración de entrada. Consultar el nuevo informe para los resultados actuales.
 
 ---
 

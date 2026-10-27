@@ -1,0 +1,20 @@
+[
+  {
+    "archivo": "perfeccion_Visualizador_R8_EXPERIMENTAL_COMPLETA.zip",
+    "bytes": 747016,
+    "sha256": "460b442b940e0087cad8f4146370e828a5262f4aca13f83ff7800943085a42da",
+    "ficheros": 137
+  },
+  {
+    "archivo": "perfeccion_Visualizador_R8_AUDITORIA.zip",
+    "bytes": 53804507,
+    "sha256": "e5bda0db3b6c200a70cbe17b6440fa95cb8eb3b6a2480daaecd2a62281e15aa0",
+    "ficheros": 283
+  },
+  {
+    "archivo": "perfeccion_Visualizador_R8_RESULTADOS_STEP.zip",
+    "bytes": 69804356,
+    "sha256": "b0375e691474f2fd7e5951cba4a1c51d452f55972849bcf6015d11fa21ba9705",
+    "ficheros": 210
+  }
+]
