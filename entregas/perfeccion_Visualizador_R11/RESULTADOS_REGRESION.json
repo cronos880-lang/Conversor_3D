@@ -1,0 +1,377 @@
+[
+  {
+    "pieza": "Tirante",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 22,
+    "tipos": {
+      "GeomAbs_Cylinder": 10,
+      "GeomAbs_Plane": 10,
+      "GeomAbs_SurfaceOfRevolution": 2
+    },
+    "segundos": 1027.604,
+    "max_denso_mm": 0.02743,
+    "error_caja_mm": 0.000951,
+    "error_volumen_pct": 0.113342,
+    "DATA_identico_R10": true,
+    "sha256_step": "049cf1e58f4f3619244b1891b097d1d65fdd2bfbcbf60692e15c727dc10f46f7"
+  },
+  {
+    "pieza": "conector",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 19998,
+    "tipos": {
+      "GeomAbs_Plane": 19998
+    },
+    "segundos": 798.226,
+    "max_denso_mm": 0.010826,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.002912,
+    "DATA_identico_R10": true,
+    "sha256_step": "9df5fc940cd373826db612299fad6f97a1b9256bee70aa218bcbbd566ae17551"
+  },
+  {
+    "pieza": "Pieza_Nueva_Detenida",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 8892,
+    "tipos": {
+      "GeomAbs_Plane": 8892
+    },
+    "segundos": 1454.581,
+    "max_denso_mm": 0.020334,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 3e-06,
+    "DATA_identico_R10": true,
+    "sha256_step": "f0e147ccce8a069e20a029338c09413df4e50d1d7dd934a2434c87f357b94428"
+  },
+  {
+    "pieza": "Estefi",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 1769,
+    "tipos": {
+      "GeomAbs_Plane": 1769
+    },
+    "segundos": 460.838,
+    "max_denso_mm": 0.0,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.0,
+    "DATA_identico_R10": true,
+    "sha256_step": "5e706b331f639679f086f6e5fdd4f67f9a753e36b04a014a504e4f56578c2946"
+  },
+  {
+    "pieza": "Con fallos pero si step",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 2567,
+    "tipos": {
+      "GeomAbs_Plane": 2567
+    },
+    "segundos": 408.697,
+    "max_denso_mm": 0.000592,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.0,
+    "DATA_identico_R10": true,
+    "sha256_step": "350b038d91c23dd7d8b002844f97b22b52b238202f947f397aa3858c4db29dba"
+  },
+  {
+    "pieza": "chasis - Part 2",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 13803,
+    "tipos": {
+      "GeomAbs_Plane": 13803
+    },
+    "segundos": 557.001,
+    "max_denso_mm": 0.006785,
+    "error_caja_mm": 1e-05,
+    "error_volumen_pct": 0.000133,
+    "DATA_identico_R10": true,
+    "sha256_step": "e588c70fd4fdc00a6503af1511d5f652af557332c4b4c19f4e133b62aa9e8997"
+  },
+  {
+    "pieza": "Dimensiones",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 1100,
+    "tipos": {
+      "GeomAbs_Plane": 1100
+    },
+    "segundos": 387.843,
+    "max_denso_mm": 5e-06,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.0,
+    "DATA_identico_R10": true,
+    "sha256_step": "110ac06534114161fbf1d0d22b2bc705100f49e7f56238f2e2c3dc64c44a030f"
+  },
+  {
+    "pieza": "maneta",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 36,
+    "tipos": {
+      "GeomAbs_SurfaceOfRevolution": 2,
+      "GeomAbs_Plane": 29,
+      "GeomAbs_Cylinder": 5
+    },
+    "segundos": 504.761,
+    "max_denso_mm": 0.016033,
+    "error_caja_mm": 5.7e-05,
+    "error_volumen_pct": 0.022278,
+    "DATA_identico_R10": false,
+    "sha256_step": "63e06ff928052dbc988f7f272a9ca58f98f57e5d7f3ebfee9426a5c883fc0f22"
+  },
+  {
+    "pieza": "1x1-lego-brick",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 2672,
+    "tipos": {
+      "GeomAbs_Plane": 2672
+    },
+    "segundos": 187.088,
+    "max_denso_mm": 0.0,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.0,
+    "DATA_identico_R10": true,
+    "sha256_step": "e6513b4d97fe7966f8979adcca654d45b5acb1addcf024a1320ca7fcb11e3047"
+  },
+  {
+    "pieza": "spur",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 1405,
+    "tipos": {
+      "GeomAbs_Plane": 1371,
+      "GeomAbs_Cylinder": 34
+    },
+    "segundos": 159.496,
+    "max_denso_mm": 0.004738,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.007408,
+    "DATA_identico_R10": true,
+    "sha256_step": "86954547a7a6ab8ed06234743cbb1d2de4e9df50a7264278350504dfe5592853"
+  },
+  {
+    "pieza": "Grapa",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 20,
+    "tipos": {
+      "GeomAbs_SurfaceOfExtrusion": 8,
+      "GeomAbs_Plane": 10,
+      "GeomAbs_Cylinder": 2
+    },
+    "segundos": 460.255,
+    "max_denso_mm": 0.001042,
+    "error_caja_mm": 3.4e-05,
+    "error_volumen_pct": 0.00699,
+    "DATA_identico_R10": false,
+    "sha256_step": "90092143adbe13564969b72b4564e9574ce4076cef410197283ba5ff533232f2"
+  },
+  {
+    "pieza": "cubo-carrito_giro_3",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 1853,
+    "tipos": {
+      "GeomAbs_Plane": 1853
+    },
+    "segundos": 161.338,
+    "max_denso_mm": 0.0,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.0,
+    "DATA_identico_R10": true,
+    "sha256_step": "dfb3be5d2f3d1c59edc31a08172ba7efe97267b711933616fddaf007fb3efa4b"
+  },
+  {
+    "pieza": "cubo-carrito_giro_1",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 1838,
+    "tipos": {
+      "GeomAbs_Plane": 1838
+    },
+    "segundos": 144.896,
+    "max_denso_mm": 0.0,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.0,
+    "DATA_identico_R10": true,
+    "sha256_step": "49e6e7004a45febbe90997da46c285b21bc791f5dcba5cec841e0d42db2ddd03"
+  },
+  {
+    "pieza": "Spoiler_arrière_Porsche_-_5",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 28,
+    "tipos": {
+      "GeomAbs_Plane": 26,
+      "GeomAbs_Cylinder": 2
+    },
+    "segundos": 9.225,
+    "max_denso_mm": 0.002827,
+    "error_caja_mm": 5.1e-05,
+    "error_volumen_pct": 0.012459,
+    "DATA_identico_R10": true,
+    "sha256_step": "9242703c59eedb48f9b7a346a55e6ae57d2eb82d485bbaaca6fb055de7d37c31"
+  },
+  {
+    "pieza": "cubo-carrito_giro_2",
+    "ruta": "CLI",
+    "ok": true,
+    "caras": 1195,
+    "tipos": {
+      "GeomAbs_Plane": 1195
+    },
+    "segundos": 104.661,
+    "max_denso_mm": 0.0,
+    "error_caja_mm": 0.0,
+    "error_volumen_pct": 0.0,
+    "DATA_identico_R10": true,
+    "sha256_step": "9cc10ed10ad43f5810ab651e2d3b8ef5c249c9b34fa583710be5da4ceda80441"
+  },
+  {
+    "pieza": "Bancada_Motor",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 239,
+    "tipos": {
+      "GeomAbs_SurfaceOfExtrusion": 14,
+      "GeomAbs_BSplineSurface": 50,
+      "GeomAbs_Plane": 150,
+      "GeomAbs_Cylinder": 25
+    },
+    "segundos": 803.556,
+    "max_denso_mm": 0.003438,
+    "error_caja_mm": 0.000561,
+    "error_volumen_pct": 0.026121,
+    "DATA_identico_R10": false,
+    "sha256_step": "ff62ca1dec2aae1dddf041ac58be8b620227d3ef34270bd6e3f3bca0bd52e72f"
+  },
+  {
+    "pieza": "LLanta_Trasera",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 53,
+    "tipos": {
+      "GeomAbs_Cylinder": 30,
+      "GeomAbs_Plane": 23
+    },
+    "segundos": 217.025,
+    "max_denso_mm": 0.002138,
+    "error_caja_mm": 5.8e-05,
+    "error_volumen_pct": 0.032699,
+    "DATA_identico_R10": true,
+    "sha256_step": "aaaf0e30367393c399431908443cd1702e279aae1b9db28ac09bb392616a41ff"
+  },
+  {
+    "pieza": "V_legoBrick4x2",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 1149,
+    "tipos": {
+      "GeomAbs_Plane": 1137,
+      "GeomAbs_Cylinder": 12
+    },
+    "segundos": 551.129,
+    "max_denso_mm": 0.005932,
+    "error_caja_mm": 0,
+    "error_volumen_pct": 0.077806,
+    "DATA_identico_R10": true,
+    "sha256_step": "7a784c3c61a782e707399d1c48febac7377819a17a01ff520a4947329433dcd5"
+  },
+  {
+    "pieza": "M3 PClip - 2mm",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 1484,
+    "tipos": {
+      "GeomAbs_Plane": 1484
+    },
+    "segundos": 350.301,
+    "max_denso_mm": 0,
+    "error_caja_mm": 0,
+    "error_volumen_pct": 0,
+    "DATA_identico_R10": true,
+    "sha256_step": "650d3e27ff8da693ef39762b9b19ed286e8f09141bbfd68ba61adc9b7249c062"
+  },
+  {
+    "pieza": "cubo-carrito",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 1152,
+    "tipos": {
+      "GeomAbs_Plane": 1152
+    },
+    "segundos": 99.621,
+    "max_denso_mm": 0,
+    "error_caja_mm": 0,
+    "error_volumen_pct": 0,
+    "DATA_identico_R10": true,
+    "sha256_step": "53afa7106d12e90145c23d08c857871b3ab25c33ad9462e369a6f6c20e42e4c9"
+  },
+  {
+    "pieza": "pinza",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 448,
+    "tipos": {
+      "GeomAbs_Plane": 262,
+      "GeomAbs_Cylinder": 11,
+      "GeomAbs_BSplineSurface": 175
+    },
+    "segundos": 190.415,
+    "max_denso_mm": 0.003787,
+    "error_caja_mm": 0.000495,
+    "error_volumen_pct": 0.036855,
+    "DATA_identico_R10": true,
+    "sha256_step": "08393e5ac24a48c2aa5dc5a8f4f6d05b7c1d2c4ff515f32accde51f133549c05"
+  },
+  {
+    "pieza": "6558_fixed",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 8713,
+    "tipos": {
+      "GeomAbs_Plane": 8713
+    },
+    "segundos": 626.11,
+    "max_denso_mm": 0.01636,
+    "error_caja_mm": 0,
+    "error_volumen_pct": 0.000107,
+    "DATA_identico_R10": true,
+    "sha256_step": "e8fccf2b18ef3ad4a213309e18ae87e005831c4716bd0d2c26a34b3d493ca081"
+  },
+  {
+    "pieza": "Soporte_movil_2",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 493,
+    "tipos": {
+      "GeomAbs_Plane": 493
+    },
+    "segundos": 39.747,
+    "max_denso_mm": 0.018513,
+    "error_caja_mm": 0.000196,
+    "error_volumen_pct": 0.000482,
+    "DATA_identico_R10": true,
+    "sha256_step": "f62c42a8e57cd2bb531915830e7592a3842c6205881ef6b0f91cea68060781d4"
+  },
+  {
+    "pieza": "Technic_PEGS_Cross_x6_A",
+    "ruta": "interfaz_navegador",
+    "ok": true,
+    "caras": 2044,
+    "tipos": {
+      "GeomAbs_Plane": 2044
+    },
+    "segundos": 108.601,
+    "max_denso_mm": 5e-05,
+    "error_caja_mm": 0,
+    "error_volumen_pct": 0,
+    "DATA_identico_R10": true,
+    "sha256_step": "a4d62d9a2525d8134b4f9b9edbadfa34862f4b26fd79ff800b6194a55a5aa1bd"
+  }
+]

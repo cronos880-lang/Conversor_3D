@@ -1,0 +1,3035 @@
+--- R10/entorno_local.py
++++ R11/entorno_local.py
+@@ -29,7 +29,7 @@
+     try:
+         from tkinter import Tk,filedialog
+         window=Tk();window.withdraw()
+-        try:return filedialog.askdirectory(title='Selecciona la carpeta de tu Visor R7, R8 o R9 para reutilizar su entorno CAD')
++        try:return filedialog.askdirectory(title='Selecciona la carpeta de tu Visor R7, R8, R9 o R10 para reutilizar su entorno CAD')
+         finally:window.destroy()
+     except Exception:return ''
+ 
+@@ -41,8 +41,8 @@
+     choices.append(Path(sys.executable))
+     for executable in dict.fromkeys(choices):
+         if compatible(executable):return executable.resolve()
+-    print('Esta copia R10 necesita un entorno CAD preparado.\n'
+-          'Si ya usas R7, R8 o R9, selecciona ahora su carpeta. Se utilizarán sus dependencias sin modificarla.\n'
++    print('Esta copia R11 necesita un entorno CAD preparado.\n'
++          'Si ya usas R7, R8, R9 o R10, selecciona ahora su carpeta. Se utilizarán sus dependencias sin modificarla.\n'
+           'Si prefieres instalar un entorno nuevo, cancela y ejecuta Instalar_Entorno.bat.',flush=True)
+     folder=seleccionar_carpeta()
+     if folder:
+--- R10/GUIA_REPRODUCIR.md
++++ R11/GUIA_REPRODUCIR.md
+@@ -1,7 +1,3 @@
+-# Reproducción de R10
++# Reproducción
+ 
+-Para usar la copia Windows, abre `Iniciar.bat`. Reutiliza el entorno de R7 si ya funciona; el selector sólo guarda la ruta del intérprete en esta copia R10. Si no hay entorno compatible, prepara uno con `Instalar_Entorno.bat`. El puerto predeterminado es 8776.
+-
+-Para desarrollo: `python motor_v2.py entrada.stl salida.step` ejecuta el flujo real del motor. Las pruebas y los materiales completos se entregan en el kit de auditoría separado. Sus instrucciones configuran los fixtures explícitamente para evitar omisiones.
+-
+-Consulta el informe y el manifiesto de la entrega para conocer los casos ejecutados, las versiones de dependencias y las huellas de los archivos.
++Usar el ZIP de auditoría y sus instrucciones REPRODUCIR.md, con las dependencias bloqueadas del programa. El informe distingue conversiones por CLI, por navegador y controles independientes. Embudo continúa aplazado por instrucción del usuario.
+--- R10/ESTADO_VALIDACION.md
++++ R11/ESTADO_VALIDACION.md
+@@ -1,7 +1,3 @@
+-# R10 experimental
++# R11 experimental
+ 
+-La mejora nueva reconstruye encuentros entre planos, cilindros y superficies de revolución, después del rechazo de las estrategias R9. El tirante pasa de 13.122 caras planas a 22 caras, con diez cilíndricas, diez planas y dos superficies de revolución. Conserva los seis grupos cilíndricos confirmados por el detector y supera CAD exacto, BOP, geometría, material y tres mallados finos sin cruces CGAL.
+-
+-24 conversiones y 249 pruebas automatizadas aprobadas. Las rutas anteriores conservan prioridad: 23 resultados tienen el bloque geométrico DATA idéntico al de R10. La bancada y la maneta mantienen su calidad R9 y siguen pendientes de mejora. Los prototipos que fallaron se descartaron.
+-
+-Los resultados y los límites reales constan en INFORME_RESULTADOS.md, en la raíz del ZIP. Esta es una prueba del Visor Python local, no de WebAssembly. Windows nativo, Onshape y K1C no se han ejecutado aquí. Embudo sigue aplazado por el usuario; no se declara 14/14.
++La entrega incluye el informe de resultados y sus registros reales. El arranque no demuestra una conversión correcta. Se mantienen los evaluadores geométricos y CAD de R10. Las pruebas del paquete especifican Linux/navegador; Windows nativo, Onshape y K1C no están disponibles en este entorno. Los fixtures de rechazo conservan sus nombres históricos y no son resultados aprobados.
+--- R10/arrancar.py
++++ R11/arrancar.py
+@@ -51,7 +51,7 @@
+         print(f'El puerto {port} está ocupado por otra copia o por otro programa.\n'
+               'No se abrirá una versión distinta. Cierra el otro Visor experimental y vuelve a intentarlo.\n'
+               'La R7 del puerto 8771 y la R8 del 8772 pueden seguir abiertas.');return 2
+-    print('Visor R10 experimental. Deja abierta esta ventana.\n'+url,flush=True)
++    print('Visor R11 experimental. Deja abierta esta ventana.\n'+url,flush=True)
+     threading.Thread(target=abrir_cuando_listo,args=(url,),daemon=True).start()
+     runpy.run_path(str(ROOT/'servidor.py'),run_name='__main__')
+     return 0
+--- R10/LEEME.txt
++++ R11/LEEME.txt
+@@ -1,9 +1,12 @@
+-VISOR STL -> STEP R9 EXPERIMENTAL
++VISOR STL -> STEP R11 EXPERIMENTAL
+ 
+-Extrae el ZIP completo en una carpeta nueva. No copies archivos sobre R7.
+-Abre Iniciar.bat. Si R9 no tiene entorno propio, permite seleccionar la carpeta de R7 para reutilizar sus dependencias sin modificarla.
+-También puedes preparar un entorno nuevo con Instalar_Entorno.bat. Requiere Python 3.12 de 64 bits.
+-La interfaz se abre en http://127.0.0.1:8775; R7 puede continuar en 8771.
+-Mantén el perfil Precisión para conservar los límites originales.
+-Consulta INFORME_RESULTADOS.md en la raíz del ZIP para las pruebas y los límites reales.
+-Windows nativo y Onshape requieren todavía prueba en esos entornos.
++Abre Iniciar.bat de la carpeta principal. Conserva tus versiones anteriores.
++Python 3.12 de 64 bits. Puede reutilizar el entorno de R7, R8, R9 o R10.
++Encabezado R11 experimental, puerto 8777.
++
++La nueva fase mide perfiles de revolución y extrusión desde el STL y conserva
++primero la conversión anterior. Sólo sustituye el STEP tras validar geometría,
++CAD exacto, cilindros, material y tres mallados finos sin cruces.
++Los límites de aceptación originales se mantienen. El ajuste interno no requiere
++ninguna opción nueva en la interfaz. Consulta INFORME_RESULTADOS.md en la entrega.
++Windows nativo, Onshape y K1C requieren prueba externa.
+--- R10/Visor_STL_STEP.html
++++ R11/Visor_STL_STEP.html
+@@ -3,7 +3,7 @@
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+-  <title>Visor STL · R10 experimental · 27/10/2026</title>
++  <title>Visor STL · R11 experimental · 27/10/2026</title>
+   <style>
+     :root { color-scheme: dark; --bg:#0e121b; --surface:#171d28; --edge:#2c3544; --text:#e9eef7; --muted:#8e9caf; --blue:#458fff; }
+     * { box-sizing:border-box; }
+@@ -54,7 +54,7 @@
+       <div class="brand-icon" aria-hidden="true">
+         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 7 9 5v10l-9-5V7Zm18 0-9 5v10l9-5V7Z"/></svg>
+       </div>
+-      <div><div class="brand-name" title="R10 experimental · 27/10/2026">Visor STL · R10 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
++      <div><div class="brand-name" title="R11 experimental · 27/10/2026">Visor STL · R11 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
+     </div>
+     <div class="buttons">
+       <button id="newBtn" title="Limpiar el visor (Ctrl+N)">
+--- R10/version_programa.py
++++ R11/version_programa.py
+@@ -1,9 +1,9 @@
+ """Identidad de esta copia experimental; independiente de la R7 instalada."""
+ from pathlib import Path
+ import hashlib
+-VERSION='R10 experimental'
+-COMPILACION='2026.10.27-encuentros-analiticos'
+-PUERTO=8776
++VERSION='R11 experimental'
++COMPILACION='2026.10.28-perfiles-medidos'
++PUERTO=8777
+ 
+ def identificador_instancia(root):
+     path=str(Path(root).resolve())
+--- R10/VERSION.txt
++++ R11/VERSION.txt
+@@ -1,6 +1,5 @@
+-perfeccion_Visualizador_R9
+-2026-10-27
+-2026.10.27-cilindros-verificados
+-EXPERIMENTAL. Recuperación automática con contornos compatibles y comprobación CAD exacta.
+-Python 3.12 de 64 bits. Puerto 8775; R7 puede seguir en 8771.
+-No modifica GitHub Pages/WebAssembly. Windows nativo pendiente de prueba.
++perfeccion_Visualizador_R11
++2026-10-28
++2026.10.28-perfiles-medidos
++EXPERIMENTAL. Reconstrucción de perfiles medidos con validación geométrica y CAD.
++Python 3.12 de 64 bits. Puerto 8777. Windows nativo pendiente de prueba.
+--- R10/motor_v2.py
++++ R11/motor_v2.py
+@@ -1149,4 +1149,5 @@
+ 
+ 
+ if __name__=='__main__':
+-    sys.exit(main())
++    from reconstruccion_medida import ejecutar_principal
++    sys.exit(ejecutar_principal(main,_SalidaCad,_calidad))
+--- R10/test_arranque_r8.py
++++ R11/test_arranque_r8.py
+@@ -5,7 +5,7 @@
+ from version_programa import identidad,PUERTO,VERSION
+ 
+ def test_puerto_experimental_distinto_de_r7():
+-    assert PUERTO==8776
++    assert PUERTO==8777
+ 
+ def test_pagina_e_identidad_son_de_esta_copia():
+     with TestClient(servidor.app) as client:
+--- R10/Instalar_Entorno.bat
++++ R11/Instalar_Entorno.bat
+@@ -1,10 +1,10 @@
+ @echo off
+ setlocal
+ cd /d "%~dp0"
+-echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R10...
++echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R11...
+ py -3.12 -V >nul 2>&1
+ if errorlevel 1 (
+-  echo Esta copia R10 requiere Python 3.12 de 64 bits para el reparador exacto.
++  echo Esta copia R11 requiere Python 3.12 de 64 bits para el reparador exacto.
+   pause
+   exit /b 1
+ )
+--- R10/servidor.py
++++ R11/servidor.py
+@@ -26,6 +26,7 @@
+     return identidad(ROOT)
+ 
+ def _metodo_resultado(result):
++    if result.get('reconstruccion_medida',{}).get('aplicado'):return 'contornos_compatibles'
+     if result.get('saneamiento_cad',{}).get('metodo')=='contornos_compatibles_ciclos_analiticos':
+         return 'contornos_compatibles'
+     return result.get('modo','superficies')
+--- /dev/null
++++ R11/reconstruccion_medida.py
+@@ -0,0 +1,190 @@
++"""Rescate analítico posterior al rechazo de las estrategias aprobadas R9.
++
++Trabajador aislado y acotado. Ningún cambio en los límites geométricos,
++la lectura exacta, BOP, material, cilindros o tres mallados finos CGAL.
++"""
++from __future__ import annotations
++import hashlib,json,os,subprocess,sys,tempfile,traceback
++from pathlib import Path
++from reconstruccion_curvas import (inventario,cilindros_respaldados,validar_cilindros_y_frontera)
++MAX_FACES=20_000
++_RECHAZOS_TRABAJADOR={}
++def presupuesto_recuperacion(triangulos):return 450
++
++def _sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++def exigir_elegible(shape):
++    if len(shape.Faces())<500:raise ValueError('Se conserva la reconstrucción compacta anterior.')
++
++def trabajador(source,base,destination,report):
++    source,base,destination,report=map(Path,(source,base,destination,report));paths=(source,base,destination,report)
++    if len({p.resolve() for p in paths})!=4 or any(a.exists() and b.exists() and a.samefile(b) for i,a in enumerate(paths) for b in paths[i+1:]):
++        raise ValueError('Las cuatro rutas del trabajador deben ser distintas.')
++    record={'ok':False}
++    try:
++        sys.path.insert(0,str(Path(__file__).resolve().parent/'motor_superficies'))
++        import numpy as np,cadquery as cq
++        from OCP.BRep import BRep_Tool
++        from OCP.Geom import Geom_SurfaceOfRevolution
++        from preprocesador_stl import cargar_exacto
++        from reparador_exacto_aislado import ControlExacto
++        from topologia_vertices import inspeccionar_vertices
++        from calidad_topologica import leer_solido_step_estricto
++        from meshfit_detect import detect
++        from generar_semilla import generar
++        from perfiles_medidos import proponer
++        from barridos_medidos import propuestas as barridos
++        from extension_cilindros import propuestas as cilindros
++        from extension_planos import propuestas as planos
++        from geometria_medida import extend_profile,normalizar_circulos
++        from constructor_barridos import construir
++        from meshfit_brep import build_solid
++        if not source.is_file() or source.stat().st_size>30*1024**2:raise ValueError('Entrada ausente o mayor de 30 MB.')
++        source_hash,base_hash=_sha(source),_sha(base);original=cargar_exacto(source)
++        if (len(original.faces)>MAX_FACES or not original.is_watertight or not original.is_winding_consistent
++                or inspeccionar_vertices(original)['vertices_no_manifold'] or len(original.split(only_watertight=False))!=1):
++            raise ValueError('La mejora requiere una única componente cerrada, orientada y sin contactos ambiguos.')
++        previous=leer_solido_step_estricto(base);exigir_elegible(previous)
++        with tempfile.TemporaryDirectory(prefix='visor_perfiles_fuente_') as tmp:
++            tmp=Path(tmp)
++            if ControlExacto(original,tmp/'entrada.off').pares():raise ValueError('La entrada contiene intersecciones.')
++            os.environ['VISOR_STL_DIGITAL']='0'
++            result,working=detect(str(source),angle_tol_deg=32.,rms_tol_rel=.01,flat_tol_deg=8.,scan_mode=False,mesh_input=original.copy())
++            required=cilindros_respaldados(result,working)
++            if not required:raise ValueError('No hay cilindros confirmados por el STL.')
++            seed=generar(source,result,working,tmp/'hipotesis_no_aprobada.step')
++            surfaces,profiles=proponer(seed.Faces(),[BRep_Tool.Surface_s(f.wrapped) for f in seed.Faces()],working,required)
++            plane_extras=planos(result,working) if not any(p['tipo']=='revolucion_medida' for p in profiles) else []
++            surfaces,sweep_extras,sweep_proof=barridos(seed.Faces(),surfaces,working,required,plane_extras)
++            extras=cilindros(working,required,surfaces if sweep_extras else ())+ (plane_extras if sweep_extras else [])+sweep_extras
++            for proof in profiles:
++                if proof['tipo']=='revolucion_medida':
++                    s=surfaces[proof['caras'][0]];extras.append((np.array(proof['indices_fuente']),Geom_SurfaceOfRevolution(extend_profile(s.BasisCurve()),s.Axis())))
++            if not sweep_extras and not any(p['tipo']=='revolucion_medida' for p in profiles):raise ValueError('No hay perfiles medidos para mejorar el resultado.')
++            if sweep_extras:
++                from barridos_medidos import restos_fuente
++                additional,remaining_proof=restos_fuente(result,working,extras,required);extras+=additional;sweep_proof+=remaining_proof
++                from barridos_medidos import fusionar_continuaciones
++                extras,merge_proof=fusionar_continuaciones(working,extras);sweep_proof+=merge_proof
++            os.environ['VISOR_PLANOS_MEDIDOS']='1';os.environ['VISOR_MEDIAS_CANAS_COMPLETAS']='1';os.environ.pop('VISOR_DEPURAR_CONTORNOS',None)
++            rebuilt,info=build_solid(result,working,organic=False,max_rounds=1,extra_regions=extras,ajuste_ia=False,
++                precision_reparacion=True,refinar_curvas=True,contornos_compartidos=True,constructor_medidos=construir)
++            if rebuilt is None or not info.get('valid') or not info.get('solid'):raise ValueError('La construcción medida no forma un sólido válido: '+str(info))
++            new=cq.Shape.cast(rebuilt)
++            if len(new.Faces())>.75*len(previous.Faces()):raise ValueError('La propuesta no reduce al menos un 25% las caras.')
++            from constructor_barridos import ULTIMA_SUBDIVISION
++            record['subdivisiones_contorno']=ULTIMA_SUBDIVISION
++            canonical=normalizar_circulos(new);cq.exporters.export(new,str(destination))
++        shape,cylinders,quality,topology,boundary=validar_cilindros_y_frontera(source,destination,original,required)
++        if source_hash!=_sha(source) or base_hash!=_sha(base):raise ValueError('La entrada o candidato base ha cambiado.')
++        from prueba_cad import REVISION
++        record.update(ok=True,original_sha256=source_hash,base_sha256=base_hash,step_sha256=_sha(destination),
++            calidad=quality,topologia_material=topology,mallado_fino=boundary,cilindros_respaldados=cylinders,
++            inventario=inventario(shape),metodo='perfiles_medidos_certificados',brep_exacto=True,
++            revision_cad=REVISION,circulos_canonicos=canonical,perfiles_fuente=[{k:v for k,v in p.items() if k!='indices_fuente'} for p in profiles],barridos_fuente=sweep_proof)
++    except Exception as exc:
++        record['error']=str(exc);destination.unlink(missing_ok=True);traceback.print_exc()
++    report.write_text(json.dumps(record,indent=2,ensure_ascii=False),encoding='utf-8')
++    return 0 if record['ok'] else 2
++
++def intentar_refinar(source,step,original,validar,log,*,validar_con_prueba=None):
++    import psutil
++    from control_recursos import comunicar_vigilado
++    from calidad_topologica import leer_solido_step_estricto
++    from avance_conversion import avance
++    if len(original.faces)>MAX_FACES or not original.is_watertight or not original.is_winding_consistent:
++        raise ValueError('La entrada no es apta para el rescate de curvas acotado.')
++    key=(_sha(source),_sha(step),os.environ.get('VISOR_PERFIL','precision'))
++    if key in _RECHAZOS_TRABAJADOR:
++        raise ValueError('No se repite el mismo rescate rechazado con la misma entrada, perfil y parámetros: '+_RECHAZOS_TRABAJADOR[key])
++    shape=leer_solido_step_estricto(step)
++    exigir_elegible(shape)
++    before=inventario(shape)
++    base_hash=_sha(step)
++    source_hash=_sha(source)
++    def stop(proc):
++        try:
++            parent=psutil.Process(proc.pid)
++            for child in parent.children(recursive=True):
++                try:child.kill()
++                except psutil.NoSuchProcess:pass
++            parent.kill()
++        except psutil.NoSuchProcess:pass
++    with tempfile.TemporaryDirectory(prefix='visor_refinar_curvas_',dir=Path(step).parent) as directory:
++        candidate=Path(directory)/'candidato.step';report=Path(directory)/'informe.json'
++        avance(78,'Reconstruyendo perfiles medidos del STL; verificando geometría, material y cilindros')
++        env={**os.environ,'OPENBLAS_NUM_THREADS':'1','OMP_NUM_THREADS':'1','MKL_NUM_THREADS':'1',
++             'PYTHONUNBUFFERED':'1','PYTHONIOENCODING':'utf-8'}
++        with subprocess.Popen([sys.executable,str(Path(__file__).resolve()),str(source),str(step),str(candidate),str(report)],
++                stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',env=env) as proc:
++            out,_,peak=comunicar_vigilado(proc,presupuesto_recuperacion(len(original.faces)),stop)
++        if out:print(out,file=log,flush=True)
++        if proc.returncode!=0 or not report.exists():
++            reason='El rescate de curvas no produjo un STEP aprobado.'
++            if report.exists():
++                try:reason=json.loads(report.read_text(encoding='utf-8')).get('error') or reason
++                except (ValueError,OSError):pass
++            _RECHAZOS_TRABAJADOR[key]=reason
++            raise ValueError(reason)
++        record=json.loads(report.read_text(encoding='utf-8'))
++        if not record.get('ok') or not candidate.is_file():
++            reason=record.get('error','Rescate de curvas rechazado.')
++            _RECHAZOS_TRABAJADOR[key]=reason
++            raise ValueError(reason)
++        if record.get('base_sha256')!=base_hash or _sha(step)!=base_hash or record['original_sha256']!=_sha(source) or source_hash!=_sha(source) or record['step_sha256']!=_sha(candidate):
++            raise ValueError('El resultado no coincide con los archivos comprobados.')
++        after=inventario(leer_solido_step_estricto(candidate))
++        if after['caras']>.75*before['caras']:raise ValueError('La propuesta no reduce al menos un 25% las caras.')
++        if validar_con_prueba is not None:
++            from prueba_cad import desde_trabajador
++            quality=validar_con_prueba(source,candidate,original,desde_trabajador(record,candidate))
++        else:quality=validar(source,candidate,original)
++        proof={'aplicado':True,'metodo':'perfiles_medidos_certificados','antes':before,'despues':after,
++               'ajuste_planos_fuente_mm':.0001,'desacuerdo_pcurva_maximo_mm':.00000005,
++               'movimiento_propuesta_maximo_mm':.012,'topologia_material':record['topologia_material'],
++               'mallado_fino':record['mallado_fino'],'cilindros_respaldados':record['cilindros_respaldados'],
++               'original_sha256':source_hash,'step_sha256':record['step_sha256'],'ram_pico_mb':peak,
++               'limites_aceptacion_modificados':False,'brep_exacto':record['brep_exacto'],
++               'presupuesto_s':presupuesto_recuperacion(len(original.faces))}
++        proof['subdivisiones_contorno']=record.get('subdivisiones_contorno',[])
++        proof['perfiles_fuente']=record.get('perfiles_fuente',[])
++        proof['barridos_fuente']=record.get('barridos_fuente',[])
++        proof['planos_fuente_max_mm']=.0001
++        proof['desviacion_perfil_fuente_max_mm']=.003
++        proof['normalizacion_ciclos']=record.get('normalizacion_ciclos',{})
++        proof['intentos_contornos']=record.get('intentos_contornos',[])
++        if record.get('normalizacion_referencia_material'):
++            proof['normalizacion_referencia_material']=record['normalizacion_referencia_material']
++        payload=candidate.read_bytes()
++        if hashlib.sha256(payload).hexdigest()!=record['step_sha256'] or _sha(source)!=source_hash or _sha(step)!=base_hash:
++            raise ValueError('El archivo cambió después de ser validado; no se publica.')
++        # La propuesta permanece en la misma partición y sólo sustituye al
++        # candidato después de superar TODOS los controles y huellas.
++        candidate.replace(step)
++        return quality,proof
++
++def ejecutar_principal(main,output_type,validar):
++    import contextlib
++    if len(sys.argv)!=3:return main()
++    source,destination=map(Path,sys.argv[1:]);output=output_type(sys.stdout)
++    with contextlib.redirect_stdout(output):code=main()
++    lines=output.getvalue().splitlines()
++    try:payload=json.loads(lines[-1])
++    except (ValueError,IndexError):raise RuntimeError('El motor no emitió un resultado verificable.')
++    if code==0 and payload.get('ok') and os.environ.get('VISOR_PERFILES_MEDIDOS','1')=='1' and not payload.get('preprocesamiento',{}).get('reparado'):
++        try:
++            from preprocesador_stl import cargar_exacto
++            original=cargar_exacto(source)
++            with destination.with_suffix('.motor.log').open('a',encoding='utf-8',buffering=1) as log:
++                quality,proof=intentar_refinar(source,destination,original,
++                    lambda s,d,m:validar(s,d,m,control_avanzado=True),log,
++                    validar_con_prueba=lambda s,d,m,p:validar(s,d,m,control_avanzado=True,prueba_cad=p))
++            result=payload['resultado'];result['calidad']=quality;result['reconstruccion_medida']=proof
++            result['modo']='superficies';result['estrategia']='perfiles_medidos_certificados';result['motor']='Reconstrucción de perfiles medidos del STL, verificada'
++        except Exception as exc:
++            payload['mejora_perfiles_medidos']={'aplicado':False,'motivo':str(exc),'conservado_resultado_anterior':True}
++    print(json.dumps(payload,ensure_ascii=True));return code
++
++if __name__=='__main__':
++    if len(sys.argv)!=5:raise SystemExit('Uso: reconstruccion_medida.py entrada.stl base.step salida.step informe.json')
++    raise SystemExit(trabajador(*sys.argv[1:]))
+--- /dev/null
++++ R11/test_perfiles_medidos.py
+@@ -0,0 +1,216 @@
++"""Pruebas de geometría medida y conservación de la ruta ya aprobada."""
++from pathlib import Path
++import sys,io,json
++import numpy as np,pytest,trimesh
++sys.path.insert(0,str(Path(__file__).parent/'motor_superficies'))
++from OCP.Geom import Geom_BSplineCurve,Geom_SurfaceOfLinearExtrusion,Geom_Plane
++from OCP.gp import gp_Pnt,gp_Dir,gp_Pln
++
++def profile():
++ from OCP.TColgp import TColgp_Array1OfPnt
++ from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++ P=TColgp_Array1OfPnt(1,7)
++ for i,p in enumerate([(0,0,0),(.2,0,.8),(.8,0,1),(1,0,1),(1.2,0,1),(1.8,0,.8),(2,0,0)],1):P.SetValue(i,gp_Pnt(*p))
++ K=TColStd_Array1OfReal(1,3);M=TColStd_Array1OfInteger(1,3)
++ for i,(k,m) in enumerate([(0,4),(1,3),(2,4)],1):K.SetValue(i,k);M.SetValue(i,m)
++ return Geom_BSplineCurve(P,K,M,3,False)
++
++def test_importar_constructor_no_parchea_la_ruta_anterior():
++ import contornos_compatibles as old,pcurvas_compartidas as pc
++ functions=(old._interseccion,old.refinar_interseccion,pc.crear_pcurva)
++ import constructor_barridos,geometria_medida
++ assert (old._interseccion,old.refinar_interseccion,pc.crear_pcurva)==functions
++ assert constructor_barridos._interseccion is geometria_medida.intersection_stable
++
++@pytest.mark.parametrize('reverse',[False,True])
++def test_segmento_uv_cruza_nudo_y_conserva_toda_la_curva(reverse):
++ from tramos_barridos import segmento
++ surface=Geom_SurfaceOfLinearExtrusion(profile(),gp_Dir(0,1,0));a=np.array([.12,-2.]);b=np.array([1.8,5.])
++ if reverse:a,b=b,a
++ curve=segmento(surface,a,b);lo,hi=curve.FirstParameter(),curve.LastParameter()
++ for t in np.linspace(0,1,257):
++  uv=a+(b-a)*t
++  assert curve.Value(float(lo+(hi-lo)*t)).Distance(surface.Value(*map(float,uv)))<1e-11
++
++@pytest.mark.parametrize('reverse',[False,True])
++def test_corte_oblicuo_exacto_conserva_pcurva_y_nudos(reverse):
++ from curvas_barridas import interseccion_afine
++ from pcurvas_compartidas import _error
++ from geometria_medida import UV_KNOWN
++ surface=Geom_SurfaceOfLinearExtrusion(profile(),gp_Dir(0,1,0));normal=np.array([.3,1.,.2]);normal/=np.linalg.norm(normal);q=np.array([0.,.7,0.]);plane=Geom_Plane(gp_Pln(gp_Pnt(*q),gp_Dir(*normal)))
++ points=[]
++ for u in np.linspace(.1,1.9,37):
++  p=np.array(profile().Value(float(u)).Coord());points.append(p+np.array([0,1,0])*((q-p)@normal/normal[1]))
++ points=np.array(points)
++ if reverse:points=points[::-1]
++ curve,lo,hi=interseccion_afine(surface,plane,points,.012,False)
++ assert _error(curve,UV_KNOWN[id(curve),id(surface)],surface,lo,hi)<5e-8
++ assert np.linalg.norm(np.array(curve.Value(lo).Coord())-points[0])<1e-9
++ for t in np.linspace(lo,hi,257):assert abs((np.array(curve.Value(float(t)).Coord())-q)@normal)<1e-10
++
++@pytest.mark.parametrize('sections,accepted',[(6,False),(12,False),(96,True)])
++def test_cilindro_certifica_interior_de_facetas_y_veta_poligonos(sections,accepted):
++ from extension_cilindros import propuestas
++ mesh=trimesh.creation.cylinder(radius=2,height=3,sections=sections)
++ side=np.flatnonzero(abs(mesh.face_normals[:,2])<.1);points=mesh.vertices[np.unique(mesh.faces[side])]
++ req=dict(eje=np.array([0.,0.,1.]),centro=np.zeros(3),radio=2.,puntos=points,max_entrada_mm=0.)
++ result=propuestas(mesh,[req]);ids=result[0][0]
++ assert (len(ids)==len(side))==accepted
++ if not accepted:assert len(ids)==0
++ assert all(abs(mesh.face_normals[ids,2])<.1)
++
++@pytest.mark.parametrize('code,ok',[(0,True),(2,False)])
++def test_resultados_no_aptos_se_conservan_y_errores_no_invocan_mejora(tmp_path,monkeypatch,capsys,code,ok):
++ import motor_v2,reconstruccion_medida as measured
++ source=tmp_path/'una.stl';source.write_bytes(trimesh.creation.box().export(file_type='stl'));destination=tmp_path/'modelo.step';destination.write_bytes(b'RESULTADO ANTERIOR');monkeypatch.setattr(sys,'argv',['motor',str(source),str(destination)])
++ calls=[]
++ def main():print(json.dumps({'ok':ok,'resultado':{'calidad':{'caras_step':6}}}));return code
++ def reject(*a,**k):calls.append(True);raise OSError('Fallo aislado simulado')
++ monkeypatch.setattr(measured,'intentar_refinar',reject)
++ assert measured.ejecutar_principal(main,motor_v2._SalidaCad,None)==code
++ payload=json.loads(capsys.readouterr().out.splitlines()[-1]);assert payload['ok']==ok
++ assert destination.read_bytes()==b'RESULTADO ANTERIOR' and len(calls)==int(ok)
++
++@pytest.mark.parametrize('route',['entrada','base','informe'])
++def test_trabajador_no_puede_sobrescribir_entrada_o_base(tmp_path,route):
++ from reconstruccion_medida import trabajador
++ source=tmp_path/'origen.stl';base=tmp_path/'previo.step';report=tmp_path/'reporte.json';source.write_bytes(b'STL INTACTO');base.write_bytes(b'STEP INTACTO')
++ destination={'entrada':source,'base':base,'informe':report}[route]
++ with pytest.raises(ValueError,match='distintas'):trabajador(source,base,destination,report)
++ assert source.read_bytes()==b'STL INTACTO' and base.read_bytes()==b'STEP INTACTO'
++
++def test_geometria_de_perfil_no_depende_del_nombre(tmp_path):
++ from reconstruccion_medida import exigir_elegible
++ import cadquery as cq
++ with pytest.raises(ValueError,match='compacta'):exigir_elegible(cq.Workplane('XY').box(1,2,3).val())
++
++@pytest.mark.parametrize('reverse',[False,True])
++def test_agujero_cruza_perfil_sin_exigir_parametro_monotono(reverse):
++ from curvas_barridas import interseccion_angular
++ from geometria_medida import UV_KNOWN
++ from pcurvas_compartidas import _error
++ from OCP.Geom import Geom_CylindricalSurface
++ from OCP.gp import gp_Ax3
++ from scipy.optimize import brentq
++ surface=Geom_SurfaceOfLinearExtrusion(profile(),gp_Dir(0,1,0));cylinder=Geom_CylindricalSurface(gp_Ax3(gp_Pnt(1,0,0),gp_Dir(0,0,1)),.8);points=[]
++ for theta in np.linspace(-2,2,79):
++  p=np.array(cylinder.Value(float(theta),0.).Coord());u=brentq(lambda u:profile().Value(u).X()-p[0],0,2);p[2]=profile().Value(u).Z();points.append(p)
++ points=np.array(points)
++ if reverse:points=points[::-1]
++ curve,lo,hi=interseccion_angular(surface,cylinder,points,.012,False)
++ assert _error(curve,UV_KNOWN[id(curve),id(cylinder)],cylinder,lo,hi)<5e-8
++ for t in np.linspace(lo,hi,257):
++  p=np.array(curve.Value(float(t)).Coord());assert abs(np.hypot(p[0]-1,p[1])-.8)<2e-8
++ assert np.linalg.norm(np.array(curve.Value(lo).Coord())-points[0])<2e-7
++
++@pytest.mark.parametrize('failure',['worker_failure','timeout','bad_source_sha','bad_base_sha','bad_step_sha','parent_validation','base_changed'])
++def test_fallo_aislado_no_publica_candidato(tmp_path,monkeypatch,failure):
++ import reconstruccion_medida as module,calidad_topologica,control_recursos,cadquery as cq
++ source=tmp_path/'original.stl';source.write_bytes(b'original');base=tmp_path/'previo.step';base.write_bytes(b'previo validado');previous=base.read_bytes();mesh=trimesh.creation.box();shape=cq.Workplane('XY').box(1,2,3).val()
++ monkeypatch.setattr(calidad_topologica,'leer_solido_step_estricto',lambda p:shape);monkeypatch.setattr(module,'exigir_elegible',lambda s:None)
++ counts=iter([1000,100]);monkeypatch.setattr(module,'inventario',lambda shape:{'caras':next(counts),'cilindros':2})
++ module._RECHAZOS_TRABAJADOR.clear()
++ class Process:
++  def __init__(self,args,**kwargs):self.args=args;self.returncode=2 if failure=='worker_failure' else 0
++  def __enter__(self):return self
++  def __exit__(self,*a):pass
++ monkeypatch.setattr(module.subprocess,'Popen',Process)
++ def communicate(proc,*args):
++  if failure=='timeout':raise control_recursos.LimiteRecursos('Tiempo agotado simulado')
++  candidate,report=map(Path,proc.args[-2:]);candidate.write_bytes(b'propuesta sin validar')
++  record={'ok':True,'base_sha256':module._sha(base),'original_sha256':module._sha(source),'step_sha256':module._sha(candidate)}
++  for kind,field in [('bad_source_sha','original_sha256'),('bad_base_sha','base_sha256'),('bad_step_sha','step_sha256')]:
++   if failure==kind:record[field]='0'*64
++  if failure=='base_changed':base.write_bytes(b'cambio externo no sobreescribir')
++  report.write_text(json.dumps(record));return '',None,1.
++ monkeypatch.setattr(control_recursos,'comunicar_vigilado',communicate)
++ def reject(*a):raise ValueError('Validación del padre rechazada')
++ with pytest.raises((ValueError,RuntimeError)):module.intentar_refinar(source,base,mesh,reject,io.StringIO())
++ assert base.read_bytes()==(b'cambio externo no sobreescribir' if failure=='base_changed' else previous)
++ assert source.read_bytes()==b'original'
++
++def test_planos_compartidos_se_concilian_con_cota_en_todos_los_triangulos():
++ from planos_medidos import proponer,conciliar
++ from OCP.Geom import Geom_CylindricalSurface
++ from OCP.gp import gp_Ax3
++ import meshfit_brep
++ mesh=trimesh.creation.box(extents=[2,3,4]);normals=mesh.face_normals.copy();labels=np.argmax(abs(normals),axis=1)*2+(normals.sum(1)>0);surfaces={}
++ # Ruido de vértices de fuente: dos triángulos ya no definen un plano exacto.
++ rng=np.random.default_rng(718);mesh.vertices+=rng.uniform(-3e-5,3e-5,size=mesh.vertices.shape)
++ for r,ids in meshfit_brep._groups(labels).items():surfaces[r]=meshfit_brep._facet_surface(mesh,int(ids[0]))
++ labels,surfaces,proof=proponer(mesh,labels,surfaces)
++ surfaces[-1]=Geom_CylindricalSurface(gp_Ax3(gp_Pnt(),gp_Dir(0,0,1)),1.);surfaces[-2]=Geom_SurfaceOfLinearExtrusion(profile(),gp_Dir(0,1,0))
++ result=conciliar(mesh,labels,surfaces)
++ for r,ids in meshfit_brep._groups(labels).items():
++  s=result[r];n=np.array(s.Axis().Direction().Coord());q=np.array(s.Location().Coord());P=mesh.vertices[mesh.faces[ids]]
++  assert abs((P-q)@n).max()<=1e-4
++
++@pytest.mark.parametrize('deviation',[0.,.0002])
++def test_subdivision_cierra_ambos_lados_sin_uniones_en_t(deviation):
++ from refinamiento_contorno import dividir
++ mesh=trimesh.creation.box();original=mesh.vertices.copy();a,b=map(int,mesh.edges_unique[0]);A,B=mesh.vertices[[a,b]];points=[A*.75+B*.25+np.array([0,0,deviation]),A*.25+B*.75];labels=np.arange(len(mesh.faces))
++ result,new_labels,record=dividir(mesh,labels,(a,b),points)
++ assert result.is_watertight and result.is_winding_consistent and result.euler_number==mesh.euler_number
++ assert len(result.faces)==len(mesh.faces)+4 and len(new_labels)==len(result.faces)
++ assert np.array_equal(mesh.vertices,original)
++
++def test_subdivision_fuera_de_cota_no_cambia_entrada():
++ from refinamiento_contorno import dividir
++ mesh=trimesh.creation.box();labels=np.arange(len(mesh.faces));a,b=map(int,mesh.edges_unique[0]);point=mesh.vertices[[a,b]].mean(0)+np.array([.1,.2,.3]);original=mesh.vertices.copy()
++ with pytest.raises(ValueError,match='acotada'):dividir(mesh,labels,(a,b),[point])
++ assert np.array_equal(mesh.vertices,original)
++
++def test_prioridad_planos_no_aplana_curva_fuera_de_cota():
++ from extension_planos import propuestas
++ import meshfit_brep as base
++ mesh=trimesh.creation.box(extents=[1,2,3]);n=np.array([1.,0.,0.]);plane_ids=np.flatnonzero(np.all(abs(mesh.triangles[:,:,0]-.5)<1e-12,axis=1));result={'primitives':[{'type':'plane','normal':n,'point':np.array([.5,0,0]),'faces':plane_ids}]}
++ extras=propuestas(result,mesh)
++ assert len(extras)==1 and set(extras[0][0])==set(plane_ids)
++ moved=mesh.copy();v=int(moved.faces[plane_ids[0],0]);moved.vertices[v,0]+=.001
++ extra=propuestas(result,moved)
++ assert all(v not in moved.faces[i] for ids,s in extra for i in ids)
++
++def test_guia_recortada_recupera_perfil_completo_desde_el_stl():
++ from OCP.Geom import Geom_Ellipse
++ from OCP.gp import gp_Ax2
++ from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
++ import cadquery as cq
++ from barridos_medidos import ajustar
++ ellipse=Geom_Ellipse(gp_Ax2(gp_Pnt(),gp_Dir(0,-1,0),gp_Dir(1,0,0)),2.,1.);surface=Geom_SurfaceOfLinearExtrusion(ellipse,gp_Dir(0,1,0));guide=cq.Face(BRepBuilderAPI_MakeFace(surface,.35,1.05,-2.5,2.5,1e-7).Face())
++ theta=np.linspace(0,np.pi/2,33);curve=np.array([ellipse.Value(float(t)).Coord() for t in theta]);cross=np.vstack((np.zeros(3),curve));n=len(cross);vertices=np.vstack((cross+np.array([0,-2.5,0]),cross+np.array([0,2.5,0])));faces=[];side=[]
++ for i in range(1,n-1):
++  side.extend([len(faces),len(faces)+1]);faces.extend([[i,i+1,i+n],[i+1,i+1+n,i+n]])
++ for a,b in [(0,1),(n-1,0)]:faces.extend([[a,b,a+n],[b,b+n,a+n]])
++ for i in range(1,n-1):faces.extend([[0,i,i+1],[n,i+1+n,i+n]])
++ mesh=trimesh.Trimesh(vertices,np.array(faces),process=False);mesh.fix_normals();assert mesh.is_watertight
++ excluded=np.setdiff1d(np.arange(len(mesh.faces)),side);new,ids,proof=ajustar(guide,surface,mesh,[np.array([0.,1.,0.])],excluded,source_ids=np.array(side))
++ assert set(ids)==set(side)
++ assert proof['max_testigos_mm']<=.003 and proof['max_curva_polilinea_mm']<=.003
++
++def line_profile(points):
++ from OCP.TColgp import TColgp_Array1OfPnt
++ from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++ P=TColgp_Array1OfPnt(1,4)
++ for i,p in enumerate(points,1):P.SetValue(i,gp_Pnt(*p))
++ K=TColStd_Array1OfReal(1,2);M=TColStd_Array1OfInteger(1,2)
++ for i,t in enumerate((0.,1.),1):K.SetValue(i,t);M.SetValue(i,4)
++ return Geom_BSplineCurve(P,K,M,3,False)
++
++def test_barridos_paralelos_comparten_generatriz_y_ambas_pcurvas():
++ from curvas_barridas import interseccion_barridos_paralelos
++ from geometria_medida import UV_KNOWN
++ from pcurvas_compartidas import _error
++ ca=line_profile([(-1,0,-1),(-1/3,0,-1/3),(1/3,0,1/3),(1,0,1)]);cb=line_profile([(-1,5,1),(-1/3,5,1/3),(1/3,5,-1/3),(1,5,-1)])
++ A=Geom_SurfaceOfLinearExtrusion(ca,gp_Dir(0,1,0));B=Geom_SurfaceOfLinearExtrusion(cb,gp_Dir(0,1,0));points=np.array([[0.,y,0.] for y in np.linspace(-2,3,11)]);curve,lo,hi=interseccion_barridos_paralelos(A,B,points,.012,False)
++ for surface in (A,B):assert _error(curve,UV_KNOWN[id(curve),id(surface)],surface,lo,hi)<5e-8
++ assert np.linalg.norm(np.array(curve.Value(lo).Coord())-points[0])<1e-9
++
++def test_dos_perfiles_cruzados_conservan_la_misma_curva_espacial():
++ from curvas_barridas import interseccion_barridos_cruzados
++ from geometria_medida import UV_KNOWN
++ from pcurvas_compartidas import _error
++ ca=line_profile([(-1,0,1),(-1/3,0,-1/3),(1/3,0,-1/3),(1,0,1)]);cb=line_profile([(-1,.5,0),(-1/3,-1/6,0),(1/3,-1/6,0),(1,.5,0)])
++ A=Geom_SurfaceOfLinearExtrusion(ca,gp_Dir(0,1,0));B=Geom_SurfaceOfLinearExtrusion(cb,gp_Dir(0,0,1));points=np.array([[x,x*x/2,x*x] for x in np.linspace(-.8,.8,19)]);curve,lo,hi=interseccion_barridos_cruzados(A,B,points,.012,False)
++ for surface in (A,B):assert _error(curve,UV_KNOWN[id(curve),id(surface)],surface,lo,hi)<5e-8
++ for t in np.linspace(lo,hi,129):
++  p=np.array(curve.Value(float(t)).Coord());assert abs(p[1]-p[0]**2/2)<5e-8 and abs(p[2]-p[0]**2)<5e-8
+--- /dev/null
++++ R11/motor_superficies/barridos_medidos.py
+@@ -0,0 +1,188 @@
++"""Reconocer perfiles extruidos desde testigos conectados del STL."""
++import numpy as np
++from scipy.spatial import cKDTree,distance_matrix
++from scipy.sparse.csgraph import minimum_spanning_tree,dijkstra
++from scipy.interpolate import make_interp_spline,BSpline
++from OCP.BRep import BRep_Tool
++from OCP.BRepClass import BRepClass_FaceClassifier
++from OCP.TopAbs import TopAbs_IN,TopAbs_ON
++from OCP.Geom import Geom_BSplineSurface,Geom_CylindricalSurface,Geom_SurfaceOfLinearExtrusion,Geom_BSplineCurve
++from OCP.gp import gp_Pnt,gp_Pnt2d,gp_Dir
++import meshfit_brep as base
++
++def curva_ocp(spline,q,basis):
++ from OCP.TColgp import TColgp_Array1OfPnt
++ from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++ poles=TColgp_Array1OfPnt(1,len(spline.c));knots,mults=np.unique(spline.t,return_counts=True);K=TColStd_Array1OfReal(1,len(knots));M=TColStd_Array1OfInteger(1,len(knots))
++ for j,p in enumerate(spline.c,1):poles.SetValue(j,gp_Pnt(*map(float,q+basis@p)))
++ for j,(k,m) in enumerate(zip(knots,mults),1):K.SetValue(j,float(k));M.SetValue(j,int(m))
++ return Geom_BSplineCurve(poles,K,M,3,False)
++
++def ajustar(face,surf,mesh,axes,excluidos=(),ajuste_perfil=.0003,source_ids=None):
++ if source_ids is None:
++  pr=base._Proj(surf);C=mesh.triangles_center;bb=face.BoundingBox();mask=np.all((C>=[bb.xmin-.03,bb.ymin-.03,bb.zmin-.03])&(C<=[bb.xmax+.03,bb.ymax+.03,bb.zmax+.03]),axis=1);ids=np.flatnonzero(mask);P=C[ids];dist=np.linalg.norm(P-pr.batch(P),axis=1);normals=np.array([pr.normal(p) for p in P]);ndot=np.abs(np.sum(normals*mesh.face_normals[ids],axis=1));ids=ids[(dist<.04)&(ndot>.9)]
++  inside=[]
++  for k in ids:
++   _,uv=pr(C[k]);inside.append(uv is not None and BRepClass_FaceClassifier(face.wrapped,gp_Pnt2d(*map(float,uv)),1e-7).State() in (TopAbs_IN,TopAbs_ON))
++  ids=ids[np.array(inside,bool)]
++  if len(excluidos):ids=ids[~np.isin(ids,excluidos)]
++ else:ids=np.asarray(source_ids,dtype=int).copy()
++ if len(ids)<12:raise ValueError('Apoyo insuficiente para un barrido')
++ for _ in range(3):
++  N=mesh.face_normals[ids];weights=mesh.area_faces[ids];values,vectors=np.linalg.eigh((N.T*weights)@N);a=vectors[:,0];good=abs(N@a)<.005
++  if good.all():break
++  ids=ids[good]
++  if len(ids)<12:raise ValueError('No se confirma una dirección de extrusión')
++ candidates=[candidate for candidate in axes if abs(a@candidate)>.999999 and np.max(abs(mesh.face_normals[ids]@candidate))<.005]
++ if candidates:
++  N=mesh.face_normals[ids];weights=mesh.area_faces[ids]
++  a=np.array(min(candidates,key=lambda candidate:float(np.average((N@candidate)**2,weights=weights))),float)
++ if a[np.argmax(abs(a))]<0:a=-a
++ N=mesh.face_normals[ids];weights=mesh.area_faces[ids]
++ if weights.sum()<(.1 if face is None or len(excluidos) else .5*face.Area()):raise ValueError('Cobertura insuficiente del barrido')
++ helper=np.eye(3)[np.argmin(abs(a))];e=np.cross(a,helper);e/=np.linalg.norm(e);f=np.cross(a,e);basis=np.column_stack([e,f]);V=mesh.vertices[np.unique(mesh.faces[ids])];q=V.mean(0);uv=(V-q)@basis
++ if len(uv)>5000:raise ValueError('Demasiados testigos para un perfil medido acotado')
++ parent=np.arange(len(uv))
++ def root(j):
++  while parent[j]!=j:parent[j]=parent[parent[j]];j=parent[j]
++  return j
++ for x,y in cKDTree(uv).query_pairs(5e-5):parent[root(y)]=root(x)
++ owner=np.array([root(j) for j in range(len(uv))]);unique=np.unique(owner);points=np.array([uv[owner==j].mean(0) for j in unique])
++ if len(points)>1800:raise ValueError('El perfil supera el presupuesto de 1800 nodos')
++ graph=minimum_spanning_tree(distance_matrix(points,points));graph=graph+graph.T;d=dijkstra(graph,indices=0);start=int(np.argmax(d));d,prev=dijkstra(graph,indices=start,return_predecessors=True);end=int(np.argmax(d));path=[end]
++ while path[-1]!=start:path.append(int(prev[path[-1]]))
++ profile=points[path[::-1]]
++ if cKDTree(profile).query(points)[0].max()>.003:raise ValueError('El perfil tiene ramas o testigos incompatibles')
++ lengths=np.r_[0.,np.cumsum(np.linalg.norm(np.diff(profile,axis=0),axis=1))]
++ step=min(.02,float(lengths[-1])/60.)
++ t=np.linspace(0.,lengths[-1],min(1500,max(61,int(np.ceil(lengths[-1]/step))+1)))
++ P=np.column_stack([np.interp(t,lengths,profile[:,j]) for j in range(2)])
++ spline=None
++ def solve(interior):
++  knots=np.r_[[t[0]]*4,interior,[t[-1]]*4]
++  design=BSpline.design_matrix(t,knots,3).toarray();coefficients=np.empty((design.shape[1],2));coefficients[0]=P[0];coefficients[-1]=P[-1]
++  coefficients[1:-1]=np.linalg.lstsq(design[:,1:-1],P-design[:,[0]]*P[0]-design[:,[-1]]*P[-1],rcond=None)[0]
++  candidate=BSpline(knots,coefficients,3);return candidate,np.linalg.norm(candidate(t)-P,axis=1)
++ for spans in (1,2,4,8,16,32,64,128,256):
++  if spans+3>=len(t):break
++  candidate,error=solve(np.linspace(t[0],t[-1],spans+1)[1:-1])
++  if error.max()<=ajuste_perfil:spline=candidate;break
++ if spline is None or len(spline.c)>64:
++  interior=[]
++  for iteration in range(180):
++   candidate,error=solve(interior)
++   if error.max()<=ajuste_perfil:
++    if spline is None or len(candidate.c)<len(spline.c):spline=candidate
++    break
++   choices=np.argsort(-error);selected=None
++   for j in choices:
++    if 0<j<len(t)-1 and all(abs(t[j]-k)>max(1e-8,(t[-1]-t[0])*1e-8) for k in interior):selected=float(t[j]);break
++   if selected is None:break
++   interior=sorted([*interior,selected])
++ if spline is None:spline=make_interp_spline(t,P,k=3)
++ print('PERFIL SUAVE',len(spline.c),'polos',flush=True)
++ ts=np.linspace(t[0],t[-1],12001);grid=spline(ts);upper=cKDTree(grid).query(uv)[0].max()
++ if upper>.003:raise ValueError(f'El barrido no conserva los testigos: {upper}')
++ # Cota inversa: la curva tampoco puede salir de la polilínea fuente.
++ maximum=0.;A=profile[:-1];D=np.diff(profile,axis=0);den=np.sum(D*D,axis=1)
++ for first in range(0,len(grid),256):
++  G=grid[first:first+256];delta=G[:,None,:]-A[None,:,:];u=np.clip(np.sum(delta*D[None,:,:],axis=2)/den,0,1);distance=np.linalg.norm(delta-u[:,:,None]*D[None,:,:],axis=2).min(axis=1);maximum=max(maximum,float(distance.max()))
++ if maximum>.003:raise ValueError(f'El barrido oscila fuera de la fuente: {maximum}')
++ curve=curva_ocp(spline,q,basis)
++ # Prolongación sólo para calcular encuentros; se verifica el STEP completo.
++ from geometria_medida import extend_profile
++ curve=extend_profile(curve)
++ surface=Geom_SurfaceOfLinearExtrusion(curve,gp_Dir(*map(float,a)))
++ return surface,ids,dict(eje=a.tolist(),vertices_fuente=len(V),max_testigos_mm=float(upper),max_curva_polilinea_mm=maximum,area_fuente=float(weights.sum()))
++
++def propuestas(faces,surfaces,mesh,required,planos_protegidos=(),ajuste_perfil=.0003):
++ excluidos=np.unique(np.concatenate([ids for ids,s in planos_protegidos])) if planos_protegidos else np.array([],int)
++ records=[];extras=[];out=list(surfaces);raw_axes=[np.array(r['eje']) for r in required];axes=[]
++ for a in raw_axes:
++  if any(abs(a@b)>.999999 for b in axes):continue
++  near=[b for b in raw_axes if abs(a@b)>.999999];representative=max(near,key=lambda b:sum(abs(b@c)>1.-1e-14 for c in near));axes.append(representative)
++ for i,s in enumerate(surfaces):
++  if not isinstance(s,(Geom_BSplineSurface,Geom_CylindricalSurface)):continue
++  if isinstance(s,Geom_CylindricalSurface) and any(abs(s.Radius()-r['radio'])<.008 and abs(np.array(s.Axis().Direction().Coord())@r['eje'])>.99999 and np.linalg.norm(np.cross(np.array(s.Location().Coord())-r['centro'],r['eje']))<.008 for r in required):continue
++  try:new,ids,proof=ajustar(faces[i],s,mesh,axes,excluidos,ajuste_perfil)
++  except Exception as e:print('BARRIDO DESCARTADO',i,str(e),flush=True);continue
++  original_ids=ids.copy();pr=base._Proj(new);roi=mesh.vertices[np.unique(mesh.faces[ids])];centers=mesh.triangles_center;axis=np.array(new.Direction().Coord());projected_roi=roi-np.outer(roi@axis,axis);projected_centers=centers-np.outer(centers@axis,axis);candidate=np.flatnonzero(np.all((projected_centers>=projected_roi.min(0)-.005)&(projected_centers<=projected_roi.max(0)+.005),axis=1));test=np.concatenate([mesh.triangles[candidate],mesh.triangles_center[candidate,None,:]],axis=1);distance=np.linalg.norm(pr.batch(test.reshape(-1,3))-test.reshape(-1,3),axis=1).reshape(-1,4).max(1);candidate=candidate[(distance<.003)&~np.isin(candidate,excluidos)]
++  if len(candidate):
++   normals=np.array([pr.normal(p) for p in mesh.triangles_center[candidate]]);candidate=candidate[abs(np.sum(normals*mesh.face_normals[candidate],axis=1))>.995]
++  allowed=set(map(int,np.r_[ids,candidate]));keep=set(map(int,ids));adj=mesh.face_adjacency
++  for _ in range(20):
++   added={int(b) for a,b in np.r_[adj,adj[:,::-1]] if int(a) in keep and int(b) in allowed};newkeep=keep|added
++   if len(newkeep)==len(keep):break
++   keep=newkeep
++  ids=np.array(sorted(keep));proof['triangulos_ampliados']=len(ids)-len(original_ids)
++  out[i]=new;extras.append((ids,new));records.append(dict(cara=i,**proof));print('BARRIDO MEDIDO',i,proof,flush=True)
++ # Compartir las direcciones medidas antes de conciliar sus planos vecinos.
++ measured=[(np.array(s.Direction().Coord()),float(mesh.area_faces[ids].sum())) for ids,s in extras]
++ families=[]
++ for a,w in sorted(measured,key=lambda item:-sum(abs(item[0]@other)>.999999 for other,weight in measured)):
++  if any(abs(a@b)>.999999 for b in families):continue
++  near=[(b,weight) for b,weight in measured if abs(a@b)>.999999];best=max(near,key=lambda item:(sum(abs(item[0]@other)>1-1e-14 for other,weight in near),item[1]))[0].copy()
++  constraints=np.array([b for b in families if abs(best@b)<1e-4])
++  if len(constraints):
++   _,sv,vh=np.linalg.svd(constraints,full_matrices=True);rank=int((sv>1e-5).sum());best-=vh[:rank].T@(vh[:rank]@best);best/=np.linalg.norm(best)
++  families.append(best)
++ for j,((ids,surface),record) in enumerate(zip(extras,records)):
++  old_axis=np.array(surface.Direction().Coord());axis=max(families,key=lambda a:abs(a@old_axis));axis=axis if axis@old_axis>0 else -axis
++  if np.linalg.norm(axis-old_axis)<1e-14:continue
++  curve=surface.BasisCurve().Copy();origin=np.array(curve.Value(curve.FirstParameter()).Coord())
++  for k in range(1,curve.NbPoles()+1):
++   p=np.array(curve.Pole(k).Coord());p-=axis*((p-origin)@axis);curve.SetPole(k,gp_Pnt(*map(float,p)))
++  candidate=Geom_SurfaceOfLinearExtrusion(curve,gp_Dir(*map(float,axis)));P=mesh.vertices[np.unique(mesh.faces[ids])];error=float(np.linalg.norm(base._Proj(candidate).batch(P)-P,axis=1).max())
++  if error>.003:raise ValueError('La dirección compartida no conserva el perfil fuente')
++  out[record['cara']]=candidate;extras[j]=(ids,candidate);record['eje']=axis.tolist();record['direccion_compartida_max_fuente_mm']=error
++ return out,extras,records
++
++def restos_fuente(result,mesh,extras,required):
++ """Medir los perfiles que quedaron fuera de la guía CAD provisional."""
++ labels,surfaces=base._region_surfaces(result,mesh,.006,.003,extra=extras)
++ groups=base._groups(labels);known=len(extras);additional=[];records=[]
++ axes=[np.array(s.Direction().Coord()) for ids,s in extras if isinstance(s,Geom_SurfaceOfLinearExtrusion)]
++ axes.extend(np.array(r['eje']) for r in required)
++ for region,ids in groups.items():
++  surface=surfaces[region]
++  if not isinstance(surface,Geom_BSplineSurface) or len(ids)<12:continue
++  try:
++   new,indices,proof=ajustar(None,surface,mesh,axes,source_ids=ids)
++   P=np.concatenate([mesh.vertices[mesh.faces[indices]],mesh.triangles_center[indices,None,:]],axis=1)
++   error=np.linalg.norm(base._Proj(new).batch(P.reshape(-1,3))-P.reshape(-1,3),axis=1).reshape(-1,4).max(1)
++   indices=indices[error<=.003]
++   if len(indices)<12:raise ValueError('Falta apoyo de triángulos completos')
++   additional.append((indices,new));records.append(dict(tipo='resto_medido_desde_fuente',triangulos=len(indices),max_triangulos_mm=float(error[error<=.003].max()),**proof));print('RESTO FUENTE MEDIDO',records[-1],flush=True)
++  except Exception as exc:print('RESTO FUENTE DESCARTADO',region,str(exc),flush=True)
++ return additional,records
++
++def fusionar_continuaciones(mesh,extras):
++ """Un corte oblicuo entre perfiles del mismo barrido no es una generatriz.
++
++ Reunir su fuente y volver a medir UNA curva, sólo con apoyo de triángulos
++ completos y una unión suave. No se tocan planos ni cilindros protegidos.
++ """
++ out=list(extras);proof=[]
++ for iteration in range(16):
++  owner=np.full(len(mesh.faces),-1,int)
++  for i,(ids,s) in enumerate(out):
++   ids=np.asarray(ids,int);owner[ids[owner[ids]<0]]=i
++  adj=mesh.face_adjacency;pairs={tuple(sorted(map(int,p))) for p in owner[adj] if p[0]>=0 and p[1]>=0 and p[0]!=p[1]};merged=False
++  for i,j in sorted(pairs):
++   sa,sb=out[i][1],out[j][1]
++   if not all(isinstance(s,Geom_SurfaceOfLinearExtrusion) for s in (sa,sb)):continue
++   axis=np.array(sa.Direction().Coord());other=np.array(sb.Direction().Coord())
++   if np.linalg.norm(np.cross(axis,other))>1e-8:continue
++   mask=((owner[adj[:,0]]==i)&(owner[adj[:,1]]==j))|((owner[adj[:,0]]==j)&(owner[adj[:,1]]==i));links=np.flatnonzero(mask);edges=mesh.face_adjacency_edges[links];D=mesh.vertices[edges[:,1]]-mesh.vertices[edges[:,0]];length=np.linalg.norm(D,axis=1);transverse=np.linalg.norm(np.cross(D,axis),axis=1)
++   if not np.any((length>.1)&(transverse>5e-5)):continue
++   normals=np.sum(mesh.face_normals[adj[links,0]]*mesh.face_normals[adj[links,1]],axis=1)
++   if np.sum(length[normals>np.cos(np.radians(15))])<.9*np.sum(length):continue
++   ids=np.flatnonzero((owner==i)|(owner==j))
++   try:
++    new,ids,record=ajustar(None,None,mesh,[axis],source_ids=ids)
++    P=np.concatenate([mesh.vertices[mesh.faces[ids]],mesh.triangles_center[ids,None,:]],axis=1);error=float(np.linalg.norm(base._Proj(new).batch(P.reshape(-1,3))-P.reshape(-1,3),axis=1).max())
++    if error>.003:raise ValueError('La unión no conserva los triángulos completos')
++   except Exception as exc:print('CONTINUACION DESCARTADA',str(exc),flush=True);continue
++   record.update(tipo='continuacion_de_barrido_fuente',triangulos=len(ids),max_triangulos_mm=error);proof.append(record);out[i]=(ids,new);out.pop(j);merged=True;print('CONTINUACION FUENTE REUNIDA',record,flush=True);break
++  if not merged:break
++ return out,proof
+--- R10/motor_superficies/meshfit_brep.py
++++ R11/motor_superficies/meshfit_brep.py
+@@ -1980,7 +1980,7 @@
+ def build_solid(result, mesh, verbose=True, max_rounds=5, extra_regions=None, organic="auto",
+                 organic_smooth=0.0, ajuste_ia=False, precision_reparacion=False,
+                 preservar_contactos=False, cavidades_verificadas=False, refinar_curvas=False,
+-                contornos_compartidos=False):
++                contornos_compartidos=False, constructor_medidos=None):
+     """Devuelve (shape, info). shape = sólido si se cierra; si no, el shell arreglado.
+     info: dict con 'solid', 'valid', 'free_edges', 'faces', 'volume', 'round'.
+     `organic`: "auto" (decide `meshfit_organic.looks_organic`), True o False. Una pieza
+@@ -2182,7 +2182,7 @@
+                 from contornos_compatibles import construir
+                 from fijacion_contornos import completar_vertices_singulares
+                 import cadquery as cq
+-                shell,faces=construir(mesh,labels,comp_surf,edge_tol,max_move=movement,smooth_len=smooth_len,
++                shell,faces=(constructor_medidos or construir)(mesh,labels,comp_surf,edge_tol,max_move=movement,smooth_len=smooth_len,
+                                      parches_regulares=True,triangulos_libres=True)
+                 shell,_=completar_vertices_singulares(shell)
+                 updated=cq.Shape.cast(shell).Faces()
+@@ -2207,7 +2207,8 @@
+         fix.Perform()
+         fixed = fix.Shape()
+         _tf = _time.time() - _t1 - _tb
+-        fixed, nfw = _fix_wire_intersections(fixed, 1e-7 if contornos_compartidos else tol)
++        if constructor_medidos is not None and BRepCheck_Analyzer(fixed,True,False,True).IsValid():nfw=0
++        else:fixed, nfw = _fix_wire_intersections(fixed, 1e-7 if contornos_compartidos else tol)
+         if verbose and nfw:
+             print(f"     · {nfw} contorno(s) que se cruzaban, reparado(s)")
+         ctx = fix.Context()
+--- /dev/null
++++ R11/motor_superficies/extension_planos.py
+@@ -0,0 +1,17 @@
++"""Prioridad a planos fuente certificados antes de medir perfiles curvos."""
++import numpy as np
++from OCP.Geom import Geom_Plane
++
++def propuestas(result,mesh,limite=1e-4):
++ import meshfit_brep as base
++ out=[]
++ for prim in result['primitives']:
++  if prim['type']!='plane':continue
++  surface=base._prim_surface(prim)
++  if not isinstance(surface,Geom_Plane):continue
++  n=np.array(surface.Axis().Direction().Coord());q=np.array(surface.Location().Coord());D=abs((mesh.vertices-q)@n);error=D[mesh.faces].max(1);mask=(error<=limite)&(abs(mesh.face_normals@n)>.9999);ids=np.flatnonzero(mask)
++  if len(ids)<2 or mesh.area_faces[ids].sum()<.1:continue
++  out.append((ids,surface))
++ out.sort(key=lambda item:-float(mesh.area_faces[item[0]].sum()))
++ print('PLANOS FUENTE PROTEGIDOS',len(out),'triangulos',len(np.unique(np.concatenate([ids for ids,s in out]))) if out else 0,flush=True)
++ return out
+--- /dev/null
++++ R11/motor_superficies/geometria_medida.py
+@@ -0,0 +1,545 @@
++"""Geometría de perfiles medidos en un trabajador aislado.
++
++Reconstruye las mismas superficies y sus aristas comunes, conservando primero
++las estrategias aprobadas R9. Rechaza superficies libres; no las faceta.
++Toda propuesta requiere lectura fría, geometría, material y tres mallados.
++No cambia los umbrales de aceptación del Visor.
++"""
++from pathlib import Path
++import sys, math, json, time, collections, os
++import numpy as np, cadquery as cq
++from scipy.optimize import least_squares
++from OCP.BRep import BRep_Builder, BRep_Tool
++from OCP.BRepAdaptor import BRepAdaptor_Curve, BRepAdaptor_Surface
++from OCP.BRepTools import BRepTools_WireExplorer
++from OCP.TopoDS import TopoDS, TopoDS_Edge, TopoDS_Vertex, TopoDS_Face, TopoDS_Wire, TopoDS_Shell
++from OCP.TopAbs import TopAbs_FORWARD, TopAbs_REVERSED
++from OCP.TopExp import TopExp
++from OCP.TopTools import TopTools_IndexedMapOfShape
++from OCP.Geom import Geom_Plane, Geom_CylindricalSurface, Geom_TrimmedCurve, Geom_SurfaceOfRevolution, Geom_BSplineSurface, Geom_ToroidalSurface, Geom_Circle, Geom_SurfaceOfLinearExtrusion
++from OCP.gp import gp_Pnt, gp_Vec2d, gp_Dir, gp_Pln
++import meshfit_brep as base
++import contornos_compatibles as cc
++from contornos_compatibles import _interseccion, _sobre_superficie
++from pcurvas_compartidas import crear_pcurva as original_pcurva, _error
++from fijacion_contornos import AjusteContornos
++from OCP.BRepCheck import BRepCheck_Analyzer
++UV_KNOWN = {}
++
++def extend_profile(curve, margin=0.03):
++    if curve.Degree() != 3 or curve.IsRational():
++        raise ValueError('Perfil no cúbico polinómico')
++    from OCP.Geom import Geom_BSplineCurve
++    from OCP.TColgp import TColgp_Array1OfPnt
++    from OCP.TColStd import TColStd_Array1OfReal, TColStd_Array1OfInteger
++    lo, hi = (curve.FirstParameter(), curve.LastParameter())
++    parts = []
++    for a, b, base_t in ((lo - margin, lo, lo), (hi, hi + margin, hi)):
++        p = np.array(curve.Value(base_t).Coord())
++        d1 = np.array(curve.DN(base_t, 1).Coord())
++        d2 = np.array(curve.DN(base_t, 2).Coord())
++        d3 = np.array(curve.DN(base_t, 3).Coord())
++        delta = a - base_t
++        v0 = p + delta * d1 + delta ** 2 * d2 / 2 + delta ** 3 * d3 / 6
++        v1 = d1 + delta * d2 + delta ** 2 * d3 / 2
++        v2 = d2 + delta * d3
++        h = b - a
++        points = [v0, v0 + h * v1 / 3, v0 + 2 * h * v1 / 3 + h * h * v2 / 6, v0 + h * v1 + h * h * v2 / 2 + h ** 3 * d3 / 6]
++        poles = TColgp_Array1OfPnt(1, 4)
++        for i, x in enumerate(points, 1):
++            poles.SetValue(i, gp_Pnt(*map(float, x)))
++        knots = TColStd_Array1OfReal(1, 2)
++        mult = TColStd_Array1OfInteger(1, 2)
++        for i, t in enumerate((a, b), 1):
++            knots.SetValue(i, t)
++            mult.SetValue(i, 4)
++        parts.append(Geom_BSplineCurve(poles, knots, mult, 3, False))
++    pieces = [parts[0], curve, parts[1]]
++    allp = []
++    allk = []
++    allm = []
++    for j, part in enumerate(pieces):
++        if j:
++            allm[-1] = 3
++        for i in range(1 + int(j > 0), part.NbPoles() + 1):
++            allp.append(part.Pole(i))
++        for i in range(1 + int(j > 0), part.NbKnots() + 1):
++            allk.append(part.Knot(i))
++            allm.append(part.Multiplicity(i))
++    P = TColgp_Array1OfPnt(1, len(allp))
++    K = TColStd_Array1OfReal(1, len(allk))
++    M = TColStd_Array1OfInteger(1, len(allm))
++    for i, p in enumerate(allp, 1):
++        P.SetValue(i, p)
++    for i, (k, m) in enumerate(zip(allk, allm), 1):
++        K.SetValue(i, k)
++        M.SetValue(i, m)
++    result = Geom_BSplineCurve(P, K, M, 3, False)
++    delta = max((curve.Value(float(t)).Distance(result.Value(float(t))) for t in np.linspace(lo, hi, 257)))
++    if delta > 1e-10:
++        raise ValueError('Extensión altera el perfil original')
++    print('PERFIL EXTENDIDO', result.FirstParameter(), result.LastParameter(), 'cambio', delta, flush=True)
++    return result
++
++def crear_pcurva(curve, first, last, surface):
++    known = UV_KNOWN.get((id(curve), id(surface)))
++    if known is not None:
++        error = _error(curve, known, surface, first, last)
++        if error <= 5e-08:
++            return (known.Copy(), dict(max_desacuerdo_mm=error, uv_generadora=True))
++        raise ValueError(f'Curva UV generadora no certificada {error}')
++    try:
++        return original_pcurva(curve, first, last, surface)
++    except ValueError as initial:
++        if not isinstance(surface, (Geom_SurfaceOfRevolution, Geom_SurfaceOfLinearExtrusion, Geom_BSplineSurface)):
++            raise
++        from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++        from OCP.Geom2dAPI import Geom2dAPI_Interpolate
++        from OCP.TColgp import TColgp_HArray1OfPnt2d
++        from OCP.TColStd import TColStd_HArray1OfReal
++        from OCP.gp import gp_Pnt2d
++        sas = __import__('proyeccion_barridos',fromlist=['analizador']).analizador(surface)
++        from pcurvas_compartidas import _iso_comun
++        from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++        iso = _iso_comun(curve, first, last, surface)
++        parameters = np.linspace(first, last, 33)
++        if hasattr(curve, 'NbKnots'):
++            parameters = np.unique(np.r_[parameters, [curve.Knot(i) for i in range(1, curve.NbKnots() + 1) if first < curve.Knot(i) < last]])
++        for attempt in range(14):
++            if iso is None:
++                points = np.array([sas.ValueOfUV(curve.Value(float(t)), 1e-11).Coord() for t in parameters])
++            else:
++                geometry, dim, value, lo, hi = iso
++                points = []
++                for t in parameters:
++                    target = curve.Value(float(t))
++                    pr = GeomAPI_ProjectPointOnCurve(target, geometry, lo, hi)
++                    if not pr.NbPoints():
++                        raise ValueError('No se verifica la isocurva')
++                    variable = pr.LowerDistanceParameter()
++                    for _ in range(16):
++                        delta = np.array(geometry.Value(variable).Coord()) - np.array(target.Coord())
++                        if np.linalg.norm(delta) < 1e-11:
++                            break
++                        d1 = np.array(geometry.DN(variable, 1).Coord())
++                        d2 = np.array(geometry.DN(variable, 2).Coord())
++                        hessian = d1 @ d1 + delta @ d2
++                        if hessian <= 1e-24:
++                            break
++                        candidate = float(np.clip(variable - delta @ d1 / hessian, lo, hi))
++                        if candidate == variable:
++                            break
++                        variable = candidate
++                    points.append((value, variable) if dim == 0 else (variable, value))
++                points = np.asarray(points)
++            if surface.IsUPeriodic():
++                points[:, 0] = np.unwrap(points[:, 0], period=surface.UPeriod())
++            if surface.IsVPeriodic():
++                points[:, 1] = np.unwrap(points[:, 1], period=surface.VPeriod())
++            count = len(parameters)
++            arr = TColgp_HArray1OfPnt2d(1, count)
++            par = TColStd_HArray1OfReal(1, count)
++            for i, (p, t) in enumerate(zip(points, parameters), 1):
++                arr.SetValue(i, gp_Pnt2d(*map(float, p)))
++                par.SetValue(i, float(t))
++            fit = Geom2dAPI_Interpolate(arr, par, False, 1e-12)
++            fit.Perform()
++            uv = fit.Curve()
++            bad = []
++            maximum = 0.0
++            for i, (a, b) in enumerate(zip(parameters[:-1], parameters[1:])):
++                error = 0.0
++                for t in np.linspace(a, b, 9):
++                    p = uv.Value(float(t))
++                    error = max(error, curve.Value(float(t)).Distance(surface.Value(p.X(), p.Y())))
++                maximum = max(maximum, error)
++                if error > 3e-08:
++                    bad.append(i)
++            print('UV ADAPTATIVA', count, maximum, flush=True)
++            if maximum < 3e-08:
++                verified = _error(curve, uv, surface, first, last)
++                if verified <= 5e-08:
++                    return (uv, dict(max_desacuerdo_mm=verified, adaptativa=True))
++                raise ValueError(f'Control UV global falla {verified}')
++            if len(parameters) > 4097:
++                break
++            bad = np.array(bad, int)
++            parameters = np.sort(np.r_[parameters, (parameters[bad] + parameters[bad + 1]) * 0.5])
++        raise initial
++
++def compact_projection(oldcurve, lo, hi, surface, pts):
++    from OCP.GeomConvert import GeomConvert
++    if isinstance(surface, Geom_Plane):
++        c = GeomConvert.CurveToBSplineCurve_s(Geom_TrimmedCurve(oldcurve, lo, hi))
++        pr = base._Proj(surface)
++        P = np.array([c.Pole(i).Coord() for i in range(1, c.NbPoles() + 1)])
++        P = pr.batch(P)
++        P[0] = pts[0]
++        P[-1] = pts[-1]
++        for i, p in enumerate(P, 1):
++            c.SetPole(i, gp_Pnt(*map(float, p)))
++        return (c, c.FirstParameter(), c.LastParameter())
++    from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++    from OCP.Geom2dAPI import Geom2dAPI_Interpolate
++    from OCP.TColgp import TColgp_HArray1OfPnt2d
++    from OCP.TColStd import TColStd_HArray1OfReal
++    from OCP.gp import gp_Pnt2d
++    from OCP.Approx import Approx_CurveOnSurface
++    from OCP.Geom2dAdaptor import Geom2dAdaptor_Curve
++    from OCP.GeomAdaptor import GeomAdaptor_Surface
++    from OCP.GeomAbs import GeomAbs_C1
++    sas = __import__('proyeccion_barridos',fromlist=['analizador']).analizador(surface)
++    uvpoints = np.array([sas.ValueOfUV(gp_Pnt(*map(float, p)), 1e-11).Coord() for p in pts])
++    if surface.IsUPeriodic():
++        uvpoints[:, 0] = np.unwrap(uvpoints[:, 0], period=surface.UPeriod())
++    if surface.IsVPeriodic():
++        uvpoints[:, 1] = np.unwrap(uvpoints[:, 1], period=surface.VPeriod())
++    arr = TColgp_HArray1OfPnt2d(1, len(pts))
++    par = TColStd_HArray1OfReal(1, len(pts))
++    for i, (p, t) in enumerate(zip(uvpoints, np.linspace(lo, hi, len(pts))), 1):
++        arr.SetValue(i, gp_Pnt2d(*map(float, p)))
++        par.SetValue(i, float(t))
++    fit = Geom2dAPI_Interpolate(arr, par, False, 1e-12)
++    fit.Perform()
++    uv = fit.Curve()
++    app = Approx_CurveOnSurface(Geom2dAdaptor_Curve(uv), GeomAdaptor_Surface(surface), lo, hi, 1e-10, GeomAbs_C1, 8, 128, True, False)
++    if not app.HasResult() or app.MaxError3d() > 2e-08:
++        raise ValueError('No converge la proyección compacta')
++    c = app.Curve3d()
++    error = _error(c, uv, surface, lo, hi)
++    if error > 5e-08:
++        raise ValueError('No se certifica la proyección compacta')
++    UV_KNOWN[id(c), id(surface)] = uv
++    print('PROYECCION COMPACTA', c.NbPoles(), error, flush=True)
++    return (c, lo, hi)
++
++def signed_projection(pr, points):
++    from proyeccion_barridos import residual
++    projected=residual(pr.s,points,pr.sas) if isinstance(pr.s,Geom_SurfaceOfLinearExtrusion) else None
++    if projected is not None:return projected
++    if pr.kind in ('plane', 'cyl', 'sph'):
++        return cc._residual_normal(pr, points)
++    if pr.kind == 'tor':
++        d = points - pr.q
++        z = d @ pr.a
++        radial = d - z[:, None] * pr.a
++        rho = np.linalg.norm(radial, axis=1)
++        direction = radial / np.maximum(rho[:, None], 1e-30)
++        minor = d - pr.R * direction
++        length = np.linalg.norm(minor, axis=1)
++        return (length - pr.r, minor / np.maximum(length[:, None], 1e-30))
++    from OCP.GeomLProp import GeomLProp_SLProps
++    values = []
++    normals = []
++    for point in points:
++        uv = pr.sas.ValueOfUV(gp_Pnt(*map(float, point)), 1e-10)
++        props = GeomLProp_SLProps(pr.s, uv.X(), uv.Y(), 1, 1e-12)
++        if not props.IsNormalDefined():
++            raise ValueError('Normal de revolución indeterminada')
++        n = np.array(props.Normal().Coord())
++        projected = np.array(pr.s.Value(uv.X(), uv.Y()).Coord())
++        values.append((point - projected) @ n)
++        normals.append(n)
++    return (np.array(values), np.array(normals))
++old_refine = cc.refinar_interseccion
++
++def refine_generic(curve, first, last, sa, sb, max_move):
++    if not any((isinstance(s, (Geom_SurfaceOfRevolution,Geom_SurfaceOfLinearExtrusion)) for s in (sa, sb))):
++        return old_refine(curve, first, last, sa, sb, max_move)
++    from OCP.TColgp import TColgp_HArray1OfPnt
++    from OCP.TColStd import TColStd_HArray1OfReal
++    from OCP.GeomAPI import GeomAPI_Interpolate
++    projectors = [base._Proj(s) for s in (sa, sb)]
++    endpoints=np.array([curve.Value(float(t)).Coord() for t in (first,last)])
++    pinned=max(float(abs(signed_projection(p,endpoints)[0]).max()) for p in projectors)<=1e-9
++    parameters = np.linspace(first, last, 33)
++    for iteration in range(14):
++        count = len(parameters)
++        initial = np.array([curve.Value(float(t)).Coord() for t in parameters])
++        points = initial.copy()
++        for _ in range(20):
++            f, n = signed_projection(projectors[0], points)
++            g, m = signed_projection(projectors[1], points)
++            if max(abs(f).max(), abs(g).max()) < 1e-10:
++                break
++            dot = np.sum(n * m, axis=1)
++            det = 1 - dot * dot
++            if np.any((det < 1e-10) & (np.maximum(abs(f), abs(g)) > 1e-09)):
++                raise ValueError('Encuentro de revolución tangente inestable')
++            det = np.maximum(det, 1e-10)
++            points -= ((f - dot * g) / det)[:, None] * n + ((g - dot * f) / det)[:, None] * m
++        if pinned:points[[0,-1]]=endpoints
++        if np.linalg.norm(points - initial, axis=1).max() > max_move:
++            raise ValueError('Corrección de revolución fuera de presupuesto')
++        array = TColgp_HArray1OfPnt(1, count)
++        params = TColStd_HArray1OfReal(1, count)
++        for j, (p, t) in enumerate(zip(points, parameters), 1):
++            array.SetValue(j, gp_Pnt(*map(float, p)))
++            params.SetValue(j, float(t))
++        fit = GeomAPI_Interpolate(array, params, False, 1e-12)
++        fit.Perform()
++        result = fit.Curve()
++        ts = np.concatenate([np.linspace(a, b, 9) for a, b in zip(parameters[:-1], parameters[1:])])
++        probes = np.array([result.Value(float(t)).Coord() for t in ts])
++        residual = np.maximum(abs(signed_projection(projectors[0], probes)[0]), abs(signed_projection(projectors[1], probes)[0]))
++        error = residual.max()
++        print('REFINAMIENTO REVOLUCION', count, error, flush=True)
++        if error < 2e-08:
++            return (result, first, last)
++        bad = np.flatnonzero(residual.reshape(-1, 9).max(axis=1) > 2e-08)
++        parameters = np.sort(np.r_[parameters, (parameters[bad] + parameters[bad + 1]) / 2])
++        if len(parameters) > 4097:
++            break
++    raise ValueError('No converge la curva de revolución compartida '+str([(type(s).__name__,s.Axis().Direction().Coord() if hasattr(s,'Axis') else s.Direction().Coord(),s.Radius() if hasattr(s,'Radius') else 0) for s in (sa,sb)]))
++
++def circle_supports(sa, sb):
++    # Corte perpendicular de un perfil medido de revolución. También incluye
++    # contactos tangentes en los extremos del perfil, sin inflar tolerancias.
++    revs = [s for s in (sa, sb) if isinstance(s, Geom_SurfaceOfRevolution)]
++    planes = [s for s in (sa, sb) if isinstance(s, Geom_Plane)]
++    if len(revs) == len(planes) == 1:
++        from scipy.optimize import brentq
++        rev, plane = revs[0], planes[0]
++        axis = np.array(rev.Axis().Direction().Coord())
++        origin = np.array(rev.Axis().Location().Coord())
++        n = np.array(plane.Axis().Direction().Coord())
++        if np.linalg.norm(np.cross(n, axis)) < 1e-10:
++            height = n @ (np.array(plane.Location().Coord()) - origin) / (n @ axis)
++            curve = rev.BasisCurve()
++            ts = np.unique(np.r_[np.linspace(curve.FirstParameter(), curve.LastParameter(), 257), [curve.Knot(i) for i in range(1, curve.NbKnots()+1)]])
++            def value(t): return (np.array(curve.Value(float(t)).Coord()) - origin) @ axis - height
++            roots = [float(t) for t in ts if abs(value(t)) < 1e-10]
++            for a, b in zip(ts[:-1], ts[1:]):
++                if value(a)*value(b) < 0: roots.append(brentq(value, a, b, xtol=1e-13))
++            result = []
++            for t in roots:
++                point = np.array(curve.Value(float(t)).Coord())
++                radius = np.linalg.norm(np.cross(point-origin, axis))
++                if radius > 1e-8 and abs(value(t)) < 1e-10:
++                    result.append((origin+axis*height, axis, radius))
++            return result
++    tori = [s for s in (sa, sb) if isinstance(s, Geom_ToroidalSurface)]
++    if len(tori) != 1:
++        return []
++    tor = tori[0]
++    other = sb if tor is sa else sa
++    axis = np.array(tor.Axis().Direction().Coord())
++    q = np.array(tor.Location().Coord())
++    major, minor = (tor.MajorRadius(), tor.MinorRadius())
++    results = []
++    if isinstance(other, Geom_Plane):
++        n = np.array(other.Axis().Direction().Coord())
++        if np.linalg.norm(np.cross(n, axis)) > 1e-10:
++            return []
++        h = (np.array(other.Location().Coord()) - q) @ axis
++        delta = minor * minor - h * h
++        if delta < -1e-13:
++            return []
++        for r in np.unique([major - np.sqrt(max(delta, 0)), major + np.sqrt(max(delta, 0))]):
++            results.append((q + axis * h, axis, float(r)))
++    if isinstance(other, Geom_CylindricalSurface):
++        a = np.array(other.Axis().Direction().Coord())
++        c = np.array(other.Location().Coord())
++        if np.linalg.norm(np.cross(a, axis)) > 1e-10 or np.linalg.norm(np.cross(c - q, axis)) > 1e-09:
++            return []
++        radius = other.Radius()
++        delta = minor * minor - (radius - major) ** 2
++        if delta < -1e-13:
++            return []
++        for h in np.unique([-np.sqrt(max(delta, 0)), np.sqrt(max(delta, 0))]):
++            results.append((q + axis * h, axis, radius))
++    return results
++
++def tangent_line_supports(sa, sb):
++    planes = [s for s in (sa, sb) if isinstance(s, Geom_Plane)]
++    cyl = [s for s in (sa, sb) if isinstance(s, Geom_CylindricalSurface)]
++    if len(planes) != 1 or len(cyl) != 1:
++        return None
++    p, cy = (planes[0], cyl[0])
++    n = np.array(p.Axis().Direction().Coord())
++    a = np.array(cy.Axis().Direction().Coord())
++    q = np.array(cy.Location().Coord())
++    origin = np.array(p.Location().Coord())
++    d = (q - origin) @ n
++    if abs(n @ a) > 1e-10 or abs(abs(d) - cy.Radius()) > 1e-09:
++        return None
++    return (q - n * d, a)
++
++def intersection_stable(sa, sb, pts, move, closed):
++    from curvas_barridas import interseccion
++    measured = interseccion(sa,sb,pts,move,closed)
++    if measured is not None: return measured
++    circles = circle_supports(sa, sb)
++    if circles:
++        from OCP.gp import gp_Ax2
++        from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++        proposals = []
++        for center, axis, radius in circles:
++            helper = np.eye(3)[np.argmin(abs(axis))]
++            x = np.cross(axis, helper)
++            x /= np.linalg.norm(x)
++            y = np.cross(axis, x)
++            curve = Geom_Circle(gp_Ax2(gp_Pnt(*map(float, center)), gp_Dir(*map(float, axis)), gp_Dir(*map(float, x))), radius)
++            phi = np.unwrap(np.arctan2((pts - center) @ y, (pts - center) @ x))
++            first, last = (phi[0], phi[-1])
++            if closed:
++                last = first + np.copysign(2 * np.pi, last - first)
++            if last < first:
++                first, last = (curve.ReversedParameter(first), curve.ReversedParameter(last))
++                curve = curve.Reversed()
++            error = max((GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float, p)), curve).LowerDistance() for p in pts))
++            if error <= move:
++                proposals.append((error, curve, float(first), float(last)))
++        if not proposals:
++            raise ValueError('Círculo de encuentro alejado del contorno')
++        _, curve, first, last = min(proposals, key=lambda p: p[0])
++        return (curve, first, last)
++    if isinstance(sa, Geom_Plane) and isinstance(sb, Geom_Plane) and (not closed):
++        from OCP.Geom import Geom_Line
++        from OCP.gp import gp_Ax1
++        n = np.array(sa.Axis().Direction().Coord())
++        m = np.array(sb.Axis().Direction().Coord())
++        axis = np.cross(n, m)
++        if np.linalg.norm(axis) > 1e-08:
++            axis /= np.linalg.norm(axis)
++            q = np.linalg.solve(np.vstack((n, m, axis)), [n @ np.array(sa.Location().Coord()), m @ np.array(sb.Location().Coord()), axis @ pts.mean(0)])
++            first, last = (pts[[0, -1]] - q) @ axis
++            if last < first:
++                axis = -axis
++                first, last = (-first, -last)
++            projection = np.clip((pts - q) @ axis, first, last)
++            error = np.linalg.norm(q + projection[:, None] * axis - pts, axis=1).max()
++            if error > move or last - first < 1e-10:
++                raise ValueError(f'Contorno plano no verificable {error}')
++            return (Geom_Line(gp_Ax1(gp_Pnt(*map(float, q)), gp_Dir(*map(float, axis)))), float(first), float(last))
++    if any((isinstance(s, (Geom_SurfaceOfRevolution,Geom_SurfaceOfLinearExtrusion)) for s in (sa, sb))):
++        from OCP.TColgp import TColgp_HArray1OfPnt
++        from OCP.TColStd import TColStd_HArray1OfReal
++        from OCP.GeomAPI import GeomAPI_Interpolate
++        count = len(pts)
++        arr = TColgp_HArray1OfPnt(1, count)
++        par = TColStd_HArray1OfReal(1, count)
++        for i, (p, t) in enumerate(zip(pts, np.linspace(0, 1, count)), 1):
++            arr.SetValue(i, gp_Pnt(*map(float, p)))
++            par.SetValue(i, float(t))
++        fit = GeomAPI_Interpolate(arr, par, False, 1e-12)
++        fit.Perform()
++        return refine_generic(fit.Curve(), 0.0, 1.0, sa, sb, move)
++    planes = [s for s in (sa, sb) if isinstance(s, Geom_Plane)]
++    cylinders = [s for s in (sa, sb) if isinstance(s, Geom_CylindricalSurface)]
++    if len(planes) == len(cylinders) == 1 and (not closed):
++        pl = planes[0]
++        cy = cylinders[0]
++        n = np.array(pl.Axis().Direction().Coord())
++        a = np.array(cy.Axis().Direction().Coord())
++        q = np.array(cy.Location().Coord())
++        p = np.array(pl.Location().Coord())
++        dot = n @ a
++        z = (pts - q) @ a
++        if abs(dot) < 0.01 and np.ptp(z) > 1e-05:
++            u = n - dot * a
++            norm = np.linalg.norm(u)
++            u /= norm
++            v = np.cross(a, u)
++            sign = 1 if np.median((pts - q) @ v) >= 0 else -1
++            radius = cy.Radius()
++            first = float(z[0])
++            last = float(z[-1])
++
++            def value(t):
++                axial = first + (last - first) * t
++                cos = (n @ (p - q) - dot * axial) / (radius * norm)
++                if abs(cos) > 1 + 1e-12:
++                    raise ValueError('No existe la sección plano-cilindro')
++                cos = np.clip(cos, -1, 1)
++                return q + a * axial + radius * (u * cos + sign * v * np.sqrt(1 - cos * cos))
++            from OCP.TColgp import TColgp_HArray1OfPnt
++            from OCP.TColStd import TColStd_HArray1OfReal
++            from OCP.GeomAPI import GeomAPI_Interpolate, GeomAPI_ProjectPointOnCurve
++            for count in (17, 33, 65, 129, 257):
++                array = TColgp_HArray1OfPnt(1, count)
++                parameters = TColStd_HArray1OfReal(1, count)
++                for j, t in enumerate(np.linspace(0, 1, count), 1):
++                    array.SetValue(j, gp_Pnt(*map(float, value(t))))
++                    parameters.SetValue(j, float(t))
++                fit = GeomAPI_Interpolate(array, parameters, False, 1e-12)
++                fit.Perform()
++                curve = fit.Curve()
++                error = max((curve.Value(float(t)).Distance(gp_Pnt(*map(float, value(t)))) for t in np.linspace(0, 1, count * 4)))
++                if error < 2e-08:
++                    if max((GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float, x)), curve).LowerDistance() for x in pts)) > move:
++                        raise ValueError('Intersección estable lejos del contorno')
++                    print('SECCION CASI PARALELA', count, error, flush=True)
++                    return (curve, 0.0, 1.0)
++    if len(cylinders) == 2 and (not closed):
++        a, b = cylinders
++        axis = np.array(a.Axis().Direction().Coord())
++        axis_b = np.array(b.Axis().Direction().Coord())
++        q = np.array(a.Location().Coord())
++        qb = np.array(b.Location().Coord())
++        r = a.Radius()
++        rb = b.Radius()
++        z = (pts - q) @ axis
++        if np.linalg.norm(np.cross(axis, axis_b)) < 0.0001 and np.ptp(z) > 1e-05:
++            x = np.array(a.Position().XDirection().Coord())
++            y = np.array(a.Position().YDirection().Coord())
++            radial = pts - q - z[:, None] * axis
++            theta = np.unwrap(np.arctan2(radial @ y, radial @ x))
++            first, last = (float(z[0]), float(z[-1]))
++
++            def value(t):
++                h = first + (last - first) * t
++                angle = theta[0] + t * (theta[-1] - theta[0])
++                for _ in range(20):
++                    point = q + axis * h + r * (x * np.cos(angle) + y * np.sin(angle))
++                    d = point - qb
++                    d -= axis_b * (d @ axis_b)
++                    f = d @ d - rb * rb
++                    if abs(f) < 1e-11:
++                        return point
++                    deriv = r * (-x * np.sin(angle) + y * np.cos(angle))
++                    df = 2 * (d @ deriv)
++                    if abs(df) < 1e-10:
++                        raise ValueError('Encuentro tangente inestable')
++                    step = f / df
++                    if abs(step) > 0.1:
++                        raise ValueError('Cambio de rama cilíndrica')
++                    angle -= step
++                raise ValueError('No converge la sección entre cilindros')
++            from OCP.TColgp import TColgp_HArray1OfPnt
++            from OCP.TColStd import TColStd_HArray1OfReal
++            from OCP.GeomAPI import GeomAPI_Interpolate, GeomAPI_ProjectPointOnCurve
++            for count in (17, 33, 65, 129, 257):
++                array = TColgp_HArray1OfPnt(1, count)
++                parameters = TColStd_HArray1OfReal(1, count)
++                for j, t in enumerate(np.linspace(0, 1, count), 1):
++                    array.SetValue(j, gp_Pnt(*map(float, value(t))))
++                    parameters.SetValue(j, float(t))
++                fit = GeomAPI_Interpolate(array, parameters, False, 1e-12)
++                fit.Perform()
++                curve = fit.Curve()
++                error = max((curve.Value(float(t)).Distance(gp_Pnt(*map(float, value(t)))) for t in np.linspace(0, 1, count * 4)))
++                if error < 2e-08:
++                    if max((GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float, p)), curve).LowerDistance() for p in pts)) > move:
++                        raise ValueError('Intersección cilíndrica lejos del contorno')
++                    print('CILINDROS CASI PARALELOS', count, error, flush=True)
++                    return (curve, 0.0, 1.0)
++    return _interseccion(sa, sb, pts, move, closed)
++
++def normalizar_circulos(shape):
++    """Misma parametrización y eje; sólo elipses circulares a 1e-12 mm.
++
++    Evita extremos locales espurios de OCC al medir el borde de un cilindro.
++    No transforma elipses genuinas ni cambia tolerancias de aristas.
++    """
++    from OCP.Geom import Geom_Ellipse, Geom_Circle
++    builder = BRep_Builder()
++    count = 0
++    for edge in shape.Edges():
++        adaptor = BRepAdaptor_Curve(edge.wrapped)
++        curve = BRep_Tool.Curve_s(edge.wrapped, adaptor.FirstParameter(), adaptor.LastParameter())
++        if isinstance(curve, Geom_Ellipse) and abs(curve.MajorRadius()-curve.MinorRadius()) < 1e-12:
++            builder.UpdateEdge(edge.wrapped, Geom_Circle(curve.Position(), curve.MajorRadius()),
++                               BRep_Tool.Tolerance_s(edge.wrapped))
++            count += 1
++    return count
+--- /dev/null
++++ R11/motor_superficies/proyeccion_barridos.py
+@@ -0,0 +1,25 @@
++"""Proyección sobre la CURVA medida, evitando óptimos de una superficie infinita."""
++import numpy as np
++from OCP.Geom import Geom_SurfaceOfLinearExtrusion
++from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++from OCP.gp import gp_Pnt,gp_Pnt2d
++_CACHE={}
++def uv_exacta(surface,points):
++ key=id(surface)
++ if key not in _CACHE:
++  curve=surface.BasisCurve();axis=np.array(surface.Direction().Coord());origin=np.array(curve.Value(curve.FirstParameter()).Coord());_CACHE[key]=(surface,curve,axis,origin)
++ _,curve,axis,origin=_CACHE[key];result=[]
++ for p in points:
++  target=p-axis*((p-origin)@axis);point=gp_Pnt(*map(float,target));projection=GeomAPI_ProjectPointOnCurve(point,curve);choices=[curve.FirstParameter(),curve.LastParameter()]
++  if projection.NbPoints():choices.append(projection.LowerDistanceParameter())
++  u=min(choices,key=lambda t:curve.Value(float(t)).Distance(point));base=np.array(curve.Value(float(u)).Coord());v=float((p-base)@axis);result.append((float(u),v))
++ return np.asarray(result)
++class AnalizadorBarrido:
++ def __init__(self,surface):self.surface=surface
++ def ValueOfUV(self,point,tolerance):return gp_Pnt2d(*map(float,uv_exacta(self.surface,np.asarray([point.Coord()]))[0]))
++def analizador(surface):return AnalizadorBarrido(surface) if isinstance(surface,Geom_SurfaceOfLinearExtrusion) else ShapeAnalysis_Surface(surface)
++def residual(surface,points,sas):
++ if not isinstance(surface,Geom_SurfaceOfLinearExtrusion):return None
++ uv=uv_exacta(surface,points);curve=surface.BasisCurve();axis=np.array(surface.Direction().Coord());P=np.array([curve.Value(float(u)).Coord() for u,v in uv]);D=np.array([curve.DN(float(u),1).Coord() for u,v in uv]);normal=np.cross(D,axis);normal/=np.maximum(np.linalg.norm(normal,axis=1)[:,None],1e-30)
++ return np.sum((points-P)*normal,axis=1),normal
+--- /dev/null
++++ R11/motor_superficies/esquinas_medidas.py
+@@ -0,0 +1,24 @@
++"""No extrapolar planos casi tangentes para inventar esquinas fuera del STL."""
++import numpy as np
++from OCP.Geom import Geom_Plane,Geom_SurfaceOfLinearExtrusion
++
++def separar_conflictos(mesh,labels,surfaces,primary,groups,max_move):
++ if not any(isinstance(s,Geom_SurfaceOfLinearExtrusion) for s in surfaces.values()):return []
++ incidence={}
++ for tri,region in zip(mesh.faces,labels):
++  for v in tri:incidence.setdefault(int(v),set()).add(int(region))
++ areas={r:float(mesh.area_faces[ids].sum()) for r,ids in groups.items()};records=[]
++ for iteration in range(48):
++  conflict=None
++  for vertex,regions in incidence.items():
++   native=[r for r in regions if r in primary and not isinstance(surfaces[r],Geom_SurfaceOfLinearExtrusion)]
++   if len(native)<2 or any(not isinstance(surfaces[r],Geom_Plane) for r in native):continue
++   normals=np.array([surfaces[r].Axis().Direction().Coord() for r in native]);origins=np.array([surfaces[r].Location().Coord() for r in native]);p=mesh.vertices[vertex]
++   initial=np.sum((p-origins)*normals,axis=1);delta=np.linalg.lstsq(normals,-initial,rcond=1e-12)[0];residual=float(abs(normals@delta+initial).max());move=float(np.linalg.norm(delta))
++   if residual<=2e-7 and move<=max_move:continue
++   candidates=[r for i,r in enumerate(native) if any(i!=j and abs(normals[i]@normals[j])>np.cos(np.radians(5)) for j in range(len(native)))]
++   if not candidates:continue
++   region=min(candidates,key=lambda r:areas[r]);conflict=dict(vertice=vertex,region=region,area=areas[region],movimiento_evitable_mm=move,residual_mm=residual);break
++  if conflict is None:return records
++  primary.remove(conflict['region']);records.append(conflict);print('ESQUINA MEDIDA: PARCHE LOCAL',conflict,flush=True)
++ raise ValueError('Demasiadas esquinas planas incompatibles para el presupuesto local')
+--- /dev/null
++++ R11/motor_superficies/generar_semilla.py
+@@ -0,0 +1,23 @@
++"""Hipótesis CAD provisional desde el STL; nunca se entrega como resultado."""
++from pathlib import Path
++import copy,os
++import cadquery as cq
++from meshfit_step import export_step
++
++def generar(source,result,mesh,destination):
++ from meshfit_detect import detect
++ from axial_recognition import inject_verified_cylinders
++ records=[]
++ for angle in (8.,1.3):
++  try:
++   if angle==8.:seed,work=copy.deepcopy(result),mesh.copy()
++   else:
++    seed,work=detect(str(source),angle_tol_deg=32.,rms_tol_rel=.01,flat_tol_deg=angle,scan_mode=False,mesh_input=mesh.copy())
++    os.environ['VISOR_CENTROID_GATE']='1';os.environ['VISOR_REFINAMIENTO_BREP']='1';inject_verified_cylinders(seed,work)
++   export_step(copy.deepcopy(seed),work.copy(),str(destination),organic=True,solid=True,organic_smooth=0.,ajuste_ia=False,require_solid=True,precision_reparacion=False)
++   shape=cq.importers.importStep(str(destination)).val();error=100*abs(shape.Volume()/mesh.volume-1)
++   if not 3<=len(shape.Faces())<=192 or error>.5:raise ValueError('La hipótesis no conserva volumen o excede 192 caras')
++   print('SEMILLA FUENTE',angle,'caras',len(shape.Faces()),'volumen_error_pct',error,flush=True)
++   return shape
++  except Exception as exc:records.append(dict(segmentacion=angle,error=str(exc)))
++ raise ValueError('No hay hipótesis compacta útil: '+str(records))
+--- /dev/null
++++ R11/motor_superficies/constructor_barridos.py
+@@ -0,0 +1,643 @@
++"""Construcción experimental de encuentros compartidos, con geometría compatible.
++
++No modifica la entrada ni los límites de aceptación del Visor. Debe ejecutarse en
++el trabajador vigilado y superar la validación externa de la conversión.
++"""
++import math,time,collections
++import numpy as np
++from OCP.gp import gp_Pnt,gp_Pnt2d,gp_Pln,gp_Dir,gp_Ax2
++from OCP.Geom import Geom_Plane,Geom_BSplineSurface,Geom_TrimmedCurve,Geom_CylindricalSurface,Geom_Ellipse
++from OCP.GeomAPI import GeomAPI_IntSS,GeomAPI_ProjectPointOnCurve,GeomAPI_Interpolate
++from OCP.Geom2dAPI import Geom2dAPI_Interpolate
++from OCP.TColgp import TColgp_HArray1OfPnt,TColgp_HArray1OfPnt2d,TColgp_Array1OfPnt
++from OCP.TColStd import TColStd_HArray1OfReal,TColStd_Array1OfReal,TColStd_Array1OfInteger
++from OCP.BRep import BRep_Builder,BRep_Tool
++from OCP.BRepLib import BRepLib
++from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
++from OCP.TopoDS import TopoDS,TopoDS_Edge,TopoDS_Vertex,TopoDS_Face,TopoDS_Wire,TopoDS_Shell
++from OCP.TopAbs import TopAbs_FORWARD,TopAbs_REVERSED
++from OCP.GeomConvert import GeomConvert,GeomConvert_CompCurveToBSplineCurve
++from OCP.GeomFill import GeomFill_BSplineCurves,GeomFill_StretchStyle
++from OCP.GeomAdaptor import GeomAdaptor_Curve
++from OCP.GeomPlate import GeomPlate_BuildPlateSurface,GeomPlate_CurveConstraint,GeomPlate_PointConstraint,GeomPlate_MakeApprox
++
++def _point(p):return gp_Pnt(*map(float,p))
++
++def priorizar_cilindros_respaldados(result,mesh,extra=None):
++    """Conservar una superficie curva confirmada antes de absorberla como banda plana."""
++    import meshfit_brep as base
++    regions=list(extra or []);added=0
++    for primitive in result['primitives']:
++        if primitive['type']!='cylinder':continue
++        ids=np.asarray(primitive['faces'],dtype=int)
++        if not len(ids):continue
++        surface=base._prim_surface(primitive)
++        points=np.vstack((mesh.vertices[np.unique(mesh.faces[ids])],mesh.triangles_center[ids]))
++        error=float(np.linalg.norm(base._Proj(surface).batch(points)-points,axis=1).max())
++        if error<=.008:regions.append((ids.copy(),surface));added+=1
++    print('[contornos] cilindros fuente con prioridad:',added,flush=True)
++    return regions
++
++def acondicionar_conica(curve,first,last):
++    if not isinstance(curve,Geom_Ellipse) or curve.MajorRadius()/curve.MinorRadius()<1000 or last-first>.01:
++        return curve,first,last
++    # Cono racional cuadrático de tres polos. Evaluar la elipse con mayor
++    # precisión evita restar dos coordenadas de cientos de millones de mm.
++    center=np.array(curve.Location().Coord(),dtype=np.longdouble)
++    x=np.array(curve.Position().XDirection().Coord(),dtype=np.longdouble)
++    y=np.array(curve.Position().YDirection().Coord(),dtype=np.longdouble)
++    major=np.longdouble(curve.MajorRadius());minor=np.longdouble(curve.MinorRadius())
++    lo,hi=np.longdouble(first),np.longdouble(last);mid=(lo+hi)/2;half=(hi-lo)/2
++    def value(t):return center+major*np.cos(t)*x+minor*np.sin(t)*y
++    p0,p2,pm=value(lo),value(hi),value(mid);weight=np.cos(half)
++    p1=pm+(pm-(p0+p2)/2)/weight
++    poles=TColgp_Array1OfPnt(1,3);weights=TColStd_Array1OfReal(1,3)
++    for i,(point,w) in enumerate(zip((p0,p1,p2),(1,weight,1))):poles.SetValue(i+1,_point(point));weights.SetValue(i+1,float(w))
++    knots=TColStd_Array1OfReal(1,2);mult=TColStd_Array1OfInteger(1,2)
++    knots.SetValue(1,0.);knots.SetValue(2,1.);mult.SetValue(1,3);mult.SetValue(2,3)
++    from OCP.Geom import Geom_BSplineCurve
++    result=Geom_BSplineCurve(poles,weights,knots,mult,2,False)
++    maximum=0.
++    for fraction in np.linspace(0,1,129):
++        t=lo+(hi-lo)*np.longdouble(fraction)
++        u=(1+np.tan((t-mid)/2)/np.tan(half/2))/2
++        maximum=max(maximum,float(np.linalg.norm(np.array(result.Value(float(u)).Coord(),dtype=np.longdouble)-value(t))))
++    if maximum>5e-8:raise ValueError('La representación local de la cónica no conserva su geometría.')
++    print('[contornos] cónica condicionada',curve.MajorRadius(),curve.MinorRadius(),'error_mm',maximum,flush=True)
++    return result,0.,1.
++
++def _residual_normal(projector,points):
++    if projector.kind=='plane':
++        return (points-projector.q)@projector.a,np.broadcast_to(projector.a,points.shape)
++    if projector.kind in ('cyl','sph'):
++        radial=points-projector.q
++        if projector.kind=='cyl':radial-=np.outer(radial@projector.a,projector.a)
++        distance=np.linalg.norm(radial,axis=1)
++        return distance-projector.R,radial/np.maximum(distance[:,None],1e-15)
++    displacement=points-projector.batch(points);distance=np.linalg.norm(displacement,axis=1)
++    return distance,displacement/np.maximum(distance[:,None],1e-15)
++
++def refinar_interseccion(curve,first,last,sa,sb,max_move):
++    """Corregir la aproximación3D del intersector, sin modificar sus soportes."""
++    import meshfit_brep as base
++    projectors=[base._Proj(s) for s in (sa,sb)]
++    if any(p.kind not in ('plane','cyl','sph') for p in projectors):return curve,first,last
++    if all(p.kind=='plane' for p in projectors):return curve,first,last
++    initial=np.array([curve.Value(float(t)).Coord() for t in np.linspace(first,last,257)])
++    if max(np.max(np.abs(_residual_normal(p,initial)[0])) for p in projectors)<=1e-10:
++        return curve,first,last
++    closed=curve.Value(first).Distance(curve.Value(last))<1e-7
++    parameters=np.linspace(first,last,65)
++    working=curve;total_movement=0.
++    for iteration in range(10):
++        reference=np.array([working.Value(float(t)).Coord() for t in parameters]);points=reference.copy()
++        for _ in range(15):
++            f,n=_residual_normal(projectors[0],points);g,m=_residual_normal(projectors[1],points)
++            if max(np.max(np.abs(f)),np.max(np.abs(g)))<1e-11:break
++            dot=np.einsum('ij,ij->i',n,m);det=1-dot**2
++            bad=(det<1e-10)&(np.maximum(np.abs(f),np.abs(g))>1e-10)
++            if bad.any():raise ValueError('La intersección tangente no admite una corrección estable.')
++            det=np.maximum(det,1e-10)
++            da=(f-dot*g)/det;db=(g-dot*f)/det
++            points-=da[:,None]*n+db[:,None]*m
++        total_movement+=float(np.linalg.norm(points-reference,axis=1).max())
++        if total_movement>max_move:
++            raise ValueError('La intersección refinada requiere desplazar demasiado el contorno.')
++        if closed:points[-1]=points[0]
++        if iteration==0:
++            parameters=np.r_[0.,np.cumsum(np.linalg.norm(np.diff(points,axis=0),axis=1))]
++            parameters/=parameters[-1];first,last=0.,1.
++        count=len(points)-int(closed);array=TColgp_HArray1OfPnt(1,count)
++        params=TColStd_HArray1OfReal(1,len(parameters))
++        for i,p in enumerate(points[:count]):array.SetValue(i+1,_point(p))
++        for i,t in enumerate(parameters):params.SetValue(i+1,float(t))
++        interpolation=GeomAPI_Interpolate(array,params,closed,1e-12);interpolation.Perform()
++        if not interpolation.IsDone():raise ValueError('No se aproxima la intersección común refinada.')
++        result=interpolation.Curve()
++        probes=np.concatenate([a+(b-a)*np.linspace(0,1,9) for a,b in zip(parameters[:-1],parameters[1:])])
++        values=np.array([result.Value(float(t)).Coord() for t in probes])
++        errors=np.maximum(np.abs(_residual_normal(projectors[0],values)[0]),np.abs(_residual_normal(projectors[1],values)[0]))
++        print('[contornos] refinamiento3D',iteration,len(parameters),'puntos, error',float(errors.max()),flush=True)
++        if errors.max()<=3e-8:return result,first,last
++        # Refinar sólo los intervalos que no cumplen la precisión numérica.
++        bad=np.flatnonzero(errors.reshape(-1,9).max(axis=1)>3e-8)
++        parameters=np.sort(np.r_[parameters,(parameters[bad]+parameters[bad+1])*.5])
++        working=result
++        if len(parameters)>4097:break
++    raise ValueError('La curva3D de intersección no alcanza la precisión numérica requerida.')
++
++def _interseccion(sa,sb,points,max_move,closed):
++    if isinstance(sa,Geom_CylindricalSurface) and isinstance(sb,Geom_CylindricalSurface):
++        # Las medias cañas creadas para colocar una costura pueden tener
++        # diferentes marcos UV sobre EL MISMO cilindro. No existe una línea
++        # de intersección única entre soportes coincidentes: conservar la
++        # frontera del STL sobre ese soporte, sin fusionar radios distintos.
++        a=np.array(sa.Axis().Direction().Coord());b=np.array(sb.Axis().Direction().Coord())
++        p=np.array(sa.Location().Coord());q=np.array(sb.Location().Coord())
++        if (abs(sa.Radius()-sb.Radius())<=1e-10 and np.linalg.norm(np.cross(a,b))<=1e-12
++                and np.linalg.norm(np.cross(q-p,a))<=1e-10):
++            from meshfit_brep import _Proj
++            curve,first,last=_sobre_superficie(sa,points,closed,_Proj(sa))
++            samples=np.array([curve.Value(float(t)).Coord() for t in np.linspace(first,last,65)])
++            if any(np.max(np.linalg.norm(_Proj(s).batch(samples)-samples,axis=1))>2e-8 for s in (sa,sb)):
++                raise ValueError('La costura no pertenece a ambos soportes cilíndricos')
++            if any(GeomAPI_ProjectPointOnCurve(_point(x),curve).LowerDistance()>max_move for x in points):
++                raise ValueError('La costura desplaza el contorno del STL')
++            return curve,first,last
++    operation=GeomAPI_IntSS(sa,sb,1e-8)
++    candidates=[];diagnostic=[]
++    if not operation.IsDone():raise ValueError('La intersección entre superficies no converge.')
++    samples=points[np.linspace(0,len(points)-1,min(17,len(points))).astype(int)]
++    lines=[operation.Line(index) for index in range(1,operation.NbLines()+1)]
++    planes=[s for s in (sa,sb) if isinstance(s,Geom_Plane)]
++    cylinders=[s for s in (sa,sb) if isinstance(s,Geom_CylindricalSurface)]
++    if len(planes)==len(cylinders)==1:
++        # Fórmula exacta: el intersector puede aproximar por un círculo una
++        # sección levemente oblicua. Mantener la oblicuidad medida en el STL.
++        plane=planes[0].Pln();cylinder=cylinders[0]
++        n=np.array(plane.Axis().Direction().Coord());p=np.array(plane.Location().Coord())
++        a=np.array(cylinder.Axis().Direction().Coord());q=np.array(cylinder.Location().Coord())
++        if abs(n@a)>1e-4:
++            x=np.array(cylinder.Position().XDirection().Coord());y=np.array(cylinder.Position().YDirection().Coord())
++            center=q+a*((n@(p-q))/(n@a))
++            matrix=cylinder.Radius()*np.column_stack((x-a*(n@x)/(n@a),y-a*(n@y)/(n@a)))
++            directions,radii,_=np.linalg.svd(matrix,full_matrices=False)
++            normal=np.cross(directions[:,0],directions[:,1])
++            axes=gp_Ax2(_point(center),gp_Dir(*map(float,normal)),gp_Dir(*map(float,directions[:,0])))
++            lines=[Geom_Ellipse(axes,float(radii[0]),float(radii[1]))]
++    # El intersector puede devolver un bucle como varios arcos no periódicos.
++    # Unir sólo extremos coincidentes, manteniendo las curvas de intersección.
++    additions=[]
++    for index,initial in enumerate(lines):
++        if initial.IsClosed() or not math.isfinite(initial.FirstParameter()) or abs(initial.FirstParameter())>1e20:continue
++        current=initial;used={index}
++        for _ in range(min(len(lines),16)):
++            endpoint=current.Value(current.LastParameter());matches=[]
++            for j,c in enumerate(lines):
++                if j in used or c.IsClosed() or abs(c.FirstParameter())>1e20 or abs(c.LastParameter())>1e20:continue
++                if endpoint.Distance(c.Value(c.FirstParameter()))<=1e-7:matches.append((j,c))
++                elif endpoint.Distance(c.Value(c.LastParameter()))<=1e-7:matches.append((j,c.Reversed()))
++            if len(matches)!=1:break
++            j,following=matches[0]
++            join=GeomConvert_CompCurveToBSplineCurve(Geom_TrimmedCurve(current,current.FirstParameter(),current.LastParameter()))
++            if not join.Add(Geom_TrimmedCurve(following,following.FirstParameter(),following.LastParameter()),1e-7,True,True,0):break
++            current=join.BSplineCurve();used.add(j)
++            if current.IsClosed():break
++        if len(used)>1:additions.append(current)
++    for curve in lines+additions:
++        if isinstance(curve,Geom_TrimmedCurve) and curve.BasisCurve().IsPeriodic():curve=curve.BasisCurve()
++        if curve.IsClosed() and not curve.IsPeriodic() and hasattr(curve,'SetPeriodic'):
++            old=curve;curve=curve.Copy();curve.SetPeriodic()
++            if any(old.Value(float(t)).Distance(curve.Value(float(t)))>1e-7
++                   for t in np.linspace(old.FirstParameter(),old.LastParameter(),65)):
++                raise ValueError('La representación periódica altera la intersección.')
++        projections=[GeomAPI_ProjectPointOnCurve(_point(p),curve) for p in samples]
++        if any(p.NbPoints()==0 for p in projections):continue
++        error=max(p.LowerDistance() for p in projections)
++        parameters=np.array([p.LowerDistanceParameter() for p in projections])
++        if curve.IsPeriodic():parameters=np.unwrap(parameters,period=curve.Period())
++        diagnostic.append({'tipo':type(curve).__name__,'error':error,'parametros':parameters.tolist()})
++        if np.any(np.diff(parameters)>1e-7) and np.any(np.diff(parameters)<-1e-7):continue
++        first,last=map(float,(parameters[0],parameters[-1]))
++        if closed and curve.IsPeriodic():last=first+math.copysign(curve.Period(),last-first)
++        if error<=max_move and abs(last-first)>1e-14:candidates.append((error,curve,first,last))
++    if not candidates:raise ValueError('Las superficies analíticas no admiten un encuentro próximo y continuo. '+str(diagnostic))
++    _,curve,first,last=min(candidates,key=lambda row:row[0])
++    if last<first:
++        first,last=curve.ReversedParameter(first),curve.ReversedParameter(last);curve=curve.Reversed()
++    curve,first,last=acondicionar_conica(curve,first,last)
++    return refinar_interseccion(curve,first,last,sa,sb,max_move)
++
++def _interpolar(points,closed=False):
++    array=TColgp_HArray1OfPnt(1,len(points))
++    for i,p in enumerate(points):array.SetValue(i+1,_point(p))
++    interp=GeomAPI_Interpolate(array,closed,1e-10);interp.Perform()
++    if not interp.IsDone():raise ValueError('No se obtiene un contorno continuo.')
++    return interp.Curve()
++
++def _sobre_superficie(surface,points,closed,projector):
++    from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++    sas=__import__('proyeccion_barridos',fromlist=['analizador']).analizador(surface);uv=np.array([sas.ValueOfUV(_point(p),1e-9).Coord() for p in points])
++    for dim,periodic in [(0,surface.IsUPeriodic()),(1,surface.IsVPeriodic())]:
++        if periodic:uv[:,dim]=np.unwrap(uv[:,dim],period=surface.UPeriod() if dim==0 else surface.VPeriod())
++    if closed:
++        # Se permite una costura paramétrica de2pi con el mismo vértice físico.
++        end=uv[0].copy()
++        for dim,periodic in [(0,surface.IsUPeriodic()),(1,surface.IsVPeriodic())]:
++            if periodic:
++                period=surface.UPeriod() if dim==0 else surface.VPeriod()
++                end[dim]+=round((uv[-1,dim]-uv[0,dim])/period)*period
++        uv=np.vstack((uv,end))
++    keep=np.r_[True,np.linalg.norm(np.diff(uv,axis=0),axis=1)>1e-10];uv=uv[keep]
++    if len(uv)<2:raise ValueError('Contorno UV degenerado.')
++    # Conservar cada esquina del contorno original: no suavizar entre
++    # puntos de un STL. Cada segmento UV se aproxima por separado.
++    if isinstance(surface,Geom_Plane):
++        import meshfit_brep as base
++        mapped=np.array([surface.Value(float(q[0]),float(q[1])).Coord() for q in uv])
++        return base._polyline_curve(mapped)
++    segments=[]
++    for a,b in zip(uv[:-1],uv[1:]):
++        from tramos_barridos import segmento
++        exact=segmento(surface,a,b)
++        if exact is not None:
++            segments.append(exact);continue
++        parameters=np.linspace(0.,1.,9)
++        def mapped(t):
++            q=a+(b-a)*t;return surface.Value(float(q[0]),float(q[1]))
++        for iteration in range(9):
++            points3=TColgp_HArray1OfPnt(1,len(parameters));params3=TColStd_HArray1OfReal(1,len(parameters))
++            for i,t in enumerate(parameters):points3.SetValue(i+1,mapped(t));params3.SetValue(i+1,float(t))
++            fit=GeomAPI_Interpolate(points3,params3,False,1e-12);fit.Perform()
++            if not fit.IsDone():raise ValueError('No se interpola el segmento sobre el soporte.')
++            curve=fit.Curve();bad=[]
++            for i,(lo,hi) in enumerate(zip(parameters[:-1],parameters[1:])):
++                if max(curve.Value(float(t)).Distance(mapped(t)) for t in np.linspace(lo,hi,9))>1e-8:bad.append(i)
++            if not bad:break
++            bad=np.asarray(bad,dtype=int);parameters=np.sort(np.r_[parameters,(parameters[bad]+parameters[bad+1])*.5])
++            if len(parameters)>1025:raise ValueError('El segmento no alcanza la precisión numérica.')
++        else:raise ValueError('El segmento no alcanza la precisión numérica.')
++        segments.append(curve)
++    result=segments[0]
++    for next_curve in segments[1:]:
++        join=GeomConvert_CompCurveToBSplineCurve(result)
++        if not join.Add(next_curve,1e-10,True,True,0):raise ValueError('No se unen los segmentos del contorno.')
++        result=join.BSplineCurve()
++    return result,result.FirstParameter(),result.LastParameter()
++
++def _superficie_libre(original,edges,points):
++    """Ajustar el interior a su soporte y fijar todos los contornos comunes."""
++    from OCP.GeomAPI import GeomAPI_ProjectPointOnSurf
++    started=time.monotonic()
++    if len(edges) in (3,4):
++        try:
++            curves=[GeomConvert.CurveToBSplineCurve_s(Geom_TrimmedCurve(c,a,b)) for c,a,b in edges]
++            candidate=GeomFill_BSplineCurves(*curves,GeomFill_StretchStyle).Surface()
++            maximum=max(GeomAPI_ProjectPointOnSurf(_point(p),candidate).LowerDistance() for p in points)
++            from pcurvas_compartidas import _iso_comun
++            exact_boundaries=all(_iso_comun(c,a,b,candidate) is not None for c,a,b in edges)
++            if maximum<=.006 and exact_boundaries:
++                print('[contornos] transfinito',round(time.monotonic()-started,3),'s ajuste',maximum,'isocurvas verificadas',flush=True)
++                return candidate
++            print('[contornos] transfinito descartado, interior',maximum,'isocurvas',exact_boundaries,flush=True)
++        except Exception as exc:print('[contornos] transfinito fallido:',str(exc),flush=True)
++    plate=GeomPlate_BuildPlateSurface(original,3,20,4,1e-8,2e-7,.01,.1,False)
++    for curve,first,last in edges:
++        plate.Add(GeomPlate_CurveConstraint(GeomAdaptor_Curve(curve,first,last),0,30,2e-7))
++    # Puntos interiores originales, con reparto determinista. No alterar sus medidas.
++    for p in points[np.linspace(0,len(points)-1,min(20,len(points))).astype(int)]:
++        plate.Add(GeomPlate_PointConstraint(_point(p),0,1e-5))
++    plate.Perform()
++    if not plate.IsDone():raise ValueError('No converge la superficie con contornos compartidos.')
++    approximation=GeomPlate_MakeApprox(plate.Surface(),2e-7,100,8,plate.G0Error(),0)
++    print('[contornos] Plate',round(time.monotonic()-started,3),'s G0',plate.G0Error(),flush=True)
++    return approximation.Surface()
++
++def separar_planos_aproximados(mesh,labels,surfaces):
++    """Una tolerancia de región no convierte un redondeo en un plano exacto.
++
++    Mantener el núcleo coplanar y reconstruir aparte los triángulos del borde
++    absorbidos por el detector. No retirar triángulos ni alterar sus vértices.
++    """
++    import meshfit_brep as base
++    labels=labels.copy();surfaces=dict(surfaces);groups=base._groups(labels)
++    next_label=int(labels.max())+1;separated=0
++    for l,ids in groups.items():
++        surface=surfaces[l]
++        if not isinstance(surface,Geom_Plane) or len(ids)<3:continue
++        vertices=np.asarray(mesh.vertices[mesh.faces[ids]])
++        # Hipótesis acotada del trabajador de barridos: la distancia a un
++        # plano es afín, por lo que TODOS los interiores de cada triángulo
++        # quedan certificados por sus tres vértices. El validador final no cambia.
++        if __import__('os').environ.get('VISOR_PLANOS_MEDIDOS')=='1':
++            plane=surface.Pln();n=np.array(plane.Axis().Direction().Coord());q=np.array(plane.Location().Coord())
++            if np.max(np.abs((vertices-q)@n))<=1e-4:continue
++        candidates=[surface]+[base._facet_surface(mesh,int(i)) for i in ids[np.argsort(-mesh.area_faces[ids])[:24]]]
++        best=None
++        for candidate in candidates:
++            if candidate is None:continue
++            plane=candidate.Pln();normal=np.array(plane.Axis().Direction().Coord());origin=np.array(plane.Location().Coord())
++            error=np.max(np.abs((vertices-origin)@normal),axis=1)
++            core=error<=1e-5;weight=float(mesh.area_faces[ids[core]].sum())
++            if best is None or weight>best[0]*(1+1e-4)+1e-12:best=(weight,candidate,core)
++        _,candidate,core=best
++        if core.sum()<2:continue
++        surfaces[l]=candidate
++        other=ids[~core]
++        if not len(other):continue
++        # Cada resto se conserva primero como una faceta. Las que siguen
++        # coplanares se pueden unir en un desarrollo posterior; no se ocultan.
++        for face in other:
++            labels[face]=next_label;surfaces[next_label]=base._facet_surface(mesh,int(face));next_label+=1
++        separated+=len(other)
++    comp=base._split_connected(mesh,labels);result={}
++    for c in np.unique(comp):
++        index=int(np.flatnonzero(comp==c)[0]);result[int(c)]=surfaces[int(labels[index])]
++    print('[contornos] triángulos separados de planos aproximados:',separated,flush=True)
++    return comp,result
++
++def subdividir_parches_complejos(mesh,labels,surfaces,primary,triangulos_libres=None):
++    """Parches libres de más de cuatro lados: pares de triángulos conservados.
++
++    No pedir a una superficie aproximada que resuelva a la vez contornos
++    incompatibles o agujeros. Los recortes salen de la topología original.
++    """
++    import meshfit_brep as base
++    import os
++    single=(os.environ.get('VISOR_TRIANGULOS_LIBRES')=='1' if triangulos_libres is None else bool(triangulos_libres))
++    _,loops,_=base._boundary_chains(mesh,labels)
++    targets={l for l,lps in loops.items() if l not in primary and
++             (len(lps)>1 or sum(map(len,lps))>4 or int((labels==l).sum())>(1 if single else 2))}
++    if not targets:return
++    groups=base._groups(labels);next_label=int(labels.max())+1
++    adj=mesh.face_adjacency;edges=[]
++    for a,b in adj:
++        if single:break
++        l=int(labels[a])
++        if l not in targets or labels[b]!=l or mesh.face_normals[a]@mesh.face_normals[b]<np.cos(np.radians(10)):continue
++        shared=np.intersect1d(mesh.faces[a],mesh.faces[b])
++        if len(shared)!=2:continue
++        # Emparejar por la diagonal más larga; preferir cuadriláteros convexos.
++        union=np.unique(np.r_[mesh.faces[a],mesh.faces[b]])
++        if len(union)!=4:continue
++        P=mesh.vertices[union];center=P.mean(0);_,_,vt=np.linalg.svd(P-center,full_matrices=False)
++        q=(P-center)@vt[:2].T
++        from scipy.spatial import ConvexHull
++        try:
++            if len(ConvexHull(q).vertices)!=4:continue
++        except Exception:continue
++        edges.append((float(np.linalg.norm(mesh.vertices[shared[0]]-mesh.vertices[shared[1]])),int(a),int(b),l))
++    pairs={};used=set()
++    for _,a,b,l in sorted(edges,reverse=True):
++        if a in used or b in used:continue
++        pairs[a]=b;used.update((a,b))
++    for l in targets:
++        ids=groups[l];visited=set();first=True
++        for a in ids:
++            a=int(a)
++            if a in visited:continue
++            group=[a]
++            if a in pairs:group.append(pairs[a])
++            elif a in used:
++                # El compañero de un par se atiende desde su primera cara.
++                continue
++            visited.update(group);label=l if first else next_label
++            if not first:next_label+=1
++            first=False;labels[group]=label;surfaces[label]=surfaces[l]
++    if len(surfaces)>3000:raise ValueError('La reconstrucción de contornos excede el presupuesto de3000caras.')
++    print('[contornos] parches libres subdivididos:',len(targets),'superficies totales:',len(surfaces),flush=True)
++
++def _construir(mesh,labels,comp_surf,tol,max_move,smooth_len=0.,parches_regulares=None,triangulos_libres=None):
++    import meshfit_brep as base
++    from scipy.optimize import least_squares
++    import os
++    regular=(os.environ.get('VISOR_PARCHES_REGULARES')=='1' if parches_regulares is None else bool(parches_regulares))
++    corrected_labels,corrected_surfaces=separar_planos_aproximados(mesh,labels,comp_surf)
++    labels[:]=corrected_labels;comp_surf.clear();comp_surf.update(corrected_surfaces)
++    from OCP.Geom import Geom_SurfaceOfLinearExtrusion
++    if os.environ.get('VISOR_PLANOS_MEDIDOS')=='1' and any(isinstance(s,Geom_SurfaceOfLinearExtrusion) for s in comp_surf.values()):
++        from planos_medidos import proponer
++        new_labels,measured,plane_proof=proponer(mesh,labels,comp_surf)
++        from planos_medidos import conciliar
++        measured=conciliar(mesh,new_labels,measured)
++        labels[:]=new_labels;comp_surf.clear();comp_surf.update(measured)
++    begin=time.monotonic();groups=base._groups(labels)
++    projectors={l:base._Proj(s) for l,s in comp_surf.items()}
++    primary=set()
++    for l,s in comp_surf.items():
++        if isinstance(s,Geom_BSplineSurface):continue
++        ids=groups[l]
++        if isinstance(s,Geom_Plane) and len(ids)<=1:continue
++        pts=np.vstack((mesh.vertices[np.unique(mesh.faces[ids])],mesh.triangles_center[ids]))
++        error=float(np.linalg.norm(projectors[l].batch(pts)-pts,axis=1).max())
++        limit=(1e-4 if os.environ.get('VISOR_PLANOS_MEDIDOS')=='1' else 1e-5) if isinstance(s,Geom_Plane) else .008
++        if error<=limit:primary.add(l)
++    # Facetas casi tangentes a un plano extenso no fijan una esquina mecánica
++    # independiente. Mantener su geometría como parche evita que pequeñas
++    # diferencias de coma flotante extrapolen una intersección lejana.
++    incident_all=collections.defaultdict(set)
++    for face,label in zip(mesh.faces,labels):
++        if int(label) in primary:
++            for v in face:incident_all[int(v)].add(int(label))
++    demoted=set();areas={l:float(mesh.area_faces[ids].sum()) for l,ids in groups.items()}
++    for regions in incident_all.values():
++        planes=[l for l in regions if isinstance(comp_surf[l],Geom_Plane)]
++        for a in planes:
++            for b in planes:
++                if a==b or areas[b]<=4*areas[a]:continue
++                na=np.array(comp_surf[a].Pln().Axis().Direction().Coord())
++                nb=np.array(comp_surf[b].Pln().Axis().Direction().Coord())
++                if abs(na@nb)>np.cos(np.radians(5)):
++                    demoted.add(a)
++    primary-=demoted
++    from esquinas_medidas import separar_conflictos
++    separar_conflictos(mesh,labels,comp_surf,primary,groups,max_move)
++    if demoted:print('[contornos] facetas tangentes reconstruidas aparte:',len(demoted),flush=True)
++    print('[contornos] superficies confirmadas:',len(primary),'de',len(comp_surf),flush=True)
++    if os.environ.get('VISOR_DEPURAR_CONTORNOS'):
++        import json
++        from pathlib import Path
++        target=Path(os.environ['VISOR_DEPURAR_CONTORNOS']);target.mkdir(parents=True,exist_ok=True)
++        records=[]
++        for region,ids in groups.items():
++            if region in primary:continue
++            P=mesh.vertices[np.unique(mesh.faces[ids])]
++            records.append(dict(region=region,tipo=type(comp_surf[region]).__name__,triangulos=len(ids),bbox=[P.min(0).tolist(),P.max(0).tolist()],area=float(mesh.area_faces[ids].sum())))
++            np.savez(target/('libre_'+str(region)+'.npz'),vertices=P,triangulos=ids)
++        (target/'libres.json').write_text(json.dumps(records,indent=2))
++
++    subdividir_parches_complejos(mesh,labels,comp_surf,primary,triangulos_libres=triangulos_libres)
++    groups=base._groups(labels)
++    mesh.esquinas_contorno_compartido={int(v) for l,ids in groups.items() if l not in primary
++                                      for v in mesh.faces[ids].ravel()}
++    projectors={l:base._Proj(s) for l,s in comp_surf.items()}
++    chains,loops,corners=base._boundary_chains(mesh,labels)
++    triangular={r for r,lps in loops.items() if r not in primary and len(lps)==1 and len(lps[0])==3}
++    from anclaje_barridos import anclar
++    anclar(mesh,chains,comp_surf,primary,projectors,max_move)
++    projectors={l:base._Proj(s) for l,s in comp_surf.items()}
++    positions={v:mesh.vertices[v].copy() for ch in chains.values() for v in ch['verts']}
++    incident=collections.defaultdict(set)
++    for ch in chains.values():
++        for v in ch['verts']:incident[v].update(l for l in ch['pair'] if l in primary)
++    # Sólo se imponen superficies analíticas a las que pertenece el vértice.
++    # Las zonas libres se reconstruyen después para compartir esos extremos.
++    for v,regions in incident.items():
++        if not regions:continue
++        p=np.asarray(mesh.vertices[v]);reference_p=getattr(mesh,'propuestas_esquinas_medidas',{}).get(v,p);prs=[projectors[l] for l in sorted(regions)]
++        from geometria_medida import circle_supports,signed_projection
++        import itertools
++        circles=[];lines=[]
++        from curvas_barridas import lineas_compatibles
++        for first,second in itertools.combinations(sorted(regions),2):
++            possible_lines=lineas_compatibles(comp_surf[first],comp_surf[second])
++            if possible_lines:lines.append(min(possible_lines,key=lambda line:np.linalg.norm(np.cross(reference_p-line[0],line[1]))))
++            choices=circle_supports(comp_surf[first],comp_surf[second])
++            if choices:
++                def score(c):
++                    center,axis,radius=c;d=reference_p-center
++                    return abs(d@axis)+abs(np.linalg.norm(np.cross(d,axis))-radius)
++                circles.append(min(choices,key=score))
++        def residual(q):
++            values=[]
++            for pr in prs:
++                values.extend(signed_projection(pr,np.asarray([q]))[0])
++            for center,axis,radius in circles:
++                values.extend([(q-center)@axis,np.linalg.norm(np.cross(q-center,axis))-radius])
++            for origin,axis,_ in lines:values.extend(np.cross(q-origin,axis))
++            return np.asarray(values)
++        def objective(q):return np.r_[residual(q),(q-p)*1e-6]
++        fit=least_squares(objective,getattr(mesh,'propuestas_esquinas_medidas',{}).get(v,p),xtol=1e-13,ftol=1e-13,gtol=1e-13,max_nfev=160)
++        if np.max(np.abs(residual(fit.x)))>2e-7 or np.linalg.norm(fit.x-p)>max_move:
++            raise ValueError('Esquina incompatible con las superficies confirmadas; no se desplaza silenciosamente. '+
++                             str({'vertice':v,'regiones':[(l,type(comp_surf[l]).__name__,len(groups[l])) for l in sorted(regions)],
++                                  'residual':float(np.max(np.abs(residual(fit.x)))),'movimiento':float(np.linalg.norm(fit.x-p)), 'semilla_anclada':v in getattr(mesh,'propuestas_esquinas_medidas',{}),'p_semilla':getattr(mesh,'propuestas_esquinas_medidas',{}).get(v,p).tolist(),'residual_semilla':residual(getattr(mesh,'propuestas_esquinas_medidas',{}).get(v,p)).tolist()}))
++        positions[v]=fit.x
++    builder=BRep_Builder();vertices={};edge_shapes={};edge_curves={}
++    def vertex(v):
++        if v not in vertices:
++            result=TopoDS_Vertex();builder.MakeVertex(result,_point(positions[v]),1e-7);vertices[v]=result
++        return vertices[v]
++    for key,ch in sorted(chains.items(),key=lambda item:sum(r in primary for r in item[1]['pair'])):
++        points=np.array([positions[v] for v in ch['verts']]);fixed=[l for l in ch['pair'] if l in primary]
++        if len(fixed)==2:
++            p=np.vstack((points,points[:1])) if ch['closed'] else points
++            try:curve,first,last=_interseccion(*[comp_surf[l] for l in fixed],p,max_move,ch['closed'])
++            except Exception as exc:
++                import traceback;traceback.print_exc()
++                raise ValueError(str(exc)+' '+str({'regiones':[(l,type(comp_surf[l]).__name__,len(groups[l])) for l in fixed],
++                                                  'cerrada':ch['closed'],'puntos':len(points)})) from exc
++        elif len(fixed)==1:
++            l=fixed[0]
++            try:curve,first,last=_sobre_superficie(comp_surf[l],points,ch['closed'],projectors[l])
++            except Exception as exc:raise ValueError(str(exc)+' '+str(dict(regiones=ch['pair'],soporte=type(comp_surf[l]).__name__,puntos=len(points)))) from exc
++        else:
++            p=np.vstack((points,points[:1])) if ch['closed'] else points
++            curve,first,last=base._polyline_curve(p)
++        if regular and any(l in triangular for l in ch['pair']):
++            from parches_triangulares import bezier_local
++            try:curve,first,last=bezier_local(curve,first,last,positions[ch['verts'][0]],positions[ch['verts'][0] if ch['closed'] else ch['verts'][-1]])
++            except ValueError as exc:
++                if len(ch['verts'])==2 and not ch['closed'] and hasattr(curve,'NbKnots'):
++                    interior=[curve.Knot(i) for i in range(1,curve.NbKnots()+1) if first+1e-10<curve.Knot(i)<last-1e-10]
++                    if interior:
++                        from refinamiento_contorno import RefinarArista
++                        raise RefinarArista(tuple(ch['verts']),[np.array(curve.Value(float(t)).Coord()) for t in interior]) from exc
++                raise ValueError(str(exc)+' '+str(dict(regiones=[(l,type(comp_surf[l]).__name__,len(groups[l]),l in primary) for l in ch['pair']],puntos=len(points),curva=type(curve).__name__))) from exc
++        edge=TopoDS_Edge();builder.MakeEdge(edge,curve,1e-7)
++        v0=vertex(ch['verts'][0]);v1=v0 if ch['closed'] else vertex(ch['verts'][-1])
++        for v,p in [(v0,curve.Value(first)),(v1,curve.Value(last))]:
++            distance=BRep_Tool.Pnt_s(v).Distance(p)
++            if distance>1e-9:print('DESACUERDO EXTREMO',distance,[(l,type(comp_surf[l]).__name__) for l in ch['pair']],flush=True)
++            if distance>2e-6:raise ValueError('El contorno nuevo no coincide con su vértice compartido. '+str({'regiones':[(l,type(comp_surf[l]).__name__,len(groups[l])) for l in ch['pair']], 'cerrado':ch['closed'],'distancia':distance,'p_vertice':BRep_Tool.Pnt_s(v).Coord(),'p_curva':p.Coord(),'first':first,'last':last}))
++            builder.UpdateVertex(v,max(BRep_Tool.Tolerance_s(v),distance*1.01+1e-7))
++        builder.Add(edge,v0.Oriented(TopAbs_FORWARD));builder.Add(edge,v1.Oriented(TopAbs_REVERSED));builder.Range(edge,first,last)
++        edge_shapes[key]=edge;edge_curves[key]=(curve,first,last)
++    print('[contornos] curvas comunes:',len(chains),'en',round(time.monotonic()-begin,2),'s',flush=True)
++    faces={}
++    for l,lps in loops.items():
++        uv_known=None
++        surface=comp_surf[l];ids=groups[l]
++        ks=ids[np.argsort(-mesh.area_faces[ids])[:30]];votes=0.
++        for k in ks:
++            normal=projectors[l].normal(mesh.triangles_center[k])
++            if normal is not None:votes+=np.sign(float(normal@mesh.face_normals[k]))*mesh.area_faces[k]
++        inward=votes<0
++        if l not in primary:
++            constraints=[]
++            for lp in lps:
++                for key,forward in lp:
++                    curve,first,last=edge_curves[key]
++                    if not forward:
++                        trimmed=Geom_TrimmedCurve(curve,first,last).Reversed()
++                        constraints.append((trimmed,trimmed.FirstParameter(),trimmed.LastParameter()))
++                    else:constraints.append((curve,first,last))
++            points=np.asarray(mesh.triangles_center[ids])
++            print('[contornos] ajustando región',l,type(surface).__name__,len(constraints),'aristas',flush=True)
++            if regular and len(lps)==1 and len(lps[0])==3:
++                from parches_triangulares import superficie_triangular
++                surface=superficie_triangular(constraints,np.average(points,axis=0,weights=mesh.area_faces[ids]))
++                uv_known={key:ends if forward else tuple(reversed(ends)) for (key,forward),ends in
++                          zip(lps[0],[((0.,0.),(1.,0.)),((1.,0.),(0.,1.)),((0.,1.),(0.,0.))])}
++            else:surface=_superficie_libre(surface,constraints,points)
++            projected=base._Proj(surface);votes=0.
++            for k in ks:
++                normal=projected.normal(mesh.triangles_center[k])
++                if normal is not None:votes+=np.sign(float(normal@mesh.face_normals[k]))*mesh.area_faces[k]
++            inward=votes<0
++        face=TopoDS_Face();builder.MakeFace(face,surface,1e-7)
++        from geometria_medida import crear_pcurva
++        stored_uv={}
++        for lp in lps:
++            previous_uv=None
++            for key,forward in lp:
++                curve,first,last=edge_curves[key]
++                try:
++                    if uv_known is not None:
++                        from pcurvas_compartidas import _lineal_uv,_error
++                        uv=_lineal_uv(first,last,*uv_known[key])
++                        if _error(curve,uv,surface,first,last)>5e-8:raise ValueError('La curvaUV conocida no supera el control.')
++                    else:uv,proof=crear_pcurva(curve,first,last,surface)
++                except Exception as exc:
++                    import os,io
++                    debug=os.environ.get('VISOR_DEPURAR_CONTORNOS')
++                    if debug:
++                        from pathlib import Path
++                        from OCP.GeomTools import GeomTools
++                        p=Path(debug);p.mkdir(parents=True,exist_ok=True)
++                        for name,obj in [('curva',curve),('superficie',surface)]:
++                            data=io.BytesIO();GeomTools.Write_s(obj,data);(p/(name+'.geom')).write_bytes(data.getvalue())
++                        (p/'intervalo.txt').write_text(f'{first} {last}')
++                    raise ValueError(str(exc)+' '+str({'region':l,'tipo':type(surface).__name__,'curva':type(curve).__name__,
++                                                       'primaria':l in primary,'intervalo':[first,last]})) from exc
++                if previous_uv is not None:
++                    from OCP.gp import gp_Vec2d
++                    start_uv=uv.Value(first if forward else last);shift=[0.,0.]
++                    for dim,periodic in ((0,surface.IsUPeriodic()),(1,surface.IsVPeriodic())):
++                        if periodic:
++                            period=surface.UPeriod() if dim==0 else surface.VPeriod()
++                            shift[dim]=round((previous_uv.Coord()[dim]-start_uv.Coord()[dim])/period)*period
++                    if any(shift):uv.Translate(gp_Vec2d(*shift))
++                previous_uv=uv.Value(last if forward else first)
++                if key in stored_uv:builder.UpdateEdge(edge_shapes[key],stored_uv[key],uv,face,1e-7)
++                else:builder.UpdateEdge(edge_shapes[key],uv,face,1e-7)
++                stored_uv[key]=uv
++                builder.Range(edge_shapes[key],face,first,last)
++                builder.SameRange(edge_shapes[key],True);builder.SameParameter(edge_shapes[key],True)
++        for lp in lps:
++            wire=TopoDS_Wire();builder.MakeWire(wire)
++            for key,forward in lp:builder.Add(wire,edge_shapes[key].Oriented(TopAbs_FORWARD if forward else TopAbs_REVERSED))
++            builder.Add(face,wire.Reversed() if inward else wire)
++        faces[l]=face.Reversed() if inward else face
++    shell=TopoDS_Shell();builder.MakeShell(shell)
++    for face in faces.values():builder.Add(shell,face)
++    import os
++    debug=os.environ.get('VISOR_DEPURAR_CONTORNOS')
++    if debug:
++        from pathlib import Path
++        target=Path(debug);target.mkdir(parents=True,exist_ok=True)
++        np.savez_compressed(target/'mapa_regiones.npz',vertices=mesh.vertices,triangulos=mesh.faces,
++                            etiquetas=labels,orden_caras=np.array(list(faces)))
++    print('[contornos] shell construido',len(faces),'caras en',round(time.monotonic()-begin,3),'s',flush=True)
++    return shell,faces
++
++ULTIMA_SUBDIVISION=[]
++def construir(mesh,labels,comp_surf,tol,max_move,smooth_len=0.,parches_regulares=None,triangulos_libres=None):
++    from refinamiento_contorno import RefinarArista,dividir
++    global ULTIMA_SUBDIVISION
++    import trimesh
++    ULTIMA_SUBDIVISION=[];work=trimesh.Trimesh(np.array(mesh.vertices),np.array(mesh.faces),process=False);reference=work.copy();current=labels.copy();surfaces=dict(comp_surf)
++    for iteration in range(65):
++        try:
++            return _construir(work,current,surfaces,tol,max_move,smooth_len,parches_regulares,triangulos_libres)
++        except RefinarArista as request:
++            if iteration==64 or sum(r['vertices_nuevos'] for r in ULTIMA_SUBDIVISION)+len(request.points)>128:raise ValueError('Se agota el presupuesto de subdivisión de contornos')
++            from verificacion_reparacion import distancia_malla
++            error=float(distancia_malla(reference,np.asarray(request.points)).max())
++            if error>.003:raise ValueError('Los vértices de propuesta no conservan la fuente acotada')
++            work,current,record=dividir(work,current,request.vertices,request.points)
++            record['max_distancia_fuente_mm']=error
++            ULTIMA_SUBDIVISION.append(record);print('SUBDIVISION DE PROPUESTA',record,flush=True)
++    raise ValueError('No converge la subdivisión local del contorno')
++
++from geometria_medida import intersection_stable as _interseccion,refine_generic as refinar_interseccion
+--- /dev/null
++++ R11/motor_superficies/anclaje_barridos.py
+@@ -0,0 +1,137 @@
++"""Anclar perfiles medidos a encuentros nativos; no cambia sus tolerancias CAD."""
++import itertools
++import numpy as np
++from scipy.interpolate import BSpline
++from scipy.optimize import least_squares
++from OCP.Geom import Geom_SurfaceOfLinearExtrusion
++from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++from OCP.gp import gp_Pnt
++
++def anclar(mesh,chains,surfaces,primary,projectors,max_move):
++ import meshfit_brep as base
++ from geometria_medida import signed_projection,circle_supports
++ incident={}
++ for ch in chains.values():
++  for vi in (ch['verts'][0],ch['verts'][0] if ch['closed'] else ch['verts'][-1]):incident.setdefault(int(vi),set()).update(ch['pair'])
++ # Una esquina compartida pertenece al grafo de la fuente, no a cada
++ # perfil por separado. Fijar una referencia común antes de ajustar curvas.
++ shared={};axes={};canonical={}
++ for v,regions in incident.items():
++  rs={r for r in regions if r in primary and isinstance(surfaces[r],Geom_SurfaceOfLinearExtrusion)}
++  if len(rs)<2:continue
++  directions=[np.array(surfaces[r].Direction().Coord()) for r in rs];a=directions[0]
++  if any(np.linalg.norm(np.cross(a,b))>1e-8 for b in directions[1:]):continue
++  shared[v]=rs;axes[v]=a
++ parent={v:v for v in shared}
++ def root(v):
++  while parent[v]!=v:parent[v]=parent[parent[v]];v=parent[v]
++  return v
++ keys=list(shared)
++ for i,v in enumerate(keys):
++  for w in keys[i+1:]:
++   if len(shared[v]&shared[w])<2:continue
++   a=axes[v];difference=mesh.vertices[v]-mesh.vertices[w];difference-=a*(difference@a)
++   if np.linalg.norm(difference)<1e-4:parent[root(w)]=root(v)
++ clusters={}
++ for v in keys:clusters.setdefault(root(v),[]).append(v)
++ for cluster in clusters.values():
++  a=axes[cluster[0]];P=mesh.vertices[cluster];Q=np.mean(P-np.outer(P@a,a),axis=0)
++  for v in cluster:canonical[v]=Q+a*(mesh.vertices[v]@a)
++ targets={};curves={};owners={};contexts={};mesh.propuestas_esquinas_medidas={}
++ for vertex,regions in incident.items():
++  sweeps=[r for r in regions if r in primary and isinstance(surfaces[r],Geom_SurfaceOfLinearExtrusion)]
++  if not sweeps:continue
++  native=[r for r in regions if r in primary and r not in sweeps];p=np.asarray(canonical.get(vertex,mesh.vertices[vertex]));circles=[]
++  for first,second in itertools.combinations(native,2):
++   choices=circle_supports(surfaces[first],surfaces[second])
++   if choices:
++    def score(c):
++     q,a,r=c;return abs((p-q)@a)+abs(np.linalg.norm(np.cross(p-q,a))-r)
++    circles.append(min(choices,key=score))
++  def residual(x):
++   result=[]
++   for region in native:result.extend(signed_projection(projectors[region],np.asarray([x]))[0])
++   for q,a,r in circles:result.extend([(x-q)@a,np.linalg.norm(np.cross(x-q,a))-r])
++   return np.asarray(result)
++  if native:
++   fit=least_squares(lambda x:np.r_[residual(x),(x-p)*1e-6],p,xtol=1e-13,ftol=1e-13,gtol=1e-13,max_nfev=160);point=fit.x
++   if max(abs(residual(point)),default=0)>2e-7 or np.linalg.norm(point-p)>max_move:raise ValueError('Las superficies nativas no fijan una esquina compatible '+str({'vertice':vertex,'regiones':[(r,type(surfaces[r]).__name__) for r in native],'residual':max(abs(residual(point)),default=0),'movimiento':np.linalg.norm(point-p)}))
++  else:point=p
++  contexts[vertex]=(native,circles,p.copy())
++  for region in sweeps:
++   surface=surfaces[region];key=id(surface);curve=surface.BasisCurve();axis=np.array(surface.Direction().Coord())
++   normal_rows=[signed_projection(projectors[r],np.asarray([point]))[1][0] for r in native]
++   for q,a,r in circles:normal_rows.extend([a,np.cross(np.cross(point-q,a),a)*-1/max(np.linalg.norm(np.cross(point-q,a)),1e-30)])
++   if not normal_rows and len(sweeps)<2:continue
++   matrix=np.asarray(normal_rows).reshape(-1,3);matrix-=np.outer(matrix@axis,axis);sv=np.linalg.svd(matrix,compute_uv=False)
++   if len(native)<2 and not circles and len(sweeps)<2:continue
++   origin=np.array(curve.Value(curve.FirstParameter()).Coord());target=point-axis*((point-origin)@axis)
++   projection=GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float,target)),curve)
++   choices=[curve.FirstParameter(),curve.LastParameter()]
++   if projection.NbPoints():choices.append(projection.LowerDistanceParameter())
++   from scipy.optimize import minimize_scalar
++   grid=np.linspace(curve.FirstParameter(),curve.LastParameter(),257);j=min(range(len(grid)),key=lambda j:curve.Value(float(grid[j])).Distance(gp_Pnt(*map(float,target))))
++   if 0<j<len(grid)-1:
++    fit=minimize_scalar(lambda t:np.sum((np.array(curve.Value(float(t)).Coord())-target)**2),bounds=(grid[j-1],grid[j+1]),method='bounded',options={'xatol':1e-14});choices.append(float(fit.x))
++   parameter=min(choices,key=lambda t:curve.Value(float(t)).Distance(gp_Pnt(*map(float,target))))
++   knots_near=[curve.Knot(k) for k in range(1,curve.NbKnots()+1) if curve.Value(curve.Knot(k)).Distance(curve.Value(float(parameter)))<1e-5]
++   if knots_near:parameter=min(knots_near,key=lambda k:abs(k-parameter))
++   mesh.propuestas_esquinas_medidas[vertex]=point.copy();targets.setdefault(key,[]).append((float(parameter),target,vertex));curves[key]=curve;owners[key]=surface
++ records=[]
++ for key,rows in targets.items():
++  curve=curves[key];axis=np.array(owners[key].Direction().Coord());origin=np.array(curve.Value(curve.FirstParameter()).Coord());rows.sort(key=lambda r:r[0]);clusters=[]
++  for row in rows:
++   if clusters and curve.Value(row[0]).Distance(curve.Value(clusters[-1][-1][0]))<1e-5:clusters[-1].append(row)
++   else:clusters.append([row])
++  merged=[]
++  for cluster in clusters:
++   if len(cluster)==1:merged.extend(cluster);continue
++   preferred=[canonical[v]-axis*((canonical[v]-origin)@axis) for t,p,v in cluster if v in canonical]
++   Q=np.asarray(preferred[0]) if preferred else np.mean([r[1] for r in cluster],axis=0);initial=np.r_[Q,[float((mesh.propuestas_esquinas_medidas[v]-Q)@axis) for t,p,v in cluster]]
++   def native_residual(x):
++    result=[float((x[:3]-origin)@axis)]
++    if preferred:result.extend(x[:3]-Q)
++    for j,(t,target,v) in enumerate(cluster):
++     native,circles,p=contexts[v];point=x[:3]+axis*x[3+j]
++     for region in native:result.extend(signed_projection(projectors[region],np.asarray([point]))[0])
++     for q,a,r in circles:result.extend([(point-q)@a,np.linalg.norm(np.cross(point-q,a))-r])
++    return np.array(result)
++   fit=least_squares(lambda x:np.r_[native_residual(x),(x-initial)*1e-7],initial,xtol=1e-14,ftol=1e-14,gtol=1e-14,max_nfev=200)
++   if abs(native_residual(fit.x)).max()>2e-7:raise ValueError('Los anclajes próximos no comparten una esquina nativa '+str(dict(regiones=[r for r,s in surfaces.items() if s is owners[key]],vertices=[v for t,p,v in cluster],nativas=[[(r,type(surfaces[r]).__name__) for r in contexts[v][0]] for t,p,v in cluster],residual=float(abs(native_residual(fit.x)).max()))))
++   Q=fit.x[:3];parameter=float(np.mean([r[0] for r in cluster]))
++   for j,(t,target,v) in enumerate(cluster):
++    point=Q+axis*fit.x[3+j]
++    if np.linalg.norm(point-mesh.vertices[v])>max_move:raise ValueError('La esquina conjunta abandona la fuente')
++    mesh.propuestas_esquinas_medidas[v]=point;merged.append((parameter,Q.copy(),v))
++  rows=merged;knots=[]
++  for i in range(1,curve.NbKnots()+1):knots.extend([curve.Knot(i)]*curve.Multiplicity(i))
++  rows.sort(key=lambda r:r[0]);parameters=np.array([r[0] for r in rows]);wanted=np.array([r[1] for r in rows]);current=np.array([curve.Value(float(t)).Coord() for t in parameters])
++  # Insertar nudos NO altera la curva. Con multiplicidad cúbica, el
++  # encuentro pasa por un polo. Trasladar ese polo y sus dos vecinos conserva
++  # las derivadas primeras a ambos lados y evita un sistema mal condicionado.
++  new=curve.Copy()
++  if new.IsRational() or new.Degree()!=3:raise ValueError('Perfil no cúbico para anclaje acotado')
++  for t in parameters:
++   if new.FirstParameter()+1e-10<t<new.LastParameter()-1e-10:new.InsertKnot(float(t),3,1e-12,False)
++  expanded=[]
++  for i in range(1,new.NbKnots()+1):expanded.extend([new.Knot(i)]*new.Multiplicity(i))
++  basis=BSpline.design_matrix(parameters,np.array(expanded),3).toarray();edits={}
++  for row,parameter,target in zip(basis,parameters,wanted):
++   index=int(row.argmax())
++   if row[max(0,index-1):min(len(row),index+2)].sum()<1.-1e-6:raise ValueError('El nudo no interpola localmente su encuentro '+str(dict(regiones=[r for r,s in surfaces.items() if s is owners[key]],parametro=parameter,max_coef=float(row.max()),no_ceros=[(int(j),float(row[j])) for j in np.flatnonzero(row>1e-12)],nudos_cercanos=[float(k) for k in expanded if abs(k-parameter)<1e-6],anclajes=[(float(t),int(v)) for t,p,v in rows])))
++   delta=target-np.array(new.Value(float(parameter)).Coord())
++   for k in (index-1,index,index+1):
++    if not 0<=k<new.NbPoles():continue
++    if k in edits and np.linalg.norm(edits[k]-delta)>5e-8:raise ValueError('Anclajes demasiado próximos e incompatibles')
++    edits[k]=delta
++  maximum=max(float(np.linalg.norm(d)) for d in edits.values())
++  if maximum>.003:raise ValueError(f'El anclaje local excede su cota: {maximum}')
++  for index,change in edits.items():new.SetPole(index+1,gp_Pnt(*map(float,np.array(new.Pole(index+1).Coord())+change)))
++  verified=max(new.Value(float(t)).Distance(gp_Pnt(*map(float,p))) for t,p in zip(parameters,wanted))
++  if verified>5e-8:raise ValueError('No se conserva la esquina anclada')
++  # La envolvente convexa B-spline limita el movimiento de TODO el perfil,
++  # incluidos los intervalos sin muestras: <= mayor movimiento de sus polos.
++  replacement=Geom_SurfaceOfLinearExtrusion(new,owners[key].Direction());labels=[r for r,s in surfaces.items() if s is owners[key]]
++  for region in labels:surfaces[region]=replacement
++  records.append(dict(regiones=labels,anclajes=len(rows),movimiento_max_polos_mm=maximum,residual_mm=verified));print('ANCLAJE BARRIDO',records[-1],flush=True)
++ return records
+--- /dev/null
++++ R11/motor_superficies/curvas_barridas.py
+@@ -0,0 +1,390 @@
++"""Intersecciones medidas para barridos, con curva UV y 3D coherentes."""
++import numpy as np
++from OCP.Geom import Geom_Plane,Geom_SurfaceOfRevolution,Geom_SurfaceOfLinearExtrusion
++from OCP.gp import gp_Pnt,gp_Pnt2d
++
++def _desde_uv(surface,plane,uv_value,knots):
++ from OCP.Geom2dAPI import Geom2dAPI_Interpolate
++ from OCP.TColgp import TColgp_HArray1OfPnt2d
++ from OCP.TColStd import TColStd_HArray1OfReal
++ from OCP.Approx import Approx_CurveOnSurface
++ from OCP.Geom2dAdaptor import Geom2dAdaptor_Curve
++ from OCP.GeomAdaptor import GeomAdaptor_Surface
++ from OCP.GeomAbs import GeomAbs_C1
++ from pcurvas_compartidas import _error
++ from geometria_medida import UV_KNOWN
++ n=np.array(plane.Axis().Direction().Coord());q=np.array(plane.Location().Coord());parameters=np.unique(np.r_[np.linspace(0,1,17),knots])
++ parameters=np.r_[parameters[0],parameters[1:][np.diff(parameters)>1e-9]]
++ if parameters[-1]<1.-1e-9:parameters=np.r_[parameters,1.]
++ else:parameters[-1]=1.
++ for iteration in range(12):
++  uvpoints=np.array([uv_value(float(t)) for t in parameters]);uvpoints[:,0]=np.unwrap(uvpoints[:,0],period=surface.UPeriod()) if surface.IsUPeriodic() else uvpoints[:,0]
++  points=TColgp_HArray1OfPnt2d(1,len(parameters));par=TColStd_HArray1OfReal(1,len(parameters))
++  for i,(p,t) in enumerate(zip(uvpoints,parameters),1):points.SetValue(i,gp_Pnt2d(*map(float,p)));par.SetValue(i,float(t))
++  fit=Geom2dAPI_Interpolate(points,par,False,1e-12);fit.Perform()
++  if not fit.IsDone():raise ValueError(f"No se interpola UV: n={len(parameters)}, paso_min={np.diff(parameters).min()}")
++  uv=fit.Curve();bad=[];maximum=0.
++  for i,(a,b) in enumerate(zip(parameters[:-1],parameters[1:])):
++   error=0.
++   for t in np.linspace(a,b,9):
++    p=uv.Value(float(t));xyz=np.array(surface.Value(p.X(),p.Y()).Coord());error=max(error,abs((xyz-q)@n))
++   maximum=max(maximum,error)
++   if error>1e-9:bad.append(i)
++  if not bad:
++   approx=Approx_CurveOnSurface(Geom2dAdaptor_Curve(uv),GeomAdaptor_Surface(surface),0.,1.,1e-10,GeomAbs_C1,8,1024,True,False)
++   if not approx.HasResult() or approx.MaxError3d()>2e-8:raise ValueError('No se certifica la curva espacial del barrido')
++   curve=approx.Curve3d();proof=_error(curve,uv,surface,0.,1.)
++   if proof>5e-8:raise ValueError('El barrido no cumple la coherencia 2D/3D')
++   UV_KNOWN[(id(curve),id(surface))]=uv;print('INTERSECCION UV BARRIDA',len(parameters),'plano',maximum,'curva',proof,flush=True)
++   return curve,0.,1.
++  bad=np.array(bad,int);parameters=np.sort(np.r_[parameters,(parameters[bad]+parameters[bad+1])/2])
++  if len(parameters)>4097:break
++ raise ValueError('No converge la curva UV del barrido')
++
++def interseccion(surface_a,surface_b,points,move,closed):
++ crossed=interseccion_barridos_cruzados(surface_a,surface_b,points,move,closed)
++ if crossed is not None:return crossed
++ parallel=interseccion_barridos_paralelos(surface_a,surface_b,points,move,closed)
++ if parallel is not None:return parallel
++ angular=interseccion_angular(surface_a,surface_b,points,move,closed)
++ if angular is not None:return angular
++ cylindrical=interseccion_cilindrica(surface_a,surface_b,points,move,closed)
++ if cylindrical is not None:return cylindrical
++ exact=interseccion_afine(surface_a,surface_b,points,move,closed)
++ if exact is not None:return exact
++ native=interseccion_lineal(surface_a,surface_b,points,move,closed)
++ if native is not None:return native
++ planes=[s for s in (surface_a,surface_b) if isinstance(s,Geom_Plane)];sweeps=[s for s in (surface_a,surface_b) if isinstance(s,(Geom_SurfaceOfRevolution,Geom_SurfaceOfLinearExtrusion))]
++ if len(planes)!=1 or len(sweeps)!=1 or closed:return None
++ plane,surface=planes[0],sweeps[0];n=np.array(plane.Axis().Direction().Coord());p0=np.array(plane.Location().Coord())
++ from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++ from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++ sas=__import__('proyeccion_barridos',fromlist=['analizador']).analizador(surface);seeds=[sas.ValueOfUV(gp_Pnt(*map(float,p)),1e-11).Coord() for p in points[[0,-1]]]
++ if isinstance(surface,Geom_SurfaceOfRevolution):
++  a=np.array(surface.Axis().Direction().Coord());q=np.array(surface.Axis().Location().Coord());dot=n@a
++  if abs(dot)>.01:return None
++  curve=surface.BasisCurve();v0,v1=seeds[0][1],seeds[1][1]
++  if abs(v1-v0)<1e-8:return None
++  u=n-dot*a;norm=np.linalg.norm(u);u/=norm;v=np.cross(a,u);sign=1 if np.median((points-q)@v)>=0 else -1
++  def uv_value(t):
++   param=v0+(v1-v0)*t;P=np.array(curve.Value(float(param)).Coord());z=(P-q)@a;radial=P-q-a*z;radius=np.linalg.norm(radial);base=radial/radius;cos=(n@(p0-q)-dot*z)/(radius*norm)
++   if abs(cos)>1+1e-12:raise ValueError('No existe la sección del perfil de revolución')
++   cos=np.clip(cos,-1,1);direction=u*cos+sign*v*np.sqrt(1-cos*cos);angle=np.arctan2(a@np.cross(base,direction),base@direction)
++   return angle,param
++  knots=[(curve.Knot(i)-v0)/(v1-v0) for i in range(1,curve.NbKnots()+1) if 0<(curve.Knot(i)-v0)/(v1-v0)<1]
++ elif isinstance(surface,Geom_SurfaceOfLinearExtrusion):
++  a=np.array(surface.Direction().Coord());dot=n@a
++  if abs(dot)<1e-8:return None
++  curve=surface.BasisCurve();u0,u1=seeds[0][0],seeds[1][0]
++  if abs(u1-u0)<1e-8:return None
++  def uv_value(t):
++   u=u0+(u1-u0)*t;P=np.array(curve.Value(float(u)).Coord());return u,float(n@(p0-P)/dot)
++  knots=[(curve.Knot(i)-u0)/(u1-u0) for i in range(1,curve.NbKnots()+1) if 0<(curve.Knot(i)-u0)/(u1-u0)<1]
++ else:return None
++ result=_desde_uv(surface,plane,uv_value,knots);curve,first,last=result
++ errors=[GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float,p)),curve,first,last).LowerDistance() for p in points]
++ if max(errors)>move:raise ValueError(f'La curva barrida queda lejos de su cadena fuente: {max(errors)}')
++ return result
++
++_LINE_CACHE={}
++def lineas_compatibles(sa,sb):
++ parallel=lineas_entre_barridos(sa,sb)
++ if parallel:return [(p,a,u[0]) for p,a,u in parallel]
++ planes=[s for s in (sa,sb) if isinstance(s,Geom_Plane)];sweeps=[s for s in (sa,sb) if isinstance(s,Geom_SurfaceOfLinearExtrusion)]
++ if len(planes)!=1 or len(sweeps)!=1:return []
++ plane,surface=planes[0],sweeps[0];key=(id(plane),id(surface))
++ if key in _LINE_CACHE:return _LINE_CACHE[key][2]
++ a=np.array(surface.Direction().Coord());n=np.array(plane.Axis().Direction().Coord());q=np.array(plane.Location().Coord())
++ if abs(n@a)>1e-10:return []
++ from scipy.optimize import brentq
++ curve=surface.BasisCurve();ts=np.unique(np.r_[np.linspace(curve.FirstParameter(),curve.LastParameter(),257),[curve.Knot(i) for i in range(1,curve.NbKnots()+1)]])
++ def fun(t):return float((np.array(curve.Value(float(t)).Coord())-q)@n)
++ roots=[float(t) for t in ts if abs(fun(t))<1e-10]
++ for lo,hi in zip(ts[:-1],ts[1:]):
++  if fun(lo)*fun(hi)<0:roots.append(brentq(fun,lo,hi,xtol=1e-13))
++ out=[]
++ for t in roots:
++  if abs(fun(t))<1e-10:out.append((np.array(curve.Value(t).Coord()),a,float(t)))
++ _LINE_CACHE[key]=(plane,surface,out);return out
++
++def interseccion_lineal(sa,sb,points,move,closed):
++ if closed:return None
++ lines=lineas_compatibles(sa,sb)
++ if not lines:return None
++ from OCP.Geom import Geom_Line
++ from OCP.Geom2d import Geom2d_Line
++ from OCP.gp import gp_Ax1,gp_Dir,gp_Ax2d,gp_Dir2d
++ from geometria_medida import UV_KNOWN
++ surface=next(s for s in (sa,sb) if isinstance(s,Geom_SurfaceOfLinearExtrusion));best=None
++ for origin,axis,parameter in lines:
++  first,last=(points[[0,-1]]-origin)@axis
++  lo,hi=min(first,last),max(first,last);projection=np.clip((points-origin)@axis,lo,hi);error=float(np.linalg.norm(origin+projection[:,None]*axis-points,axis=1).max())
++  if best is None or error<best[0]:best=(error,origin,axis,parameter,first,last)
++ error,origin,axis,parameter,first,last=best
++ if error>move:raise ValueError('La generatriz no conserva la cadena fuente')
++ sign=1.
++ if last<first:axis=-axis;first,last=-first,-last;sign=-1.
++ curve=Geom_Line(gp_Ax1(gp_Pnt(*map(float,origin)),gp_Dir(*map(float,axis))));uv=Geom2d_Line(gp_Ax2d(gp_Pnt2d(parameter,0.),gp_Dir2d(0.,sign)));UV_KNOWN[(id(curve),id(surface))]=uv
++ return curve,float(first),float(last)
++
++def interseccion_afine(sa,sb,points,move,closed):
++ """Un corte oblicuo de una extrusión es una transformación AFÍN del perfil."""
++ if closed:return None
++ planes=[s for s in (sa,sb) if isinstance(s,Geom_Plane)];sweeps=[s for s in (sa,sb) if isinstance(s,Geom_SurfaceOfLinearExtrusion)]
++ if len(planes)!=1 or len(sweeps)!=1:return None
++ plane,surface=planes[0],sweeps[0];axis=np.array(surface.Direction().Coord());n=np.array(plane.Axis().Direction().Coord());q=np.array(plane.Location().Coord());dot=float(n@axis)
++ if abs(dot)<=1e-10:return None
++ from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++ from OCP.Geom import Geom_TrimmedCurve
++ from OCP.GeomConvert import GeomConvert
++ from OCP.Geom2d import Geom2d_BSplineCurve
++ from OCP.TColgp import TColgp_Array1OfPnt2d
++ from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++ from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++ from geometria_medida import UV_KNOWN
++ from pcurvas_compartidas import _error
++ sas=__import__('proyeccion_barridos',fromlist=['analizador']).analizador(surface);u0,u1=[sas.ValueOfUV(gp_Pnt(*map(float,p)),1e-11).X() for p in points[[0,-1]]]
++ if abs(u1-u0)<1e-10:return None
++ lo,hi=sorted((u0,u1));curve=GeomConvert.CurveToBSplineCurve_s(Geom_TrimmedCurve(surface.BasisCurve(),lo,hi))
++ if curve.IsRational():return None
++ knots=[];K=TColStd_Array1OfReal(1,curve.NbKnots());M=TColStd_Array1OfInteger(1,curve.NbKnots());poles=TColgp_Array1OfPnt2d(1,curve.NbPoles());degree=curve.Degree()
++ for i in range(1,curve.NbKnots()+1):K.SetValue(i,curve.Knot(i));M.SetValue(i,curve.Multiplicity(i));knots.extend([curve.Knot(i)]*curve.Multiplicity(i))
++ for i in range(curve.NbPoles()):
++  p=np.array(curve.Pole(i+1).Coord());v=float(n@(q-p)/dot);u=float(np.mean(knots[i+1:i+degree+1]));curve.SetPole(i+1,gp_Pnt(*map(float,p+axis*v)));poles.SetValue(i+1,gp_Pnt2d(u,v))
++ uv=Geom2d_BSplineCurve(poles,K,M,degree,False)
++ if u1<u0:curve.Reverse();uv.Reverse()
++ error=_error(curve,uv,surface,lo,hi);plane_error=max(abs(n@(np.array(curve.Value(float(t)).Coord())-q)) for t in np.linspace(lo,hi,257))
++ if error>5e-8 or plane_error>1e-9:raise ValueError('El corte afín no conserva sus soportes '+str(dict(error_uv=error,error_plano=plane_error,dot=dot,eje=axis.tolist(),normal=n.tolist())))
++ if max(GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float,p)),curve,lo,hi).LowerDistance() for p in points)>move:raise ValueError('El corte afín queda fuera de la cadena fuente')
++ UV_KNOWN[id(curve),id(surface)]=uv
++ return curve,float(lo),float(hi)
++
++def _uv_por_tramos(surface,value,breaks):
++ """Aproximar sólo la función UV, respetando todos los nudos del perfil."""
++ from OCP.Geom2d import Geom2d_BSplineCurve
++ from OCP.TColgp import TColgp_Array1OfPnt2d
++ from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++ from OCP.Approx import Approx_CurveOnSurface
++ from OCP.Geom2dAdaptor import Geom2dAdaptor_Curve
++ from OCP.GeomAdaptor import GeomAdaptor_Surface
++ from OCP.GeomAbs import GeomAbs_C0
++ from pcurvas_compartidas import _error
++ from geometria_medida import UV_KNOWN
++ parts=[]
++ def fit(lo,hi,depth=0):
++  v=np.array([value(lo+(hi-lo)*t) for t in (0,1/3,2/3,1)])
++  middle=np.linalg.solve(np.array([[4/9,2/9],[2/9,4/9]]),v[1:3]-np.array([[8/27,1/27],[1/27,8/27]])@v[[0,3]])
++  P=np.array([v[0],middle[0],middle[1],v[-1]])
++  error=0.
++  for t in np.linspace(0,1,17):
++   uv=P[0]*(1-t)**3+3*P[1]*(1-t)**2*t+3*P[2]*(1-t)*t*t+P[3]*t**3
++   wanted=value(lo+(hi-lo)*t);error=max(error,float(np.linalg.norm(uv-wanted)))
++  if error>1e-10:
++   if depth>=20 or len(parts)>4000:raise ValueError('No converge la curva UV por tramos')
++   mid=(lo+hi)/2;fit(lo,mid,depth+1);fit(mid,hi,depth+1)
++  else:parts.append((lo,hi,P))
++ for lo,hi in zip(breaks[:-1],breaks[1:]):fit(float(lo),float(hi))
++ poles=TColgp_Array1OfPnt2d(1,3*len(parts)+1);knots=TColStd_Array1OfReal(1,len(parts)+1);mult=TColStd_Array1OfInteger(1,len(parts)+1);index=1
++ for i,(lo,hi,P) in enumerate(parts):
++  for p in P if i==0 else P[1:]:poles.SetValue(index,gp_Pnt2d(*map(float,p)));index+=1
++  knots.SetValue(i+1,lo);mult.SetValue(i+1,4 if i==0 else 3)
++ knots.SetValue(len(parts)+1,parts[-1][1]);mult.SetValue(len(parts)+1,4)
++ uv=Geom2d_BSplineCurve(poles,knots,mult,3,False);lo,hi=float(breaks[0]),float(breaks[-1]);approx=Approx_CurveOnSurface(Geom2dAdaptor_Curve(uv),GeomAdaptor_Surface(surface),lo,hi,1e-10,GeomAbs_C0,8,4096,True,False)
++ if not approx.HasResult() or approx.MaxError3d()>2e-8:raise ValueError('No se certifica el corte espacial por tramos')
++ curve=approx.Curve3d();error=_error(curve,uv,surface,lo,hi)
++ if error>5e-8:raise ValueError('El corte por tramos no conserva su pcurva')
++ UV_KNOWN[id(curve),id(surface)]=uv
++ print('CORTE UV POR TRAMOS',len(parts),'error',error,flush=True)
++ return curve,lo,hi
++
++def interseccion_cilindrica(sa,sb,points,move,closed):
++ if closed:return None
++ from OCP.Geom import Geom_CylindricalSurface
++ planes=[s for s in (sa,sb) if isinstance(s,Geom_CylindricalSurface)];sweeps=[s for s in (sa,sb) if isinstance(s,Geom_SurfaceOfLinearExtrusion)]
++ if len(planes)!=1 or len(sweeps)!=1:return None
++ cylinder,surface=planes[0],sweeps[0];axis=np.array(surface.Direction().Coord());b=np.array(cylinder.Axis().Direction().Coord());q=np.array(cylinder.Location().Coord());radius=cylinder.Radius();a=axis-b*(axis@b);AA=float(a@a)
++ if AA<1e-12:return None
++ from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++ from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++ sas=__import__('proyeccion_barridos',fromlist=['analizador']).analizador(surface);seeds=np.array([sas.ValueOfUV(gp_Pnt(*map(float,p)),1e-11).Coord() for p in points]);u0,u1=seeds[[0,-1],0];curve=surface.BasisCurve()
++ if abs(u1-u0)<1e-9:return None
++ if np.max(seeds[:,0])>max(u0,u1)+1e-5 or np.min(seeds[:,0])<min(u0,u1)-1e-5:return None
++ def roots(u):
++  p=np.array(curve.Value(float(u)).Coord())-q;d=p-b*(p@b);B=2*float(a@d);C=float(d@d-radius*radius);disc=B*B-4*AA*C
++  if disc<-1e-10:raise ValueError('El cilindro no corta el perfil medido')
++  root=np.sqrt(max(0.,disc));return np.array([(-B-root)/(2*AA),(-B+root)/(2*AA)])
++ mid=int(len(seeds)//2);branch=int(np.argmin(abs(roots(seeds[mid,0])-seeds[mid,1])))
++ def value(t):
++  u=u0+(u1-u0)*t;return np.array([u,roots(u)[branch]])
++ breaks=np.unique(np.r_[0.,1.,[(curve.Knot(i)-u0)/(u1-u0) for i in range(1,curve.NbKnots()+1) if 0<(curve.Knot(i)-u0)/(u1-u0)<1]])
++ out=_uv_por_tramos(surface,value,breaks);edge,lo,hi=out
++ error=max(abs(np.linalg.norm(np.cross(np.array(edge.Value(float(t)).Coord())-q,b))-radius) for t in np.linspace(lo,hi,1025))
++ if error>2e-8:raise ValueError('El corte no conserva el cilindro')
++ if max(GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float,p)),edge,lo,hi).LowerDistance() for p in points)>move:raise ValueError('El corte cilíndrico no conserva la cadena fuente')
++ return out
++
++def interseccion_angular(sa,sb,points,move,closed):
++ from OCP.Geom import Geom_CylindricalSurface
++ cylinders=[s for s in (sa,sb) if isinstance(s,Geom_CylindricalSurface)];sweeps=[s for s in (sa,sb) if isinstance(s,Geom_SurfaceOfLinearExtrusion)]
++ if len(cylinders)!=1 or len(sweeps)!=1 or closed:return None
++ cylinder,surface=cylinders[0],sweeps[0];a=np.array(surface.Direction().Coord());b=np.array(cylinder.Axis().Direction().Coord());e=np.cross(a,b)
++ if np.linalg.norm(e)<1e-6:return None
++ e/=np.linalg.norm(e);q=np.array(cylinder.Location().Coord());x=np.array(cylinder.Position().XDirection().Coord());y=np.array(cylinder.Position().YDirection().Coord());radius=cylinder.Radius();D=points-q;theta=np.unwrap(np.arctan2(D@y,D@x));start,end=map(float,theta[[0,-1]])
++ if abs(end-start)<1e-6:return None
++ normalized=(theta-start)/(end-start)
++ if np.min(np.diff(normalized))<-1e-5:return None
++ from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++ from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++ from scipy.optimize import brentq
++ from pcurvas_compartidas import _error
++ from geometria_medida import UV_KNOWN
++ sas=__import__('proyeccion_barridos',fromlist=['analizador']).analizador(surface);seeds=np.array([sas.ValueOfUV(gp_Pnt(*map(float,p)),1e-11).X() for p in points]);curve=surface.BasisCurve();lo=max(curve.FirstParameter(),float(seeds.min())-.03);hi=min(curve.LastParameter(),float(seeds.max())+.03);perp=b-a*(b@a);den=float(perp@perp)
++ sample_u=np.unique(np.r_[np.linspace(lo,hi,1025),[curve.Knot(i) for i in range(1,curve.NbKnots()+1) if lo<curve.Knot(i)<hi]]);sample_h=np.array([np.array(curve.Value(float(u)).Coord())@e for u in sample_u]);values_cache={}
++ def value(t):
++  if t in values_cache:return values_cache[t]
++  angle=start+(end-start)*t;base=np.array(cylinder.Value(float(angle),0.).Coord());guess=float(np.interp(t,normalized,seeds));u=guess
++  for _ in range(24):
++   p=np.array(curve.Value(float(u)).Coord());f=float((p-base)@e)
++   if abs(f)<1e-12:break
++   derivative=float(np.array(curve.DN(float(u),1).Coord())@e)
++   if abs(derivative)<1e-10:raise ValueError('Raíz tangente en el perfil del corte cilíndrico')
++   candidate=u-f/derivative
++   if not lo-1e-10<=candidate<=hi+1e-10:raise ValueError('El corte angular abandona su rama fuente')
++   u=float(np.clip(candidate,lo,hi))
++  if abs(f)>1e-11:
++   level=float(base@e);brackets=np.flatnonzero((sample_h[:-1]-level)*(sample_h[1:]-level)<=0)
++   if not len(brackets):raise ValueError('El corte angular no tiene raíz fuente')
++   j=min(brackets,key=lambda j:abs((sample_u[j]+sample_u[j+1])*.5-guess));u=brentq(lambda u:float((np.array(curve.Value(float(u)).Coord())-base)@e),float(sample_u[j]),float(sample_u[j+1]),xtol=1e-13,rtol=1e-14)
++  p=np.array(curve.Value(float(u)).Coord());w=float((p-base)@perp/den);result=np.array([angle,w]);values_cache[t]=result;return result
++ # Los cambios de tramo del perfil se sitúan también en el parámetro angular.
++ breaks=[0.,1.];A=radius*(x@e);B=radius*(y@e);amp=float(np.hypot(A,B));phase=float(np.arctan2(B,A))
++ if amp>1e-10:
++  for i in range(1,curve.NbKnots()+1):
++   u=curve.Knot(i)
++   if not lo<u<hi:continue
++   level=float((np.array(curve.Value(u).Coord())-q)@e)/amp
++   if abs(level)>1:continue
++   for root in (phase+np.arccos(level),phase-np.arccos(level)):
++    for shift in range(-5,6):
++     angle=float(root+shift*2*np.pi);t=(angle-start)/(end-start)
++     if 1e-8<t<1-1e-8 and abs(float(np.interp(t,normalized,seeds))-u)<.05:breaks.append(t)
++ breaks=np.sort(np.asarray(breaks));breaks=np.r_[breaks[0],breaks[1:][np.diff(breaks)>1e-9]]
++ result=_uv_por_tramos(cylinder,value,breaks);edge,first,last=result
++ if max(GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float,p)),edge,first,last).LowerDistance() for p in points)>move:raise ValueError('El corte angular se aleja de su cadena fuente')
++ # El segundo soporte se controla geométricamente antes de construir pcurvas.
++ import meshfit_brep as base_module
++ from geometria_medida import signed_projection
++ samples=np.array([edge.Value(float(t)).Coord() for t in np.linspace(first,last,1025)]);error=float(abs(signed_projection(base_module._Proj(surface),samples)[0]).max())
++ if error>2e-8:raise ValueError('El corte angular no conserva el perfil extruido')
++ return result
++
++_PARALLEL_CACHE={}
++def lineas_entre_barridos(sa,sb):
++ if not all(isinstance(s,Geom_SurfaceOfLinearExtrusion) for s in (sa,sb)):return []
++ a=np.array(sa.Direction().Coord());b=np.array(sb.Direction().Coord())
++ if np.linalg.norm(np.cross(a,b))>1e-10:return []
++ key=(id(sa),id(sb))
++ if key in _PARALLEL_CACHE:return _PARALLEL_CACHE[key][2]
++ from OCP.Geom2d import Geom2d_BSplineCurve
++ from OCP.Geom2dAPI import Geom2dAPI_InterCurveCurve
++ from OCP.TColgp import TColgp_Array1OfPnt2d
++ from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++ helper=np.eye(3)[np.argmin(abs(a))];e=np.cross(a,helper);e/=np.linalg.norm(e);f=np.cross(a,e)
++ def projected(curve):
++  if curve.IsRational():raise ValueError('Perfil racional no admitido en el corte paralelo')
++  P=TColgp_Array1OfPnt2d(1,curve.NbPoles());K=TColStd_Array1OfReal(1,curve.NbKnots());M=TColStd_Array1OfInteger(1,curve.NbKnots())
++  for i in range(1,curve.NbPoles()+1):
++   p=np.array(curve.Pole(i).Coord());P.SetValue(i,gp_Pnt2d(float(p@e),float(p@f)))
++  for i in range(1,curve.NbKnots()+1):K.SetValue(i,curve.Knot(i));M.SetValue(i,curve.Multiplicity(i))
++  return Geom2d_BSplineCurve(P,K,M,curve.Degree(),False)
++ ca,cb=sa.BasisCurve(),sb.BasisCurve();qa,qb=projected(ca),projected(cb);result=[]
++ try:
++  intersection=Geom2dAPI_InterCurveCurve(qa,qb,1e-10)
++  for i in range(1,intersection.NbPoints()+1):
++   point=intersection.Point(i)
++   from OCP.Geom2dAPI import Geom2dAPI_ProjectPointOnCurve
++   pa_uv=Geom2dAPI_ProjectPointOnCurve(point,qa);pb_uv=Geom2dAPI_ProjectPointOnCurve(point,qb)
++   if not pa_uv.NbPoints() or not pb_uv.NbPoints():continue
++   ua,ub=pa_uv.LowerDistanceParameter(),pb_uv.LowerDistanceParameter();origin=e*point.X()+f*point.Y()
++   pa=np.array(ca.Value(float(ua)).Coord());pb=np.array(cb.Value(float(ub)).Coord())
++   if np.linalg.norm(np.cross(pa-pb,a))>5e-8:continue
++   result.append((origin,a,(float(ua),float(ub))))
++ except Exception:pass
++ # Una tangencia en un nudo puede no ser devuelta por el intersector de OCC.
++ # Contrastar esos puntos con la curva contraria y conservar sólo coincidencias
++ # dentro de la MISMA coherencia geométrica exigida después a la pcurva.
++ from OCP.Geom2dAPI import Geom2dAPI_ProjectPointOnCurve
++ for first,second,which in [(qa,qb,0),(qb,qa,1)]:
++  for j in range(1,first.NbKnots()+1):
++   u=first.Knot(j);p=first.Value(u)
++   try:
++    projection=Geom2dAPI_ProjectPointOnCurve(p,second)
++    if projection.NbPoints()==0 or projection.LowerDistance()>2e-8:continue
++    v=projection.LowerDistanceParameter();other=second.Value(v);origin=e*((p.X()+other.X())*.5)+f*((p.Y()+other.Y())*.5);parameters=(u,v) if which==0 else (v,u)
++    if not any(np.linalg.norm(origin-r[0])<1e-8 for r in result):result.append((origin,a,tuple(map(float,parameters))))
++   except Exception:continue
++ print('GENERATRICES ENTRE PERFILES',len(result),flush=True)
++ _PARALLEL_CACHE[key]=(sa,sb,result);return result
++
++def interseccion_barridos_paralelos(sa,sb,points,move,closed):
++ if closed:return None
++ candidates=lineas_entre_barridos(sa,sb)
++ if not candidates:return None
++ from OCP.Geom import Geom_Line
++ from OCP.Geom2d import Geom2d_Line
++ from OCP.gp import gp_Ax1,gp_Ax2d,gp_Dir2d,gp_Dir
++ from geometria_medida import UV_KNOWN
++ best=None
++ for origin,axis,parameters in candidates:
++  first,last=(points[[0,-1]]-origin)@axis;lo,hi=sorted((first,last));t=np.clip((points-origin)@axis,lo,hi);error=float(np.linalg.norm(origin+np.outer(t,axis)-points,axis=1).max())
++  if best is None or error<best[0]:best=(error,origin,axis,parameters,first,last)
++ error,origin,axis,parameters,first,last=best
++ if error>move:raise ValueError('La generatriz paralela abandona la cadena fuente')
++ if last<first:axis=-axis;first,last=-first,-last
++ curve=Geom_Line(gp_Ax1(gp_Pnt(*map(float,origin)),gp_Dir(*map(float,axis))))
++ for surface,u in zip((sa,sb),parameters):
++  direction=np.array(surface.Direction().Coord());base=np.array(surface.BasisCurve().Value(u).Coord());v=float((origin-base)@direction);sign=float(axis@direction);UV_KNOWN[id(curve),id(surface)]=Geom2d_Line(gp_Ax2d(gp_Pnt2d(u,v),gp_Dir2d(0.,sign)))
++ return curve,float(first),float(last)
++
++def interseccion_barridos_cruzados(sa,sb,points,move,closed):
++ """El encuentro de dos perfiles extruidos se resuelve por su coordenada común."""
++ if closed or not all(isinstance(s,Geom_SurfaceOfLinearExtrusion) for s in (sa,sb)):return None
++ a=np.array(sa.Direction().Coord());b=np.array(sb.Direction().Coord());dot=float(a@b);det=1-dot*dot
++ if det<1e-8:return None
++ e=np.cross(a,b);e/=np.linalg.norm(e);ca,cb=sa.BasisCurve(),sb.BasisCurve()
++ from proyeccion_barridos import uv_exacta
++ from scipy.optimize import brentq
++ from geometria_medida import UV_KNOWN
++ from pcurvas_compartidas import _error
++ seeds_a=uv_exacta(sa,points)[:,0];seeds_b=uv_exacta(sb,points)[:,0];u0,u1=map(float,seeds_a[[0,-1]])
++ if abs(u1-u0)<1e-9:return None
++ normalized=(seeds_a-u0)/(u1-u0)
++ if np.min(np.diff(normalized))<-1e-5:return None
++ lo=max(cb.FirstParameter(),float(seeds_b.min())-.03);hi=min(cb.LastParameter(),float(seeds_b.max())+.03)
++ sb_parameters=np.unique(np.r_[np.linspace(lo,hi,513),[cb.Knot(i) for i in range(1,cb.NbKnots()+1) if lo<cb.Knot(i)<hi]]);sb_height=np.array([np.array(cb.Value(float(u)).Coord())@e for u in sb_parameters]);cache={}
++ def evaluate(t):
++  if t in cache:return cache[t]
++  u=u0+(u1-u0)*t;P=np.array(ca.Value(float(u)).Coord());level=float(P@e);guess=float(np.interp(t,normalized,seeds_b));delta=sb_height-level;near=np.flatnonzero(abs(delta)<1e-11)
++  if len(near):v=float(sb_parameters[min(near,key=lambda j:abs(sb_parameters[j]-guess))])
++  else:
++   brackets=np.flatnonzero(delta[:-1]*delta[1:]<0)
++   if not len(brackets):raise ValueError('Los perfiles cruzados no tienen una raíz fuente común')
++   j=min(brackets,key=lambda j:abs((sb_parameters[j]+sb_parameters[j+1])*.5-guess));v=brentq(lambda v:float(np.array(cb.Value(float(v)).Coord())@e-level),float(sb_parameters[j]),float(sb_parameters[j+1]),xtol=1e-13,rtol=1e-14)
++  Q=np.array(cb.Value(float(v)).Coord());D=Q-P;va=float((D@a-dot*(D@b))/det);vb=float((dot*(D@a)-D@b)/det);cache[t]=(np.array([u,va]),np.array([v,vb]));return cache[t]
++ breaks=[0.,1.]+[(ca.Knot(i)-u0)/(u1-u0) for i in range(1,ca.NbKnots()+1) if 0<(ca.Knot(i)-u0)/(u1-u0)<1]
++ at=np.unique(np.r_[np.linspace(min(u0,u1),max(u0,u1),513),[ca.Knot(i) for i in range(1,ca.NbKnots()+1) if min(u0,u1)<ca.Knot(i)<max(u0,u1)]]);ah=np.array([np.array(ca.Value(float(u)).Coord())@e for u in at])
++ for i in range(1,cb.NbKnots()+1):
++  v=cb.Knot(i)
++  if not lo<v<hi:continue
++  level=float(np.array(cb.Value(v).Coord())@e);delta=ah-level
++  for j in np.flatnonzero(delta[:-1]*delta[1:]<0):
++   u=brentq(lambda u:float(np.array(ca.Value(float(u)).Coord())@e-level),float(at[j]),float(at[j+1]),xtol=1e-13,rtol=1e-14);t=(u-u0)/(u1-u0)
++   if 1e-8<t<1-1e-8:breaks.append(t)
++ breaks=np.sort(np.asarray(breaks));breaks=np.r_[breaks[0],breaks[1:][np.diff(breaks)>1e-9]]
++ curve,first,last=_uv_por_tramos(sa,lambda t:evaluate(t)[0],breaks)
++ second,_,_=_uv_por_tramos(sb,lambda t:evaluate(t)[1],breaks);uv=UV_KNOWN[id(second),id(sb)];error=_error(curve,uv,sb,first,last)
++ if error>5e-8:raise ValueError('El encuentro de perfiles no comparte la misma curva espacial')
++ UV_KNOWN[id(curve),id(sb)]=uv
++ from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++ if max(GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float,p)),curve,first,last).LowerDistance() for p in points)>move:raise ValueError('El encuentro de perfiles abandona la fuente')
++ print('ENCUENTRO DE PERFILES CRUZADOS',error,flush=True);return curve,first,last
+--- /dev/null
++++ R11/motor_superficies/refinamiento_contorno.py
+@@ -0,0 +1,28 @@
++"""Subdividir una arista del mallado de propuesta sin dejar uniones en T."""
++import numpy as np
++import trimesh
++class RefinarArista(ValueError):
++ def __init__(self,vertices,points):
++  super().__init__('La curva requiere separar sus tramos polinómicos.');self.vertices=vertices;self.points=points
++
++def dividir(mesh,labels,vertices,points,limite=.003):
++ a,b=map(int,vertices);A,B=mesh.vertices[[a,b]];D=B-A;den=float(D@D)
++ if den<1e-14:raise ValueError('Arista demasiado pequeña para refinar')
++ rows=[]
++ for point in points:
++  t=float((point-A)@D/den);distance=float(np.linalg.norm(point-(A+t*D)))
++  if not 1e-8<t<1-1e-8 or distance>limite:raise ValueError('La subdivisión abandona la arista fuente acotada')
++  rows.append((t,np.asarray(point),distance))
++ rows.sort(key=lambda r:r[0]);V=list(mesh.vertices);chain=[a]
++ for t,p,d in rows:chain.append(len(V));V.append(p)
++ chain.append(b);F=[];L=[];count=0
++ for tri,label in zip(mesh.faces,labels):
++  if a not in tri or b not in tri:F.append(tri);L.append(label);continue
++  count+=1
++  # Conservar la orientación de ambos triángulos incidentes.
++  index=next(j for j in range(3) if {int(tri[j]),int(tri[(j+1)%3])}=={a,b});order=chain if tri[index]==a else chain[::-1];opposite=int(tri[(index+2)%3])
++  for x,y in zip(order[:-1],order[1:]):F.append([x,y,opposite]);L.append(label)
++ if count!=2:raise ValueError('La subdivisión exige una arista manifold compartida')
++ result=trimesh.Trimesh(np.asarray(V),np.asarray(F),process=False)
++ if not result.is_watertight or not result.is_winding_consistent or result.euler_number!=mesh.euler_number:raise ValueError('La subdivisión no conserva la topología fuente')
++ return result,np.asarray(L,dtype=labels.dtype),dict(vertices_nuevos=len(rows),max_distancia_arista_mm=max(r[2] for r in rows))
+--- /dev/null
++++ R11/motor_superficies/planos_medidos.py
+@@ -0,0 +1,141 @@
++"""Propuestas planas certificadas por TODOS los vértices de sus triángulos."""
++import numpy as np
++from OCP.Geom import Geom_Plane
++from OCP.gp import gp_Pln,gp_Pnt,gp_Dir
++
++def proponer(mesh,labels,surfaces,limite=1e-4):
++ import meshfit_brep as base
++ groups=base._groups(labels);out=dict(surfaces);normals=mesh.face_normals;area=mesh.area_faces
++ # Direcciones medidas en las facetas mayores; no se usan ángulos nominales.
++ candidates=normals[np.argsort(-area)[:256]];records=[]
++ weights=np.array([float(area[np.abs(normals@n)>np.cos(.001)].sum()) for n in candidates])
++ for region,ids in groups.items():
++  old=surfaces[region]
++  if not isinstance(old,Geom_Plane):continue
++  P=mesh.vertices[np.unique(mesh.faces[ids])];n0=np.array(old.Axis().Direction().Coord());choices=[]
++  for n,w in zip(candidates,weights):
++   if abs(n@n0)<np.cos(.05):continue
++   if n@n0<0:n=-n
++   d=float(np.median(P@n));maximum=float(abs(P@n-d).max())
++   if maximum<=limite:choices.append((w,-float(np.mean((P@n-d)**2)),n.copy(),d,maximum))
++  if not choices:continue
++  _,_,n,d,error=max(choices,key=lambda x:x[:2]);new=Geom_Plane(gp_Pln(gp_Pnt(*map(float,n*d)),gp_Dir(*map(float,n))));out[region]=new;records.append(dict(region=region,max_triangulos_mm=error))
++ # Sólo unir soportes de regiones que comparten vértices fuente. Nunca agrupar
++ # dos paredes opuestas separadas ni una cara distante por su proximidad.
++ incidence={}
++ for tri,region in zip(mesh.faces,labels):
++  if not isinstance(out[int(region)],Geom_Plane):continue
++  for v in tri:incidence.setdefault(int(v),set()).add(int(region))
++ parent={r:r for r in groups};members={r:{r} for r in groups}
++ def root(r):
++  while parent[r]!=r:parent[r]=parent[parent[r]];r=parent[r]
++  return r
++ pairs=set()
++ for regions in incidence.values():
++  regions=sorted(regions)
++  pairs.update((a,b) for i,a in enumerate(regions) for b in regions[i+1:])
++ for first,second in sorted(pairs):
++  a,b=root(first),root(second)
++  if a==b:continue
++  pa,pb=out[a],out[b];n=np.array(pa.Axis().Direction().Coord());m=np.array(pb.Axis().Direction().Coord())
++  if abs(n@m)<1.-1e-12:continue
++  ids=np.concatenate([groups[r] for r in members[a]|members[b]]);P=mesh.vertices[np.unique(mesh.faces[ids])];height=P@n;lo,hi=float(height.min()),float(height.max())
++  if hi-lo>2*limite:continue
++  d=(lo+hi)*.5;new=Geom_Plane(gp_Pln(gp_Pnt(*map(float,n*d)),gp_Dir(*map(float,n))))
++  parent[b]=a;members[a]|=members[b];out[a]=new
++ relabel=np.array([root(int(r)) for r in labels]);connected=base._split_connected(mesh,relabel);result={}
++ for region,ids in base._groups(connected).items():result[region]=out[root(int(labels[ids[0]]))]
++ print('PLANOS MEDIDOS',len(records),'max',max((r['max_triangulos_mm'] for r in records),default=0.),flush=True)
++ return connected,result,records
++
++def conciliar(mesh,labels,surfaces,limite=1e-4):
++ """Ajuste lineal de offsets compartidos con cota geométrica por triángulo."""
++ from OCP.Geom import Geom_CylindricalSurface,Geom_SurfaceOfLinearExtrusion
++ from scipy.sparse import coo_matrix
++ from scipy.sparse.linalg import lsmr
++ import meshfit_brep as base
++ groups=base._groups(labels);axes=[];sweep_axes=[np.array(s.Direction().Coord()) for s in surfaces.values() if isinstance(s,Geom_SurfaceOfLinearExtrusion)]
++ for r,s in surfaces.items():
++  if isinstance(s,Geom_CylindricalSurface):axes.append(np.array(s.Axis().Direction().Coord()))
++  elif isinstance(s,Geom_SurfaceOfLinearExtrusion):axes.append(np.array(s.Direction().Coord()))
++ families=[]
++ for a in axes:
++  if any(abs(a@b)>.999999 for b in families):continue
++  near=[b for b in sweep_axes if abs(a@b)>.999999] or [b for b in axes if abs(a@b)>.999999]
++  best=max(near,key=lambda b:sum(abs(b@c)>1.-1e-14 for c in near)).copy()
++  constraints=np.array([b for b in families if abs(best@b)<1e-4])
++  if len(constraints):
++   _,sv,vh=np.linalg.svd(constraints,full_matrices=True);rank=int((sv>1e-5).sum());best-=vh[:rank].T@(vh[:rank]@best);best/=np.linalg.norm(best)
++  families.append(best)
++ # Las direcciones proceden de varios barridos/cilindros, sin ejes nominales.
++ plane_groups={};owners={};out=dict(surfaces)
++ for r,s in surfaces.items():
++  if not isinstance(s,Geom_Plane):continue
++  if len(groups[r])<=1:continue
++  key=id(s);plane_groups.setdefault(key,[]).append(r);owners[key]=s
++ data=[]
++ for key,regions in plane_groups.items():
++  s=owners[key];n=np.array(s.Axis().Direction().Coord());ids=np.concatenate([groups[r] for r in regions]);P=mesh.vertices[np.unique(mesh.faces[ids])]
++  parallel=[a for a in families if abs(n@a)>.999999]
++  if parallel:
++   a=max(parallel,key=lambda a:abs(n@a));candidate=a if n@a>0 else -a
++  else:
++   constraints=np.array([a for a in families if abs(n@a)<1e-4]);candidate=n
++   if len(constraints):
++    _,singular,vh=np.linalg.svd(constraints,full_matrices=True);rank=int((singular>1e-5).sum())
++    if rank<3:
++     candidate=n-vh[:rank].T@(vh[:rank]@n)
++     if np.linalg.norm(candidate)>1e-12:candidate/=np.linalg.norm(candidate)
++  height=P@candidate;d=(height.max()+height.min())*.5
++  if np.max(abs(height-d))>limite:candidate=n;height=P@n;d=(height.max()+height.min())*.5
++  if np.max(abs(height-d))>limite:continue
++  data.append(dict(regions=regions,n=candidate,d=float(d),ids=ids,points=P,area=float(mesh.area_faces[ids].sum())))
++ index={r:i for i,item in enumerate(data) for r in item['regions']};incidence={}
++ for tri,r in zip(mesh.faces,labels):
++  if int(r) not in index:continue
++  for v in tri:incidence.setdefault(int(v),set()).add(index[int(r)])
++ vertices={v:sorted(rs) for v,rs in incidence.items() if len(rs)>=3};relations=[]
++ from scipy.spatial import cKDTree
++ for region,surface in surfaces.items():
++  if not isinstance(surface,Geom_SurfaceOfLinearExtrusion) or region not in groups:continue
++  selected=sorted(v for v in np.unique(mesh.faces[groups[region]]) if len(incidence.get(int(v),()))>=2)
++  if len(selected)<2:continue
++  a=np.array(surface.Direction().Coord());points=mesh.vertices[selected];projected=points-np.outer(points@a,a);parent=list(range(len(selected)))
++  def root(j):
++   while parent[j]!=j:parent[j]=parent[parent[j]];j=parent[j]
++   return j
++  for i,j in cKDTree(projected).query_pairs(1e-4):parent[root(j)]=root(i)
++  clusters={}
++  for j,v in enumerate(selected):clusters.setdefault(root(j),[]).append(int(v))
++  for cluster in clusters.values():
++   if len(cluster)<2:continue
++   for v in cluster:vertices[v]=sorted(incidence[v])
++   for v in cluster[1:]:relations.append((v,cluster[0],a))
++ keys=list(vertices);lookup={v:i for i,v in enumerate(keys)};row=[];col=[];values=[];rhs=[]
++ for vi,v in enumerate(keys):
++  p=mesh.vertices[v]
++  for pi in vertices[v]:
++   item=data[pi];ri=len(rhs)
++   for dim in range(3):row.append(ri);col.append(3*vi+dim);values.append(item['n'][dim])
++   row.append(ri);col.append(3*len(keys)+pi);values.append(-1.);rhs.append(float(item['d']-item['n']@p))
++ for first,second,axis in relations:
++  projection=np.eye(3)-np.outer(axis,axis);initial=projection@(mesh.vertices[first]-mesh.vertices[second])
++  for dim in range(3):
++   ri=len(rhs)
++   for side,sign in [(first,1.),(second,-1.)]:
++    for j in range(3):row.append(ri);col.append(3*lookup[side]+j);values.append(float(sign*projection[dim,j]))
++   rhs.append(float(-initial[dim]))
++ print('ESQUINAS EXTRUIDAS COMPARTIDAS',len(relations),flush=True)
++ delta=np.zeros(3*len(keys)+len(data));residual=0.
++ if rhs:
++  A=coo_matrix((values,(row,col)),shape=(len(rhs),len(delta))).tocsr();scale=np.r_[np.ones(3*len(keys)),[1./np.sqrt(max(item['area'],.01)) for item in data]];B=A.multiply(scale)
++  solution=np.linalg.lstsq(B.toarray(),np.array(rhs),rcond=1e-11)[0];delta=scale*solution;residual=float(abs(A@delta-rhs).max())
++  print('CONCILIACION SISTEMA',A.shape,'residual',residual,'movimiento',float(abs(delta[:3*len(keys)]).max()),flush=True)
++  if residual>1e-9:raise ValueError(f'No se concilian los planos dentro de la precisión CAD: {residual}')
++ for i,item in enumerate(data):
++  d=item['d']+delta[3*len(keys)+i];error=float(abs(item['points']@item['n']-d).max())
++  if error>limite:raise ValueError('La conciliación de planos supera la cota fuente '+str(dict(regiones=item['regions'],error=error,offset=delta[3*len(keys)+i],normal=item['n'].tolist())))
++  surface=Geom_Plane(gp_Pln(gp_Pnt(*map(float,item['n']*d)),gp_Dir(*map(float,item['n']))))
++  for region in item['regions']:out[region]=surface
++ print('PLANOS CONCILIADOS',len(data),'esquinas',len(keys),'residual',residual,'offset_max',float(abs(delta[3*len(keys):]).max()) if len(data) else 0.,flush=True)
++ return out
+--- /dev/null
++++ R11/motor_superficies/perfiles_medidos.py
+@@ -0,0 +1,90 @@
++"""Investigación: familias de revolución y cilindros apoyadas en el STL."""
++import numpy as np
++from scipy.interpolate import make_interp_spline
++from scipy.spatial import cKDTree
++from OCP.Geom import Geom_CylindricalSurface,Geom_ToroidalSurface,Geom_SurfaceOfRevolution,Geom_BSplineSurface,Geom_BSplineCurve
++from OCP.BRep import BRep_Tool
++from OCP.BRepTools import BRepTools
++from OCP.BRepClass import BRepClass_FaceClassifier
++from OCP.TopAbs import TopAbs_IN,TopAbs_ON
++from OCP.gp import gp_Pnt,gp_Dir,gp_Ax1,gp_Pnt2d
++import meshfit_brep as base
++
++def puntos_cara(face,surf):
++ u0,u1,v0,v1=BRepTools.UVBounds_s(face.wrapped);points=[]
++ for u in np.linspace(u0,u1,11):
++  for v in np.linspace(v0,v1,11):
++   if BRepClass_FaceClassifier(face.wrapped,gp_Pnt2d(float(u),float(v)),1e-9).State() in (TopAbs_IN,TopAbs_ON):points.append(surf.Value(float(u),float(v)).Coord())
++ return np.asarray(points)
++
++def proponer(faces,surfaces,mesh,required):
++ from ajuste_cilindrico_medido import fit_native
++ out=list(surfaces);records=[]
++ # Refitar los cilindros desde vértices fuente antes de propagar sus soportes.
++ cylinders=[s if isinstance(s,Geom_CylindricalSurface) else None for s in out]
++ fitted,_=fit_native(faces,cylinders,mesh)
++ for i,s in enumerate(fitted):
++  if s is not None:out[i]=s
++ trusted=[]
++ for i,s in enumerate(out):
++  if not isinstance(s,Geom_CylindricalSurface):continue
++  a=np.array(s.Axis().Direction().Coord());q=np.array(s.Location().Coord())
++  if any(abs(s.Radius()-r['radio'])<.008 and abs(a@r['eje'])>.99999 and np.linalg.norm(np.cross(q-r['centro'],a))<.008 for r in required):trusted.append((i,s))
++ for i,s in enumerate(out):
++  if not isinstance(s,Geom_BSplineSurface):continue
++  P=puntos_cara(faces[i],s)
++  if len(P)<16:continue
++  choices=[]
++  for ci,c in trusted:
++   a=np.array(c.Axis().Direction().Coord());q=np.array(c.Location().Coord());error=float(abs(np.linalg.norm(np.cross(P-q,a),axis=1)-c.Radius()).max())
++   if error<.015:choices.append((error,ci,c))
++  if choices:
++   error,ci,c=min(choices,key=lambda x:x[0]);out[i]=c;records.append(dict(tipo='cilindro_propagado',cara=i,soporte=ci,error_propuesta_mm=error));print('CILINDRO PROPAGADO',i,ci,error,flush=True)
++ # Cada grupo requiere el eje de un cilindro confirmado por la fuente.
++ used=set()
++ for req in sorted(required,key=lambda r:r['max_entrada_mm']):
++  a=np.array(req['eje'],float);a/=np.linalg.norm(a)
++  if a[np.argmax(abs(a))]<0:a=-a
++  q=np.array(req['centro'],float);target=[]
++  for i,s in enumerate(out):
++   if i in used or any(i==j or s is c for j,c in trusted):continue
++   if not isinstance(s,(Geom_CylindricalSurface,Geom_ToroidalSurface)):continue
++   direction=np.array(s.Axis().Direction().Coord());origin=np.array(s.Location().Coord())
++   if abs(a@direction)>.99999 and np.linalg.norm(np.cross(origin-q,a))<.03:target.append(i)
++  if len(target)<2 or not any(isinstance(out[i],Geom_ToroidalSurface) for i in target):continue
++  C=mesh.triangles_center;support=[]
++  for i in target:
++   face=faces[i];s=out[i];bb=face.BoundingBox();pr=base._Proj(s)
++   mask=np.all((C>=[bb.xmin-.025,bb.ymin-.025,bb.zmin-.025])&(C<=[bb.xmax+.025,bb.ymax+.025,bb.zmax+.025]),axis=1)
++   ids=np.flatnonzero(mask);P=C[ids];err=np.linalg.norm(P-pr.batch(P),axis=1);normals=np.array([pr.normal(p) for p in P]);ndot=np.abs(np.sum(normals*mesh.face_normals[ids],axis=1));ids=ids[(err<.03)&(ndot>.97)]
++   if mesh.area_faces[ids].sum()<.4*face.Area():raise ValueError('Falta apoyo fuente de una superficie de revolución propuesta')
++   support.extend(ids)
++  ids=np.unique(support);P=mesh.vertices[np.unique(mesh.faces[ids])];d=P-q;z=d@a;r=np.linalg.norm(np.cross(d,a),axis=1);levels=[]
++  zr=np.round(z,5)
++  for zz in np.unique(zr):
++   mask=zr==zz
++   if mask.sum()>=20:levels.append([np.median(z[mask]),np.median(r[mask]),np.ptp(r[mask]),mask.sum()])
++  levels=np.array(levels)
++  if len(levels)<8 or levels[:,2].max()>.002:raise ValueError('Perfil angularmente inconsistente')
++  xy=levels[:,:2];steps=np.linalg.norm(np.diff(xy,axis=0),axis=1)
++  # Los segmentos muy largos reciben testigos interiores para evitar oscilación.
++  densified=[]
++  for p0,p1,h in zip(xy[:-1],xy[1:],steps):
++   densified.extend(p0+t*(p1-p0) for t in np.linspace(0,1,max(2,int(np.ceil(h/.15))+1))[:-1])
++  densified.append(xy[-1]);xy=np.array(densified);t=np.r_[0.,np.cumsum(np.linalg.norm(np.diff(xy,axis=0),axis=1))]
++  first=xy[1]-xy[0];first/=np.linalg.norm(first);last=xy[-1]-xy[-2];last/=np.linalg.norm(last)
++  if abs(last[0])<.02:last=np.array([0.,np.sign(last[1])])
++  # La dirección final se estima del perfil; no se impone un radio nominal.
++  spline=make_interp_spline(t,xy,k=3,bc_type=([(1,first)],[(1,last)]))
++  grid=spline(np.linspace(t[0],t[-1],20001));dist,_=cKDTree(grid).query(np.c_[z,r]);maximum=float(dist.max())
++  if maximum>.003:raise ValueError(f'El perfil medido no conserva la fuente: {maximum}')
++  helper=np.eye(3)[np.argmin(abs(a))];u=np.cross(a,helper);u/=np.linalg.norm(u)
++  from OCP.TColgp import TColgp_Array1OfPnt
++  from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++  poles=TColgp_Array1OfPnt(1,len(spline.c));knots,mults=np.unique(spline.t,return_counts=True);K=TColStd_Array1OfReal(1,len(knots));M=TColStd_Array1OfInteger(1,len(knots))
++  for j,p in enumerate(spline.c,1):poles.SetValue(j,gp_Pnt(*map(float,q+a*p[0]+u*p[1])))
++  for j,(k,m) in enumerate(zip(knots,mults),1):K.SetValue(j,float(k));M.SetValue(j,int(m))
++  curve=Geom_BSplineCurve(poles,K,M,3,False);surface=Geom_SurfaceOfRevolution(curve,gp_Ax1(gp_Pnt(*map(float,q)),gp_Dir(*map(float,a))))
++  for i in target:out[i]=surface;used.add(i)
++  records.append(dict(tipo='revolucion_medida',caras=target,vertices_fuente=len(P),niveles=len(levels),max_fuente_mm=maximum,indices_fuente=ids.tolist()));print('REVOLUCION MEDIDA',{k:v for k,v in records[-1].items() if k!='indices_fuente'},flush=True)
++ return out,records
+--- /dev/null
++++ R11/motor_superficies/ajuste_cilindrico_medido.py
+@@ -0,0 +1,73 @@
++"""Prototipo: ajuste conjunto propuesto y contrastado con los vértices STL."""
++import numpy as np
++from scipy.optimize import least_squares
++from OCP.Geom import Geom_CylindricalSurface,Geom_ToroidalSurface
++from OCP.gp import gp_Ax3,gp_Pnt,gp_Dir
++
++def circle(points):
++    origin=points.mean(0);p=points-origin
++    x,y,c=np.linalg.lstsq(np.c_[2*p,np.ones(len(p))],np.sum(p*p,axis=1),rcond=None)[0]
++    center=origin+np.array([x,y]);radius=np.linalg.norm(points-center,axis=1).mean()
++    fit=least_squares(lambda q:np.linalg.norm(points-q[:2],axis=1)-q[2],np.r_[center,radius],loss='soft_l1',f_scale=2e-6,xtol=1e-13,ftol=1e-13,gtol=1e-13,max_nfev=200)
++    return fit.x[:2],fit.x[2]
++
++def robust_circle(points,triangles,weights,hint):
++    rng=np.random.default_rng(20261027);best=None
++    candidates=[]
++    for _ in range(60):
++        ids=rng.choice(len(points),3,replace=False);p=points[ids];mat=2*(p[1:]-p[0])
++        if abs(np.linalg.det(mat))<max(1e-15,hint*hint*1e-7):continue
++        center=np.linalg.solve(mat,np.sum(p[1:]**2,axis=1)-np.sum(p[0]**2));radius=np.linalg.norm(center-p[0])
++        if abs(radius-hint)>.008:continue
++        residual=abs(np.linalg.norm(points-center,axis=1)-radius);good=residual[triangles].max(axis=1)<2e-5;area=float(weights[good].sum())
++        if best is None or area>best[0]:best=(area,center,radius,good)
++    if best is None:raise ValueError('No se verifica un núcleo circular')
++    _,center,radius,good=best
++    vertices=np.unique(triangles[good]);center,radius=circle(points[vertices])
++    return center,radius
++
++def fit_native(faces,surfaces,mesh):
++    out=list(surfaces);records=[];support={}
++    for i,s in enumerate(surfaces):
++        if not isinstance(s,Geom_CylindricalSurface):continue
++        a=np.array(s.Axis().Direction().Coord());q=np.array(s.Location().Coord());bb=faces[i].BoundingBox();C=mesh.triangles_center
++        radial=C-q-np.outer((C-q)@a,a);rho=np.linalg.norm(radial,axis=1)
++        mask=(abs(rho-s.Radius())<.008)&(abs(mesh.face_normals@a)<.1)
++        vertex_rho=np.linalg.norm(np.cross(mesh.vertices-q,a),axis=1)
++        mask &= np.all(abs(vertex_rho[mesh.faces]-s.Radius())<.008,axis=1)
++        mask &= np.all((C>=np.array([bb.xmin,bb.ymin,bb.zmin])-.001)&(C<=np.array([bb.xmax,bb.ymax,bb.zmax])+.001),axis=1)
++        ids=np.flatnonzero(mask)
++        if len(ids)<12:continue
++        vertices=np.unique(mesh.faces[ids]);V=mesh.vertices[vertices]
++        def residual_cyl(params,points):
++            axis=params[3:6]/np.linalg.norm(params[3:6]);return np.r_[np.linalg.norm(np.cross(points-params[:3],axis),axis=1)-params[6],((params[:3]-q)@a)*.001]
++        fit=least_squares(lambda p:residual_cyl(p,V),np.r_[q,a,s.Radius()],loss='soft_l1',f_scale=2e-6,xtol=1e-13,ftol=1e-13,gtol=1e-13,max_nfev=200)
++        newq=fit.x[:3];axis=fit.x[3:6]/np.linalg.norm(fit.x[3:6]);radius=fit.x[6]
++        if axis@a<0:axis=-axis
++        if radius<=0 or abs(radius-s.Radius())>.008 or np.linalg.norm(np.cross(axis,a))>.001:continue
++        error=np.abs(np.linalg.norm(np.cross(mesh.vertices[mesh.faces[ids]]-newq,axis),axis=2)-radius).max(axis=1)
++        good=error<2e-5
++        if mesh.area_faces[ids[good]].sum()<.5*faces[i].Area():continue
++        ids=ids[good];V=mesh.vertices[np.unique(mesh.faces[ids])]
++        fit=least_squares(lambda p:residual_cyl(p,V),fit.x,loss='soft_l1',f_scale=2e-6,xtol=1e-13,ftol=1e-13,gtol=1e-13,max_nfev=200)
++        newq=fit.x[:3];axis=fit.x[3:6]/np.linalg.norm(fit.x[3:6]);radius=fit.x[6]
++        if axis@a<0:axis=-axis
++        if max(abs(np.linalg.norm(np.cross(V-newq,axis),axis=1)-radius))>2e-5:continue
++        out[i]=Geom_CylindricalSurface(gp_Ax3(gp_Pnt(*map(float,newq)),gp_Dir(*map(float,axis))),float(radius))
++        print('AJUSTE CILINDRO',i,'R',s.Radius(),'->',radius,'error',max(error[good]),flush=True)
++        records.append(dict(cara=i,tipo='cylinder',radio=radius))
++        support[i]=V
++    from OCP.Geom import Geom_Plane
++    for i,V in support.items():
++        for _ in range(2):
++            for plane in out:
++                if not isinstance(plane,Geom_Plane):continue
++                cy=out[i];axis=np.array(cy.Axis().Direction().Coord());q=np.array(cy.Location().Coord());radius=cy.Radius()
++                n=np.array(plane.Axis().Direction().Coord());p=np.array(plane.Location().Coord());d=(q-p)@n
++                if abs(axis@n)>1e-4 or abs(abs(d)-radius)>2e-5:continue
++                a=axis-n*(axis@n);a/=np.linalg.norm(a);newq=q+n*(np.copysign(radius,d)-d)
++                error=abs(np.linalg.norm(np.cross(V-newq,a),axis=1)-radius).max()
++                if error<=2e-5:
++                    out[i]=Geom_CylindricalSurface(gp_Ax3(gp_Pnt(*map(float,newq)),gp_Dir(*map(float,a))),radius)
++                    print('TANGENCIA MEDIDA',i,'error fuente',error,flush=True)
++    return out,records
+--- /dev/null
++++ R11/motor_superficies/extension_cilindros.py
+@@ -0,0 +1,26 @@
++"""Ampliar cilindros sólo sobre facetas completas dentro de la cota previa."""
++import numpy as np
++from OCP.Geom import Geom_CylindricalSurface
++from OCP.gp import gp_Ax3,gp_Pnt,gp_Dir
++
++def propuestas(mesh,required,surfaces=()):
++ out=[]
++ for req in required:
++  a=req['eje'];q=req['centro'];radius=req['radio']
++  for s in surfaces:
++   if not isinstance(s,Geom_CylindricalSurface):continue
++   sa=np.array(s.Axis().Direction().Coord());sq=np.array(s.Location().Coord())
++   if abs(s.Radius()-radius)<=.008 and abs(sa@a)>.99999 and np.linalg.norm(np.cross(sq-q,a))<=.008:
++    if np.max(abs(np.linalg.norm(np.cross(req['puntos']-sq,sa),axis=1)-s.Radius()))<=.008:
++     a,q,radius=sa,sq,s.Radius();break
++  D=mesh.vertices-q;radial=D-np.outer(D@a,a);rho=np.linalg.norm(radial,axis=1)
++  radial_centers=radial[mesh.faces].mean(axis=1)
++  unit=radial_centers/np.maximum(np.linalg.norm(radial_centers,axis=1)[:,None],1e-300)
++  agreement=abs(np.sum(unit*mesh.face_normals,axis=1))
++  mask=np.all(abs(rho[mesh.faces]-radius)<=.008,axis=1)&(agreement>np.cos(np.radians(15)))
++  T=radial[mesh.faces];A=T;B=np.roll(T,-1,axis=1);d=B-A;t=np.clip(-np.sum(A*d,axis=2)/np.maximum(np.sum(d*d,axis=2),1e-300),0,1);rmin=np.linalg.norm(A+t[:,:,None]*d,axis=2).min(axis=1)
++  # Veto explícito al origen dentro del triángulo proyectado (no sólo aristas).
++  cross=np.sum(np.cross(A,B)*a,axis=2);inside=(np.all(cross>1e-14,axis=1)|np.all(cross<-1e-14,axis=1));rmin[inside]=0.
++  mask &= (radius-rmin<=.008)
++  ids=np.flatnonzero(mask);surface=Geom_CylindricalSurface(gp_Ax3(gp_Pnt(*map(float,q)),gp_Dir(*map(float,a))),float(radius));out.append((ids,surface))
++ return out
+--- /dev/null
++++ R11/motor_superficies/tramos_barridos.py
+@@ -0,0 +1,24 @@
++"""Imagen exacta de un segmento UV en un perfil polinómico extruido."""
++import numpy as np
++from OCP.Geom import Geom_SurfaceOfLinearExtrusion,Geom_TrimmedCurve,Geom_Line
++from OCP.GeomConvert import GeomConvert
++from OCP.gp import gp_Pnt,gp_Ax1,gp_Dir
++
++def segmento(surface,a,b):
++ if not isinstance(surface,Geom_SurfaceOfLinearExtrusion):return None
++ axis=np.array(surface.Direction().Coord());du=float(b[0]-a[0]);dv=float(b[1]-a[1])
++ if abs(du)<1e-11:
++  p=np.array(surface.Value(*map(float,a)).Coord());direction=axis if dv>0 else -axis
++  return GeomConvert.CurveToBSplineCurve_s(Geom_TrimmedCurve(Geom_Line(gp_Ax1(gp_Pnt(*map(float,p)),gp_Dir(*map(float,direction)))),0.,abs(dv)))
++ lo,hi=sorted((float(a[0]),float(b[0])));curve=GeomConvert.CurveToBSplineCurve_s(Geom_TrimmedCurve(surface.BasisCurve(),lo,hi))
++ if curve.IsRational():raise ValueError('No se certifica el segmento racional extruido')
++ knots=[]
++ for i in range(1,curve.NbKnots()+1):knots.extend([curve.Knot(i)]*curve.Multiplicity(i))
++ degree=curve.Degree()
++ for i in range(curve.NbPoles()):
++  parameter=float(np.mean(knots[i+1:i+degree+1]));offset=a[1]+dv*(parameter-a[0])/du
++  point=np.array(curve.Pole(i+1).Coord())+axis*offset;curve.SetPole(i+1,gp_Pnt(*map(float,point)))
++ maximum=max(curve.Value(float(u)).Distance(surface.Value(float(u),float(a[1]+dv*(u-a[0])/du))) for u in np.linspace(lo,hi,129))
++ if maximum>1e-10:raise ValueError('El segmento exacto extruido no conserva su soporte')
++ if du<0:curve.Reverse()
++ return curve

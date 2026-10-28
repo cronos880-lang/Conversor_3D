@@ -1,0 +1,152 @@
+[
+  {
+    "archivo": "entorno_local.py",
+    "sha256_R10": "ad871fdb1a64b2f6ee4a1d2d4f72a9b9f290bf2e90ce52eb80f6968c7fa74f1f",
+    "sha256_R11": "73693bc7926c129ae3af0230296e694a4351ed253e40885f539278c3518f662e"
+  },
+  {
+    "archivo": "GUIA_REPRODUCIR.md",
+    "sha256_R10": "cecd8c53a414563370b03fd2b32a4dc424ffb6eb8375cb51d57ec532248dc545",
+    "sha256_R11": "caa8bbdfe5c8affebfc7506a35c7ccc6c8e48832cf05339721a7110a3ad242e7"
+  },
+  {
+    "archivo": "ESTADO_VALIDACION.md",
+    "sha256_R10": "049c5723fd0d6c21a95116c8c8ad273f749e723c791ddee51270f6609ca5f083",
+    "sha256_R11": "cb1be7feeeb3a14f3914f53ee2df3deac91de2b805a26adc295654ecd126d848"
+  },
+  {
+    "archivo": "arrancar.py",
+    "sha256_R10": "9aeb40cc54e5e2f469cdf1e7ab93f6ab8a9dd8cb952bbfe1ad82479bfebe5386",
+    "sha256_R11": "15725e4fd528c5f60c74c63ac73c990311f4049880d7898be8955972a7ade5a4"
+  },
+  {
+    "archivo": "LEEME.txt",
+    "sha256_R10": "c813820047a7502fb232af3cc49f9bc4d933e10888b88ac8b58a6e180ef56421",
+    "sha256_R11": "b858f3746f7c0fa29c4d98c0964e0710f96294070f4aaa4eade003b3ea0d7fe8"
+  },
+  {
+    "archivo": "Visor_STL_STEP.html",
+    "sha256_R10": "22e1ce4bc7c540ac2a198ffade03c417d8d217aae2e32bb697d1931c759881dd",
+    "sha256_R11": "32c6a86e382ccc55ebda9b92bb8a7e37077f2d7023755b738555ee8cdeb71c9f"
+  },
+  {
+    "archivo": "version_programa.py",
+    "sha256_R10": "6343e8faa1bc13887a9bbc642804d45f42392f7206f74e5cbc3c48776ac415a5",
+    "sha256_R11": "d697c1ef71202756777808ab9b120d1c2e99201dccfaf0808140d009f79cac93"
+  },
+  {
+    "archivo": "VERSION.txt",
+    "sha256_R10": "89cfc1143df08b1ca3081982e9c11609afb865a23db86f789ee31b71c5d71726",
+    "sha256_R11": "71bb2f81c5d2351fea9b110374c2121aa873ed2cba39f9bef3f3cac022b67da0"
+  },
+  {
+    "archivo": "motor_v2.py",
+    "sha256_R10": "0ce116ea8f748a17aac7ee2c7f2cf1b3ad2ab7af3252b3bff05da3874e823924",
+    "sha256_R11": "d6c4c45a72ab52ea1d510318b150001ef12fbc54baca313ce1b49d90585d8e09"
+  },
+  {
+    "archivo": "test_arranque_r8.py",
+    "sha256_R10": "1f26f43fbcc3bdd8dbe54f6328c0a244023e888f0cd95f87619721c154b48c7b",
+    "sha256_R11": "574ef1421fade4720c75b2f946de0166e539bb427db8885084c2b573c3bc924e"
+  },
+  {
+    "archivo": "Instalar_Entorno.bat",
+    "sha256_R10": "479f96f909c6d1fcb68839422ddc098d763546c0612d6f30091da32fbbcf9494",
+    "sha256_R11": "8dad69219fc1a09e734cf3375cc255597741389ccfc9d2f1f6387fffceadb5e1"
+  },
+  {
+    "archivo": "servidor.py",
+    "sha256_R10": "d54cc7431d6c2a993c4c7400af0fdb4ceb797909616dcc39ae60de63d87d68f9",
+    "sha256_R11": "a701ed828c259a1c8c9102dde707bda933249b91f9277935ba0fd04e465488aa"
+  },
+  {
+    "archivo": "reconstruccion_medida.py",
+    "sha256_R10": null,
+    "sha256_R11": "0625d6afa5e33647961757381328742a8f4837604e442c037cd14419e0823744"
+  },
+  {
+    "archivo": "test_perfiles_medidos.py",
+    "sha256_R10": null,
+    "sha256_R11": "7766ac405e1e99b29b7c296a8a63cc89d77d0a7a3bef18ff007a40f3410886f0"
+  },
+  {
+    "archivo": "motor_superficies/barridos_medidos.py",
+    "sha256_R10": null,
+    "sha256_R11": "9af688e70bcc9a5966babd4f09f1987f67a5579ca9ede083c0b797ff35b28d22"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_brep.py",
+    "sha256_R10": "13d9b4129fcd116b9932eb2ffb1aa8a80324474f299840bbca37c3b7abb7dd74",
+    "sha256_R11": "0958a64a3823ad29242a3087ead159fb2d3d553b344fcc572430b49ebbc2e5a8"
+  },
+  {
+    "archivo": "motor_superficies/extension_planos.py",
+    "sha256_R10": null,
+    "sha256_R11": "7caacd028f5cc0cec57bd63f9a88b4a53f0032797d13674670b843179d4a5ae6"
+  },
+  {
+    "archivo": "motor_superficies/geometria_medida.py",
+    "sha256_R10": null,
+    "sha256_R11": "129915a7b631891ad024d16568402191e7549c4468257a768877e9cdf53cfaa7"
+  },
+  {
+    "archivo": "motor_superficies/proyeccion_barridos.py",
+    "sha256_R10": null,
+    "sha256_R11": "a871554177108ad17d14fd9a9dd96fdf118c314ffe8d3f9784f6290bf7487769"
+  },
+  {
+    "archivo": "motor_superficies/esquinas_medidas.py",
+    "sha256_R10": null,
+    "sha256_R11": "e7c85067e5f5fc4709fc5fe7309fbb8332fe712ed2abcd07ba68ab0334a42e24"
+  },
+  {
+    "archivo": "motor_superficies/generar_semilla.py",
+    "sha256_R10": null,
+    "sha256_R11": "83ae7201dd58617d585be1cfe6085ba6161e68e09b58fdfd34b9e09014922de9"
+  },
+  {
+    "archivo": "motor_superficies/constructor_barridos.py",
+    "sha256_R10": null,
+    "sha256_R11": "b2bbdc987ce58760c33b63edc3bf9827e5abf52eeeb4880211fdee475706d886"
+  },
+  {
+    "archivo": "motor_superficies/anclaje_barridos.py",
+    "sha256_R10": null,
+    "sha256_R11": "14d25a9bae874d27d89db08bf16884eb9dac22a1d3d377842a25c0c9c7602ac1"
+  },
+  {
+    "archivo": "motor_superficies/curvas_barridas.py",
+    "sha256_R10": null,
+    "sha256_R11": "1bda4631ba7255e6c1ac81eaefdd5c43ee334d3e80b5469ce21f172f9fa884ce"
+  },
+  {
+    "archivo": "motor_superficies/refinamiento_contorno.py",
+    "sha256_R10": null,
+    "sha256_R11": "654e0b8b927f7a69aaff2122ef9729ac8d3d75fd0e472707db33ede13d7411be"
+  },
+  {
+    "archivo": "motor_superficies/planos_medidos.py",
+    "sha256_R10": null,
+    "sha256_R11": "4128a574b0dbf342a4aa96e26d9d3c72b7e67bc3f88e7c4c5991d1e059987fdf"
+  },
+  {
+    "archivo": "motor_superficies/perfiles_medidos.py",
+    "sha256_R10": null,
+    "sha256_R11": "924a300ac450b63936ffb6f43dc593b088ee81482499e40228ece2439fb328a1"
+  },
+  {
+    "archivo": "motor_superficies/ajuste_cilindrico_medido.py",
+    "sha256_R10": null,
+    "sha256_R11": "e5ede07ec5b468f09936a81ac2544c58070ed404043988826d873c70294b93a4"
+  },
+  {
+    "archivo": "motor_superficies/extension_cilindros.py",
+    "sha256_R10": null,
+    "sha256_R11": "b396cfb75da3d4aa83da16647c30d135271f35d40f907aaab1a5009791674332"
+  },
+  {
+    "archivo": "motor_superficies/tramos_barridos.py",
+    "sha256_R10": null,
+    "sha256_R11": "2e062c6880cc4ef64ef65315d5a77784a45490942718375e98d53cf35b86e93f"
+  }
+]

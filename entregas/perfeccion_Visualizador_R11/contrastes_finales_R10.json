@@ -1,0 +1,300 @@
+{
+  "Bancada_Motor": {
+    "ok": true,
+    "step": "navegador/Bancada_Motor.step",
+    "sha256_step": "ff62ca1dec2aae1dddf041ac58be8b620227d3ef34270bd6e3f3bca0bd52e72f",
+    "validacion": "navegador/Bancada_Motor_validacion_R10.json",
+    "evaluador": "R10 congelada, 133 archivos comprobados",
+    "calidad": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 527,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-07,
+        "tolerancia_p95_mm": 1e-07,
+        "tolerancia_media_mm": 1e-07,
+        "aristas_tol_mayor_001mm": 0,
+        "brep_exacto": true
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 239,
+      "bytes_step": 1912431,
+      "volumen_error_pct": 0.026121,
+      "caja_error_mm": 0.000561,
+      "caja_error_analitico_mm": 0.000561,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 1.2e-05,
+        "p95": 5.8e-05,
+        "p99": 0.000195,
+        "max_muestreado": 0.000961,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 0.000118,
+        "p95": 0.000566,
+        "p99": 0.001514,
+        "max_muestreado": 0.002961,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "tipos_caras": {
+        "GeomAbs_SurfaceOfExtrusion": 14,
+        "GeomAbs_BSplineSurface": 50,
+        "GeomAbs_Plane": 150,
+        "GeomAbs_Cylinder": 25
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0.0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "interferencias_comprobadas_en_frio": true,
+      "control_cad_reutilizado_por_sha256": false,
+      "sin_objetos_sueltos_en_step": true,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 0.0005562646632755181,
+          "max_mm": 0.0011450267303325216,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 129022,
+          "p95_mm": 0.0008080385794124815,
+          "max_mm": 0.0034376406993212602,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.003438,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      }
+    },
+    "grupos_cilindricos": 15
+  },
+  "maneta": {
+    "ok": true,
+    "step": "regresion_cli/maneta.step",
+    "sha256_step": "63e06ff928052dbc988f7f272a9ca58f98f57e5d7f3ebfee9426a5c883fc0f22",
+    "validacion": "regresion_cli/maneta_validacion_R10.json",
+    "evaluador": "R10 congelada, 133 archivos comprobados",
+    "calidad": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 94,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-07,
+        "tolerancia_p95_mm": 1e-07,
+        "tolerancia_media_mm": 1e-07,
+        "aristas_tol_mayor_001mm": 0,
+        "brep_exacto": true
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 36,
+      "bytes_step": 1054104,
+      "volumen_error_pct": 0.022278,
+      "caja_error_mm": 5.7e-05,
+      "caja_error_analitico_mm": 5.7e-05,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 0.000103,
+        "p95": 0.0003,
+        "p99": 0.000759,
+        "max_muestreado": 0.001265,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 0.000557,
+        "p95": 0.002162,
+        "p99": 0.002652,
+        "max_muestreado": 0.002669,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "tipos_caras": {
+        "GeomAbs_SurfaceOfRevolution": 2,
+        "GeomAbs_Plane": 29,
+        "GeomAbs_Cylinder": 5
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0.0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "interferencias_comprobadas_en_frio": true,
+      "control_cad_reutilizado_por_sha256": false,
+      "sin_objetos_sueltos_en_step": true,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 0.0016995926029501416,
+          "max_mm": 0.0026651571709596414,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 40062,
+          "p95_mm": 0.0013930930021873004,
+          "max_mm": 0.016032881528097925,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.016033,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      }
+    },
+    "grupos_cilindricos": 3
+  },
+  "Grapa": {
+    "ok": true,
+    "step": "regresion_cli/Grapa.step",
+    "sha256_step": "90092143adbe13564969b72b4564e9574ce4076cef410197283ba5ff533232f2",
+    "validacion": "regresion_cli/Grapa_validacion_R10.json",
+    "evaluador": "R10 congelada, 133 archivos comprobados",
+    "calidad": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 49,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-07,
+        "tolerancia_p95_mm": 1e-07,
+        "tolerancia_media_mm": 1e-07,
+        "aristas_tol_mayor_001mm": 0,
+        "brep_exacto": true
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 20,
+      "bytes_step": 687181,
+      "volumen_error_pct": 0.00699,
+      "caja_error_mm": 3.4e-05,
+      "caja_error_analitico_mm": 3.4e-05,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 7.7e-05,
+        "p95": 0.000235,
+        "p99": 0.000297,
+        "max_muestreado": 0.000332,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 3.8e-05,
+        "p95": 9.9e-05,
+        "p99": 0.000188,
+        "max_muestreado": 0.000223,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "tipos_caras": {
+        "GeomAbs_SurfaceOfExtrusion": 8,
+        "GeomAbs_Plane": 10,
+        "GeomAbs_Cylinder": 2
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0.0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "interferencias_comprobadas_en_frio": true,
+      "control_cad_reutilizado_por_sha256": false,
+      "sin_objetos_sueltos_en_step": true,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 0.0006017577929600352,
+          "max_mm": 0.0006771691383335601,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 94584,
+          "p95_mm": 0.000697227988365401,
+          "max_mm": 0.001042036996616661,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.001042,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      }
+    },
+    "grupos_cilindricos": 2
+  }
+}

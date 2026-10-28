@@ -1,0 +1,12 @@
+VISOR STL -> STEP R11 EXPERIMENTAL
+
+Abre Iniciar.bat de la carpeta principal. Conserva tus versiones anteriores.
+Python 3.12 de 64 bits. Puede reutilizar el entorno de R7, R8, R9 o R10.
+Encabezado R11 experimental, puerto 8777.
+
+La nueva fase mide perfiles de revolución y extrusión desde el STL y conserva
+primero la conversión anterior. Sólo sustituye el STEP tras validar geometría,
+CAD exacto, cilindros, material y tres mallados finos sin cruces.
+Los límites de aceptación originales se mantienen. El ajuste interno no requiere
+ninguna opción nueva en la interfaz. Consulta INFORME_RESULTADOS.md en la entrega.
+Windows nativo, Onshape y K1C requieren prueba externa.

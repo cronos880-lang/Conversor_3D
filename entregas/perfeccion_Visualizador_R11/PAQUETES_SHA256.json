@@ -1,0 +1,32 @@
+[
+  {
+    "archivo": "perfeccion_Visualizador_R11_EXPERIMENTAL_COMPLETA.zip",
+    "bytes": 861193,
+    "sha256": "40aa6b96896fd9950fcb79423f0ab2e83941c230a5d5d42d21347dfad35f5620",
+    "ficheros": 165
+  },
+  {
+    "archivo": "perfeccion_Visualizador_R11_AUDITORIA.zip",
+    "bytes": 63205209,
+    "sha256": "9554e8412d14c6b1ea2a6f91294fa94f1475829ba849d3507619684a3c1ff916",
+    "ficheros": 426
+  },
+  {
+    "archivo": "perfeccion_Visualizador_R11_RESULTADOS_STEP.zip",
+    "bytes": 54860392,
+    "sha256": "58f957a6da4906f4c09e8b260eac7ff8c624366d519ec9daa1f612ee6067d6eb",
+    "ficheros": 209
+  },
+  {
+    "archivo": "R11_BANCADA_MANETA_Y_GRAPA_PARA_COMPARAR.zip",
+    "bytes": 7753416,
+    "sha256": "c7685500728f24fbf415e7a5fc1ebdec675edde83e5ddfa4fccb7a4638557ed7",
+    "ficheros": 11
+  },
+  {
+    "archivo": "perfeccion_Visualizador_R11_ARCHIVOS_MODIFICADOS.zip",
+    "bytes": 198942,
+    "sha256": "73de2c35afa73ea42a2d6db74aca0e6ed89f238422ffc873a48db36d2a9a513c",
+    "ficheros": 33
+  }
+]

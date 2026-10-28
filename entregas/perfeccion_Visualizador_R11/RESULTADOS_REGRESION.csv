@@ -1,0 +1,25 @@
+﻿pieza,ruta,ok,caras,tipos,segundos,max_denso_mm,error_caja_mm,error_volumen_pct,DATA_identico_R10,sha256_step
+Tirante,CLI,True,22,"{'GeomAbs_Cylinder': 10, 'GeomAbs_Plane': 10, 'GeomAbs_SurfaceOfRevolution': 2}",1027.604,0.02743,0.000951,0.113342,True,049cf1e58f4f3619244b1891b097d1d65fdd2bfbcbf60692e15c727dc10f46f7
+conector,CLI,True,19998,{'GeomAbs_Plane': 19998},798.226,0.010826,0.0,0.002912,True,9df5fc940cd373826db612299fad6f97a1b9256bee70aa218bcbbd566ae17551
+Pieza_Nueva_Detenida,CLI,True,8892,{'GeomAbs_Plane': 8892},1454.581,0.020334,0.0,3e-06,True,f0e147ccce8a069e20a029338c09413df4e50d1d7dd934a2434c87f357b94428
+Estefi,CLI,True,1769,{'GeomAbs_Plane': 1769},460.838,0.0,0.0,0.0,True,5e706b331f639679f086f6e5fdd4f67f9a753e36b04a014a504e4f56578c2946
+Con fallos pero si step,CLI,True,2567,{'GeomAbs_Plane': 2567},408.697,0.000592,0.0,0.0,True,350b038d91c23dd7d8b002844f97b22b52b238202f947f397aa3858c4db29dba
+chasis - Part 2,CLI,True,13803,{'GeomAbs_Plane': 13803},557.001,0.006785,1e-05,0.000133,True,e588c70fd4fdc00a6503af1511d5f652af557332c4b4c19f4e133b62aa9e8997
+Dimensiones,CLI,True,1100,{'GeomAbs_Plane': 1100},387.843,5e-06,0.0,0.0,True,110ac06534114161fbf1d0d22b2bc705100f49e7f56238f2e2c3dc64c44a030f
+maneta,CLI,True,36,"{'GeomAbs_SurfaceOfRevolution': 2, 'GeomAbs_Plane': 29, 'GeomAbs_Cylinder': 5}",504.761,0.016033,5.7e-05,0.022278,False,63e06ff928052dbc988f7f272a9ca58f98f57e5d7f3ebfee9426a5c883fc0f22
+1x1-lego-brick,CLI,True,2672,{'GeomAbs_Plane': 2672},187.088,0.0,0.0,0.0,True,e6513b4d97fe7966f8979adcca654d45b5acb1addcf024a1320ca7fcb11e3047
+spur,CLI,True,1405,"{'GeomAbs_Plane': 1371, 'GeomAbs_Cylinder': 34}",159.496,0.004738,0.0,0.007408,True,86954547a7a6ab8ed06234743cbb1d2de4e9df50a7264278350504dfe5592853
+Grapa,CLI,True,20,"{'GeomAbs_SurfaceOfExtrusion': 8, 'GeomAbs_Plane': 10, 'GeomAbs_Cylinder': 2}",460.255,0.001042,3.4e-05,0.00699,False,90092143adbe13564969b72b4564e9574ce4076cef410197283ba5ff533232f2
+cubo-carrito_giro_3,CLI,True,1853,{'GeomAbs_Plane': 1853},161.338,0.0,0.0,0.0,True,dfb3be5d2f3d1c59edc31a08172ba7efe97267b711933616fddaf007fb3efa4b
+cubo-carrito_giro_1,CLI,True,1838,{'GeomAbs_Plane': 1838},144.896,0.0,0.0,0.0,True,49e6e7004a45febbe90997da46c285b21bc791f5dcba5cec841e0d42db2ddd03
+Spoiler_arrière_Porsche_-_5,CLI,True,28,"{'GeomAbs_Plane': 26, 'GeomAbs_Cylinder': 2}",9.225,0.002827,5.1e-05,0.012459,True,9242703c59eedb48f9b7a346a55e6ae57d2eb82d485bbaaca6fb055de7d37c31
+cubo-carrito_giro_2,CLI,True,1195,{'GeomAbs_Plane': 1195},104.661,0.0,0.0,0.0,True,9cc10ed10ad43f5810ab651e2d3b8ef5c249c9b34fa583710be5da4ceda80441
+Bancada_Motor,interfaz_navegador,True,239,"{'GeomAbs_SurfaceOfExtrusion': 14, 'GeomAbs_BSplineSurface': 50, 'GeomAbs_Plane': 150, 'GeomAbs_Cylinder': 25}",803.556,0.003438,0.000561,0.026121,False,ff62ca1dec2aae1dddf041ac58be8b620227d3ef34270bd6e3f3bca0bd52e72f
+LLanta_Trasera,interfaz_navegador,True,53,"{'GeomAbs_Cylinder': 30, 'GeomAbs_Plane': 23}",217.025,0.002138,5.8e-05,0.032699,True,aaaf0e30367393c399431908443cd1702e279aae1b9db28ac09bb392616a41ff
+V_legoBrick4x2,interfaz_navegador,True,1149,"{'GeomAbs_Plane': 1137, 'GeomAbs_Cylinder': 12}",551.129,0.005932,0,0.077806,True,7a784c3c61a782e707399d1c48febac7377819a17a01ff520a4947329433dcd5
+M3 PClip - 2mm,interfaz_navegador,True,1484,{'GeomAbs_Plane': 1484},350.301,0,0,0,True,650d3e27ff8da693ef39762b9b19ed286e8f09141bbfd68ba61adc9b7249c062
+cubo-carrito,interfaz_navegador,True,1152,{'GeomAbs_Plane': 1152},99.621,0,0,0,True,53afa7106d12e90145c23d08c857871b3ab25c33ad9462e369a6f6c20e42e4c9
+pinza,interfaz_navegador,True,448,"{'GeomAbs_Plane': 262, 'GeomAbs_Cylinder': 11, 'GeomAbs_BSplineSurface': 175}",190.415,0.003787,0.000495,0.036855,True,08393e5ac24a48c2aa5dc5a8f4f6d05b7c1d2c4ff515f32accde51f133549c05
+6558_fixed,interfaz_navegador,True,8713,{'GeomAbs_Plane': 8713},626.11,0.01636,0,0.000107,True,e8fccf2b18ef3ad4a213309e18ae87e005831c4716bd0d2c26a34b3d493ca081
+Soporte_movil_2,interfaz_navegador,True,493,{'GeomAbs_Plane': 493},39.747,0.018513,0.000196,0.000482,True,f62c42a8e57cd2bb531915830e7592a3842c6205881ef6b0f91cea68060781d4
+Technic_PEGS_Cross_x6_A,interfaz_navegador,True,2044,{'GeomAbs_Plane': 2044},108.601,5e-05,0,0,True,a4d62d9a2525d8134b4f9b9edbadfa34862f4b26fd79ff800b6194a55a5aa1bd
