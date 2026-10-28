@@ -1,0 +1,1182 @@
+--- R9/ESTADO_VALIDACION.md
++++ R10/ESTADO_VALIDACION.md
+@@ -1,7 +1,7 @@
+-# R9 experimental
++# R10 experimental
+ 
+-Esta copia corrige costuras entre mitades del mismo cilindro y añade reconstrucción local de paredes cilíndricas completas después de una recuperación facetada. Si la mejora local no supera todos los controles, se conserva el STEP previo validado. Las rutas que ya pasan mantienen prioridad. Se exige comprobación CAD exacta, geometría frente al STL y las verificaciones adicionales de la recuperación.
++La mejora nueva reconstruye encuentros entre planos, cilindros y superficies de revolución, después del rechazo de las estrategias R9. El tirante pasa de 13.122 caras planas a 22 caras, con diez cilíndricas, diez planas y dos superficies de revolución. Conserva los seis grupos cilíndricos confirmados por el detector y supera CAD exacto, BOP, geometría, material y tres mallados finos sin cruces CGAL.
+ 
+-Los resultados de la copia entregada están en `INFORME_RESULTADOS.md`, en la raíz del ZIP. No confundir una prueba del servidor Python con validación WebAssembly. Windows nativo, Onshape y la impresora K1C necesitan comprobación en esos entornos.
++24 conversiones y 249 pruebas automatizadas aprobadas. Las rutas anteriores conservan prioridad: 23 resultados tienen el bloque geométrico DATA idéntico al de R10. La bancada y la maneta mantienen su calidad R9 y siguen pendientes de mejora. Los prototipos que fallaron se descartaron.
+ 
+-Embudo permanece aplazado por indicación del propietario. Un STEP de recuperación facetada se identifica como tal. No se reconstruye el historial paramétrico original.
++Los resultados y los límites reales constan en INFORME_RESULTADOS.md, en la raíz del ZIP. Esta es una prueba del Visor Python local, no de WebAssembly. Windows nativo, Onshape y K1C no se han ejecutado aquí. Embudo sigue aplazado por el usuario; no se declara 14/14.
+--- R9/GUIA_REPRODUCIR.md
++++ R10/GUIA_REPRODUCIR.md
+@@ -1,6 +1,6 @@
+-# Reproducción de R9
++# Reproducción de R10
+ 
+-Para usar la copia Windows, abre `Iniciar.bat`. Reutiliza el entorno de R7 si ya funciona; el selector sólo guarda la ruta del intérprete en esta copia R9. Si no hay entorno compatible, prepara uno con `Instalar_Entorno.bat`. El puerto predeterminado es 8775.
++Para usar la copia Windows, abre `Iniciar.bat`. Reutiliza el entorno de R7 si ya funciona; el selector sólo guarda la ruta del intérprete en esta copia R10. Si no hay entorno compatible, prepara uno con `Instalar_Entorno.bat`. El puerto predeterminado es 8776.
+ 
+ Para desarrollo: `python motor_v2.py entrada.stl salida.step` ejecuta el flujo real del motor. Las pruebas y los materiales completos se entregan en el kit de auditoría separado. Sus instrucciones configuran los fixtures explícitamente para evitar omisiones.
+ 
+--- R9/Instalar_Entorno.bat
++++ R10/Instalar_Entorno.bat
+@@ -1,10 +1,10 @@
+ @echo off
+ setlocal
+ cd /d "%~dp0"
+-echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R9...
++echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R10...
+ py -3.12 -V >nul 2>&1
+ if errorlevel 1 (
+-  echo Esta copia R9 requiere Python 3.12 de 64 bits para el reparador exacto.
++  echo Esta copia R10 requiere Python 3.12 de 64 bits para el reparador exacto.
+   pause
+   exit /b 1
+ )
+--- R9/Visor_STL_STEP.html
++++ R10/Visor_STL_STEP.html
+@@ -3,7 +3,7 @@
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+-  <title>Visor STL · R9 experimental · 27/10/2026</title>
++  <title>Visor STL · R10 experimental · 27/10/2026</title>
+   <style>
+     :root { color-scheme: dark; --bg:#0e121b; --surface:#171d28; --edge:#2c3544; --text:#e9eef7; --muted:#8e9caf; --blue:#458fff; }
+     * { box-sizing:border-box; }
+@@ -54,7 +54,7 @@
+       <div class="brand-icon" aria-hidden="true">
+         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 7 9 5v10l-9-5V7Zm18 0-9 5v10l9-5V7Z"/></svg>
+       </div>
+-      <div><div class="brand-name" title="R9 experimental · 27/10/2026">Visor STL · R9 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
++      <div><div class="brand-name" title="R10 experimental · 27/10/2026">Visor STL · R10 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
+     </div>
+     <div class="buttons">
+       <button id="newBtn" title="Limpiar el visor (Ctrl+N)">
+--- R9/arrancar.py
++++ R10/arrancar.py
+@@ -51,7 +51,7 @@
+         print(f'El puerto {port} está ocupado por otra copia o por otro programa.\n'
+               'No se abrirá una versión distinta. Cierra el otro Visor experimental y vuelve a intentarlo.\n'
+               'La R7 del puerto 8771 y la R8 del 8772 pueden seguir abiertas.');return 2
+-    print('Visor R9 experimental. Deja abierta esta ventana.\n'+url,flush=True)
++    print('Visor R10 experimental. Deja abierta esta ventana.\n'+url,flush=True)
+     threading.Thread(target=abrir_cuando_listo,args=(url,),daemon=True).start()
+     runpy.run_path(str(ROOT/'servidor.py'),run_name='__main__')
+     return 0
+--- R9/entorno_local.py
++++ R10/entorno_local.py
+@@ -29,7 +29,7 @@
+     try:
+         from tkinter import Tk,filedialog
+         window=Tk();window.withdraw()
+-        try:return filedialog.askdirectory(title='Selecciona la carpeta de tu Visor R7 o R8 para reutilizar su entorno CAD')
++        try:return filedialog.askdirectory(title='Selecciona la carpeta de tu Visor R7, R8 o R9 para reutilizar su entorno CAD')
+         finally:window.destroy()
+     except Exception:return ''
+ 
+@@ -41,8 +41,8 @@
+     choices.append(Path(sys.executable))
+     for executable in dict.fromkeys(choices):
+         if compatible(executable):return executable.resolve()
+-    print('Esta copia R9 necesita un entorno CAD preparado.\n'
+-          'Si ya usas R7 o R8, selecciona ahora su carpeta. Se utilizarán sus dependencias sin modificarla.\n'
++    print('Esta copia R10 necesita un entorno CAD preparado.\n'
++          'Si ya usas R7, R8 o R9, selecciona ahora su carpeta. Se utilizarán sus dependencias sin modificarla.\n'
+           'Si prefieres instalar un entorno nuevo, cancela y ejecuta Instalar_Entorno.bat.',flush=True)
+     folder=seleccionar_carpeta()
+     if folder:
+--- /dev/null
++++ R10/motor_superficies/encuentros_analiticos.py
+@@ -0,0 +1,746 @@
++"""Rescate de B-Rep analíticos en un trabajador aislado.
++
++Reconstruye las mismas superficies y sus aristas comunes, conservando primero
++las estrategias aprobadas R9. Rechaza superficies libres; no las faceta.
++Toda propuesta requiere lectura fría, geometría, material y tres mallados.
++No cambia los umbrales de aceptación del Visor.
++"""
++from pathlib import Path
++import sys, math, json, time, collections, os
++import numpy as np, cadquery as cq
++from scipy.optimize import least_squares
++from OCP.BRep import BRep_Builder, BRep_Tool
++from OCP.BRepAdaptor import BRepAdaptor_Curve, BRepAdaptor_Surface
++from OCP.BRepTools import BRepTools_WireExplorer
++from OCP.TopoDS import TopoDS, TopoDS_Edge, TopoDS_Vertex, TopoDS_Face, TopoDS_Wire, TopoDS_Shell
++from OCP.TopAbs import TopAbs_FORWARD, TopAbs_REVERSED
++from OCP.TopExp import TopExp
++from OCP.TopTools import TopTools_IndexedMapOfShape
++from OCP.Geom import Geom_Plane, Geom_CylindricalSurface, Geom_TrimmedCurve, Geom_SurfaceOfRevolution, Geom_BSplineSurface, Geom_ToroidalSurface, Geom_Circle
++from OCP.gp import gp_Pnt, gp_Vec2d, gp_Dir, gp_Pln
++import meshfit_brep as base
++import contornos_compatibles as cc
++from contornos_compatibles import _interseccion, _sobre_superficie
++from pcurvas_compartidas import crear_pcurva as original_pcurva, _error
++from fijacion_contornos import AjusteContornos
++from OCP.BRepCheck import BRepCheck_Analyzer
++UV_KNOWN = {}
++
++def extend_profile(curve, margin=0.03):
++    if curve.Degree() != 3 or curve.IsRational():
++        raise ValueError('Perfil no cúbico polinómico')
++    from OCP.Geom import Geom_BSplineCurve
++    from OCP.TColgp import TColgp_Array1OfPnt
++    from OCP.TColStd import TColStd_Array1OfReal, TColStd_Array1OfInteger
++    lo, hi = (curve.FirstParameter(), curve.LastParameter())
++    parts = []
++    for a, b, base_t in ((lo - margin, lo, lo), (hi, hi + margin, hi)):
++        p = np.array(curve.Value(base_t).Coord())
++        d1 = np.array(curve.DN(base_t, 1).Coord())
++        d2 = np.array(curve.DN(base_t, 2).Coord())
++        d3 = np.array(curve.DN(base_t, 3).Coord())
++        delta = a - base_t
++        v0 = p + delta * d1 + delta ** 2 * d2 / 2 + delta ** 3 * d3 / 6
++        v1 = d1 + delta * d2 + delta ** 2 * d3 / 2
++        v2 = d2 + delta * d3
++        h = b - a
++        points = [v0, v0 + h * v1 / 3, v0 + 2 * h * v1 / 3 + h * h * v2 / 6, v0 + h * v1 + h * h * v2 / 2 + h ** 3 * d3 / 6]
++        poles = TColgp_Array1OfPnt(1, 4)
++        for i, x in enumerate(points, 1):
++            poles.SetValue(i, gp_Pnt(*map(float, x)))
++        knots = TColStd_Array1OfReal(1, 2)
++        mult = TColStd_Array1OfInteger(1, 2)
++        for i, t in enumerate((a, b), 1):
++            knots.SetValue(i, t)
++            mult.SetValue(i, 4)
++        parts.append(Geom_BSplineCurve(poles, knots, mult, 3, False))
++    pieces = [parts[0], curve, parts[1]]
++    allp = []
++    allk = []
++    allm = []
++    for j, part in enumerate(pieces):
++        if j:
++            allm[-1] = 3
++        for i in range(1 + int(j > 0), part.NbPoles() + 1):
++            allp.append(part.Pole(i))
++        for i in range(1 + int(j > 0), part.NbKnots() + 1):
++            allk.append(part.Knot(i))
++            allm.append(part.Multiplicity(i))
++    P = TColgp_Array1OfPnt(1, len(allp))
++    K = TColStd_Array1OfReal(1, len(allk))
++    M = TColStd_Array1OfInteger(1, len(allm))
++    for i, p in enumerate(allp, 1):
++        P.SetValue(i, p)
++    for i, (k, m) in enumerate(zip(allk, allm), 1):
++        K.SetValue(i, k)
++        M.SetValue(i, m)
++    result = Geom_BSplineCurve(P, K, M, 3, False)
++    delta = max((curve.Value(float(t)).Distance(result.Value(float(t))) for t in np.linspace(lo, hi, 257)))
++    if delta > 1e-10:
++        raise ValueError('Extensión altera el perfil original')
++    print('PERFIL EXTENDIDO', result.FirstParameter(), result.LastParameter(), 'cambio', delta, flush=True)
++    return result
++
++def crear_pcurva(curve, first, last, surface):
++    known = UV_KNOWN.get((id(curve), id(surface)))
++    if known is not None:
++        error = _error(curve, known, surface, first, last)
++        if error <= 5e-08:
++            return (known.Copy(), dict(max_desacuerdo_mm=error, uv_generadora=True))
++        raise ValueError(f'Curva UV generadora no certificada {error}')
++    try:
++        return original_pcurva(curve, first, last, surface)
++    except ValueError as initial:
++        if not isinstance(surface, (Geom_SurfaceOfRevolution, Geom_BSplineSurface)):
++            raise
++        from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++        from OCP.Geom2dAPI import Geom2dAPI_Interpolate
++        from OCP.TColgp import TColgp_HArray1OfPnt2d
++        from OCP.TColStd import TColStd_HArray1OfReal
++        from OCP.gp import gp_Pnt2d
++        sas = ShapeAnalysis_Surface(surface)
++        from pcurvas_compartidas import _iso_comun
++        from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++        iso = _iso_comun(curve, first, last, surface)
++        parameters = np.linspace(first, last, 33)
++        if hasattr(curve, 'NbKnots'):
++            parameters = np.unique(np.r_[parameters, [curve.Knot(i) for i in range(1, curve.NbKnots() + 1) if first < curve.Knot(i) < last]])
++        for attempt in range(14):
++            if iso is None:
++                points = np.array([sas.ValueOfUV(curve.Value(float(t)), 1e-11).Coord() for t in parameters])
++            else:
++                geometry, dim, value, lo, hi = iso
++                points = []
++                for t in parameters:
++                    target = curve.Value(float(t))
++                    pr = GeomAPI_ProjectPointOnCurve(target, geometry, lo, hi)
++                    if not pr.NbPoints():
++                        raise ValueError('No se verifica la isocurva')
++                    variable = pr.LowerDistanceParameter()
++                    for _ in range(16):
++                        delta = np.array(geometry.Value(variable).Coord()) - np.array(target.Coord())
++                        if np.linalg.norm(delta) < 1e-11:
++                            break
++                        d1 = np.array(geometry.DN(variable, 1).Coord())
++                        d2 = np.array(geometry.DN(variable, 2).Coord())
++                        hessian = d1 @ d1 + delta @ d2
++                        if hessian <= 1e-24:
++                            break
++                        candidate = float(np.clip(variable - delta @ d1 / hessian, lo, hi))
++                        if candidate == variable:
++                            break
++                        variable = candidate
++                    points.append((value, variable) if dim == 0 else (variable, value))
++                points = np.asarray(points)
++            if surface.IsUPeriodic():
++                points[:, 0] = np.unwrap(points[:, 0], period=surface.UPeriod())
++            if surface.IsVPeriodic():
++                points[:, 1] = np.unwrap(points[:, 1], period=surface.VPeriod())
++            count = len(parameters)
++            arr = TColgp_HArray1OfPnt2d(1, count)
++            par = TColStd_HArray1OfReal(1, count)
++            for i, (p, t) in enumerate(zip(points, parameters), 1):
++                arr.SetValue(i, gp_Pnt2d(*map(float, p)))
++                par.SetValue(i, float(t))
++            fit = Geom2dAPI_Interpolate(arr, par, False, 1e-12)
++            fit.Perform()
++            uv = fit.Curve()
++            bad = []
++            maximum = 0.0
++            for i, (a, b) in enumerate(zip(parameters[:-1], parameters[1:])):
++                error = 0.0
++                for t in np.linspace(a, b, 9):
++                    p = uv.Value(float(t))
++                    error = max(error, curve.Value(float(t)).Distance(surface.Value(p.X(), p.Y())))
++                maximum = max(maximum, error)
++                if error > 3e-08:
++                    bad.append(i)
++            print('UV ADAPTATIVA', count, maximum, flush=True)
++            if maximum < 3e-08:
++                verified = _error(curve, uv, surface, first, last)
++                if verified <= 5e-08:
++                    return (uv, dict(max_desacuerdo_mm=verified, adaptativa=True))
++                raise ValueError(f'Control UV global falla {verified}')
++            if len(parameters) > 4097:
++                break
++            bad = np.array(bad, int)
++            parameters = np.sort(np.r_[parameters, (parameters[bad] + parameters[bad + 1]) * 0.5])
++        raise initial
++
++def compact_projection(oldcurve, lo, hi, surface, pts):
++    from OCP.GeomConvert import GeomConvert
++    if isinstance(surface, Geom_Plane):
++        c = GeomConvert.CurveToBSplineCurve_s(Geom_TrimmedCurve(oldcurve, lo, hi))
++        pr = base._Proj(surface)
++        P = np.array([c.Pole(i).Coord() for i in range(1, c.NbPoles() + 1)])
++        P = pr.batch(P)
++        P[0] = pts[0]
++        P[-1] = pts[-1]
++        for i, p in enumerate(P, 1):
++            c.SetPole(i, gp_Pnt(*map(float, p)))
++        return (c, c.FirstParameter(), c.LastParameter())
++    from OCP.ShapeAnalysis import ShapeAnalysis_Surface
++    from OCP.Geom2dAPI import Geom2dAPI_Interpolate
++    from OCP.TColgp import TColgp_HArray1OfPnt2d
++    from OCP.TColStd import TColStd_HArray1OfReal
++    from OCP.gp import gp_Pnt2d
++    from OCP.Approx import Approx_CurveOnSurface
++    from OCP.Geom2dAdaptor import Geom2dAdaptor_Curve
++    from OCP.GeomAdaptor import GeomAdaptor_Surface
++    from OCP.GeomAbs import GeomAbs_C1
++    sas = ShapeAnalysis_Surface(surface)
++    uvpoints = np.array([sas.ValueOfUV(gp_Pnt(*map(float, p)), 1e-11).Coord() for p in pts])
++    if surface.IsUPeriodic():
++        uvpoints[:, 0] = np.unwrap(uvpoints[:, 0], period=surface.UPeriod())
++    if surface.IsVPeriodic():
++        uvpoints[:, 1] = np.unwrap(uvpoints[:, 1], period=surface.VPeriod())
++    arr = TColgp_HArray1OfPnt2d(1, len(pts))
++    par = TColStd_HArray1OfReal(1, len(pts))
++    for i, (p, t) in enumerate(zip(uvpoints, np.linspace(lo, hi, len(pts))), 1):
++        arr.SetValue(i, gp_Pnt2d(*map(float, p)))
++        par.SetValue(i, float(t))
++    fit = Geom2dAPI_Interpolate(arr, par, False, 1e-12)
++    fit.Perform()
++    uv = fit.Curve()
++    app = Approx_CurveOnSurface(Geom2dAdaptor_Curve(uv), GeomAdaptor_Surface(surface), lo, hi, 1e-10, GeomAbs_C1, 8, 128, True, False)
++    if not app.HasResult() or app.MaxError3d() > 2e-08:
++        raise ValueError('No converge la proyección compacta')
++    c = app.Curve3d()
++    error = _error(c, uv, surface, lo, hi)
++    if error > 5e-08:
++        raise ValueError('No se certifica la proyección compacta')
++    UV_KNOWN[id(c), id(surface)] = uv
++    print('PROYECCION COMPACTA', c.NbPoles(), error, flush=True)
++    return (c, lo, hi)
++
++def signed_projection(pr, points):
++    if pr.kind in ('plane', 'cyl', 'sph'):
++        return cc._residual_normal(pr, points)
++    if pr.kind == 'tor':
++        d = points - pr.q
++        z = d @ pr.a
++        radial = d - z[:, None] * pr.a
++        rho = np.linalg.norm(radial, axis=1)
++        direction = radial / np.maximum(rho[:, None], 1e-30)
++        minor = d - pr.R * direction
++        length = np.linalg.norm(minor, axis=1)
++        return (length - pr.r, minor / np.maximum(length[:, None], 1e-30))
++    from OCP.GeomLProp import GeomLProp_SLProps
++    values = []
++    normals = []
++    for point in points:
++        uv = pr.sas.ValueOfUV(gp_Pnt(*map(float, point)), 1e-10)
++        props = GeomLProp_SLProps(pr.s, uv.X(), uv.Y(), 1, 1e-12)
++        if not props.IsNormalDefined():
++            raise ValueError('Normal de revolución indeterminada')
++        n = np.array(props.Normal().Coord())
++        projected = np.array(pr.s.Value(uv.X(), uv.Y()).Coord())
++        values.append((point - projected) @ n)
++        normals.append(n)
++    return (np.array(values), np.array(normals))
++old_refine = cc.refinar_interseccion
++
++def refine_generic(curve, first, last, sa, sb, max_move):
++    if not any((isinstance(s, Geom_SurfaceOfRevolution) for s in (sa, sb))):
++        return old_refine(curve, first, last, sa, sb, max_move)
++    from OCP.TColgp import TColgp_HArray1OfPnt
++    from OCP.TColStd import TColStd_HArray1OfReal
++    from OCP.GeomAPI import GeomAPI_Interpolate
++    projectors = [base._Proj(s) for s in (sa, sb)]
++    parameters = np.linspace(first, last, 33)
++    for iteration in range(14):
++        count = len(parameters)
++        initial = np.array([curve.Value(float(t)).Coord() for t in parameters])
++        points = initial.copy()
++        for _ in range(20):
++            f, n = signed_projection(projectors[0], points)
++            g, m = signed_projection(projectors[1], points)
++            if max(abs(f).max(), abs(g).max()) < 1e-10:
++                break
++            dot = np.sum(n * m, axis=1)
++            det = 1 - dot * dot
++            if np.any((det < 1e-10) & (np.maximum(abs(f), abs(g)) > 1e-09)):
++                raise ValueError('Encuentro de revolución tangente inestable')
++            det = np.maximum(det, 1e-10)
++            points -= ((f - dot * g) / det)[:, None] * n + ((g - dot * f) / det)[:, None] * m
++        if np.linalg.norm(points - initial, axis=1).max() > max_move:
++            raise ValueError('Corrección de revolución fuera de presupuesto')
++        array = TColgp_HArray1OfPnt(1, count)
++        params = TColStd_HArray1OfReal(1, count)
++        for j, (p, t) in enumerate(zip(points, parameters), 1):
++            array.SetValue(j, gp_Pnt(*map(float, p)))
++            params.SetValue(j, float(t))
++        fit = GeomAPI_Interpolate(array, params, False, 1e-12)
++        fit.Perform()
++        result = fit.Curve()
++        ts = np.concatenate([np.linspace(a, b, 9) for a, b in zip(parameters[:-1], parameters[1:])])
++        probes = np.array([result.Value(float(t)).Coord() for t in ts])
++        residual = np.maximum(abs(signed_projection(projectors[0], probes)[0]), abs(signed_projection(projectors[1], probes)[0]))
++        error = residual.max()
++        print('REFINAMIENTO REVOLUCION', count, error, flush=True)
++        if error < 2e-08:
++            return (result, first, last)
++        bad = np.flatnonzero(residual.reshape(-1, 9).max(axis=1) > 2e-08)
++        parameters = np.sort(np.r_[parameters, (parameters[bad] + parameters[bad + 1]) / 2])
++        if len(parameters) > 4097:
++            break
++    raise ValueError('No converge la curva de revolución compartida')
++
++def circle_supports(sa, sb):
++    tori = [s for s in (sa, sb) if isinstance(s, Geom_ToroidalSurface)]
++    if len(tori) != 1:
++        return []
++    tor = tori[0]
++    other = sb if tor is sa else sa
++    axis = np.array(tor.Axis().Direction().Coord())
++    q = np.array(tor.Location().Coord())
++    major, minor = (tor.MajorRadius(), tor.MinorRadius())
++    results = []
++    if isinstance(other, Geom_Plane):
++        n = np.array(other.Axis().Direction().Coord())
++        if np.linalg.norm(np.cross(n, axis)) > 1e-10:
++            return []
++        h = (np.array(other.Location().Coord()) - q) @ axis
++        delta = minor * minor - h * h
++        if delta < -1e-13:
++            return []
++        for r in np.unique([major - np.sqrt(max(delta, 0)), major + np.sqrt(max(delta, 0))]):
++            results.append((q + axis * h, axis, float(r)))
++    if isinstance(other, Geom_CylindricalSurface):
++        a = np.array(other.Axis().Direction().Coord())
++        c = np.array(other.Location().Coord())
++        if np.linalg.norm(np.cross(a, axis)) > 1e-10 or np.linalg.norm(np.cross(c - q, axis)) > 1e-09:
++            return []
++        radius = other.Radius()
++        delta = minor * minor - (radius - major) ** 2
++        if delta < -1e-13:
++            return []
++        for h in np.unique([-np.sqrt(max(delta, 0)), np.sqrt(max(delta, 0))]):
++            results.append((q + axis * h, axis, radius))
++    return results
++
++def tangent_line_supports(sa, sb):
++    planes = [s for s in (sa, sb) if isinstance(s, Geom_Plane)]
++    cyl = [s for s in (sa, sb) if isinstance(s, Geom_CylindricalSurface)]
++    if len(planes) != 1 or len(cyl) != 1:
++        return None
++    p, cy = (planes[0], cyl[0])
++    n = np.array(p.Axis().Direction().Coord())
++    a = np.array(cy.Axis().Direction().Coord())
++    q = np.array(cy.Location().Coord())
++    origin = np.array(p.Location().Coord())
++    d = (q - origin) @ n
++    if abs(n @ a) > 1e-10 or abs(abs(d) - cy.Radius()) > 1e-09:
++        return None
++    return (q - n * d, a)
++
++def intersection_stable(sa, sb, pts, move, closed):
++    circles = circle_supports(sa, sb)
++    if circles:
++        from OCP.gp import gp_Ax2
++        from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
++        proposals = []
++        for center, axis, radius in circles:
++            helper = np.eye(3)[np.argmin(abs(axis))]
++            x = np.cross(axis, helper)
++            x /= np.linalg.norm(x)
++            y = np.cross(axis, x)
++            curve = Geom_Circle(gp_Ax2(gp_Pnt(*map(float, center)), gp_Dir(*map(float, axis)), gp_Dir(*map(float, x))), radius)
++            phi = np.unwrap(np.arctan2((pts - center) @ y, (pts - center) @ x))
++            first, last = (phi[0], phi[-1])
++            if closed:
++                last = first + np.copysign(2 * np.pi, last - first)
++            if last < first:
++                first, last = (curve.ReversedParameter(first), curve.ReversedParameter(last))
++                curve = curve.Reversed()
++            error = max((GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float, p)), curve).LowerDistance() for p in pts))
++            if error <= move:
++                proposals.append((error, curve, float(first), float(last)))
++        if not proposals:
++            raise ValueError('Círculo de encuentro alejado del contorno')
++        _, curve, first, last = min(proposals, key=lambda p: p[0])
++        return (curve, first, last)
++    if isinstance(sa, Geom_Plane) and isinstance(sb, Geom_Plane) and (not closed):
++        from OCP.Geom import Geom_Line
++        from OCP.gp import gp_Ax1
++        n = np.array(sa.Axis().Direction().Coord())
++        m = np.array(sb.Axis().Direction().Coord())
++        axis = np.cross(n, m)
++        if np.linalg.norm(axis) > 1e-08:
++            axis /= np.linalg.norm(axis)
++            q = np.linalg.solve(np.vstack((n, m, axis)), [n @ np.array(sa.Location().Coord()), m @ np.array(sb.Location().Coord()), axis @ pts.mean(0)])
++            first, last = (pts[[0, -1]] - q) @ axis
++            if last < first:
++                axis = -axis
++                first, last = (-first, -last)
++            projection = np.clip((pts - q) @ axis, first, last)
++            error = np.linalg.norm(q + projection[:, None] * axis - pts, axis=1).max()
++            if error > move or last - first < 1e-10:
++                raise ValueError(f'Contorno plano no verificable {error}')
++            return (Geom_Line(gp_Ax1(gp_Pnt(*map(float, q)), gp_Dir(*map(float, axis)))), float(first), float(last))
++    if any((isinstance(s, Geom_SurfaceOfRevolution) for s in (sa, sb))):
++        from OCP.TColgp import TColgp_HArray1OfPnt
++        from OCP.TColStd import TColStd_HArray1OfReal
++        from OCP.GeomAPI import GeomAPI_Interpolate
++        count = len(pts)
++        arr = TColgp_HArray1OfPnt(1, count)
++        par = TColStd_HArray1OfReal(1, count)
++        for i, (p, t) in enumerate(zip(pts, np.linspace(0, 1, count)), 1):
++            arr.SetValue(i, gp_Pnt(*map(float, p)))
++            par.SetValue(i, float(t))
++        fit = GeomAPI_Interpolate(arr, par, False, 1e-12)
++        fit.Perform()
++        return refine_generic(fit.Curve(), 0.0, 1.0, sa, sb, move)
++    planes = [s for s in (sa, sb) if isinstance(s, Geom_Plane)]
++    cylinders = [s for s in (sa, sb) if isinstance(s, Geom_CylindricalSurface)]
++    if len(planes) == len(cylinders) == 1 and (not closed):
++        pl = planes[0]
++        cy = cylinders[0]
++        n = np.array(pl.Axis().Direction().Coord())
++        a = np.array(cy.Axis().Direction().Coord())
++        q = np.array(cy.Location().Coord())
++        p = np.array(pl.Location().Coord())
++        dot = n @ a
++        z = (pts - q) @ a
++        if abs(dot) < 0.01 and np.ptp(z) > 1e-05:
++            u = n - dot * a
++            norm = np.linalg.norm(u)
++            u /= norm
++            v = np.cross(a, u)
++            sign = 1 if np.median((pts - q) @ v) >= 0 else -1
++            radius = cy.Radius()
++            first = float(z[0])
++            last = float(z[-1])
++
++            def value(t):
++                axial = first + (last - first) * t
++                cos = (n @ (p - q) - dot * axial) / (radius * norm)
++                if abs(cos) > 1 + 1e-12:
++                    raise ValueError('No existe la sección plano-cilindro')
++                cos = np.clip(cos, -1, 1)
++                return q + a * axial + radius * (u * cos + sign * v * np.sqrt(1 - cos * cos))
++            from OCP.TColgp import TColgp_HArray1OfPnt
++            from OCP.TColStd import TColStd_HArray1OfReal
++            from OCP.GeomAPI import GeomAPI_Interpolate, GeomAPI_ProjectPointOnCurve
++            for count in (17, 33, 65, 129, 257):
++                array = TColgp_HArray1OfPnt(1, count)
++                parameters = TColStd_HArray1OfReal(1, count)
++                for j, t in enumerate(np.linspace(0, 1, count), 1):
++                    array.SetValue(j, gp_Pnt(*map(float, value(t))))
++                    parameters.SetValue(j, float(t))
++                fit = GeomAPI_Interpolate(array, parameters, False, 1e-12)
++                fit.Perform()
++                curve = fit.Curve()
++                error = max((curve.Value(float(t)).Distance(gp_Pnt(*map(float, value(t)))) for t in np.linspace(0, 1, count * 4)))
++                if error < 2e-08:
++                    if max((GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float, x)), curve).LowerDistance() for x in pts)) > move:
++                        raise ValueError('Intersección estable lejos del contorno')
++                    print('SECCION CASI PARALELA', count, error, flush=True)
++                    return (curve, 0.0, 1.0)
++    if len(cylinders) == 2 and (not closed):
++        a, b = cylinders
++        axis = np.array(a.Axis().Direction().Coord())
++        axis_b = np.array(b.Axis().Direction().Coord())
++        q = np.array(a.Location().Coord())
++        qb = np.array(b.Location().Coord())
++        r = a.Radius()
++        rb = b.Radius()
++        z = (pts - q) @ axis
++        if np.linalg.norm(np.cross(axis, axis_b)) < 0.0001 and np.ptp(z) > 1e-05:
++            x = np.array(a.Position().XDirection().Coord())
++            y = np.array(a.Position().YDirection().Coord())
++            radial = pts - q - z[:, None] * axis
++            theta = np.unwrap(np.arctan2(radial @ y, radial @ x))
++            first, last = (float(z[0]), float(z[-1]))
++
++            def value(t):
++                h = first + (last - first) * t
++                angle = theta[0] + t * (theta[-1] - theta[0])
++                for _ in range(20):
++                    point = q + axis * h + r * (x * np.cos(angle) + y * np.sin(angle))
++                    d = point - qb
++                    d -= axis_b * (d @ axis_b)
++                    f = d @ d - rb * rb
++                    if abs(f) < 1e-11:
++                        return point
++                    deriv = r * (-x * np.sin(angle) + y * np.cos(angle))
++                    df = 2 * (d @ deriv)
++                    if abs(df) < 1e-10:
++                        raise ValueError('Encuentro tangente inestable')
++                    step = f / df
++                    if abs(step) > 0.1:
++                        raise ValueError('Cambio de rama cilíndrica')
++                    angle -= step
++                raise ValueError('No converge la sección entre cilindros')
++            from OCP.TColgp import TColgp_HArray1OfPnt
++            from OCP.TColStd import TColStd_HArray1OfReal
++            from OCP.GeomAPI import GeomAPI_Interpolate, GeomAPI_ProjectPointOnCurve
++            for count in (17, 33, 65, 129, 257):
++                array = TColgp_HArray1OfPnt(1, count)
++                parameters = TColStd_HArray1OfReal(1, count)
++                for j, t in enumerate(np.linspace(0, 1, count), 1):
++                    array.SetValue(j, gp_Pnt(*map(float, value(t))))
++                    parameters.SetValue(j, float(t))
++                fit = GeomAPI_Interpolate(array, parameters, False, 1e-12)
++                fit.Perform()
++                curve = fit.Curve()
++                error = max((curve.Value(float(t)).Distance(gp_Pnt(*map(float, value(t)))) for t in np.linspace(0, 1, count * 4)))
++                if error < 2e-08:
++                    if max((GeomAPI_ProjectPointOnCurve(gp_Pnt(*map(float, p)), curve).LowerDistance() for p in pts)) > move:
++                        raise ValueError('Intersección cilíndrica lejos del contorno')
++                    print('CILINDROS CASI PARALELOS', count, error, flush=True)
++                    return (curve, 0.0, 1.0)
++    return _interseccion(sa, sb, pts, move, closed)
++
++def reconstruir(shape, folder, mesh):
++    folder = Path(folder)
++    folder.mkdir(parents=True, exist_ok=True)
++    UV_KNOWN.clear()
++    faces = shape.Faces()
++    edges = shape.Edges()
++    verts = shape.Vertices()
++    emap = TopTools_IndexedMapOfShape()
++    vmap = TopTools_IndexedMapOfShape()
++    for e in edges:
++        emap.Add(e.wrapped)
++    for v in verts:
++        vmap.Add(v.wrapped)
++    surfaces = [BRep_Tool.Surface_s(f.wrapped) for f in faces]
++    allowed = (Geom_Plane, Geom_CylindricalSurface, Geom_SurfaceOfRevolution)
++    if any((not isinstance(s, allowed) for s in surfaces)):
++        raise ValueError('El rescate analítico no sustituye las superficies libres.')
++    for fi, s in enumerate(surfaces):
++        if isinstance(s, Geom_SurfaceOfRevolution):
++            surfaces[fi] = Geom_SurfaceOfRevolution(extend_profile(s.BasisCurve()), s.Axis())
++    for fi, s in enumerate(surfaces):
++        if not isinstance(s, Geom_Plane):
++            continue
++        n = np.asarray(s.Axis().Direction().Coord())
++        q = np.asarray(s.Location().Coord())
++        bb = faces[fi].BoundingBox()
++        centers = mesh.triangles_center
++        in_box = np.all((centers >= np.array([bb.xmin, bb.ymin, bb.zmin]) - 0.025) & (centers <= np.array([bb.xmax, bb.ymax, bb.zmax]) + 0.025), axis=1)
++        mask = in_box & (np.abs(mesh.face_normals @ n) > np.cos(np.radians(1))) & (np.abs((centers - q) @ n) < 0.025)
++        ids = np.flatnonzero(mask)
++        if not len(ids):
++            continue
++        T = mesh.triangles[ids]
++        best = None
++        for k in ids[np.argsort(-mesh.area_faces[ids])[:64]]:
++            normal = mesh.face_normals[k].copy()
++            point = mesh.triangles[k, 0]
++            if normal @ n < 0:
++                normal = -normal
++            close = np.max(np.abs((T - point) @ normal), axis=1) < 2e-05
++            area = float(mesh.area_faces[ids[close]].sum())
++            if best is None or area > best[0]:
++                best = (area, normal, point)
++        if best[0] >= 0.5 * faces[fi].Area():
++            area, normal, point = best
++            surfaces[fi] = Geom_Plane(gp_Pln(gp_Pnt(*map(float, point)), gp_Dir(*map(float, normal))))
++            print('PLANO FUENTE', fi, 'area', area, '/', faces[fi].Area(), flush=True)
++    primary = set(range(len(faces)))
++    projectors = {i: base._Proj(surfaces[i]) for i in primary}
++    adj = collections.defaultdict(set)
++    vertex_faces = collections.defaultdict(set)
++    endpoints = {}
++    oldloops = {}
++    for fi, f in enumerate(faces):
++        ff = TopoDS.Face_s(f.wrapped.Oriented(TopAbs_FORWARD))
++        loops = []
++        for w in cq.Face(ff).Wires():
++            ex = BRepTools_WireExplorer(w.wrapped, ff)
++            loop = []
++            while ex.More():
++                edge = ex.Current()
++                ei = emap.FindIndex(edge) - 1
++                loop.append((ei, edge.Orientation() == TopAbs_FORWARD))
++                adj[ei].add(fi)
++                for v in cq.Edge(edge).Vertices():
++                    vertex_faces[vmap.FindIndex(v.wrapped) - 1].add(fi)
++                ex.Next()
++            loops.append((loop, w.wrapped.Orientation()))
++        oldloops[fi] = loops
++    vertex_circles = {}
++    vertex_lines = {}
++    import itertools
++    for vi, regions in vertex_faces.items():
++        point = np.array(verts[vi].Center().toTuple())
++        circ = []
++        lines = []
++        for a, b in itertools.combinations(regions & primary, 2):
++            line = tangent_line_supports(surfaces[a], surfaces[b])
++            if line is not None:
++                lines.append(line)
++            choices = circle_supports(surfaces[a], surfaces[b])
++            if choices:
++
++                def error_circle(c):
++                    center, axis, radius = c
++                    d = point - center
++                    return abs(d @ axis) + abs(np.linalg.norm(np.cross(d, axis)) - radius)
++                circ.append(min(choices, key=error_circle))
++        vertex_circles[vi] = circ
++        vertex_lines[vi] = lines
++    positions = {}
++    builder = BRep_Builder()
++    for vi, v in enumerate(verts):
++        p = np.array(v.Center().toTuple())
++        ps = [projectors[f] for f in vertex_faces[vi] if f in primary]
++
++        def residual(q):
++            vals = []
++            for pr in ps:
++                if pr.kind == 'plane':
++                    vals.append((q - pr.q) @ pr.a)
++                elif pr.kind == 'cyl':
++                    vals.append(np.linalg.norm(np.cross(q - pr.q, pr.a)) - pr.R)
++                else:
++                    vals.extend(signed_projection(pr, np.asarray([q]))[0])
++            for center, axis, radius in vertex_circles[vi]:
++                vals.extend([(q - center) @ axis, np.linalg.norm(np.cross(q - center, axis)) - radius])
++            for origin, axis in vertex_lines[vi]:
++                vals.extend(np.cross(q - origin, axis))
++            return np.array(vals)
++        if ps:
++            fit = least_squares(lambda q: np.r_[residual(q), (q - p) * 1e-06], p, xtol=1e-13, gtol=1e-13, ftol=1e-13, max_nfev=120)
++            err = max(np.abs(residual(fit.x)), default=0)
++            move = np.linalg.norm(fit.x - p)
++            if err > 2e-08 or move > 0.06:
++                raise ValueError(f'Vertice incompatible {vi}: {err} / {move}, caras {vertex_faces[vi]}')
++            p = fit.x
++        positions[vi] = p
++    newverts = {}
++    for vi, p in positions.items():
++        v = TopoDS_Vertex()
++        builder.MakeVertex(v, gp_Pnt(*map(float, p)), 1e-07)
++        newverts[vi] = v
++    curves = {}
++    newedges = {}
++    for ei, edge in enumerate(edges):
++        old = TopoDS.Edge_s(edge.wrapped.Oriented(TopAbs_FORWARD))
++        a = BRepAdaptor_Curve(old)
++        lo, hi = (a.FirstParameter(), a.LastParameter())
++        v0 = vmap.FindIndex(TopExp.FirstVertex_s(old, False)) - 1
++        v1 = vmap.FindIndex(TopExp.LastVertex_s(old, False)) - 1
++        endpoints[ei] = (v0, v1)
++        closed = v0 == v1
++        pts = np.array([a.Value(float(t)).Coord() for t in np.linspace(lo, hi, 33)])
++        pts[0] = positions[v0]
++        pts[-1] = positions[v1]
++        fixed = sorted(adj[ei] & primary)
++        print('ARISTA INI', ei, fixed, [type(surfaces[f]).__name__ for f in fixed], flush=True)
++        if len(fixed) == 2:
++            sa, sb = [surfaces[i] for i in fixed]
++            coincident = False
++            if isinstance(sa, Geom_Plane) and isinstance(sb, Geom_Plane):
++                n = np.array(sa.Axis().Direction().Coord())
++                m = np.array(sb.Axis().Direction().Coord())
++                coincident = np.linalg.norm(np.cross(n, m)) < 1e-10 and abs((np.array(sa.Location().Coord()) - np.array(sb.Location().Coord())) @ n) < 1e-08
++            if coincident:
++                c, first, last = _sobre_superficie(sa, pts[:-1] if closed else pts, closed, projectors[fixed[0]])
++            else:
++                c, first, last = intersection_stable(sa, sb, pts, 0.06, closed)
++        elif len(fixed) == 1:
++            i = fixed[0]
++            if not closed:
++                oldcurve = BRep_Tool.Curve_s(old, lo, hi)
++                c, first, last = compact_projection(oldcurve, lo, hi, surfaces[i], pts)
++            else:
++                c, first, last = _sobre_superficie(surfaces[i], pts[:-1] if closed else pts, closed, projectors[i])
++        else:
++            raise ValueError('Arista sin soporte analítico verificado.')
++        errors = [c.Value(first).Distance(gp_Pnt(*map(float, positions[v0]))), c.Value(last).Distance(gp_Pnt(*map(float, positions[v1])))]
++        if max(errors) > 1e-07:
++            raise ValueError(f'Extremos arista {ei} {fixed} {errors}')
++        e = TopoDS_Edge()
++        builder.MakeEdge(e, c, 1e-07)
++        builder.Add(e, newverts[v0].Oriented(TopAbs_FORWARD))
++        builder.Add(e, newverts[v1].Oriented(TopAbs_REVERSED))
++        builder.Range(e, first, last)
++        curves[ei] = (c, first, last)
++        newedges[ei] = e
++        print('ARISTA', ei, fixed, 'ext', max(errors), flush=True)
++    specs = [(i, oldloops[i], False) for i in range(len(faces))]
++    resultfaces = []
++    for fi, loops, fan in specs:
++        original = faces[fi]
++        surf = surfaces[fi]
++        face = TopoDS_Face()
++        builder.MakeFace(face, surf, 1e-07)
++        stored = {}
++        for lp, orientation in loops:
++            wire = TopoDS_Wire()
++            builder.MakeWire(wire)
++            previous = None
++            for ei, forward in lp:
++                c, a, b = curves[ei]
++                try:
++                    uv, proof = crear_pcurva(c, a, b, surf)
++                except Exception:
++                    from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
++                    from OCP.BRepTools import BRepTools
++                    debugface = cq.Face(BRepBuilderAPI_MakeFace(surf, 1e-07).Face())
++                    BRepTools.Write_s(cq.Compound.makeCompound([debugface, cq.Edge(newedges[ei])]).wrapped, str(folder / 'pcurva_fallida.brep'))
++                    (folder / 'pcurva_fallida.json').write_text(json.dumps(dict(cara=fi, arista=ei, first=a, last=b, tipo_curva=type(c).__name__)))
++                    raise
++                if previous is not None:
++                    start = uv.Value(a if forward else b)
++                    shift = [0.0, 0.0]
++                    for dim, periodic in ((0, surf.IsUPeriodic()), (1, surf.IsVPeriodic())):
++                        if periodic:
++                            period = surf.UPeriod() if dim == 0 else surf.VPeriod()
++                            shift[dim] = round((previous.Coord()[dim] - start.Coord()[dim]) / period) * period
++                    if any(shift):
++                        uv.Translate(gp_Vec2d(*shift))
++                previous = uv.Value(b if forward else a)
++                if ei in stored:
++                    builder.UpdateEdge(newedges[ei], stored[ei], uv, face, 1e-07)
++                else:
++                    builder.UpdateEdge(newedges[ei], uv, face, 1e-07)
++                stored[ei] = uv
++                builder.Range(newedges[ei], face, a, b)
++                builder.SameRange(newedges[ei], True)
++                builder.SameParameter(newedges[ei], True)
++                builder.Add(wire, newedges[ei].Oriented(TopAbs_FORWARD if forward else TopAbs_REVERSED))
++            wire.Closed(True)
++            builder.Add(face, wire)
++        face = face.Oriented(original.wrapped.Orientation())
++        resultfaces.append(face)
++        print('CARA', fi, type(surf).__name__, flush=True)
++    shell = TopoDS_Shell()
++    builder.MakeShell(shell)
++    for face in resultfaces:
++        builder.Add(shell, face)
++    from fijacion_contornos import completar_vertices_singulares
++    shell, singular = completar_vertices_singulares(shell)
++    print('SINGULARIDADES', singular, flush=True)
++    from OCP.BRepTools import BRepTools
++    folder.mkdir(parents=True, exist_ok=True)
++    BRepTools.Write_s(shell, str(folder / 'shell.brep'))
++    sf = AjusteContornos(shell)
++    sf.Perform()
++    fixed = sf.Shape()
++    final = base._make_solid(fixed, contornos_compartidos=True)
++    if final is None:
++        raise ValueError('No se forma sólido')
++    return cq.Shape.cast(final)
++
++
++def normalizar_circulos(shape):
++    """Misma parametrización y eje; sólo elipses circulares a 1e-12 mm.
++
++    Evita extremos locales espurios de OCC al medir el borde de un cilindro.
++    No transforma elipses genuinas ni cambia tolerancias de aristas.
++    """
++    from OCP.Geom import Geom_Ellipse, Geom_Circle
++    builder = BRep_Builder()
++    count = 0
++    for edge in shape.Edges():
++        adaptor = BRepAdaptor_Curve(edge.wrapped)
++        curve = BRep_Tool.Curve_s(edge.wrapped, adaptor.FirstParameter(), adaptor.LastParameter())
++        if isinstance(curve, Geom_Ellipse) and abs(curve.MajorRadius()-curve.MinorRadius()) < 1e-12:
++            builder.UpdateEdge(edge.wrapped, Geom_Circle(curve.Position(), curve.MajorRadius()),
++                               BRep_Tool.Tolerance_s(edge.wrapped))
++            count += 1
++    return count
+--- /dev/null
++++ R10/reconstruccion_analitica.py
+@@ -0,0 +1,141 @@
++"""Rescate analítico posterior al rechazo de las estrategias aprobadas R9.
++
++Trabajador aislado y acotado. Ningún cambio en los límites geométricos,
++la lectura exacta, BOP, material, cilindros o tres mallados finos CGAL.
++"""
++from __future__ import annotations
++import hashlib,json,os,subprocess,sys,tempfile,traceback
++from pathlib import Path
++from reconstruccion_curvas import (inventario,cilindros_respaldados,validar_cilindros_y_frontera)
++MAX_FACES=20_000
++_RECHAZOS_TRABAJADOR={}
++def presupuesto_recuperacion(triangulos):return 450
++
++def _sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++def exigir_elegible(shape):
++    from OCP.BRep import BRep_Tool
++    from OCP.Geom import Geom_Plane,Geom_CylindricalSurface,Geom_SurfaceOfRevolution
++    if len(shape.Faces())>192:raise ValueError('El rescate analítico supera el presupuesto de 192 caras.')
++    allowed=(Geom_Plane,Geom_CylindricalSurface,Geom_SurfaceOfRevolution)
++    if any(not isinstance(BRep_Tool.Surface_s(f.wrapped),allowed) for f in shape.Faces()):
++        raise ValueError('Esta reconstrucción conserva superficies analíticas; las superficies libres siguen la estrategia anterior.')
++
++def trabajador(source,base,destination,report):
++    source,base,destination,report=map(Path,(source,base,destination,report))
++    paths=(source,base,destination,report)
++    if len({p.resolve() for p in paths})!=4 or any(a.exists() and b.exists() and a.samefile(b) for i,a in enumerate(paths) for b in paths[i+1:]):
++        raise ValueError('Las cuatro rutas del trabajador deben ser distintas.')
++    record={'ok':False}
++    try:
++        sys.path.insert(0,str(Path(__file__).resolve().parent/'motor_superficies'))
++        from preprocesador_stl import cargar_exacto
++        from reparador_exacto_aislado import ControlExacto
++        from topologia_vertices import inspeccionar_vertices
++        from calidad_topologica import leer_solido_step_estricto
++        from meshfit_detect import detect
++        from encuentros_analiticos import reconstruir,normalizar_circulos
++        import cadquery as cq
++        if not source.is_file() or source.stat().st_size>30*1024**2:raise ValueError('Entrada ausente o mayor de 30 MB.')
++        source_hash,base_hash=_sha(source),_sha(base)
++        original=cargar_exacto(source)
++        if (len(original.faces)>MAX_FACES or not original.is_watertight or not original.is_winding_consistent
++                or inspeccionar_vertices(original)['vertices_no_manifold'] or len(original.split(only_watertight=False))!=1):
++            raise ValueError('El rescate requiere una única componente cerrada, orientada y sin contactos ambiguos.')
++        shape=leer_solido_step_estricto(base);exigir_elegible(shape)
++        with tempfile.TemporaryDirectory(prefix='visor_analitico_entrada_') as tmp:
++            if ControlExacto(original,Path(tmp)/'entrada.off').pares():raise ValueError('La entrada contiene intersecciones.')
++        os.environ['VISOR_STL_DIGITAL']='0'
++        result,working=detect(str(source),angle_tol_deg=32.,rms_tol_rel=.01,flat_tol_deg=8.,scan_mode=False)
++        required=cilindros_respaldados(result,working)
++        if not required:raise ValueError('No hay cilindros confirmados por el STL.')
++        with tempfile.TemporaryDirectory(prefix='visor_analitico_construccion_') as tmp:
++            new=reconstruir(shape,Path(tmp),original)
++        canonical=normalizar_circulos(new)
++        cq.exporters.export(new,str(destination))
++        shape,cylinders,quality,topology,boundary=validar_cilindros_y_frontera(source,destination,original,required)
++        if source_hash!=_sha(source) or base_hash!=_sha(base):raise ValueError('La entrada o candidato base ha cambiado.')
++        from prueba_cad import REVISION
++        record.update(ok=True,original_sha256=source_hash,base_sha256=base_hash,step_sha256=_sha(destination),
++                      calidad=quality,topologia_material=topology,mallado_fino=boundary,cilindros_respaldados=cylinders,
++                      inventario=inventario(shape),metodo='encuentros_analiticos_certificados',brep_exacto=True,
++                      revision_cad=REVISION,circulos_canonicos=canonical)
++    except Exception as exc:
++        record['error']=str(exc);destination.unlink(missing_ok=True);traceback.print_exc()
++    report.write_text(json.dumps(record,indent=2,ensure_ascii=False),encoding='utf-8')
++    return 0 if record['ok'] else 2
++
++def intentar_refinar(source,step,original,validar,log,*,validar_con_prueba=None):
++    import psutil
++    from control_recursos import comunicar_vigilado
++    from calidad_topologica import leer_solido_step_estricto
++    from avance_conversion import avance
++    if len(original.faces)>MAX_FACES or not original.is_watertight or not original.is_winding_consistent:
++        raise ValueError('La entrada no es apta para el rescate de curvas acotado.')
++    key=(_sha(source),_sha(step),os.environ.get('VISOR_PERFIL','precision'))
++    if key in _RECHAZOS_TRABAJADOR:
++        raise ValueError('No se repite el mismo rescate rechazado con la misma entrada, perfil y parámetros: '+_RECHAZOS_TRABAJADOR[key])
++    shape=leer_solido_step_estricto(step)
++    exigir_elegible(shape)
++    before=inventario(shape)
++    base_hash=_sha(step)
++    if before['cilindros']<1:raise ValueError('No hay cilindros que preservar en este candidato.')
++    source_hash=_sha(source)
++    def stop(proc):
++        try:
++            parent=psutil.Process(proc.pid)
++            for child in parent.children(recursive=True):
++                try:child.kill()
++                except psutil.NoSuchProcess:pass
++            parent.kill()
++        except psutil.NoSuchProcess:pass
++    with tempfile.TemporaryDirectory(prefix='visor_refinar_curvas_',dir=Path(step).parent) as directory:
++        candidate=Path(directory)/'candidato.step';report=Path(directory)/'informe.json'
++        avance(78,'Reconstruyendo encuentros analíticos; verificando cilindros, geometría y material')
++        env={**os.environ,'OPENBLAS_NUM_THREADS':'1','OMP_NUM_THREADS':'1','MKL_NUM_THREADS':'1',
++             'PYTHONUNBUFFERED':'1','PYTHONIOENCODING':'utf-8'}
++        with subprocess.Popen([sys.executable,str(Path(__file__).resolve()),str(source),str(step),str(candidate),str(report)],
++                stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',env=env) as proc:
++            out,_,peak=comunicar_vigilado(proc,presupuesto_recuperacion(len(original.faces)),stop)
++        if out:print(out,file=log,flush=True)
++        if proc.returncode!=0 or not report.exists():
++            reason='El rescate de curvas no produjo un STEP aprobado.'
++            if report.exists():
++                try:reason=json.loads(report.read_text(encoding='utf-8')).get('error') or reason
++                except (ValueError,OSError):pass
++            _RECHAZOS_TRABAJADOR[key]=reason
++            raise ValueError(reason)
++        record=json.loads(report.read_text(encoding='utf-8'))
++        if not record.get('ok') or not candidate.is_file():
++            reason=record.get('error','Rescate de curvas rechazado.')
++            _RECHAZOS_TRABAJADOR[key]=reason
++            raise ValueError(reason)
++        if record.get('base_sha256')!=base_hash or _sha(step)!=base_hash or record['original_sha256']!=_sha(source) or source_hash!=_sha(source) or record['step_sha256']!=_sha(candidate):
++            raise ValueError('El resultado no coincide con los archivos comprobados.')
++        after=inventario(leer_solido_step_estricto(candidate))
++        if validar_con_prueba is not None:
++            from prueba_cad import desde_trabajador
++            quality=validar_con_prueba(source,candidate,original,desde_trabajador(record,candidate))
++        else:quality=validar(source,candidate,original)
++        proof={'aplicado':True,'metodo':'encuentros_analiticos_certificados','antes':before,'despues':after,
++               'ajuste_planos_fuente_mm':.00002,'desacuerdo_pcurva_maximo_mm':.00000005,
++               'movimiento_propuesta_maximo_mm':.06,'topologia_material':record['topologia_material'],
++               'mallado_fino':record['mallado_fino'],'cilindros_respaldados':record['cilindros_respaldados'],
++               'original_sha256':source_hash,'step_sha256':record['step_sha256'],'ram_pico_mb':peak,
++               'limites_aceptacion_modificados':False,'brep_exacto':record['brep_exacto'],
++               'presupuesto_s':presupuesto_recuperacion(len(original.faces))}
++        proof['normalizacion_ciclos']=record.get('normalizacion_ciclos',{})
++        proof['intentos_contornos']=record.get('intentos_contornos',[])
++        if record.get('normalizacion_referencia_material'):
++            proof['normalizacion_referencia_material']=record['normalizacion_referencia_material']
++        payload=candidate.read_bytes()
++        if hashlib.sha256(payload).hexdigest()!=record['step_sha256'] or _sha(source)!=source_hash or _sha(step)!=base_hash:
++            raise ValueError('El archivo cambió después de ser validado; no se publica.')
++        # La propuesta permanece en la misma partición y sólo sustituye al
++        # candidato después de superar TODOS los controles y huellas.
++        candidate.replace(step)
++        return quality,proof
++
++if __name__=='__main__':
++    if len(sys.argv)!=5:raise SystemExit('Uso: reconstruccion_analitica.py entrada.stl base.step salida.step informe.json')
++    raise SystemExit(trabajador(*sys.argv[1:]))
+--- R9/reconstruccion_curvas.py
++++ R10/reconstruccion_curvas.py
+@@ -241,7 +241,7 @@
+     report.write_text(json.dumps(record,indent=2,ensure_ascii=False),encoding='utf-8')
+     return 0 if record['ok'] else 2
+ 
+-def intentar_refinar(source,step,original,validar,log,*,validar_con_prueba=None):
++def _intentar_refinar_R9(source,step,original,validar,log,*,validar_con_prueba=None):
+     import psutil
+     from control_recursos import comunicar_vigilado
+     from calidad_topologica import leer_solido_step_estricto
+@@ -307,6 +307,19 @@
+         Path(step).write_bytes(payload)
+         return quality,proof
+ 
++def intentar_refinar(source,step,original,validar,log,*,validar_con_prueba=None):
++    # La prioridad es explícita: nunca sustituir una reconstrucción R9 aprobada.
++    try:
++        return _intentar_refinar_R9(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
++    except (ValueError,RuntimeError) as previous:
++        print(f'[Rescate R9] Rechazado: {previous}',file=log,flush=True)
++        try:
++            from reconstruccion_analitica import intentar_refinar as analitico
++            return analitico(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
++        except (ValueError,RuntimeError) as current:
++            print(f'[Encuentros analíticos] Rechazado: {current}',file=log,flush=True)
++            raise previous from current
++
+ if __name__=='__main__':
+     if len(sys.argv)!=4:raise SystemExit('Uso: reconstruccion_curvas.py entrada.stl salida.step informe.json')
+     raise SystemExit(trabajador(*sys.argv[1:]))
+--- R9/test_arranque_r8.py
++++ R10/test_arranque_r8.py
+@@ -5,7 +5,7 @@
+ from version_programa import identidad,PUERTO,VERSION
+ 
+ def test_puerto_experimental_distinto_de_r7():
+-    assert PUERTO==8775
++    assert PUERTO==8776
+ 
+ def test_pagina_e_identidad_son_de_esta_copia():
+     with TestClient(servidor.app) as client:
+--- /dev/null
++++ R10/test_encuentros_analiticos.py
+@@ -0,0 +1,122 @@
++"""Regresiones de límites, prioridad, parametrización y escritura del rescate R10."""
++from pathlib import Path
++import sys,io
++import numpy as np
++import pytest
++sys.path.insert(0,str(Path(__file__).resolve().parent/'motor_superficies'))
++import cadquery as cq
++from OCP.Geom import Geom_Ellipse,Geom_Circle,Geom_BSplineCurve,Geom_Plane,Geom_CylindricalSurface
++from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
++from OCP.BRep import BRep_Tool
++from OCP.BRepAdaptor import BRepAdaptor_Curve
++from OCP.gp import gp_Ax2,gp_Ax3,gp_Pnt,gp_Dir,gp_Pln
++from encuentros_analiticos import extend_profile,normalizar_circulos,intersection_stable
++
++def test_perfil_extendido_conserva_intervalo_y_derivadas():
++    from OCP.TColgp import TColgp_Array1OfPnt
++    from OCP.TColStd import TColStd_Array1OfReal,TColStd_Array1OfInteger
++    p=TColgp_Array1OfPnt(1,4)
++    for i,xyz in enumerate([(0,0,0),(1,2,0),(2,-1,0),(3,0,0)],1):p.SetValue(i,gp_Pnt(*xyz))
++    k=TColStd_Array1OfReal(1,2);m=TColStd_Array1OfInteger(1,2)
++    for i,t in enumerate((2.,7.),1):k.SetValue(i,t);m.SetValue(i,4)
++    curve=Geom_BSplineCurve(p,k,m,3,False);out=extend_profile(curve)
++    for t in np.linspace(2,7,201):assert curve.Value(float(t)).Distance(out.Value(float(t)))<1e-12
++    for t in (2,7):
++        for n in (1,2,3):
++            # Derivadas: medir el error físico de Taylor en el tramo añadido.
++            # El parámetro no es una distancia y D3 amplifica el redondeo.
++            import math
++            delta=curve.DN(t,n).Subtracted(out.DN(t,n)).Magnitude()
++            assert delta*.03**n/math.factorial(n)<1e-12
++    assert out.FirstParameter()<2 and out.LastParameter()>7
++
++def test_perfil_no_cubico_rechazado():
++    with pytest.raises((ValueError,AttributeError)):extend_profile(Geom_Circle(gp_Ax2(),2))
++
++@pytest.mark.parametrize('minor,expected',[(3.,1),(2.999,0)])
++def test_solo_elipse_circular_se_canoniza(minor,expected):
++    curve=Geom_Ellipse(gp_Ax2(gp_Pnt(1,2,3),gp_Dir(0,1,0)),3.,minor)
++    edge=cq.Edge(BRepBuilderAPI_MakeEdge(curve,.2,2.1).Edge())
++    oldtol=BRep_Tool.Tolerance_s(edge.wrapped)
++    points=[curve.Value(float(t)) for t in np.linspace(.2,2.1,41)]
++    assert normalizar_circulos(edge)==expected
++    a=BRepAdaptor_Curve(edge.wrapped);new=BRep_Tool.Curve_s(edge.wrapped,a.FirstParameter(),a.LastParameter())
++    assert isinstance(new,Geom_Circle if expected else Geom_Ellipse)
++    assert BRep_Tool.Tolerance_s(edge.wrapped)==oldtol
++    assert max(p.Distance(new.Value(float(t))) for p,t in zip(points,np.linspace(.2,2.1,41)))<1e-12
++
++@pytest.mark.parametrize('angle',[0.,.37,1.4])
++def test_interseccion_plano_cilindro_paralelo_rotado(angle):
++    # Dos generatrices reales; escoger la que se aproxima al borde medido.
++    axis=np.array([np.sin(angle),0.,np.cos(angle)]);normal=np.array([np.cos(angle),0.,-np.sin(angle)])
++    center=np.array([3.,-4.,2.]);surf=Geom_CylindricalSurface(gp_Ax3(gp_Pnt(*center),gp_Dir(*axis)),2.)
++    plane=Geom_Plane(gp_Pln(gp_Pnt(*(center+normal)),gp_Dir(*normal)))
++    radial=normal+np.array([0.,np.sqrt(3),0.]);pts=np.array([center+radial+t*axis for t in np.linspace(-3,7,33)])
++    curve,lo,hi=intersection_stable(plane,surf,pts,.06,False)
++    for t in np.linspace(lo,hi,65):
++        p=np.array(curve.Value(float(t)).Coord())
++        assert abs((p-center)@normal-1)<5e-8
++        assert abs(np.linalg.norm(np.cross(p-center,axis))-2)<5e-8
++    assert np.linalg.norm(np.array(curve.Value(lo).Coord())-pts[0])<1e-7
++    assert np.linalg.norm(np.array(curve.Value(hi).Coord())-pts[-1])<1e-7
++
++def test_prioridad_R9_sin_invocar_rescate(monkeypatch):
++    import reconstruccion_curvas as old
++    import reconstruccion_analitica as new
++    sentinel=(object(),object())
++    monkeypatch.setattr(old,'_intentar_refinar_R9',lambda *a,**k:sentinel)
++    def forbidden(*a,**k):raise AssertionError('No sustituir una reconstrucción aprobada')
++    monkeypatch.setattr(new,'intentar_refinar',forbidden)
++    assert old.intentar_refinar(None,None,None,None,io.StringIO()) is sentinel
++
++def test_rescate_solo_despues_de_rechazo(monkeypatch):
++    import reconstruccion_curvas as old
++    import reconstruccion_analitica as new
++    def decline(*a,**k):raise ValueError('R9 rechazado')
++    monkeypatch.setattr(old,'_intentar_refinar_R9',decline)
++    sentinel=(object(),object());monkeypatch.setattr(new,'intentar_refinar',lambda *a,**k:sentinel)
++    assert old.intentar_refinar(None,None,None,None,io.StringIO()) is sentinel
++
++def test_rechazo_no_toca_base(tmp_path):
++    from reconstruccion_analitica import intentar_refinar
++    base=tmp_path/'base.step';base.write_bytes(b'BASE CONSERVADA')
++    class NotEligible:
++        faces=range(20001)
++    with pytest.raises(ValueError):intentar_refinar(tmp_path/'entrada.stl',base,NotEligible(),None,io.StringIO())
++    assert base.read_bytes()==b'BASE CONSERVADA'
++
++def test_superficie_libre_y_toro_no_verificados_rechazados():
++    from reconstruccion_analitica import exigir_elegible
++    exigir_elegible(cq.Workplane('XY').box(1,2,3).val())
++    with pytest.raises(ValueError):exigir_elegible(cq.Solid.makeTorus(3.,1.))
++
++@pytest.mark.parametrize('failure',['worker_failure','timeout','bad_source_sha','bad_step_sha','parent_validation'])
++def test_trabajador_rechazado_jamas_publica(tmp_path,monkeypatch,failure):
++    import json,hashlib
++    import reconstruccion_analitica as module
++    import calidad_topologica,control_recursos
++    source=tmp_path/'entrada.stl';source.write_bytes(b'entrada original')
++    base=tmp_path/'base.step';base.write_bytes(b'candidato anterior sin modificar')
++    original_bytes=base.read_bytes()
++    shape=cq.Workplane('XY').circle(2).extrude(3).val()
++    mesh=__import__('trimesh').creation.box()
++    module._RECHAZOS_TRABAJADOR.clear()
++    monkeypatch.setattr(calidad_topologica,'leer_solido_step_estricto',lambda p:shape)
++    class Process:
++        def __init__(self,args,**kwargs):self.args=args;self.returncode=2 if failure=='worker_failure' else 0
++        def __enter__(self):return self
++        def __exit__(self,*a):pass
++    monkeypatch.setattr(module.subprocess,'Popen',Process)
++    def communicate(proc,*args):
++        if failure=='timeout':raise control_recursos.LimiteRecursos('Tiempo agotado simulado')
++        candidate,report=map(Path,proc.args[-2:]);candidate.write_bytes(b'propuesta nunca aprobada')
++        record={'ok':True,'base_sha256':module._sha(base),'original_sha256':module._sha(source),'step_sha256':module._sha(candidate)}
++        if failure=='bad_source_sha':record['original_sha256']='0'*64
++        if failure=='bad_step_sha':record['step_sha256']='1'*64
++        report.write_text(json.dumps(record));return '',None,2.
++    monkeypatch.setattr(control_recursos,'comunicar_vigilado',communicate)
++    def refuse(*a):raise ValueError('Validación del padre rechazada')
++    with pytest.raises((ValueError,RuntimeError)):
++        module.intentar_refinar(source,base,mesh,refuse,io.StringIO())
++    assert base.read_bytes()==original_bytes
++    assert source.read_bytes()==b'entrada original'
+--- R9/test_reintento_curvas.py
++++ R10/test_reintento_curvas.py
+@@ -8,6 +8,11 @@
+ @pytest.fixture
+ def runner(tmp_path,monkeypatch):
+     import calidad_topologica,control_recursos
++    # Estos cinco casos prueban la caché de R9. La segunda estrategia tiene
++    # su propia batería y se declara rechazada aquí para aislar ese contrato.
++    import reconstruccion_analitica
++    def decline_analytic(*a,**k):raise ValueError('Rescate analítico omitido en la prueba de caché R9')
++    monkeypatch.setattr(reconstruccion_analitica,'intentar_refinar',decline_analytic)
+     rc._RECHAZOS_TRABAJADOR.clear()
+     for flag in rc._FLAGS_RECONSTRUCCION:monkeypatch.delenv(flag,raising=False)
+     monkeypatch.setenv('VISOR_PERFIL','precision')
+--- R9/version_programa.py
++++ R10/version_programa.py
+@@ -1,9 +1,9 @@
+ """Identidad de esta copia experimental; independiente de la R7 instalada."""
+ from pathlib import Path
+ import hashlib
+-VERSION='R9 experimental'
+-COMPILACION='2026.10.27-cilindros-verificados'
+-PUERTO=8775
++VERSION='R10 experimental'
++COMPILACION='2026.10.27-encuentros-analiticos'
++PUERTO=8776
+ 
+ def identificador_instancia(root):
+     path=str(Path(root).resolve())

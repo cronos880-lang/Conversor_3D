@@ -1,0 +1,14 @@
+VISOR STL -> STEP R10 EXPERIMENTAL COMPLETA
+
+Extrae TODO en una carpeta NUEVA. Conserva R7, R8 y R9.
+Abre Iniciar.bat. Puede reutilizar el entorno de R7, R8 o R9 sin modificarlo.
+Si falta un entorno compatible, usa Instalar_Entorno.bat (Python 3.12 de 64 bits).
+Comprueba el encabezado R10 experimental y http://127.0.0.1:8776.
+
+Incluye la carpeta Visor_experimental_fuentes. No copies ficheros sobre tu versión anterior.
+Mantén Automático (precisión). El perfil 0.08 no obliga a reconocer más cilindros.
+
+La mejora nueva reconstruye encuentros de planos, cilindros y superficies de revolución,
+únicamente después del rechazo de las rutas anteriores y con todos los controles.
+Consulta INFORME_RESULTADOS.md: no todas las piezas ganan calidad en esta entrega.
+Windows nativo, Onshape y la impresora K1C no se pueden ejecutar en este entorno Linux.

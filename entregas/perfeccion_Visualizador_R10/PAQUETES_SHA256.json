@@ -1,0 +1,26 @@
+[
+  {
+    "archivo": "perfeccion_Visualizador_R10_EXPERIMENTAL_COMPLETA.zip",
+    "bytes": 791900,
+    "sha256": "11e9f8437e52a696068cccd2e2bfc6b48721adaffef047fc96b4a7edaf35f299",
+    "ficheros": 148
+  },
+  {
+    "archivo": "perfeccion_Visualizador_R10_AUDITORIA.zip",
+    "bytes": 66379160,
+    "sha256": "b22c263a1cb97fd4072c6bd85fcfcb59291e9f5a643438678ec9183afeef5218",
+    "ficheros": 297
+  },
+  {
+    "archivo": "perfeccion_Visualizador_R10_RESULTADOS_STEP.zip",
+    "bytes": 61553558,
+    "sha256": "4f487e14e96aaf44e300997a87c9f56d82f2e1e713bd07b7e213caedfba80de1",
+    "ficheros": 206
+  },
+  {
+    "archivo": "R10_TIRANTE_PARA_COMPARAR.zip",
+    "bytes": 6501964,
+    "sha256": "ef3a207bfe8b595485580dd552eceb87c947c0182a27913efff94fb0e566ec94",
+    "ficheros": 4
+  }
+]

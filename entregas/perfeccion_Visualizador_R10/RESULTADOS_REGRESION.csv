@@ -1,0 +1,25 @@
+﻿pieza,ruta,ok,caras,tipos,segundos,max_observado_mm,error_caja_mm,error_volumen_pct,DATA_identico_R9,sha256_step
+Tirante,CLI,True,22,"{'GeomAbs_Cylinder': 10, 'GeomAbs_Plane': 10, 'GeomAbs_SurfaceOfRevolution': 2}",991.734,0.02743,0.000951,0.113342,False,1f893ae56feeb0d0af555f83b565069fdd8ff7a0c7c55f1f76dd5d2c6ef2ce67
+1x1-lego-brick,CLI,True,2672,{'GeomAbs_Plane': 2672},90.56,0.0,0.0,0.0,True,576d0b22b33e5611bdfb03fdd599400693bba79b01a6cbbb9ac06b548170d382
+Estefi,CLI,True,1769,{'GeomAbs_Plane': 1769},292.848,0.0,0.0,0.0,True,c0ef5b60e9d764f2082ae2a8a880482a0a4baf3d0e4fa11188aad826c2754798
+Grapa,CLI,True,622,"{'GeomAbs_Plane': 616, 'GeomAbs_BSplineSurface': 4, 'GeomAbs_Cylinder': 2}",118.093,0.000677,1e-06,0.01304,True,2c3ccfd3c3fc8b89208e509ba5d26a28ada87633291849d720f9c6a33ca82343
+Spoiler_arrière_Porsche_-_5,CLI,True,28,"{'GeomAbs_Plane': 26, 'GeomAbs_Cylinder': 2}",4.917,0.002827,5.1e-05,0.012459,True,848b94600c482f8ccedb314e54bcd65dabf8e60ada31e68991f4001032fb065a
+chasis - Part 2,CLI,True,13803,{'GeomAbs_Plane': 13803},322.952,0.006785,1e-05,0.000133,True,61f6c31d64d166182568254791bc3f74d6760026a778b63891d942b36d8b9056
+maneta,CLI,True,9351,{'GeomAbs_Plane': 9351},190.255,0.0,0.0,0.0,True,c9bd2c8c1f3f3d4167b7c3a94976dba9882a76d2f73ce41872b519c4b48c9ab2
+spur,CLI,True,1405,"{'GeomAbs_Plane': 1371, 'GeomAbs_Cylinder': 34}",90.315,0.004738,0.0,0.007408,True,53c915dca4b34fd39f82aa39f361049b46f6c3d221c4e764c92a025a7e71ce28
+cubo-carrito_giro_1,CLI,True,1838,{'GeomAbs_Plane': 1838},67.487,0.0,0.0,0.0,True,28ff7b368f02e781ec021174c3eda6a3c799b70d695235a3aeb98a21f351e2ad
+cubo-carrito_giro_2,CLI,True,1195,{'GeomAbs_Plane': 1195},55.334,0.0,0.0,0.0,True,1c573adb1613f9beb7c7f0ededa8510638feaab3d0742f675672d400a6821dec
+cubo-carrito_giro_3,CLI,True,1853,{'GeomAbs_Plane': 1853},71.113,0.0,0.0,0.0,True,09479b4b3382be174e9968406fc2baf316dd46d76bd71d9419c4ededa10b4886
+conector,CLI,True,19998,{'GeomAbs_Plane': 19998},403.771,0.010826,0.0,0.002912,True,82807e89e0fc7a5fba79b5e4504b830ff3447d8078d751346bf4357cbdf6f990
+Dimensiones,CLI,True,1100,{'GeomAbs_Plane': 1100},152.219,5e-06,0.0,0.0,True,b13e9f924829d9f936ab9bc8a9d7aa82a295f991aa14c2bc77c458ef754aa836
+Con fallos pero si step,CLI,True,2567,{'GeomAbs_Plane': 2567},288.717,0.000592,0.0,0.0,True,2fbae60e66c8d48820c07786ebffe4a0378e50eac71c4b65f5a3040a14d4be77
+Pieza_Nueva_Detenida,CLI,True,8892,{'GeomAbs_Plane': 8892},786.404,0.020334,0.0,3e-06,True,db5141a304291d3bd239f0b9dcabd677bb6480fb41846349f85b068e09de9b87
+LLanta_Trasera,interfaz_navegador,True,53,"{'GeomAbs_Cylinder': 30, 'GeomAbs_Plane': 23}",145.786,0.002138,5.8e-05,0.032699,True,bf811a1234dc82c11d05e656b745bed5f6ab8bcf1c874144229652f7ec04b3fa
+V_legoBrick4x2,interfaz_navegador,True,1149,"{'GeomAbs_Plane': 1137, 'GeomAbs_Cylinder': 12}",365.898,0.005932,0,0.077806,True,62312775f3cf64c05f3db9d56f3a8ae5dca376ba516e654d79014ab3a9464f97
+M3 PClip - 2mm,interfaz_navegador,True,1484,{'GeomAbs_Plane': 1484},221.042,0,0,0,True,c216304683164a3a1b2ead7e9abf3bdae783d134377a6d69cf55a046129bebb3
+cubo-carrito,interfaz_navegador,True,1152,{'GeomAbs_Plane': 1152},93.41,0,0,0,True,0642011df90f247702abc1b85ca961e0577a46aa5ba28e6a5ae84d5ca7d17892
+Bancada_Motor,interfaz_navegador,True,1896,"{'GeomAbs_Plane': 1140, 'GeomAbs_BSplineSurface': 741, 'GeomAbs_Cylinder': 15}",360.247,0.00073,0.000561,0.003693,True,36571ff74289d9d44ff490f8c4e3f63719a5e8ca2a31fefbf9e2e37164e4cfa9
+pinza,interfaz_navegador,True,448,"{'GeomAbs_Plane': 262, 'GeomAbs_Cylinder': 11, 'GeomAbs_BSplineSurface': 175}",96.012,0.003787,0.000495,0.036855,True,d91d6c1077dcdfb9e4a92ccaf20ab8c895c330da9bd20ba9dba167eff4c2792b
+6558_fixed,interfaz_navegador,True,8713,{'GeomAbs_Plane': 8713},336.006,0.01636,0,0.000107,True,77bb1461f1e51479ea761f760e557075028db248d933ac3af092165dcc6f7259
+Soporte_movil_2,interfaz_navegador,True,493,{'GeomAbs_Plane': 493},20.612,0.018513,0.000196,0.000482,True,ace4ad6a0d7dd22f225387aac9c69e5700ae84af9b6873e757ee18c881e160d2
+Technic_PEGS_Cross_x6_A,interfaz_navegador,True,2044,{'GeomAbs_Plane': 2044},67.893,5e-05,0,0,True,a504236311feb9096cd352b773cecf83c62a025592658479191b44dbaabfdaed

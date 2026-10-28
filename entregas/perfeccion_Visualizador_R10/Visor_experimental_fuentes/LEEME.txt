@@ -1,0 +1,9 @@
+VISOR STL -> STEP R9 EXPERIMENTAL
+
+Extrae el ZIP completo en una carpeta nueva. No copies archivos sobre R7.
+Abre Iniciar.bat. Si R9 no tiene entorno propio, permite seleccionar la carpeta de R7 para reutilizar sus dependencias sin modificarla.
+También puedes preparar un entorno nuevo con Instalar_Entorno.bat. Requiere Python 3.12 de 64 bits.
+La interfaz se abre en http://127.0.0.1:8775; R7 puede continuar en 8771.
+Mantén el perfil Precisión para conservar los límites originales.
+Consulta INFORME_RESULTADOS.md en la raíz del ZIP para las pruebas y los límites reales.
+Windows nativo y Onshape requieren todavía prueba en esos entornos.

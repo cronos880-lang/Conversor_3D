@@ -1,0 +1,71 @@
+{
+  "limites_modificados": false,
+  "controles": [
+    {
+      "archivo": "perfiles_precision.py",
+      "R9": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "R10": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "identico": true
+    },
+    {
+      "archivo": "perfiles_cad.py",
+      "R9": "042b7ac146dbf758088466695010c947e10716138231fdec17ce3ebf2fc5f9a7",
+      "R10": "042b7ac146dbf758088466695010c947e10716138231fdec17ce3ebf2fc5f9a7",
+      "identico": true
+    },
+    {
+      "archivo": "motor_superficies/contornos_compatibles.py",
+      "R9": "c374833ea9a403903f51a406bd96cd1401d3f4f47a257425fff8f1ec639c36c8",
+      "R10": "c374833ea9a403903f51a406bd96cd1401d3f4f47a257425fff8f1ec639c36c8",
+      "identico": true
+    },
+    {
+      "archivo": "motor_superficies/fijacion_contornos.py",
+      "R9": "d29d05e4d8c02ee18d7294b0f5a48c86596747102cccd4f6c44a1cba3b1c3aa4",
+      "R10": "d29d05e4d8c02ee18d7294b0f5a48c86596747102cccd4f6c44a1cba3b1c3aa4",
+      "identico": true
+    },
+    {
+      "archivo": "motor_v2.py",
+      "R9": "0ce116ea8f748a17aac7ee2c7f2cf1b3ad2ab7af3252b3bff05da3874e823924",
+      "R10": "0ce116ea8f748a17aac7ee2c7f2cf1b3ad2ab7af3252b3bff05da3874e823924",
+      "identico": true
+    },
+    {
+      "archivo": "calidad_topologica.py",
+      "R9": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "R10": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "identico": true
+    },
+    {
+      "archivo": "saneamiento_cad.py",
+      "R9": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "R10": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "identico": true
+    },
+    {
+      "archivo": "validacion_reconstruccion.py",
+      "R9": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "R10": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "identico": true
+    },
+    {
+      "archivo": "invariantes_material.py",
+      "R9": "a2426f0deba6bac82518dcb8fc194a6ba24cec2bf84d9128e79ed5f6b2e3cab3",
+      "R10": "a2426f0deba6bac82518dcb8fc194a6ba24cec2bf84d9128e79ed5f6b2e3cab3",
+      "identico": true
+    },
+    {
+      "archivo": "prueba_cad.py",
+      "R9": "56befc378b47a3f3f7973769c83f66010daf931304cd8962b37cb198e923d985",
+      "R10": "56befc378b47a3f3f7973769c83f66010daf931304cd8962b37cb198e923d985",
+      "identico": true
+    },
+    {
+      "archivo": "motor_superficies/pcurvas_compartidas.py",
+      "R9": "77bfb1f001c52277d3b2a33581296ec3ced42d292d8722153ff1d5a1f0e38597",
+      "R10": "77bfb1f001c52277d3b2a33581296ec3ced42d292d8722153ff1d5a1f0e38597",
+      "identico": true
+    }
+  ]
+}

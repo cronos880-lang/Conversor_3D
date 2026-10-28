@@ -1,0 +1,262 @@
+{
+  "version": "R10 experimental",
+  "fecha_UTC": "2026-10-28T07:11:08.796916+00:00",
+  "regresion": {
+    "principales": 21,
+    "recientes": 3,
+    "aprobados": 24,
+    "DATA_identicos_R9": 23,
+    "modificados": [
+      "Tirante"
+    ]
+  },
+  "pruebas_automaticas": {
+    "tests": 249,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "lectura_fria": {
+    "archivos": 25,
+    "aprobados": 25
+  },
+  "tirante": {
+    "integridad_cad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 61,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0,
+      "brep_exacto": true
+    },
+    "perfil_validacion": {
+      "id": "precision",
+      "nombre": "Precisión",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    },
+    "caras_step": 22,
+    "bytes_step": 1171503,
+    "volumen_error_pct": 0.113342,
+    "caja_error_mm": 0.000951,
+    "caja_error_analitico_mm": 0.000951,
+    "caja_modo_verificacion": "OpenCascade",
+    "distancia_stl_step_mm": {
+      "media": 0.000231,
+      "p95": 0.000608,
+      "p99": 0.001054,
+      "max_muestreado": 0.001224,
+      "muestras": 800
+    },
+    "distancia_step_stl_mm": {
+      "media": 0.000749,
+      "p95": 0.003901,
+      "p99": 0.004696,
+      "max_muestreado": 0.00536,
+      "muestras": 800
+    },
+    "contraste_muestreo_cad": {
+      "muestras_proyectadas": 0,
+      "max_distancia_al_brep_mm": 0.0
+    },
+    "tipos_caras": {
+      "GeomAbs_Cylinder": 10,
+      "GeomAbs_Plane": 10,
+      "GeomAbs_SurfaceOfRevolution": 2
+    },
+    "limites_validacion": {
+      "volumen_error_max_pct": 0.5,
+      "caja_error_max_mm": 0.02,
+      "p95_superficie_max_mm": 0.02,
+      "desviacion_max_observada_mm": 0.06,
+      "margen_preparacion_mm": 0.0
+    },
+    "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+    "autointerferencias_occ": false,
+    "interferencias_comprobadas_en_frio": true,
+    "control_cad_reutilizado_por_sha256": true,
+    "sin_objetos_sueltos_en_step": true,
+    "inspeccion_densa": {
+      "stl_a_cad": {
+        "muestras": 3000,
+        "p95_mm": 0.004260675226586807,
+        "max_mm": 0.02743016506755929,
+        "zonas_sospechosas": []
+      },
+      "cad_a_stl": {
+        "muestras": 135199,
+        "p95_mm": 0.004365140145301986,
+        "max_mm": 0.010734381441269555,
+        "zonas_sospechosas": []
+      },
+      "limite_p95_mm": 0.02,
+      "limite_max_mm": 0.06,
+      "contraste_muestras_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "nota": "Muestreo determinista, no garantía Hausdorff global.",
+      "aceptado": true
+    },
+    "precision_alcanzada": "precision",
+    "desviacion_max_verificada_mm": 0.02743,
+    "limites_precision_originales": {
+      "caja_mm": 0.02,
+      "p95_mm": 0.02,
+      "max_mm": 0.06
+    }
+  },
+  "prueba_encuentros": {
+    "aplicado": true,
+    "metodo": "encuentros_analiticos_certificados",
+    "antes": {
+      "caras": 22,
+      "cilindros": 10,
+      "area_cilindrica_mm2": 292.1548134704287
+    },
+    "despues": {
+      "caras": 22,
+      "cilindros": 10,
+      "area_cilindrica_mm2": 292.14881569360966
+    },
+    "ajuste_planos_fuente_mm": 2e-05,
+    "desacuerdo_pcurva_maximo_mm": 5e-08,
+    "movimiento_propuesta_maximo_mm": 0.06,
+    "topologia_material": {
+      "euler_malla": -10,
+      "euler_brep": -10,
+      "shells": 1,
+      "cavidades_preservadas": 0,
+      "probes_cavidades": []
+    },
+    "mallado_fino": {
+      "resoluciones": [
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -10,
+          "intersecciones_cgal": 0,
+          "caras": 105860,
+          "deflexion_mm": 0.00025,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.015153714499000848,
+            "p95_mm": 0.0038629854030592867,
+            "muestras": [
+              162780,
+              26898
+            ]
+          },
+          "margen_microbucles_mm": 0.0
+        },
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -10,
+          "intersecciones_cgal": 0,
+          "caras": 97114,
+          "deflexion_mm": 0.0005,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.015180420422087414,
+            "p95_mm": 0.003932552161212155,
+            "muestras": [
+              149661,
+              26898
+            ]
+          },
+          "margen_microbucles_mm": 0.0
+        },
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -10,
+          "intersecciones_cgal": 0,
+          "caras": 84710,
+          "deflexion_mm": 0.001,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.015176536736373718,
+            "p95_mm": 0.00397943350984138,
+            "muestras": [
+              131055,
+              26898
+            ]
+          },
+          "margen_microbucles_mm": 0.0
+        }
+      ],
+      "step_modificado": false,
+      "limites_geometricos_modificados": false
+    },
+    "cilindros_respaldados": {
+      "confirmados": 6,
+      "preservados": 6,
+      "control_mm": 0.008,
+      "cilindros": [
+        {
+          "radio_entrada_mm": 1.0000001352459458,
+          "max_ajuste_entrada_mm": 0.00021338689783353786,
+          "max_control_cara_recortada_mm": 0.007528033276526561,
+          "muestras": 38,
+          "proyecciones_acotadas_verificadas": 0
+        },
+        {
+          "radio_entrada_mm": 1.0000000844838688,
+          "max_ajuste_entrada_mm": 0.00021418852108544782,
+          "max_control_cara_recortada_mm": 0.0002134253090715044,
+          "muestras": 36,
+          "proyecciones_acotadas_verificadas": 0
+        },
+        {
+          "radio_entrada_mm": 0.5999998548606503,
+          "max_ajuste_entrada_mm": 0.00012915602271469054,
+          "max_control_cara_recortada_mm": 0.0001276577693482783,
+          "muestras": 38,
+          "proyecciones_acotadas_verificadas": 0
+        },
+        {
+          "radio_entrada_mm": 0.6000001050981782,
+          "max_ajuste_entrada_mm": 0.00012835267015734063,
+          "max_control_cara_recortada_mm": 0.00012774278422482264,
+          "muestras": 36,
+          "proyecciones_acotadas_verificadas": 0
+        },
+        {
+          "radio_entrada_mm": 4.000000096867608,
+          "max_ajuste_entrada_mm": 0.0008465389325241447,
+          "max_control_cara_recortada_mm": 0.0008456644065739675,
+          "muestras": 36,
+          "proyecciones_acotadas_verificadas": 0
+        },
+        {
+          "radio_entrada_mm": 4.000000094611891,
+          "max_ajuste_entrada_mm": 0.0008456941485450625,
+          "max_control_cara_recortada_mm": 0.0008453585436829572,
+          "muestras": 36,
+          "proyecciones_acotadas_verificadas": 0
+        }
+      ]
+    },
+    "original_sha256": "8e43440fa46395d66528571401946aed80207e68255cfe292937a509948f6883",
+    "step_sha256": "1f893ae56feeb0d0af555f83b565069fdd8ff7a0c7c55f1f76dd5d2c6ef2ce67",
+    "ram_pico_mb": 1002.69,
+    "limites_aceptacion_modificados": false,
+    "brep_exacto": true,
+    "presupuesto_s": 450,
+    "normalizacion_ciclos": {},
+    "intentos_contornos": []
+  },
+  "limites_modificados": false,
+  "cancelacion_y_conversion_posterior": true,
+  "Embudo": "Aplazado por el usuario; no se declara 14/14",
+  "Windows_nativo": false,
+  "Onshape": false,
+  "K1C": false,
+  "nucleo_entregado_identico_al_ejecutado": true
+}
