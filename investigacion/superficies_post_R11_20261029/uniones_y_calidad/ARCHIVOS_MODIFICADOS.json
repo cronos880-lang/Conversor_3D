@@ -1,0 +1,197 @@
+[
+  {
+    "archivo": "cilindros_contiguos.py",
+    "sha256_actual": "042a55ee8fa3d944bc4bf3dc17a640fd747004eaf77003a6bedc5e12d43053e1",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/afin_planos.py",
+    "sha256_actual": "586e487f1ef6fe5e8a9740695e4690331e249cdc3ec90e03bebf37327060f412",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/campos_fuente.py",
+    "sha256_actual": "f3a6a06348a5489ba33d5355e0bdeb80e4826fa652798467f931ad12473230c6",
+    "sha256_base": "d78972d713420d39d8725e77807ab8c4632ef44e96b7093b6fa1a25608575da6"
+  },
+  {
+    "archivo": "motor_superficies/colapsos_proyectados.py",
+    "sha256_actual": "b15266040a20b793545ac21b4b1f868b96abedbdab20bc44da3aa47ff2b73059",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/constructor_barridos.py",
+    "sha256_actual": "5d58e4bf2c777a0f20ee2a1d49cd5000004615e4cc63795ebc739cde11e09069",
+    "sha256_base": "e68d70882bad08238357b3c8854cb1b82d3566ba48d3ee74097251f0766498df"
+  },
+  {
+    "archivo": "motor_superficies/contorno_coincidente.py",
+    "sha256_actual": "b4d57021ab1a86eadd1096d35c434563ffe6a2247d7173ca71fcd5c155a476ce",
+    "sha256_base": "4363991ab747fa57709aa1f023ca881025d28ea1f835b1eb929c51e8d3e858b9"
+  },
+  {
+    "archivo": "motor_superficies/curvas_barridas.py",
+    "sha256_actual": "1cded4777ca0dc55a6695e7a2063e2d4b453c235827aa3c5e8a9d3e22a54e37c",
+    "sha256_base": "d810fecd87f862700972b35fee2361a4e99478ae556aaebecce29c11d3c20572"
+  },
+  {
+    "archivo": "motor_superficies/fijacion_contornos.py",
+    "sha256_actual": "bd3e1ce1a437f8c41c3698164dddd7803b3eb79bd280972e86dedc353c72e3e4",
+    "sha256_base": "d29d05e4d8c02ee18d7294b0f5a48c86596747102cccd4f6c44a1cba3b1c3aa4"
+  },
+  {
+    "archivo": "motor_superficies/geometria_medida.py",
+    "sha256_actual": "1b6744dcf9baa886d0a1994ef4df38db07781a0fd5c0a528d09afed269d9b922",
+    "sha256_base": "129915a7b631891ad024d16568402191e7549c4468257a768877e9cdf53cfaa7"
+  },
+  {
+    "archivo": "motor_superficies/geometria_preparada.py",
+    "sha256_actual": "2c1a187beecb97ffbbfc2fcbdba126a4118c91506dd8b06aeea4f12b85ac05c5",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/hipotesis_local.py",
+    "sha256_actual": "a7576241b15063d53f7010b006adc974d47a9992cf1514e4d3b34e6005af7f50",
+    "sha256_base": "f743e21f0155a132fee899b0db5d108d8406cbdc61031ccd196ca48ee1cd692b"
+  },
+  {
+    "archivo": "motor_superficies/meshfit_brep.py",
+    "sha256_actual": "04e69fba20ebdbf6be20f6a85c72402a178d621bcdf6069340051462e9298a15",
+    "sha256_base": "0958a64a3823ad29242a3087ead159fb2d3d553b344fcc572430b49ebbc2e5a8"
+  },
+  {
+    "archivo": "motor_superficies/orientacion_cara.py",
+    "sha256_actual": "27eee9891e17fa7e516431fb124b5b1dda22c9386ffa312fd2b34ebb270cbe51",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/parches_spline_regulares.py",
+    "sha256_actual": "be0a5710ba1ab2d3f9d0d567ec2de0e2433dd00028a4369d918bf2c25e0f381d",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/parches_triangulares.py",
+    "sha256_actual": "5e59c0ba024a05ad7bdd9f130c1efde4b46d32006560f5708da5074c6273cf16",
+    "sha256_base": "ffc3109664962d813f1554a477c2bb0f61e80fb26efab2847b12edd3443573f9"
+  },
+  {
+    "archivo": "motor_superficies/planos_medidos.py",
+    "sha256_actual": "fa728fffa3b90f1c59fe7faed7333c2497e297a7091f859c9dc0079b4c6d25d9",
+    "sha256_base": "7d9540dd6502f6206f15d1b8bdd5c261f904a249930c7eea33eaf48b7dc4277f"
+  },
+  {
+    "archivo": "motor_superficies/realimentacion_bop.py",
+    "sha256_actual": "4a2bb3bd40db104ba8552667223970146f7bb1bf21e95b00f65bfda0f28c747c",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/rechazo_pliegues.py",
+    "sha256_actual": "9c59b7653ab6b6969dd3e66a5d199fa54a75d853a3395f3c8ba0e7bc0f07805e",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/refinar_region_libre.py",
+    "sha256_actual": "10dcc78ca74cd64b5f8da517b321d550548286e1ce0cc2ab2d8ef27114b89dde",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/solidificacion_exacta.py",
+    "sha256_actual": "11520b818ca5536edb2e7ec9e9870200f496b595487e2ade4eb244a965aa6446",
+    "sha256_base": null
+  },
+  {
+    "archivo": "motor_superficies/soportes_planos_exactos.py",
+    "sha256_actual": "de44bce8e2e6dfb57e1e50ef9b5f91ea4dbcab3814ae6593af743a15a9f596fe",
+    "sha256_base": null
+  },
+  {
+    "archivo": "reconstruccion_medida.py",
+    "sha256_actual": "4407bd0eeaf1ee3043ead3171ade313f65bf6e324f4a5b5e542f3325f85e6353",
+    "sha256_base": "3bc184de66a5c891ef1d2810e24c6ab409f683b88fb45157cf9bea6564752bd7"
+  },
+  {
+    "archivo": "test_cilindros_contiguos.py",
+    "sha256_actual": "1259e3db0b6ee5871bd885c553dc096e22bd9ebd34f539330b450fd1bcddd285",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_colapsos_proyectados.py",
+    "sha256_actual": "672b8e326d1f09cb33535bcb6c9e449eb1330510c18edb0e102a1a5bb3be9dbf",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_contactos_nativos_completos.py",
+    "sha256_actual": "3c58f39b1a9de6235a6391cbddf7497e50d46841f68d3bfb6700f48f059019c6",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_esquinas_planas_exactas.py",
+    "sha256_actual": "9ce2e62104ca55f03903576fc8ca7b460f9f7cbe2bb59dba54b7a0712dbdb28b",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_mejoras_r3.py",
+    "sha256_actual": "fff9e0e20012a6d829ec28badd81c6b07dec704722332d48c68c51ccaff61448",
+    "sha256_base": "b2fabe1a0c018901532c75b7fbeb29eaf28274554f6cd12a04f0eefb912cabc2"
+  },
+  {
+    "archivo": "test_orientacion_cara.py",
+    "sha256_actual": "0691df6ccaf29470b0d1323a078ea89f16316f6661acc7e106fe9a16b9cfdce0",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_parches_compuestos_regulares.py",
+    "sha256_actual": "568fb20b23080791b85cc26d6a21748877025f6f60089a6a911585c0c8249d40",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_parches_triangulares.py",
+    "sha256_actual": "2cf5701577d3b60eacf995668f0291186e09e9cbd3e8a10ff570528552f2a551",
+    "sha256_base": "340297fd29b0d56542dce2775388af475ed5d04bd45305000d707b90218d8c97"
+  },
+  {
+    "archivo": "test_proteccion_planos_medidos.py",
+    "sha256_actual": "f2eebe3020faf0016cbc2c1dadcc3d68f44da56f4fd84500d1ed4f63ad8205a5",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_realimentacion_bop.py",
+    "sha256_actual": "dd5451a30e1c6ebc71133ac71ef27fbe5d8a270c0864c6674144d7861bd885b6",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_rechazo_pliegues.py",
+    "sha256_actual": "a8229383c923307e02917dc1f02450f4da024a58474efe5955f70a583cf7c87f",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_refinamiento_regional.py",
+    "sha256_actual": "33abb88853407a219a14cf6302bee14f8b0a74c4e0f7b5a2e59804a3f241e614",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_registro_uv_seguro.py",
+    "sha256_actual": "a7ce30e83b91d269d1fa75cd73004c80a00665a50415aea5dbcb72b3edc6b3d5",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_reutilizacion_geometria.py",
+    "sha256_actual": "be3796a224951fd926357f483a6434517c0edd04072e8ce995cc0e249f5d8b14",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_salto_uv_fisico.py",
+    "sha256_actual": "a624a99ecc4486348296b526f458335b413b35c32dc608a92063c07fe8961115",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_solidificacion_exacta.py",
+    "sha256_actual": "e545458acb83ade43368c8f3c6252d7c415f0725578d00805831b5451a556db7",
+    "sha256_base": null
+  },
+  {
+    "archivo": "test_soportes_planos_exactos.py",
+    "sha256_actual": "45e5ab09977687b8ac8fc3f3ce7468d50b74c4fdd21cc9589e10bc4dc0b7983a",
+    "sha256_base": null
+  }
+]

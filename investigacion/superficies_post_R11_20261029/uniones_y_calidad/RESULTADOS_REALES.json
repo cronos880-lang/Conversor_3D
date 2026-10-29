@@ -1,0 +1,57 @@
+{
+  "nueva_version_visor": false,
+  "app_R11_intacta": true,
+  "pruebas": "348 passed, 3 warnings",
+  "casos_aprobados": {
+    "Bancada_192_FINAL": {
+      "ok": true,
+      "step_sha256": "861392f5d55b3f094ad27f5f38a801b902505cc12815a2e3160a0c6a5773b4a4",
+      "caras": 192,
+      "caja_mm": 0.000561,
+      "volumen_pct": 0.027432,
+      "cilindros": 15,
+      "mallados_cgal": [
+        0,
+        0,
+        0
+      ]
+    },
+    "Maneta_34_FINAL": {
+      "ok": true,
+      "step_sha256": "f7eb7dd934763ca58c2e9fb8a9bd1392b6974072dc4c7fb1ec4ccffc72e47455",
+      "caras": 34,
+      "caja_mm": 5.7e-05,
+      "volumen_pct": 0.022273,
+      "cilindros": 3,
+      "mallados_cgal": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "technic": {
+    "ok": false,
+    "error": "Persisten interferencias del conjunto tras las reconstrucciones acotadas: 51",
+    "bop_bruto": [
+      {
+        "caras": 840,
+        "interferencias": 44
+      },
+      {
+        "caras": 881,
+        "interferencias": 39
+      },
+      {
+        "caras": 913,
+        "interferencias": 51
+      }
+    ]
+  },
+  "pendiente": [
+    "Regresión de aplicación integrada: 14 piezas y cubo-carrito; embudo aplazado",
+    "Windows nativo",
+    "Onshape",
+    "K1C"
+  ]
+}
