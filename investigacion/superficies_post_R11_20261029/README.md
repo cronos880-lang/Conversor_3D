@@ -11,3 +11,5 @@ Se ha validado una reunión de parches de la bancada: 239 → 206 caras, conserv
 - [Integridad del ZIP](./VERIFICACION_ZIP.json).
 
 No instales estas fuentes sobre tu programa. La reconstrucción general M34 no supera todavía las piezas objetivo; la nueva aplicación y su regresión completa quedan pendientes.
+
+[Continuación: planos certificados, bancada de 201 caras y diagnóstico de Technic](./continuacion_motor/README.md). Investigación; sin nueva versión del Visor.

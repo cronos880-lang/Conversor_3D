@@ -1,0 +1,23 @@
+--- a/motor_superficies/constructor_barridos.py
++++ b/motor_superficies/constructor_barridos.py
+@@ -6,7 +6,7 @@
+ import math,time,collections
+ import numpy as np
+ from OCP.gp import gp_Pnt,gp_Pnt2d,gp_Pln,gp_Dir,gp_Ax2
+-from OCP.Geom import Geom_Plane,Geom_BSplineSurface,Geom_TrimmedCurve,Geom_CylindricalSurface,Geom_Ellipse
++from OCP.Geom import Geom_Plane,Geom_BSplineCurve,Geom_BSplineSurface,Geom_TrimmedCurve,Geom_CylindricalSurface,Geom_Ellipse
+ from OCP.GeomAPI import GeomAPI_IntSS,GeomAPI_ProjectPointOnCurve,GeomAPI_Interpolate
+ from OCP.Geom2dAPI import Geom2dAPI_Interpolate
+ from OCP.TColgp import TColgp_HArray1OfPnt,TColgp_HArray1OfPnt2d,TColgp_Array1OfPnt
+@@ -572,7 +572,10 @@
+         else:
+             p=np.vstack((points,points[:1])) if ch['closed'] else points
+             curve,first,last=base._polyline_curve(p)
+-        if regular and any(l in triangular for l in ch['pair']):
++        # Un B-spline compuesto ya tiene una representación exacta. Los parches
++        # transfinito/Plate conservan su frontera; no forzar su aproximación a
++        # un único Bézier ni subdividir la fuente por sus nudos internos.
++        if regular and any(l in triangular for l in ch['pair']) and not (isinstance(curve,Geom_BSplineCurve) and curve.NbKnots()>2):
+             from parches_triangulares import bezier_local
+             try:curve,first,last=bezier_local(curve,first,last,positions[ch['verts'][0]],positions[ch['verts'][0] if ch['closed'] else ch['verts'][-1]])
+             except ValueError as exc:

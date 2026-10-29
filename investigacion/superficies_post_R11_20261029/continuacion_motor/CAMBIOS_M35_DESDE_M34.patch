@@ -1,0 +1,47 @@
+--- a/motor_superficies/constructor_barridos.py
++++ b/motor_superficies/constructor_barridos.py
+@@ -693,10 +693,7 @@
+     import trimesh
+     RETIRADAS_HIPOTESIS=[]
+     ULTIMA_SUBDIVISION=[];work=trimesh.Trimesh(np.array(mesh.vertices),np.array(mesh.faces),process=False);reference=work.copy();current=labels.copy();surfaces=dict(comp_surf)
+-    for iteration in range(65):
+-        try:
+-            return _construir(work,current,surfaces,tol,max_move,smooth_len,parches_regulares,triangulos_libres)
+-        except __import__('hipotesis_local',fromlist=['HipotesisIncompatible']).HipotesisIncompatible as request:
++    def retirar(request):
+             if len(RETIRADAS_HIPOTESIS)>=12:raise ValueError('Se agota el presupuesto de hipótesis locales incompatibles') from request
+             import meshfit_brep as base
+             from OCP.Geom import Geom_SurfaceOfLinearExtrusion
+@@ -712,13 +709,31 @@
+             work.hipotesis_no_primarias=set(getattr(work,'hipotesis_no_primarias',set()))|{id(clone)}
+             if whole:work.hipotesis_parches_completos=set(getattr(work,'hipotesis_parches_completos',set()))|{id(clone)}
+             record=dict(region_anterior=region,triangulos=len(ids),vertice=request.vertice,parche_completo=whole,motivo=str(request));RETIRADAS_HIPOTESIS.append(record);print('HIPOTESIS RETIRADA: TRANSICION LIBRE',record,flush=True)
++
++    for iteration in range(65):
++        try:
++            return _construir(work,current,surfaces,tol,max_move,smooth_len,parches_regulares,triangulos_libres)
++        except __import__('hipotesis_local',fromlist=['HipotesisIncompatible']).HipotesisIncompatible as request:
++            retirar(request)
+         except RefinarArista as request:
+             if iteration==64 or sum(r['vertices_nuevos'] for r in ULTIMA_SUBDIVISION)+len(request.points)>128:raise ValueError('Se agota el presupuesto de subdivisión de contornos')
+             from verificacion_reparacion import distancia_malla
+             error=float(distancia_malla(reference,np.asarray(request.points)).max())
+             if error>.003:raise ValueError('Los vértices de propuesta no conservan la fuente acotada')
+             blocked=set(getattr(work,'hipotesis_no_primarias',set()));complete=set(getattr(work,'hipotesis_parches_completos',set()))
+-            work,current,record=dividir(work,current,request.vertices,request.points)
++            try:work,current,record=dividir(work,current,request.vertices,request.points)
++            except ValueError as exc:
++                if 'abandona la arista fuente acotada' not in str(exc):raise
++                from hipotesis_local import HipotesisIncompatible
++                from OCP.Geom import Geom_SurfaceOfLinearExtrusion
++                a,b=map(int,request.vertices)
++                source_points=np.asarray(request.points);nearest=int(min((a,b),key=lambda v:float(np.linalg.norm(source_points-work.vertices[v],axis=1).min())))
++                incident=np.flatnonzero(np.any(work.faces==nearest,axis=1));regions=sorted(set(map(int,current[incident])))
++                candidates=[r for r in regions if isinstance(surfaces[r],Geom_SurfaceOfLinearExtrusion) and id(surfaces[r]) not in getattr(work,'hipotesis_no_primarias',set())]
++                if not candidates:raise
++                print('PERFIL INCOMPATIBLE CON SUBDIVISION FUENTE',dict(arista=[a,b],regiones=candidates,vertice=nearest),flush=True)
++                retirar(HipotesisIncompatible(candidates,nearest,'El perfil requiere una subdivisión fuera de la cota fuente; se descarta el perfil'))
++                continue
+             work.hipotesis_no_primarias=blocked;work.hipotesis_parches_completos=complete
+             record['max_distancia_fuente_mm']=error
+             ULTIMA_SUBDIVISION.append(record);print('SUBDIVISION DE PROPUESTA',record,flush=True)
