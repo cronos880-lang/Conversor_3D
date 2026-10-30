@@ -1,0 +1,20 @@
+{
+  "archivo_reconstruido": "perfeccion_Visualizador_R12_AUDITORIA.zip",
+  "sha256_reconstruido": "c3263de6934ebdd30bffa52f30335832d1aa6decb3ed8c704e201a22458768d0",
+  "bytes_reconstruidos": 18522491,
+  "motivo": "Límite de 16 MiB por petición del servicio de publicación; el programa completo se descarga en un único ZIP.",
+  "partes": [
+    {
+      "archivo": "perfeccion_Visualizador_R12_AUDITORIA.zip.001",
+      "bytes": 9437184,
+      "sha256": "ee7e7b3329766b8c62283a78402967469c1d1424420398ba7053fd631a450d5b",
+      "git_sha": "fb05c9cbe592795178ae93462483f969145234e7"
+    },
+    {
+      "archivo": "perfeccion_Visualizador_R12_AUDITORIA.zip.002",
+      "bytes": 9085307,
+      "sha256": "8ebdd99039a028a13467d3c6cc84a1cd204fb209f01ee729410b1ed512ef4d72",
+      "git_sha": "92a22db17d8b061f8d8ed54a08a05a6520bc4078"
+    }
+  ]
+}

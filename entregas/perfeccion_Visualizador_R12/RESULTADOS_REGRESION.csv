@@ -1,0 +1,19 @@
+﻿pieza,ruta,ok,caras,tipos,segundos,DATA_identico_R11,sha256_step,max_denso_mm,error_caja_mm,error_volumen_pct
+Tirante,CLI,True,22,"{'GeomAbs_Cylinder': 10, 'GeomAbs_Plane': 10, 'GeomAbs_SurfaceOfRevolution': 2}",625.554,True,eaefe2fe048bdc72cd3d54e4b03dd54d1bdf7d4f514cbcf95a3b91818a213c67,0.02743,0.000951,0.113342
+chasis - Part 2,CLI,True,13803,{'GeomAbs_Plane': 13803},593.592,True,9a2175f32c1b26c7c0cacdf5e51261ae65fdd704ae86c5178b192aa9af79dd7a,0.006785,1e-05,0.000133
+maneta,CLI,True,36,"{'GeomAbs_SurfaceOfRevolution': 2, 'GeomAbs_Plane': 29, 'GeomAbs_Cylinder': 5}",316.356,True,da024bf0155694eb3a71390dad85886a6faf45b1c72feade8353812283cdf0bc,0.016033,5.7e-05,0.022278
+Estefi,CLI,True,1769,{'GeomAbs_Plane': 1769},292.823,True,e6701311eb0e42929336af0804ecc9321ddee95cb34f50945136dfbf810f6ca5,0.0,0.0,0.0
+Grapa,CLI,True,20,"{'GeomAbs_SurfaceOfExtrusion': 8, 'GeomAbs_Plane': 10, 'GeomAbs_Cylinder': 2}",281.477,True,b27bf0f7fea2c39f6a5ef67ddf5db9da58c76495d59f434fdda800f90a96b768,0.001042,3.4e-05,0.00699
+M3 PClip - 2mm,CLI,True,1484,{'GeomAbs_Plane': 1484},181.88,True,d92332a2599c4b96adb2b9fdbf368aebf2f9313b60cfcc9bdf93280c6b113d8b,0.0,0.0,0.0
+LLanta_Trasera,CLI,True,53,"{'GeomAbs_Cylinder': 30, 'GeomAbs_Plane': 23}",49.409,True,55e747af995dd628f79bb6c5a390ca488b507397810f304c1939761297208ae1,0.002138,5.8e-05,0.032699
+pinza,CLI,True,448,"{'GeomAbs_Plane': 262, 'GeomAbs_Cylinder': 11, 'GeomAbs_BSplineSurface': 175}",139.272,True,abd7742d2cb1eb1fd1d4955f14ff581072551685c9ffa4498c3e04e0b5077e7a,0.003787,0.000495,0.036855
+1x1-lego-brick,CLI,True,2672,{'GeomAbs_Plane': 2672},104.117,True,15857793483575b8468baae7207bd8c77a9d17cebed4f394fe66f0238f4ae793,0.0,0.0,0.0
+cubo-carrito_giro_3,CLI,True,1853,{'GeomAbs_Plane': 1853},95.985,True,d10ebbddeefaca27833e9576b6592e22dd1df9f66fc399926346cf7a162279f9,0.0,0.0,0.0
+conector,CLI,True,19998,{'GeomAbs_Plane': 19998},463.487,True,70824db3bda58466a57aaf2638b98fe554281862c770133a24d73aa47906e8f7,0.010826,0.0,0.002912
+spur,CLI,True,1405,"{'GeomAbs_Plane': 1371, 'GeomAbs_Cylinder': 34}",96.434,True,2c6742fd480ef71ea1f0fdb5e01ddf09cabd8c073ef7d9b474a702316540cb0f,0.004738,0.0,0.007408
+cubo-carrito_giro_1,CLI,True,1838,{'GeomAbs_Plane': 1838},79.494,True,1bab3f8a5a9828bac0e66cfd03e877dd4d74537bf6648e7f4e1568a5216f0832,0.0,0.0,0.0
+Spoiler_arrière_Porsche_-_5,CLI,True,28,"{'GeomAbs_Plane': 26, 'GeomAbs_Cylinder': 2}",5.458,True,a616a21dcc8bf64aa422cbe936b6b2442de78d4157cd50f4acb5871527721fc3,0.002827,5.1e-05,0.012459
+cubo-carrito_giro_2,CLI,True,1195,{'GeomAbs_Plane': 1195},70.363,True,6998d678c8a1ba678e8dfb466e094ec7449febb1b2a1097bd4f1918893d6c1fd,0.0,0.0,0.0
+Technic_PEGS_Cross_x6_A,interfaz navegador,True,845,"{'GeomAbs_Plane': 819, 'GeomAbs_BSplineSurface': 22, 'GeomAbs_SurfaceOfExtrusion': 4}",936.615,False,f1fa01cfe1722db2088c89780964114b1a09530ee55c96eb49de75a0469fc483,0.001192,5.9e-05,0.000392
+Bancada_Motor,interfaz navegador,True,239,"{'GeomAbs_SurfaceOfExtrusion': 14, 'GeomAbs_BSplineSurface': 50, 'GeomAbs_Plane': 150, 'GeomAbs_Cylinder': 25}",558.301,True,996625ea6588e0ff4ce25301ca3fade156c5dad7f095d01184d658d333e07cad,0.003438,0.000561,0.026121
+cubo-carrito,interfaz navegador,True,1152,{'GeomAbs_Plane': 1152},101.2,True,73bd4e8450eb0df2d381e2ca5cd163ee7523c0225e2e0e22178006758c7c0c99,0,0,0

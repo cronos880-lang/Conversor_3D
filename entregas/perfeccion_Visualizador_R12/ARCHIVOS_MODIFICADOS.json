@@ -1,0 +1,742 @@
+[
+  {
+    "archivo": "LEEME_R12.txt",
+    "tipo": "nuevo",
+    "sha256": "0e786433bc463e01111ab5123f385436d95ba6b454f1dcd906d80cf95c2aebb7"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/entorno_local.py",
+    "tipo": "modificado",
+    "sha256": "b228be5607e5be38a991dd69d7b49a308010ca1c542b6a640db7c06fcaca8e3d"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/ESTADO_VALIDACION.md",
+    "tipo": "modificado",
+    "sha256": "699f3ef67832eacf3079cf17b18fe4bdc70ce55a07aa07b8931a31b245ad8258"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/arrancar.py",
+    "tipo": "modificado",
+    "sha256": "da29802fae363c2f2107ef424f0a9eff747dd7aa891253446e2e88e306e654f0"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/politica_conversion.py",
+    "tipo": "modificado",
+    "sha256": "62b398b62ccda4b7ea6ef7eba6d40a18d496c791a81ab93d3ba2cc3e5e20b6aa"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/perfeccion_calidad.py",
+    "tipo": "nuevo",
+    "sha256": "d4e4c2ea73f1281a87f90ae4a4b02523e1a143d8ad9fe9fe79e09b9750d48672"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/LEEME.txt",
+    "tipo": "modificado",
+    "sha256": "0e786433bc463e01111ab5123f385436d95ba6b454f1dcd906d80cf95c2aebb7"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/test_perfeccion_aislada.py",
+    "tipo": "nuevo",
+    "sha256": "f54fb1c433ab8aa09449aeedb358d3a9640a012685d4571b09dab5445eb1952e"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/Visor_STL_STEP.html",
+    "tipo": "modificado",
+    "sha256": "4da0bb89aa5ab1e2678199156ec4e8e74411e1401bbbe7d52500623b494a2e20"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/test_evidencias_calidad.py",
+    "tipo": "nuevo",
+    "sha256": "cc0900426ed1bca44958257d138c0aa0252fcc2caefa5e4e20c9eb53d33230cc"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/version_programa.py",
+    "tipo": "modificado",
+    "sha256": "46cde6d8d09fcfd577749d6a97f96d7e0d2d76a34fc445793c7f75d1b8873056"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/VERSION.txt",
+    "tipo": "modificado",
+    "sha256": "70c60443e0795d2ea714a2d137f2c16feea42a6eb0c186ba1c82f3bde588e9f6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_v2.py",
+    "tipo": "modificado",
+    "sha256": "3bf8ea322f6cc7777af51c14fed15571a2376d114c1d1829d3ddb37f06455ed5"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/servidor.py",
+    "tipo": "modificado",
+    "sha256": "fdf830fff02c64324e510bc26e58626b097a42f0a9dd86695a9d616454449262"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/test_mejoras_r3.py",
+    "tipo": "modificado",
+    "sha256": "fff9e0e20012a6d829ec28badd81c6b07dec704722332d48c68c51ccaff61448"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/normalizacion_microcaras.py",
+    "tipo": "nuevo",
+    "sha256": "95754ca40980bcaf27eae8544e0dab552949171a449efa8457e054579d448043"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/preparar_stl.py",
+    "tipo": "nuevo",
+    "sha256": "dc6873ac2452683a4aa83d71e9b97736366128e4a69c383fe29fef2f1aad5283"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/analisis_superficies.py",
+    "tipo": "nuevo",
+    "sha256": "aabb215db37015cd628ce83397854fb79db514214f5985d2eb5849428bac3751"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/validacion_local.py",
+    "tipo": "nuevo",
+    "sha256": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/normalizacion_referencia.py",
+    "tipo": "nuevo",
+    "sha256": "0fe718fb7b9f5563e42557e10db01881818e32366567936fd001f0320a6adbad"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/entorno_local.py",
+    "tipo": "nuevo",
+    "sha256": "73693bc7926c129ae3af0230296e694a4351ed253e40885f539278c3518f662e"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/avance_conversion.py",
+    "tipo": "nuevo",
+    "sha256": "5db23d6deb4647dc991c9258132e9ec104555a46a33319b20d7038cd6f94853d"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/calidad_topologica.py",
+    "tipo": "nuevo",
+    "sha256": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/reparacion_contactos_locales.py",
+    "tipo": "nuevo",
+    "sha256": "4f34717f2591c1a4f6b50c91cc90e9dc49522424785b1c2339b1de6d6c24daa8"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/regularizacion_planar.py",
+    "tipo": "nuevo",
+    "sha256": "7909a413c5af9cdf9f52b999402ff7ce72f946be7ea00aee9fd76deffdbf392b"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/verificar_cubo_step.py",
+    "tipo": "nuevo",
+    "sha256": "808f1c60bbf338d2aab83119b52dbe19f6daa1e25b62a37d03fa831fc24b86cb"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/reconocimiento_diseno.py",
+    "tipo": "nuevo",
+    "sha256": "10162cb0ae40e43f302c00e4b66ad745286a01f53d40650aaf71dab633507f3f"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/saneamiento_malla.py",
+    "tipo": "nuevo",
+    "sha256": "127ecfc4b33b7d649c3b644c28a73a88c7670ed8cce932217da4c86444f222ed"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/diagnosticar_stl.py",
+    "tipo": "nuevo",
+    "sha256": "2985c5f47c88d44f5ff6479b8af8a5ed65d0b8993a67778f56d8316333aac265"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/perfiles_precision.py",
+    "tipo": "nuevo",
+    "sha256": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/prueba_cad.py",
+    "tipo": "nuevo",
+    "sha256": "56befc378b47a3f3f7973769c83f66010daf931304cd8962b37cb198e923d985"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/arrancar.py",
+    "tipo": "nuevo",
+    "sha256": "15725e4fd528c5f60c74c63ac73c990311f4049880d7898be8955972a7ade5a4"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/reparacion_cad.py",
+    "tipo": "nuevo",
+    "sha256": "420c697081436a5495d6037ead5f9e6af84d20b377c6f7ee9a307de8d14b0ade"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/politica_conversion.py",
+    "tipo": "nuevo",
+    "sha256": "d39a331f55095658b4065a3b6fbe966a4a5af1e24b5e64527e8a2e5b32b181b7"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/preprocesador_stl.py",
+    "tipo": "nuevo",
+    "sha256": "b58796726505d56cf0467fc02d1423247d63036fcea2108ff2c6261aa958f849"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/prueba_web.py",
+    "tipo": "nuevo",
+    "sha256": "baf9aa18bd3e28ab86ecf55222cdbae1e74b0c7de2ef501c1f8afb6fc587c9b1"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/recuperacion_union_certificada.py",
+    "tipo": "nuevo",
+    "sha256": "246ca0c101300e01976ae0b5d198eacbe45320365000e8bd7c84ee549700f1b8"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/saneamiento_cad.py",
+    "tipo": "nuevo",
+    "sha256": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/validacion_reconstruccion.py",
+    "tipo": "nuevo",
+    "sha256": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/evaluar_aceptacion.py",
+    "tipo": "nuevo",
+    "sha256": "8a071f3a5edff6019ab371b699694642e47b39b5d6c9104224aaad51bf0fe690"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/brep_poliedrico_indices.py",
+    "tipo": "nuevo",
+    "sha256": "af4795c9d7883e1f69439fced7db3df432ff3e95f747f69773f905a0b1f403c3"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/frontera_cad.py",
+    "tipo": "nuevo",
+    "sha256": "d7c3647fcedacde69edb49d4a6d6dfbf62d980f3940f1d953c7502fb6c14e651"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/reconstruccion_analitica.py",
+    "tipo": "nuevo",
+    "sha256": "8228cd783c45032eae6b3bbe73563fdf05c495c0c199f0913680cc46a2afa4b1"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/verificar_original_calidad.py",
+    "tipo": "nuevo",
+    "sha256": "e41a0c9f1ecd13264403b5fed3124605c23f01808149b6f2d7f5121292f8e207"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/holgura_geometrica.py",
+    "tipo": "nuevo",
+    "sha256": "07a41db37495f81eef45b73c5e9c4ab7b4139e546ded3a10e1ef2a4dcce5e595"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/limpieza_franjas.py",
+    "tipo": "nuevo",
+    "sha256": "d59ce94b64a01d2bbf7148e561e594269ee35f9d158f8e49dbcc5646623edd7c"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/axial_recognition.py",
+    "tipo": "nuevo",
+    "sha256": "d56d065313a382767cec5002ea41d13f8be89e180461e5a6348c648fedeee937"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/cilindros_locales.py",
+    "tipo": "nuevo",
+    "sha256": "3172b5e3722e790d16ad432ec1878e1b44788874efb0560d7ec1e84f276fbdfb"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/validacion_densa.py",
+    "tipo": "nuevo",
+    "sha256": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/recuperacion_cilindros.py",
+    "tipo": "nuevo",
+    "sha256": "d3d4f2f75f40bfcde37f0f02e22b35d867c57adaec192f69eb9264876d5081a1"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/reconstruccion_curvas.py",
+    "tipo": "nuevo",
+    "sha256": "0cae8e4f75a357bc9ea62b0c8e39a195555fba68089b17dd4aae4c517c25e9a6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_amigo_aislado.py",
+    "tipo": "nuevo",
+    "sha256": "91a4c50ce098464444ea881c398000161cdede961235d35a6aa1c960ea615ae6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/invariantes_material.py",
+    "tipo": "nuevo",
+    "sha256": "a2426f0deba6bac82518dcb8fc194a6ba24cec2bf84d9128e79ed5f6b2e3cab3"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/verificacion_reparacion.py",
+    "tipo": "nuevo",
+    "sha256": "bcae37c029885ebb115fb841def4aa1b8cb2264efc2009fc460354b908f06158"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/comparar_regresion_cubo.py",
+    "tipo": "nuevo",
+    "sha256": "6fde0ed1fcffd2c92a232d3478319db8c1ca8c782ba4857d1802b4e3b171dcac"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/contactos_numericos.py",
+    "tipo": "nuevo",
+    "sha256": "e632e00ac6211a1d826263dc519d8fd1826b8f67220ea9793ebfff6c249456b9"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/version_programa.py",
+    "tipo": "nuevo",
+    "sha256": "d697c1ef71202756777808ab9b120d1c2e99201dccfaf0808140d009f79cac93"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/reparador_exacto_aislado.py",
+    "tipo": "nuevo",
+    "sha256": "eb5f2117aad63b322aa760c61053d60c6053254a16bf59cc0ce6aac741e67d9b"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_v2.py",
+    "tipo": "nuevo",
+    "sha256": "d6c4c45a72ab52ea1d510318b150001ef12fbc54baca313ce1b49d90585d8e09"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/control_recursos.py",
+    "tipo": "nuevo",
+    "sha256": "a9df1e31308c36bd7968a4ce51eade56b1797b7c6e7544954b1b9f456c8eb6f8"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/revolucion_verificada.py",
+    "tipo": "nuevo",
+    "sha256": "7ed2a451f06634f37686c72dfd33c6a9da0770326131567f3ee083baf6a1c0db"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/recuperacion_numerica.py",
+    "tipo": "nuevo",
+    "sha256": "07394ad0a76355770d0414f3bc6d9696b8431690c5fa59a913f3ce78ee71917f"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/diagnostico_validacion.py",
+    "tipo": "nuevo",
+    "sha256": "85d77aacf66d47b045def1f65e50c6642d04277953f7a900d525daefa8a49787"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/intentos_conversion.py",
+    "tipo": "nuevo",
+    "sha256": "6bc6617cfa8c6ec1bad7b6eddccba93414cab25a04a1b6c9c0ab351a7dbfe9f1"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/servidor.py",
+    "tipo": "nuevo",
+    "sha256": "a701ed828c259a1c8c9102dde707bda933249b91f9277935ba0fd04e465488aa"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/perfiles_cad.py",
+    "tipo": "nuevo",
+    "sha256": "042b7ac146dbf758088466695010c947e10716138231fdec17ce3ebf2fc5f9a7"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/reconstruccion_medida.py",
+    "tipo": "nuevo",
+    "sha256": "9af49bec87a20e3ad6ac1d3c1e08984c3ca30a40bde16c1a0334e75f7ec19300"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/refinamiento_analitico.py",
+    "tipo": "nuevo",
+    "sha256": "95386d6dc6c3192dd81cc4dd253bab58ba2a42c720fdf49644068c89156c4b7f"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/cilindros_contiguos.py",
+    "tipo": "nuevo",
+    "sha256": "042a55ee8fa3d944bc4bf3dc17a640fd747004eaf77003a6bedc5e12d43053e1"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/proximidad_triangular.py",
+    "tipo": "nuevo",
+    "sha256": "9d7254e6954236a031c43e6d5c2a321fde316df267276658b9b030ef60a7b201"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/bateria_reparacion.py",
+    "tipo": "nuevo",
+    "sha256": "159e9c84feae85c8d3564aca3f352e727fe30c9f976ab369dc3c0d1b6d6e921a"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/verificar_casos_usuario.py",
+    "tipo": "nuevo",
+    "sha256": "885f533588f51e85bc17d3883d7f83eae678f8315cd483a3cb78c5283f41504e"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/topologia_vertices.py",
+    "tipo": "nuevo",
+    "sha256": "b7da20a755a4f9fe3d249b309a8c871861d549e20bc40b5b47553a91f4c5cd54"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/preparar_calidad.py",
+    "tipo": "nuevo",
+    "sha256": "95a427dd2a9af8ba41863e1076cd3594caf3caa56c8421a6b0c9228c19e32ac7"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_repair.py",
+    "tipo": "nuevo",
+    "sha256": "8c8b3494b8f060b23189e652348fa5f9b8ac416c31553a220c8f742888eaee1c"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_brep.py",
+    "tipo": "nuevo",
+    "sha256": "8695d6b503a81c7e2b14a9ec05618d2dd4728e0434239fe189094694df38de1c"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_fair.py",
+    "tipo": "nuevo",
+    "sha256": "099af2bf3fefd34b550ed314da05756fa2c39b6ba0ce5a7922467f0b731904b2"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_detect.py",
+    "tipo": "nuevo",
+    "sha256": "4a4402499840a13106e7f62491534d24086b74517750d6a7ac6b66f36c842cb6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/__init__.py",
+    "tipo": "nuevo",
+    "sha256": "1e3fd749cb9fc0429e8e1406f81ee27295597eaa55aba7169e37b506e15c41de"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_organic.py",
+    "tipo": "nuevo",
+    "sha256": "6bbe3a3fcd5ecf80694c7f5ab098a68e9eb46e4a40e4aae43098d9b59a8c6074"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_grow.py",
+    "tipo": "nuevo",
+    "sha256": "592c22dc78d326f2777d68474e443c94d3ebc74cfccbe5b8001e5fb37cfe54e9"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_ideal.py",
+    "tipo": "nuevo",
+    "sha256": "8ed04021b2876f003772191cc823a9e5b466e1e138b5041562f8f6ba3f80362b"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_nurbs.py",
+    "tipo": "nuevo",
+    "sha256": "94a3e685a1d4a72008333dea43b980a8100032155d51a59e45b7edc8473e943e"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_step.py",
+    "tipo": "nuevo",
+    "sha256": "c1b7ab0efae69b330e0fa11b92b6eddd52036bea362afa1a9e43de1278320986"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_original_amigo/meshfit_helix.py",
+    "tipo": "nuevo",
+    "sha256": "e1165685042403fe1f90467b3dc117e603667c3863a1d1254888c95f02f70d72"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/proyector_perfil.py",
+    "tipo": "nuevo",
+    "sha256": "8e1545f46d104b67eddf240d3cfd350de42740adcdc661a11978f0eab720a6e3"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/fijacion_contornos.py",
+    "tipo": "nuevo",
+    "sha256": "bd3e1ce1a437f8c41c3698164dddd7803b3eb79bd280972e86dedc353c72e3e4"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/barridos_medidos.py",
+    "tipo": "nuevo",
+    "sha256": "b0153df412629352a8849e8c5b69a55099473d053ef1ea9e4ea1a4be0b5db39a"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/frontera_compuesta.py",
+    "tipo": "nuevo",
+    "sha256": "9776db41e1d90fc9735641b8c00511559ec047fdae093f9da20d2aa3acfab3dd"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/solidificacion_exacta.py",
+    "tipo": "nuevo",
+    "sha256": "11520b818ca5536edb2e7ec9e9870200f496b595487e2ade4eb244a965aa6446"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_repair.py",
+    "tipo": "nuevo",
+    "sha256": "57a63577295e9ce1e8c148596e5f9f5d119e2c5659e694db4db4887af0c688d6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_brep.py",
+    "tipo": "nuevo",
+    "sha256": "04e69fba20ebdbf6be20f6a85c72402a178d621bcdf6069340051462e9298a15"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/contornos_periodicos.py",
+    "tipo": "nuevo",
+    "sha256": "9157a75481536512769c227083e31f181f3e7e5a6fdc6961c387b6971abeac5c"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/carta_altura.py",
+    "tipo": "nuevo",
+    "sha256": "cc79cfa005ac08b0ba61da3bb6955b5c3151dc322716812b96645e5062ce40fe"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/esquina_afine.py",
+    "tipo": "nuevo",
+    "sha256": "e82f6c9db38caf05b94b1a984bc4b9e373fe2c818c272ff415d04ccbc65bc2cb"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/planos_canonicos.py",
+    "tipo": "nuevo",
+    "sha256": "fc77314101341d562fd97ea05da6ebe23ac296dd4e6ea8e20aec6c33c36c1075"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/encuentros_analiticos.py",
+    "tipo": "nuevo",
+    "sha256": "9a1bbf4bc8300cdcf4861190f1f465d3961c2da9a193e266a01c2b4f0e44da3b"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_fair.py",
+    "tipo": "nuevo",
+    "sha256": "622f464a9929ae0a94a720a4d415b51667fdc4a8100ef4e139434d06cd43d746"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/realimentacion_bop.py",
+    "tipo": "nuevo",
+    "sha256": "4a2bb3bd40db104ba8552667223970146f7bb1bf21e95b00f65bfda0f28c747c"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/pcurvas_compartidas.py",
+    "tipo": "nuevo",
+    "sha256": "77bfb1f001c52277d3b2a33581296ec3ced42d292d8722153ff1d5a1f0e38597"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_detect.py",
+    "tipo": "nuevo",
+    "sha256": "67e8f9a9c270967ba75271bf7028ce5070020f6be39968848b17f4568b713d85"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/extension_planos.py",
+    "tipo": "nuevo",
+    "sha256": "7caacd028f5cc0cec57bd63f9a88b4a53f0032797d13674670b843179d4a5ae6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/parches_spline_regulares.py",
+    "tipo": "nuevo",
+    "sha256": "8b00691ae1e3853bc6767f27c9c1e447db7d0473bf526e9f82ef261e3f15f681"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/geometria_medida.py",
+    "tipo": "nuevo",
+    "sha256": "8849ca2f4236904c2f669d7da734f9fc3deadb1e7f9d7fe1d797f0991e827b8b"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/proximidad_bezier.py",
+    "tipo": "nuevo",
+    "sha256": "1dd99496e993f51ba0970f892d99b7e636f6d982cbef181e4066904632151ab6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/recorte_exacto.py",
+    "tipo": "nuevo",
+    "sha256": "f1b9433273e62c6e326849cb290b9f7abe7c34999592647592364be3ae387917"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/contornos_compatibles.py",
+    "tipo": "nuevo",
+    "sha256": "c374833ea9a403903f51a406bd96cd1401d3f4f47a257425fff8f1ec639c36c8"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/__init__.py",
+    "tipo": "nuevo",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/contorno_coincidente.py",
+    "tipo": "nuevo",
+    "sha256": "b4d57021ab1a86eadd1096d35c434563ffe6a2247d7173ca71fcd5c155a476ce"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/proyeccion_barridos.py",
+    "tipo": "nuevo",
+    "sha256": "2733c2fda93049898d0459918f4916c131a857e638a1bd7297a49b95e3a5c18f"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/esquinas_medidas.py",
+    "tipo": "nuevo",
+    "sha256": "e7c85067e5f5fc4709fc5fe7309fbb8332fe712ed2abcd07ba68ab0334a42e24"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_organic.py",
+    "tipo": "nuevo",
+    "sha256": "65068f0ecc039a31bf8b1f8db45d2ae89ae2501e4ec411f4ca4d59ecca26e061"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/generar_semilla.py",
+    "tipo": "nuevo",
+    "sha256": "2a9705b359705d64f3cf6b3fe5caff9f994db584b090032e63924b273ae6f721"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/particion_campos.py",
+    "tipo": "nuevo",
+    "sha256": "e94cb6c0737419cb896c3b717dfa93be39002d01ae71585ddb74284c16e75dfd"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/conciliacion_acotada.py",
+    "tipo": "nuevo",
+    "sha256": "dbb6a136755cde7589fb0c0813550276dd3b34f93645402b7d93cda4d04f66d9"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/constructor_barridos.py",
+    "tipo": "nuevo",
+    "sha256": "1856b932dd708c53333d0100b579ed090c8b7ced904ebe69543be8a8c41eb9ae"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/encuentros_acotados.py",
+    "tipo": "nuevo",
+    "sha256": "dfcfa2673aea624350aedda1145b032cdd58ae5cdcb6ea2c2b08da235ae6ef59"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/esferas_guiadas.py",
+    "tipo": "nuevo",
+    "sha256": "4f603bb28688b1059aebf0133d498dd4d1ec4622fa2567b43b745dd97d712a15"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/soportes_planos_exactos.py",
+    "tipo": "nuevo",
+    "sha256": "de44bce8e2e6dfb57e1e50ef9b5f91ea4dbcab3814ae6593af743a15a9f596fe"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/cilindros_guiados.py",
+    "tipo": "nuevo",
+    "sha256": "986b0b8c47e6479c90a6dd701349eae5b3d2401b802bd804c5803fabc298a032"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/inversiones_transicion.py",
+    "tipo": "nuevo",
+    "sha256": "8448364bc2d7c05fecb0749637ea474ed3a8594c5ad580c21182e03b7313a78c"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/campos_fuente.py",
+    "tipo": "nuevo",
+    "sha256": "f3a6a06348a5489ba33d5355e0bdeb80e4826fa652798467f931ad12473230c6"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/rechazo_pliegues.py",
+    "tipo": "nuevo",
+    "sha256": "9843013fdf0674dedb3fedefe825b313a6a1622a389041c896474f91d3afa691"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_grow.py",
+    "tipo": "nuevo",
+    "sha256": "c6c1bb8997f54bd3df2fdb9ed68f9f9c180d127e94db9c432005ce3839a73d02"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/anclaje_barridos.py",
+    "tipo": "nuevo",
+    "sha256": "faeb7d2a244ade5560fd5f6a6dddfbf2b6b798b8d46655a3df427a89e132ec2f"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/curvas_barridas.py",
+    "tipo": "nuevo",
+    "sha256": "16c0998c1af14dc841d0b5fee44fa64b814e424ba907653f42dd843b1c7fdbc2"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/geometria_preparada.py",
+    "tipo": "nuevo",
+    "sha256": "2c1a187beecb97ffbbfc2fcbdba126a4118c91506dd8b06aeea4f12b85ac05c5"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/refinamiento_contorno.py",
+    "tipo": "nuevo",
+    "sha256": "654e0b8b927f7a69aaff2122ef9729ac8d3d75fd0e472707db33ede13d7411be"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_ideal.py",
+    "tipo": "nuevo",
+    "sha256": "ef0f0845b8ca3f80824127b8012f9e6ff1212656f230afc2b7769cc9a1146afb"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/refinar_region_libre.py",
+    "tipo": "nuevo",
+    "sha256": "e7c6ecbd26c41109a1231333c6d03c5c79c2169541c59e718503963aefc7af02"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_nurbs.py",
+    "tipo": "nuevo",
+    "sha256": "defb3e7efb3ef2902f9f679988454144a6998d7724c19110031558f6099ed831"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/eleccion_generatrices.py",
+    "tipo": "nuevo",
+    "sha256": "8f9ff23eefcc60890b67e517d6eaefb6ba84a6dffd55e0cd41514ee143176fde"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/afin_planos.py",
+    "tipo": "nuevo",
+    "sha256": "586e487f1ef6fe5e8a9740695e4690331e249cdc3ec90e03bebf37327060f412"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_step.py",
+    "tipo": "nuevo",
+    "sha256": "758a35ba69ca629837cb40d850a543d9318e60e943c82c508b15f5c5c3bf7a01"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_ransac.py",
+    "tipo": "nuevo",
+    "sha256": "a2d5d7a8dca456ab8f2cb94ae4f77a30269bd07bb46aa58ff77ae92a3a7ed8c3"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/orientacion_cara.py",
+    "tipo": "nuevo",
+    "sha256": "27eee9891e17fa7e516431fb124b5b1dda22c9386ffa312fd2b34ebb270cbe51"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/planos_medidos.py",
+    "tipo": "nuevo",
+    "sha256": "fa728fffa3b90f1c59fe7faed7333c2497e297a7091f859c9dc0079b4c6d25d9"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/perfiles_medidos.py",
+    "tipo": "nuevo",
+    "sha256": "924a300ac450b63936ffb6f43dc593b088ee81482499e40228ece2439fb328a1"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/restos_planos.py",
+    "tipo": "nuevo",
+    "sha256": "99191ddc37b74ce4ee6f857fbc80902faa1bd98e5ca62f01b2ab1601feb3c061"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/ajuste_cilindrico_medido.py",
+    "tipo": "nuevo",
+    "sha256": "e5ede07ec5b468f09936a81ac2544c58070ed404043988826d873c70294b93a4"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/parches_triangulares.py",
+    "tipo": "nuevo",
+    "sha256": "40e2f8f7f77b2d4f34410f3f0f312a16d05e605da96badfcbb36acbb8a783014"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/composicion_barridos.py",
+    "tipo": "nuevo",
+    "sha256": "77665a239aa84b419ee63fb5c268735684c9d0b86f4aa216c4a640cccc8a524a"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/extension_cilindros.py",
+    "tipo": "nuevo",
+    "sha256": "0d1a6e2d6636d7ee63d756d2d520007763f0b6ed30636eb703c3ea64ea3009a4"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/tramos_barridos.py",
+    "tipo": "nuevo",
+    "sha256": "ecc93afe605bc20bc251b812e89a64bdd6dcc8b2244a8c9f310679e476396804"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/colapsos_proyectados.py",
+    "tipo": "nuevo",
+    "sha256": "b15266040a20b793545ac21b4b1f868b96abedbdab20bc44da3aa47ff2b73059"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/hipotesis_local.py",
+    "tipo": "nuevo",
+    "sha256": "a7576241b15063d53f7010b006adc974d47a9992cf1514e4d3b34e6005af7f50"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/meshfit_helix.py",
+    "tipo": "nuevo",
+    "sha256": "3f46300a3803f8b0fe0fa98b4c2aef8184de5254a320c681b787c9276da75411"
+  },
+  {
+    "archivo": "Visor_experimental_fuentes/motor_calidad/motor_superficies/anclaje_acotado.py",
+    "tipo": "nuevo",
+    "sha256": "a507c74db3353a1a0bca4333225877452f405bbac5bd0c66465d08c05ec17b17"
+  }
+]

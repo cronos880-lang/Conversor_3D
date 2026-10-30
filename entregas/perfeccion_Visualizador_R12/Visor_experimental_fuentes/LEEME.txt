@@ -1,0 +1,17 @@
+VISOR STL -> STEP R12 EXPERIMENTAL
+
+Extrae todo en una carpeta nueva y abre Iniciar.bat de la carpeta principal.
+Incluye Visor_experimental_fuentes. Conserva R11 para comparar.
+Necesita Python 3.12 de 64 bits. Puede reutilizar un entorno compatible de
+R7, R8, R9, R10 o R11. Encabezado R12 experimental, puerto 8777.
+Usa Automático (precisión). La mejora de superficies es interna.
+
+R12 conserva primero el STEP producido por R11. Para contactos reparados
+moderados intenta reducir caras y sólo sustituye el resultado tras verificar
+el STL original, el sólido CAD, el material y tres mallados finos.
+Los límites geométricos originales se mantienen. No reconstruye el diseño
+paramétrico completo ni garantiza mejorar cualquier STL.
+
+Consulta el informe de resultados de esta entrega. La bancada y la maneta
+conservan sus resultados R11; no se declara una mejora nueva en esas piezas.
+Windows nativo, importación Onshape e impresión K1C requieren prueba externa.
