@@ -1,0 +1,64 @@
+[
+  {
+    "pieza": "caja",
+    "solidos": 1,
+    "caras": 6,
+    "volumen_mm3": 1001.0,
+    "volumen_STL_mm3": 1001.0,
+    "error_caja_mm": 0.0,
+    "brep_exacto": true,
+    "step_sha256": "f4239a16cce0191337aecd769e4c8b76f81e9a851e4ae87cfe469d8cfc5c47a4"
+  },
+  {
+    "pieza": "Bancada_Motor",
+    "solidos": 1,
+    "caras": 134,
+    "volumen_mm3": 3281.2342697331833,
+    "volumen_STL_mm3": 3280.5115080975324,
+    "error_caja_mm": 0.0005606206018740068,
+    "brep_exacto": true,
+    "step_sha256": "a7251e07ef8a03079c7c7285a231a178940d86c2ee959d321ab22c6c9139f424"
+  },
+  {
+    "exportacion_explicita": {
+      "tipo_entrada": "Solid",
+      "shell_cerrado_solidificado": false,
+      "solid_reconstruido_desde_frontera": true,
+      "banderas_cierre_antes": [
+        true
+      ],
+      "caras": 6,
+      "aristas": 12,
+      "shells": 1,
+      "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+      "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+      "auditoria_step_crudo": {
+        "ok": true,
+        "modified": false,
+        "corrected_bounds": [],
+        "audit": {
+          "ok": true,
+          "complete": true,
+          "solids": 1,
+          "shells": [
+            {
+              "shell": 16,
+              "faces": 6,
+              "edges": 12,
+              "errors": []
+            }
+          ],
+          "unsupported": [],
+          "scope": "Incidencia y orientaci\u00f3n topol\u00f3gica serializada; no valida geometr\u00eda ni \u00e1reas UV"
+        }
+      },
+      "ok": true,
+      "modo": "STEPControl_ManifoldSolidBrep",
+      "solidos_reimportados": 1,
+      "caras_reimportadas": 6,
+      "tolerancia_max_mm": 1e-07,
+      "step_sha256": "9b562b8146228507f5f7efca08500bbf8a1aed55ba8e585bb1a145c63075194f",
+      "requiere_validacion_original": true
+    }
+  }
+]

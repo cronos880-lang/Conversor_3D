@@ -1,0 +1,1251 @@
+{
+  "ok": true,
+  "fases": [
+    {
+      "fase": "lectura_y_comprobacion_de_entradas",
+      "segundos": 0.009163321999949403
+    },
+    {
+      "fase": "CAD_exacto_interferencias_y_distancia_original",
+      "segundos": 93.11093411799811
+    },
+    {
+      "fase": "material_del_original",
+      "segundos": 124.15944461599793
+    },
+    {
+      "fase": "validacion_completada",
+      "segundos": 140.59279227599836
+    }
+  ],
+  "cota_propuesta_local_mm": 0.0005,
+  "cilindros_preservados": [
+    {
+      "cara_resultado": 0,
+      "area_mm2": 32.87839959819087,
+      "cobertura_fuente_mm2": 32.87839959819087,
+      "fuentes": [
+        {
+          "cara_fuente": 5,
+          "area_interseccion_mm2": 32.87839959819087
+        }
+      ]
+    },
+    {
+      "cara_resultado": 1,
+      "area_mm2": 9.032114717600276,
+      "cobertura_fuente_mm2": 9.032114717600276,
+      "fuentes": [
+        {
+          "cara_fuente": 0,
+          "area_interseccion_mm2": 9.032114717600276
+        }
+      ]
+    },
+    {
+      "cara_resultado": 2,
+      "area_mm2": 9.032060681351892,
+      "cobertura_fuente_mm2": 9.032060681351892,
+      "fuentes": [
+        {
+          "cara_fuente": 1,
+          "area_interseccion_mm2": 9.032060681351892
+        }
+      ]
+    },
+    {
+      "cara_resultado": 3,
+      "area_mm2": 32.87844979289188,
+      "cobertura_fuente_mm2": 32.87844979289188,
+      "fuentes": [
+        {
+          "cara_fuente": 2,
+          "area_interseccion_mm2": 32.87844979289188
+        }
+      ]
+    },
+    {
+      "cara_resultado": 4,
+      "area_mm2": 286.5741974386748,
+      "cobertura_fuente_mm2": 286.5741974386748,
+      "fuentes": [
+        {
+          "cara_fuente": 3,
+          "area_interseccion_mm2": 286.5741974386748
+        }
+      ]
+    },
+    {
+      "cara_resultado": 5,
+      "area_mm2": 75.96237384050322,
+      "cobertura_fuente_mm2": 75.96237384050322,
+      "fuentes": [
+        {
+          "cara_fuente": 4,
+          "area_interseccion_mm2": 75.96237384050322
+        }
+      ]
+    },
+    {
+      "cara_resultado": 6,
+      "area_mm2": 19.201598647335462,
+      "cobertura_fuente_mm2": 19.201598647335462,
+      "fuentes": [
+        {
+          "cara_fuente": 6,
+          "area_interseccion_mm2": 19.201598647335462
+        }
+      ]
+    },
+    {
+      "cara_resultado": 7,
+      "area_mm2": 26.2637095929622,
+      "cobertura_fuente_mm2": 26.2637095929622,
+      "fuentes": [
+        {
+          "cara_fuente": 7,
+          "area_interseccion_mm2": 26.2637095929622
+        }
+      ]
+    },
+    {
+      "cara_resultado": 8,
+      "area_mm2": 26.263711048320914,
+      "cobertura_fuente_mm2": 26.263711048320914,
+      "fuentes": [
+        {
+          "cara_fuente": 8,
+          "area_interseccion_mm2": 26.263711048320914
+        }
+      ]
+    },
+    {
+      "cara_resultado": 9,
+      "area_mm2": 18.664993739004228,
+      "cobertura_fuente_mm2": 18.664993739004228,
+      "fuentes": [
+        {
+          "cara_fuente": 9,
+          "area_interseccion_mm2": 18.664993739004228
+        }
+      ]
+    },
+    {
+      "cara_resultado": 10,
+      "area_mm2": 61.38358836161485,
+      "cobertura_fuente_mm2": 61.38358836161485,
+      "fuentes": [
+        {
+          "cara_fuente": 10,
+          "area_interseccion_mm2": 61.38358836161485
+        }
+      ]
+    },
+    {
+      "cara_resultado": 11,
+      "area_mm2": 21.898046575819762,
+      "cobertura_fuente_mm2": 21.898046575819762,
+      "fuentes": [
+        {
+          "cara_fuente": 11,
+          "area_interseccion_mm2": 21.898046575819762
+        }
+      ]
+    },
+    {
+      "cara_resultado": 12,
+      "area_mm2": 21.914467678797905,
+      "cobertura_fuente_mm2": 21.914467678797905,
+      "fuentes": [
+        {
+          "cara_fuente": 12,
+          "area_interseccion_mm2": 21.914467678797905
+        }
+      ]
+    },
+    {
+      "cara_resultado": 13,
+      "area_mm2": 61.38358499864643,
+      "cobertura_fuente_mm2": 61.38358499864643,
+      "fuentes": [
+        {
+          "cara_fuente": 13,
+          "area_interseccion_mm2": 61.38358499864643
+        }
+      ]
+    },
+    {
+      "cara_resultado": 14,
+      "area_mm2": 18.664993175776647,
+      "cobertura_fuente_mm2": 18.664993175776647,
+      "fuentes": [
+        {
+          "cara_fuente": 14,
+          "area_interseccion_mm2": 18.664993175776647
+        }
+      ]
+    },
+    {
+      "cara_resultado": 15,
+      "area_mm2": 23.876083653429326,
+      "cobertura_fuente_mm2": 23.876083653429326,
+      "fuentes": [
+        {
+          "cara_fuente": 15,
+          "area_interseccion_mm2": 23.876083653429326
+        }
+      ]
+    },
+    {
+      "cara_resultado": 16,
+      "area_mm2": 23.876128775051196,
+      "cobertura_fuente_mm2": 23.876128775051196,
+      "fuentes": [
+        {
+          "cara_fuente": 16,
+          "area_interseccion_mm2": 23.876128775051196
+        }
+      ]
+    },
+    {
+      "cara_resultado": 17,
+      "area_mm2": 101.18941846797799,
+      "cobertura_fuente_mm2": 101.18941846797799,
+      "fuentes": [
+        {
+          "cara_fuente": 17,
+          "area_interseccion_mm2": 101.18941846797799
+        }
+      ]
+    },
+    {
+      "cara_resultado": 18,
+      "area_mm2": 4.147179917390774,
+      "cobertura_fuente_mm2": 4.147179917390774,
+      "fuentes": [
+        {
+          "cara_fuente": 18,
+          "area_interseccion_mm2": 4.147179917390774
+        }
+      ]
+    },
+    {
+      "cara_resultado": 19,
+      "area_mm2": 6.675867605740993,
+      "cobertura_fuente_mm2": 6.675867605740993,
+      "fuentes": [
+        {
+          "cara_fuente": 19,
+          "area_interseccion_mm2": 6.675867605740993
+        }
+      ]
+    },
+    {
+      "cara_resultado": 20,
+      "area_mm2": 6.67589744863943,
+      "cobertura_fuente_mm2": 6.67589744863943,
+      "fuentes": [
+        {
+          "cara_fuente": 20,
+          "area_interseccion_mm2": 6.67589744863943
+        }
+      ]
+    },
+    {
+      "cara_resultado": 21,
+      "area_mm2": 5.2131826551382625,
+      "cobertura_fuente_mm2": 5.2131826551382625,
+      "fuentes": [
+        {
+          "cara_fuente": 21,
+          "area_interseccion_mm2": 5.2131826551382625
+        }
+      ]
+    },
+    {
+      "cara_resultado": 22,
+      "area_mm2": 26.263730867327375,
+      "cobertura_fuente_mm2": 26.263730867327375,
+      "fuentes": [
+        {
+          "cara_fuente": 22,
+          "area_interseccion_mm2": 26.263730867327375
+        }
+      ]
+    },
+    {
+      "cara_resultado": 23,
+      "area_mm2": 26.263733138587657,
+      "cobertura_fuente_mm2": 26.263733138587657,
+      "fuentes": [
+        {
+          "cara_fuente": 23,
+          "area_interseccion_mm2": 26.263733138587657
+        }
+      ]
+    },
+    {
+      "cara_resultado": 24,
+      "area_mm2": 101.13177997446263,
+      "cobertura_fuente_mm2": 101.13177997446263,
+      "fuentes": [
+        {
+          "cara_fuente": 24,
+          "area_interseccion_mm2": 101.13177997446263
+        }
+      ]
+    }
+  ],
+  "exportacion_solida": {
+    "tipo_entrada": "Solid",
+    "shell_cerrado_solidificado": false,
+    "solid_reconstruido_desde_frontera": true,
+    "banderas_cierre_antes": [
+      true
+    ],
+    "caras": 134,
+    "aristas": 409,
+    "shells": 1,
+    "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "auditoria_step_crudo": {
+      "ok": true,
+      "modified": false,
+      "corrected_bounds": [],
+      "audit": {
+        "ok": true,
+        "complete": true,
+        "solids": 1,
+        "shells": [
+          {
+            "shell": 16,
+            "faces": 134,
+            "edges": 409,
+            "errors": []
+          }
+        ],
+        "unsupported": [],
+        "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+      }
+    },
+    "ok": true,
+    "modo": "STEPControl_ManifoldSolidBrep",
+    "solidos_reimportados": 1,
+    "caras_reimportadas": 134,
+    "tolerancia_max_mm": 1e-07,
+    "step_sha256": "a0094ea92e111fa3eb53b5440764c0308b62e5beb1e214bfdd1696eb3ac301f1",
+    "requiere_validacion_original": true
+  },
+  "retroacciones_cgal": [],
+  "construccion": [
+    {
+      "faces": [
+        64,
+        65,
+        66,
+        67,
+        108,
+        109
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        65,
+        66
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002623565098768324,
+      "new_face_signature": {
+        "center": [
+          239.25541088359572,
+          -8.739723415343736,
+          2.828333665712383
+        ],
+        "area": 3.7325212215435495
+      }
+    },
+    {
+      "faces": [
+        0,
+        1,
+        2,
+        187,
+        188,
+        189
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        0,
+        1
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        0,
+        187
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        0,
+        188
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.3131028472478e-05,
+      "new_face_signature": {
+        "center": [
+          217.2643920697068,
+          -7.026905066504607,
+          2.970089174751785
+        ],
+        "area": 1.7703924671017879
+      }
+    },
+    {
+      "faces": [
+        62,
+        67,
+        68,
+        108,
+        109,
+        110
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        67,
+        108
+      ],
+      "rejected": "La reunión abandona el soporte previo: 0.0031267498412107055"
+    },
+    {
+      "faces": [
+        108,
+        109
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        1,
+        2,
+        3,
+        184,
+        187,
+        189
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00013379535338451517,
+      "new_face_signature": {
+        "center": [
+          217.26399421746422,
+          -8.30990755952018,
+          3.9998886707647956
+        ],
+        "area": 60.64801173596878
+      }
+    },
+    {
+      "faces": [
+        7,
+        8,
+        9,
+        10,
+        182,
+        186
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        7,
+        8
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00010420865475689034,
+      "new_face_signature": {
+        "center": [
+          217.2702693167068,
+          -9.753396328931604,
+          2.85049133545647
+        ],
+        "area": 1.4793289614905056
+      }
+    },
+    {
+      "faces": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        185
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        12,
+        13
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00010892943742604005,
+      "new_face_signature": {
+        "center": [
+          217.26570693505906,
+          -13.384072320203495,
+          2.923553833581998
+        ],
+        "area": 1.0446515091731214
+      }
+    },
+    {
+      "faces": [
+        9,
+        10,
+        11,
+        15,
+        16,
+        183
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        10,
+        11
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.7846801234053025e-05,
+      "new_face_signature": {
+        "center": [
+          217.26667311194518,
+          -3.265415381407262,
+          2.900625117331906
+        ],
+        "area": 0.591554700711661
+      }
+    },
+    {
+      "faces": [
+        9,
+        15,
+        16,
+        182,
+        183
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        9,
+        182
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        9,
+        15,
+        16,
+        182,
+        183
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        9,
+        182
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        16,
+        182
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0001665963391382434,
+      "new_face_signature": {
+        "center": [
+          217.27068434953375,
+          6.930210893300915,
+          3.893538224767212
+        ],
+        "area": 0.1432449659406093
+      }
+    },
+    {
+      "faces": [
+        62,
+        67,
+        68,
+        108,
+        109,
+        110
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        68,
+        109
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002251548343483577,
+      "new_face_signature": {
+        "center": [
+          239.25495212813368,
+          6.954941958004649,
+          3.8326189664447368
+        ],
+        "area": 0.1648378119281798
+      }
+    },
+    {
+      "faces": [
+        14,
+        185,
+        186
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00013413870775852373,
+      "new_face_signature": {
+        "center": [
+          217.26779810359272,
+          -23.53301123676897,
+          3.944925650334184
+        ],
+        "area": 0.27616984493287405
+      }
+    },
+    {
+      "faces": [
+        15,
+        183
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00011659410373440844,
+      "new_face_signature": {
+        "center": [
+          217.26678264283626,
+          6.875284270047181,
+          4.095427625798928
+        ],
+        "area": 0.09879342434449773
+      }
+    },
+    {
+      "faces": [
+        67,
+        108
+      ],
+      "rejected": "La reunión abandona el soporte previo: 0.0031267498412107055"
+    },
+    {
+      "faces": [
+        57,
+        58,
+        59,
+        60,
+        63,
+        64
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00013938267295089522,
+      "new_face_signature": {
+        "center": [
+          239.2417256322462,
+          -9.505567868745837,
+          2.72597241669355
+        ],
+        "area": 2.737799774666647
+      }
+    },
+    {
+      "faces": [
+        49,
+        50,
+        51,
+        54,
+        55,
+        56
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00020706224901620391,
+      "new_face_signature": {
+        "center": [
+          239.22376989378762,
+          -8.61861813862305,
+          2.640975520174183
+        ],
+        "area": 2.76477099174747
+      }
+    },
+    {
+      "faces": [
+        45,
+        46,
+        47,
+        48,
+        75,
+        76
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0001433927306998146,
+      "new_face_signature": {
+        "center": [
+          239.20498006040575,
+          -7.302073506588986,
+          2.573900028828966
+        ],
+        "area": 1.671017653584821
+      }
+    },
+    {
+      "faces": [
+        77,
+        78,
+        79
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.625952522027114e-05,
+      "new_face_signature": {
+        "center": [
+          239.18425321441956,
+          -8.89168727923159,
+          2.515813809250098
+        ],
+        "area": 2.1980018922153395
+      }
+    },
+    {
+      "faces": [
+        99,
+        100,
+        101,
+        102,
+        103,
+        104
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        99,
+        100
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.1679749499484692e-07,
+      "new_face_signature": {
+        "center": [
+          221.9639803917809,
+          8.926741811149,
+          8.963115534665866
+        ],
+        "area": 13.969661066798599
+      }
+    },
+    {
+      "faces": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        90,
+        91
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.726404401234019e-07,
+      "new_face_signature": {
+        "center": [
+          234.56778198200067,
+          8.926741811149261,
+          5.890799755169697
+        ],
+        "area": 0.30096854468647855
+      }
+    },
+    {
+      "faces": [
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        101,
+        102
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.0832399014118355e-07,
+      "new_face_signature": {
+        "center": [
+          221.9583539037655,
+          8.926741811148965,
+          5.8632770713698745
+        ],
+        "area": 0.2903408879209986
+      }
+    },
+    {
+      "faces": [
+        87,
+        88,
+        89
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.349099231785407e-07,
+      "new_face_signature": {
+        "center": [
+          234.5832614178079,
+          8.926741811148599,
+          5.747654090382238
+        ],
+        "area": 0.36190148817090806
+      }
+    },
+    {
+      "faces": [
+        103,
+        104,
+        105
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.347218961014843e-07,
+      "new_face_signature": {
+        "center": [
+          221.94112709609612,
+          8.926741811149267,
+          5.725665333620226
+        ],
+        "area": 0.3481574940667152
+      }
+    },
+    {
+      "faces": [
+        92,
+        93
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 6.438664212687599e-07,
+      "new_face_signature": {
+        "center": [
+          234.5639976260225,
+          8.926741811149,
+          8.978066528712187
+        ],
+        "area": 13.900886202783866
+      }
+    },
+    {
+      "faces": [
+        159,
+        160,
+        161
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        159,
+        160
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00011957956133943754,
+      "new_face_signature": {
+        "center": [
+          212.90885593103448,
+          -7.2591230828568865,
+          10.799139190494156
+        ],
+        "area": 0.1375896358488173
+      }
+    },
+    {
+      "faces": [
+        36,
+        37,
+        38
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        36,
+        37
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        37,
+        38
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.2638058781061243e-05,
+      "new_face_signature": {
+        "center": [
+          243.62037749271246,
+          -10.192301452915027,
+          10.79921582915868
+        ],
+        "area": 0.11961168371379301
+      }
+    },
+    {
+      "faces": [
+        61,
+        62,
+        69,
+        70,
+        110,
+        111
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004111671905744994,
+      "new_face_signature": {
+        "center": [
+          239.24422708584027,
+          7.035752588348363,
+          3.934367418519247
+        ],
+        "area": 0.2015994113253816
+      }
+    },
+    {
+      "faces": [
+        52,
+        53,
+        72,
+        73,
+        112,
+        113
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002937929590478332,
+      "new_face_signature": {
+        "center": [
+          239.22464951064154,
+          7.132554157764145,
+          3.887828110719418
+        ],
+        "area": 0.18964282678451183
+      }
+    },
+    {
+      "faces": [
+        44,
+        74,
+        114
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.545172919838285e-05,
+      "new_face_signature": {
+        "center": [
+          239.20811013714285,
+          7.193042221522241,
+          3.791689348481494
+        ],
+        "area": 0.10751275260473626
+      }
+    },
+    {
+      "faces": [
+        42,
+        82,
+        83
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00031975507016344804,
+      "new_face_signature": {
+        "center": [
+          239.18730143540196,
+          7.252870072052553,
+          3.770367921661319
+        ],
+        "area": 0.1949865733644796
+      }
+    },
+    {
+      "faces": [
+        21,
+        140
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        170,
+        174
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        17,
+        18
+      ],
+      "rejected": "El loft no conserva límites isoparamétricos"
+    },
+    {
+      "faces": [
+        4,
+        178
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        171,
+        172
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        17,
+        18
+      ],
+      "rejected": "El loft no conserva límites isoparamétricos"
+    },
+    {
+      "faces": [
+        21,
+        140
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        171,
+        172
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        4,
+        178
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "faces": [
+        170,
+        174
+      ],
+      "rejected": "Presupuesto de lados compuestos"
+    },
+    {
+      "global_volume_constraint": true,
+      "target_mm3": 3281.3194993837915,
+      "initial_mm3": 3281.2342697320396,
+      "final_mm3": 3281.2342697320396,
+      "interior_pole_shift_mm": 0.0,
+      "boundary_and_tangents_unchanged": true,
+      "improves_source_volume": true,
+      "source_volume_mm3": 3280.5115080975324
+    }
+  ],
+  "tolerancias_nativas": {
+    "antes_mm": 1e-07,
+    "despues_mm": 1e-07,
+    "asignadas_por_occt": true,
+    "limites_geometricos_R13_modificados": false
+  },
+  "material_original": {
+    "puntos": 2998,
+    "puntos_extra_contacto": 0,
+    "discrepancias": 0,
+    "banda_excluida_mm": 0.002
+  },
+  "original_sha256": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+  "original_usuario_sha256": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+  "base_sha256": "f60ca8b58608229d3a8dc3b2d3b4d5945c0be1634a1ff99283b2760e76dd97c2",
+  "step_sha256": "a0094ea92e111fa3eb53b5440764c0308b62e5beb1e214bfdd1696eb3ac301f1",
+  "calidad": {
+    "integridad_cad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 409,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0,
+      "brep_exacto": true
+    },
+    "perfil_validacion": {
+      "id": "precision",
+      "nombre": "Precisión",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    },
+    "caras_step": 134,
+    "bytes_step": 1843387,
+    "volumen_error_pct": 0.022032,
+    "caja_error_mm": 0.000561,
+    "caja_error_analitico_mm": 0.000561,
+    "caja_modo_verificacion": "OpenCascade",
+    "distancia_stl_step_mm": {
+      "media": 1.2e-05,
+      "p95": 5.8e-05,
+      "p99": 0.000195,
+      "max_muestreado": 0.000961,
+      "muestras": 800
+    },
+    "distancia_step_stl_mm": {
+      "media": 0.000116,
+      "p95": 0.000571,
+      "p99": 0.001004,
+      "max_muestreado": 0.003144,
+      "muestras": 800
+    },
+    "contraste_muestreo_cad": {
+      "muestras_proyectadas": 0,
+      "max_distancia_al_brep_mm": 0.0
+    },
+    "tipos_caras": {
+      "GeomAbs_Plane": 57,
+      "GeomAbs_BSplineSurface": 38,
+      "GeomAbs_SurfaceOfExtrusion": 14,
+      "GeomAbs_Cylinder": 25
+    },
+    "limites_validacion": {
+      "volumen_error_max_pct": 0.5,
+      "caja_error_max_mm": 0.02,
+      "p95_superficie_max_mm": 0.02,
+      "desviacion_max_observada_mm": 0.06,
+      "margen_preparacion_mm": 0.0
+    },
+    "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+    "autointerferencias_occ": false,
+    "interferencias_comprobadas_en_frio": true,
+    "control_cad_reutilizado_por_sha256": false,
+    "sin_objetos_sueltos_en_step": true,
+    "inspeccion_densa": {
+      "stl_a_cad": {
+        "muestras": 3000,
+        "p95_mm": 0.0005562646632755181,
+        "max_mm": 0.0011450267303325216,
+        "zonas_sospechosas": []
+      },
+      "cad_a_stl": {
+        "muestras": 129243,
+        "p95_mm": 0.0008076943045342527,
+        "max_mm": 0.0034376406993212602,
+        "zonas_sospechosas": []
+      },
+      "limite_p95_mm": 0.02,
+      "limite_max_mm": 0.06,
+      "contraste_muestras_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "nota": "Muestreo determinista, no garantía Hausdorff global.",
+      "aceptado": true
+    },
+    "precision_alcanzada": "precision",
+    "desviacion_max_verificada_mm": 0.003438,
+    "limites_precision_originales": {
+      "caja_mm": 0.02,
+      "p95_mm": 0.02,
+      "max_mm": 0.06
+    }
+  },
+  "topologia_material": {
+    "euler_malla": -14,
+    "euler_brep": -14,
+    "shells": 1,
+    "cavidades_preservadas": 0,
+    "probes_cavidades": []
+  },
+  "mallado_fino": {
+    "resoluciones": [
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": -14,
+        "intersecciones_cgal": 0,
+        "caras": 331226,
+        "deflexion_mm": 0.00025,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0034362590963507526,
+          "p95_mm": 0.0004941244050084748,
+          "muestras": [
+            500825,
+            20987
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": -14,
+        "intersecciones_cgal": 0,
+        "caras": 172064,
+        "deflexion_mm": 0.0005,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0034374333372640957,
+          "p95_mm": 0.0004927185062571951,
+          "muestras": [
+            262082,
+            20987
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": -14,
+        "intersecciones_cgal": 0,
+        "caras": 94170,
+        "deflexion_mm": 0.001,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0034362590963507526,
+          "p95_mm": 0.000594503276314759,
+          "muestras": [
+            145241,
+            20987
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      }
+    ],
+    "step_modificado": false,
+    "limites_geometricos_modificados": false
+  },
+  "brep_exacto": true,
+  "revision_cad": "R8_BOP_FRIO_20261027",
+  "mode": "regiones",
+  "caras_antes": 190,
+  "caras_despues": 134,
+  "limites_aceptacion_modificados": false,
+  "seconds": 140.60551708399726
+}

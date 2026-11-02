@@ -1,0 +1,16 @@
+{
+  "verificado": true,
+  "archivos": [
+    {
+      "nombre": "perfeccion_Visualizador_R14_EXPERIMENTAL_COMPLETA.zip",
+      "bytes": 2669089,
+      "sha256": "1488929c0a216e2ffc119c7957c6a918c62dc17c4725fd04f02b9737adb8f8b2"
+    },
+    {
+      "nombre": "perfeccion_Visualizador_R14_ARCHIVOS_MODIFICADOS.zip",
+      "bytes": 129825,
+      "sha256": "93713fbefe8588c735f4ba52139363f742b8a7b788c5000c8445843c51d11722"
+    }
+  ],
+  "fuentes_verificadas": 310
+}

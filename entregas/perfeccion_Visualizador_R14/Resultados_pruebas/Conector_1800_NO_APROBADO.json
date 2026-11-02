@@ -1,0 +1,163 @@
+{
+  "ok": false,
+  "fases": [
+    {
+      "fase": "lectura_y_comprobacion_de_entradas",
+      "segundos": 0.29162841200013645
+    },
+    {
+      "fase": "deteccion_medida_en_STL",
+      "segundos": 51.01482083400333
+    },
+    {
+      "fase": "operaciones_CAD_locales",
+      "segundos": 53.97378133500024
+    },
+    {
+      "fase": "exportacion_y_reapertura_STEP",
+      "segundos": 525.1003653600019
+    },
+    {
+      "fase": "CAD_exacto_interferencias_y_distancia_original",
+      "segundos": 747.5428372780007
+    },
+    {
+      "fase": "tres_mallados_finos",
+      "segundos": 1070.0758311360005
+    },
+    {
+      "fase": "material_del_original",
+      "segundos": 1173.7061064160007
+    }
+  ],
+  "segmentacion_local": {
+    "axes": 1,
+    "local_hypotheses": 17,
+    "complete_rings": 1,
+    "regions": [
+      {
+        "source_facets": 292,
+        "radius_mm": 27.4956847432448,
+        "radial_bound_mm": 0.004316950882568449,
+        "seed_local": true
+      }
+    ]
+  },
+  "construccion": [
+    {
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "center": [
+        -2.971090716747716,
+        6.830137396511966,
+        3.851413948724592
+      ],
+      "radius": 27.4956847432448,
+      "nominal_fit_radius": 27.500000030944275,
+      "lo": -9.63013734882825,
+      "hi": 9.369863366427488,
+      "rmin": 27.493454881359575,
+      "rmax": 27.50000169412737,
+      "sign": 1,
+      "radial_bound_mm": 0.004316950882568449,
+      "source_facets": 292,
+      "profile_areas_mm2": [
+        2375.075648456188,
+        2375.0879956783597
+      ],
+      "source_profile_volume_mm3": 45126.59541760746,
+      "faces_before": 19998,
+      "faces_after": 19236,
+      "operation": "reconstruccion_banda_mediante_dos_booleanos",
+      "volume_delta_mm3": 5.240763130132109e-07,
+      "initial_source_volume_radius_mm": 27.4956847432448,
+      "previous_solid_volume_preserved": true
+    },
+    {
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "center": [
+        -2.9710908327874854,
+        7.231666898727417,
+        3.851414077971042
+      ],
+      "radius": 25.997578107642603,
+      "nominal_fit_radius": 25.999999978137467,
+      "lo": -5.231666898727417,
+      "hi": 11.968333864212036,
+      "rmin": 25.99381131853719,
+      "rmax": 26.00000171846967,
+      "sign": -1,
+      "radial_bound_mm": 0.0037667891054127267,
+      "source_facets": 480,
+      "profile_areas_mm2": [
+        2123.4951093909913,
+        2123.0493627502055
+      ],
+      "source_profile_volume_mm3": 36521.12568140628,
+      "faces_before": 19236,
+      "faces_after": 18623,
+      "operation": "reconstruccion_banda_mediante_dos_booleanos",
+      "volume_delta_mm3": 1.8189894035458565e-11,
+      "initial_source_volume_radius_mm": 25.99757909491936,
+      "previous_solid_volume_preserved": true
+    }
+  ],
+  "exportacion_solida": {
+    "tipo_entrada": "Compound",
+    "shell_cerrado_solidificado": false,
+    "solid_reconstruido_desde_frontera": true,
+    "banderas_cierre_antes": [
+      true
+    ],
+    "caras": 18623,
+    "aristas": 28712,
+    "shells": 1,
+    "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "auditoria_step_crudo": {
+      "ok": true,
+      "modified": false,
+      "corrected_bounds": [],
+      "audit": {
+        "ok": true,
+        "complete": true,
+        "solids": 1,
+        "shells": [
+          {
+            "shell": 16,
+            "faces": 18623,
+            "edges": 28712,
+            "errors": []
+          }
+        ],
+        "unsupported": [],
+        "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+      }
+    },
+    "ok": true,
+    "modo": "STEPControl_ManifoldSolidBrep",
+    "solidos_reimportados": 1,
+    "caras_reimportadas": 18623,
+    "tolerancia_max_mm": 2.0042579603844847e-07,
+    "step_sha256": "8314746e7a50c5758bbf45eb7c8262f3e46f7fa8d6471adcd78f39856fa2600a",
+    "requiere_validacion_original": true
+  },
+  "tolerancias_nativas": {
+    "antes_mm": 1e-07,
+    "despues_mm": 1.0852665053912426e-07,
+    "asignadas_por_occt": true,
+    "limites_geometricos_R13_modificados": false
+  },
+  "progreso_material": {
+    "puntos_comprobados": 2900,
+    "puntos_previstos": 2999,
+    "segundos": 1789.7933679690032
+  }
+}

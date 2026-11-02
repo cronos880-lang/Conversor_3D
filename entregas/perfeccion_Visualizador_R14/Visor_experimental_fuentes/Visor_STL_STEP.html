@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visor STL · R14 experimental · 02/11/2026</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0e121b; --surface:#171d28; --edge:#2c3544; --text:#e9eef7; --muted:#8e9caf; --blue:#458fff; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; width:100%; height:100%; overflow:hidden; font-family:system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); }
+    .app { display:flex; flex-direction:column; width:100%; height:100dvh; min-height:300px; }
+    .toolbar { height:70px; flex-shrink:0; display:flex; align-items:center; gap:12px; padding:0 22px; background:var(--surface); border-bottom:1px solid var(--edge); }
+    .brand { display:flex; align-items:center; gap:12px; margin-right:auto; min-width:0; }
+    .brand-icon { width:34px; height:34px; border:1px solid #3c526e; background:#1c3049; color:#8ac4ff; border-radius:10px; display:grid; place-items:center; }
+    .brand-name { font-weight:650; font-size:16px; letter-spacing:.15px; white-space:nowrap; }
+    .brand-subtitle { font-size:11px; color:var(--muted); margin-top:1px; }
+    .buttons { display:flex; gap:9px; }
+    button { font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif; cursor:pointer; border-radius:9px; min-height:38px; padding:0 16px; border:1px solid #3a4658; color:#e5ebf5; background:#242c39; transition:background .12s,border-color .12s; }
+    button:disabled {opacity:.4;cursor:not-allowed;}
+    button:hover:not(:disabled) { background:#303b4d; border-color:#55647a; }
+    button:focus-visible { outline:2px solid #8ec4ff; outline-offset:2px; }
+    button.primary { background:#3579e5; color:white; border-color:#4187f8; }
+    button.primary:hover { background:#498af0; }
+    button svg { vertical-align:middle; margin-right:6px; }
+    .viewport { position:relative; min-height:0; flex:1; background:radial-gradient(ellipse at 55% 42%, #212b3a 0%, #111924 70%, #0b111a 100%); }
+    #view { display:block; width:100%; height:100%; cursor:grab; touch-action:none; }
+    #view.dragging { cursor:grabbing; }
+    .view-pill { position:absolute; left:19px; top:18px; font-size:12px; color:#acb8c8; background:#101722ce; border:1px solid #303c4c; padding:6px 10px; border-radius:8px; pointer-events:none; }
+    .empty { position:absolute; top:47%; left:50%; transform:translate(-50%,-50%); pointer-events:none; text-align:center; width:min(90%,400px); }
+    .empty-symbol { width:64px; height:64px; display:grid; place-items:center; margin:0 auto 16px; color:#7c9cbf; border:1px dashed #53647a; border-radius:16px; background:#1d29383f; }
+    .empty h2 { font-size:19px; font-weight:600; margin:0 0 7px; }
+    .empty p { font-size:13px; line-height:1.6; color:#91a1b5; margin:0; }
+    .hint { position:absolute; bottom:17px; left:19px; pointer-events:none; font-size:12px; color:#9aa9bd; padding:9px 11px; background:#101721bd; border:1px solid #2a3443; border-radius:9px; }
+    .hint b { color:#c2cfdf; font-weight:600; }
+    .axis { position:absolute; right:16px; bottom:12px; width:100px; height:100px; pointer-events:none; }
+    .drop { display:none; position:absolute; inset:11px; z-index:4; border:2px dashed #75afff; background:#1a355bd9; border-radius:13px; align-items:center; justify-content:center; font-size:20px; font-weight:600; pointer-events:none; }
+    .drop.active { display:flex; }
+    .status { flex-shrink:0; background:#171d28; min-height:39px; border-top:1px solid var(--edge); display:flex; align-items:center; justify-content:space-between; gap:16px; padding:9px 20px; font-size:12px; color:#9babbc; }
+    .status .filename { color:#dae3ef; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .status label { display:flex; align-items:center; gap:6px; white-space:nowrap; }
+    .status select { color:#dae3ef; background:#202938; border:1px solid #42516a; border-radius:5px; padding:4px; font:inherit; }
+    .status-right { display:flex; align-items:center; justify-content:flex-end; gap:9px; min-width:0; max-width:78%; }
+    .status .details { text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .progress-num { flex-shrink:0; color:#b9d7ff; font-variant-numeric:tabular-nums; font-size:13px; }
+    .progress-num.failed { color:#ffa1a1; }
+    .error-toast { display:none; position:absolute; top:60px; left:50%; transform:translateX(-50%); color:#ffe1e1; background:#58252a; border:1px solid #aa4b50; padding:12px 17px; max-width:90%; border-radius:8px; box-shadow:0 9px 35px #0008; font-size:13px; text-align:center; z-index:9; }
+    @media (max-width:650px) { .toolbar { padding:0 12px; gap:8px; height:62px; } .brand { gap:8px; } .brand-icon{width:30px;height:30px} .brand-name{font-size:14px;} .brand-subtitle{display:none;} .buttons{gap:6px} button { padding:0 10px; min-height:36px; font-size:12px;} .hint{font-size:11px;right:126px;line-height:1.6;} .status{padding:8px 12px;font-size:11px;} .status .details{font-size:10px;} }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="toolbar">
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 7 9 5v10l-9-5V7Zm18 0-9 5v10l9-5V7Z"/></svg>
+      </div>
+      <div><div class="brand-name" title="R14 experimental · 02/11/2026">Visor STL · R14 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
+    </div>
+    <div class="buttons">
+      <button id="newBtn" title="Limpiar el visor (Ctrl+N)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Nuevo
+      </button>
+      <button id="openBtn" class="primary" title="Importar un archivo STL (Ctrl+O)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m-5 5 5-5 5 5M4 16v4h16v-4"/></svg>Importar STL
+      </button>
+      <button id="convertBtn" disabled title="Convertir el STL en sólido STEP">Convertir</button>
+      <button id="exportBtn" disabled title="Guardar el STEP con el nombre que elijas">Exportar STEP</button>
+    </div>
+  </header>
+  <main class="viewport" id="viewport">
+    <canvas id="view" aria-label="Vista 3D interactiva del STL"></canvas>
+    <div class="view-pill">Perspectiva · Z arriba</div>
+    <div class="empty" id="empty">
+      <div class="empty-symbol"><svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Zm-9 5v10l9 5 9-5V7M12 12v10"/></svg></div>
+      <h2>Ningún modelo cargado</h2>
+      <p>Haz clic en <strong>Importar STL</strong> o arrastra aquí un archivo .stl para visualizarlo.</p>
+    </div>
+    <div class="hint"><b>Girar:</b> clic izquierdo &nbsp;·&nbsp; <b>Mover:</b> clic derecho &nbsp;·&nbsp; <b>Zoom:</b> rueda &nbsp;·&nbsp; <b>Encuadrar:</b> F</div>
+    <canvas class="axis" id="axis" width="200" height="200" aria-hidden="true"></canvas>
+    <div class="drop" id="drop">Suelta el archivo STL</div>
+    <div class="error-toast" id="error" role="alert"></div>
+  </main>
+  <footer class="status"><span id="fileName" class="filename">Sin archivo</span><label>Modo <select id="conversionProfile" aria-label="Modo de conversión" title="Automático elige las estrategias y conserva los límites de precisión. Impresión 3D es opcional: permite hasta 0,04 mm en cotas y 0,08 mm de desviación, buscando mayor precisión cuando es posible."><option value="precision" selected>Automático (precisión)</option><option value="impresion">Impresión 3D</option></select></label><span class="status-right"><strong class="progress-num" id="conversionPercent" hidden aria-live="polite">0 %</strong><span class="details" id="details">Listo para importar STL</span></span></footer>
+</div>
+<input type="file" id="fileInput" accept=".stl" hidden>
+<script>
+'use strict';
+(function () {
+  let currentFile = null;
+  let stepBlob = null;
+  let activeOp = null;
+  let pendingStop = Promise.resolve();
+  let cancelInProgress = false;
+  let cancellationError = false;
+  const convertBtn = document.getElementById('convertBtn');
+  const exportBtn = document.getElementById('exportBtn');
+  const profileSelect = document.getElementById('conversionProfile');
+  let stepProfile='precision';
+  profileSelect.addEventListener('change',()=>{resetStep();details.textContent='Modo seleccionado: '+profileSelect.options[profileSelect.selectedIndex].text;});
+  function resetStep(){ stepBlob=null; exportBtn.disabled=true; convertBtn.disabled=!currentFile || !!activeOp || cancelInProgress || cancellationError; conversionPercent.hidden=true; conversionPercent.classList.remove('failed'); }
+  const canvas = document.getElementById('view');
+  const viewport = document.getElementById('viewport');
+  const fileInput = document.getElementById('fileInput');
+  const empty = document.getElementById('empty');
+  const fileName = document.getElementById('fileName');
+  const details = document.getElementById('details');
+  const conversionPercent = document.getElementById('conversionPercent');
+  const toast = document.getElementById('error');
+  const drop = document.getElementById('drop');
+  const axis = document.getElementById('axis');
+  const axisCtx = axis.getContext('2d');
+  const gl = canvas.getContext('webgl', {antialias:true, alpha:true, depth:true}) || canvas.getContext('experimental-webgl', {antialias:true, alpha:true, depth:true});
+  if (!gl) {
+    empty.querySelector('h2').textContent = 'WebGL no disponible';
+    empty.querySelector('p').textContent = 'Este navegador necesita WebGL para mostrar modelos 3D. Prueba con Chrome, Edge o Firefox y habilita la aceleración gráfica.';
+    document.getElementById('openBtn').disabled = true;
+    return;
+  }
+  const vsMesh = `attribute vec3 aPos; attribute vec3 aNormal;
+  uniform mat4 uMVP; varying vec3 vNormal; varying vec3 vPos;
+  void main(){ gl_Position = uMVP * vec4(aPos,1.); vPos=aPos; vNormal=aNormal; }`;
+  const fsMesh = `precision mediump float; varying vec3 vNormal; varying vec3 vPos;
+  uniform vec3 uEye;
+  void main(){
+    vec3 n = normalize(vNormal);
+    vec3 light = normalize(vec3(-0.35,-0.5,0.88));
+    float diffuse = abs(dot(n,light));
+    vec3 viewDir = normalize(uEye - vPos);
+    vec3 reflected = reflect(-light, faceforward(n,-viewDir,n));
+    float specular = pow(max(dot(reflected,viewDir),0.),24.) * 0.13;
+    vec3 base = vec3(.24,.67,.89);
+    vec3 col = base * (.38 + .66*diffuse) + vec3(specular);
+    gl_FragColor=vec4(col,1.);
+  }`;
+  const vsLines = `attribute vec3 aPos; attribute vec3 aColor; uniform mat4 uMVP;
+  varying vec3 vColor; void main(){gl_Position=uMVP*vec4(aPos,1.);vColor=aColor;}`;
+  const fsLines = `precision mediump float; varying vec3 vColor; void main(){gl_FragColor=vec4(vColor,1.);}`;
+  function shader(type,source){ const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){throw Error(gl.getShaderInfoLog(s));}return s; }
+  function program(v,f){const p=gl.createProgram();gl.attachShader(p,shader(gl.VERTEX_SHADER,v));gl.attachShader(p,shader(gl.FRAGMENT_SHADER,f));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(p));return p;}
+  const meshProgram=program(vsMesh,fsMesh), lineProgram=program(vsLines,fsLines);
+  const meshAtt={pos:gl.getAttribLocation(meshProgram,'aPos'),normal:gl.getAttribLocation(meshProgram,'aNormal'),mvp:gl.getUniformLocation(meshProgram,'uMVP'),eye:gl.getUniformLocation(meshProgram,'uEye')};
+  const lineAtt={pos:gl.getAttribLocation(lineProgram,'aPos'),color:gl.getAttribLocation(lineProgram,'aColor'),mvp:gl.getUniformLocation(lineProgram,'uMVP')};
+  let meshBuffer=null,meshVertexCount=0,gridBuffer=null,gridVertexCount=0,modelBounds=null;
+  let yaw=-0.80,pitch=0.49,distance=6.8,target=[0,0,0],dragging=null,needsRender=true;
+  const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+  const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+  const norm=a=>{const l=Math.hypot(a[0],a[1],a[2])||1;return a.map(v=>v/l);};
+  function camera(){
+    const d=[Math.cos(pitch)*Math.cos(yaw),Math.cos(pitch)*Math.sin(yaw),Math.sin(pitch)];
+    const eye=target.map((v,i)=>v+d[i]*distance), back=norm(d), right=norm(cross([0,0,1],back)), up=cross(back,right);
+    return {eye,right,up,back};
+  }
+  function matrixView(c){const {eye,right:r,up:u,back:b}=c;return new Float32Array([
+    r[0],u[0],b[0],0, r[1],u[1],b[1],0, r[2],u[2],b[2],0,
+    -dot(r,eye),-dot(u,eye),-dot(b,eye),1
+  ]);}
+  function matrixPerspective(aspect){const f=1/Math.tan(Math.PI/8),n=.025,far=300;return new Float32Array([f/aspect,0,0,0,0,f,0,0,0,0,(far+n)/(n-far),-1,0,0,2*far*n/(n-far),0]);}
+  function matrixMultiply(a,b){const out=new Float32Array(16);for(let col=0;col<4;col++)for(let row=0;row<4;row++)for(let k=0;k<4;k++)out[col*4+row]+=a[k*4+row]*b[col*4+k];return out;}
+  function nextFrame(){needsRender=true;}
+  function render(){
+    requestAnimationFrame(render);
+    if(!needsRender)return;needsRender=false;
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    const w=Math.max(1,Math.round(canvas.clientWidth*dpr)),h=Math.max(1,Math.round(canvas.clientHeight*dpr));
+    if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
+    gl.viewport(0,0,w,h);
+    gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+    gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);
+    const cam=camera(); const mvp=matrixMultiply(matrixPerspective(w/h),matrixView(cam));
+    if(gridBuffer){
+      gl.useProgram(lineProgram); gl.bindBuffer(gl.ARRAY_BUFFER,gridBuffer);
+      gl.enableVertexAttribArray(lineAtt.pos);gl.enableVertexAttribArray(lineAtt.color);
+      gl.vertexAttribPointer(lineAtt.pos,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(lineAtt.color,3,gl.FLOAT,false,24,12);
+      gl.uniformMatrix4fv(lineAtt.mvp,false,mvp);
+      gl.drawArrays(gl.LINES,0,gridVertexCount);
+      gl.disableVertexAttribArray(lineAtt.pos);gl.disableVertexAttribArray(lineAtt.color);
+    }
+    if(meshBuffer){
+      gl.useProgram(meshProgram);gl.bindBuffer(gl.ARRAY_BUFFER,meshBuffer);
+      gl.enableVertexAttribArray(meshAtt.pos);gl.enableVertexAttribArray(meshAtt.normal);
+      gl.vertexAttribPointer(meshAtt.pos,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(meshAtt.normal,3,gl.FLOAT,false,24,12);
+      gl.uniformMatrix4fv(meshAtt.mvp,false,mvp);gl.uniform3fv(meshAtt.eye,cam.eye);
+      gl.disable(gl.CULL_FACE);
+      gl.drawArrays(gl.TRIANGLES,0,meshVertexCount);
+      gl.disableVertexAttribArray(meshAtt.pos);gl.disableVertexAttribArray(meshAtt.normal);
+    }
+    drawAxes(cam);
+  }
+  function drawAxes(cam){
+    const ctx=axisCtx; ctx.clearRect(0,0,200,200);
+    const c=[95,105], scale=52;
+    const axes=[{v:[1,0,0],color:'#f36c71',name:'X'},{v:[0,1,0],color:'#5bd79f',name:'Y'},{v:[0,0,1],color:'#72afff',name:'Z'}];
+    for(const a of axes){a.x=c[0]+dot(a.v,cam.right)*scale;a.y=c[1]-dot(a.v,cam.up)*scale;}
+    axes.sort((a,b)=>dot(a.v,cam.back)-dot(b.v,cam.back));
+    ctx.lineWidth=5;ctx.lineCap='round';ctx.font='bold 22px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';
+    for(const a of axes){ctx.strokeStyle=a.color;ctx.beginPath();ctx.moveTo(c[0],c[1]);ctx.lineTo(a.x,a.y);ctx.stroke();ctx.fillStyle=a.color;ctx.fillText(a.name,a.x+(a.x>c[0]?10:-10),a.y+(a.y>c[1]?9:-9));}
+    ctx.beginPath();ctx.fillStyle='#d8e2ef';ctx.arc(c[0],c[1],5,0,Math.PI*2);ctx.fill();
+  }
+  function putLine(a,b,color,out){out.push(...a,...color,...b,...color);}
+  function makeGrid(floor=-1.55){
+    const points=[],count=10,step=.5,r=count*step;
+    for(let i=-count;i<=count;i++){
+      const s=i*step,col=i===0?[.30,.37,.47]:[.19,.24,.31];
+      putLine([-r,s,floor],[r,s,floor],col,points);
+      putLine([s,-r,floor],[s,r,floor],col,points);
+    }
+    const z=floor+.004;
+    putLine([-r,0,z],[r,0,z],[.66,.25,.27],points);
+    putLine([0,-r,z],[0,r,z],[.23,.61,.45],points);
+    if(gridBuffer)gl.deleteBuffer(gridBuffer);gridBuffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,gridBuffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(points),gl.STATIC_DRAW);gridVertexCount=points.length/6;nextFrame();
+  }
+  function resetCamera(){ yaw=-.80; pitch=.49;distance=6.8;target=[0,0,0];nextFrame(); }
+  function clearModel(){
+    // Nuevo interrumpe el proceso CAD real antes de permitir otra conversión.
+    detenerConversionActiva();
+    if(meshBuffer){gl.deleteBuffer(meshBuffer);meshBuffer=null;}
+    meshVertexCount=0;modelBounds=null;
+    currentFile=null;resetStep();
+    fileName.textContent='Sin archivo';details.textContent='Listo para importar STL';empty.style.display='block';
+    fileInput.value='';toast.style.display='none';
+    makeGrid(-1.5);resetCamera();
+  }
+  function showError(msg){toast.textContent=msg;toast.style.display='block';setTimeout(()=>{if(toast.textContent===msg)toast.style.display='none';},6500);}
+  function readSTL(buffer){
+    const dv=new DataView(buffer),bytes=new Uint8Array(buffer);
+    if(buffer.byteLength<15)throw Error('El archivo está vacío o no tiene un formato STL válido.');
+    let binary=false,triCount=0;
+    if(buffer.byteLength>=84){triCount=dv.getUint32(80,true);const needed=84+triCount*50;
+      // El campo de 4 bytes en el offset 80 identifica el tamaño de un STL binario.
+      if(triCount>0 && needed<=buffer.byteLength)binary=true;
+    }
+    let positions,triangles;
+    if(binary){
+      if(triCount>2500000)throw Error('El STL es demasiado grande para este visor (más de 2,5 millones de triángulos).');
+      triangles=triCount;positions=new Float32Array(triangles*9);
+      for(let i=0;i<triangles;i++){
+        const base=84+i*50;
+        for(let j=0;j<9;j++)positions[i*9+j]=dv.getFloat32(base+12+j*4,true);
+      }
+    }else{
+      let text;
+      try{text=new TextDecoder('utf-8',{fatal:false}).decode(bytes);}catch(e){throw Error('No se pudo leer el archivo STL.');}
+      const number='([+-]?(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][+-]?\\d+)?)';
+      const regex=new RegExp('\\bvertex\\s+'+number+'\\s+'+number+'\\s+'+number,'gi');
+      const nums=[];let match;
+      while((match=regex.exec(text))!==null){nums.push(+match[1],+match[2],+match[3]);if(nums.length>22500000)throw Error('El STL es demasiado grande.');}
+      if(nums.length===0||nums.length%9!==0)throw Error('El STL no contiene triángulos válidos.');
+      positions=new Float32Array(nums);triangles=nums.length/9;
+    }
+    const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];
+    for(let i=0;i<positions.length;i+=3){for(let k=0;k<3;k++){
+      const v=positions[i+k];if(!Number.isFinite(v))throw Error('El STL contiene coordenadas no válidas.');
+      min[k]=Math.min(min[k],v);max[k]=Math.max(max[k],v);
+    }}
+    const size=max.map((v,i)=>v-min[i]),longest=Math.max(...size);
+    if(!(longest>0))throw Error('El STL no tiene dimensiones válidas.');
+    const scale=3/longest,center=max.map((v,i)=>(v+min[i])*.5);
+    const interleaved=new Float32Array(triangles*18);
+    let out=0;
+    for(let i=0;i<positions.length;i+=9){
+      const a=[(positions[i]-center[0])*scale,(positions[i+1]-center[1])*scale,(positions[i+2]-center[2])*scale];
+      const b=[(positions[i+3]-center[0])*scale,(positions[i+4]-center[1])*scale,(positions[i+5]-center[2])*scale];
+      const c=[(positions[i+6]-center[0])*scale,(positions[i+7]-center[1])*scale,(positions[i+8]-center[2])*scale];
+      const normal=norm(cross(b.map((v,k)=>v-a[k]),c.map((v,k)=>v-a[k])));
+      for(const p of [a,b,c]){interleaved.set(p,out);interleaved.set(normal,out+3);out+=6;}
+    }
+    return {data:interleaved,triangles,size,floor:(min[2]-center[2])*scale-.045,format:binary?'Binario':'ASCII'};
+  }
+  async function importFile(file){
+    if(!file)return;
+    if(!/\.stl$/i.test(file.name)){showError('Selecciona un archivo con extensión .stl');return;}
+    if(file.size>300*1024*1024){showError('El archivo excede el límite de 300 MB de este visor.');return;}
+    // Un fichero no válido no debe cancelar una conversión legítima.
+    detenerConversionActiva();
+    try{
+      const buf=await file.arrayBuffer();const result=readSTL(buf);
+      const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,result.data,gl.STATIC_DRAW);
+      const glError=gl.getError();if(glError!==gl.NO_ERROR){gl.deleteBuffer(buffer);throw Error('No hay suficiente memoria gráfica para este modelo.');}
+      if(meshBuffer)gl.deleteBuffer(meshBuffer);
+      meshBuffer=buffer;meshVertexCount=result.triangles*3;modelBounds=result.size;
+      currentFile=file;resetStep();
+      fileName.textContent=file.name;
+      const fmt=n=>Number(n.toFixed(3)).toLocaleString('es-ES',{maximumFractionDigits:3});
+      details.textContent=result.triangles.toLocaleString('es-ES')+' triángulos · '+result.format+' · '+result.size.map(fmt).join(' × ')+' unidades';
+      empty.style.display='none';toast.style.display='none';makeGrid(result.floor);resetCamera();
+    }catch(e){console.error(e);showError('No se pudo importar: '+(e.message||'archivo inválido'));}
+  }
+  // La conversión puede durar minutos; no mantener una única petición HTTP abierta.
+  // El estado se consulta periódicamente para distinguir fallos reales del motor
+  // de una pérdida de conexión al servidor local.
+  async function solicitarJSON(url,options){
+    let response;
+    try {response=await fetch(url,options);}
+    catch(_){throw Error('No hay conexión con el servidor local. Comprueba que Iniciar.bat sigue abierto y revisa Registros_Conversion.');}
+    if(!response.ok){
+      let msg='Error HTTP '+response.status;
+      try{const body=await response.json();msg=body.detail||msg;}catch(_){}
+      throw Error(msg);
+    }
+    return response.json();
+  }
+  const pausa=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  function detenerConversionActiva(){
+    const op=activeOp;
+    if(!op || op.cancelled)return pendingStop;
+    op.cancelled=true;
+    cancelInProgress=true;
+    convertBtn.disabled=true;
+    const stopTask=(async()=>{
+      // Puede pulsarse Nuevo durante el POST inicial, antes de recibir el id.
+      // Esperar ese id garantiza que no queden procesos huérfanos.
+      const id=await op.startPromise;
+      if(!id)return;
+      await solicitarJSON('/cancelar-conversion/'+id,{method:'POST'});
+      for(let k=0;k<30;k++){
+        const state=await solicitarJSON('/estado-conversion/'+id,{cache:'no-store'});
+        if(['cancelado','terminado','error'].includes(state.estado))return;
+        await pausa(500);
+      }
+      throw Error('No se ha podido detener el motor. Revisa Registros_Conversion.');
+    })();
+    pendingStop=Promise.all([pendingStop,stopTask]).then(()=>{
+      cancellationError=false;
+    }).catch(err=>{
+      cancellationError=true;
+      showError('Error al cancelar: '+(err.message||err));
+    }).finally(()=>{
+      cancelInProgress=false;
+      convertBtn.disabled=!currentFile || !!activeOp && !activeOp.cancelled || cancellationError;
+    });
+    return pendingStop;
+  }
+  convertBtn.addEventListener('click', async()=>{
+    if(!currentFile || cancellationError)return;
+    const chosenFile=currentFile;
+    if(chosenFile.size>30*1024*1024){showError('El visor puede mostrar este STL, pero el conversor admite un máximo de 30 MB.');return;}
+    if(activeOp && !activeOp.cancelled)return;
+    const op={cancelled:false,startPromise:null,perfil:profileSelect.value};
+    activeOp=op;
+    convertBtn.disabled=true;
+    profileSelect.disabled=true;
+    exportBtn.disabled=true;
+    stepBlob=null;
+    conversionPercent.hidden=false;
+    conversionPercent.classList.remove('failed');
+    conversionPercent.textContent='0 %';
+    details.textContent='Iniciando conversión CAD…';
+    try{
+      await pendingStop;
+      if(op.cancelled || chosenFile!==currentFile)return;
+      const form=new FormData();form.append('archivo',chosenFile);form.append('perfil',op.perfil);
+      op.startPromise=solicitarJSON('/iniciar-conversion',{method:'POST',body:form}).then(started=>started.id);
+      const id=await op.startPromise;
+      if(op.cancelled){await detenerConversionActiva();return;}
+      while(!op.cancelled){
+        const state=await solicitarJSON('/estado-conversion/'+id,{cache:'no-store'});
+        if(op.cancelled || chosenFile!==currentFile)return;
+        if(state.estado==='error'){
+          const failure=Error((state.error||'La conversión ha fallado.')+(state.diagnostico?' · Diagnóstico: '+state.diagnostico:''));
+          if(state.malla_reparada)failure.reparado=state.archivos_reparacion&&state.archivos_reparacion.reparado;
+          throw failure;
+        }
+        if(state.estado==='cancelado' || state.estado==='cancelando')return;
+        conversionPercent.textContent=Math.max(0,Math.min(100,Number(state.porcentaje)||0))+' %';
+        if(state.estado==='terminado')break;
+        const inactive=Math.round(Number(state.sin_avances_segundos)||0);
+        const budget=state.presupuesto;
+        const notice=inactive>=30?(budget&&budget.cpu_activa?' · motor activo':' · sin nuevos avances '+inactive+' s'):'';
+        const timeLimit=budget?' · plazo '+Math.round((budget.plazo_actual_s||budget.inicial_s)/60)+' min':'';
+        details.textContent='Convirtiendo a STEP · '+Math.round(state.segundos)+' s'+timeLimit+' · '+(state.fase||'Reconstruyendo superficies')+notice;
+        await pausa(1500);
+      }
+      if(op.cancelled || chosenFile!==currentFile)return;
+      let response;
+      try{response=await fetch('/descargar-conversion/'+id,{cache:'no-store'});}
+      catch(_){throw Error('El STEP se creó, pero se perdió la conexión al descargarlo. Reabre el visor y consulta Registros_Conversion.');}
+      if(!response.ok)throw Error('No se pudo descargar el STEP generado (HTTP '+response.status+').');
+      const blob=await response.blob();
+      if(op.cancelled || chosenFile!==currentFile)return;
+      stepBlob=blob;
+      stepProfile=op.perfil;
+      exportBtn.disabled=false;
+      conversionPercent.textContent='100 %';
+      const reached=response.headers.get('X-STEP-Achieved-Profile')||op.perfil;
+      const deviationText=response.headers.get('X-STEP-Max-Deviation');
+      const deviation=deviationText&&deviationText.trim()?Number(deviationText):NaN;
+      const measured=Number.isFinite(deviation)?' · máx. medido '+deviation.toLocaleString('es-ES',{maximumFractionDigits:6})+' mm':'';
+      const recovery=response.headers.get('X-STEP-Method')==='recuperacion_facetada';
+      const rebuilt=response.headers.get('X-STEP-Method')==='contornos_compatibles';
+      const mixed=response.headers.get('X-STEP-Method')==='cilindros_locales_y_facetas';
+      details.textContent=(recovery?'STEP de recuperación · curvas facetadas · ':rebuilt?'STEP CAD verificado · curvas reconstruidas · ':mixed?'STEP mixto · cilindros reconstruidos y otras zonas facetadas · ':'STEP CAD generado · ')+(reached==='precision'?'Precisión alcanzada':'Límites de impresión')+measured+' · '+response.headers.get('X-STEP-Faces')+' caras';
+      details.title=details.textContent;
+    }catch(e){
+      console.error(e);
+      if(!op.cancelled && chosenFile===currentFile){
+        conversionPercent.classList.add('failed');details.textContent='Conversión detenida; consulta el motivo';showError(e.message||'Error de conversión');
+        if(e.reparado && /^\/reparacion\/[a-f0-9]+\/reparado$/.test(e.reparado)){
+          const link=document.createElement('a');link.href=e.reparado;link.textContent='Descargar malla regularizada (STL)';link.style.color='white';link.style.marginLeft='12px';toast.appendChild(link);
+        }
+      }
+    }finally{
+      if(activeOp===op)activeOp=null;
+      profileSelect.disabled=!!activeOp && !activeOp.cancelled;
+      convertBtn.disabled=!currentFile || cancelInProgress || cancellationError;
+    }
+  });
+  exportBtn.addEventListener('click',()=>{
+    if(!stepBlob)return;
+    const base=currentFile.name.replace(/\.stl$/i,'')+(stepProfile==='impresion'?'_impresion':'');
+    const name=prompt('Nombre del archivo STEP:',base);
+    if(name===null)return;
+    const safe=name.trim().replace(/[\\/:*?"<>|]/g,'_').replace(/\.step$/i,'');
+    if(!safe){showError('Introduce un nombre de archivo.');return;}
+    const url=URL.createObjectURL(stepBlob);
+    const link=document.createElement('a');link.href=url;link.download=safe+'.step';
+    document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  });
+  document.getElementById('newBtn').addEventListener('click',clearModel);
+  document.getElementById('openBtn').addEventListener('click',()=>fileInput.click());
+  fileInput.addEventListener('change',()=>{const f=fileInput.files&&fileInput.files[0];if(f)importFile(f);fileInput.value='';});
+  canvas.addEventListener('contextmenu',e=>e.preventDefault());
+  canvas.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse'&&e.button>2)return;
+    dragging={id:e.pointerId,x:e.clientX,y:e.clientY,mode:(e.button===2||e.button===1||e.shiftKey)?'pan':'rotate'};
+    canvas.setPointerCapture(e.pointerId);canvas.classList.add('dragging');
+  });
+  canvas.addEventListener('pointermove',e=>{
+    if(!dragging||dragging.id!==e.pointerId)return;
+    const dx=e.clientX-dragging.x,dy=e.clientY-dragging.y;dragging.x=e.clientX;dragging.y=e.clientY;
+    if(dragging.mode==='rotate'){yaw-=dx*.008;pitch=Math.max(-1.48,Math.min(1.48,pitch+dy*.008));}
+    else{const cam=camera();const perPixel=(2*distance*Math.tan(Math.PI/8))/Math.max(1,canvas.clientHeight);
+      for(let k=0;k<3;k++)target[k]+=(-dx*cam.right[k]+dy*cam.up[k])*perPixel;
+    }nextFrame();
+  });
+  function stopDrag(e){if(dragging&&e.pointerId===dragging.id){dragging=null;canvas.classList.remove('dragging');}}
+  canvas.addEventListener('pointerup',stopDrag);canvas.addEventListener('pointercancel',stopDrag);
+  canvas.addEventListener('wheel',e=>{e.preventDefault();distance=Math.max(.6,Math.min(150,distance*Math.exp(e.deltaY*.001)));nextFrame();},{passive:false});
+  window.addEventListener('keydown',e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='o'){e.preventDefault();fileInput.click();}
+    else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='n'){e.preventDefault();clearModel();}
+    else if(e.key.toLowerCase()==='f'&&!e.ctrlKey&&!e.metaKey){resetCamera();}
+  });
+  let dragDepth=0;
+  viewport.addEventListener('dragenter',e=>{e.preventDefault();dragDepth++;drop.classList.add('active');});
+  viewport.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='copy';});
+  viewport.addEventListener('dragleave',e=>{e.preventDefault();dragDepth=Math.max(0,dragDepth-1);if(!dragDepth)drop.classList.remove('active');});
+  viewport.addEventListener('drop',e=>{e.preventDefault();dragDepth=0;drop.classList.remove('active');if(e.dataTransfer.files.length)importFile(e.dataTransfer.files[0]);});
+  window.addEventListener('dragover',e=>e.preventDefault());window.addEventListener('drop',e=>e.preventDefault());
+  window.addEventListener('resize',nextFrame);
+  makeGrid(-1.5);resetCamera();render();
+  // Acceso mínimo para probar la aplicación sin modificar la interfaz.
+  window.__visorSTLTest={readSTL,clearModel};
+})();
+</script>
+</body>
+</html>

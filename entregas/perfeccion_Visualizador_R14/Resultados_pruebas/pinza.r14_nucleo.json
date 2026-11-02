@@ -1,0 +1,2863 @@
+{
+  "ok": true,
+  "fases": [
+    {
+      "fase": "lectura_y_comprobacion_de_entradas",
+      "segundos": 0.01054417599880253
+    },
+    {
+      "fase": "CAD_exacto_interferencias_y_distancia_original",
+      "segundos": 92.88366180699813
+    },
+    {
+      "fase": "material_del_original",
+      "segundos": 130.93944867699975
+    },
+    {
+      "fase": "validacion_completada",
+      "segundos": 138.05850198500048
+    }
+  ],
+  "cota_propuesta_local_mm": 0.0005,
+  "cilindros_preservados": [
+    {
+      "cara_resultado": 0,
+      "area_mm2": 16.419196586680936,
+      "cobertura_fuente_mm2": 16.419196586680936,
+      "fuentes": [
+        {
+          "cara_fuente": 3,
+          "area_interseccion_mm2": 16.419196586680936
+        }
+      ]
+    },
+    {
+      "cara_resultado": 1,
+      "area_mm2": 6.597340878805292,
+      "cobertura_fuente_mm2": 6.597340878805292,
+      "fuentes": [
+        {
+          "cara_fuente": 0,
+          "area_interseccion_mm2": 6.597340878805292
+        }
+      ]
+    },
+    {
+      "cara_resultado": 2,
+      "area_mm2": 75.95335785264865,
+      "cobertura_fuente_mm2": 75.95335785264865,
+      "fuentes": [
+        {
+          "cara_fuente": 5,
+          "area_interseccion_mm2": 75.95335785264865
+        }
+      ]
+    },
+    {
+      "cara_resultado": 3,
+      "area_mm2": 18.434575622380205,
+      "cobertura_fuente_mm2": 18.434575622380198,
+      "fuentes": [
+        {
+          "cara_fuente": 2,
+          "area_interseccion_mm2": 18.434575622380198
+        }
+      ]
+    },
+    {
+      "cara_resultado": 4,
+      "area_mm2": 18.4345306612018,
+      "cobertura_fuente_mm2": 18.4345306612018,
+      "fuentes": [
+        {
+          "cara_fuente": 1,
+          "area_interseccion_mm2": 18.4345306612018
+        }
+      ]
+    },
+    {
+      "cara_resultado": 5,
+      "area_mm2": 1.1964398722591045,
+      "cobertura_fuente_mm2": 1.1964398722591045,
+      "fuentes": [
+        {
+          "cara_fuente": 4,
+          "area_interseccion_mm2": 1.1964398722591045
+        }
+      ]
+    },
+    {
+      "cara_resultado": 6,
+      "area_mm2": 16.419186723351974,
+      "cobertura_fuente_mm2": 16.419186723351974,
+      "fuentes": [
+        {
+          "cara_fuente": 6,
+          "area_interseccion_mm2": 16.419186723351974
+        }
+      ]
+    },
+    {
+      "cara_resultado": 7,
+      "area_mm2": 0.9995149501332898,
+      "cobertura_fuente_mm2": 0.9995149501332898,
+      "fuentes": [
+        {
+          "cara_fuente": 7,
+          "area_interseccion_mm2": 0.9995149501332898
+        }
+      ]
+    },
+    {
+      "cara_resultado": 8,
+      "area_mm2": 3.8224417913437225,
+      "cobertura_fuente_mm2": 3.8224417913437225,
+      "fuentes": [
+        {
+          "cara_fuente": 8,
+          "area_interseccion_mm2": 3.8224417913437225
+        }
+      ]
+    },
+    {
+      "cara_resultado": 9,
+      "area_mm2": 6.911472365275184,
+      "cobertura_fuente_mm2": 6.911472365275184,
+      "fuentes": [
+        {
+          "cara_fuente": 9,
+          "area_interseccion_mm2": 6.911472365275184
+        }
+      ]
+    },
+    {
+      "cara_resultado": 10,
+      "area_mm2": 3.8224432685408525,
+      "cobertura_fuente_mm2": 3.8224432685408525,
+      "fuentes": [
+        {
+          "cara_fuente": 10,
+          "area_interseccion_mm2": 3.8224432685408525
+        }
+      ]
+    }
+  ],
+  "exportacion_solida": {
+    "tipo_entrada": "Solid",
+    "shell_cerrado_solidificado": false,
+    "solid_reconstruido_desde_frontera": true,
+    "banderas_cierre_antes": [
+      true
+    ],
+    "caras": 147,
+    "aristas": 620,
+    "shells": 1,
+    "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "auditoria_step_crudo": {
+      "ok": true,
+      "modified": false,
+      "corrected_bounds": [],
+      "audit": {
+        "ok": true,
+        "complete": true,
+        "solids": 1,
+        "shells": [
+          {
+            "shell": 16,
+            "faces": 147,
+            "edges": 620,
+            "errors": []
+          }
+        ],
+        "unsupported": [],
+        "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+      }
+    },
+    "ok": true,
+    "modo": "STEPControl_ManifoldSolidBrep",
+    "solidos_reimportados": 1,
+    "caras_reimportadas": 147,
+    "tolerancia_max_mm": 1e-07,
+    "step_sha256": "9b50838be080faa15f01b9d47ffd6b92c9d3d7683be96cf05527f1d001f26048",
+    "requiere_validacion_original": true
+  },
+  "retroacciones_cgal": [],
+  "construccion": [
+    {
+      "faces": [
+        88,
+        134,
+        135,
+        136,
+        307,
+        308
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        88,
+        136
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        88,
+        307
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        81,
+        82,
+        83,
+        357,
+        435,
+        436
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00011318759578236405,
+      "new_face_signature": {
+        "center": [
+          -7.565545710485642,
+          5.102212429046501,
+          3.196193403478688
+        ],
+        "area": 6.348497050682749
+      }
+    },
+    {
+      "faces": [
+        89,
+        90,
+        299,
+        300,
+        301,
+        302
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        300,
+        301
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        301,
+        302
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        195,
+        283,
+        284,
+        285,
+        286,
+        287
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        284,
+        285
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00038548564484677995,
+      "new_face_signature": {
+        "center": [
+          2.198828036824788,
+          6.557567515501171,
+          1.3307413137888595
+        ],
+        "area": 0.8548862401354143
+      }
+    },
+    {
+      "faces": [
+        198,
+        202,
+        203,
+        204,
+        205,
+        206
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        203,
+        204
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00022856251165920922,
+      "new_face_signature": {
+        "center": [
+          2.1792475434446676,
+          11.995548173618205,
+          1.3460865891610159
+        ],
+        "area": 0.8015775391075289
+      }
+    },
+    {
+      "faces": [
+        293,
+        294,
+        295,
+        296,
+        297,
+        298
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        295,
+        296
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        296,
+        297
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00037698600665088476,
+      "new_face_signature": {
+        "center": [
+          1.6248411345562093,
+          6.362685822488415,
+          1.774735796692551
+        ],
+        "area": 0.6474039932838935
+      }
+    },
+    {
+      "faces": [
+        207,
+        211,
+        212,
+        213,
+        214,
+        215
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        212,
+        213
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        213,
+        214
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0003794591686440157,
+      "new_face_signature": {
+        "center": [
+          1.6248410209721806,
+          12.141738999587592,
+          1.7747358112993377
+        ],
+        "area": 0.6474042458598326
+      }
+    },
+    {
+      "faces": [
+        241,
+        242,
+        243,
+        244,
+        245,
+        246
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        243,
+        244
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        244,
+        245
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004426382413059148,
+      "new_face_signature": {
+        "center": [
+          -0.5691956791373067,
+          12.165970976340532,
+          3.14410764653254
+        ],
+        "area": 0.6220626742997022
+      }
+    },
+    {
+      "faces": [
+        256,
+        260,
+        261,
+        262,
+        263,
+        264
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        261,
+        262
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        262,
+        263
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00042295760488096016,
+      "new_face_signature": {
+        "center": [
+          -0.5691957445664496,
+          6.338453616624376,
+          3.1441077981117265
+        ],
+        "area": 0.6220621873310235
+      }
+    },
+    {
+      "faces": [
+        89,
+        90,
+        91,
+        299,
+        300,
+        301
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        89,
+        299
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.594038370171171e-05,
+      "new_face_signature": {
+        "center": [
+          3.1567843897690677,
+          10.102311722027776,
+          0.4951578194983132
+        ],
+        "area": 0.6496969391549308
+      }
+    },
+    {
+      "faces": [
+        300,
+        301,
+        302
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        300,
+        301
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        277,
+        278,
+        279,
+        280,
+        281,
+        282
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        279,
+        280
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        280,
+        281
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        222,
+        223,
+        224,
+        225,
+        226,
+        227
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        224,
+        225
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        225,
+        226
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        230,
+        231,
+        232,
+        233,
+        234,
+        235
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        232,
+        233
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0003838284674105822,
+      "new_face_signature": {
+        "center": [
+          -0.007627446663025128,
+          12.175468016171747,
+          2.8390960925844975
+        ],
+        "area": 0.6202954007875244
+      }
+    },
+    {
+      "faces": [
+        254,
+        257,
+        258,
+        259,
+        272,
+        273
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        257,
+        258
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        257,
+        273
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        265,
+        266,
+        267,
+        268,
+        269,
+        270
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        267,
+        268
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00012044688234847436,
+      "new_face_signature": {
+        "center": [
+          0.5676202408549023,
+          6.317408095518514,
+          2.495620306575306
+        ],
+        "area": 0.6082818736150241
+      }
+    },
+    {
+      "faces": [
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        218,
+        219
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        219,
+        220
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.000213659239986992,
+      "new_face_signature": {
+        "center": [
+          0.5347543907837928,
+          12.188434586555893,
+          2.5160929415880458
+        ],
+        "area": 0.6067612543199695
+      }
+    },
+    {
+      "faces": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        92,
+        93
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00047096548865194443,
+      "new_face_signature": {
+        "center": [
+          3.2560832000311493,
+          9.758013540638407,
+          0.39824519872589675
+        ],
+        "area": 0.5315107182853668
+      }
+    },
+    {
+      "faces": [
+        90,
+        91
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00018134932014458757,
+      "new_face_signature": {
+        "center": [
+          3.2173776186079643,
+          8.731145978091584,
+          0.4372460931100625
+        ],
+        "area": 0.3185629725567546
+      }
+    },
+    {
+      "faces": [
+        88,
+        136,
+        307,
+        308,
+        309,
+        310
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        307,
+        308
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.932868270681392e-07,
+      "new_face_signature": {
+        "center": [
+          -19.338477134700003,
+          9.25221278812461,
+          0.00019446671339704477
+        ],
+        "area": 0.42825565008183575
+      }
+    },
+    {
+      "faces": [
+        350,
+        351,
+        352,
+        353,
+        354,
+        355
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.833604425616745e-07,
+      "new_face_signature": {
+        "center": [
+          -19.565927436796066,
+          9.252212551660964,
+          0.3918393075103856
+        ],
+        "area": 0.8708165341681352
+      }
+    },
+    {
+      "faces": [
+        94,
+        95,
+        96,
+        97,
+        98,
+        99
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.000380695977735921,
+      "new_face_signature": {
+        "center": [
+          3.315181082111929,
+          9.252212524414054,
+          0.33079125557426836
+        ],
+        "area": 0.692037115738557
+      }
+    },
+    {
+      "faces": [
+        309,
+        310,
+        311,
+        312,
+        313,
+        314
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        309,
+        310
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.693830401800934e-14,
+      "new_face_signature": {
+        "center": [
+          -19.394670486445,
+          9.252212524413999,
+          0.001314406166784417
+        ],
+        "area": 0.3586961888665028
+      }
+    },
+    {
+      "faces": [
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        132,
+        133
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00040713393184312735,
+      "new_face_signature": {
+        "center": [
+          3.090472916581186,
+          9.084096771606099,
+          0.0014263786635575887
+        ],
+        "area": 0.3112825108605795
+      }
+    },
+    {
+      "faces": [
+        88,
+        134,
+        135,
+        136
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        134,
+        135
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002323557247078901,
+      "new_face_signature": {
+        "center": [
+          3.04753052315764,
+          9.392750768853263,
+          0.0003705216510711847
+        ],
+        "area": 0.31786558863079095
+      }
+    },
+    {
+      "faces": [
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        107,
+        108
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00012487026790219334,
+      "new_face_signature": {
+        "center": [
+          3.375945915187709,
+          9.515634799980722,
+          0.2338921811892644
+        ],
+        "area": 0.2004765784450875
+      }
+    },
+    {
+      "faces": [
+        88,
+        136
+      ],
+      "rejected": "Se preservan los huecos"
+    },
+    {
+      "faces": [
+        429,
+        430,
+        431,
+        432,
+        433,
+        434
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        433,
+        434
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00048252380198048804,
+      "new_face_signature": {
+        "center": [
+          3.158213263726809,
+          9.15834433574211,
+          0.006262604572677691
+        ],
+        "area": 0.6308691580003419
+      }
+    },
+    {
+      "faces": [
+        311,
+        312,
+        313,
+        314,
+        315,
+        316
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004802093802523062,
+      "new_face_signature": {
+        "center": [
+          -19.462714029821694,
+          9.252212524414002,
+          0.00611817947482532
+        ],
+        "area": 0.596779691782033
+      }
+    },
+    {
+      "faces": [
+        196,
+        197,
+        199,
+        200,
+        201,
+        215
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        199,
+        215
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.402109810666556e-05,
+      "new_face_signature": {
+        "center": [
+          1.6883088662955847,
+          11.543164373812134,
+          1.7286904331492545
+        ],
+        "area": 0.19249793708324456
+      }
+    },
+    {
+      "faces": [
+        290,
+        291,
+        292,
+        293,
+        294,
+        295
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        294,
+        295
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.40750447270036e-05,
+      "new_face_signature": {
+        "center": [
+          1.688308894070518,
+          6.9612604480917994,
+          1.728690423908676
+        ],
+        "area": 0.19249770310199824
+      }
+    },
+    {
+      "faces": [
+        344,
+        345,
+        346,
+        347,
+        348,
+        349
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 6.606863629315324e-07,
+      "new_face_signature": {
+        "center": [
+          -19.629400441129008,
+          9.252212524413997,
+          0.31779341496848107
+        ],
+        "area": 0.49614762997166845
+      }
+    },
+    {
+      "faces": [
+        288,
+        289,
+        290,
+        291,
+        292,
+        293
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004363508183999027,
+      "new_face_signature": {
+        "center": [
+          1.8666330007422243,
+          7.101826881783799,
+          1.5953941728274241
+        ],
+        "area": 0.5305285429728939
+      }
+    },
+    {
+      "faces": [
+        196,
+        197,
+        198,
+        200,
+        201,
+        202
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004107554154761484,
+      "new_face_signature": {
+        "center": [
+          1.8666330046215933,
+          11.402597998953784,
+          1.595394176646726
+        ],
+        "area": 0.5305284606744294
+      }
+    },
+    {
+      "faces": [
+        247,
+        248,
+        249,
+        250,
+        251,
+        264
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        248,
+        264
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002310915169410058,
+      "new_face_signature": {
+        "center": [
+          -0.6392623402104419,
+          6.903163975041584,
+          3.1811641204235928
+        ],
+        "area": 0.1745984579554079
+      }
+    },
+    {
+      "faces": [
+        238,
+        239,
+        240,
+        241,
+        242,
+        243
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        242,
+        243
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00023138160857789165,
+      "new_face_signature": {
+        "center": [
+          -0.6392621562155211,
+          11.601260446994294,
+          3.1811639820794193
+        ],
+        "area": 0.17459831733412615
+      }
+    },
+    {
+      "faces": [
+        322,
+        323,
+        324,
+        325,
+        326,
+        327
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        324,
+        325
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002859863277427905,
+      "new_face_signature": {
+        "center": [
+          -19.583576082319645,
+          8.94764519508758,
+          0.03125624587299648
+        ],
+        "area": 0.13878301698685047
+      }
+    },
+    {
+      "faces": [
+        326,
+        327,
+        328,
+        329,
+        330
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004982579108892411,
+      "new_face_signature": {
+        "center": [
+          -19.61774069899797,
+          9.505691717934834,
+          0.0462365223436627
+        ],
+        "area": 0.40289134423388967
+      }
+    },
+    {
+      "faces": [
+        207,
+        208,
+        209,
+        210,
+        226,
+        227
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        208,
+        209
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.095678347381305e-05,
+      "new_face_signature": {
+        "center": [
+          1.1849111592762778,
+          11.690127081740124,
+          2.0910837032341547
+        ],
+        "area": 0.17191497282122778
+      }
+    },
+    {
+      "faces": [
+        274,
+        275,
+        276,
+        277,
+        278,
+        279
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        276,
+        277
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.203337984263394e-05,
+      "new_face_signature": {
+        "center": [
+          1.239907414567508,
+          6.832965293177846,
+          2.053676219530242
+        ],
+        "area": 0.17167542261974794
+      }
+    },
+    {
+      "faces": [
+        265,
+        278,
+        279,
+        280,
+        281,
+        282
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        278,
+        279
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00010141228399677103,
+      "new_face_signature": {
+        "center": [
+          1.1291537959097966,
+          6.798043488232674,
+          2.1285144954407156
+        ],
+        "area": 0.17142453454864695
+      }
+    },
+    {
+      "faces": [
+        207,
+        210,
+        211,
+        212
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00025790446731428416,
+      "new_face_signature": {
+        "center": [
+          1.338677256035471,
+          11.629805179037044,
+          1.9849593216391916
+        ],
+        "area": 0.3138090633132939
+      }
+    },
+    {
+      "faces": [
+        236,
+        237,
+        238,
+        239,
+        240,
+        241
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00035596013747949334,
+      "new_face_signature": {
+        "center": [
+          -0.8083339861165411,
+          11.49382318049493,
+          3.268365663100158
+        ],
+        "area": 0.40830202053897496
+      }
+    },
+    {
+      "faces": [
+        247,
+        249,
+        250,
+        251,
+        252,
+        253
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0003598096755209955,
+      "new_face_signature": {
+        "center": [
+          -0.8083342638592419,
+          7.010601325745493,
+          3.2683658444522616
+        ],
+        "area": 0.4083019618029261
+      }
+    },
+    {
+      "faces": [
+        222,
+        223,
+        224,
+        225,
+        226,
+        227
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        226,
+        227
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.797809701666978e-05,
+      "new_face_signature": {
+        "center": [
+          1.0888177438744369,
+          11.716735590482607,
+          2.155359653548402
+        ],
+        "area": 0.12219348041506291
+      }
+    },
+    {
+      "faces": [
+        274,
+        275,
+        298
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00011564263734370542,
+      "new_face_signature": {
+        "center": [
+          1.365546920887956,
+          6.8865219488597615,
+          1.9662608588161956
+        ],
+        "area": 0.22812465679197283
+      }
+    },
+    {
+      "faces": [
+        113,
+        114,
+        115,
+        116,
+        117,
+        118
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        115,
+        116
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.429861336690286e-13,
+      "new_face_signature": {
+        "center": [
+          3.2940361499785364,
+          9.252212524413999,
+          0.03664129041126546
+        ],
+        "area": 0.16855665155020563
+      }
+    },
+    {
+      "faces": [
+        333,
+        334,
+        335,
+        336,
+        337,
+        338
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004970049718211417,
+      "new_face_signature": {
+        "center": [
+          -19.683321776817895,
+          9.338465799674031,
+          0.22438903164662113
+        ],
+        "area": 0.4310351600483079
+      }
+    },
+    {
+      "faces": [
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        124,
+        125
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00023594952992766257,
+      "new_face_signature": {
+        "center": [
+          3.2139317945418315,
+          9.17437008567911,
+          0.01385907135497577
+        ],
+        "area": 0.15461383400387244
+      }
+    },
+    {
+      "faces": [
+        160,
+        163,
+        164,
+        165,
+        205,
+        206
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0001130549359949575,
+      "new_face_signature": {
+        "center": [
+          2.2391721185283715,
+          11.191945218057231,
+          1.2986053407946103
+        ],
+        "area": 0.318895391587012
+      }
+    },
+    {
+      "faces": [
+        358,
+        359,
+        360,
+        361,
+        362,
+        437
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        358,
+        359
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.705610760016391e-12,
+      "new_face_signature": {
+        "center": [
+          -11.362002372737496,
+          5.102212429046501,
+          1.8444430232049793
+        ],
+        "area": 0.1623394879301393
+      }
+    },
+    {
+      "faces": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        138
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        5,
+        6
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.549810444296597e-14,
+      "new_face_signature": {
+        "center": [
+          -3.8747646808625005,
+          5.102212429046501,
+          1.8444430232050004
+        ],
+        "area": 0.16233948271435764
+      }
+    },
+    {
+      "faces": [
+        254,
+        255,
+        256,
+        257,
+        258,
+        259
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        254,
+        259
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00020183320025503047,
+      "new_face_signature": {
+        "center": [
+          -0.10287985946608792,
+          6.7842103707303565,
+          2.8941881666037634
+        ],
+        "area": 0.16013737727210448
+      }
+    },
+    {
+      "faces": [
+        257,
+        258,
+        270,
+        271,
+        272,
+        273
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        257,
+        258
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        228,
+        229,
+        230,
+        231,
+        246
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004225515516206904,
+      "new_face_signature": {
+        "center": [
+          -0.2314702303222162,
+          11.682931802696443,
+          2.9662708054082536
+        ],
+        "area": 0.3649798903990491
+      }
+    },
+    {
+      "faces": [
+        255,
+        256,
+        260,
+        261
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00030703207849966504,
+      "new_face_signature": {
+        "center": [
+          -0.25953194829609005,
+          6.830179394032788,
+          2.98201861647536
+        ],
+        "area": 0.28499506349464065
+      }
+    },
+    {
+      "faces": [
+        221,
+        222,
+        223,
+        224,
+        225
+      ],
+      "rejected": "La reunión abandona el soporte previo: 0.003497057410244775"
+    },
+    {
+      "faces": [
+        222,
+        223
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00012877528211400438,
+      "new_face_signature": {
+        "center": [
+          0.7640017789142055,
+          11.74041629493766,
+          2.3733522076220437
+        ],
+        "area": 0.15758840319167322
+      }
+    },
+    {
+      "faces": [
+        265,
+        266,
+        280,
+        281,
+        282
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        265,
+        266
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00012780741504345367,
+      "new_face_signature": {
+        "center": [
+          0.7640017851017588,
+          6.764008282779875,
+          2.373352209149305
+        ],
+        "area": 0.15758836984393387
+      }
+    },
+    {
+      "faces": [
+        216,
+        217,
+        218,
+        234,
+        235
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00039833694330831883,
+      "new_face_signature": {
+        "center": [
+          0.274745506436658,
+          11.745525069528648,
+          2.6767623009106223
+        ],
+        "area": 0.3049588518551773
+      }
+    },
+    {
+      "faces": [
+        257,
+        269,
+        270,
+        271,
+        272,
+        273
+      ],
+      "rejected": "La reunión abandona el soporte previo: 0.003278411630846071"
+    },
+    {
+      "faces": [
+        269,
+        270
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00015970486163274458,
+      "new_face_signature": {
+        "center": [
+          0.39031709352240346,
+          6.752605000993462,
+          2.6071210377980685
+        ],
+        "area": 0.15351744378698207
+      }
+    },
+    {
+      "faces": [
+        257,
+        258,
+        271,
+        272,
+        273
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        271,
+        272
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 6.213853260356017e-05,
+      "new_face_signature": {
+        "center": [
+          0.29367544542109186,
+          6.755885195431622,
+          2.6659032099653777
+        ],
+        "area": 0.10180525004886189
+      }
+    },
+    {
+      "faces": [
+        318,
+        319,
+        320,
+        321,
+        322,
+        323
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        320,
+        321
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002513931398213285,
+      "new_face_signature": {
+        "center": [
+          -19.546056046092453,
+          9.19306700634636,
+          0.020023902243401916
+        ],
+        "area": 0.14520142067791442
+      }
+    },
+    {
+      "faces": [
+        322,
+        323
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00021326654529260113,
+      "new_face_signature": {
+        "center": [
+          -19.564121640711885,
+          9.480834083580291,
+          0.0248850359872957
+        ],
+        "area": 0.12756891447133645
+      }
+    },
+    {
+      "faces": [
+        317,
+        318,
+        319
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0001404072076230365,
+      "new_face_signature": {
+        "center": [
+          -19.520938424997517,
+          8.886616035011018,
+          0.014410569792560838
+        ],
+        "area": 0.21997916371626353
+      }
+    },
+    {
+      "faces": [
+        118,
+        119,
+        120,
+        121,
+        122,
+        123
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        122,
+        123
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00022674295339374637,
+      "new_face_signature": {
+        "center": [
+          3.234766532638109,
+          9.226031264887538,
+          0.018234055874908044
+        ],
+        "area": 0.14113156193452753
+      }
+    },
+    {
+      "faces": [
+        117,
+        118,
+        119,
+        120,
+        121
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0004120403031933237,
+      "new_face_signature": {
+        "center": [
+          3.263467322346412,
+          8.964404920828661,
+          0.025925844820037385
+        ],
+        "area": 0.2796809247688094
+      }
+    },
+    {
+      "faces": [
+        113,
+        114
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00024331322182910719,
+      "new_face_signature": {
+        "center": [
+          3.3138559615152494,
+          9.248950231806694,
+          0.04583445143155693
+        ],
+        "area": 0.13776097626112832
+      }
+    },
+    {
+      "faces": [
+        339,
+        340,
+        341,
+        342,
+        343
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00011779039333884805,
+      "new_face_signature": {
+        "center": [
+          -19.66089785788743,
+          9.446841899009039,
+          0.2708891819425395
+        ],
+        "area": 0.29296966622487997
+      }
+    },
+    {
+      "faces": [
+        286,
+        287
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.234881923394852e-05,
+      "new_face_signature": {
+        "center": [
+          2.0119260224094613,
+          7.250884633017603,
+          1.4837483240370808
+        ],
+        "area": 0.07737215447104387
+      }
+    },
+    {
+      "faces": [
+        360,
+        361,
+        362,
+        363,
+        364,
+        365
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00021363057922497105,
+      "new_face_signature": {
+        "center": [
+          -11.354890528992604,
+          5.1022124290465,
+          2.0165204742929723
+        ],
+        "area": 0.2856698808750621
+      }
+    },
+    {
+      "faces": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.964305164163186e-07,
+      "new_face_signature": {
+        "center": [
+          -3.88187611267059,
+          5.102212429046501,
+          2.0165205113301945
+        ],
+        "area": 0.2856699531414855
+      }
+    },
+    {
+      "faces": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00028970495713494184,
+      "new_face_signature": {
+        "center": [
+          3.356306842702258,
+          9.252212524414002,
+          0.2720254206912192
+        ],
+        "area": 0.3136115906405028
+      }
+    },
+    {
+      "faces": [
+        257,
+        258,
+        273
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        257,
+        273
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        191,
+        192,
+        193,
+        194,
+        195,
+        283
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.943457657333224e-05,
+      "new_face_signature": {
+        "center": [
+          2.276850747581378,
+          7.367917635818132,
+          1.2685331679261844
+        ],
+        "area": 0.27601843667100096
+      }
+    },
+    {
+      "faces": [
+        429,
+        430,
+        431,
+        432,
+        433,
+        434
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        432,
+        433
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.6965325343352393e-13,
+      "new_face_signature": {
+        "center": [
+          -10.149707317344985,
+          5.102212429046501,
+          3.1917637586592513
+        ],
+        "area": 0.0957882373150679
+      }
+    },
+    {
+      "faces": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002741850089761922,
+      "new_face_signature": {
+        "center": [
+          -5.022701189765273,
+          5.102212429046501,
+          3.186097650204437
+        ],
+        "area": 0.26382449135496483
+      }
+    },
+    {
+      "faces": [
+        224,
+        225
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        280,
+        281,
+        282
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        281,
+        282
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.7908461143676387e-05,
+      "new_face_signature": {
+        "center": [
+          0.8500920249981037,
+          6.7778961090696,
+          2.3177736409484333
+        ],
+        "area": 0.07870099526471287
+      }
+    },
+    {
+      "faces": [
+        154,
+        157,
+        158,
+        159,
+        161,
+        162
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.695490518715687e-05,
+      "new_face_signature": {
+        "center": [
+          2.334810361309951,
+          11.036541349230664,
+          1.2217271778186711
+        ],
+        "area": 0.24806119190033696
+      }
+    },
+    {
+      "faces": [
+        426,
+        427,
+        428,
+        429,
+        430,
+        431
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.080016403979372e-07,
+      "new_face_signature": {
+        "center": [
+          -10.28020213508518,
+          5.102212429046501,
+          3.1787186308095507
+        ],
+        "area": 0.24538927466602214
+      }
+    },
+    {
+      "faces": [
+        185,
+        186,
+        187,
+        188,
+        189,
+        190
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.913106389741394e-05,
+      "new_face_signature": {
+        "center": [
+          2.3604708258606317,
+          7.519626052161297,
+          1.2007962277351152
+        ],
+        "area": 0.23207210726942118
+      }
+    },
+    {
+      "faces": [
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        70,
+        71
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        71,
+        72
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.881784197001252e-16,
+      "new_face_signature": {
+        "center": [
+          -4.832127571106,
+          5.102212429046501,
+          3.1577421426770007
+        ],
+        "area": 0.08293360962112271
+      }
+    },
+    {
+      "faces": [
+        420,
+        421,
+        422,
+        423,
+        424,
+        425
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.400227940300095e-07,
+      "new_face_signature": {
+        "center": [
+          -10.463254312707587,
+          5.1022124290465,
+          3.142747912043004
+        ],
+        "area": 0.2403087914823564
+      }
+    },
+    {
+      "faces": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.918603139942627e-07,
+      "new_face_signature": {
+        "center": [
+          -4.7150649570969545,
+          5.102212429046501,
+          3.126081794909892
+        ],
+        "area": 0.2325967114578321
+      }
+    },
+    {
+      "faces": [
+        366,
+        367,
+        368,
+        369,
+        370,
+        371
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.8888686815932516e-07,
+      "new_face_signature": {
+        "center": [
+          -11.328534632290735,
+          5.102212429046501,
+          2.2133448453702482
+        ],
+        "area": 0.23131820566754255
+      }
+    },
+    {
+      "faces": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.316125524472215e-06,
+      "new_face_signature": {
+        "center": [
+          -3.9082321546766328,
+          5.102212429046501,
+          2.2133448815064227
+        ],
+        "area": 0.23131816856178256
+      }
+    },
+    {
+      "faces": [
+        73,
+        74
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.3755372051294095e-13,
+      "new_face_signature": {
+        "center": [
+          -4.8925909996034935,
+          5.102212429046501,
+          3.1697052717210425
+        ],
+        "area": 0.07735302339683327
+      }
+    },
+    {
+      "faces": [
+        414,
+        415,
+        416,
+        417,
+        418,
+        419
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.406637301937684e-07,
+      "new_face_signature": {
+        "center": [
+          -10.630687364912978,
+          5.1022124290465,
+          3.0872846836680456
+        ],
+        "area": 0.2189495152349732
+      }
+    },
+    {
+      "faces": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.5729852249469208e-06,
+      "new_face_signature": {
+        "center": [
+          -3.9518469359088866,
+          5.102212429046502,
+          2.379283417290432
+        ],
+        "area": 0.2153427865484911
+      }
+    },
+    {
+      "faces": [
+        372,
+        373,
+        374,
+        375,
+        376,
+        377
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.879979474680806e-07,
+      "new_face_signature": {
+        "center": [
+          -11.284919649158608,
+          5.1022124290465,
+          2.379283413647944
+        ],
+        "area": 0.2153429813560565
+      }
+    },
+    {
+      "faces": [
+        148,
+        151,
+        152,
+        153,
+        155,
+        156
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.533722821701903e-05,
+      "new_face_signature": {
+        "center": [
+          2.4048363491177196,
+          10.87852815444724,
+          1.164301983801972
+        ],
+        "area": 0.19688581755694076
+      }
+    },
+    {
+      "faces": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00020611179877116134,
+      "new_face_signature": {
+        "center": [
+          -4.555402356131102,
+          5.102212429046499,
+          3.0654720401382387
+        ],
+        "area": 0.21207416998704726
+      }
+    },
+    {
+      "faces": [
+        408,
+        409,
+        410,
+        411,
+        412,
+        413
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.9533417696626874e-07,
+      "new_face_signature": {
+        "center": [
+          -10.774963333930401,
+          5.1022124290465,
+          3.0179105101330634
+        ],
+        "area": 0.19788275369014358
+      }
+    },
+    {
+      "faces": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.766258749714938e-07,
+      "new_face_signature": {
+        "center": [
+          -4.0102396967192995,
+          5.102212429046501,
+          2.526720995496252
+        ],
+        "area": 0.19749001848970674
+      }
+    },
+    {
+      "faces": [
+        378,
+        379,
+        380,
+        381,
+        382,
+        383
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00018900414903153586,
+      "new_face_signature": {
+        "center": [
+          -11.226526828543317,
+          5.1022124290465,
+          2.5267209488862354
+        ],
+        "area": 0.19748974395732394
+      }
+    },
+    {
+      "faces": [
+        179,
+        180,
+        181,
+        182,
+        183,
+        184
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.559724512853042e-05,
+      "new_face_signature": {
+        "center": [
+          2.423487184643778,
+          7.680226315409659,
+          1.1488435412725566
+        ],
+        "area": 0.17770824179072925
+      }
+    },
+    {
+      "faces": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.0002016663239587036,
+      "new_face_signature": {
+        "center": [
+          -4.418907010990001,
+          5.102212429046501,
+          2.9925086245831065
+        ],
+        "area": 0.19091805273194148
+      }
+    },
+    {
+      "faces": [
+        384,
+        385,
+        386,
+        387,
+        388,
+        389
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00017463009872011162,
+      "new_face_signature": {
+        "center": [
+          -11.157371230557029,
+          5.102212429046501,
+          2.6540692790116824
+        ],
+        "area": 0.17977013963259889
+      }
+    },
+    {
+      "faces": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.414937157639374e-08,
+      "new_face_signature": {
+        "center": [
+          -4.079395818926625,
+          5.1022124290465,
+          2.654069281597854
+        ],
+        "area": 0.1797704692600932
+      }
+    },
+    {
+      "faces": [
+        402,
+        403,
+        404,
+        405,
+        406,
+        407
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.0033332240517038e-07,
+      "new_face_signature": {
+        "center": [
+          -10.896143719416019,
+          5.102212429046501,
+          2.9391211238430333
+        ],
+        "area": 0.17847103881605159
+      }
+    },
+    {
+      "faces": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00017860994481682567,
+      "new_face_signature": {
+        "center": [
+          -4.304959959982682,
+          5.102212429046501,
+          2.911266290088783
+        ],
+        "area": 0.1734607998694283
+      }
+    },
+    {
+      "faces": [
+        390,
+        391,
+        392,
+        393,
+        394,
+        395
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.167934721470015e-07,
+      "new_face_signature": {
+        "center": [
+          -11.079871274194735,
+          5.102212429046501,
+          2.762768167629351
+        ],
+        "area": 0.16778062841259622
+      }
+    },
+    {
+      "faces": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.717319163680216e-07,
+      "new_face_signature": {
+        "center": [
+          -4.156895781834171,
+          5.102212429046501,
+          2.7627681656540726
+        ],
+        "area": 0.16778023748374732
+      }
+    },
+    {
+      "faces": [
+        396,
+        397,
+        398,
+        399,
+        400,
+        401
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.036224827851828e-07,
+      "new_face_signature": {
+        "center": [
+          -10.995037008250495,
+          5.102212429046501,
+          2.8553021534505416
+        ],
+        "area": 0.15904119719598978
+      }
+    },
+    {
+      "faces": [
+        43,
+        44,
+        45,
+        46
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.001496036245172e-07,
+      "new_face_signature": {
+        "center": [
+          -4.226031572608764,
+          5.102212429046501,
+          2.840359615485745
+        ],
+        "area": 0.10267002622924204
+      }
+    },
+    {
+      "faces": [
+        142,
+        145,
+        146,
+        147,
+        149,
+        150
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00010516534358247814,
+      "new_face_signature": {
+        "center": [
+          2.453512662111812,
+          10.714157023574975,
+          1.1238107652044351
+        ],
+        "area": 0.1358848464300235
+      }
+    },
+    {
+      "faces": [
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00010145675074719115,
+      "new_face_signature": {
+        "center": [
+          2.4648610268794364,
+          7.845559055157365,
+          1.1143018832492992
+        ],
+        "area": 0.11337101785670992
+      }
+    },
+    {
+      "faces": [
+        140,
+        141,
+        143,
+        144,
+        166,
+        167
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 0.00010225292254621888,
+      "new_face_signature": {
+        "center": [
+          2.480136796018902,
+          10.551113835084784,
+          1.1014603878304248
+        ],
+        "area": 0.06583600578217463
+      }
+    },
+    {
+      "faces": [
+        169,
+        170,
+        171,
+        172
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.757246863624764e-05,
+      "new_face_signature": {
+        "center": [
+          2.4837073505386944,
+          7.9895800125955905,
+          1.0984528211509894
+        ],
+        "area": 0.035726382679346545
+      }
+    },
+    {
+      "faces": [
+        444,
+        445
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.881784197001252e-16,
+      "new_face_signature": {
+        "center": [
+          -7.618384705438544,
+          5.752212524414,
+          -0.51887826798244
+        ],
+        "area": 7.77109025487996
+      }
+    },
+    {
+      "faces": [
+        300,
+        301,
+        302
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        301,
+        302
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "global_volume_constraint": true,
+      "target_mm3": 348.74858543246955,
+      "initial_mm3": 348.7460343352834,
+      "final_mm3": 348.7460343352834,
+      "interior_pole_shift_mm": 0.0,
+      "boundary_and_tangents_unchanged": true,
+      "improves_source_volume": true,
+      "source_volume_mm3": 348.6201030949744
+    }
+  ],
+  "tolerancias_nativas": {
+    "antes_mm": 1e-07,
+    "despues_mm": 1e-07,
+    "asignadas_por_occt": true,
+    "limites_geometricos_R13_modificados": false
+  },
+  "material_original": {
+    "puntos": 2995,
+    "puntos_extra_contacto": 0,
+    "discrepancias": 0,
+    "banda_excluida_mm": 0.002
+  },
+  "original_sha256": "dde8c6b4e723db51b3571525b06550f864a90745592874139d4a2c7ff2a51d34",
+  "original_usuario_sha256": "dde8c6b4e723db51b3571525b06550f864a90745592874139d4a2c7ff2a51d34",
+  "base_sha256": "dd7aff8ba1c49f46a76722f374afd7a93f93b9f58bcee573470a3763c21aec20",
+  "step_sha256": "9b50838be080faa15f01b9d47ffd6b92c9d3d7683be96cf05527f1d001f26048",
+  "calidad": {
+    "integridad_cad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 620,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0,
+      "brep_exacto": true
+    },
+    "perfil_validacion": {
+      "id": "precision",
+      "nombre": "Precisión",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    },
+    "caras_step": 147,
+    "bytes_step": 2117588,
+    "volumen_error_pct": 0.036123,
+    "caja_error_mm": 0.000495,
+    "caja_error_analitico_mm": 0.000495,
+    "caja_modo_verificacion": "OpenCascade",
+    "distancia_stl_step_mm": {
+      "media": 2.1e-05,
+      "p95": 0.000112,
+      "p99": 0.000195,
+      "max_muestreado": 0.001091,
+      "muestras": 800
+    },
+    "distancia_step_stl_mm": {
+      "media": 0.000134,
+      "p95": 0.000532,
+      "p99": 0.002542,
+      "max_muestreado": 0.00371,
+      "muestras": 800
+    },
+    "contraste_muestreo_cad": {
+      "muestras_proyectadas": 0,
+      "max_distancia_al_brep_mm": 0.0
+    },
+    "tipos_caras": {
+      "GeomAbs_Plane": 21,
+      "GeomAbs_BSplineSurface": 115,
+      "GeomAbs_Cylinder": 11
+    },
+    "limites_validacion": {
+      "volumen_error_max_pct": 0.5,
+      "caja_error_max_mm": 0.02,
+      "p95_superficie_max_mm": 0.02,
+      "desviacion_max_observada_mm": 0.06,
+      "margen_preparacion_mm": 0.0
+    },
+    "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+    "autointerferencias_occ": false,
+    "interferencias_comprobadas_en_frio": true,
+    "control_cad_reutilizado_por_sha256": false,
+    "sin_objetos_sueltos_en_step": true,
+    "inspeccion_densa": {
+      "stl_a_cad": {
+        "muestras": 3000,
+        "p95_mm": 0.00123672296286303,
+        "max_mm": 0.0037863626556246797,
+        "zonas_sospechosas": []
+      },
+      "cad_a_stl": {
+        "muestras": 96835,
+        "p95_mm": 0.00041373285294492453,
+        "max_mm": 0.003787421512500682,
+        "zonas_sospechosas": []
+      },
+      "limite_p95_mm": 0.02,
+      "limite_max_mm": 0.06,
+      "contraste_muestras_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "nota": "Muestreo determinista, no garantía Hausdorff global.",
+      "aceptado": true
+    },
+    "precision_alcanzada": "precision",
+    "desviacion_max_verificada_mm": 0.003787,
+    "limites_precision_originales": {
+      "caja_mm": 0.02,
+      "p95_mm": 0.02,
+      "max_mm": 0.06
+    }
+  },
+  "topologia_material": {
+    "euler_malla": -2,
+    "euler_brep": -2,
+    "shells": 1,
+    "cavidades_preservadas": 0,
+    "probes_cavidades": []
+  },
+  "mallado_fino": {
+    "resoluciones": [
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": -2,
+        "intersecciones_cgal": 0,
+        "caras": 224818,
+        "deflexion_mm": 0.00025,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.003787934539413475,
+          "p95_mm": 0.0009663016381610238,
+          "muestras": [
+            341225,
+            10796
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": -2,
+        "intersecciones_cgal": 0,
+        "caras": 127188,
+        "deflexion_mm": 0.0005,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0037876788187503146,
+          "p95_mm": 0.0009504552419386916,
+          "muestras": [
+            194780,
+            10796
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": -2,
+        "intersecciones_cgal": 0,
+        "caras": 80304,
+        "deflexion_mm": 0.001,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.003787934539413475,
+          "p95_mm": 0.0008643535962591358,
+          "muestras": [
+            124454,
+            10796
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      }
+    ],
+    "step_modificado": false,
+    "limites_geometricos_modificados": false
+  },
+  "brep_exacto": true,
+  "revision_cad": "R8_BOP_FRIO_20261027",
+  "mode": "regiones",
+  "caras_antes": 448,
+  "caras_despues": 147,
+  "limites_aceptacion_modificados": false,
+  "seconds": 138.0751990989993
+}

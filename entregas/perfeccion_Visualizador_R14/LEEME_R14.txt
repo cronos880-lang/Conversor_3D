@@ -1,0 +1,32 @@
+VISOR STL -> STEP R14 EXPERIMENTAL COMPLETA
+
+Extrae TODO el ZIP en una carpeta nueva. Abre Iniciar.bat de la carpeta
+principal. La carpeta Visor_experimental_fuentes viene incluida.
+Necesita Python 3.12 de 64 bits. Puede reutilizar un entorno compatible de
+R7, R8, R9, R10, R11, R12 o R13. Encabezado R14 experimental, puerto 8778.
+Si falta el entorno, ejecuta Instalar_Entorno.bat y después Iniciar.bat.
+Conserva tu versión anterior en otra carpeta para comparar.
+
+Usa Automático (precisión). La selección de mejoras es interna:
+- separa regiones por continuidad y protege cilindros y contornos;
+- reúne parches compatibles conservando las fronteras CAD;
+- reconstruye paredes cilíndricas completas mediante operaciones CAD
+  medidas en el STL cuando existen pruebas suficientes.
+Sólo sustituye el resultado anterior tras superar CAD exacto, interferencias,
+comparación con el STL original, material, topología y tres mallados finos.
+Si la propuesta falla o agota su presupuesto, conserva el STEP previo validado.
+No se han ampliado los límites del perfil geométrico. Los errores medidos
+contra el original tampoco pueden empeorar respecto al STEP anterior.
+
+La reconstrucción adicional tarda: prioriza seguridad y calidad. En mallas
+de más de 100.000 triángulos el presupuesto máximo pasa a 60 minutos,
+con ampliación sólo mientras haya actividad CPU. Puede terminar antes. No equivale
+a recuperar el diseño paramétrico original ni garantiza mejorar cualquier STL.
+Los nuevos bordes de operaciones CAD llevan las cotas numéricas que asigna
+OCCT; se registran sin reducirlas artificialmente. Son distintas de los
+límites geométricos del perfil, que se mantienen.
+
+En la entrega se incluyen resultados reales e instrucciones de reproducción.
+Las pruebas disponibles se ejecutan en Linux y Chromium con el mismo motor
+Python/OCC. Windows nativo, importación en Onshape e impresión K1C no están
+validados aquí. Embudo continúa aplazado. MediumBig carece aún de STL original.
