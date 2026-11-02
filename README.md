@@ -1,3 +1,21 @@
+# Visor completo para Windows — R14 experimental
+
+[**Descargar R14 completa**](./entregas/perfeccion_Visualizador_R14/perfeccion_Visualizador_R14_EXPERIMENTAL_COMPLETA.zip?raw=true) · [Informe de resultados reales](./entregas/perfeccion_Visualizador_R14/INFORME_RESULTADOS.md) · [Archivos modificados](./entregas/perfeccion_Visualizador_R14/perfeccion_Visualizador_R14_ARCHIVOS_MODIFICADOS.zip?raw=true)
+
+Extrae TODO el ZIP y abre **Iniciar.bat** de su carpeta principal. Incluye **Visor_experimental_fuentes**. Necesita Python 3.12 x64 y puede reutilizar un entorno compatible R7–R13. Encabezado **R14 experimental**; puerto 8778. Conserva tu versión anterior y usa **Automático (precisión)**.
+
+Mejoras medidas: pinza 448 → 147 caras, Bancada_Motor 190 → 134 caras.
+
+18 conversiones aprobadas; 16 conservan exactamente la geometría STEP R13. Las mejoras restantes superan los controles contra el STL original, CAD exacto, material y tres mallados finos. No se amplían los límites geométricos. Maneta, llanta, tirante y cubo conservan sus resultados. Technic mantiene R13 porque su propuesta se rechaza. Embudo aplazado y MediumBig sin STL original.
+
+El conector no ha completado la prueba fría con el último presupuesto: los ensayos anteriores conservaron R13 por tiempo. La validez del candidato se documenta separadamente en el informe; no se presenta como mejora automática aprobada.
+
+La conversión todavía es lenta. Las mallas de más de 100.000 triángulos disponen de hasta 60 minutos, con ampliación mientras haya actividad CPU. Un rechazo opcional conserva el STEP previo validado. Windows nativo, Onshape y K1C requieren prueba externa; las pruebas aquí se ejecutaron con el mismo motor en Linux y Chromium.
+
+Si descargas **el repositorio entero de esta rama**, entra en **entregas/perfeccion_Visualizador_R14** y abre allí **Iniciar.bat**, o usa **Iniciar_R14.bat** en la raíz. Para probar resulta más sencillo descargar el ZIP completo enlazado arriba.
+
+---
+
 # Visor completo para Windows — R12 experimental
 
 [**Descargar R12 completa**](./entregas/perfeccion_Visualizador_R12/perfeccion_Visualizador_R12_EXPERIMENTAL_COMPLETA.zip?raw=true) · [Informe de resultados reales](./entregas/perfeccion_Visualizador_R12/INFORME_RESULTADOS.md) · [Comparar Technic](./entregas/perfeccion_Visualizador_R12/R12_TECHNIC_PARA_COMPARAR.zip?raw=true)
@@ -149,3 +167,4 @@ Las pruebas de navegador están en `tests/`. Se verificaron 11 casos del motor W
 
 - Three.js 0.180.0, licencia MIT incluida en `static/vendor/THREE-LICENSE`.
 - replicad-opencascadejs 1.1.0, licencia LGPL-2.1 incluida en `static/vendor/OPENCASCADE-LICENSE`. Distribución original: https://www.npmjs.com/package/replicad-opencascadejs . El JavaScript y el WebAssembly se conservan como archivos separados y reemplazables, sin modificaciones.
+
