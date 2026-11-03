@@ -1,0 +1,1579 @@
+--- R14/ESTADO_VALIDACION.md
++++ R15/ESTADO_VALIDACION.md
+@@ -1,7 +1,18 @@
+-# R14 experimental: alcance de validación
++# Estado de R15 experimental
+ 
+-La aplicación conserva la conversión completa R13 y sólo acepta reconstrucción regional o de cilindros medidos después de superar los controles originales y la comparación con el resultado anterior. El informe de resultados de la carpeta principal identifica las conversiones que mejoran y las que conservan el STEP anterior.
++Los resultados reales de esta entrega están en `../INFORME_RESULTADOS.md` y
++`../Resultados_pruebas/`. Allí se distingue cada conversión completa de los
++prototipos descartados y se especifican las comprobaciones pendientes.
+ 
+-Los perfiles geométricos, el evaluador `_calidad` y los controles CAD originales permanecen. Una forma con menos caras se rechaza si empeora la desviación, la caja o el error de volumen medidos. Los nuevos bordes CAD llevan sus tolerancias numéricas nativas de OCCT, documentadas separadamente de los límites geométricos.
++La construcción axial directa es una familia adicional. Una propuesta rechazada
++no sustituye al resultado del motor anterior. El cubo-carrito y las demás
++reparaciones conservan sus rutas verificadas.
+ 
+-Arrancar el servidor no constituye validación de conversión. La batería incluye conversión real, exportación, lectura fría y controles contra los STL originales. Linux/Chromium no demuestra ejecución nativa en Windows ni importación en Onshape. La versión es experimental; no recupera automáticamente todo diseño paramétrico. Embudo está aplazado por el usuario. Sin el STL de MediumBig no puede certificarse su geometría.
++Los perfiles geométricos y la función de evaluación de geometría permanecen
++iguales a R14. Las mediciones por muestras no son una garantía matemática global
++de Hausdorff ni una prueba de edición en Onshape. El STEP debe contener un único
++sólido cerrado sin objetos sueltos, y superar CAD exacto y los controles indicados.
++
++La aplicación completa para Windows se verifica aquí con su motor Python/OCC
++en Linux y con Chromium. Windows nativo, Onshape e impresión K1C requieren una
++prueba externa y no se presentan como ejecutados.
+--- R14/GUIA_REPRODUCIR.md
++++ R15/GUIA_REPRODUCIR.md
+@@ -1,9 +1,30 @@
+-# Reproducción R14
++# Reproducir R15
+ 
+-1. Extraer el paquete completo en una carpeta nueva. En Windows usar Python 3.12 de 64 bits, `Instalar_Entorno.bat` si es necesario y `Iniciar.bat`.
+-2. Mantener el perfil Automático (precisión). Cargar el STL original, convertir y exportar el STEP. El encabezado y `/version` deben indicar R14.
+-3. Conservar los archivos de `Registros_Conversion`: JSON principal, registro TXT/LOG y, si se aplicó la mejora, `.r14_nucleo.json` y `.r14_original.json` cuando proceda. El JSON contiene hashes de STL/STEP, errores, caras, material y tres mallados finos. Una propuesta descartada conserva el STEP anterior y su motivo.
+-4. Comparar las mismas entradas con R13. No confundir ausencia de aristas de triangulación con pérdida de una arista física; comprobar dimensiones, huecos y volumen al reabrir.
+-5. Para desarrollo, instalar las dependencias bloqueadas de `requirements.txt` en un entorno aislado y ejecutar `python -m pytest -q` desde esta carpeta; la auditoría incluye la batería adicional del núcleo, ejecutada mediante una copia de pruebas con los mismos archivos del núcleo de esta entrega. Las pruebas con fixtures externos requieren el material y las variables descritos en el ZIP de auditoría.
++Extrae el ZIP completo en una carpeta nueva, abre `Iniciar.bat` y comprueba el
++encabezado **R15 experimental** y el puerto **8779**. Puedes seleccionar el entorno
++CAD de tu R14 o instalar otro con `Instalar_Entorno.bat` y Python 3.12 x64.
+ 
+-Las mediciones de la entrega identifican sistema y rutas. Windows nativo, Onshape y K1C deben comprobarse externamente. No se ha validado conversión WebAssembly: esta entrega es el Visor completo con backend local Python.
++Conserva R14 en otra carpeta. Usa el mismo STL y **Automático (precisión)** en ambas
++versiones. Descarga cada STEP y consulta el diagnóstico desde el Visor o abre
++`Abrir_Registros.bat`. Para la nueva ruta, el diagnóstico conserva la evidencia
++`r15_nucleo`, la geometría medida, tres resoluciones y la prueba de material.
++El informe principal enumera qué resultados se esperan en cada pieza de referencia.
++
++Para reproducir por consola con el Python del entorno CAD preparado:
++
++```text
++python motor_v2.py "entrada.stl" "resultado.step"
++```
++
++La última línea es el resultado JSON; conserva también el registro `.motor.log`.
++El informe `.r15_nucleo.json` sólo acredita el STEP cuyo SHA-256 contiene. Cambiar
++entrada, STEP, perfil, petición, código o dependencias impide reutilizar el control.
++
++Para las pruebas de desarrollo se necesitan `requirements_pruebas.txt` y las
++muestras externas indicadas en `Resultados_pruebas/PROTOCOLO.json`. Los tests
++nuevos del índice, ajuste de perfiles y certificados se incluyen en las fuentes.
++Las pruebas del núcleo se ejecutan con su carpeta `motor_superficies` en la ruta
++Python; no se mezclan sus módulos con el motor histórico ya cargado.
++
++Los STEP deben reabrirse en frío. Arrancar la interfaz no demuestra una conversión.
++No se afirma validación de Windows nativo, Onshape o K1C desde Linux.
+--- R14/Instalar_Entorno.bat
++++ R15/Instalar_Entorno.bat
+@@ -1,10 +1,10 @@
+ @echo off
+ setlocal
+ cd /d "%~dp0"
+-echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R14...
++echo Preparando entorno independiente EXPERIMENTAL del Visor STL V4.0 R15...
+ py -3.12 -V >nul 2>&1
+ if errorlevel 1 (
+-  echo Esta copia R14 requiere Python 3.12 de 64 bits para el reparador exacto.
++  echo Esta copia R15 requiere Python 3.12 de 64 bits para el reparador exacto.
+   pause
+   exit /b 1
+ )
+--- R14/LEEME.txt
++++ R15/LEEME.txt
+@@ -1,32 +1,26 @@
+-VISOR STL -> STEP R14 EXPERIMENTAL COMPLETA
++VISOR STL -> STEP R15 EXPERIMENTAL COMPLETA
+ 
+-Extrae TODO el ZIP en una carpeta nueva. Abre Iniciar.bat de la carpeta
+-principal. La carpeta Visor_experimental_fuentes viene incluida.
+-Necesita Python 3.12 de 64 bits. Puede reutilizar un entorno compatible de
+-R7, R8, R9, R10, R11, R12 o R13. Encabezado R14 experimental, puerto 8778.
+-Si falta el entorno, ejecuta Instalar_Entorno.bat y después Iniciar.bat.
+-Conserva tu versión anterior en otra carpeta para comparar.
++Extrae TODO el ZIP en una carpeta nueva y abre Iniciar.bat de la carpeta
++principal. Incluye Visor_experimental_fuentes. Conserva tu versión anterior.
++Requiere Python 3.12 x64; puedes reutilizar un entorno compatible R7–R14
++mediante el selector, o instalar otro con Instalar_Entorno.bat.
++Encabezado R15 experimental; puerto 8779. Usa Automático (precisión).
+ 
+-Usa Automático (precisión). La selección de mejoras es interna:
+-- separa regiones por continuidad y protege cilindros y contornos;
+-- reúne parches compatibles conservando las fronteras CAD;
+-- reconstruye paredes cilíndricas completas mediante operaciones CAD
+-  medidas en el STL cuando existen pruebas suficientes.
+-Sólo sustituye el resultado anterior tras superar CAD exacto, interferencias,
+-comparación con el STL original, material, topología y tres mallados finos.
+-Si la propuesta falla o agota su presupuesto, conserva el STEP previo validado.
+-No se han ampliado los límites del perfil geométrico. Los errores medidos
+-contra el original tampoco pueden empeorar respecto al STEP anterior.
++R15 incorpora construcción CAD directa a partir de perfiles axiales medidos
++en STL densos adecuados. Reconstruye cilindros, conos, redondeos y contornos
++compartidos antes de crear miles de facetas. La selección es automática.
++El motor anterior sigue disponible para las demás familias o si una propuesta
++no supera los controles. No cambia la interfaz ni los límites geométricos.
+ 
+-La reconstrucción adicional tarda: prioriza seguridad y calidad. En mallas
+-de más de 100.000 triángulos el presupuesto máximo pasa a 60 minutos,
+-con ampliación sólo mientras haya actividad CPU. Puede terminar antes. No equivale
+-a recuperar el diseño paramétrico original ni garantiza mejorar cualquier STL.
+-Los nuevos bordes de operaciones CAD llevan las cotas numéricas que asigna
+-OCCT; se registran sin reducirlas artificialmente. Son distintas de los
+-límites geométricos del perfil, que se mantienen.
++Cada candidato aceptado supera lectura STEP fría, CAD exacto, interferencias,
++distancias al STL original, topología, tres mallados finos y material original.
++Las consultas de material usan caras CAD exactas con índice espacial y retorno
++al clasificador anterior ante casos ambiguos, a la misma tolerancia 1e-7 mm.
++Una validación completa ya terminada sólo se reutiliza para los mismos archivos,
++petición, perfil, código y dependencias; no se omite ningún control.
+ 
+-En la entrega se incluyen resultados reales e instrucciones de reproducción.
+-Las pruebas disponibles se ejecutan en Linux y Chromium con el mismo motor
+-Python/OCC. Windows nativo, importación en Onshape e impresión K1C no están
+-validados aquí. Embudo continúa aplazado. MediumBig carece aún de STL original.
++Consulta INFORME_RESULTADOS.md y Resultados_pruebas en la carpeta principal
++para ver las piezas probadas, resultados, tiempos y límites reales de la entrega.
++No equivale a recuperar el diseño paramétrico original ni asegura mejorar todos
++los STL. Windows nativo, Onshape y K1C requieren prueba externa. El embudo sigue
++aplazado; MediumBig carece del STL original, y el STEP no lo sustituye.
+--- R14/VERSION.txt
++++ R15/VERSION.txt
+@@ -1 +1,4 @@
+-R14 experimental · 02/11/2026
++Visor STL → STEP · R15 experimental
++Compilación 2026.11.03-perfiles-cad-directos
++Puerto 8779
++Versión completa para Windows, independiente de R14.
+--- R14/Visor_STL_STEP.html
++++ R15/Visor_STL_STEP.html
+@@ -3,7 +3,7 @@
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+-  <title>Visor STL · R14 experimental · 02/11/2026</title>
++  <title>Visor STL · R15 experimental · 03/11/2026</title>
+   <style>
+     :root { color-scheme: dark; --bg:#0e121b; --surface:#171d28; --edge:#2c3544; --text:#e9eef7; --muted:#8e9caf; --blue:#458fff; }
+     * { box-sizing:border-box; }
+@@ -54,7 +54,7 @@
+       <div class="brand-icon" aria-hidden="true">
+         <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 7 9 5v10l-9-5V7Zm18 0-9 5v10l9-5V7Z"/></svg>
+       </div>
+-      <div><div class="brand-name" title="R14 experimental · 02/11/2026">Visor STL · R14 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
++      <div><div class="brand-name" title="R15 experimental · 03/11/2026">Visor STL · R15 experimental</div><div class="brand-subtitle">Visualización y conversión CAD</div></div>
+     </div>
+     <div class="buttons">
+       <button id="newBtn" title="Limpiar el visor (Ctrl+N)">
+--- R14/entorno_local.py
++++ R15/entorno_local.py
+@@ -29,7 +29,7 @@
+     try:
+         from tkinter import Tk,filedialog
+         window=Tk();window.withdraw()
+-        try:return filedialog.askdirectory(title='Selecciona la carpeta de tu Visor R7 a R13 para reutilizar su entorno CAD')
++        try:return filedialog.askdirectory(title='Selecciona la carpeta de tu Visor R7 a R14 para reutilizar su entorno CAD')
+         finally:window.destroy()
+     except Exception:return ''
+ 
+@@ -41,8 +41,8 @@
+     choices.append(Path(sys.executable))
+     for executable in dict.fromkeys(choices):
+         if compatible(executable):return executable.resolve()
+-    print('Esta copia R14 necesita un entorno CAD preparado.\n'
+-          'Si ya usas un Visor R7 a R13, selecciona ahora su carpeta. Se utilizarán sus dependencias sin modificarla.\n'
++    print('Esta copia R15 necesita un entorno CAD preparado.\n'
++          'Si ya usas un Visor R7 a R14, selecciona ahora su carpeta. Se utilizarán sus dependencias sin modificarla.\n'
+           'Si prefieres instalar un entorno nuevo, cancela y ejecuta Instalar_Entorno.bat.',flush=True)
+     folder=seleccionar_carpeta()
+     if folder:
+--- R14/motor_calidad/auditoria_step_crudo.py
++++ R15/motor_calidad/auditoria_step_crudo.py
+@@ -127,7 +127,7 @@
+ 
+ 
+ def _proponer_correccion(text):
+-    """Only a single torus bound with two full circles and two bad shared edges.
++    """Only independent torus bounds with two full circles and two bad shared edges.
+ 
+     No global orientation repair: ambiguous cases remain rejected. Caller must
+     verify exact CAD and geometry against its pre-write solid before publishing.
+@@ -138,12 +138,29 @@
+     if not result['complete']:
+         raise ValueError('La auditoría STEP cruda tiene topología no reconocida')
+     candidates = []
++    groups = []
+     for shell in result['shells']:
+-        bad = shell['errors']
+-        if not bad:
+-            continue
+-        if len(bad) != 2 or any(len(b['uses']) != 2 for b in bad):
++        errors = shell['errors']
++        if not errors:
++            continue
++        if any(len(b['uses']) != 2 for b in errors):
+             raise ValueError('Incoherencia STEP fuera del caso de redondeo acotado')
++        # Separate independent occurrences of the same OCCT torus writer bug.
++        # Every bad edge must belong to exactly one eligible pair; no global
++        # orientation solver and no changes to geometry entities are allowed.
++        by_bound = defaultdict(list)
++        for b in errors:
++            for use in b['uses']:
++                if use['surface'] == 'TOROIDAL_SURFACE':
++                    by_bound[use['bound']].append(b)
++        pairs = [pair for pair in by_bound.values() if len(pair) == 2]
++        coverage = defaultdict(int)
++        for pair in pairs:
++            for b in pair: coverage[b['edge']] += 1
++        if any(coverage[b['edge']] != 1 for b in errors):
++            raise ValueError('No hay una corrección única y acotada del contorno toroidal')
++        groups.extend(pairs)
++    for bad in groups:
+         shared = set(u['bound'] for u in bad[0]['uses']) & set(u['bound'] for u in bad[1]['uses'])
+         eligible = []
+         for bound_id in shared:
+--- R14/motor_calidad/verificar_original_calidad.py
++++ R15/motor_calidad/verificar_original_calidad.py
+@@ -26,15 +26,12 @@
+     if extra:points=np.vstack([points,extra])
+     points=points[distancia_malla(original,points)>.002]
+     before=igl.winding_number(original.vertices,original.faces,points)>.5
+-    classifier=BRepClass3d_SolidClassifier(shape.wrapped);after=[]
++    from material_cad_indexado import ClasificadorMaterial
+     if progress is not None:progress(0,len(points))
+-    for index,p in enumerate(points):
+-        classifier.Perform(gp_Pnt(*map(float,p)),1e-7);state=classifier.State()
+-        if state not in (TopAbs_IN,TopAbs_ON,TopAbs_OUT):raise ValueError('Clasificación de material indeterminada')
+-        after.append(state in (TopAbs_IN,TopAbs_ON))
+-        if progress is not None and ((index+1)%100==0 or index+1==len(points)):progress(index+1,len(points))
++    classifier=ClasificadorMaterial(shape)
++    after=classifier.classify(points,expected=before,progress=progress)
+     if not np.array_equal(before,after):raise ValueError('El material del STEP no coincide con el STL original')
+-    return dict(puntos=len(points),puntos_extra_contacto=len(extra),discrepancias=0,banda_excluida_mm=.002)
++    return dict(puntos=len(points),puntos_extra_contacto=len(extra),discrepancias=0,banda_excluida_mm=.002,clasificador='CAD_exacto_indexado_doble_rayo',consultas_nativas=classifier.queries,fallbacks=classifier.fallbacks,tolerancia_cad_mm=1e-7)
+ 
+ 
+ def ejecutar(source,prepared,step,worker_path,report_path):
+--- R14/motor_v2.py
++++ R15/motor_v2.py
+@@ -1152,4 +1152,5 @@
+     from reconstruccion_medida import ejecutar_principal
+     from perfeccion_calidad import ejecutar as como_mejora
+     from mejora_regional_aislada import ejecutar as con_regiones
+-    sys.exit(con_regiones(lambda:como_mejora(lambda:ejecutar_principal(main,_SalidaCad,_calidad),_SalidaCad,_calidad),_SalidaCad,_calidad))
++    from conversion_directa_r15 import ejecutar as con_construccion_directa
++    sys.exit(con_construccion_directa(lambda:con_regiones(lambda:como_mejora(lambda:ejecutar_principal(main,_SalidaCad,_calidad),_SalidaCad,_calidad),_SalidaCad,_calidad)))
+--- R14/servidor.py
++++ R15/servidor.py
+@@ -26,6 +26,7 @@
+     return identidad(ROOT)
+ 
+ def _metodo_resultado(result):
++    if result.get('reconstruccion_directa',{}).get('aplicado'):return 'contornos_compatibles'
+     if result.get('reconstruccion_medida',{}).get('aplicado'):return 'contornos_compatibles'
+     if result.get('saneamiento_cad',{}).get('metodo')=='contornos_compatibles_ciclos_analiticos':
+         return 'contornos_compatibles'
+@@ -114,7 +115,7 @@
+ 
+ def _guardar_preproceso(id, dst, src, meta):
+     """Conservar evidencias antes de que desaparezca el temporal del trabajo."""
+-    for kind,suffix in [('r14_nucleo','.r14_nucleo.json'),('r14_original','.r14_original.json')]:
++    for kind,suffix in [('r14_nucleo','.r14_nucleo.json'),('r14_original','.r14_original.json'),('r15_nucleo','.r15_nucleo.json')]:
+         evidence=dst.with_suffix(suffix)
+         if evidence.is_file():
+             try:
+@@ -181,7 +182,7 @@
+ def obtener_reparacion(id: str, tipo: str):
+     suffixes = {'informe': '.entrada.json', 'original': '.original.stl', 'reparado': '.reparado.stl',
+                 'calidad_nucleo':'.calidad_nucleo.json','calidad_original':'.calidad_original.json','calidad_preparado':'.calidad_preparado.stl',
+-                'r14_nucleo':'.r14_nucleo.json','r14_original':'.r14_original.json'}
++                'r14_nucleo':'.r14_nucleo.json','r14_original':'.r14_original.json','r15_nucleo':'.r15_nucleo.json'}
+     if not re.fullmatch(r'[0-9a-f]{12}', id) or tipo not in suffixes:
+         raise HTTPException(404, 'Evidencia no encontrada.')
+     path = LOG_DIR / (id+suffixes[tipo])
+@@ -434,6 +435,7 @@
+             if 'mejora_superficies' in result or 'mejora_superficies' in report:
+                 metadata['mejora_superficies']=result.get('mejora_superficies',report.get('mejora_superficies'))
+             if 'reunion_superficies' in result:metadata['reunion_superficies']=result['reunion_superficies']
++            if 'reconstruccion_directa' in result:metadata['reconstruccion_directa']=result['reconstruccion_directa']
+             if 'reconstruccion_regional' in result or 'reconstruccion_regional' in report:metadata['reconstruccion_regional']=result.get('reconstruccion_regional',report.get('reconstruccion_regional'))
+             _diagnostico(job_id,metadata,out,err,motor_log)
+             with JOBS_LOCK:
+--- R14/test_arranque_r8.py
++++ R15/test_arranque_r8.py
+@@ -5,7 +5,7 @@
+ from version_programa import identidad,PUERTO,VERSION
+ 
+ def test_puerto_experimental_distinto_de_r7():
+-    assert PUERTO==8778
++    assert PUERTO==8779
+ 
+ def test_pagina_e_identidad_son_de_esta_copia():
+     with TestClient(servidor.app) as client:
+--- R14/test_auditoria_step_crudo.py
++++ R15/test_auditoria_step_crudo.py
+@@ -139,3 +139,21 @@
+     with pytest.raises(ExportacionSolidaError, match='fallo crudo'):
+         exportar(cq.Solid.makeCylinder(3, 9), path)
+     assert not path.exists() and not path.with_name(path.name + '.escribiendo.tmp').exists()
++
++
++def test_two_independent_torus_writer_errors_in_one_connected_solid(tmp_path):
++    cylinder=(cq.Workplane('XZ').moveTo(0,0).lineTo(10,0).lineTo(10,20).lineTo(0,20).close()
++              .revolve(360,(0,0),(0,-1)).edges('>Z').fillet(.7).val())
++    bridge=cq.Workplane().box(30,4,5).translate((0,0,5)).val()
++    source=cylinder.translate((-15,0,0)).fuse(cylinder.translate((15,0,0)),bridge).clean()
++    assert len(source.Solids())==1 and len(source.Shells())==1
++    raw=tmp_path/'raw.step';cq.exporters.export(source,str(raw))
++    audit=auditar_archivo(raw)
++    assert len(audit['shells'][0]['errors'])==4
++    path=tmp_path/'verified.step';record=exportar(source,path)
++    assert len(record['auditoria_step_crudo']['corrected_bounds'])==2
++    assert auditar_archivo(path)['ok']
++    result=leer_solido_step_estricto(path)
++    assert abs(result.Volume()-source.Volume())<1e-7
++    assert abs(result.Area()-source.Area())<1e-7
++    assert max(BRep_Tool.Tolerance_s(e.wrapped) for e in result.Edges())<=max(BRep_Tool.Tolerance_s(e.wrapped) for e in source.Edges())
+--- R14/version_programa.py
++++ R15/version_programa.py
+@@ -1,9 +1,9 @@
+ """Identidad de esta copia experimental; independiente de la R7 instalada."""
+ from pathlib import Path
+ import hashlib
+-VERSION='R14 experimental'
+-COMPILACION='2026.11.02-regiones-y-operaciones-cad'
+-PUERTO=8778
++VERSION='R15 experimental'
++COMPILACION='2026.11.03-perfiles-cad-directos'
++PUERTO=8779
+ 
+ def identificador_instancia(root):
+     path=str(Path(root).resolve())
+--- R14/auditoria_step_crudo.py
++++ R15/auditoria_step_crudo.py
+@@ -0,0 +1,227 @@
++"""Audit serialized closed-shell edge incidence before a CAD reader heals it.
++
++Independent implementation of the topological rule: each edge of an oriented
++closed shell has two opposite uses. This is NOT a surface/UV/geometry validator.
++No ScanRuler source is included or translated here. Its reproducible writer
++counterexample motivated checking the serialized representation as well.
++"""
++from collections import defaultdict
++from dataclasses import dataclass
++from pathlib import Path
++import re
++
++
++@dataclass(frozen=True)
++class Entity:
++    kind: str
++    refs: tuple
++    orientation: int | None
++    flag_position: int | None
++
++
++def _entities(text):
++    # Mask literals/comments, preserving offsets for diagnostics and flag edits.
++    token = re.compile(r"'(?:''|[^'])*'|/\*[\s\S]*?\*/|\"[^\"]*\"")
++    masked = token.sub(lambda m: ' ' * len(m[0]), text)
++    if not re.search(r'\bISO-10303-21\s*;', masked) or not re.search(r'\bEND-ISO-10303-21\s*;', masked):
++        raise ValueError('No es un fichero STEP Part 21 completo')
++    data = re.search(r'\bDATA\s*;([\s\S]*?)\bENDSEC\s*;', masked)
++    if data is None:
++        raise ValueError('No hay una sección DATA reconocible')
++    if re.search(r'\bDATA\s*;', masked[data.end():]):
++        raise ValueError('No se auditan múltiples secciones DATA')
++    entities = {}; seen = set()
++    topological = {'CLOSED_SHELL', 'OPEN_SHELL', 'ADVANCED_FACE', 'FACE_BOUND',
++                   'FACE_OUTER_BOUND', 'EDGE_LOOP', 'VERTEX_LOOP', 'ORIENTED_EDGE',
++                   'EDGE_CURVE', 'VERTEX_POINT', 'MANIFOLD_SOLID_BREP', 'BREP_WITH_VOIDS',
++                   'SEAM_CURVE', 'SURFACE_CURVE', 'CIRCLE', 'PLANE'}
++    oriented = {'FACE_BOUND', 'FACE_OUTER_BOUND', 'ORIENTED_EDGE'}
++    record = re.compile(r'#(\d+)\s*=\s*([\s\S]*?);')
++    for m in record.finditer(masked, data.start(1), data.end(1)):
++        ident = int(m[1])
++        if ident in seen:
++            raise ValueError(f'Entidad STEP duplicada #{ident}')
++        seen.add(ident)
++        body = m[2]
++        # Do not retain the potentially hundreds of thousands of coordinate,
++        # direction and spline-pole records. This auditor checks topology only.
++        head = re.match(r'([A-Z_][A-Z_0-9]*)\s*\(', body)
++        if head is not None and head[1] not in topological and 'SURFACE' not in head[1]:
++            continue
++        simple = re.match(r'([A-Z_][A-Z_0-9]*)\s*\(([\s\S]*)\)\s*$', body)
++        if simple is None:
++            entities[ident] = Entity('COMPLEX', (), None, None)
++            continue
++        args = simple[2]
++        flag = re.search(r'\.([TF])\.\s*$', args) if simple[1] in oriented else None
++        pos = m.start(2) + simple.start(2) + flag.start() if flag else None
++        refs = tuple(map(int, re.findall(r'#(\d+)', args))) if simple[1] in topological else ()
++        entities[ident] = Entity(simple[1], refs,
++                                 (1 if flag[1] == 'T' else -1) if flag else None, pos)
++    if not entities:
++        raise ValueError('La sección DATA no contiene entidades')
++    return entities
++
++
++def _inspect(text):
++    entities = _entities(text)
++    shells = []
++    unsupported = []
++    all_uses = {}
++    for shell_id, shell in entities.items():
++        if shell.kind != 'CLOSED_SHELL':
++            continue
++        if not shell.refs:
++            unsupported.append(f'Frontera cerrada vacía #{shell_id}')
++        uses = defaultdict(list)
++        for face_id in shell.refs:
++            face = entities.get(face_id)
++            if face is None or face.kind != 'ADVANCED_FACE' or len(face.refs) < 2:
++                unsupported.append(f'Cara #{face_id} no reconocida'); continue
++            surface = entities.get(face.refs[-1])
++            if surface is None:
++                unsupported.append(f'Superficie ausente en #{face_id}'); continue
++            for bound_id in face.refs[:-1]:
++                bound = entities.get(bound_id)
++                if bound is None or bound.kind not in ('FACE_BOUND', 'FACE_OUTER_BOUND') or len(bound.refs) != 1 or bound.orientation is None:
++                    unsupported.append(f'Contorno #{bound_id} no reconocido'); continue
++                loop = entities.get(bound.refs[0])
++                if loop is not None and loop.kind == 'VERTEX_LOOP':
++                    if len(loop.refs) != 1 or entities.get(loop.refs[0], Entity('', (), None, None)).kind != 'VERTEX_POINT':
++                        unsupported.append(f'Bucle degenerado #{bound.refs[0]} no reconocido')
++                    continue
++                if loop is None or loop.kind != 'EDGE_LOOP' or not loop.refs:
++                    unsupported.append(f'Bucle #{bound.refs[0]} no reconocido'); continue
++                for use_id in loop.refs:
++                    use = entities.get(use_id)
++                    edge_id = use.refs[-1] if use and use.refs else None
++                    edge = entities.get(edge_id)
++                    if use is None or use.kind != 'ORIENTED_EDGE' or len(use.refs) != 1 or use.orientation is None or edge is None or edge.kind != 'EDGE_CURVE':
++                        unsupported.append(f'Uso de arista #{use_id} no reconocido'); continue
++                    uses[edge_id].append(dict(face=face_id, bound=bound_id,
++                                              surface=surface.kind,
++                                              direction=bound.orientation * use.orientation))
++        bad = [dict(edge=e, uses=u) for e, u in uses.items()
++               if len(u) != 2 or u[0]['direction'] == u[1]['direction']]
++        shells.append(dict(shell=shell_id, faces=len(shell.refs), edges=len(uses), errors=bad))
++        all_uses[shell_id] = uses
++    solids = sum(e.kind in ('MANIFOLD_SOLID_BREP', 'BREP_WITH_VOIDS') for e in entities.values())
++    if not shells or not solids:
++        unsupported.append('No hay sólido cerrado reconocido')
++    if any(e.kind == 'OPEN_SHELL' for e in entities.values()):
++        unsupported.append('Hay una frontera abierta en el fichero')
++    result = dict(ok=bool(shells) and not unsupported and all(not s['errors'] for s in shells),
++                  complete=not unsupported, solids=solids, shells=shells,
++                  unsupported=unsupported,
++                  scope='Incidencia y orientación topológica serializada; no valida geometría ni áreas UV')
++    return result, entities, all_uses
++
++
++def auditar_texto(text):
++    return _inspect(text)[0]
++
++
++def auditar_archivo(path):
++    with Path(path).open(encoding='utf-8', newline='') as stream:
++        return auditar_texto(stream.read())
++
++
++def _proponer_correccion(text):
++    """Only independent torus bounds with two full circles and two bad shared edges.
++
++    No global orientation repair: ambiguous cases remain rejected. Caller must
++    verify exact CAD and geometry against its pre-write solid before publishing.
++    """
++    result, entities, uses_by_shell = _inspect(text)
++    if result['ok']:
++        return text, []
++    if not result['complete']:
++        raise ValueError('La auditoría STEP cruda tiene topología no reconocida')
++    candidates = []
++    groups = []
++    for shell in result['shells']:
++        errors = shell['errors']
++        if not errors:
++            continue
++        if any(len(b['uses']) != 2 for b in errors):
++            raise ValueError('Incoherencia STEP fuera del caso de redondeo acotado')
++        # Separate independent occurrences of the same OCCT torus writer bug.
++        # Every bad edge must belong to exactly one eligible pair; no global
++        # orientation solver and no changes to geometry entities are allowed.
++        by_bound = defaultdict(list)
++        for b in errors:
++            for use in b['uses']:
++                if use['surface'] == 'TOROIDAL_SURFACE':
++                    by_bound[use['bound']].append(b)
++        pairs = [pair for pair in by_bound.values() if len(pair) == 2]
++        coverage = defaultdict(int)
++        for pair in pairs:
++            for b in pair: coverage[b['edge']] += 1
++        if any(coverage[b['edge']] != 1 for b in errors):
++            raise ValueError('No hay una corrección única y acotada del contorno toroidal')
++        groups.extend(pairs)
++    for bad in groups:
++        shared = set(u['bound'] for u in bad[0]['uses']) & set(u['bound'] for u in bad[1]['uses'])
++        eligible = []
++        for bound_id in shared:
++            selected = [u for b in bad for u in b['uses'] if u['bound'] == bound_id]
++            if len(selected) != 2 or any(u['surface'] != 'TOROIDAL_SURFACE' for u in selected):
++                continue
++            bound = entities[bound_id]; loop = entities[bound.refs[0]]
++            if len(loop.refs) not in (2, 4) or bound.flag_position is None:
++                continue
++            edge_ids = [entities[e].refs[-1] for e in loop.refs]
++            boundary_ids = {b['edge'] for b in bad}
++            if any(edge_ids.count(e) != 1 for e in boundary_ids):
++                continue
++            # A periodic torus may include one seam, traversed both ways.
++            seam_ids = set(edge_ids) - boundary_ids
++            if len(seam_ids) > 1:
++                continue
++            seams_ok = True
++            for e in seam_ids:
++                same = [entities[u] for u in loop.refs if entities[u].refs[-1] == e]
++                edge = entities[e]
++                curve = entities.get(edge.refs[-1]) if edge.refs else None
++                if len(same) != 2 or same[0].orientation == same[1].orientation or curve is None or curve.kind != 'SEAM_CURVE':
++                    seams_ok = False
++            if not seams_ok:
++                continue
++            full_circles = True
++            for edge_id in boundary_ids:
++                edge = entities[edge_id]
++                curve = entities.get(edge.refs[2]) if len(edge.refs) == 3 else None
++                if curve is not None and curve.kind == 'SURFACE_CURVE' and curve.refs:
++                    curve = entities.get(curve.refs[0])
++                if len(edge.refs) != 3 or edge.refs[0] != edge.refs[1] or curve is None or curve.kind != 'CIRCLE':
++                    full_circles = False
++            # Both uses of each boundary edge must be on distinct faces.
++            if full_circles and all(len({u['face'] for u in b['uses']}) == 2 for b in bad):
++                eligible.append(bound_id)
++        if len(eligible) != 1:
++            raise ValueError('No hay una corrección única y acotada del contorno toroidal')
++        candidates += eligible
++    patched = text
++    for bound_id in candidates:
++        entity = entities[bound_id]; pos = entity.flag_position
++        old = '.T.' if entity.orientation == 1 else '.F.'
++        if patched[pos:pos+3] != old:
++            raise ValueError('La posición de orientación no coincide con la entidad')
++        patched = patched[:pos] + ('.F.' if old == '.T.' else '.T.') + patched[pos+3:]
++    if not auditar_texto(patched)['ok']:
++        raise ValueError('La propuesta no corrige toda la incidencia orientada')
++    return patched, candidates
++
++
++def verificar_o_corregir_archivo(path):
++    path = Path(path)
++    with path.open(encoding='utf-8', newline='') as stream:
++        text = stream.read()
++    result = auditar_texto(text)
++    if result['ok']:
++        return dict(ok=True, modified=False, corrected_bounds=[], audit=result)
++    corrected, bounds = _proponer_correccion(text)
++    with path.open('w', encoding='utf-8', newline='') as stream:
++        stream.write(corrected)
++    return dict(ok=True, modified=True, corrected_bounds=bounds, audit=auditar_texto(corrected),
++                requires_exact_source_validation=True)
+--- R14/certificado_calidad_r15.py
++++ R15/certificado_calidad_r15.py
+@@ -0,0 +1,50 @@
++"""Bind a completed isolated validation to exact source, STEP, code and profile.
++
++This certificate only removes repeated measurements of unchanged files within
++one invocation. It is not a persistent conversion cache or a replacement for
++cold CAD, dense distance, all three fine meshes, or original-material checks.
++"""
++from pathlib import Path
++import hashlib,json,importlib.metadata
++REVISION='R15_CONTROL_COMPLETO_INMUTABLE_V1'
++
++def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++def firma_motor(root):
++ root=Path(root)
++ # Same identity in root caller and kernel worker. Include every shipped Python
++ # implementation, but avoid logs and user conversions inside nested folders.
++ if root.name=='motor_calidad':root=root.parent
++ folders=[root,root/'motor_superficies',root/'motor_original_amigo',root/'motor_calidad',root/'motor_calidad/motor_superficies',root/'motor_calidad/motor_original_amigo']
++ files=sorted(p for folder in folders for p in folder.glob('*.py') if not p.name.startswith('test_'))
++ h=hashlib.sha256()
++ for p in files:h.update(p.relative_to(root).as_posix().encode());h.update(bytes.fromhex(sha(p)))
++ return h.hexdigest()
++
++def dependencias():
++ return {name:importlib.metadata.version(name) for name in ('cadquery','cadquery-ocp','numpy','trimesh','vtk','libigl','cgal')}
++
++def identidad(source,step,nonce,root):
++ from perfiles_precision import obtener_perfil
++ return dict(revision=REVISION,source_sha256=sha(source),step_sha256=sha(step),nonce=nonce,
++             motor_sha256=firma_motor(root),dependencias=dependencias(),perfil=obtener_perfil())
++
++def verificar(record,source,step,nonce,root):
++ from respaldo_conversion import calidad_aprobada
++ if record.get('ok') is not True or record.get('certificado')!=identidad(source,step,nonce,root):
++  raise ValueError('El control completo no coincide con archivos, petición, perfil o motor')
++ q=record['calidad']
++ if not calidad_aprobada(dict(ok=True,resultado=dict(calidad=q))):raise ValueError('Falta calidad CAD completa')
++ if q.get('perfil_validacion')!=record['certificado']['perfil']:raise ValueError('El perfil no coincide')
++ fine=record.get('mallado_fino',{}).get('resoluciones',[])
++ if len(fine)!=3 or [r.get('deflexion_mm') for r in fine]!=[.00025,.0005,.001]:raise ValueError('Falta un mallado fino')
++ for r in fine:
++  if not r.get('cerrado') or not r.get('orientado') or r.get('intersecciones_cgal')!=0:raise ValueError('Frontera fina no aprobada')
++  limits=q['limites_validacion'];surface=r['superficie']
++  if surface['max_mm']>limits['desviacion_max_observada_mm'] or surface['p95_mm']>limits['p95_superficie_max_mm']:raise ValueError('Fidelidad fina no aprobada')
++ material=record.get('material_original',{})
++ if material.get('discrepancias')!=0 or material.get('puntos',0)<2900 or material.get('banda_excluida_mm')!=.002:raise ValueError('Falta contraste de material original')
++ topology=record.get('topologia_material',{})
++ if not isinstance(topology.get('euler_malla'),int) or topology.get('euler_brep')!=topology['euler_malla'] or topology.get('shells')!=1:raise ValueError('Topología no conservada')
++ if any(r.get('euler')!=topology['euler_malla'] for r in fine):raise ValueError('Topología fina no conservada')
++ return q
+--- R14/construccion_axial_r15.py
++++ R15/construccion_axial_r15.py
+@@ -0,0 +1,153 @@
++"""Build compact CAD directly from measured axial sections, before faceting.
++
++Proposals use shared arc endpoints and exact source cap stations. They are never
++accepted here: full cold CAD, original geometry, three fine meshes and original
++material must pass in the isolated R15 worker. No filename-specific branch.
++"""
++import time
++import numpy as np
++import cadquery as cq
++from perfiles_planos_r15 import sketch,circle
++
++
++def marco_axial(mesh):
++ N=np.asarray(mesh.face_normals);A=np.asarray(mesh.area_faces);positive=N.copy()
++ dominant=np.argmax(abs(positive),axis=1);sign=np.sign(positive[np.arange(len(N)),dominant]);positive*=sign[:,None]
++ keys,inverse=np.unique(np.round(positive,6),axis=0,return_inverse=True)
++ weights=np.bincount(inverse,weights=A);index=int(weights.argmax())
++ if weights[index]<mesh.area*.2:raise ValueError('La malla no tiene estaciones planas dominantes')
++ # Quantization groups directions only; never use a quantized direction
++ # as geometry. Recover the full-precision area-weighted source normal.
++ family=inverse==index
++ axis=np.average(positive[family],axis=0,weights=A[family]);axis=axis/np.linalg.norm(axis)
++ # Canonical axes differing only by floating-point noise must retain the
++ # same meridian; this snaps less than 1e-12 rad, below native CAD precision.
++ main=int(np.argmax(abs(axis)))
++ if np.linalg.norm(np.delete(axis,main))<1e-12:axis=np.eye(3)[main]*np.sign(axis[main])
++ choice=int(np.flatnonzero(abs(axis)<=float(np.min(abs(axis)))+1e-12)[0])
++ u=np.eye(3)[choice];u=u-axis*(u@axis);u=u/np.linalg.norm(u);v=np.cross(u,axis)
++ return axis,u,v
++
++
++def _construir_alineado(mesh):
++ start=time.monotonic();axis,u,v=marco_axial(mesh)
++ V=np.asarray(mesh.vertices);N=np.asarray(mesh.face_normals);C=mesh.triangles_center
++ heights=V@axis;xy=np.c_[V@u,V@v]
++ levels=[]
++ for key in np.unique(np.round(C[abs(N@axis)>.999999]@axis,4)):
++  ids=(abs(N@axis)>.999999)&(abs(C@axis-key)<.0001)
++  if mesh.area_faces[ids].sum()>mesh.area*.002:levels.append(float(np.median(C[ids]@axis)))
++ levels=sorted(set([float(heights.min()),float(heights.max())]+levels));print('[R15] Estaciones axiales',levels,flush=True)
++ if not 2<=len(levels)<=8:raise ValueError('No hay una estructura axial acotada')
++ profiles=[];holes=[];outer_specs=[]
++ for lo,hi in zip(levels[:-1],levels[1:]):
++  if hi-lo<.01:continue
++  section=mesh.section(plane_origin=axis*((lo+hi)/2),plane_normal=axis)
++  if section is None:raise ValueError('Sección axial vacía')
++  paths=[np.c_[p@u,p@v] for p in section.discrete];paths.sort(key=lambda p:abs((p[:-1,0]*p[1:,1]-p[:-1,1]*p[1:,0]).sum()),reverse=True)
++  wire,proof=sketch(paths[0],lambda p: u*p[0]+v*p[1]+axis*lo,tol=.002)
++  outer_specs.append(dict(lo=lo,hi=hi,proof=proof,wire=wire));print('OUTER',lo,hi,proof['type'],len(wire.Edges()),flush=True)
++  for p in paths[1:]:
++   w,pr=sketch(p,lambda p:u*p[0]+v*p[1]+axis*lo,tol=.002)
++   if pr['type']=='circle':
++    center=np.array(pr['center']);found=next((h for h in holes if h['type']=='circle' and np.linalg.norm(h['center']-center)<.01 and abs(h['hi']-lo)<.0001),None)
++    if found:found['hi']=hi;found['radii'].append(pr['nominal_radius'])
++    else:holes.append(dict(type='circle',center=center,lo=lo,hi=hi,radii=[pr['nominal_radius']]))
++   else:holes.append(dict(type='prism',wire=w,lo=lo,hi=hi,proof=pr))
++ merged=[]
++ for item in outer_specs:
++  pr=item['proof']
++  if merged and pr['type']=='circle' and merged[-1]['proof']['type']=='circle' and np.linalg.norm(np.array(pr['center'])-merged[-1]['proof']['center'])<.0001 and abs(pr['radius']-merged[-1]['proof']['radius'])<.0001:
++   old=merged[-1];weight0=old['hi']-old['lo'];weight1=item['hi']-item['lo']
++   old['proof']['radius']=float(np.sqrt((weight0*old['proof']['radius']**2+weight1*pr['radius']**2)/(weight0+weight1)));old['hi']=item['hi']
++  else:merged.append(item)
++ profiles=[]
++ for item in merged:
++  pr=item['proof'];lo=item['lo'];hi=item['hi']
++  if pr['type']=='circle':
++   center=np.array(pr['center']);w=cq.Wire.makeCircle(pr['radius'],cq.Vector(*(u*center[0]+v*center[1]+axis*lo)),cq.Vector(*axis))
++  else:w=item['wire']
++  profiles.append(cq.Solid.extrudeLinear(w,[],cq.Vector(*(axis*(hi-lo)))))
++ body=profiles[0]
++ for s in profiles[1:]:body=body.fuse(s)
++ body=body.clean();print('BODY',len(body.Faces()),body.Volume(),flush=True)
++ tools=[];records=[]
++ for h in holes:
++  if h['type']=='prism':
++   tools.append(cq.Solid.extrudeLinear(h['wire'],[],cq.Vector(*(axis*(h['hi']-h['lo'])))));records.append(dict(type='prism',lo=h['lo'],hi=h['hi'],segments=len(h['wire'].Edges())));continue
++  center=h['center'];R=max(h['radii']);minR=min(h['radii']);distance=np.linalg.norm(xy-center,axis=1)
++  radial=C-(u*center[0]+v*center[1]);radial-=np.outer(radial@axis,axis);normaldot=np.sum(radial*N,axis=1)/np.maximum(np.linalg.norm(radial,axis=1),1e-20)
++  mask=(C@axis>=h['lo']-1e-5)&(C@axis<=h['hi']+1e-5)&(normaldot<-.03)
++  mask &= np.max(distance[mesh.faces],axis=1)<R+max(2.5,R*.2)
++  mask &= np.min(distance[mesh.faces],axis=1)>max(0,minR-max(2.5,R*.2))
++  cylmask=mask&(abs(N@axis)<1e-6)
++  stable=np.unique(mesh.faces[np.flatnonzero(cylmask)])
++  if len(stable)>=24:
++   refined,_,error=circle(xy[stable])
++   if error<3e-5:
++    center=refined;distance=np.linalg.norm(xy-center,axis=1)
++  mask=(C@axis>=h['lo']-1e-5)&(C@axis<=h['hi']+1e-5)&(normaldot< -1e-7)
++  mask &= np.max(distance[mesh.faces],axis=1)<R+max(2.5,R*.2)
++  mask &= np.min(distance[mesh.faces],axis=1)>max(0,minR-max(2.5,R*.2))
++  import trimesh
++  segments,faces=trimesh.intersections.mesh_plane(mesh,plane_normal=v,plane_origin=u*center[0]+v*center[1],return_faces=True)
++  segments=segments[mask[faces]];points=segments.reshape(-1,3);rr=(points@u)-center[0];yy=points@axis
++  keep=(rr>0)&(yy>=h['lo']-1e-5)&(yy<=h['hi']+1e-5)
++  rr=rr[keep];yy=yy[keep];rows=[]
++  for key in np.unique(np.round(yy,8)):
++   match=abs(yy-key)<5.01e-9
++   rows.append([float(np.median(yy[match])),float(np.mean(rr[match]))])
++  print('[R15] Perfil medido',center.tolist(),len(points),len(rows),flush=True)
++  rows=np.array(rows);rows=rows[np.argsort(rows[:,0])];print('HOLE',center.tolist(),'interval',h['lo'],h['hi'],'samples',len(rows),'r',rows[:,1].min(),rows[:,1].max(),flush=True)
++  if len(rows)<2:raise ValueError('Missing profile levels')
++  rows[0,0]=h['lo'];rows[-1,0]=h['hi']
++  profile=np.vstack([[0,h['lo']],rows[:,[1,0]],[0,h['hi']]])
++  def make_tool(bias=0,profile=profile.copy(),center=center.copy()):
++   p=profile.copy();p[1:-1,0]+=bias
++   w,proof=sketch(p,lambda p:u*(center[0]+p[0])+v*center[1]+axis*p[1],tol=.002,mandatory=[p[1],p[-2]])
++   tool=cq.Solid.revolve(w,[],360,cq.Vector(*(u*center[0]+v*center[1])),cq.Vector(*(u*center[0]+v*center[1]+axis)))
++   return tool,proof
++  tool,proof=make_tool();tools.append(tool);records.append(dict(type='revolution',center=center.tolist(),lo=h['lo'],hi=h['hi'],samples=rows.tolist(),segments=len(tool.Faces())))
++  if R>10:central=(len(tools)-1,make_tool)
++ print('TOOLS',len(tools),[len(t.Faces()) for t in tools],flush=True)
++ # Native cuts operate on a compact constructed body, not on 20,000 facets.
++ shape=body
++ for t in tools:shape=shape.cut(t)
++ shape=shape.clean();print('CUT',len(shape.Faces()),shape.Volume(),'target',mesh.volume,shape.isValid(),flush=True)
++ if 'central' in locals():
++  index,make_tool=central;without=body
++  for i,t in enumerate(tools):
++   if i!=index:without=without.cut(t)
++  def build(bias):return without.cut(make_tool(bias)[0]).clean()
++  bias=0.;last_error=shape.Volume()-mesh.volume
++  for iteration in range(4):
++   probe=bias+.0001;check=build(probe);slope=(check.Volume()-shape.Volume())/.0001
++   bias-=last_error/slope
++   if not np.isfinite(bias) or abs(bias)>.008:raise ValueError('Volume correction exceeds source proposal limit')
++   shape=build(bias);last_error=shape.Volume()-mesh.volume;print('VOLUME',bias,last_error,flush=True)
++   if abs(last_error)<1e-6:break
++
++ if len(shape.Solids())!=1 or not shape.isValid():raise ValueError('La construcción axial no produce un sólido válido')
++ if len(shape.Faces())>1000:raise ValueError('La construcción axial no es compacta')
++ return shape,dict(metodo='perfiles_axiales_del_STL',eje=axis.tolist(),estaciones_mm=levels,operaciones=records,
++   correccion_radial_volumen_mm=float(bias) if 'central' in locals() else 0.,
++   cota_propuesta_perfil_mm=.002,cota_propuesta_circulo_mm=.008,
++   volumen_fuente=float(mesh.volume),volumen_cad=float(shape.Volume()),caras=len(shape.Faces()),
++   segundos_construccion=time.monotonic()-start,limites_aceptacion_modificados=False)
++
++
++def construir(mesh):
++ axis,u,v=marco_axial(mesh)
++ if np.max(abs(axis))>1-1e-12:
++  return _construir_alineado(mesh)
++ # Build Boolean operations in a true orthonormal local frame. Quantized or
++ # oblique cap planes create microscopic cone caps and fragile joins.
++ R=np.column_stack([u,axis,v]);origin=mesh.bounds.mean(0)
++ local=mesh.copy();local.vertices=(mesh.vertices-origin)@R
++ shape,proof=_construir_alineado(local)
++ from OCP.gp import gp_Trsf
++ T=np.eye(4);T[:3,:3]=R;T[:3,3]=origin
++ transform=gp_Trsf();transform.SetValues(*[float(x) for x in T[:3,:].ravel()])
++ shape=shape.transformShape(cq.Matrix(transform))
++ proof['marco_local_a_STL']=T.tolist();proof['eje_STL']=axis.tolist()
++ return shape,proof
+--- R14/conversion_directa_r15.py
++++ R15/conversion_directa_r15.py
+@@ -0,0 +1,62 @@
++"""Try certified dense axial construction before the unchanged R14 pipeline."""
++from pathlib import Path
++import sys,os,json,time,tempfile,secrets,shutil
++from certificado_calidad_r15 import sha,firma_motor,verificar
++
++class RutasIncompatibles(ValueError):pass
++
++def comprobar_rutas(source,destination):
++ source,destination=map(Path,(source,destination))
++ outputs=[destination]+[destination.with_suffix(s) for s in ('.motor.log','.entrada.json','.r15_nucleo.json','.r15_propuesta.json')]
++ if any(source.resolve()==p.resolve() or (p.exists() and source.exists() and source.samefile(p)) for p in outputs):raise RutasIncompatibles('La entrada y todos los archivos de salida deben ser distintos')
++
++def elegible(source):
++ from politica_conversion import presupuesto_conversion
++ p=Path(source)
++ return p.is_file() and p.stat().st_size<=30*1024**2 and 50000<=presupuesto_conversion(p.read_bytes())['triangulos']<=200000
++
++def intentar(source,destination,log):
++ from perfeccion_calidad import ejecutar_subproceso,NUCLEO,EntradaCambiada
++ from avance_conversion import avance
++ source,destination=map(Path,(source,destination))
++ comprobar_rutas(source,destination)
++ if source.resolve()==destination.resolve() or (destination.exists() and source.samefile(destination)):raise ValueError('No se sobrescribe el STL original')
++ source_hash=sha(source);previous=sha(destination) if destination.exists() else None;nonce=secrets.token_hex(24);start=time.monotonic()
++ with tempfile.TemporaryDirectory(prefix='visor_r15_directo_',dir=destination.parent) as tmp:
++  tmp=Path(tmp);candidate=tmp/'candidato.step';report=tmp/'control.json';spec=tmp/'peticion.json'
++  spec.write_text(json.dumps(dict(source_sha256=source_hash,motor_sha256=firma_motor(Path(__file__).parent),nonce=nonce)),encoding='utf-8')
++  avance(20,'Reconstruyendo perfiles CAD completos desde el STL')
++  try:peak=ejecutar_subproceso(NUCLEO/'conversion_directa_worker_r15.py',[source,candidate,report,spec],600,log)
++  except Exception:
++   if report.is_file():shutil.copyfile(report,destination.with_suffix('.r15_propuesta.json'))
++   raise
++  record=json.loads(report.read_text(encoding='utf-8'))
++  if sha(source)!=source_hash or (sha(destination) if destination.exists() else None)!=previous:raise EntradaCambiada('Cambió una entrada antes de publicar la construcción directa')
++  quality=verificar(record,source,candidate,nonce,Path(__file__).parent)
++  proof=dict(aplicado=True,metodo='CAD_directo_desde_perfiles_del_STL',original_sha256=source_hash,step_sha256=sha(candidate),
++             construccion=record['construccion'],topologia_material=record['topologia_material'],mallado_fino=record['mallado_fino'],
++             material_original=record['material_original'],validacion_completa_ejecutada_una_vez=True,limites_aceptacion_modificados=False,
++             segundos=time.monotonic()-start,ram_pico_mb=peak)
++  shutil.copyfile(report,destination.with_suffix('.r15_nucleo.json'))
++  prep=record['preprocesamiento'];destination.with_suffix('.entrada.json').write_text(json.dumps(prep,ensure_ascii=False,indent=2),encoding='utf-8')
++  if sha(candidate)!=record['certificado']['step_sha256'] or sha(source)!=source_hash:raise EntradaCambiada('Cambió un archivo tras la validación completa')
++  if (sha(destination) if destination.exists() else None)!=previous:raise EntradaCambiada('La salida previa cambió durante la validación')
++  candidate.replace(destination)
++  return dict(ok=True,preprocesamiento=prep,resultado=dict(motor='CAD directo desde perfiles medidos, verificado',modo='superficies',
++      estrategia='construccion_axial_directa_r15',caras_stl=prep['entrada']['caras'],calidad=quality,reconstruccion_directa=proof))
++
++def ejecutar(legacy):
++ if len(sys.argv)!=3 or os.environ.get('VISOR_CONSTRUCCION_DIRECTA_R15','1')!='1' or os.environ.get('VISOR_PREPROCESADOR','1')=='0':return legacy()
++ source,destination=map(Path,sys.argv[1:])
++ try:
++  comprobar_rutas(source,destination)
++  if not elegible(source):return legacy()
++  with destination.with_suffix('.motor.log').open('a',encoding='utf-8',buffering=1) as log:payload=intentar(source,destination,log)
++  print(json.dumps(payload,ensure_ascii=True));return 0
++ except Exception as exc:
++  from perfeccion_calidad import EntradaCambiada
++  if isinstance(exc,(EntradaCambiada,RutasIncompatibles)):print(json.dumps(dict(ok=False,error=str(exc)),ensure_ascii=True));return 2
++  # No previous conversion is touched by a failed proposal. Run the same R14
++  # repair and conversion pipeline, with its original acceptance limits.
++  print('[R15] Se conserva el motor anterior: '+str(exc),flush=True)
++  return legacy()
+--- R14/material_cad_indexado.py
++++ R15/material_cad_indexado.py
+@@ -0,0 +1,55 @@
++"""Conservative native face bounds prune exact trimmed CAD intersections."""
++import numpy as np
++from OCP.IntCurvesFace import IntCurvesFace_Intersector
++from OCP.BRepBndLib import BRepBndLib
++from OCP.Bnd import Bnd_Box
++from OCP.BRepClass3d import BRepClass3d_SolidClassifier
++from OCP.gp import gp_Lin,gp_Pnt,gp_Dir
++from OCP.TopAbs import TopAbs_IN,TopAbs_ON,TopAbs_OUT,TopAbs_REVERSED
++from OCP.IntCurveSurface import IntCurveSurface_In,IntCurveSurface_Out
++
++class ClasificadorMaterial:
++ def __init__(self,shape,tol=1e-7):
++  self.shape=shape;self.tol=tol;self.faces=shape.Faces();boxes=[]
++  for f in self.faces:
++   b=Bnd_Box();BRepBndLib.AddOptimal_s(f.wrapped,b,False,True)
++   if b.IsVoid() or b.IsOpen():raise ValueError('Unbounded native face')
++   boxes.append(b.Get())
++  B=np.asarray(boxes);padding=tol*8+np.max(abs(B))*1e-12
++  self.lower=B[:,:3]-padding;self.upper=B[:,3:]+padding;self.inter={};self.reference=BRepClass3d_SolidClassifier(shape.wrapped);self.fallbacks=0;self.queries=0
++  self.directions=[np.array([.731,.419,.539]),np.array([-.317,.827,.463])];self.directions=[d/np.linalg.norm(d) for d in self.directions]
++ def reference_state(self,point):
++  self.reference.Perform(gp_Pnt(*map(float,point)),self.tol);state=self.reference.State()
++  if state not in (TopAbs_IN,TopAbs_OUT,TopAbs_ON):raise ValueError('Unknown material state')
++  return state in (TopAbs_IN,TopAbs_ON)
++ def _ray(self,p,d):
++  t0=(self.lower-p)/d;t1=(self.upper-p)/d
++  enter=np.maximum(np.minimum(t0,t1).max(axis=1),0)
++  leave=np.maximum(t0,t1).min(axis=1);ids=np.flatnonzero(leave>=enter);ids=ids[np.argsort(enter[ids])]
++  line=gp_Lin(gp_Pnt(*map(float,p)),gp_Dir(*map(float,d)));nearest=float('inf');hits=[]
++  for index in ids:
++   if enter[index]>nearest+8*self.tol:break
++   index=int(index);inter=self.inter.get(index)
++   if inter is None:inter=IntCurvesFace_Intersector(self.faces[index].wrapped,self.tol);self.inter[index]=inter
++   inter.Perform(line,-8*self.tol,float(leave[index]+8*self.tol));self.queries+=1
++   if not inter.IsDone():return None
++   for k in range(1,inter.NbPnt()+1):
++    t=inter.WParameter(k)
++    if t< -8*self.tol:continue
++    if t<nearest-8*self.tol:nearest=t;hits=[]
++    if abs(t-nearest)<=8*self.tol:hits.append((inter.State(k),inter.Transition(k),self.faces[index].wrapped.Orientation()))
++  if not hits:return False
++  if nearest<=8*self.tol or len(hits)!=1:return None
++  state,transition,orientation=hits[0]
++  if state!=TopAbs_IN or transition not in (IntCurveSurface_In,IntCurveSurface_Out):return None
++  return (transition==IntCurveSurface_Out)
++ def classify(self,points,expected=None,progress=None):
++  answers=[]
++  for i,p in enumerate(np.asarray(points,float)):
++   try:a=self._ray(p,self.directions[0]);b=self._ray(p,self.directions[1]) if a is not None else None
++   except Exception:a=b=None
++   if a is None or b is None or a!=b or (expected is not None and a!=bool(expected[i])):
++    self.fallbacks+=1;a=self.reference_state(p)
++   answers.append(a)
++   if progress and ((i+1)%100==0 or i+1==len(points)):progress(i+1,len(points))
++  return np.asarray(answers,bool)
+--- R14/motor_calidad/certificado_calidad_r15.py
++++ R15/motor_calidad/certificado_calidad_r15.py
+@@ -0,0 +1,50 @@
++"""Bind a completed isolated validation to exact source, STEP, code and profile.
++
++This certificate only removes repeated measurements of unchanged files within
++one invocation. It is not a persistent conversion cache or a replacement for
++cold CAD, dense distance, all three fine meshes, or original-material checks.
++"""
++from pathlib import Path
++import hashlib,json,importlib.metadata
++REVISION='R15_CONTROL_COMPLETO_INMUTABLE_V1'
++
++def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++def firma_motor(root):
++ root=Path(root)
++ # Same identity in root caller and kernel worker. Include every shipped Python
++ # implementation, but avoid logs and user conversions inside nested folders.
++ if root.name=='motor_calidad':root=root.parent
++ folders=[root,root/'motor_superficies',root/'motor_original_amigo',root/'motor_calidad',root/'motor_calidad/motor_superficies',root/'motor_calidad/motor_original_amigo']
++ files=sorted(p for folder in folders for p in folder.glob('*.py') if not p.name.startswith('test_'))
++ h=hashlib.sha256()
++ for p in files:h.update(p.relative_to(root).as_posix().encode());h.update(bytes.fromhex(sha(p)))
++ return h.hexdigest()
++
++def dependencias():
++ return {name:importlib.metadata.version(name) for name in ('cadquery','cadquery-ocp','numpy','trimesh','vtk','libigl','cgal')}
++
++def identidad(source,step,nonce,root):
++ from perfiles_precision import obtener_perfil
++ return dict(revision=REVISION,source_sha256=sha(source),step_sha256=sha(step),nonce=nonce,
++             motor_sha256=firma_motor(root),dependencias=dependencias(),perfil=obtener_perfil())
++
++def verificar(record,source,step,nonce,root):
++ from respaldo_conversion import calidad_aprobada
++ if record.get('ok') is not True or record.get('certificado')!=identidad(source,step,nonce,root):
++  raise ValueError('El control completo no coincide con archivos, petición, perfil o motor')
++ q=record['calidad']
++ if not calidad_aprobada(dict(ok=True,resultado=dict(calidad=q))):raise ValueError('Falta calidad CAD completa')
++ if q.get('perfil_validacion')!=record['certificado']['perfil']:raise ValueError('El perfil no coincide')
++ fine=record.get('mallado_fino',{}).get('resoluciones',[])
++ if len(fine)!=3 or [r.get('deflexion_mm') for r in fine]!=[.00025,.0005,.001]:raise ValueError('Falta un mallado fino')
++ for r in fine:
++  if not r.get('cerrado') or not r.get('orientado') or r.get('intersecciones_cgal')!=0:raise ValueError('Frontera fina no aprobada')
++  limits=q['limites_validacion'];surface=r['superficie']
++  if surface['max_mm']>limits['desviacion_max_observada_mm'] or surface['p95_mm']>limits['p95_superficie_max_mm']:raise ValueError('Fidelidad fina no aprobada')
++ material=record.get('material_original',{})
++ if material.get('discrepancias')!=0 or material.get('puntos',0)<2900 or material.get('banda_excluida_mm')!=.002:raise ValueError('Falta contraste de material original')
++ topology=record.get('topologia_material',{})
++ if not isinstance(topology.get('euler_malla'),int) or topology.get('euler_brep')!=topology['euler_malla'] or topology.get('shells')!=1:raise ValueError('Topología no conservada')
++ if any(r.get('euler')!=topology['euler_malla'] for r in fine):raise ValueError('Topología fina no conservada')
++ return q
+--- R14/motor_calidad/construccion_axial_r15.py
++++ R15/motor_calidad/construccion_axial_r15.py
+@@ -0,0 +1,153 @@
++"""Build compact CAD directly from measured axial sections, before faceting.
++
++Proposals use shared arc endpoints and exact source cap stations. They are never
++accepted here: full cold CAD, original geometry, three fine meshes and original
++material must pass in the isolated R15 worker. No filename-specific branch.
++"""
++import time
++import numpy as np
++import cadquery as cq
++from perfiles_planos_r15 import sketch,circle
++
++
++def marco_axial(mesh):
++ N=np.asarray(mesh.face_normals);A=np.asarray(mesh.area_faces);positive=N.copy()
++ dominant=np.argmax(abs(positive),axis=1);sign=np.sign(positive[np.arange(len(N)),dominant]);positive*=sign[:,None]
++ keys,inverse=np.unique(np.round(positive,6),axis=0,return_inverse=True)
++ weights=np.bincount(inverse,weights=A);index=int(weights.argmax())
++ if weights[index]<mesh.area*.2:raise ValueError('La malla no tiene estaciones planas dominantes')
++ # Quantization groups directions only; never use a quantized direction
++ # as geometry. Recover the full-precision area-weighted source normal.
++ family=inverse==index
++ axis=np.average(positive[family],axis=0,weights=A[family]);axis=axis/np.linalg.norm(axis)
++ # Canonical axes differing only by floating-point noise must retain the
++ # same meridian; this snaps less than 1e-12 rad, below native CAD precision.
++ main=int(np.argmax(abs(axis)))
++ if np.linalg.norm(np.delete(axis,main))<1e-12:axis=np.eye(3)[main]*np.sign(axis[main])
++ choice=int(np.flatnonzero(abs(axis)<=float(np.min(abs(axis)))+1e-12)[0])
++ u=np.eye(3)[choice];u=u-axis*(u@axis);u=u/np.linalg.norm(u);v=np.cross(u,axis)
++ return axis,u,v
++
++
++def _construir_alineado(mesh):
++ start=time.monotonic();axis,u,v=marco_axial(mesh)
++ V=np.asarray(mesh.vertices);N=np.asarray(mesh.face_normals);C=mesh.triangles_center
++ heights=V@axis;xy=np.c_[V@u,V@v]
++ levels=[]
++ for key in np.unique(np.round(C[abs(N@axis)>.999999]@axis,4)):
++  ids=(abs(N@axis)>.999999)&(abs(C@axis-key)<.0001)
++  if mesh.area_faces[ids].sum()>mesh.area*.002:levels.append(float(np.median(C[ids]@axis)))
++ levels=sorted(set([float(heights.min()),float(heights.max())]+levels));print('[R15] Estaciones axiales',levels,flush=True)
++ if not 2<=len(levels)<=8:raise ValueError('No hay una estructura axial acotada')
++ profiles=[];holes=[];outer_specs=[]
++ for lo,hi in zip(levels[:-1],levels[1:]):
++  if hi-lo<.01:continue
++  section=mesh.section(plane_origin=axis*((lo+hi)/2),plane_normal=axis)
++  if section is None:raise ValueError('Sección axial vacía')
++  paths=[np.c_[p@u,p@v] for p in section.discrete];paths.sort(key=lambda p:abs((p[:-1,0]*p[1:,1]-p[:-1,1]*p[1:,0]).sum()),reverse=True)
++  wire,proof=sketch(paths[0],lambda p: u*p[0]+v*p[1]+axis*lo,tol=.002)
++  outer_specs.append(dict(lo=lo,hi=hi,proof=proof,wire=wire));print('OUTER',lo,hi,proof['type'],len(wire.Edges()),flush=True)
++  for p in paths[1:]:
++   w,pr=sketch(p,lambda p:u*p[0]+v*p[1]+axis*lo,tol=.002)
++   if pr['type']=='circle':
++    center=np.array(pr['center']);found=next((h for h in holes if h['type']=='circle' and np.linalg.norm(h['center']-center)<.01 and abs(h['hi']-lo)<.0001),None)
++    if found:found['hi']=hi;found['radii'].append(pr['nominal_radius'])
++    else:holes.append(dict(type='circle',center=center,lo=lo,hi=hi,radii=[pr['nominal_radius']]))
++   else:holes.append(dict(type='prism',wire=w,lo=lo,hi=hi,proof=pr))
++ merged=[]
++ for item in outer_specs:
++  pr=item['proof']
++  if merged and pr['type']=='circle' and merged[-1]['proof']['type']=='circle' and np.linalg.norm(np.array(pr['center'])-merged[-1]['proof']['center'])<.0001 and abs(pr['radius']-merged[-1]['proof']['radius'])<.0001:
++   old=merged[-1];weight0=old['hi']-old['lo'];weight1=item['hi']-item['lo']
++   old['proof']['radius']=float(np.sqrt((weight0*old['proof']['radius']**2+weight1*pr['radius']**2)/(weight0+weight1)));old['hi']=item['hi']
++  else:merged.append(item)
++ profiles=[]
++ for item in merged:
++  pr=item['proof'];lo=item['lo'];hi=item['hi']
++  if pr['type']=='circle':
++   center=np.array(pr['center']);w=cq.Wire.makeCircle(pr['radius'],cq.Vector(*(u*center[0]+v*center[1]+axis*lo)),cq.Vector(*axis))
++  else:w=item['wire']
++  profiles.append(cq.Solid.extrudeLinear(w,[],cq.Vector(*(axis*(hi-lo)))))
++ body=profiles[0]
++ for s in profiles[1:]:body=body.fuse(s)
++ body=body.clean();print('BODY',len(body.Faces()),body.Volume(),flush=True)
++ tools=[];records=[]
++ for h in holes:
++  if h['type']=='prism':
++   tools.append(cq.Solid.extrudeLinear(h['wire'],[],cq.Vector(*(axis*(h['hi']-h['lo'])))));records.append(dict(type='prism',lo=h['lo'],hi=h['hi'],segments=len(h['wire'].Edges())));continue
++  center=h['center'];R=max(h['radii']);minR=min(h['radii']);distance=np.linalg.norm(xy-center,axis=1)
++  radial=C-(u*center[0]+v*center[1]);radial-=np.outer(radial@axis,axis);normaldot=np.sum(radial*N,axis=1)/np.maximum(np.linalg.norm(radial,axis=1),1e-20)
++  mask=(C@axis>=h['lo']-1e-5)&(C@axis<=h['hi']+1e-5)&(normaldot<-.03)
++  mask &= np.max(distance[mesh.faces],axis=1)<R+max(2.5,R*.2)
++  mask &= np.min(distance[mesh.faces],axis=1)>max(0,minR-max(2.5,R*.2))
++  cylmask=mask&(abs(N@axis)<1e-6)
++  stable=np.unique(mesh.faces[np.flatnonzero(cylmask)])
++  if len(stable)>=24:
++   refined,_,error=circle(xy[stable])
++   if error<3e-5:
++    center=refined;distance=np.linalg.norm(xy-center,axis=1)
++  mask=(C@axis>=h['lo']-1e-5)&(C@axis<=h['hi']+1e-5)&(normaldot< -1e-7)
++  mask &= np.max(distance[mesh.faces],axis=1)<R+max(2.5,R*.2)
++  mask &= np.min(distance[mesh.faces],axis=1)>max(0,minR-max(2.5,R*.2))
++  import trimesh
++  segments,faces=trimesh.intersections.mesh_plane(mesh,plane_normal=v,plane_origin=u*center[0]+v*center[1],return_faces=True)
++  segments=segments[mask[faces]];points=segments.reshape(-1,3);rr=(points@u)-center[0];yy=points@axis
++  keep=(rr>0)&(yy>=h['lo']-1e-5)&(yy<=h['hi']+1e-5)
++  rr=rr[keep];yy=yy[keep];rows=[]
++  for key in np.unique(np.round(yy,8)):
++   match=abs(yy-key)<5.01e-9
++   rows.append([float(np.median(yy[match])),float(np.mean(rr[match]))])
++  print('[R15] Perfil medido',center.tolist(),len(points),len(rows),flush=True)
++  rows=np.array(rows);rows=rows[np.argsort(rows[:,0])];print('HOLE',center.tolist(),'interval',h['lo'],h['hi'],'samples',len(rows),'r',rows[:,1].min(),rows[:,1].max(),flush=True)
++  if len(rows)<2:raise ValueError('Missing profile levels')
++  rows[0,0]=h['lo'];rows[-1,0]=h['hi']
++  profile=np.vstack([[0,h['lo']],rows[:,[1,0]],[0,h['hi']]])
++  def make_tool(bias=0,profile=profile.copy(),center=center.copy()):
++   p=profile.copy();p[1:-1,0]+=bias
++   w,proof=sketch(p,lambda p:u*(center[0]+p[0])+v*center[1]+axis*p[1],tol=.002,mandatory=[p[1],p[-2]])
++   tool=cq.Solid.revolve(w,[],360,cq.Vector(*(u*center[0]+v*center[1])),cq.Vector(*(u*center[0]+v*center[1]+axis)))
++   return tool,proof
++  tool,proof=make_tool();tools.append(tool);records.append(dict(type='revolution',center=center.tolist(),lo=h['lo'],hi=h['hi'],samples=rows.tolist(),segments=len(tool.Faces())))
++  if R>10:central=(len(tools)-1,make_tool)
++ print('TOOLS',len(tools),[len(t.Faces()) for t in tools],flush=True)
++ # Native cuts operate on a compact constructed body, not on 20,000 facets.
++ shape=body
++ for t in tools:shape=shape.cut(t)
++ shape=shape.clean();print('CUT',len(shape.Faces()),shape.Volume(),'target',mesh.volume,shape.isValid(),flush=True)
++ if 'central' in locals():
++  index,make_tool=central;without=body
++  for i,t in enumerate(tools):
++   if i!=index:without=without.cut(t)
++  def build(bias):return without.cut(make_tool(bias)[0]).clean()
++  bias=0.;last_error=shape.Volume()-mesh.volume
++  for iteration in range(4):
++   probe=bias+.0001;check=build(probe);slope=(check.Volume()-shape.Volume())/.0001
++   bias-=last_error/slope
++   if not np.isfinite(bias) or abs(bias)>.008:raise ValueError('Volume correction exceeds source proposal limit')
++   shape=build(bias);last_error=shape.Volume()-mesh.volume;print('VOLUME',bias,last_error,flush=True)
++   if abs(last_error)<1e-6:break
++
++ if len(shape.Solids())!=1 or not shape.isValid():raise ValueError('La construcción axial no produce un sólido válido')
++ if len(shape.Faces())>1000:raise ValueError('La construcción axial no es compacta')
++ return shape,dict(metodo='perfiles_axiales_del_STL',eje=axis.tolist(),estaciones_mm=levels,operaciones=records,
++   correccion_radial_volumen_mm=float(bias) if 'central' in locals() else 0.,
++   cota_propuesta_perfil_mm=.002,cota_propuesta_circulo_mm=.008,
++   volumen_fuente=float(mesh.volume),volumen_cad=float(shape.Volume()),caras=len(shape.Faces()),
++   segundos_construccion=time.monotonic()-start,limites_aceptacion_modificados=False)
++
++
++def construir(mesh):
++ axis,u,v=marco_axial(mesh)
++ if np.max(abs(axis))>1-1e-12:
++  return _construir_alineado(mesh)
++ # Build Boolean operations in a true orthonormal local frame. Quantized or
++ # oblique cap planes create microscopic cone caps and fragile joins.
++ R=np.column_stack([u,axis,v]);origin=mesh.bounds.mean(0)
++ local=mesh.copy();local.vertices=(mesh.vertices-origin)@R
++ shape,proof=_construir_alineado(local)
++ from OCP.gp import gp_Trsf
++ T=np.eye(4);T[:3,:3]=R;T[:3,3]=origin
++ transform=gp_Trsf();transform.SetValues(*[float(x) for x in T[:3,:].ravel()])
++ shape=shape.transformShape(cq.Matrix(transform))
++ proof['marco_local_a_STL']=T.tolist();proof['eje_STL']=axis.tolist()
++ return shape,proof
+--- R14/motor_calidad/conversion_directa_r15.py
++++ R15/motor_calidad/conversion_directa_r15.py
+@@ -0,0 +1,62 @@
++"""Try certified dense axial construction before the unchanged R14 pipeline."""
++from pathlib import Path
++import sys,os,json,time,tempfile,secrets,shutil
++from certificado_calidad_r15 import sha,firma_motor,verificar
++
++class RutasIncompatibles(ValueError):pass
++
++def comprobar_rutas(source,destination):
++ source,destination=map(Path,(source,destination))
++ outputs=[destination]+[destination.with_suffix(s) for s in ('.motor.log','.entrada.json','.r15_nucleo.json','.r15_propuesta.json')]
++ if any(source.resolve()==p.resolve() or (p.exists() and source.exists() and source.samefile(p)) for p in outputs):raise RutasIncompatibles('La entrada y todos los archivos de salida deben ser distintos')
++
++def elegible(source):
++ from politica_conversion import presupuesto_conversion
++ p=Path(source)
++ return p.is_file() and p.stat().st_size<=30*1024**2 and 50000<=presupuesto_conversion(p.read_bytes())['triangulos']<=200000
++
++def intentar(source,destination,log):
++ from perfeccion_calidad import ejecutar_subproceso,NUCLEO,EntradaCambiada
++ from avance_conversion import avance
++ source,destination=map(Path,(source,destination))
++ comprobar_rutas(source,destination)
++ if source.resolve()==destination.resolve() or (destination.exists() and source.samefile(destination)):raise ValueError('No se sobrescribe el STL original')
++ source_hash=sha(source);previous=sha(destination) if destination.exists() else None;nonce=secrets.token_hex(24);start=time.monotonic()
++ with tempfile.TemporaryDirectory(prefix='visor_r15_directo_',dir=destination.parent) as tmp:
++  tmp=Path(tmp);candidate=tmp/'candidato.step';report=tmp/'control.json';spec=tmp/'peticion.json'
++  spec.write_text(json.dumps(dict(source_sha256=source_hash,motor_sha256=firma_motor(Path(__file__).parent),nonce=nonce)),encoding='utf-8')
++  avance(20,'Reconstruyendo perfiles CAD completos desde el STL')
++  try:peak=ejecutar_subproceso(NUCLEO/'conversion_directa_worker_r15.py',[source,candidate,report,spec],600,log)
++  except Exception:
++   if report.is_file():shutil.copyfile(report,destination.with_suffix('.r15_propuesta.json'))
++   raise
++  record=json.loads(report.read_text(encoding='utf-8'))
++  if sha(source)!=source_hash or (sha(destination) if destination.exists() else None)!=previous:raise EntradaCambiada('Cambió una entrada antes de publicar la construcción directa')
++  quality=verificar(record,source,candidate,nonce,Path(__file__).parent)
++  proof=dict(aplicado=True,metodo='CAD_directo_desde_perfiles_del_STL',original_sha256=source_hash,step_sha256=sha(candidate),
++             construccion=record['construccion'],topologia_material=record['topologia_material'],mallado_fino=record['mallado_fino'],
++             material_original=record['material_original'],validacion_completa_ejecutada_una_vez=True,limites_aceptacion_modificados=False,
++             segundos=time.monotonic()-start,ram_pico_mb=peak)
++  shutil.copyfile(report,destination.with_suffix('.r15_nucleo.json'))
++  prep=record['preprocesamiento'];destination.with_suffix('.entrada.json').write_text(json.dumps(prep,ensure_ascii=False,indent=2),encoding='utf-8')
++  if sha(candidate)!=record['certificado']['step_sha256'] or sha(source)!=source_hash:raise EntradaCambiada('Cambió un archivo tras la validación completa')
++  if (sha(destination) if destination.exists() else None)!=previous:raise EntradaCambiada('La salida previa cambió durante la validación')
++  candidate.replace(destination)
++  return dict(ok=True,preprocesamiento=prep,resultado=dict(motor='CAD directo desde perfiles medidos, verificado',modo='superficies',
++      estrategia='construccion_axial_directa_r15',caras_stl=prep['entrada']['caras'],calidad=quality,reconstruccion_directa=proof))
++
++def ejecutar(legacy):
++ if len(sys.argv)!=3 or os.environ.get('VISOR_CONSTRUCCION_DIRECTA_R15','1')!='1' or os.environ.get('VISOR_PREPROCESADOR','1')=='0':return legacy()
++ source,destination=map(Path,sys.argv[1:])
++ try:
++  comprobar_rutas(source,destination)
++  if not elegible(source):return legacy()
++  with destination.with_suffix('.motor.log').open('a',encoding='utf-8',buffering=1) as log:payload=intentar(source,destination,log)
++  print(json.dumps(payload,ensure_ascii=True));return 0
++ except Exception as exc:
++  from perfeccion_calidad import EntradaCambiada
++  if isinstance(exc,(EntradaCambiada,RutasIncompatibles)):print(json.dumps(dict(ok=False,error=str(exc)),ensure_ascii=True));return 2
++  # No previous conversion is touched by a failed proposal. Run the same R14
++  # repair and conversion pipeline, with its original acceptance limits.
++  print('[R15] Se conserva el motor anterior: '+str(exc),flush=True)
++  return legacy()
+--- R14/motor_calidad/conversion_directa_worker_r15.py
++++ R15/motor_calidad/conversion_directa_worker_r15.py
+@@ -0,0 +1,52 @@
++"""Isolated compact source construction with one complete cold final validation."""
++from pathlib import Path
++import sys,os,json,time,tempfile,traceback
++sys.path.insert(0,str(Path(__file__).parent/'motor_superficies'))
++from certificado_calidad_r15 import sha,firma_motor,identidad
++
++def ejecutar(source,destination,report_path,spec_path):
++ source,destination,report_path,spec_path=map(Path,(source,destination,report_path,spec_path))
++ if len({p.resolve() for p in (source,destination,report_path,spec_path)})!=4 or destination.exists() or report_path.exists():raise ValueError('Las salidas deben ser nuevas y distintas')
++ record=dict(ok=False);start=time.monotonic();source_hash=sha(source);code=firma_motor(Path(__file__).parent)
++ def phase(name):
++  record.setdefault('fases',[]).append(dict(fase=name,segundos=time.monotonic()-start))
++  report_path.write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8');print('[R15]',name,round(time.monotonic()-start,2),flush=True)
++ try:
++  spec=json.loads(spec_path.read_text(encoding='utf-8'))
++  if spec['source_sha256']!=source_hash or spec['motor_sha256']!=code:raise ValueError('La petición no coincide con entrada y motor')
++  from preprocesador_stl import cargar_exacto,diagnosticar
++  from construccion_axial_r15 import construir,marco_axial
++  from exportacion_solida import exportar
++  from calidad_topologica import leer_solido_step_estricto
++  from motor_v2 import _calidad
++  from invariantes_material import InvariantesMaterial
++  from validacion_reconstruccion import certificar_topologia_step
++  from reconstruccion_curvas import certificar_mallado
++  from verificar_original_calidad import comprobar_material_original
++  from reparador_exacto_aislado import ControlExacto
++  phase('estructura_fuente');mesh=cargar_exacto(source)
++  if not 50000<=len(mesh.faces)<=200000:raise ValueError('Fuera de la familia densa acotada')
++  marco_axial(mesh);diag=diagnosticar(mesh)
++  if diag['ruta']!='paso_directo':raise ValueError('Se conserva la reparación y conversión anterior para esta topología')
++  if len(mesh.split(only_watertight=False))!=1:raise ValueError('Se requiere una única componente')
++  with tempfile.TemporaryDirectory(prefix='visor_r15_') as tmp:
++   if ControlExacto(mesh,Path(tmp)/'fuente.off').pares():raise ValueError('La fuente contiene autointersecciones')
++   phase('construccion_CAD_desde_perfiles');shape,record['construccion']=construir(mesh)
++   phase('exportacion_y_lectura_fria');record['exportacion']=exportar(shape,destination)
++   shape=leer_solido_step_estricto(destination)
++   phase('CAD_exacto_interferencias_y_geometria_original');record['calidad']=_calidad(source,destination,mesh,control_avanzado=True)
++   record['topologia_material']=certificar_topologia_step(shape,mesh,InvariantesMaterial(mesh))
++   phase('tres_mallados_finos');record['mallado_fino']=certificar_mallado(shape,mesh,Path(tmp)/'frontera.off',record['calidad'],referencia_superficie=mesh)
++   phase('material_del_STL_original');record['material_original']=comprobar_material_original(mesh,shape)
++  if source_hash!=sha(source) or code!=firma_motor(Path(__file__).parent):raise ValueError('Cambió la entrada o el motor durante el control')
++  record['preprocesamiento']=dict(version=1,original_sha256=source_hash,habilitado=True,reparado=False,original_conservado=True,
++                                 entrada=diag,ruta_seleccionada='paso_directo',resultado='mismo STL; construcción CAD directa verificada')
++  record['certificado']=identidad(source,destination,spec['nonce'],Path(__file__).parent)
++  record['step_sha256']=sha(destination);record['original_sha256']=source_hash
++  record['ok']=True;phase('validacion_completada')
++ except Exception as exc:
++  record['error']=str(exc);destination.unlink(missing_ok=True);traceback.print_exc()
++ record['seconds']=time.monotonic()-start;report_path.write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
++ return 0 if record['ok'] else 2
++
++if __name__=='__main__':raise SystemExit(ejecutar(*sys.argv[1:]))
+--- R14/motor_calidad/material_cad_indexado.py
++++ R15/motor_calidad/material_cad_indexado.py
+@@ -0,0 +1,55 @@
++"""Conservative native face bounds prune exact trimmed CAD intersections."""
++import numpy as np
++from OCP.IntCurvesFace import IntCurvesFace_Intersector
++from OCP.BRepBndLib import BRepBndLib
++from OCP.Bnd import Bnd_Box
++from OCP.BRepClass3d import BRepClass3d_SolidClassifier
++from OCP.gp import gp_Lin,gp_Pnt,gp_Dir
++from OCP.TopAbs import TopAbs_IN,TopAbs_ON,TopAbs_OUT,TopAbs_REVERSED
++from OCP.IntCurveSurface import IntCurveSurface_In,IntCurveSurface_Out
++
++class ClasificadorMaterial:
++ def __init__(self,shape,tol=1e-7):
++  self.shape=shape;self.tol=tol;self.faces=shape.Faces();boxes=[]
++  for f in self.faces:
++   b=Bnd_Box();BRepBndLib.AddOptimal_s(f.wrapped,b,False,True)
++   if b.IsVoid() or b.IsOpen():raise ValueError('Unbounded native face')
++   boxes.append(b.Get())
++  B=np.asarray(boxes);padding=tol*8+np.max(abs(B))*1e-12
++  self.lower=B[:,:3]-padding;self.upper=B[:,3:]+padding;self.inter={};self.reference=BRepClass3d_SolidClassifier(shape.wrapped);self.fallbacks=0;self.queries=0
++  self.directions=[np.array([.731,.419,.539]),np.array([-.317,.827,.463])];self.directions=[d/np.linalg.norm(d) for d in self.directions]
++ def reference_state(self,point):
++  self.reference.Perform(gp_Pnt(*map(float,point)),self.tol);state=self.reference.State()
++  if state not in (TopAbs_IN,TopAbs_OUT,TopAbs_ON):raise ValueError('Unknown material state')
++  return state in (TopAbs_IN,TopAbs_ON)
++ def _ray(self,p,d):
++  t0=(self.lower-p)/d;t1=(self.upper-p)/d
++  enter=np.maximum(np.minimum(t0,t1).max(axis=1),0)
++  leave=np.maximum(t0,t1).min(axis=1);ids=np.flatnonzero(leave>=enter);ids=ids[np.argsort(enter[ids])]
++  line=gp_Lin(gp_Pnt(*map(float,p)),gp_Dir(*map(float,d)));nearest=float('inf');hits=[]
++  for index in ids:
++   if enter[index]>nearest+8*self.tol:break
++   index=int(index);inter=self.inter.get(index)
++   if inter is None:inter=IntCurvesFace_Intersector(self.faces[index].wrapped,self.tol);self.inter[index]=inter
++   inter.Perform(line,-8*self.tol,float(leave[index]+8*self.tol));self.queries+=1
++   if not inter.IsDone():return None
++   for k in range(1,inter.NbPnt()+1):
++    t=inter.WParameter(k)
++    if t< -8*self.tol:continue
++    if t<nearest-8*self.tol:nearest=t;hits=[]
++    if abs(t-nearest)<=8*self.tol:hits.append((inter.State(k),inter.Transition(k),self.faces[index].wrapped.Orientation()))
++  if not hits:return False
++  if nearest<=8*self.tol or len(hits)!=1:return None
++  state,transition,orientation=hits[0]
++  if state!=TopAbs_IN or transition not in (IntCurveSurface_In,IntCurveSurface_Out):return None
++  return (transition==IntCurveSurface_Out)
++ def classify(self,points,expected=None,progress=None):
++  answers=[]
++  for i,p in enumerate(np.asarray(points,float)):
++   try:a=self._ray(p,self.directions[0]);b=self._ray(p,self.directions[1]) if a is not None else None
++   except Exception:a=b=None
++   if a is None or b is None or a!=b or (expected is not None and a!=bool(expected[i])):
++    self.fallbacks+=1;a=self.reference_state(p)
++   answers.append(a)
++   if progress and ((i+1)%100==0 or i+1==len(points)):progress(i+1,len(points))
++  return np.asarray(answers,bool)
+--- R14/motor_calidad/perfiles_planos_r15.py
++++ R15/motor_calidad/perfiles_planos_r15.py
+@@ -0,0 +1,63 @@
++"""Source-supported planar sketches: shared endpoints, lines and native arcs."""
++import numpy as np,cadquery as cq
++
++def compact(P,tol=1e-8,mandatory=()):
++ P=np.asarray(P,float)
++ if np.linalg.norm(P[0]-P[-1])<1e-8:P=P[:-1]
++ prev=np.roll(P,1,axis=0);nxt=np.roll(P,-1,axis=0);a=P-prev;b=nxt-P
++ cr=abs(a[:,0]*b[:,1]-a[:,1]*b[:,0]);keep=cr>tol*np.maximum(np.linalg.norm(a,axis=1)+np.linalg.norm(b,axis=1),1e-30)
++ for point in mandatory:keep[int(np.linalg.norm(P-point,axis=1).argmin())]=True
++ P=P[keep]
++ turn=np.linalg.norm(P-np.roll(P,1,axis=0),axis=1)
++ # Start at strongest corner; circle-only profiles handled separately.
++ aa=P-np.roll(P,1,axis=0);bb=np.roll(P,-1,axis=0)-P
++ cos=np.sum(aa*bb,axis=1)/np.maximum(np.linalg.norm(aa,axis=1)*np.linalg.norm(bb,axis=1),1e-30)
++ P=np.roll(P,-int(np.argmin(cos)),axis=0)
++ return np.vstack([P,P[0]])
++
++def circle(P):
++ p=np.asarray(P,float);origin=p.mean(0);xy=p-origin
++ x,y,k=np.linalg.lstsq(np.c_[2*xy,np.ones(len(p))],(xy*xy).sum(1),rcond=None)[0];c=origin+[x,y];r=np.sqrt(max(0,k+x*x+y*y));err=float(abs(np.linalg.norm(p-c,axis=1)-r).max())
++ return c,float(r),err
++
++def sketch(P,embed,tol=.00005,mandatory=()):
++ P=compact(P,mandatory=mandatory);center,r,err=circle(P[:-1]);area=abs((P[:-1,0]*P[1:,1]-P[:-1,1]*P[1:,0]).sum()/2)
++ radius=float(np.sqrt(area/np.pi));Q=P[:-1]-center;D=np.roll(Q,-1,axis=0)-Q;t=np.clip(-np.sum(Q*D,axis=1)/np.maximum(np.sum(D*D,axis=1),1e-30),0,1);rmin=np.linalg.norm(Q+t[:,None]*D,axis=1).min();rmax=np.linalg.norm(Q,axis=1).max()
++ if len(Q)>=24 and max(abs(radius-rmin),abs(radius-rmax))<=.008:
++  radius=float(np.sqrt(area/np.pi))
++  # Embed establishes an orthonormal planar basis.
++  o=np.asarray(embed(center));a=np.asarray(embed(center+[1,0]))-o;b=np.asarray(embed(center+[0,1]))-o
++  wire=cq.Wire.makeCircle(radius,cq.Vector(*o),cq.Vector(*np.cross(a,b)))
++  return wire,dict(type='circle',center=center.tolist(),radius=radius,nominal_radius=r,area=area,error=err)
++ n=len(P)-1;edges=[];records=[];i=0
++ critical=set([int(np.argmin(P[:-1,k])) for k in range(2)]+[int(np.argmax(P[:-1,k])) for k in range(2)])
++ for point in mandatory:critical.add(int(np.linalg.norm(P[:-1]-point,axis=1).argmin()))
++ while i<n:
++  stop=min([v for v in critical if v>i]+[n]);best=(i+1,'line',None)
++  for j in range(i+2,stop+1):
++   Q=P[i:j+1];d=Q[-1]-Q[0];l=np.linalg.norm(d)
++   if l<1e-10:break
++   e=abs((Q[:,0]-Q[0,0])*d[1]-(Q[:,1]-Q[0,1])*d[0]).max()/l
++   if e<tol:best=(j,'line',None);continue
++   if j-i<3:continue
++   A=Q[0];B=Q[len(Q)//2];C=Q[-1]
++   mat=2*np.array([B-A,C-A]);rhs=np.array([B@B-A@A,C@C-A@A])
++   if abs(np.linalg.det(mat))<1e-12:continue
++   c=np.linalg.solve(mat,rhs);rr=np.linalg.norm(A-c)
++   if rr>1e5:continue
++   # Certify each entire source segment, including its closest point to
++   # the circle centre. Vertex-only fitting can hide a large bowed arc.
++   D=np.diff(Q,axis=0);A0=Q[:-1]-c
++   t=np.clip(-np.sum(A0*D,axis=1)/np.maximum(np.sum(D*D,axis=1),1e-30),0,1)
++   rmin=np.linalg.norm(A0+t[:,None]*D,axis=1).min()
++   rmax=np.linalg.norm(Q-c,axis=1).max()
++   residual=max(abs(rmin-rr),abs(rmax-rr))
++   ang=np.unwrap(np.arctan2(Q[:,1]-c[1],Q[:,0]-c[0]));diff=np.diff(ang)
++   if residual<tol and (np.all(diff>-1e-9) or np.all(diff<1e-9)) and abs(ang[-1]-ang[0])<np.pi*1.95:best=(j,'arc',B)
++   elif j-i>8 and residual>tol*8:break
++  j,kind,mid=best;v0=cq.Vector(*embed(P[i]));v1=cq.Vector(*embed(P[j]))
++  edge=cq.Edge.makeLine(v0,v1) if kind=='line' else cq.Edge.makeThreePointArc(v0,cq.Vector(*embed(mid)),v1)
++  edges.append(edge);records.append(dict(kind=kind,points=j-i+1));i=j
++ wire=cq.Wire.assembleEdges(edges)
++ if not wire.IsClosed():raise ValueError('Open source sketch')
++ return wire,dict(type='arcs_lines',segments=records,area=area,points=len(P))
+--- R14/perfiles_planos_r15.py
++++ R15/perfiles_planos_r15.py
+@@ -0,0 +1,63 @@
++"""Source-supported planar sketches: shared endpoints, lines and native arcs."""
++import numpy as np,cadquery as cq
++
++def compact(P,tol=1e-8,mandatory=()):
++ P=np.asarray(P,float)
++ if np.linalg.norm(P[0]-P[-1])<1e-8:P=P[:-1]
++ prev=np.roll(P,1,axis=0);nxt=np.roll(P,-1,axis=0);a=P-prev;b=nxt-P
++ cr=abs(a[:,0]*b[:,1]-a[:,1]*b[:,0]);keep=cr>tol*np.maximum(np.linalg.norm(a,axis=1)+np.linalg.norm(b,axis=1),1e-30)
++ for point in mandatory:keep[int(np.linalg.norm(P-point,axis=1).argmin())]=True
++ P=P[keep]
++ turn=np.linalg.norm(P-np.roll(P,1,axis=0),axis=1)
++ # Start at strongest corner; circle-only profiles handled separately.
++ aa=P-np.roll(P,1,axis=0);bb=np.roll(P,-1,axis=0)-P
++ cos=np.sum(aa*bb,axis=1)/np.maximum(np.linalg.norm(aa,axis=1)*np.linalg.norm(bb,axis=1),1e-30)
++ P=np.roll(P,-int(np.argmin(cos)),axis=0)
++ return np.vstack([P,P[0]])
++
++def circle(P):
++ p=np.asarray(P,float);origin=p.mean(0);xy=p-origin
++ x,y,k=np.linalg.lstsq(np.c_[2*xy,np.ones(len(p))],(xy*xy).sum(1),rcond=None)[0];c=origin+[x,y];r=np.sqrt(max(0,k+x*x+y*y));err=float(abs(np.linalg.norm(p-c,axis=1)-r).max())
++ return c,float(r),err
++
++def sketch(P,embed,tol=.00005,mandatory=()):
++ P=compact(P,mandatory=mandatory);center,r,err=circle(P[:-1]);area=abs((P[:-1,0]*P[1:,1]-P[:-1,1]*P[1:,0]).sum()/2)
++ radius=float(np.sqrt(area/np.pi));Q=P[:-1]-center;D=np.roll(Q,-1,axis=0)-Q;t=np.clip(-np.sum(Q*D,axis=1)/np.maximum(np.sum(D*D,axis=1),1e-30),0,1);rmin=np.linalg.norm(Q+t[:,None]*D,axis=1).min();rmax=np.linalg.norm(Q,axis=1).max()
++ if len(Q)>=24 and max(abs(radius-rmin),abs(radius-rmax))<=.008:
++  radius=float(np.sqrt(area/np.pi))
++  # Embed establishes an orthonormal planar basis.
++  o=np.asarray(embed(center));a=np.asarray(embed(center+[1,0]))-o;b=np.asarray(embed(center+[0,1]))-o
++  wire=cq.Wire.makeCircle(radius,cq.Vector(*o),cq.Vector(*np.cross(a,b)))
++  return wire,dict(type='circle',center=center.tolist(),radius=radius,nominal_radius=r,area=area,error=err)
++ n=len(P)-1;edges=[];records=[];i=0
++ critical=set([int(np.argmin(P[:-1,k])) for k in range(2)]+[int(np.argmax(P[:-1,k])) for k in range(2)])
++ for point in mandatory:critical.add(int(np.linalg.norm(P[:-1]-point,axis=1).argmin()))
++ while i<n:
++  stop=min([v for v in critical if v>i]+[n]);best=(i+1,'line',None)
++  for j in range(i+2,stop+1):
++   Q=P[i:j+1];d=Q[-1]-Q[0];l=np.linalg.norm(d)
++   if l<1e-10:break
++   e=abs((Q[:,0]-Q[0,0])*d[1]-(Q[:,1]-Q[0,1])*d[0]).max()/l
++   if e<tol:best=(j,'line',None);continue
++   if j-i<3:continue
++   A=Q[0];B=Q[len(Q)//2];C=Q[-1]
++   mat=2*np.array([B-A,C-A]);rhs=np.array([B@B-A@A,C@C-A@A])
++   if abs(np.linalg.det(mat))<1e-12:continue
++   c=np.linalg.solve(mat,rhs);rr=np.linalg.norm(A-c)
++   if rr>1e5:continue
++   # Certify each entire source segment, including its closest point to
++   # the circle centre. Vertex-only fitting can hide a large bowed arc.
++   D=np.diff(Q,axis=0);A0=Q[:-1]-c
++   t=np.clip(-np.sum(A0*D,axis=1)/np.maximum(np.sum(D*D,axis=1),1e-30),0,1)
++   rmin=np.linalg.norm(A0+t[:,None]*D,axis=1).min()
++   rmax=np.linalg.norm(Q-c,axis=1).max()
++   residual=max(abs(rmin-rr),abs(rmax-rr))
++   ang=np.unwrap(np.arctan2(Q[:,1]-c[1],Q[:,0]-c[0]));diff=np.diff(ang)
++   if residual<tol and (np.all(diff>-1e-9) or np.all(diff<1e-9)) and abs(ang[-1]-ang[0])<np.pi*1.95:best=(j,'arc',B)
++   elif j-i>8 and residual>tol*8:break
++  j,kind,mid=best;v0=cq.Vector(*embed(P[i]));v1=cq.Vector(*embed(P[j]))
++  edge=cq.Edge.makeLine(v0,v1) if kind=='line' else cq.Edge.makeThreePointArc(v0,cq.Vector(*embed(mid)),v1)
++  edges.append(edge);records.append(dict(kind=kind,points=j-i+1));i=j
++ wire=cq.Wire.assembleEdges(edges)
++ if not wire.IsClosed():raise ValueError('Open source sketch')
++ return wire,dict(type='arcs_lines',segments=records,area=area,points=len(P))
+--- R14/test_certificado_directo_r15.py
++++ R15/test_certificado_directo_r15.py
+@@ -0,0 +1,47 @@
++import copy,json
++from pathlib import Path
++import cadquery as cq,numpy as np,pytest,trimesh
++from certificado_calidad_r15 import identidad,verificar
++from conversion_directa_r15 import comprobar_rutas,RutasIncompatibles
++
++@pytest.fixture
++def certified(tmp_path):
++ # Schema binding unit test; full native geometry is exercised by the exported
++ # shapes, material tests and real end-to-end conversion regression separately.
++ source=tmp_path/'source.stl';step=tmp_path/'model.step';source.write_bytes(b'original identity');step.write_bytes(b'worker STEP identity')
++ q=dict(integridad_cad=dict(brep_valido=True,brep_exacto=True,solidos=1),autointerferencias_occ=False,sin_objetos_sueltos_en_step=True,
++        inspeccion_densa=dict(aceptado=True),limites_validacion=dict(desviacion_max_observada_mm=.06,p95_superficie_max_mm=.02))
++ root=Path(__file__).parent;cert=identidad(source,step,'request',root);q['perfil_validacion']=cert['perfil']
++ record=dict(ok=True,certificado=cert,calidad=q,mallado_fino=dict(resoluciones=[dict(deflexion_mm=x,cerrado=True,orientado=True,intersecciones_cgal=0,euler=2,superficie=dict(max_mm=.001,p95_mm=.001)) for x in [.00025,.0005,.001]]),material_original=dict(puntos=3000,discrepancias=0,banda_excluida_mm=.002),topologia_material=dict(euler_brep=2,euler_malla=2,shells=1))
++ return record,source,step,root
++
++@pytest.mark.parametrize('change',['source','step','nonce','profile','code','dependency','fine_missing','fine_open','fine_crossing','fine_error','material','topology','dense','exact'])
++def test_incomplete_or_stale_validation_cannot_be_reused(certified,monkeypatch,change):
++ r,source,step,root=certified;nonce='request'
++ assert verificar(r,source,step,nonce,root)==r['calidad']
++ if change=='source':source.write_bytes(b'different original')
++ if change=='step':step.write_bytes(b'different STEP')
++ if change=='nonce':nonce='another request'
++ if change=='profile':monkeypatch.setenv('VISOR_PERFIL','impresion')
++ if change=='code':r['certificado']['motor_sha256']='0'*64
++ if change=='dependency':r['certificado']['dependencias']['cadquery']='different'
++ if change=='fine_missing':r['mallado_fino']['resoluciones'].pop()
++ if change=='fine_open':r['mallado_fino']['resoluciones'][0]['cerrado']=False
++ if change=='fine_crossing':r['mallado_fino']['resoluciones'][0]['intersecciones_cgal']=1
++ if change=='fine_error':r['mallado_fino']['resoluciones'][0]['superficie']['max_mm']=.07
++ if change=='material':r['material_original']['discrepancias']=1
++ if change=='topology':r['topologia_material']={}
++ if change=='dense':r['calidad']['inspeccion_densa']['aceptado']=False
++ if change=='exact':r['calidad']['integridad_cad']['brep_exacto']=False
++ with pytest.raises(ValueError):verificar(r,source,step,nonce,root)
++
++@pytest.mark.parametrize('suffix',['','.motor.log','.entrada.json','.r15_nucleo.json','.r15_propuesta.json'])
++def test_all_outputs_protect_original_bytes(tmp_path,suffix):
++ destination=tmp_path/'model.step';source=destination if not suffix else destination.with_suffix(suffix);source.write_bytes(b'original STL untouched')
++ with pytest.raises(RutasIncompatibles):comprobar_rutas(source,destination)
++ assert source.read_bytes()==b'original STL untouched'
++
++def test_hardlinked_source_cannot_be_overwritten(tmp_path):
++ source=tmp_path/'source.stl';source.write_bytes(b'original');destination=tmp_path/'model.step';destination.hardlink_to(source)
++ with pytest.raises(RutasIncompatibles):comprobar_rutas(source,destination)
++ assert source.read_bytes()==b'original'
+--- R14/test_marco_axial_r15.py
++++ R15/test_marco_axial_r15.py
+@@ -0,0 +1,22 @@
++from types import SimpleNamespace
++import numpy as np,pytest
++from construccion_axial_r15 import marco_axial
++
++@pytest.mark.parametrize('noise',[0.,-8e-36,8e-36,1e-15,-1e-15])
++def test_roundoff_cannot_select_another_meridian(noise):
++ normals=np.tile([noise,1.,0.],(4,1));mesh=SimpleNamespace(face_normals=normals,area_faces=np.ones(4),area=4.)
++ before=normals.copy();axis,u,v=marco_axial(mesh)
++ assert np.array_equal(axis,[0.,1.,0.])
++ assert np.array_equal(u,[1.,0.,0.])
++ assert np.array_equal(v,[0.,0.,1.])
++ assert np.array_equal(normals,before)
++
++
++def test_actual_oblique_axis_keeps_full_source_precision():
++ axis=np.array([.173456789123,.936725331123,.283756291123]);axis/=np.linalg.norm(axis)
++ normals=np.array([axis,-axis,axis,-axis]);mesh=SimpleNamespace(face_normals=normals,area_faces=np.ones(4),area=4.)
++ actual,u,v=marco_axial(mesh)
++ assert np.linalg.norm(actual-axis)<1e-15
++ assert np.linalg.norm(actual-np.round(axis,6))>1e-8
++ R=np.column_stack([u,actual,v]);assert np.max(abs(R.T@R-np.eye(3)))<1e-14
++ assert abs(np.linalg.det(R)-1)<1e-14
+--- R14/test_material_cad_indexado_r15.py
++++ R15/test_material_cad_indexado_r15.py
+@@ -0,0 +1,42 @@
++"""Compare CAD index against unchanged native reference, without expected hints."""
++import numpy as np
++import cadquery as cq
++import pytest
++from material_cad_indexado import ClasificadorMaterial
++
++
++def examples():
++ box=cq.Workplane().box(10,8,6).val()
++ yield 'box',box
++ yield 'bore',cq.Workplane().box(10,8,6).faces('>Z').workplane().hole(3).val()
++ yield 'cavity',box.cut(cq.Workplane().box(2,2,2).val())
++ yield 'sphere',cq.Solid.makeSphere(4,angleDegrees1=-90)
++ yield 'torus',cq.Solid.makeTorus(5,1)
++ yield 'cone',cq.Solid.makeCone(4,1,8)
++ yield 'thin',cq.Workplane().box(12,12,.00001).val()
++ yield 'fillet',cq.Workplane().box(10,8,6).edges().fillet(.3).val()
++
++
++@pytest.mark.parametrize('name,shape',list(examples()))
++@pytest.mark.parametrize('rotation',[False,True])
++def test_index_matches_native_reference(name,shape,rotation):
++ if rotation:shape=shape.rotate((0,0,0),(1,3,7),37).translate((13,-27,6))
++ b=shape.BoundingBox();lo=np.array([b.xmin,b.ymin,b.zmin]);hi=np.array([b.xmax,b.ymax,b.zmax]);span=np.maximum(hi-lo,1e-6)
++ points=np.random.default_rng(15).uniform(lo-.15*span,hi+.15*span,(1000,3))
++ boundary=np.array([v.Center().toTuple() for v in shape.Vertices()]+[f.Center().toTuple() for f in shape.Faces()])
++ points=np.vstack([points,boundary]);index=ClasificadorMaterial(shape)
++ expected=np.array([index.reference_state(p) for p in points]);actual=index.classify(points)
++ assert np.array_equal(actual,expected)
++ assert index.tol==1e-7
++
++
++def test_ambiguous_hits_use_original_classifier(monkeypatch):
++ index=ClasificadorMaterial(cq.Workplane().box(4,4,4).val());monkeypatch.setattr(index,'_ray',lambda p,d:None)
++ assert index.classify([[0,0,0],[4,0,0]]).tolist()==[True,False]
++ assert index.fallbacks==2
++
++
++def test_expected_material_cannot_override_native_cad():
++ index=ClasificadorMaterial(cq.Workplane().box(4,4,4).val())
++ assert index.classify([[0,0,0],[4,0,0]],expected=[False,True]).tolist()==[True,False]
++ assert index.fallbacks==2
+--- R14/test_perfiles_planos_r15.py
++++ R15/test_perfiles_planos_r15.py
+@@ -0,0 +1,26 @@
++import numpy as np,cadquery as cq,pytest
++from perfiles_planos_r15 import sketch
++
++
++def distance_segments(point,poly):
++ D=np.diff(poly,axis=0);A=poly[:-1];t=np.clip(np.sum((point-A)*D,axis=1)/np.sum(D*D,axis=1),0,1)
++ return np.linalg.norm(point-(A+t[:,None]*D),axis=1).min()
++
++
++def test_sparse_meridian_cannot_hide_bowed_arc_between_vertices():
++ # Vertex-only circle fitting used to accept an arc whose middle strayed far
++ # from these long, nearly straight source segments.
++ p=np.array([[0,0],[24,0],[26,2],[26.00001,5],[25.99998,16],[26,19],[0,19],[0,0]],float)
++ wire,proof=sketch(p,lambda q:[q[0],q[1],0],tol=.002,mandatory=[p[1],p[-3]])
++ for edge in wire.Edges():
++  for t in np.linspace(0,1,101):
++   q=np.array(edge.positionAt(float(t)).toTuple())[:2]
++   assert distance_segments(q,p)<.00201
++
++
++def test_source_cap_joints_stay_exactly_planar():
++ p=np.array([[0,0],[24,0],[24.03,.0004],[24.1,.003],[25,1],[26,2],[26,19],[0,19]],float)
++ wire,_=sketch(p,lambda q:[q[0],q[1],0],tol=.002,mandatory=[p[1],p[-2]])
++ for joint in [p[1],p[-2]]:assert min(np.linalg.norm(np.array(v.Center().toTuple())[:2]-joint) for v in wire.Vertices())<1e-10
++ # The radial cap itself is a native straight edge at its source height.
++ assert any(e.geomType()=='LINE' and all(abs(v.Center().y)<1e-12 for v in e.Vertices()) and e.Length()>23 for e in wire.Edges())

@@ -1,0 +1,1125 @@
+{
+  "ok": true,
+  "extraido": "/workspace/work/desarrollo_R15_20261103/verificacion paquete R15 con espacios/perfeccion_Visualizador_R15/Visor_experimental_fuentes",
+  "pieza": "brida",
+  "inicio_utc": "2026-11-03T13:54:43.948Z",
+  "identidad": {
+    "version": "R15 experimental",
+    "compilacion": "2026.11.03-perfiles-cad-directos",
+    "instancia": "44eac807ce1f7b968a76"
+  },
+  "titulo": "Visor STL · R15 experimental · 03/11/2026",
+  "descarga_identica_backend": true,
+  "sha256_step": "26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8",
+  "diagnostico": {
+    "id": "fade2f39abea",
+    "fecha_utc": "2026-11-03T13:54:47.212718+00:00",
+    "archivo": "brida_independiente_R15.stl",
+    "bytes_stl": 4696084,
+    "sha256_stl": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
+    "resultado": "exito",
+    "perfil": "precision",
+    "presupuesto": {
+      "triangulos": 93920,
+      "inicial_s": 900,
+      "maximo_s": 1800,
+      "ampliar_si_cpu_activa": true,
+      "incremento_s": 30,
+      "criterio": "Triángulos y actividad CPU; nunca superar el máximo absoluto.",
+      "plazo_actual_s": 900,
+      "cpu_activa": true,
+      "consumo_cpu_porcentaje": 50.4,
+      "ram_pico_mb": 795.6
+    },
+    "ram_pico_mb": 795.57,
+    "codigo_motor": 0,
+    "evidencias_calidad": {
+      "r15_nucleo": "/reparacion/fade2f39abea/r15_nucleo"
+    },
+    "preprocesamiento": {
+      "version": 1,
+      "original_sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
+      "habilitado": true,
+      "reparado": false,
+      "original_conservado": true,
+      "entrada": {
+        "caras": 93920,
+        "vertices": 46952,
+        "topologia_vertices": {
+          "vertices_no_manifold": 0,
+          "vertices_de_borde": 0,
+          "ejemplos": [],
+          "enlaces_regulares_cerrados": true,
+          "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+        },
+        "aristas_1_cara": 0,
+        "aristas_2_caras": 140880,
+        "aristas_mas_2_caras": 0,
+        "caras_degeneradas": 0,
+        "caras_duplicadas": 0,
+        "pares_caras_contacto_opuestas": 0,
+        "componentes": [
+          {
+            "caras": 93920,
+            "estanco": true,
+            "orientacion_consistente": true,
+            "volumen_firmado_mm3": 3579.7484650141046,
+            "euler": -8
+          }
+        ],
+        "numero_componentes": 1,
+        "estanco_global": true,
+        "caja_mm": [
+          [
+            -17,
+            -16.999879837036133,
+            0
+          ],
+          [
+            17,
+            16.999879837036133,
+            12
+          ]
+        ],
+        "ruta": "paso_directo",
+        "gravedad": "informacion",
+        "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+        "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+      },
+      "ruta_seleccionada": "paso_directo",
+      "resultado": "mismo STL; construcción CAD directa verificada"
+    },
+    "segundos": 33.89,
+    "calidad": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 21,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-7,
+        "tolerancia_p95_mm": 1e-7,
+        "tolerancia_media_mm": 1e-7,
+        "aristas_tol_mayor_001mm": 0,
+        "brep_exacto": true
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 10,
+      "bytes_step": 29156,
+      "volumen_error_pct": 0.000723,
+      "caja_error_mm": 0.00008,
+      "caja_error_analitico_mm": 0.00008,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 0.000014,
+        "p95": 0.000079,
+        "p99": 0.00008,
+        "max_muestreado": 0.000081,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 0.000004,
+        "p95": 0.000032,
+        "p99": 0.00004,
+        "max_muestreado": 0.000056,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0
+      },
+      "tipos_caras": {
+        "GeomAbs_Cylinder": 7,
+        "GeomAbs_Plane": 3
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "interferencias_comprobadas_en_frio": true,
+      "control_cad_reutilizado_por_sha256": false,
+      "sin_objetos_sueltos_en_step": true,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 0.000059502182426641244,
+          "max_mm": 0.00008062775783476533,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 17796,
+          "p95_mm": 0.0005311682098819122,
+          "max_mm": 0.0008311069640872683,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.000831,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      }
+    },
+    "estrategia": "construccion_axial_directa_r15",
+    "bytes_step": 29156,
+    "reconstruccion_directa": {
+      "aplicado": true,
+      "metodo": "CAD_directo_desde_perfiles_del_STL",
+      "original_sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
+      "step_sha256": "26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8",
+      "construccion": {
+        "metodo": "perfiles_axiales_del_STL",
+        "eje": [
+          0,
+          0,
+          1
+        ],
+        "estaciones_mm": [
+          0,
+          10,
+          12
+        ],
+        "operaciones": [
+          {
+            "type": "revolution",
+            "center": [
+              -3.162121797532349e-16,
+              -5.329070518200751e-15
+            ],
+            "lo": 0,
+            "hi": 12,
+            "samples": [
+              [
+                0,
+                8.5
+              ],
+              [
+                6,
+                8.5
+              ],
+              [
+                12,
+                8.5
+              ]
+            ],
+            "segments": 3
+          },
+          {
+            "type": "revolution",
+            "center": [
+              14,
+              2.28755891174587e-16
+            ],
+            "lo": 10,
+            "hi": 12,
+            "samples": [
+              [
+                10,
+                1.1999998092651367
+              ],
+              [
+                11,
+                1.1999998092651367
+              ],
+              [
+                12,
+                1.1999998092651367
+              ]
+            ],
+            "segments": 3
+          },
+          {
+            "type": "revolution",
+            "center": [
+              -14,
+              2.28755891174587e-16
+            ],
+            "lo": 10,
+            "hi": 12,
+            "samples": [
+              [
+                10,
+                1.1999998092651367
+              ],
+              [
+                11,
+                1.1999998092651367
+              ],
+              [
+                12,
+                1.1999998092651367
+              ]
+            ],
+            "segments": 3
+          },
+          {
+            "type": "revolution",
+            "center": [
+              -1.0886790979549985e-16,
+              -14
+            ],
+            "lo": 10,
+            "hi": 12,
+            "samples": [
+              [
+                10,
+                1.2000000476837158
+              ],
+              [
+                11,
+                1.2000000476837158
+              ],
+              [
+                12,
+                1.2000000476837158
+              ]
+            ],
+            "segments": 3
+          },
+          {
+            "type": "revolution",
+            "center": [
+              -1.0886790979549985e-16,
+              14
+            ],
+            "lo": 10,
+            "hi": 12,
+            "samples": [
+              [
+                10,
+                1.2000000476837158
+              ],
+              [
+                11,
+                1.2000000476837158
+              ],
+              [
+                12,
+                1.2000000476837158
+              ]
+            ],
+            "segments": 3
+          }
+        ],
+        "correccion_radial_volumen_mm": 0,
+        "cota_propuesta_perfil_mm": 0.002,
+        "cota_propuesta_circulo_mm": 0.008,
+        "volumen_fuente": 3579.7484650141046,
+        "volumen_cad": 3579.7225820470467,
+        "caras": 10,
+        "segundos_construccion": 0.8522483869983262,
+        "limites_aceptacion_modificados": false
+      },
+      "topologia_material": {
+        "euler_malla": -8,
+        "euler_brep": -8,
+        "shells": 1,
+        "cavidades_preservadas": 0,
+        "probes_cavidades": []
+      },
+      "mallado_fino": {
+        "resoluciones": [
+          {
+            "cerrado": true,
+            "orientado": true,
+            "euler": -8,
+            "intersecciones_cgal": 0,
+            "caras": 13412,
+            "deflexion_mm": 0.00025,
+            "angulo_rad": 0.04,
+            "superficie": {
+              "max_mm": 0.00020539860686584393,
+              "p95_mm": 0.00012463031362997283,
+              "muestras": [
+                24110,
+                144872
+              ]
+            },
+            "margen_microbucles_mm": 0
+          },
+          {
+            "cerrado": true,
+            "orientado": true,
+            "euler": -8,
+            "intersecciones_cgal": 0,
+            "caras": 10964,
+            "deflexion_mm": 0.0005,
+            "angulo_rad": 0.04,
+            "superficie": {
+              "max_mm": 0.0003290107087787542,
+              "p95_mm": 0.00023121394530114479,
+              "muestras": [
+                20438,
+                144872
+              ]
+            },
+            "margen_microbucles_mm": 0
+          },
+          {
+            "cerrado": true,
+            "orientado": true,
+            "euler": -8,
+            "intersecciones_cgal": 0,
+            "caras": 9336,
+            "deflexion_mm": 0.001,
+            "angulo_rad": 0.04,
+            "superficie": {
+              "max_mm": 0.0005789468141754505,
+              "p95_mm": 0.00045306062233233565,
+              "muestras": [
+                17996,
+                144872
+              ]
+            },
+            "margen_microbucles_mm": 0
+          }
+        ],
+        "step_modificado": false,
+        "limites_geometricos_modificados": false
+      },
+      "material_original": {
+        "puntos": 2998,
+        "puntos_extra_contacto": 0,
+        "discrepancias": 0,
+        "banda_excluida_mm": 0.002,
+        "clasificador": "CAD_exacto_indexado_doble_rayo",
+        "consultas_nativas": 11219,
+        "fallbacks": 0,
+        "tolerancia_cad_mm": 1e-7
+      },
+      "validacion_completa_ejecutada_una_vez": true,
+      "limites_aceptacion_modificados": false,
+      "segundos": 31.638158144000045,
+      "ram_pico_mb": 694.43
+    },
+    "motor_stdout_ultimas_lineas": " \"Mediciones de muestras, no garant\\u00eda absoluta de desviaci\\u00f3n global.\", \"autointerferencias_occ\": false, \"interferencias_comprobadas_en_frio\": true, \"control_cad_reutilizado_por_sha256\": false, \"sin_objetos_sueltos_en_step\": true, \"inspeccion_densa\": {\"stl_a_cad\": {\"muestras\": 3000, \"p95_mm\": 5.9502182426641244e-05, \"max_mm\": 8.062775783476533e-05, \"zonas_sospechosas\": []}, \"cad_a_stl\": {\"muestras\": 17796, \"p95_mm\": 0.0005311682098819122, \"max_mm\": 0.0008311069640872683, \"zonas_sospechosas\": []}, \"limite_p95_mm\": 0.02, \"limite_max_mm\": 0.06, \"contraste_muestras_cad\": {\"muestras_proyectadas\": 0, \"max_distancia_al_brep_mm\": 0.0}, \"nota\": \"Muestreo determinista, no garant\\u00eda Hausdorff global.\", \"aceptado\": true}, \"precision_alcanzada\": \"precision\", \"desviacion_max_verificada_mm\": 0.000831, \"limites_precision_originales\": {\"caja_mm\": 0.02, \"p95_mm\": 0.02, \"max_mm\": 0.06}}, \"reconstruccion_directa\": {\"aplicado\": true, \"metodo\": \"CAD_directo_desde_perfiles_del_STL\", \"original_sha256\": \"8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932\", \"step_sha256\": \"26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8\", \"construccion\": {\"metodo\": \"perfiles_axiales_del_STL\", \"eje\": [0.0, 0.0, 1.0], \"estaciones_mm\": [0.0, 10.0, 12.0], \"operaciones\": [{\"type\": \"revolution\", \"center\": [-3.162121797532349e-16, -5.329070518200751e-15], \"lo\": 0.0, \"hi\": 12.0, \"samples\": [[0.0, 8.5], [6.0, 8.5], [12.0, 8.5]], \"segments\": 3}, {\"type\": \"revolution\", \"center\": [14.0, 2.28755891174587e-16], \"lo\": 10.0, \"hi\": 12.0, \"samples\": [[10.0, 1.1999998092651367], [11.0, 1.1999998092651367], [12.0, 1.1999998092651367]], \"segments\": 3}, {\"type\": \"revolution\", \"center\": [-14.0, 2.28755891174587e-16], \"lo\": 10.0, \"hi\": 12.0, \"samples\": [[10.0, 1.1999998092651367], [11.0, 1.1999998092651367], [12.0, 1.1999998092651367]], \"segments\": 3}, {\"type\": \"revolution\", \"center\": [-1.0886790979549985e-16, -14.0], \"lo\": 10.0, \"hi\": 12.0, \"samples\": [[10.0, 1.2000000476837158], [11.0, 1.2000000476837158], [12.0, 1.2000000476837158]], \"segments\": 3}, {\"type\": \"revolution\", \"center\": [-1.0886790979549985e-16, 14.0], \"lo\": 10.0, \"hi\": 12.0, \"samples\": [[10.0, 1.2000000476837158], [11.0, 1.2000000476837158], [12.0, 1.2000000476837158]], \"segments\": 3}], \"correccion_radial_volumen_mm\": 0.0, \"cota_propuesta_perfil_mm\": 0.002, \"cota_propuesta_circulo_mm\": 0.008, \"volumen_fuente\": 3579.7484650141046, \"volumen_cad\": 3579.7225820470467, \"caras\": 10, \"segundos_construccion\": 0.8522483869983262, \"limites_aceptacion_modificados\": false}, \"topologia_material\": {\"euler_malla\": -8, \"euler_brep\": -8, \"shells\": 1, \"cavidades_preservadas\": 0, \"probes_cavidades\": []}, \"mallado_fino\": {\"resoluciones\": [{\"cerrado\": true, \"orientado\": true, \"euler\": -8, \"intersecciones_cgal\": 0, \"caras\": 13412, \"deflexion_mm\": 0.00025, \"angulo_rad\": 0.04, \"superficie\": {\"max_mm\": 0.00020539860686584393, \"p95_mm\": 0.00012463031362997283, \"muestras\": [24110, 144872]}, \"margen_microbucles_mm\": 0.0}, {\"cerrado\": true, \"orientado\": true, \"euler\": -8, \"intersecciones_cgal\": 0, \"caras\": 10964, \"deflexion_mm\": 0.0005, \"angulo_rad\": 0.04, \"superficie\": {\"max_mm\": 0.0003290107087787542, \"p95_mm\": 0.00023121394530114479, \"muestras\": [20438, 144872]}, \"margen_microbucles_mm\": 0.0}, {\"cerrado\": true, \"orientado\": true, \"euler\": -8, \"intersecciones_cgal\": 0, \"caras\": 9336, \"deflexion_mm\": 0.001, \"angulo_rad\": 0.04, \"superficie\": {\"max_mm\": 0.0005789468141754505, \"p95_mm\": 0.00045306062233233565, \"muestras\": [17996, 144872]}, \"margen_microbucles_mm\": 0.0}], \"step_modificado\": false, \"limites_geometricos_modificados\": false}, \"material_original\": {\"puntos\": 2998, \"puntos_extra_contacto\": 0, \"discrepancias\": 0, \"banda_excluida_mm\": 0.002, \"clasificador\": \"CAD_exacto_indexado_doble_rayo\", \"consultas_nativas\": 11219, \"fallbacks\": 0, \"tolerancia_cad_mm\": 1e-07}, \"validacion_completa_ejecutada_una_vez\": true, \"limites_aceptacion_modificados\": false, \"segundos\": 31.638158144000045, \"ram_pico_mb\": 694.43}}}\n",
+    "version_programa": "R15 experimental · 2026.11.03-perfiles-cad-directos",
+    "python_version": "3.12.14 (Linux-6.18.57-x86_64-with-glibc2.41)",
+    "dependencias": {
+      "cadquery": "2.8.0",
+      "cadquery-ocp": "7.9.3.1.1",
+      "trimesh": "4.11.1",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "vtk": "9.6.2",
+      "shapely": "2.1.2"
+    },
+    "motor_stderr_ultimas_lineas": ""
+  },
+  "job": "fade2f39abea",
+  "mejora": {
+    "aplicado": true,
+    "metodo": "CAD_directo_desde_perfiles_del_STL",
+    "original_sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
+    "step_sha256": "26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8",
+    "construccion": {
+      "metodo": "perfiles_axiales_del_STL",
+      "eje": [
+        0,
+        0,
+        1
+      ],
+      "estaciones_mm": [
+        0,
+        10,
+        12
+      ],
+      "operaciones": [
+        {
+          "type": "revolution",
+          "center": [
+            -3.162121797532349e-16,
+            -5.329070518200751e-15
+          ],
+          "lo": 0,
+          "hi": 12,
+          "samples": [
+            [
+              0,
+              8.5
+            ],
+            [
+              6,
+              8.5
+            ],
+            [
+              12,
+              8.5
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            14,
+            2.28755891174587e-16
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.1999998092651367
+            ],
+            [
+              11,
+              1.1999998092651367
+            ],
+            [
+              12,
+              1.1999998092651367
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            -14,
+            2.28755891174587e-16
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.1999998092651367
+            ],
+            [
+              11,
+              1.1999998092651367
+            ],
+            [
+              12,
+              1.1999998092651367
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            -1.0886790979549985e-16,
+            -14
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.2000000476837158
+            ],
+            [
+              11,
+              1.2000000476837158
+            ],
+            [
+              12,
+              1.2000000476837158
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            -1.0886790979549985e-16,
+            14
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.2000000476837158
+            ],
+            [
+              11,
+              1.2000000476837158
+            ],
+            [
+              12,
+              1.2000000476837158
+            ]
+          ],
+          "segments": 3
+        }
+      ],
+      "correccion_radial_volumen_mm": 0,
+      "cota_propuesta_perfil_mm": 0.002,
+      "cota_propuesta_circulo_mm": 0.008,
+      "volumen_fuente": 3579.7484650141046,
+      "volumen_cad": 3579.7225820470467,
+      "caras": 10,
+      "segundos_construccion": 0.8522483869983262,
+      "limites_aceptacion_modificados": false
+    },
+    "topologia_material": {
+      "euler_malla": -8,
+      "euler_brep": -8,
+      "shells": 1,
+      "cavidades_preservadas": 0,
+      "probes_cavidades": []
+    },
+    "mallado_fino": {
+      "resoluciones": [
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -8,
+          "intersecciones_cgal": 0,
+          "caras": 13412,
+          "deflexion_mm": 0.00025,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.00020539860686584393,
+            "p95_mm": 0.00012463031362997283,
+            "muestras": [
+              24110,
+              144872
+            ]
+          },
+          "margen_microbucles_mm": 0
+        },
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -8,
+          "intersecciones_cgal": 0,
+          "caras": 10964,
+          "deflexion_mm": 0.0005,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.0003290107087787542,
+            "p95_mm": 0.00023121394530114479,
+            "muestras": [
+              20438,
+              144872
+            ]
+          },
+          "margen_microbucles_mm": 0
+        },
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -8,
+          "intersecciones_cgal": 0,
+          "caras": 9336,
+          "deflexion_mm": 0.001,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.0005789468141754505,
+            "p95_mm": 0.00045306062233233565,
+            "muestras": [
+              17996,
+              144872
+            ]
+          },
+          "margen_microbucles_mm": 0
+        }
+      ],
+      "step_modificado": false,
+      "limites_geometricos_modificados": false
+    },
+    "material_original": {
+      "puntos": 2998,
+      "puntos_extra_contacto": 0,
+      "discrepancias": 0,
+      "banda_excluida_mm": 0.002,
+      "clasificador": "CAD_exacto_indexado_doble_rayo",
+      "consultas_nativas": 11219,
+      "fallbacks": 0,
+      "tolerancia_cad_mm": 1e-7
+    },
+    "validacion_completa_ejecutada_una_vez": true,
+    "limites_aceptacion_modificados": false,
+    "segundos": 31.638158144000045,
+    "ram_pico_mb": 694.43
+  },
+  "evidencia_r15": {
+    "ok": true,
+    "fases": [
+      {
+        "fase": "estructura_fuente",
+        "segundos": 4.789286978000746
+      },
+      {
+        "fase": "construccion_CAD_desde_perfiles",
+        "segundos": 13.068531868000719
+      },
+      {
+        "fase": "exportacion_y_lectura_fria",
+        "segundos": 14.07443130899992
+      },
+      {
+        "fase": "CAD_exacto_interferencias_y_geometria_original",
+        "segundos": 14.199641975001214
+      },
+      {
+        "fase": "tres_mallados_finos",
+        "segundos": 17.762479176000852
+      },
+      {
+        "fase": "material_del_STL_original",
+        "segundos": 26.404911184999946
+      },
+      {
+        "fase": "validacion_completada",
+        "segundos": 30.411177919000693
+      }
+    ],
+    "construccion": {
+      "metodo": "perfiles_axiales_del_STL",
+      "eje": [
+        0,
+        0,
+        1
+      ],
+      "estaciones_mm": [
+        0,
+        10,
+        12
+      ],
+      "operaciones": [
+        {
+          "type": "revolution",
+          "center": [
+            -3.162121797532349e-16,
+            -5.329070518200751e-15
+          ],
+          "lo": 0,
+          "hi": 12,
+          "samples": [
+            [
+              0,
+              8.5
+            ],
+            [
+              6,
+              8.5
+            ],
+            [
+              12,
+              8.5
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            14,
+            2.28755891174587e-16
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.1999998092651367
+            ],
+            [
+              11,
+              1.1999998092651367
+            ],
+            [
+              12,
+              1.1999998092651367
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            -14,
+            2.28755891174587e-16
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.1999998092651367
+            ],
+            [
+              11,
+              1.1999998092651367
+            ],
+            [
+              12,
+              1.1999998092651367
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            -1.0886790979549985e-16,
+            -14
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.2000000476837158
+            ],
+            [
+              11,
+              1.2000000476837158
+            ],
+            [
+              12,
+              1.2000000476837158
+            ]
+          ],
+          "segments": 3
+        },
+        {
+          "type": "revolution",
+          "center": [
+            -1.0886790979549985e-16,
+            14
+          ],
+          "lo": 10,
+          "hi": 12,
+          "samples": [
+            [
+              10,
+              1.2000000476837158
+            ],
+            [
+              11,
+              1.2000000476837158
+            ],
+            [
+              12,
+              1.2000000476837158
+            ]
+          ],
+          "segments": 3
+        }
+      ],
+      "correccion_radial_volumen_mm": 0,
+      "cota_propuesta_perfil_mm": 0.002,
+      "cota_propuesta_circulo_mm": 0.008,
+      "volumen_fuente": 3579.7484650141046,
+      "volumen_cad": 3579.7225820470467,
+      "caras": 10,
+      "segundos_construccion": 0.8522483869983262,
+      "limites_aceptacion_modificados": false
+    },
+    "exportacion": {
+      "tipo_entrada": "Compound",
+      "shell_cerrado_solidificado": false,
+      "solid_reconstruido_desde_frontera": true,
+      "banderas_cierre_antes": [
+        true
+      ],
+      "caras": 10,
+      "aristas": 21,
+      "shells": 1,
+      "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+      "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+      "auditoria_step_crudo": {
+        "ok": true,
+        "modified": false,
+        "corrected_bounds": [],
+        "audit": {
+          "ok": true,
+          "complete": true,
+          "solids": 1,
+          "shells": [
+            {
+              "shell": 16,
+              "faces": 10,
+              "edges": 21,
+              "errors": []
+            }
+          ],
+          "unsupported": [],
+          "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+        }
+      },
+      "ok": true,
+      "modo": "STEPControl_ManifoldSolidBrep",
+      "solidos_reimportados": 1,
+      "caras_reimportadas": 10,
+      "tolerancia_max_mm": 1.0000000177635683e-7,
+      "step_sha256": "26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8",
+      "requiere_validacion_original": true
+    },
+    "calidad": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 21,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-7,
+        "tolerancia_p95_mm": 1e-7,
+        "tolerancia_media_mm": 1e-7,
+        "aristas_tol_mayor_001mm": 0,
+        "brep_exacto": true
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 10,
+      "bytes_step": 29156,
+      "volumen_error_pct": 0.000723,
+      "caja_error_mm": 0.00008,
+      "caja_error_analitico_mm": 0.00008,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 0.000014,
+        "p95": 0.000079,
+        "p99": 0.00008,
+        "max_muestreado": 0.000081,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 0.000004,
+        "p95": 0.000032,
+        "p99": 0.00004,
+        "max_muestreado": 0.000056,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0
+      },
+      "tipos_caras": {
+        "GeomAbs_Cylinder": 7,
+        "GeomAbs_Plane": 3
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "interferencias_comprobadas_en_frio": true,
+      "control_cad_reutilizado_por_sha256": false,
+      "sin_objetos_sueltos_en_step": true,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 0.000059502182426641244,
+          "max_mm": 0.00008062775783476533,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 17796,
+          "p95_mm": 0.0005311682098819122,
+          "max_mm": 0.0008311069640872683,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.000831,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      }
+    },
+    "topologia_material": {
+      "euler_malla": -8,
+      "euler_brep": -8,
+      "shells": 1,
+      "cavidades_preservadas": 0,
+      "probes_cavidades": []
+    },
+    "mallado_fino": {
+      "resoluciones": [
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -8,
+          "intersecciones_cgal": 0,
+          "caras": 13412,
+          "deflexion_mm": 0.00025,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.00020539860686584393,
+            "p95_mm": 0.00012463031362997283,
+            "muestras": [
+              24110,
+              144872
+            ]
+          },
+          "margen_microbucles_mm": 0
+        },
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -8,
+          "intersecciones_cgal": 0,
+          "caras": 10964,
+          "deflexion_mm": 0.0005,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.0003290107087787542,
+            "p95_mm": 0.00023121394530114479,
+            "muestras": [
+              20438,
+              144872
+            ]
+          },
+          "margen_microbucles_mm": 0
+        },
+        {
+          "cerrado": true,
+          "orientado": true,
+          "euler": -8,
+          "intersecciones_cgal": 0,
+          "caras": 9336,
+          "deflexion_mm": 0.001,
+          "angulo_rad": 0.04,
+          "superficie": {
+            "max_mm": 0.0005789468141754505,
+            "p95_mm": 0.00045306062233233565,
+            "muestras": [
+              17996,
+              144872
+            ]
+          },
+          "margen_microbucles_mm": 0
+        }
+      ],
+      "step_modificado": false,
+      "limites_geometricos_modificados": false
+    },
+    "material_original": {
+      "puntos": 2998,
+      "puntos_extra_contacto": 0,
+      "discrepancias": 0,
+      "banda_excluida_mm": 0.002,
+      "clasificador": "CAD_exacto_indexado_doble_rayo",
+      "consultas_nativas": 11219,
+      "fallbacks": 0,
+      "tolerancia_cad_mm": 1e-7
+    },
+    "preprocesamiento": {
+      "version": 1,
+      "original_sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
+      "habilitado": true,
+      "reparado": false,
+      "original_conservado": true,
+      "entrada": {
+        "caras": 93920,
+        "vertices": 46952,
+        "topologia_vertices": {
+          "vertices_no_manifold": 0,
+          "vertices_de_borde": 0,
+          "ejemplos": [],
+          "enlaces_regulares_cerrados": true,
+          "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+        },
+        "aristas_1_cara": 0,
+        "aristas_2_caras": 140880,
+        "aristas_mas_2_caras": 0,
+        "caras_degeneradas": 0,
+        "caras_duplicadas": 0,
+        "pares_caras_contacto_opuestas": 0,
+        "componentes": [
+          {
+            "caras": 93920,
+            "estanco": true,
+            "orientacion_consistente": true,
+            "volumen_firmado_mm3": 3579.7484650141046,
+            "euler": -8
+          }
+        ],
+        "numero_componentes": 1,
+        "estanco_global": true,
+        "caja_mm": [
+          [
+            -17,
+            -16.999879837036133,
+            0
+          ],
+          [
+            17,
+            16.999879837036133,
+            12
+          ]
+        ],
+        "ruta": "paso_directo",
+        "gravedad": "informacion",
+        "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+        "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+      },
+      "ruta_seleccionada": "paso_directo",
+      "resultado": "mismo STL; construcción CAD directa verificada"
+    },
+    "certificado": {
+      "revision": "R15_CONTROL_COMPLETO_INMUTABLE_V1",
+      "source_sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
+      "step_sha256": "26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8",
+      "nonce": "be0bda103184c99cf40db474661dc57bd0e03bf41ec001f3",
+      "motor_sha256": "64a1eb2831ae141928423d07efb04aee737430c0e4bc5d4b8d22eff2cf2ada43",
+      "dependencias": {
+        "cadquery": "2.8.0",
+        "cadquery-ocp": "7.9.3.1.1",
+        "numpy": "2.3.5",
+        "trimesh": "4.11.1",
+        "vtk": "9.6.2",
+        "libigl": "2.6.3",
+        "cgal": "6.0.1.post202410241521"
+      },
+      "perfil": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      }
+    },
+    "step_sha256": "26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8",
+    "original_sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
+    "seconds": 30.4150539630009
+  },
+  "errores_js": [],
+  "fin_utc": "2026-11-03T13:55:22.694Z"
+}

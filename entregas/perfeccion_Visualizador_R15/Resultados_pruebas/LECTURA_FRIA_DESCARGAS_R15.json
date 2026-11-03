@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "resultados": [
+    {
+      "pieza": "caja",
+      "ok": true,
+      "step_sha256": "c77dd607720d2ff83c70787bac9f7d61266c8d7243d43b3f54f8b699ebf8aadb",
+      "caras": 6,
+      "solidos": 1,
+      "brep_exacto": true,
+      "interferencias": 0,
+      "auditoria_cruda": true,
+      "volumen_mm3": 1001.0,
+      "volumen_STL_mm3": 1001.0,
+      "caja_error_mm": 0.0,
+      "segundos": 2.0753678569999465
+    },
+    {
+      "pieza": "conector",
+      "ok": true,
+      "step_sha256": "928eb755f6a983ca0cda25434316ee41c037b8d770ccc4f3f95f23099f39b6d2",
+      "caras": 192,
+      "solidos": 1,
+      "brep_exacto": true,
+      "interferencias": 0,
+      "auditoria_cruda": true,
+      "volumen_mm3": 14279.054310709527,
+      "volumen_STL_mm3": 14279.054310707303,
+      "caja_error_mm": 3.360867140145274e-12,
+      "segundos": 6.449583179999536
+    },
+    {
+      "pieza": "brida",
+      "ok": true,
+      "step_sha256": "26a184c4aad85811d87a0a2c7d48cee30055e0d956246fe26abd1d48f66efcb8",
+      "caras": 10,
+      "solidos": 1,
+      "brep_exacto": true,
+      "interferencias": 0,
+      "auditoria_cruda": true,
+      "volumen_mm3": 3579.7225820471563,
+      "volumen_STL_mm3": 3579.7484650141046,
+      "caja_error_mm": 7.972819599899594e-05,
+      "segundos": 0.9971389530001034
+    }
+  ]
+}

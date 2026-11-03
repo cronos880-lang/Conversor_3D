@@ -1,0 +1,3 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+triangles 93920 volume 3579.7484687197443 nativefaces 10
