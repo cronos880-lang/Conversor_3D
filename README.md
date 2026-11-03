@@ -1,3 +1,25 @@
+# Visor completo para Windows — R15 experimental
+
+[**Descargar R15 completa**](./entregas/perfeccion_Visualizador_R15/perfeccion_Visualizador_R15_EXPERIMENTAL_COMPLETA.zip?raw=true) · [Informe real](./entregas/perfeccion_Visualizador_R15/INFORME_RESULTADOS.md) · [Archivos modificados](./entregas/perfeccion_Visualizador_R15/perfeccion_Visualizador_R15_ARCHIVOS_MODIFICADOS.zip?raw=true)
+
+Extrae TODO el ZIP en una carpeta nueva y abre **Iniciar.bat**. Incluye **Visor_experimental_fuentes**. Requiere Python 3.12 x64; puede reutilizar el entorno CAD de R14. Encabezado **R15 experimental**, puerto **8779**. Usa **Automático (precisión)** y conserva tu R14 para comparar.
+
+El conector pasa de **19.998 a 192 caras CAD**, con cilindros y redondeos reconstruidos; el máximo medido baja de **0,010826 a 0,005906 mm**. Caja y volumen conservados. Prueba completa desde el Visor extraído: **6:07**. La brida independiente pasa de 93.920 triángulos a 10 caras CAD en **0:34**, con máximo medido 0,000831 mm. Los tiempos dependen de equipo y carga.
+
+**18 conversiones de referencia aprobadas**: 17 conservan exactamente el STEP R14, y el conector mejora con la nueva construcción. Cubo-carrito y tres giros, maneta, llanta, tirante, bancada y Technic conservan sus referencias. Bancada y Technic no tienen una mejora visual nueva en R15. El embudo continúa aplazado: se probaron 13 de 14 originales, no se afirma 14/14.
+
+Los perfiles geométricos y el evaluador permanecen iguales a R14. Cada nuevo candidato supera CAD exacto, interferencias, referencia STL original, topología, tres mallados finos y material. Ante rechazo se conserva el motor anterior. Se comprueba el SHA de los archivos y del código al reutilizar un control completo.
+
+![Aristas reales del conector R14 y R15](./entregas/perfeccion_Visualizador_R15/Comparaciones/Conector_R14_R15_aristas_reales.png)
+
+Pruebas: 344 raiz, 466 nucleo, 169 paquete. Hay solapamiento entre suites; no son ese número de piezas distintas. Conversión y descarga reales probadas con caja, conector y brida.
+
+Las pruebas se ejecutaron en Linux y Chromium con el mismo motor Python/OCC. **Windows nativo, Onshape y K1C requieren prueba externa**. Algunas orientaciones oblicuas y otras familias siguen usando el motor anterior. MediumBig necesita su STL original para juzgar fidelidad. El informe distingue los ensayos rechazados y las mejoras aprobadas.
+
+Si descargas el repositorio entero de esta rama, abre **Iniciar_R15.bat** en su raíz. Para probar resulta más sencillo el ZIP completo enlazado arriba. Las fuentes, resultados, STEP de comparación y manifiestos están también en **entregas/perfeccion_Visualizador_R15**.
+
+## Documentación anterior de R14 — referencia histórica
+
 # Visor completo para Windows — R14 experimental
 
 [**Descargar R14 completa**](./entregas/perfeccion_Visualizador_R14/perfeccion_Visualizador_R14_EXPERIMENTAL_COMPLETA.zip?raw=true) · [Informe de resultados reales](./entregas/perfeccion_Visualizador_R14/INFORME_RESULTADOS.md) · [Archivos modificados](./entregas/perfeccion_Visualizador_R14/perfeccion_Visualizador_R14_ARCHIVOS_MODIFICADOS.zip?raw=true)
