@@ -1,0 +1,18 @@
+........................................................................ [ 17%]
+................ss...................................................... [ 35%]
+..........s............................................................. [ 52%]
+........................................................................ [ 70%]
+........................................................................ [ 88%]
+.................................s...............                        [100%]
+=============================== warnings summary ===============================
+work/easymesh/venv/lib/python3.12/site-packages/starlette/testclient.py:45
+  /workspace/work/easymesh/venv/lib/python3.12/site-packages/starlette/testclient.py:45: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+work/curvas_nuevas_20261104/prueba paquete R17 con espacios/perfeccion_Visualizador_R17/Visor_experimental_fuentes/test_preprocesador.py::test_duplicados_degenerados_orientacion
+work/curvas_nuevas_20261104/prueba paquete R17 con espacios/perfeccion_Visualizador_R17/Visor_experimental_fuentes/test_preprocesador.py::test_aleta_sin_volumen_no_crea_solido
+  /workspace/work/easymesh/venv/lib/python3.12/site-packages/trimesh/triangles.py:302: RuntimeWarning: invalid value encountered in divide
+    center_mass = integrated[1:4] / volume
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+405 passed, 4 skipped, 3 warnings in 278.00s (0:04:38)

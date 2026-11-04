@@ -1,0 +1,16 @@
+[
+  {
+    "archivo": "body.step",
+    "sha256": "f2b7a963086581a024b54bbb2401faf943a8107983b2cdafabf53608d4e46ff9",
+    "caras": 11667,
+    "aristas": 19507,
+    "nota": "Render de superficies y aristas nativas; no valida Onshape."
+  },
+  {
+    "archivo": "navegador_body_R17.step",
+    "sha256": "cfd0ed68ab3ea0e8c1fef20683e57e83b33029819a94fae3d88bda8feb8f9bd7",
+    "caras": 426,
+    "aristas": 1226,
+    "nota": "Render de superficies y aristas nativas; no valida Onshape."
+  }
+]

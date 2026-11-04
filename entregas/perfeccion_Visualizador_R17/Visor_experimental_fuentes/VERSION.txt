@@ -1,0 +1,3 @@
+Visor STL → STEP · R17 experimental
+Compilación 2026.11.04-perfiles-y-detalles
+Reconstrucción de revolución con rebajes originales y controles geométricos completos.

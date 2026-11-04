@@ -1,0 +1,12 @@
+VISOR STL -> STEP - R17 EXPERIMENTAL
+
+Descomprime el ZIP completo en una carpeta nueva y abre Iniciar_R17.bat.
+Requiere Python 3.12 de 64 bits como las versiones anteriores.
+Comprueba que el encabezado muestra R17 experimental.
+
+Prueba Pruebas_Curvas/Body.stl en el perfil Precision por defecto.
+Body_R17.step es el STEP realmente descargado durante la prueba del Visor.
+Body_R16_R17.png compara las aristas CAD originales y las reconstruidas.
+
+La guia pequena sigue pendiente: su STEP conserva las 248 caras de R16.
+No sustituir R16. Windows nativo y Onshape pendientes; consulta el informe.

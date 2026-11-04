@@ -1,0 +1,71 @@
+{
+  "funcion_calidad_AST": "bface768ccbc15b69580b931412872800da541f48dffd51d1836983364c13f4a",
+  "archivos_validacion": {
+    "motor_calidad/exportacion_solida.py": {
+      "R16": "e0d30f5c0549bedd49b0c8fcbd81037a1ef040c3595c10e273bf05e68775b310",
+      "R17": "e0d30f5c0549bedd49b0c8fcbd81037a1ef040c3595c10e273bf05e68775b310"
+    },
+    "motor_calidad/validacion_densa.py": {
+      "R16": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1",
+      "R17": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1"
+    },
+    "saneamiento_cad.py": {
+      "R16": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "R17": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200"
+    },
+    "motor_calidad/validacion_local.py": {
+      "R16": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66",
+      "R17": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66"
+    },
+    "motor_calidad/reconstruccion_curvas.py": {
+      "R16": "5f7b43997ba567dfd5e98277211354c5c573cb4396ce2443de291cb90b22778c",
+      "R17": "5f7b43997ba567dfd5e98277211354c5c573cb4396ce2443de291cb90b22778c"
+    },
+    "validacion_reconstruccion.py": {
+      "R16": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "R17": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d"
+    },
+    "calidad_topologica.py": {
+      "R16": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "R17": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d"
+    },
+    "motor_calidad/saneamiento_cad.py": {
+      "R16": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "R17": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200"
+    },
+    "reconstruccion_curvas.py": {
+      "R16": "e6899a1fb52659a09b87825d4b5e788fdaf53ebe221f2dc7b9b4da6e6d1f4ea1",
+      "R17": "e6899a1fb52659a09b87825d4b5e788fdaf53ebe221f2dc7b9b4da6e6d1f4ea1"
+    },
+    "validacion_densa.py": {
+      "R16": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1",
+      "R17": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1"
+    },
+    "validacion_local.py": {
+      "R16": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66",
+      "R17": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66"
+    },
+    "perfiles_precision.py": {
+      "R16": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "R17": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a"
+    },
+    "motor_calidad/calidad_topologica.py": {
+      "R16": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "R17": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d"
+    },
+    "motor_calidad/validacion_reconstruccion.py": {
+      "R16": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "R17": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d"
+    },
+    "motor_calidad/verificar_original_calidad.py": {
+      "R16": "07b41e5f1d7571ddc88510c622ec4e5c40bda08de35c4ac488aaa03aac61d99e",
+      "R17": "07b41e5f1d7571ddc88510c622ec4e5c40bda08de35c4ac488aaa03aac61d99e"
+    },
+    "motor_calidad/perfiles_precision.py": {
+      "R16": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "R17": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a"
+    }
+  },
+  "perfiles_modificados": false,
+  "banda_material_mm": 0.002
+}

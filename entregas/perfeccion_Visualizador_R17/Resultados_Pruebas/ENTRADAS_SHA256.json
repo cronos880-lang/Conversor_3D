@@ -1,0 +1,22 @@
+{
+  "guia_stl": {
+    "path": "/workspace/work/curvas_nuevas_20261104/entradas/Lego_Guia circulos .stl",
+    "bytes": 38484,
+    "sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652"
+  },
+  "guia_step_aportado": {
+    "path": "/workspace/work/curvas_nuevas_20261104/entradas/Lego-Jimu_Connector_v2_impresion11.step",
+    "bytes": 858622,
+    "sha256": "992787c2f541cefe31582ea80bf4a1181f8af815052d691e8d3337a25e37f4ad"
+  },
+  "body_stl": {
+    "path": "/workspace/work/curvas_nuevas_20261104/entradas/Body.stl",
+    "bytes": 788884,
+    "sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24"
+  },
+  "body_step_aportado": {
+    "path": "/workspace/work/curvas_nuevas_20261104/entradas/Body_impresion11.step",
+    "bytes": 30624331,
+    "sha256": "47a42a764288b7a4b866852414db44e156927613f58aa325ac0dca7b2674057d"
+  }
+}

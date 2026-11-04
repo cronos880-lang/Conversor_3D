@@ -1,0 +1,289 @@
+{
+  "guia_stl": {
+    "archivo": "Lego_Guia circulos .stl",
+    "sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652",
+    "triangulos": 768,
+    "vertices": 384,
+    "bounds": [
+      [
+        7.25,
+        -32.45000076293945,
+        0.0
+      ],
+      [
+        12.449999809265137,
+        -27.25,
+        14.690999984741211
+      ]
+    ],
+    "dimensiones": [
+      5.199999809265137,
+      5.200000762939453,
+      14.690999984741211
+    ],
+    "volumen": 149.75398211416598,
+    "cerrado": true,
+    "orientado": true,
+    "euler": 0,
+    "componentes": 1,
+    "diagnostico": {
+      "caras": 768,
+      "vertices": 384,
+      "topologia_vertices": {
+        "vertices_no_manifold": 0,
+        "vertices_de_borde": 0,
+        "ejemplos": [],
+        "enlaces_regulares_cerrados": true,
+        "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+      },
+      "aristas_1_cara": 0,
+      "aristas_2_caras": 1152,
+      "aristas_mas_2_caras": 0,
+      "caras_degeneradas": 0,
+      "caras_duplicadas": 0,
+      "pares_caras_contacto_opuestas": 0,
+      "componentes": [
+        {
+          "caras": 768,
+          "estanco": true,
+          "orientacion_consistente": true,
+          "volumen_firmado_mm3": 149.75398211416598,
+          "euler": 0
+        }
+      ],
+      "numero_componentes": 1,
+      "estanco_global": true,
+      "caja_mm": [
+        [
+          7.25,
+          -32.45000076293945,
+          0.0
+        ],
+        [
+          12.449999809265137,
+          -27.25,
+          14.690999984741211
+        ]
+      ],
+      "ruta": "paso_directo",
+      "gravedad": "informacion",
+      "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+      "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+    },
+    "facetas_coplanares": 184,
+    "grupos_coplanares_mayores": [
+      56,
+      48,
+      40,
+      40,
+      20,
+      20,
+      20,
+      20,
+      18,
+      18,
+      16,
+      16,
+      8,
+      8,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "seconds": 0.08347126800072147
+  },
+  "guia_step_aportado": {
+    "archivo": "Lego-Jimu_Connector_v2_impresion11.step",
+    "sha256": "992787c2f541cefe31582ea80bf4a1181f8af815052d691e8d3337a25e37f4ad",
+    "caras": 248,
+    "aristas": 628,
+    "solidos": 1,
+    "shells": 1,
+    "bounds": [
+      [
+        7.25,
+        -32.450000762937705,
+        0.0
+      ],
+      [
+        12.449999809266853,
+        -27.24999999999422,
+        14.690999984741
+      ]
+    ],
+    "dimensiones": [
+      5.199999809266853,
+      5.2000007629434855,
+      14.690999984741
+    ],
+    "tipos": {
+      "PLANE": 248
+    },
+    "volumen": 149.7539821142009,
+    "CAD_exacto": true,
+    "caras_por_aristas": {
+      "4": 152,
+      "56": 1,
+      "6": 8,
+      "48": 1,
+      "3": 72,
+      "22": 4,
+      "40": 2,
+      "18": 2,
+      "8": 2,
+      "10": 2,
+      "20": 2
+    },
+    "seconds": 0.7473951229985687
+  },
+  "body_stl": {
+    "archivo": "Body.stl",
+    "sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+    "triangulos": 15776,
+    "vertices": 7888,
+    "bounds": [
+      [
+        395.55865478515625,
+        88.35713958740234,
+        0.0
+      ],
+      [
+        474.8413391113281,
+        167.64285278320312,
+        110.59999084472656
+      ]
+    ],
+    "dimensiones": [
+      79.28268432617188,
+      79.28571319580078,
+      110.59999084472656
+    ],
+    "volumen": 302599.8415221057,
+    "cerrado": true,
+    "orientado": true,
+    "euler": 0,
+    "componentes": 1,
+    "diagnostico": {
+      "caras": 15776,
+      "vertices": 7888,
+      "topologia_vertices": {
+        "vertices_no_manifold": 0,
+        "vertices_de_borde": 0,
+        "ejemplos": [],
+        "enlaces_regulares_cerrados": true,
+        "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+      },
+      "aristas_1_cara": 0,
+      "aristas_2_caras": 23664,
+      "aristas_mas_2_caras": 0,
+      "caras_degeneradas": 0,
+      "caras_duplicadas": 0,
+      "pares_caras_contacto_opuestas": 0,
+      "componentes": [
+        {
+          "caras": 15776,
+          "estanco": true,
+          "orientacion_consistente": true,
+          "volumen_firmado_mm3": 302599.8415221057,
+          "euler": 0
+        }
+      ],
+      "numero_componentes": 1,
+      "estanco_global": true,
+      "caja_mm": [
+        [
+          395.55865478515625,
+          88.35713958740234,
+          0.0
+        ],
+        [
+          474.8413391113281,
+          167.64285278320312,
+          110.59999084472656
+        ]
+      ],
+      "ruta": "paso_directo",
+      "gravedad": "informacion",
+      "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+      "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+    },
+    "facetas_coplanares": 2080,
+    "grupos_coplanares_mayores": [
+      949,
+      686,
+      642,
+      510,
+      128,
+      64,
+      64,
+      63,
+      46,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "seconds": 0.46359640000082436
+  },
+  "body_step_aportado": {
+    "archivo": "Body_impresion11.step",
+    "sha256": "47a42a764288b7a4b866852414db44e156927613f58aa325ac0dca7b2674057d",
+    "caras": 11667,
+    "aristas": 19507,
+    "solidos": 1,
+    "shells": 1,
+    "bounds": [
+      [
+        395.55865478515,
+        88.35713958740199,
+        -1.9539925233402755e-13
+      ],
+      [
+        474.8413391113269,
+        167.64285278320347,
+        110.5999908447203
+      ]
+    ],
+    "dimensiones": [
+      79.28268432617688,
+      79.28571319580148,
+      110.5999908447205
+    ],
+    "tipos": {
+      "PLANE": 11667
+    },
+    "volumen": 302599.8415217671,
+    "CAD_exacto": true,
+    "seconds": 23.72794541999974
+  }
+}

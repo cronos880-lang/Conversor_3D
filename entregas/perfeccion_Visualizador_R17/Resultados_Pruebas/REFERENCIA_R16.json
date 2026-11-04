@@ -1,0 +1,435 @@
+[
+  {
+    "archivo": "Lego_Guia circulos .stl",
+    "sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652",
+    "limite_s": 2400,
+    "limite_ram_mb": 4200,
+    "segundos": 64.282,
+    "ram_pico_mb": 1704.5,
+    "codigo": 0,
+    "informe_motor": {
+      "ok": true,
+      "resultado": {
+        "caras_stl": 768,
+        "modo": "recuperacion_facetada",
+        "estrategia": "recuperacion_numerica_verificada",
+        "motor": "Recuperación B-Rep facetada verificada; las curvas conservan las facetas del STL",
+        "calidad": {
+          "integridad_cad": {
+            "brep_valido": true,
+            "solidos": 1,
+            "aristas": 628,
+            "aristas_parametrizacion_incoherente": 0,
+            "tolerancia_max_mm": 1e-07,
+            "tolerancia_p95_mm": 1e-07,
+            "tolerancia_media_mm": 1e-07,
+            "aristas_tol_mayor_001mm": 0,
+            "brep_exacto": true
+          },
+          "perfil_validacion": {
+            "id": "impresion",
+            "nombre": "Impresión 0,08 mm",
+            "caja_mm": 0.04,
+            "p95_mm": 0.04,
+            "max_mm": 0.08,
+            "volumen_pct": 0.5
+          },
+          "caras_step": 248,
+          "bytes_step": 858622,
+          "volumen_error_pct": 0.0,
+          "caja_error_mm": 0.0,
+          "caja_error_analitico_mm": 0.0,
+          "caja_modo_verificacion": "OpenCascade",
+          "distancia_stl_step_mm": {
+            "media": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max_muestreado": 0.0,
+            "muestras": 384
+          },
+          "distancia_step_stl_mm": {
+            "media": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max_muestreado": 0.0,
+            "muestras": 800
+          },
+          "contraste_muestreo_cad": {
+            "muestras_proyectadas": 0,
+            "max_distancia_al_brep_mm": 0.0
+          },
+          "tipos_caras": {
+            "GeomAbs_Plane": 248
+          },
+          "limites_validacion": {
+            "volumen_error_max_pct": 0.5,
+            "caja_error_max_mm": 0.04,
+            "p95_superficie_max_mm": 0.04,
+            "desviacion_max_observada_mm": 0.08,
+            "margen_preparacion_mm": 0.0
+          },
+          "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+          "autointerferencias_occ": false,
+          "interferencias_comprobadas_en_frio": true,
+          "control_cad_reutilizado_por_sha256": false,
+          "sin_objetos_sueltos_en_step": true,
+          "inspeccion_densa": {
+            "stl_a_cad": {
+              "muestras": 2152,
+              "p95_mm": 7.338016902494773e-12,
+              "max_mm": 9.458617121847365e-12,
+              "zonas_sospechosas": []
+            },
+            "cad_a_stl": {
+              "muestras": 5792,
+              "p95_mm": 6.9316968983923085e-12,
+              "max_mm": 9.457794916157614e-12,
+              "zonas_sospechosas": []
+            },
+            "limite_p95_mm": 0.04,
+            "limite_max_mm": 0.08,
+            "contraste_muestras_cad": {
+              "muestras_proyectadas": 0,
+              "max_distancia_al_brep_mm": 0.0
+            },
+            "nota": "Muestreo determinista, no garantía Hausdorff global.",
+            "aceptado": true
+          },
+          "precision_alcanzada": "precision",
+          "desviacion_max_verificada_mm": 0.0,
+          "limites_precision_originales": {
+            "caja_mm": 0.02,
+            "p95_mm": 0.02,
+            "max_mm": 0.06
+          },
+          "recuperacion_numerica": {
+            "original_sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652",
+            "preparado_sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652",
+            "geometria_local": {
+              "cota_global_superficie_mm": 4.753531010655287e-13,
+              "margen_redondeo_mm": 4.753531010655287e-13,
+              "volumen_error_pct": 0.0,
+              "caja_error_mm": 0.0,
+              "caras_con_correspondencia": 768,
+              "fundamento": "Misma triangulación: cada punto baricéntrico se desplaza como máximo el mayor desplazamiento de sus vértices.",
+              "limites": {
+                "superficie_mm": 0.002,
+                "volumen_pct": 0.001,
+                "caja_mm": 0.002
+              }
+            },
+            "topologia": {
+              "euler_malla": 0,
+              "euler_brep": 0,
+              "shells": 1,
+              "cavidades_preservadas": 0,
+              "probes_cavidades": []
+            },
+            "material_original": {
+              "puntos": 2987,
+              "discrepancias": 0,
+              "banda_excluida_mm": 0.002,
+              "referencia": "Número de giro orientado positivo del STL original.",
+              "nota": "Muestreo reproducible; no demostración global del campo de material."
+            },
+            "reparacion_previa": null,
+            "preparacion_verificada": null
+          }
+        },
+        "diagnostico": {
+          "consolidaciones_rechazadas": [],
+          "nodos_protegidos": 0
+        },
+        "reconstruccion_parametrica": false,
+        "ram_numerica_pico_mb": 1135.72
+      },
+      "rechazo_motor_anterior": "El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.",
+      "preprocesamiento": {
+        "version": 1,
+        "original_sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652",
+        "habilitado": true,
+        "reparado": false,
+        "original_conservado": true,
+        "entrada": {
+          "caras": 768,
+          "vertices": 384,
+          "topologia_vertices": {
+            "vertices_no_manifold": 0,
+            "vertices_de_borde": 0,
+            "ejemplos": [],
+            "enlaces_regulares_cerrados": true,
+            "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+          },
+          "aristas_1_cara": 0,
+          "aristas_2_caras": 1152,
+          "aristas_mas_2_caras": 0,
+          "caras_degeneradas": 0,
+          "caras_duplicadas": 0,
+          "pares_caras_contacto_opuestas": 0,
+          "componentes": [
+            {
+              "caras": 768,
+              "estanco": true,
+              "orientacion_consistente": true,
+              "volumen_firmado_mm3": 149.75398211416598,
+              "euler": 0
+            }
+          ],
+          "numero_componentes": 1,
+          "estanco_global": true,
+          "caja_mm": [
+            [
+              7.25,
+              -32.45000076293945,
+              0.0
+            ],
+            [
+              12.449999809265137,
+              -27.25,
+              14.690999984741211
+            ]
+          ],
+          "ruta": "paso_directo",
+          "gravedad": "informacion",
+          "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+          "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+        },
+        "ruta_seleccionada": "paso_directo",
+        "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+      },
+      "mejora_perfiles_medidos": {
+        "aplicado": false,
+        "motivo": "Se conserva la reconstrucción compacta anterior.",
+        "conservado_resultado_anterior": true
+      },
+      "mejora_superficies": {
+        "aplicado": false,
+        "estado": "conservada_reconstruccion_anterior",
+        "motivo": "Se conserva el resultado analítico, compacto o de una familia ya validada.",
+        "conservado_resultado_R11": true
+      }
+    },
+    "ok": true,
+    "sha256_step": "f6d8cd995b9683e686bfa959e6a3d948d6a0fb442357d0aab24b02d6b2bdd2e4",
+    "caso": "guia"
+  },
+  {
+    "archivo": "Body.stl",
+    "sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+    "limite_s": 2400,
+    "limite_ram_mb": 4200,
+    "segundos": 384.837,
+    "ram_pico_mb": 1566.93,
+    "codigo": 0,
+    "informe_motor": {
+      "ok": true,
+      "resultado": {
+        "caras_stl": 15776,
+        "modo": "recuperacion_facetada",
+        "estrategia": "recuperacion_numerica_verificada",
+        "motor": "Recuperación B-Rep facetada verificada; las curvas conservan las facetas del STL",
+        "calidad": {
+          "integridad_cad": {
+            "brep_valido": true,
+            "solidos": 1,
+            "aristas": 19507,
+            "aristas_parametrizacion_incoherente": 0,
+            "tolerancia_max_mm": 1e-07,
+            "tolerancia_p95_mm": 1e-07,
+            "tolerancia_media_mm": 1e-07,
+            "aristas_tol_mayor_001mm": 0,
+            "brep_exacto": true
+          },
+          "perfil_validacion": {
+            "id": "impresion",
+            "nombre": "Impresión 0,08 mm",
+            "caja_mm": 0.04,
+            "p95_mm": 0.04,
+            "max_mm": 0.08,
+            "volumen_pct": 0.5
+          },
+          "caras_step": 11667,
+          "bytes_step": 30624331,
+          "volumen_error_pct": 0.0,
+          "caja_error_mm": 0.0,
+          "caja_error_analitico_mm": 0.0,
+          "caja_modo_verificacion": "OpenCascade",
+          "distancia_stl_step_mm": {
+            "media": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max_muestreado": 0.0,
+            "muestras": 800
+          },
+          "distancia_step_stl_mm": {
+            "media": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max_muestreado": 0.0,
+            "muestras": 800
+          },
+          "contraste_muestreo_cad": {
+            "muestras_proyectadas": 0,
+            "max_distancia_al_brep_mm": 0.0
+          },
+          "tipos_caras": {
+            "GeomAbs_Plane": 11667
+          },
+          "limites_validacion": {
+            "volumen_error_max_pct": 0.5,
+            "caja_error_max_mm": 0.04,
+            "p95_superficie_max_mm": 0.04,
+            "desviacion_max_observada_mm": 0.08,
+            "margen_preparacion_mm": 0.0
+          },
+          "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+          "autointerferencias_occ": false,
+          "interferencias_comprobadas_en_frio": true,
+          "control_cad_reutilizado_por_sha256": false,
+          "sin_objetos_sueltos_en_step": true,
+          "inspeccion_densa": {
+            "stl_a_cad": {
+              "muestras": 3000,
+              "p95_mm": 1.0960318642172412e-11,
+              "max_mm": 3.371283696651517e-09,
+              "zonas_sospechosas": []
+            },
+            "cad_a_stl": {
+              "muestras": 64722,
+              "p95_mm": 8.196282776908396e-12,
+              "max_mm": 1.2821215523220662e-11,
+              "zonas_sospechosas": []
+            },
+            "limite_p95_mm": 0.04,
+            "limite_max_mm": 0.08,
+            "contraste_muestras_cad": {
+              "muestras_proyectadas": 0,
+              "max_distancia_al_brep_mm": 0.0
+            },
+            "nota": "Muestreo determinista, no garantía Hausdorff global.",
+            "aceptado": true
+          },
+          "precision_alcanzada": "precision",
+          "desviacion_max_verificada_mm": 0.0,
+          "limites_precision_originales": {
+            "caja_mm": 0.02,
+            "p95_mm": 0.03,
+            "max_mm": 0.06
+          },
+          "recuperacion_numerica": {
+            "original_sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+            "preparado_sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+            "geometria_local": {
+              "cota_global_superficie_mm": 6.762112137598253e-12,
+              "margen_redondeo_mm": 6.762112137598253e-12,
+              "volumen_error_pct": 0.0,
+              "caja_error_mm": 0.0,
+              "caras_con_correspondencia": 15776,
+              "fundamento": "Misma triangulación: cada punto baricéntrico se desplaza como máximo el mayor desplazamiento de sus vértices.",
+              "limites": {
+                "superficie_mm": 0.002,
+                "volumen_pct": 0.001,
+                "caja_mm": 0.002
+              }
+            },
+            "topologia": {
+              "euler_malla": 0,
+              "euler_brep": 0,
+              "shells": 1,
+              "cavidades_preservadas": 0,
+              "probes_cavidades": []
+            },
+            "material_original": {
+              "puntos": 3000,
+              "discrepancias": 0,
+              "banda_excluida_mm": 0.002,
+              "referencia": "Número de giro orientado positivo del STL original.",
+              "nota": "Muestreo reproducible; no demostración global del campo de material."
+            },
+            "reparacion_previa": null,
+            "preparacion_verificada": null
+          }
+        },
+        "diagnostico": {
+          "consolidaciones_rechazadas": [],
+          "nodos_protegidos": 0
+        },
+        "reconstruccion_parametrica": false,
+        "ram_numerica_pico_mb": 963.34
+      },
+      "rechazo_motor_anterior": "El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.",
+      "preprocesamiento": {
+        "version": 1,
+        "original_sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+        "habilitado": true,
+        "reparado": false,
+        "original_conservado": true,
+        "entrada": {
+          "caras": 15776,
+          "vertices": 7888,
+          "topologia_vertices": {
+            "vertices_no_manifold": 0,
+            "vertices_de_borde": 0,
+            "ejemplos": [],
+            "enlaces_regulares_cerrados": true,
+            "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+          },
+          "aristas_1_cara": 0,
+          "aristas_2_caras": 23664,
+          "aristas_mas_2_caras": 0,
+          "caras_degeneradas": 0,
+          "caras_duplicadas": 0,
+          "pares_caras_contacto_opuestas": 0,
+          "componentes": [
+            {
+              "caras": 15776,
+              "estanco": true,
+              "orientacion_consistente": true,
+              "volumen_firmado_mm3": 302599.8415221057,
+              "euler": 0
+            }
+          ],
+          "numero_componentes": 1,
+          "estanco_global": true,
+          "caja_mm": [
+            [
+              395.55865478515625,
+              88.35713958740234,
+              0.0
+            ],
+            [
+              474.8413391113281,
+              167.64285278320312,
+              110.59999084472656
+            ]
+          ],
+          "ruta": "paso_directo",
+          "gravedad": "informacion",
+          "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+          "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+        },
+        "ruta_seleccionada": "paso_directo",
+        "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+      },
+      "mejora_perfiles_medidos": {
+        "aplicado": false,
+        "motivo": "La construcción medida no forma un sólido válido: {'error': \"Esquina incompatible con las superficies confirmadas; no se desplaza silenciosamente. {'vertice': 975, 'regiones': [(38, 'Geom_Plane', 64), (43, 'Geom_Plane', 2), (44, 'Geom_CylindricalSurface', 14)], 'residual': 0.0003998471162375698, 'movimiento': 0.0013978410904961448, 'semilla_anclada': False, 'p_semilla': [411.8017272949219, 141.80909729003906, 0.253997802734375], 'residual_semilla': [0.0, 4.0302356260381333e-14, 0.0008025460430677867]}\"}",
+        "conservado_resultado_anterior": true
+      },
+      "mejora_superficies": {
+        "aplicado": false,
+        "estado": "conservada_reconstruccion_anterior",
+        "motivo": "Se conserva el resultado analítico, compacto o de una familia ya validada.",
+        "conservado_resultado_R11": true
+      },
+      "reconstruccion_regional": {
+        "aplicado": false,
+        "motivo": "La mejora aislada fue rechazada: No se han confirmado anillos completos",
+        "conservado_resultado_anterior": true
+      }
+    },
+    "ok": true,
+    "sha256_step": "f2b7a963086581a024b54bbb2401faf943a8107983b2cdafabf53608d4e46ff9",
+    "caso": "body"
+  }
+]
