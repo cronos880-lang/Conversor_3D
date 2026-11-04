@@ -1,11 +1,7 @@
-# Visor STL → STEP · registro del avance R16
+# Visor STL → STEP · publicación R16 en curso
 
-**La entrega del programa está pendiente por desconexión del entorno. No hay un ZIP R16 completo publicado.**
+[ZIP de archivos modificados](entregas/perfeccion_Visualizador_R16/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip?raw=true) publicado y comprobado. El ZIP completo se está transfiriendo; la entrega todavía está en curso.
 
-- [Estado del avance y límites conocidos](avances/R16/ESTADO.md)
-- [Informe original de pruebas, rescatado del ZIP preparado](avances/R16/INFORME_RESULTADOS.md)
-- [Comparación visual R15/R16 de la bancada](avances/R16/Bancada_R15_R16.png)
+[Informe y comparación de bancada](avances/R16/INFORME_RESULTADOS.md).
 
-La bancada original pasa de 134 a 108 caras, manteniendo la desviación máxima medida de 0,003438 mm. No se declara terminada al 100 %: quedan seis grupos de caras, la prueba girada agotó el tiempo y faltan Windows nativo y Onshape.
-
-El programa heredado en esta rama sigue siendo R15. Esta rama conserva el registro y las partes transferidas; no instala la mejora R16. Para completar la entrega hay que recuperar el entorno que contiene los ZIP verificados y terminar su subida.
+El ZIP de modificaciones contiene los cambios sobre R15; se recomienda esperar al paquete completo para probar en una carpeta independiente. El código heredado en la raíz de esta rama sigue siendo R15.
