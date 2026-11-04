@@ -15,3 +15,6 @@
 - Conservar la copia instalada y entregar cada versión experimental en una carpeta independiente, con su lanzador y su identidad de versión.
 - Distinguir las pruebas reales de conversión en navegador sobre Linux de Windows nativo y de la importación en Onshape; indicar las comprobaciones pendientes.
 
+
+- Mostrar la URL completa del ZIP de forma visible en el chat, terminada en `?raw=true`; es una premisa fija del proyecto reiterada por el usuario.
+
