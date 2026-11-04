@@ -22,3 +22,7 @@ Archivos preparados y comprobados localmente antes de perder el acceso:
 - STEP R16 descargado: SHA-256 d53b92c85dcb755ec42f5244f9f6485310604c1d37e898ebfc15f5cbb35e685b.
 
 Para continuar se necesita recuperar el acceso al entorno con /workspace/entregas_R16 y /workspace/work/bancada_objetivo_20261104. Las partes de esta rama son incompletas y no deben presentarse como una descarga del programa.
+
+Se han rescatado de las partes ya transferidas el informe original, la comparación visual y el manifiesto de los 333 archivos del producto, verificando CRC de cada entrada. El blob Git del informe coincide exactamente con el previsto antes de la desconexión.
+
+[Informe original de pruebas](INFORME_RESULTADOS.md) · [Comparación visual](Bancada_R15_R16.png) · [Huellas de los archivos preparados](FUENTES_PRODUCTO_R16_SHA256.json).
