@@ -1,0 +1,548 @@
+[
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0000",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0000",
+    "sha": "40111799fd1fb7a00949022947e7de90621f87a6",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0001",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0001",
+    "sha": "c8e01c0de600a0aab7cb35b133c64c5502123ea7",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0002",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0002",
+    "sha": "6b150b252137bc20126944d99780a4d3ec57ff3d",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0003",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0003",
+    "sha": "1e61173969477c4ea4fc5aa71213fbb866f8517b",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0004",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0004",
+    "sha": "4f13b74b8ba4ea4ef647e92321e3be8410fd69e4",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0005",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0005",
+    "sha": "1a41596f9eb1f51bf9f2700b5206732ae3b3f6e5",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0006",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0006",
+    "sha": "c24347817be5b7a1b4adea35a21a7668704be291",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0007",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0007",
+    "sha": "8f207af3102c7114ce827423ef3d5e80d55105fe",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0008",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0008",
+    "sha": "f9c0bf1854858a06e109a52d49b7c47c40abbfa7",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0009",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0009",
+    "sha": "37f6f256749cfbd54cd6a9e40cf4f70f10694760",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0010",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0010",
+    "sha": "986a042b60ea1bd32235bc57a4d0475fcdf08827",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0011",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0011",
+    "sha": "9e8ec25ed084422f30472f656c69eae83e4284bc",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0012",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0012",
+    "sha": "9acd477581fe314ea4182f5bcc1256c5a88e0ebb",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0013",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0013",
+    "sha": "48610a19a9376239764b59004332d12146f12c9d",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0014",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0014",
+    "sha": "9ab10dc51479c34fda5dcd5a52d468b6f97ca5ab",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0015",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0015",
+    "sha": "d08fcb8bac77bea3834c5215ed628c0fe7c51676",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0016",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0016",
+    "sha": "95bccb7e6bb1944a061f49cfc0161513adc2c78e",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0017",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0017",
+    "sha": "b5824ad72a7d7228b9a16edbc7b90b62719f5abd",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0018",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0018",
+    "sha": "9f08f80c8dce90b76f01ac29471273518389a2ad",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0019",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0019",
+    "sha": "f38cf40039e698f9b8155a75099c4d18c9ee23cd",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0020",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0020",
+    "sha": "7bdf2b9be4402d33ea7cea423ed993d3ff6c3cba",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0021",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0021",
+    "sha": "a5cc16c5059b25dc2e233b913e21e37598c95815",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0022",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0022",
+    "sha": "62ad7890d00c2b53afcfd7aec9fb1bb5a9b5dbdc",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0023",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0023",
+    "sha": "0855bc20adb946239d3781c875f0f34f41774770",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0024",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0024",
+    "sha": "a505ba89860351b9368917ef4a09fd933b41a69c",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0025",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0025",
+    "sha": "977442503a0e1643abf0517b1b11a20b86ebb444",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0026",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0026",
+    "sha": "69793ab5df212e80c14a1d4df8085513c85b856f",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0027",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0027",
+    "sha": "f9b49a1af30e9d8d3704d3902365c0fceb769327",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0028",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0028",
+    "sha": "5323923e97f4a8dcdbd90ef5cd42350a08a4ef1a",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0029",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0029",
+    "sha": "76eaef85d8ef363f0871442689a9c3e329c35d7d",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0030",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0030",
+    "sha": "b994c5f0b78e4d4efb8cc2b53c336b9c337dc4bf",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0031",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0031",
+    "sha": "e76afa3a8dc1a03f07b18f4ab3bab954a8ff0dc0",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0032",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0032",
+    "sha": "fd0af2374b902e805184d8e0bce748943d3b6545",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0033",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0033",
+    "sha": "caec8c06b2c1eb5dfa39f867bb2028097f140cf3",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0034",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0034",
+    "sha": "0097e8230cf97b9b3471dcae856eac676363e46e",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0035",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0035",
+    "sha": "d8e323d6f28181c61e1e81a58ee8378d4945f1bc",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0036",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0036",
+    "sha": "9be72e641b20a560cd5c825ea58bb3e806909159",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0037",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0037",
+    "sha": "4b7843735ae0691a5ae8d68203de29bc82fc3b0c",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0038",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0038",
+    "sha": "899b92769b6c010d04717c496f7a2174aa15bc23",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0039",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0039",
+    "sha": "5a2e1ce223da4164719f49e6ea695293c2c48d4b",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0040",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0040",
+    "sha": "19d4238906edc6e1b80cbb3c5cc8a765e4aa5c75",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0041",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0041",
+    "sha": "b7d13448635f68ddbfd346bbcde584698e207e2b",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0042",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0042",
+    "sha": "f062ead81e3b27eca7c7b5d6777942aa1b96ca36",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0043",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0043",
+    "sha": "dce9934fd200320f788a1070fb764903b4f56bdd",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0044",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0044",
+    "sha": "598e2206d12cff730d224216ab2bd22b52a97650",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0045",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0045",
+    "sha": "bef6f869814314dd6ed149ce10f7882ae7680c65",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0046",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0046",
+    "sha": "f697cc39dc42d15663ce171aeb9918e7e8957730",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0047",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0047",
+    "sha": "26d2ee6f3d9e6691bec8a983f910985cce358eaa",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0048",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0048",
+    "sha": "4182acfcd4ee1627c500c3c117c082a1ecc80336",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0049",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0049",
+    "sha": "2764819fa518b11404c5cabc8b75aee57ae882f5",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0050",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0050",
+    "sha": "f2cb6f69f1fb00c9e3b6823ce7f080785c5176c0",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0051",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0051",
+    "sha": "e3419d93cb7734c2eebffaf11549fd3a12b5869c",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0052",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0052",
+    "sha": "ca504f8699a82ea8f78f14e4ab9a72a66e570a9e",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0053",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0053",
+    "sha": "37be3a6c64d54debd2d3a28b7c64ad0a3e9ae228",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0054",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0054",
+    "sha": "32f57f5d148982792a5b46d4940410bf1abd255c",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0055",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0055",
+    "sha": "390876f47bf957a3a71f50d1c2b45db77ca6eb8e",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0056",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0056",
+    "sha": "c3f2155cbd61abd60f38bc57938bf1f27153c6f8",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0057",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0057",
+    "sha": "adae9a2f27352af7e24738e213a981d4cd69a685",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0058",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0058",
+    "sha": "0372cdf01a7b6516f60e811d946ddb0631f07f0d",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0059",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0059",
+    "sha": "32b4c6b2cff911466bd75e8bc846df3cee0bb188",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0060",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0060",
+    "sha": "d1e00e070af4e98d2377c8b5d8766cf6c674caa6",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0061",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0061",
+    "sha": "df7d89af1e031ef1cbb6bacb36bcb9347d2aeb6b",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0062",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0062",
+    "sha": "d4d6de205a6385df32ffbdb0a7d04ea152223cfd",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0063",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0063",
+    "sha": "90a010282513a9c47c28f4d3b190a957a1f9d233",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0064",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0064",
+    "sha": "14140aa093ddc0b528f83c7abdb54214e50fc25e",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0065",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0065",
+    "sha": "111fa6d329f9c26324da04d7dec63116a0f0db73",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0066",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0066",
+    "sha": "1d2b6de50c103a9b3ba61dc9181971bbd8d7e153",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0067",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0067",
+    "sha": "dd40e47accd51eb632bc8b3ab07d87eda2c865be",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0068",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0068",
+    "sha": "165a690483b8d316459bd9f617f44a339cd1747b",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0069",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0069",
+    "sha": "f7051f9b5ced0aac8bcd98e29a57b4e0c2292286",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0070",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0070",
+    "sha": "6852e6040277714572b8aa8b836d4de520371774",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0071",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0071",
+    "sha": "97a41511deb59f72da7e67af4ac06c673c1ede02",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0072",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0072",
+    "sha": "0492eda5a7933bdf9d251659fd18a847b1a52b77",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0073",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0073",
+    "sha": "496242a17c658a9a9f0514c6ee853a312da9ed3c",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0074",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0074",
+    "sha": "a2717bc8afc908704848f22ead5d3170bd6f8269",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0075",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0075",
+    "sha": "e124d6229d1865c8698d121e513bbd76fa161970",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0076",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0076",
+    "sha": "c0be19c6455230f772cd204e71edf4da04747855",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0077",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0077",
+    "sha": "a9be0ee39b95752a6e4062654bceacb63fab92e1",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0078",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0078",
+    "sha": "743e862e3af736d34548411f08e7e091f7f55a92",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0079",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0079",
+    "sha": "4905e1ac084babaa95c373fc8520c21ea70f4aa1",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0080",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip.0080",
+    "sha": "b646555532232b57afed7b6135a6ceab37ae450c",
+    "bytes": 27287
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip.0000",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip.0000",
+    "sha": "5917e05ddaf16bb9f60179c7ce953a9e108dad74",
+    "bytes": 49152
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/.partes/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip.0001",
+    "path": "entregas/perfeccion_Visualizador_R16/.partes/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip.0001",
+    "sha": "a4d15704c5c00c8409d7dccaa977f7caee5a1b55",
+    "bytes": 21224
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/PARTES_SHA256.json",
+    "path": "entregas/perfeccion_Visualizador_R16/PARTES_SHA256.json",
+    "sha": "5d1e301c481fe8b2cc96dbb97e066e03b0d4bb33",
+    "bytes": 18383
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/ensamblar_entrega.py",
+    "path": "entregas/perfeccion_Visualizador_R16/ensamblar_entrega.py",
+    "sha": "d786f2cc8fccb6e2148ad94bf6c8ae6bfe2d079a",
+    "bytes": 1786
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/INFORME_RESULTADOS.md",
+    "path": "entregas/perfeccion_Visualizador_R16/INFORME_RESULTADOS.md",
+    "sha": "80ca4f7f26ae8f473f53686e44363fc21cc0d244",
+    "bytes": 12426
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/SHA256SUMS.txt",
+    "path": "entregas/perfeccion_Visualizador_R16/SHA256SUMS.txt",
+    "sha": "7e2dcc8fd66d3584c26d445928326d1dd74e58af",
+    "bytes": 239
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/publicar_r16.yml",
+    "path": ".github/workflows/publicar_r16.yml",
+    "sha": "5665b811afca7e61da25818f580b8fcbca882b21",
+    "bytes": 1197
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/README.md",
+    "path": "README.md",
+    "sha": "f37712ef04daeeacfc3984978996dd1b320523c8",
+    "bytes": 1057
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/AGENTS.md",
+    "path": "AGENTS.md",
+    "sha": "3db741cd3c98bcb2ccc9bf93ffcd4b6d07233dd3",
+    "bytes": 1662
+  },
+  {
+    "local": "/workspace/work/bancada_objetivo_20261104/publicacion_github/Iniciar_R16.bat",
+    "path": "Iniciar_R16.bat",
+    "sha": "09c92945ab3563c34a6755e72df4cd6a0e720e76",
+    "bytes": 478
+  }
+]
