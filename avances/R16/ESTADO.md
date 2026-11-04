@@ -1,3 +1,13 @@
+# Bancada · avance R16 · entrega publicada
+
+**La desconexión quedó resuelta y los dos ZIP están publicados y verificados.**
+
+[Descargar programa R16 completo](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R16/entregas/perfeccion_Visualizador_R16/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip?raw=true) · [Archivos modificados](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R16/entregas/perfeccion_Visualizador_R16/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip?raw=true) · [Informe de resultados](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R16/entregas/perfeccion_Visualizador_R16/INFORME_RESULTADOS.md).
+
+El registro siguiente documenta el estado anterior y las limitaciones de la mejora. Sus avisos de publicación pendiente son históricos; la entrega se completó en la rama `perfeccion_Visualizador_R16`.
+
+---
+
 # Bancada · avance R16 · entrega pendiente
 
 El entorno de ejecución se desconectó el 4 de noviembre de 2026 durante la subida. No se ha publicado una versión R16 utilizable ni un ZIP completo en GitHub. Esta rama conserva el registro del avance y las partes ya transferidas; el código del programa heredado sigue siendo R15.

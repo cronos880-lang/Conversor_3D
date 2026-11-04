@@ -1,7 +1,11 @@
-# Visor STL → STEP · publicación R16 en curso
+# Visor STL → STEP · R16 publicada
 
-[ZIP de archivos modificados](entregas/perfeccion_Visualizador_R16/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip?raw=true) publicado y comprobado. El ZIP completo se está transfiriendo; la entrega todavía está en curso.
+La entrega que estaba pendiente ya se ha completado en la rama `perfeccion_Visualizador_R16`.
 
-[Informe y comparación de bancada](avances/R16/INFORME_RESULTADOS.md).
+- [Descargar ZIP completo](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R16/entregas/perfeccion_Visualizador_R16/perfeccion_Visualizador_R16_EXPERIMENTAL_COMPLETA.zip?raw=true)
+- [Descargar archivos modificados](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R16/entregas/perfeccion_Visualizador_R16/perfeccion_Visualizador_R16_ARCHIVOS_MODIFICADOS.zip?raw=true)
+- [Informe de resultados](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R16/entregas/perfeccion_Visualizador_R16/INFORME_RESULTADOS.md)
 
-El ZIP de modificaciones contiene los cambios sobre R15; se recomienda esperar al paquete completo para probar en una carpeta independiente. El código heredado en la raíz de esta rama sigue siendo R15.
+Descomprime el ZIP completo en una carpeta nueva y abre `Iniciar_R16.bat`.
+
+La bancada mejora, pero sigue siendo experimental: quedan regiones pendientes y las pruebas nativas de Windows y Onshape. Esta rama conserva el registro del avance; el programa actualizado está en la entrega enlazada.
