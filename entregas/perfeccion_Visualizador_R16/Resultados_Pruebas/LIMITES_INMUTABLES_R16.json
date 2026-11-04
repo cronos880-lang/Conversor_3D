@@ -1,0 +1,127 @@
+{
+  "funcion_calidad_AST": "bface768ccbc15b69580b931412872800da541f48dffd51d1836983364c13f4a",
+  "archivos_control_sin_cambios": [
+    "motor_calidad/exportacion_solida.py",
+    "motor_calidad/validacion_densa.py",
+    "saneamiento_cad.py",
+    "motor_calidad/validacion_local.py",
+    "motor_calidad/reconstruccion_curvas.py",
+    "validacion_reconstruccion.py",
+    "calidad_topologica.py",
+    "motor_calidad/saneamiento_cad.py",
+    "reconstruccion_curvas.py",
+    "validacion_densa.py",
+    "validacion_local.py",
+    "perfiles_precision.py",
+    "motor_calidad/calidad_topologica.py",
+    "motor_calidad/validacion_reconstruccion.py",
+    "motor_calidad/verificar_original_calidad.py",
+    "motor_calidad/perfiles_precision.py"
+  ],
+  "modificados": [
+    "ESTADO_VALIDACION.md",
+    "VERSION.txt",
+    "Visor_STL_STEP.html",
+    "motor_v2.py",
+    "respaldo_conversion.py",
+    "servidor.py",
+    "test_arranque_r8.py",
+    "version_programa.py"
+  ],
+  "nuevos": [
+    "reconstruccion_continua_r16.py",
+    "test_reconstruccion_continua_r16.py",
+    "motor_calidad/ajuste_interior_r16.py",
+    "motor_calidad/reconstruccion_continua_worker_r16.py",
+    "motor_calidad/reconstruccion_paredes_r16.py",
+    "motor_calidad/bandas_compuestas_r16.py",
+    "fixtures_cad/R16/carta_plegada.json"
+  ],
+  "huellas_comparadas": {
+    "motor_calidad/exportacion_solida.py": {
+      "R15": "e0d30f5c0549bedd49b0c8fcbd81037a1ef040c3595c10e273bf05e68775b310",
+      "R16": "e0d30f5c0549bedd49b0c8fcbd81037a1ef040c3595c10e273bf05e68775b310",
+      "identicos": true
+    },
+    "motor_calidad/validacion_densa.py": {
+      "R15": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1",
+      "R16": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1",
+      "identicos": true
+    },
+    "saneamiento_cad.py": {
+      "R15": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "R16": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "identicos": true
+    },
+    "motor_calidad/validacion_local.py": {
+      "R15": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66",
+      "R16": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66",
+      "identicos": true
+    },
+    "motor_calidad/reconstruccion_curvas.py": {
+      "R15": "5f7b43997ba567dfd5e98277211354c5c573cb4396ce2443de291cb90b22778c",
+      "R16": "5f7b43997ba567dfd5e98277211354c5c573cb4396ce2443de291cb90b22778c",
+      "identicos": true
+    },
+    "validacion_reconstruccion.py": {
+      "R15": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "R16": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "identicos": true
+    },
+    "calidad_topologica.py": {
+      "R15": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "R16": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "identicos": true
+    },
+    "motor_calidad/saneamiento_cad.py": {
+      "R15": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "R16": "c8ae750d15e4e2a7378e81ee2f8fd561f7ea412c08d4275d652724242d2f5200",
+      "identicos": true
+    },
+    "reconstruccion_curvas.py": {
+      "R15": "e6899a1fb52659a09b87825d4b5e788fdaf53ebe221f2dc7b9b4da6e6d1f4ea1",
+      "R16": "e6899a1fb52659a09b87825d4b5e788fdaf53ebe221f2dc7b9b4da6e6d1f4ea1",
+      "identicos": true
+    },
+    "validacion_densa.py": {
+      "R15": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1",
+      "R16": "f361833d219e19f328b841f6953963d356360d66a3acc0ae08792d69ecc501b1",
+      "identicos": true
+    },
+    "validacion_local.py": {
+      "R15": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66",
+      "R16": "5e888687da3aaedc0259a7441fc8704dcf5b6c65c241fc849062380ec8c53e66",
+      "identicos": true
+    },
+    "perfiles_precision.py": {
+      "R15": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "R16": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "identicos": true
+    },
+    "motor_calidad/calidad_topologica.py": {
+      "R15": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "R16": "e5468ecf466535404400967f8aa356b657bf815156363b327f94850d1ecadd0d",
+      "identicos": true
+    },
+    "motor_calidad/validacion_reconstruccion.py": {
+      "R15": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "R16": "ebf30ec624bb53234e233291ecd74186f2df5c1230ee13b37169778a3ca40a3d",
+      "identicos": true
+    },
+    "motor_calidad/verificar_original_calidad.py": {
+      "R15": "07b41e5f1d7571ddc88510c622ec4e5c40bda08de35c4ac488aaa03aac61d99e",
+      "R16": "07b41e5f1d7571ddc88510c622ec4e5c40bda08de35c4ac488aaa03aac61d99e",
+      "identicos": true
+    },
+    "motor_calidad/perfiles_precision.py": {
+      "R15": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "R16": "2847c835006a2af682de6a383b706df5989ee975d0526eacc75daea607837b8a",
+      "identicos": true
+    }
+  },
+  "funcion_calidad_AST_comparacion": {
+    "R15": "bface768ccbc15b69580b931412872800da541f48dffd51d1836983364c13f4a",
+    "R16": "bface768ccbc15b69580b931412872800da541f48dffd51d1836983364c13f4a",
+    "identicos": true
+  }
+}

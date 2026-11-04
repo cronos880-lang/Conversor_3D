@@ -1,0 +1,173 @@
+{
+  "ok": false,
+  "tipo": "control_postproceso_aislado",
+  "perfil": "precision",
+  "transformacion": [
+    [
+      0.8993134104670912,
+      -0.34762660868301887,
+      0.2653132689663155,
+      -205.93646551100136
+    ],
+    [
+      0.37860709777006774,
+      0.9225487772823778,
+      -0.07456821744494113,
+      -79.55301326872134
+    ],
+    [
+      -0.21884253533574222,
+      0.16750968470608774,
+      0.9612743886411889,
+      48.66827365309056
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "exportacion_base": {
+    "tipo_entrada": "Solid",
+    "shell_cerrado_solidificado": false,
+    "solid_reconstruido_desde_frontera": true,
+    "banderas_cierre_antes": [
+      true
+    ],
+    "caras": 134,
+    "aristas": 409,
+    "shells": 1,
+    "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "auditoria_step_crudo": {
+      "ok": true,
+      "modified": false,
+      "corrected_bounds": [],
+      "audit": {
+        "ok": true,
+        "complete": true,
+        "solids": 1,
+        "shells": [
+          {
+            "shell": 16,
+            "faces": 134,
+            "edges": 409,
+            "errors": []
+          }
+        ],
+        "unsupported": [],
+        "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+      }
+    },
+    "ok": true,
+    "modo": "STEPControl_ManifoldSolidBrep",
+    "solidos_reimportados": 1,
+    "caras_reimportadas": 134,
+    "tolerancia_max_mm": 1e-07,
+    "step_sha256": "edfc40c5fef0d93b7a6fa74d602ae4fe17625437c53c3d9147354684d0ca5791",
+    "requiere_validacion_original": true
+  },
+  "calidad_base": {
+    "integridad_cad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 409,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0,
+      "brep_exacto": true
+    },
+    "perfil_validacion": {
+      "id": "precision",
+      "nombre": "Precisión",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    },
+    "caras_step": 134,
+    "bytes_step": 1905751,
+    "volumen_error_pct": 0.022032,
+    "caja_error_mm": 0.000502,
+    "caja_error_analitico_mm": 0.000502,
+    "caja_modo_verificacion": "OpenCascade",
+    "distancia_stl_step_mm": {
+      "media": 1.2e-05,
+      "p95": 5.8e-05,
+      "p99": 0.000195,
+      "max_muestreado": 0.000961,
+      "muestras": 800
+    },
+    "distancia_step_stl_mm": {
+      "media": 0.000108,
+      "p95": 0.00057,
+      "p99": 0.001158,
+      "max_muestreado": 0.003084,
+      "muestras": 800
+    },
+    "contraste_muestreo_cad": {
+      "muestras_proyectadas": 0,
+      "max_distancia_al_brep_mm": 0.0
+    },
+    "tipos_caras": {
+      "GeomAbs_Plane": 57,
+      "GeomAbs_BSplineSurface": 38,
+      "GeomAbs_SurfaceOfExtrusion": 14,
+      "GeomAbs_Cylinder": 25
+    },
+    "limites_validacion": {
+      "volumen_error_max_pct": 0.5,
+      "caja_error_max_mm": 0.02,
+      "p95_superficie_max_mm": 0.02,
+      "desviacion_max_observada_mm": 0.06,
+      "margen_preparacion_mm": 0.0
+    },
+    "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+    "autointerferencias_occ": false,
+    "interferencias_comprobadas_en_frio": true,
+    "control_cad_reutilizado_por_sha256": false,
+    "sin_objetos_sueltos_en_step": true,
+    "inspeccion_densa": {
+      "stl_a_cad": {
+        "muestras": 3000,
+        "p95_mm": 0.0005328427451391996,
+        "max_mm": 0.002322550253416414,
+        "zonas_sospechosas": []
+      },
+      "cad_a_stl": {
+        "muestras": 127938,
+        "p95_mm": 0.0008097299068135485,
+        "max_mm": 0.0034393244253360334,
+        "zonas_sospechosas": []
+      },
+      "limite_p95_mm": 0.02,
+      "limite_max_mm": 0.06,
+      "contraste_muestras_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "nota": "Muestreo determinista, no garantía Hausdorff global.",
+      "aceptado": true
+    },
+    "precision_alcanzada": "precision",
+    "desviacion_max_verificada_mm": 0.003439,
+    "limites_precision_originales": {
+      "caja_mm": 0.02,
+      "p95_mm": 0.02,
+      "max_mm": 0.06
+    }
+  },
+  "original_control_sha256": "9a35cd0c98cf086afa6c41e705917eb8de38e82c2044cf03bd851a22c1d96069",
+  "base_control_sha256": "edfc40c5fef0d93b7a6fa74d602ae4fe17625437c53c3d9147354684d0ca5791",
+  "codigo_sha256": "0bd873f30431fa80478bb7d1cff1827f8a55531c1295c5e635e37481ff81ad4f",
+  "error": "Límite de tiempo: 420 s; plazo 420 s, máximo 420 s. No se ha obtenido un STEP aprobado; no es una medición de error dimensional.",
+  "seconds": 465.0912883479996,
+  "verificacion_posterior_rechazo": {
+    "base_conservada_sha256": "edfc40c5fef0d93b7a6fa74d602ae4fe17625437c53c3d9147354684d0ca5791",
+    "base_conservada": true,
+    "source_conservado": true
+  }
+}

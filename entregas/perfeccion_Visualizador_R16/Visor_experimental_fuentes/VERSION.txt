@@ -1,0 +1,3 @@
+Visor STL → STEP · R16 experimental
+Compilación 2026.11.04-superficies-continuas
+Paredes y bandas CAD continuas, con geometría y material verificados.

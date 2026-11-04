@@ -1,0 +1,82 @@
+{
+  "total": 397,
+  "aprobadas": 382,
+  "omitidas": [
+    {
+      "test": "test_reparacion_real_r2_contrasta_original[Fallo_Dimensional.stl]",
+      "archivo": "test_correcciones_r2",
+      "motivo": "STL aportados no indicados"
+    },
+    {
+      "test": "test_reparacion_real_r2_contrasta_original[Pieza ambigua.stl]",
+      "archivo": "test_correcciones_r2",
+      "motivo": "STL aportados no indicados"
+    },
+    {
+      "test": "test_muestreo_no_corrompe_juicio_del_brep",
+      "archivo": "test_correcciones_r2",
+      "motivo": "STEP de regresión de caché no indicado"
+    },
+    {
+      "test": "test_no_acepta_cad_solo_por_ser_valido_sin_interferencias",
+      "archivo": "test_correcciones_r2",
+      "motivo": "STEP de regresión densa no indicado"
+    },
+    {
+      "test": "test_rescate_exige_repetir_control_avanzado",
+      "archivo": "test_mejoras_r3",
+      "motivo": "STEP defectuoso aportado no indicado"
+    },
+    {
+      "test": "test_bandas_reales_tienen_evidencia_y_cobertura_sin_editar_vertices",
+      "archivo": "test_mejoras_r4",
+      "motivo": "RAR de pruebas no indicado"
+    },
+    {
+      "test": "test_vertices_reales_se_diagnostican_antes_de_reconstruir[6558_fixed.stl-33]",
+      "archivo": "test_mejoras_r4",
+      "motivo": "RAR de pruebas no indicado"
+    },
+    {
+      "test": "test_vertices_reales_se_diagnostican_antes_de_reconstruir[Dimensiones tambien.stl-14]",
+      "archivo": "test_mejoras_r4",
+      "motivo": "RAR de pruebas no indicado"
+    },
+    {
+      "test": "test_vertices_reales_se_diagnostican_antes_de_reconstruir[Pieza_Nueva_Detenida.stl-54]",
+      "archivo": "test_mejoras_r4",
+      "motivo": "RAR de pruebas no indicado"
+    },
+    {
+      "test": "test_cubo_carrito_y_referencia_real",
+      "archivo": "test_preprocesador",
+      "motivo": "STL privados no indicados"
+    },
+    {
+      "test": "test_cubo_carrito_reparacion_rotada[angles0]",
+      "archivo": "test_preprocesador",
+      "motivo": "STL privados no indicados"
+    },
+    {
+      "test": "test_cubo_carrito_reparacion_rotada[angles1]",
+      "archivo": "test_preprocesador",
+      "motivo": "STL privados no indicados"
+    },
+    {
+      "test": "test_cubo_carrito_reparacion_rotada[angles2]",
+      "archivo": "test_preprocesador",
+      "motivo": "STL privados no indicados"
+    },
+    {
+      "test": "test_14_historicos_no_se_reescriben",
+      "archivo": "test_preprocesador",
+      "motivo": "STL privados no indicados"
+    },
+    {
+      "test": "test_autointerseccion_real_se_rechaza_en_frio_antes_del_mallado",
+      "archivo": "test_saneamiento_verificado",
+      "motivo": "Fixture CAD externo no disponible"
+    }
+  ],
+  "fallidas": []
+}

@@ -1,0 +1,23 @@
+{
+  "equivalente": true,
+  "estructura_y_referencias_identicas": true,
+  "tokens": 63061,
+  "cambios": [
+    {
+      "entidad": "5903",
+      "tipo": "CARTESIAN_POINT",
+      "anterior": "-5.782411586589E-16",
+      "actual": "-4.440892098501E-16",
+      "diferencia": "1.341519488088E-16"
+    },
+    {
+      "entidad": "5907",
+      "tipo": "CARTESIAN_POINT",
+      "anterior": "-5.782411586589E-16",
+      "actual": "-4.440892098501E-16",
+      "diferencia": "1.341519488088E-16"
+    }
+  ],
+  "max_diferencia": "1.341519488088E-16",
+  "criterio": "Sólo redondeos de coordenadas cartesianas cercanas a cero (1e-12 mm); no cambia límites CAD, STL ni material"
+}
