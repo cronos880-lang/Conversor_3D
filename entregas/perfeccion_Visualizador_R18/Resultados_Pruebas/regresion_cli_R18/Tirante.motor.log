@@ -1,0 +1,632 @@
+[Estrategia] Motor estable V2.7, sin prioridad ni rescate de Easymeshfit original.
+[Detección] 422 regiones analíticas y 0 regiones libres; segmentación=8.0°
+  [brep] malla con ruido: diedro mediano 2.4° -> umbrales angulares adaptados
+  [brep] regiones: 24.9s
+  [brep] ronda 0: 22 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 2s, ShapeFix 0s, total 2s]
+  [brep] sólido=True válido=True vol=661.60
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación CAD] El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+  [brep] malla con ruido: diedro mediano 2.4° -> umbrales angulares adaptados
+[contornos] cilindros fuente con prioridad: 6
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=14). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=4). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=17). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=3). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=31). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=8). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=23). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=21). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=29). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=30). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=19). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=39). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=26). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=22). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=16). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=20). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=25). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=27). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=37). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=9). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=2). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=36). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=6). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=1). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=5). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=7). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=24). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=11). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=13). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=12). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+  [brep] regiones: 172.2s
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[contornos] triángulos separados de planos aproximados: 152
+[contornos] superficies confirmadas: 17 de 203
+  [brep] construcción fallida: La reconstrucción de contornos excede el presupuesto de3000caras.
+  [brep] sin sólido válido ({'error': 'La reconstrucción de contornos excede el presupuesto de3000caras.'}); camino clásico
+[contornos] Se conserva la prioridad anterior; tras su rechazo se ensayan costuras cilíndricas completas: El motor B-Rep no ha reconstruido un sólido CAD válido.
+  [brep] malla con ruido: diedro mediano 2.4° -> umbrales angulares adaptados
+[contornos] cilindros fuente con prioridad: 6
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=14). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=4). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=17). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=3). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=31). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=8). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=23). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=21). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=29). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=30). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=19). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=39). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=26). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=22). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=16). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=20). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=25). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=27). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=37). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=9). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=2). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=36). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=6). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=1). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=5). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=7). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=24). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=11). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=13). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=12). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+  [brep] regiones: 174.1s
+[contornos] triángulos separados de planos aproximados: 152
+[contornos] superficies confirmadas: 21 de 207
+  [brep] construcción fallida: La reconstrucción de contornos excede el presupuesto de3000caras.
+  [brep] sin sólido válido ({'error': 'La reconstrucción de contornos excede el presupuesto de3000caras.'}); camino clásico
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 218, in trabajador
+    export_step(copy.deepcopy(result),working.copy(),str(destination),organic=True,solid=True,organic_smooth=0.,
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_step.py", line 948, in export_step
+    raise ValueError("El motor B-Rep no ha reconstruido un sólido CAD válido.")
+ValueError: El motor B-Rep no ha reconstruido un sólido CAD válido.
+
+[Rescate R9] Rechazado: El motor B-Rep no ha reconstruido un sólido CAD válido.
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+PERFIL EXTENDIDO -0.03 4.06452307043 cambio 0.0
+PERFIL EXTENDIDO -0.03 4.064516373153 cambio 0.0
+PLANO FUENTE 3 area 14.68977590002794 / 14.690927368205227
+PLANO FUENTE 5 area 12.679805641803341 / 12.680141685775736
+PLANO FUENTE 6 area 172.677082260871 / 172.4113594371547
+PLANO FUENTE 7 area 14.689784952711989 / 14.69136210971853
+PLANO FUENTE 9 area 12.67980241582768 / 12.68074169880232
+PLANO FUENTE 10 area 33.78773498535156 / 33.787735199759325
+PLANO FUENTE 15 area 4.000000178813934 / 4.000000178812
+PLANO FUENTE 16 area 172.677082260871 / 172.41135897545178
+PLANO FUENTE 17 area 33.78773498535156 / 33.78773537257002
+PLANO FUENTE 18 area 4.000000178813934 / 4.000000178812
+ARISTA INI 0 [0, 19] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+[contornos] refinamiento3D 0 65 puntos, error 4.167864962822954e-06
+[contornos] refinamiento3D 1 129 puntos, error 2.583746590012481e-07
+[contornos] refinamiento3D 2 134 puntos, error 2.2071547256530266e-08
+ARISTA 0 [0, 19] ext 9.25923340128218e-14
+ARISTA INI 1 [0] ['Geom_CylindricalSurface']
+PROYECCION COMPACTA 158 4.114785559048216e-11
+ARISTA 1 [0] ext 3.565181809581883e-14
+ARISTA INI 2 [0, 5] ['Geom_CylindricalSurface', 'Geom_Plane']
+ARISTA 2 [0, 5] ext 8.881784197001252e-16
+ARISTA INI 3 [1, 13] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+[contornos] refinamiento3D 0 65 puntos, error 2.514148029209018e-06
+[contornos] refinamiento3D 1 129 puntos, error 1.5605086733927465e-07
+[contornos] refinamiento3D 2 133 puntos, error 1.3255541442269703e-08
+ARISTA 3 [1, 13] ext 1.9384125203838402e-14
+ARISTA INI 4 [1] ['Geom_CylindricalSurface']
+PROYECCION COMPACTA 128 3.060066650409533e-11
+ARISTA 4 [1] ext 2.1328132722409387e-14
+ARISTA INI 5 [1, 7] ['Geom_CylindricalSurface', 'Geom_Plane']
+ARISTA 5 [1, 7] ext 7.108895957933346e-15
+ARISTA INI 6 [2, 3] ['Geom_CylindricalSurface', 'Geom_Plane']
+ARISTA 6 [2, 3] ext 4.440892098500626e-16
+ARISTA INI 7 [2] ['Geom_CylindricalSurface']
+PROYECCION COMPACTA 177 3.662569381830262e-11
+ARISTA 7 [2] ext 3.607797795906347e-15
+ARISTA INI 8 [2, 21] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+[contornos] refinamiento3D 0 65 puntos, error 2.4929365700643302e-06
+[contornos] refinamiento3D 1 129 puntos, error 1.5472803982508054e-07
+[contornos] refinamiento3D 2 133 puntos, error 1.3149228594855344e-08
+ARISTA 8 [2, 21] ext 5.687116766346677e-15
+ARISTA INI 9 [3, 6] ['Geom_Plane', 'Geom_Plane']
+ARISTA 9 [3, 6] ext 0.0
+ARISTA INI 10 [3, 18] ['Geom_Plane', 'Geom_Plane']
+ARISTA 10 [3, 18] ext 5.0487097820437714e-29
+ARISTA INI 11 [3, 16] ['Geom_Plane', 'Geom_Plane']
+ARISTA 11 [3, 16] ext 1.8932115563550343e-28
+ARISTA INI 12 [3, 4] ['Geom_Plane', 'Geom_SurfaceOfRevolution']
+REFINAMIENTO REVOLUCION 33 0.003237840065374811
+REFINAMIENTO REVOLUCION 65 0.0016508532589212806
+REFINAMIENTO REVOLUCION 111 0.00014178127075449047
+REFINAMIENTO REVOLUCION 188 1.4264830845156124e-05
+REFINAMIENTO REVOLUCION 318 2.6568038758142124e-06
+REFINAMIENTO REVOLUCION 404 4.2661991020094023e-07
+REFINAMIENTO REVOLUCION 421 2.0058010019815138e-08
+REFINAMIENTO REVOLUCION 422 1.9069762304765996e-08
+ARISTA 12 [3, 4] ext 3.552713678827185e-15
+ARISTA INI 13 [4, 6] ['Geom_SurfaceOfRevolution', 'Geom_Plane']
+REFINAMIENTO REVOLUCION 33 0.00011279518778851295
+REFINAMIENTO REVOLUCION 65 6.420377432282447e-06
+REFINAMIENTO REVOLUCION 129 3.1510376267969904e-07
+REFINAMIENTO REVOLUCION 255 4.139073680836169e-08
+REFINAMIENTO REVOLUCION 257 1.623644172767514e-08
+ARISTA 13 [4, 6] ext 7.23968423886926e-15
+ARISTA INI 14 [4, 5] ['Geom_SurfaceOfRevolution', 'Geom_Plane']
+REFINAMIENTO REVOLUCION 33 0.003237418520876168
+REFINAMIENTO REVOLUCION 65 0.001650326481958216
+REFINAMIENTO REVOLUCION 111 0.0001417915788768029
+REFINAMIENTO REVOLUCION 188 1.4251062541627404e-05
+REFINAMIENTO REVOLUCION 318 2.6535937905251024e-06
+REFINAMIENTO REVOLUCION 403 4.263368619534624e-07
+REFINAMIENTO REVOLUCION 420 1.9976310402057707e-08
+ARISTA 14 [4, 5] ext 3.552713678800501e-15
+ARISTA INI 15 [4, 16] ['Geom_SurfaceOfRevolution', 'Geom_Plane']
+REFINAMIENTO REVOLUCION 33 0.00011279513944751886
+REFINAMIENTO REVOLUCION 65 6.42037428376005e-06
+REFINAMIENTO REVOLUCION 129 3.1510362129739974e-07
+REFINAMIENTO REVOLUCION 255 4.139071720505784e-08
+REFINAMIENTO REVOLUCION 257 1.623642327813406e-08
+ARISTA 15 [4, 16] ext 3.66205343881779e-15
+ARISTA INI 16 [5, 16] ['Geom_Plane', 'Geom_Plane']
+ARISTA 16 [5, 16] ext 6.686251167529769e-29
+ARISTA INI 17 [5, 18] ['Geom_Plane', 'Geom_Plane']
+ARISTA 17 [5, 18] ext 5.0487097820437714e-29
+ARISTA INI 18 [5, 6] ['Geom_Plane', 'Geom_Plane']
+ARISTA 18 [5, 6] ext 0.0
+ARISTA INI 19 [6, 18] ['Geom_Plane', 'Geom_Plane']
+ARISTA 19 [6, 18] ext 5.551115123125783e-17
+ARISTA INI 20 [6, 7] ['Geom_Plane', 'Geom_Plane']
+ARISTA 20 [6, 7] ext 0.0
+ARISTA INI 21 [6, 15] ['Geom_Plane', 'Geom_Plane']
+ARISTA 21 [6, 15] ext 5.551115123125783e-17
+ARISTA INI 22 [6, 9] ['Geom_Plane', 'Geom_Plane']
+ARISTA 22 [6, 9] ext 0.0
+ARISTA INI 23 [6, 8] ['Geom_Plane', 'Geom_SurfaceOfRevolution']
+REFINAMIENTO REVOLUCION 33 0.00011279439115315959
+REFINAMIENTO REVOLUCION 65 6.42033215935458e-06
+REFINAMIENTO REVOLUCION 129 3.1510161424786364e-07
+REFINAMIENTO REVOLUCION 255 4.13904440423317e-08
+REFINAMIENTO REVOLUCION 257 1.6236319805597644e-08
+ARISTA 23 [6, 8] ext 7.297974859785581e-15
+ARISTA INI 24 [6, 10] ['Geom_Plane', 'Geom_Plane']
+ARISTA 24 [6, 10] ext 4.440892098500626e-15
+ARISTA INI 25 [6, 19] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 25 [6, 19] ext 2.0097183471152322e-14
+ARISTA INI 26 [6, 14] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 26 [6, 14] ext 2.6645352591003757e-15
+ARISTA INI 27 [6, 21] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 27 [6, 21] ext 7.620239578472496e-14
+ARISTA INI 28 [6, 17] ['Geom_Plane', 'Geom_Plane']
+ARISTA 28 [6, 17] ext 6.661338147750939e-15
+ARISTA INI 29 [6, 13] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 29 [6, 13] ext 4.4938668397781776e-14
+ARISTA INI 30 [6, 12] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 30 [6, 12] ext 1.1528542202361757e-13
+ARISTA INI 31 [6, 11] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 31 [6, 11] ext 4.522084344148357e-14
+ARISTA INI 32 [7, 16] ['Geom_Plane', 'Geom_Plane']
+ARISTA 32 [7, 16] ext 1.1543010714669913e-28
+ARISTA INI 33 [7, 15] ['Geom_Plane', 'Geom_Plane']
+ARISTA 33 [7, 15] ext 4.8909376013549036e-29
+ARISTA INI 34 [7, 8] ['Geom_Plane', 'Geom_SurfaceOfRevolution']
+REFINAMIENTO REVOLUCION 33 0.0032391694701176016
+REFINAMIENTO REVOLUCION 65 0.0016497841943004174
+REFINAMIENTO REVOLUCION 111 0.00014179928425524008
+REFINAMIENTO REVOLUCION 188 1.4220761595590864e-05
+REFINAMIENTO REVOLUCION 318 2.6479336334797146e-06
+REFINAMIENTO REVOLUCION 403 4.263362002444981e-07
+REFINAMIENTO REVOLUCION 421 1.9920213250574178e-08
+ARISTA 34 [7, 8] ext 7.105427357601002e-15
+ARISTA INI 35 [8, 16] ['Geom_SurfaceOfRevolution', 'Geom_Plane']
+REFINAMIENTO REVOLUCION 33 0.00011279444516667547
+REFINAMIENTO REVOLUCION 65 6.420335973333263e-06
+REFINAMIENTO REVOLUCION 129 3.1510180456266137e-07
+REFINAMIENTO REVOLUCION 255 4.139047808416394e-08
+REFINAMIENTO REVOLUCION 257 1.623632354292512e-08
+ARISTA 35 [8, 16] ext 7.147801729532276e-15
+ARISTA INI 36 [8, 9] ['Geom_SurfaceOfRevolution', 'Geom_Plane']
+REFINAMIENTO REVOLUCION 33 0.003239169464971848
+REFINAMIENTO REVOLUCION 65 0.0016497841956372322
+REFINAMIENTO REVOLUCION 111 0.0001417992839042685
+REFINAMIENTO REVOLUCION 188 1.4220761243846309e-05
+REFINAMIENTO REVOLUCION 318 2.6479335784023014e-06
+REFINAMIENTO REVOLUCION 403 4.2633620963673955e-07
+REFINAMIENTO REVOLUCION 421 1.992022017716203e-08
+ARISTA 36 [8, 9] ext 7.105427357601002e-15
+ARISTA INI 37 [9, 15] ['Geom_Plane', 'Geom_Plane']
+ARISTA 37 [9, 15] ext 4.8909376013500114e-29
+ARISTA INI 38 [9, 16] ['Geom_Plane', 'Geom_Plane']
+ARISTA 38 [9, 16] ext 1.0500057257552897e-28
+ARISTA INI 39 [9, 20] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 39 [9, 20] ext 7.119291619286993e-15
+ARISTA INI 40 [9, 20] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 40 [9, 20] ext 7.136584070361083e-15
+ARISTA INI 41 [10, 11] ['Geom_Plane', 'Geom_CylindricalSurface']
+SECCION CASI PARALELA 17 1.584510304634538e-12
+ARISTA 41 [10, 11] ext 9.521376460726495e-13
+ARISTA INI 42 [10, 16] ['Geom_Plane', 'Geom_Plane']
+ARISTA 42 [10, 16] ext 4.440892098500626e-15
+ARISTA INI 43 [10, 19] ['Geom_Plane', 'Geom_CylindricalSurface']
+SECCION CASI PARALELA 17 1.6697759605258966e-12
+ARISTA 43 [10, 19] ext 3.9814211643613114e-13
+ARISTA INI 44 [11, 20] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+[contornos] refinamiento3D 0 65 puntos, error 4.159042559348514e-06
+[contornos] refinamiento3D 1 129 puntos, error 2.580813729391451e-07
+[contornos] refinamiento3D 2 134 puntos, error 2.2087006446014357e-08
+ARISTA 44 [11, 20] ext 1.0175362097255202e-14
+ARISTA INI 45 [11, 12] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+CILINDROS CASI PARALELOS 17 5.1270671454767556e-14
+ARISTA 45 [11, 12] ext 1.888718976575895e-13
+ARISTA INI 46 [11, 16] ['Geom_CylindricalSurface', 'Geom_Plane']
+ARISTA 46 [11, 16] ext 1.90865905332337e-13
+ARISTA INI 47 [12, 13] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+CILINDROS CASI PARALELOS 17 5.302730142728646e-14
+ARISTA 47 [12, 13] ext 2.4286117878649237e-13
+ARISTA INI 48 [12, 16] ['Geom_CylindricalSurface', 'Geom_Plane']
+ARISTA 48 [12, 16] ext 1.6357922210689449e-13
+ARISTA INI 49 [13, 16] ['Geom_CylindricalSurface', 'Geom_Plane']
+ARISTA 49 [13, 16] ext 5.862145783217125e-14
+ARISTA INI 50 [13, 17] ['Geom_CylindricalSurface', 'Geom_Plane']
+SECCION CASI PARALELA 17 1.3216095631255467e-12
+ARISTA 50 [13, 17] ext 2.209799381461954e-12
+ARISTA INI 51 [14, 19] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+CILINDROS CASI PARALELOS 17 1.0658141036401503e-14
+ARISTA 51 [14, 19] ext 3.552713678800501e-15
+ARISTA INI 52 [14, 16] ['Geom_CylindricalSurface', 'Geom_Plane']
+ARISTA 52 [14, 16] ext 3.794299872214038e-15
+ARISTA INI 53 [14, 21] ['Geom_CylindricalSurface', 'Geom_CylindricalSurface']
+CILINDROS CASI PARALELOS 17 7.242875823676482e-15
+ARISTA 53 [14, 21] ext 2.220446049250313e-15
+ARISTA INI 54 [15, 16] ['Geom_Plane', 'Geom_Plane']
+ARISTA 54 [15, 16] ext 5.551115123125783e-17
+ARISTA INI 55 [16, 18] ['Geom_Plane', 'Geom_Plane']
+ARISTA 55 [16, 18] ext 5.551115123125783e-17
+ARISTA INI 56 [16, 19] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 56 [16, 19] ext 3.3433753942657614e-14
+ARISTA INI 57 [16, 17] ['Geom_Plane', 'Geom_Plane']
+ARISTA 57 [16, 17] ext 7.105427357601002e-15
+ARISTA INI 58 [16, 21] ['Geom_Plane', 'Geom_CylindricalSurface']
+ARISTA 58 [16, 21] ext 4.1744385725905886e-14
+ARISTA INI 59 [17, 21] ['Geom_Plane', 'Geom_CylindricalSurface']
+SECCION CASI PARALELA 17 1.399769207058803e-12
+ARISTA 59 [17, 21] ext 5.186969575310449e-13
+ARISTA INI 60 [20] ['Geom_CylindricalSurface']
+PROYECCION COMPACTA 77 2.003041453887465e-11
+ARISTA 60 [20] ext 7.191640501203643e-15
+CARA 0 Geom_CylindricalSurface
+CARA 1 Geom_CylindricalSurface
+CARA 2 Geom_CylindricalSurface
+CARA 3 Geom_Plane
+UV ADAPTATIVA 422 1.9563411889389508e-08
+UV ADAPTATIVA 420 2.0055232549930613e-08
+CARA 4 Geom_SurfaceOfRevolution
+CARA 5 Geom_Plane
+CARA 6 Geom_Plane
+CARA 7 Geom_Plane
+UV ADAPTATIVA 421 2.0045807547127788e-08
+UV ADAPTATIVA 421 2.0045828084036578e-08
+CARA 8 Geom_SurfaceOfRevolution
+CARA 9 Geom_Plane
+CARA 10 Geom_Plane
+CARA 11 Geom_CylindricalSurface
+CARA 12 Geom_CylindricalSurface
+CARA 13 Geom_CylindricalSurface
+CARA 14 Geom_CylindricalSurface
+CARA 15 Geom_Plane
+CARA 16 Geom_Plane
+CARA 17 Geom_Plane
+CARA 18 Geom_Plane
+CARA 19 Geom_CylindricalSurface
+CARA 20 Geom_CylindricalSurface
+CARA 21 Geom_CylindricalSurface
+SINGULARIDADES {'aristas_degeneradas_anadidas': 0, 'geometria3D_modificada': False, 'cierre_solo_de_vertices_demostrados': True}
+[Control STEP exportado] volumen_STL=662.318761 volumen_STEP=661.568077 caras_STEP=22
+[Calidad] p95 STL->CAD 0.00061 CAD->STL 0.00390; máximos 0.00122 y 0.00536; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+

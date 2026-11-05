@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "original_sha256": "b01a54cc18b65532bd4e0f388742c35291987c3dde5ba9f1d32c2ee78fa16600",
+  "habilitado": true,
+  "reparado": true,
+  "original_conservado": true,
+  "entrada": {
+    "caras": 1880,
+    "vertices": 936,
+    "topologia_vertices": {
+      "vertices_no_manifold": 4,
+      "vertices_de_borde": 0,
+      "ejemplos": [
+        {
+          "vertice": 455,
+          "xyz_mm": [
+            5.892800331115723,
+            5.918199062347412,
+            25.399999618530273
+          ],
+          "abanicos": 1,
+          "grados_distintos_de_dos": 2
+        },
+        {
+          "vertice": 458,
+          "xyz_mm": [
+            5.892800331115723,
+            38.938201904296875,
+            25.399999618530273
+          ],
+          "abanicos": 1,
+          "grados_distintos_de_dos": 2
+        },
+        {
+          "vertice": 477,
+          "xyz_mm": [
+            38.91279983520508,
+            5.918199062347412,
+            25.399999618530273
+          ],
+          "abanicos": 1,
+          "grados_distintos_de_dos": 2
+        },
+        {
+          "vertice": 480,
+          "xyz_mm": [
+            38.91279983520508,
+            38.938201904296875,
+            25.399999618530273
+          ],
+          "abanicos": 1,
+          "grados_distintos_de_dos": 2
+        }
+      ],
+      "enlaces_regulares_cerrados": false,
+      "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+    },
+    "aristas_1_cara": 0,
+    "aristas_2_caras": 2812,
+    "aristas_mas_2_caras": 4,
+    "caras_degeneradas": 0,
+    "caras_duplicadas": 0,
+    "pares_caras_contacto_opuestas": 0,
+    "componentes": [
+      {
+        "caras": 1248,
+        "estanco": true,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": 5825.66293690346,
+        "euler": 0
+      },
+      {
+        "caras": 632,
+        "estanco": true,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": 53416.900195693706,
+        "euler": 0
+      }
+    ],
+    "numero_componentes": 2,
+    "estanco_global": false,
+    "caja_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        44.83100128173828,
+        44.83100128173828,
+        184.7849884033203
+      ]
+    ],
+    "ruta": "analizar_union_cuerpos_cerrados",
+    "gravedad": "advertencia",
+    "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+    "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+  },
+  "ruta_seleccionada": "union_booleana_verificada",
+  "verificacion_independiente": {
+    "referencia": "unión poliédrica independiente OpenCascade; fuzzy 0,0000001 mm",
+    "volumen_referencia_mm3": 59242.56313259719,
+    "volumen_error_pct": 6.140819395253306e-14,
+    "caja_error_mm": 0.0,
+    "p95_mm": 5.4672143489065705e-16,
+    "max_observado_mm": 1.0048591735576161e-14,
+    "muestras_direcciones": [
+      6808,
+      6808
+    ],
+    "brep_valido": true,
+    "solidos_referencia": 1,
+    "regularizaciones_planas_referencia": [],
+    "normalizacion_referencia": {
+      "aplicado": true,
+      "aristas_preexistentes": 4,
+      "vertices_interfaz": 92,
+      "max_movimiento_mm": 0.0,
+      "limite_movimiento_mm": 1.9535897545559985e-05,
+      "nota": "Solo interfaz con aristas compartidas; no unión por cercanía."
+    },
+    "limites": {
+      "volumen_pct": 0.001,
+      "caja_mm": 0.002,
+      "superficie_mm": 0.002
+    },
+    "nota": "Mediciones deterministas muestreadas, no cota Hausdorff global.",
+    "relaciones": [
+      {
+        "componente": 1,
+        "volumen_interseccion_mm3": 0.0,
+        "separacion_mm_acotada": 0.0,
+        "tipo": "contacto_o_separacion"
+      }
+    ],
+    "genero_antes": 1,
+    "genero_despues": 1,
+    "normalizacion_contacto": {
+      "aplicado": true,
+      "aristas_preexistentes": 4,
+      "vertices_interfaz": 92,
+      "max_movimiento_mm": 0.0,
+      "limite_movimiento_mm": 1.9535897545559985e-05,
+      "nota": "Solo interfaz con aristas compartidas; no unión por cercanía."
+    },
+    "limite_simplificacion_numerica_mm": 1.9535897545559985e-05
+  },
+  "verificacion_stl_reimportado": {
+    "referencia": "unión poliédrica independiente OpenCascade; fuzzy 0,0000001 mm",
+    "volumen_referencia_mm3": 59242.56313259719,
+    "volumen_error_pct": 6.140819395253306e-14,
+    "caja_error_mm": 0.0,
+    "p95_mm": 5.4672143489065705e-16,
+    "max_observado_mm": 1.0048591735576161e-14,
+    "muestras_direcciones": [
+      6808,
+      6808
+    ],
+    "brep_valido": true,
+    "solidos_referencia": 1,
+    "regularizaciones_planas_referencia": [],
+    "normalizacion_referencia": {
+      "aplicado": true,
+      "aristas_preexistentes": 4,
+      "vertices_interfaz": 92,
+      "max_movimiento_mm": 0.0,
+      "limite_movimiento_mm": 1.9535897545559985e-05,
+      "nota": "Solo interfaz con aristas compartidas; no unión por cercanía."
+    },
+    "limites": {
+      "volumen_pct": 0.001,
+      "caja_mm": 0.002,
+      "superficie_mm": 0.002
+    },
+    "nota": "Mediciones deterministas muestreadas, no cota Hausdorff global."
+  },
+  "resultado": "unión verificada",
+  "salida": {
+    "caras": 1872,
+    "vertices": 936,
+    "topologia_vertices": {
+      "vertices_no_manifold": 0,
+      "vertices_de_borde": 0,
+      "ejemplos": [],
+      "enlaces_regulares_cerrados": true,
+      "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+    },
+    "aristas_1_cara": 0,
+    "aristas_2_caras": 2808,
+    "aristas_mas_2_caras": 0,
+    "caras_degeneradas": 0,
+    "caras_duplicadas": 0,
+    "pares_caras_contacto_opuestas": 0,
+    "componentes": [
+      {
+        "caras": 1872,
+        "estanco": true,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": 59242.563132597155,
+        "euler": 0
+      }
+    ],
+    "numero_componentes": 1,
+    "estanco_global": true,
+    "caja_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        44.83100128173828,
+        44.83100128173828,
+        184.7849884033203
+      ]
+    ],
+    "ruta": "paso_directo",
+    "gravedad": "informacion",
+    "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+    "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+  },
+  "reparado_sha256": "62b965480624020bf2a3db180337d519dda4906886e53cfab8144337c229ec2f"
+}

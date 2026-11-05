@@ -1,0 +1,15 @@
+{
+  "ok": false,
+  "fases": [
+    {
+      "fase": "estructura_fuente",
+      "segundos": 3.1760423770028865
+    },
+    {
+      "fase": "construccion_CAD_desde_perfiles",
+      "segundos": 10.353620392001176
+    }
+  ],
+  "error": "No hay una estructura axial acotada",
+  "seconds": 10.778677403999609
+}

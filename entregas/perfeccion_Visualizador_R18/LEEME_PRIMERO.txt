@@ -1,0 +1,10 @@
+VISOR STL -> STEP - R18 EXPERIMENTAL
+
+Descomprime TODO el ZIP en una carpeta nueva y abre Iniciar_R18.bat.
+Requiere Python 3.12 de 64 bits y el entorno CAD como R7/R17.
+El encabezado debe indicar R18 experimental.
+
+Prueba los STL de Pruebas_Curvas. Compara los STEP descargados en tu CAD;
+la previsualizacion del Visor muestra el STL original.
+Lee INFORME_RESULTADOS.md y conserva R17 en su carpeta.
+Windows nativo, Onshape e impresion fisica K1C pendientes.

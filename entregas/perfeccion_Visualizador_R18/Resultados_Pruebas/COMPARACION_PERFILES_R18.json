@@ -1,0 +1,14 @@
+{
+  "Base": {
+    "DATA_identico_entre_perfiles": true,
+    "sha256_precision": "bb9492cc836ffbd522ae31ed09b513300390168e0e4b5444b16d55cfd61a1238",
+    "sha256_impresion": "2c88170962464a7a501d243ad91cf1254401c87e0b44c36f11ce3005d5cb2448",
+    "codigo_sha256": "994a9f8953b554c5a8eb9b45aa5dfdfcf92fbef8aec3b4034922a0845deb9090"
+  },
+  "Flame_Base": {
+    "DATA_identico_entre_perfiles": true,
+    "sha256_precision": "6b47e3ef5e9b06ccc4dcdecfd71bc149bf5050a67d147e1631b4abc4c07857b8",
+    "sha256_impresion": "e0ddf0f8433c971e294d6b57902a82cdfeec5a110c68f757f36d35c817a87fa5",
+    "codigo_sha256": "994a9f8953b554c5a8eb9b45aa5dfdfcf92fbef8aec3b4034922a0845deb9090"
+  }
+}

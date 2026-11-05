@@ -1,0 +1,25 @@
+[Reparación CAD] Ajuste de regiones 0.015 mm, B-spline 0.005 mm, aristas 0.003 mm; validación histórica sin cambios.
+[Detección] 100 regiones analíticas y 0 regiones libres; segmentación=1.3°
+  [brep] regiones: 23.5s
+  [brep] ronda 0: 255 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 2s]
+  [brep] sólido=True válido=True vol=59247.15
+[Franjas] {'aplicado': False, 'motivo': 'Error no bloqueante: Omitida en mallas densas para preservar el B-Rep construido'}
+[Unión verificada] El ajuste no es CAD exacto; recuperando su frontera exterior con los mismos controles.
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+VF_CANDIDATOS 0
+EE_CANDIDATOS 0
+ACOPLADO 0 perdida 0.0 malas 0 min inf
+[Control STEP exportado] volumen_STL=59242.563133 volumen_STEP=59242.563133 caras_STEP=1152
+[Calidad] p95 STL->CAD 0.00000 CAD->STL 0.00000; máximos 0.00000 y 0.00000; límite p95 0.03000, máximo 0.06000 (margen preparación 0.000000)
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/recuperacion_cilindros.py", line 47, in trabajador
+    if not patches:raise ValueError('No hay paredes cilíndricas completas respaldadas por el STL')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No hay paredes cilíndricas completas respaldadas por el STL
+
+[Cilindros locales] Se conserva el STEP facetado ya validado: El refinamiento local no produjo un STEP aprobado
+{"ok": true, "error": null, "segundos": 32.014}
+

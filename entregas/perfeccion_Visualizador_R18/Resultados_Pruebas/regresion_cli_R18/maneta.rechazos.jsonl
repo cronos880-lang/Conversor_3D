@@ -1,0 +1,1 @@
+{"instante": 1793839054.8438823, "codigo": "geometria_fuera_de_limites", "perfil": "precision", "mensaje": "Reconstrucción deformada: Error de volumen: 16.572616 % > 0.500000 %.", "criterios": [{"nombre": "Error de volumen", "medido": 16.572616230983627, "limite": 0.5, "unidad": "%", "cumple": false}]}

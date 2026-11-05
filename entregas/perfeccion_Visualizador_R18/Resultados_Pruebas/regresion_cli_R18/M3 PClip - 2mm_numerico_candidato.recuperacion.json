@@ -1,0 +1,189 @@
+{
+  "ok": true,
+  "tipo_cad": "recuperacion_facetada",
+  "version_recuperacion": 1,
+  "aceptacion_sin_relajar": true,
+  "estabilizacion": {
+    "grupos_movidos": [],
+    "objetivo_mm": 5e-06,
+    "perdida": 0.0,
+    "pares_bajo_objetivo": 0,
+    "min_holgura_mm": null,
+    "superficie": {
+      "max_mm": 4.996003610813204e-16,
+      "p95_mm": 2.220446049250313e-16,
+      "muestras": [
+        8108,
+        8108
+      ]
+    }
+  },
+  "geometria_local": {
+    "cota_global_superficie_mm": 1.8470142949811308e-13,
+    "margen_redondeo_mm": 1.8470142949811308e-13,
+    "volumen_error_pct": 0.0,
+    "caja_error_mm": 0.0,
+    "caras_con_correspondencia": 2740,
+    "fundamento": "Misma triangulación: cada punto baricéntrico se desplaza como máximo el mayor desplazamiento de sus vértices.",
+    "limites": {
+      "superficie_mm": 0.002,
+      "volumen_pct": 0.001,
+      "caja_mm": 0.002
+    }
+  },
+  "material_original": {
+    "puntos": 2995,
+    "discrepancias": 0,
+    "banda_excluida_mm": 0.002,
+    "referencia": "Número de giro orientado positivo del STL original.",
+    "nota": "Muestreo reproducible; no demostración global del campo de material."
+  },
+  "topologia": {
+    "euler_malla": -2,
+    "euler_brep": -2,
+    "shells": 1,
+    "cavidades_preservadas": 0,
+    "probes_cavidades": []
+  },
+  "cilindros_locales": {
+    "aplicado": false,
+    "error": "El refinamiento local no produjo un STEP aprobado"
+  },
+  "resultado": {
+    "caras_stl": 2740,
+    "modo": "recuperacion_facetada",
+    "estrategia": "recuperacion_numerica_verificada",
+    "motor": "Recuperación B-Rep facetada verificada; las curvas conservan las facetas del STL",
+    "calidad": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 2676,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-07,
+        "tolerancia_p95_mm": 1e-07,
+        "tolerancia_media_mm": 1e-07,
+        "aristas_tol_mayor_001mm": 0,
+        "brep_exacto": true
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 1484,
+      "bytes_step": 3928065,
+      "volumen_error_pct": 0.0,
+      "caja_error_mm": 0.0,
+      "caja_error_analitico_mm": 0.0,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max_muestreado": 0.0,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max_muestreado": 0.0,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "tipos_caras": {
+        "GeomAbs_Plane": 1484
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0.0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "interferencias_comprobadas_en_frio": true,
+      "control_cad_reutilizado_por_sha256": false,
+      "sin_objetos_sueltos_en_step": true,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 5.425689454512854e-13,
+          "max_mm": 7.226257111031901e-13,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 17744,
+          "p95_mm": 4.212186155427844e-13,
+          "max_mm": 6.730514192225647e-13,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 0.0,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      },
+      "recuperacion_numerica": {
+        "original_sha256": "efdbb2489474e3d1cd0c486980c0aede256cd4577ae3957a4460849738538743",
+        "preparado_sha256": "efdbb2489474e3d1cd0c486980c0aede256cd4577ae3957a4460849738538743",
+        "geometria_local": {
+          "cota_global_superficie_mm": 1.8470142949811308e-13,
+          "margen_redondeo_mm": 1.8470142949811308e-13,
+          "volumen_error_pct": 0.0,
+          "caja_error_mm": 0.0,
+          "caras_con_correspondencia": 2740,
+          "fundamento": "Misma triangulación: cada punto baricéntrico se desplaza como máximo el mayor desplazamiento de sus vértices.",
+          "limites": {
+            "superficie_mm": 0.002,
+            "volumen_pct": 0.001,
+            "caja_mm": 0.002
+          }
+        },
+        "topologia": {
+          "euler_malla": -2,
+          "euler_brep": -2,
+          "shells": 1,
+          "cavidades_preservadas": 0,
+          "probes_cavidades": []
+        },
+        "material_original": {
+          "puntos": 2995,
+          "discrepancias": 0,
+          "banda_excluida_mm": 0.002,
+          "referencia": "Número de giro orientado positivo del STL original.",
+          "nota": "Muestreo reproducible; no demostración global del campo de material."
+        },
+        "reparacion_previa": null,
+        "preparacion_verificada": null
+      }
+    },
+    "diagnostico": {
+      "consolidaciones_rechazadas": [],
+      "nodos_protegidos": 0
+    },
+    "reconstruccion_parametrica": false
+  },
+  "original_sha256": "efdbb2489474e3d1cd0c486980c0aede256cd4577ae3957a4460849738538743",
+  "preparado_sha256": "efdbb2489474e3d1cd0c486980c0aede256cd4577ae3957a4460849738538743",
+  "step_sha256": "0e042f2f0ec1ee0831f3aec732450a1fc04a20627165cb111903bce947683e53",
+  "segundos": 41.236
+}

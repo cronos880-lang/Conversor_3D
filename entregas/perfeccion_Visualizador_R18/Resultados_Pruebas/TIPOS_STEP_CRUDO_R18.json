@@ -1,0 +1,47 @@
+[
+  {
+    "pieza": "flame",
+    "sha256": "c7092e2f1769322ff514c0478100d8d86426a31a98b9711fcd762d0bbfc28720",
+    "entidades": {
+      "ADVANCED_FACE": 422,
+      "PLANE": 421,
+      "CYLINDRICAL_SURFACE": 1,
+      "CONICAL_SURFACE": 0,
+      "B_SPLINE_SURFACE_WITH_KNOTS": 0,
+      "MANIFOLD_SOLID_BREP": 1,
+      "SHELL_BASED_SURFACE_MODEL": 0,
+      "GEOMETRIC_CURVE_SET": 0
+    },
+    "nota": "Recuento independiente del texto STEP; complementa, no sustituye, los controles de geometría y topología."
+  },
+  {
+    "pieza": "base",
+    "sha256": "15b86dea3b8e06ae0d939d98aa466b8ad8158f12cc782c0fbaf79334e7579880",
+    "entidades": {
+      "ADVANCED_FACE": 463,
+      "PLANE": 445,
+      "CYLINDRICAL_SURFACE": 8,
+      "CONICAL_SURFACE": 10,
+      "B_SPLINE_SURFACE_WITH_KNOTS": 0,
+      "MANIFOLD_SOLID_BREP": 1,
+      "SHELL_BASED_SURFACE_MODEL": 0,
+      "GEOMETRIC_CURVE_SET": 0
+    },
+    "nota": "Recuento independiente del texto STEP; complementa, no sustituye, los controles de geometría y topología."
+  },
+  {
+    "pieza": "body",
+    "sha256": "ae63c1e588799f1626c872c127654528323d5c3c2b1f363ff6ec80109dbfc68f",
+    "entidades": {
+      "ADVANCED_FACE": 426,
+      "PLANE": 418,
+      "CYLINDRICAL_SURFACE": 5,
+      "CONICAL_SURFACE": 3,
+      "B_SPLINE_SURFACE_WITH_KNOTS": 0,
+      "MANIFOLD_SOLID_BREP": 1,
+      "SHELL_BASED_SURFACE_MODEL": 0,
+      "GEOMETRIC_CURVE_SET": 0
+    },
+    "nota": "Recuento independiente del texto STEP; complementa, no sustituye, los controles de geometría y topología."
+  }
+]

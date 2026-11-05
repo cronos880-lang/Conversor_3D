@@ -1,0 +1,15 @@
+{
+  "ok": false,
+  "fases": [
+    {
+      "fase": "estructura_fuente",
+      "segundos": 3.820433694003441
+    },
+    {
+      "fase": "propuesta_CAD_con_detalles_del_original",
+      "segundos": 3.8552747889989405
+    }
+  ],
+  "error": "Evidencia angular insuficiente para un círculo completo",
+  "seconds": 3.8698248630025773
+}

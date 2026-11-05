@@ -1,0 +1,54 @@
+{
+  "ESTADO_VALIDACION.md": {
+    "R17": "f52640a0346c8e637021383689f69d99796bb86c6b69a2dbce14b4665861db28",
+    "R18": "796a190ea38f6f74f818439a42d6f8e4497374c548894eeda8161bcc248ee452"
+  },
+  "GUIA_REPRODUCIR.md": {
+    "R17": "27b7c6f6237e2e27a23313fd002a1d1ff9bc4dd58f594ea9562eb6339548d6b5",
+    "R18": "b4d9432ab494835a7f9d377208d3d961b1ba1f6c96fb9eeb24567f5f30003a0a"
+  },
+  "VERSION.txt": {
+    "R17": "210e767743f9d1f3bb45eeb5f5cb06cd81d941500bc9f60c01353747c85e35ba",
+    "R18": "7aab9c0b468c23c0bc86533790eee93ed1a5d702b7c90d15a11debf7870b34f0"
+  },
+  "Visor_STL_STEP.html": {
+    "R17": "8bee8a46bd39bd9e303a43916b41ac2fe2ec3ed642da0a6f2175c33a193bb671",
+    "R18": "3fa9564d9a37fa0b3c7f3c7fa581f756e62cee4fa4523caab780df14930d142d"
+  },
+  "familia_axial_r18.py": {
+    "R17": null,
+    "R18": "a0b0001be81e6de0bf4dcf2cb25540cdba5b9bbb56cb21180e5e340717755457"
+  },
+  "motor_calidad/reconstruccion_axial_compuesta_r18.py": {
+    "R17": null,
+    "R18": "2ed9d5cf360cecb7d8a3ab92d923c899969c81dcad3f5d4715e95b6d7119be5e"
+  },
+  "motor_calidad/reconstruccion_fuente_worker_r18.py": {
+    "R17": null,
+    "R18": "da3ef4e6298c7746a5c660985af4a28a307374cd9dddea31cc105617e54477b4"
+  },
+  "motor_v2.py": {
+    "R17": "3fb2eb18201c69ecddf706b90c8c6ee85d75b5f4cbca85f1400a18e59c49e982",
+    "R18": "4629a0441327ac43b4471702331ac26b8e81c38c400a229dcfda542cd66ea0c9"
+  },
+  "reconstruccion_fuente_r18.py": {
+    "R17": null,
+    "R18": "6256d6c93a71f6104ec27c631623d312809a60cc126dd186d0afb9a4eed21c68"
+  },
+  "servidor.py": {
+    "R17": "ea62d461f94a529f57e9ce23195b73366bd536b30d645f031ea61fb624cf9258",
+    "R18": "82d60af96977a0b0fec1a2f1bbec91b7215a517d6758f7d967f4815484cf0b31"
+  },
+  "test_arranque_r8.py": {
+    "R17": "939fcd3d3f9ed5b83583e53098f327319d1774f1bc00f9b8efa38eb8b5bd75da",
+    "R18": "c9b2d67dc1bbd6dccde37e696170e499f243d14edf9f9118cde7cfe6481f2df9"
+  },
+  "test_reconstruccion_fuente_r18.py": {
+    "R17": null,
+    "R18": "2de66f5d48eb9f2d5d808d03cd0ed2681a27dce96a8438a5b2cddcfcddb5d7aa"
+  },
+  "version_programa.py": {
+    "R17": "43f1c6172c9ca87f570adb2bd3be83e5ead885f90046b29f8a65a6c8a5721c72",
+    "R18": "d59e8073ab8224ad80575f045e807d4f89ede9fbe10ad6f8b4ec481cade933d1"
+  }
+}

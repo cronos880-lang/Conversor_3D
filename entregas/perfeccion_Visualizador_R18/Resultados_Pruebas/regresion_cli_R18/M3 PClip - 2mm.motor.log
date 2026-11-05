@@ -1,0 +1,1504 @@
+[Estrategia] Motor estable V2.7, sin prioridad ni rescate de Easymeshfit original.
+[Detección] 13 regiones analíticas y 3 regiones libres; segmentación=8.0°
+  [brep] malla con ruido: diedro mediano 2.6° -> umbrales angulares adaptados
+  [brep] regiones: 0.3s
+  [brep] ronda 0: 62 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 5s, ShapeFix 0s, total 21s]
+  [brep] sólido=True válido=True vol=237.53
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación] Primer intento rechazado: Reconstrucción deformada: Error de volumen: 28.495577 % > 0.500000 %.
+[Recuperación de curvas] Probando segmentación 1.3° con reconocimiento de cilindros verificado.
+[Reconocimiento axial verificado] []
+[Detección] 26 regiones analíticas y 3 regiones libres; segmentación=1.3°
+  [brep] malla con ruido: diedro mediano 2.6° -> umbrales angulares adaptados
+  [brep] regiones: 4.9s
+  [brep] ronda 0: 62 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 38s, ShapeFix 1s, total 42s]
+  [brep] sólido=True válido=True vol=237.53
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación de curvas] Candidato rechazado: Reconstrucción deformada: Error de volumen: 28.495577 % > 0.500000 %.
+[Recuperación CAD] Probando segmentación 4°; verificación analítica de cilindros
+[Detección] 81 regiones analíticas y 1 regiones libres; segmentación=4.0°
+  [brep] regiones: 10.1s
+  [brep] ronda 0: 60 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 1s]
+  [brep] sólido=True válido=True vol=248.81
+[Franjas] {'aplicado': False, 'motivo': 'Error no bloqueante: Omitida en mallas densas para preservar el B-Rep construido'}
+[Recuperación CAD] El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+  [brep] malla con ruido: diedro mediano 2.6° -> umbrales angulares adaptados
+[contornos] cilindros fuente con prioridad: 3
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=29). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=6). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+  [brep] regiones: 0.3s
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[contornos] triángulos separados de planos aproximados: 415
+[contornos] facetas tangentes reconstruidas aparte: 1
+[contornos] superficies confirmadas: 31 de 451
+[contornos] parches libres subdivididos: 5 superficies totales: 1347
+[contornos] curvas comunes: 2213 en 5.66 s
+  [brep] construcción fallida: La curva2D no representa la curva3D sobre la superficie: 5.2954276625e-08 mm. {'region': 0, 'tipo': 'Geom_ConicalSurface', 'curva': 'Geom_BSplineCurve', 'primaria': True, 'intervalo': [1.5358583696258523, 3.5361094129856725]}
+  [brep] sin sólido válido ({'error': "La curva2D no representa la curva3D sobre la superficie: 5.2954276625e-08 mm. {'region': 0, 'tipo': 'Geom_ConicalSurface', 'curva': 'Geom_BSplineCurve', 'primaria': True, 'intervalo': [1.5358583696258523, 3.5361094129856725]}"}); camino clásico
+[contornos] Se conserva la prioridad anterior; tras su rechazo se ensayan costuras cilíndricas completas: El motor B-Rep no ha reconstruido un sólido CAD válido.
+  [brep] malla con ruido: diedro mediano 2.6° -> umbrales angulares adaptados
+[contornos] cilindros fuente con prioridad: 3
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=29). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=6). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+  [brep] regiones: 0.2s
+[contornos] triángulos separados de planos aproximados: 415
+[contornos] facetas tangentes reconstruidas aparte: 1
+[contornos] superficies confirmadas: 33 de 453
+[contornos] parches libres subdivididos: 5 superficies totales: 1349
+[contornos] curvas comunes: 2221 en 5.49 s
+[contornos] ajustando región 6 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 7 Geom_Plane 3 aristas
+[contornos] ajustando región 746 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 8 Geom_Plane 3 aristas
+[contornos] ajustando región 747 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 9 Geom_Plane 3 aristas
+[contornos] ajustando región 748 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 10 Geom_Plane 3 aristas
+[contornos] ajustando región 749 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 11 Geom_Plane 3 aristas
+[contornos] ajustando región 750 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 12 Geom_Plane 3 aristas
+[contornos] ajustando región 751 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 13 Geom_Plane 3 aristas
+[contornos] ajustando región 752 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 14 Geom_Plane 3 aristas
+[contornos] ajustando región 753 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 15 Geom_Plane 3 aristas
+[contornos] ajustando región 754 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 16 Geom_Plane 3 aristas
+[contornos] ajustando región 755 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 17 Geom_Plane 3 aristas
+[contornos] ajustando región 756 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 18 Geom_Plane 3 aristas
+[contornos] ajustando región 757 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 19 Geom_Plane 3 aristas
+[contornos] ajustando región 758 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 20 Geom_Plane 3 aristas
+[contornos] ajustando región 759 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 21 Geom_Plane 3 aristas
+[contornos] ajustando región 760 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 22 Geom_Plane 3 aristas
+[contornos] ajustando región 761 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 23 Geom_Plane 3 aristas
+[contornos] ajustando región 762 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 24 Geom_Plane 3 aristas
+[contornos] ajustando región 763 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 25 Geom_Plane 3 aristas
+[contornos] ajustando región 764 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 26 Geom_Plane 3 aristas
+[contornos] ajustando región 765 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 27 Geom_Plane 3 aristas
+[contornos] ajustando región 766 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 28 Geom_Plane 3 aristas
+[contornos] ajustando región 767 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 29 Geom_Plane 3 aristas
+[contornos] ajustando región 768 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 30 Geom_Plane 3 aristas
+[contornos] ajustando región 769 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 31 Geom_Plane 3 aristas
+[contornos] ajustando región 770 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 32 Geom_Plane 3 aristas
+[contornos] ajustando región 771 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 33 Geom_Plane 3 aristas
+[contornos] ajustando región 772 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 34 Geom_Plane 3 aristas
+[contornos] ajustando región 773 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 35 Geom_Plane 3 aristas
+[contornos] ajustando región 774 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 36 Geom_Plane 3 aristas
+[contornos] ajustando región 775 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 37 Geom_Plane 3 aristas
+[contornos] ajustando región 776 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 38 Geom_Plane 3 aristas
+[contornos] ajustando región 777 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 39 Geom_Plane 3 aristas
+[contornos] ajustando región 778 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 40 Geom_Plane 3 aristas
+[contornos] ajustando región 779 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 41 Geom_Plane 3 aristas
+[contornos] ajustando región 780 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 42 Geom_Plane 3 aristas
+[contornos] ajustando región 781 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 43 Geom_Plane 3 aristas
+[contornos] ajustando región 782 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 44 Geom_Plane 3 aristas
+[contornos] ajustando región 783 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 45 Geom_Plane 3 aristas
+[contornos] ajustando región 784 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 46 Geom_Plane 3 aristas
+[contornos] ajustando región 785 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 47 Geom_Plane 3 aristas
+[contornos] ajustando región 786 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 48 Geom_Plane 3 aristas
+[contornos] ajustando región 787 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 49 Geom_Plane 3 aristas
+[contornos] ajustando región 788 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 50 Geom_Plane 3 aristas
+[contornos] ajustando región 789 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 51 Geom_Plane 3 aristas
+[contornos] ajustando región 790 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 52 Geom_Plane 3 aristas
+[contornos] ajustando región 791 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 53 Geom_Plane 3 aristas
+[contornos] ajustando región 54 Geom_Plane 3 aristas
+[contornos] ajustando región 55 Geom_Plane 3 aristas
+[contornos] ajustando región 56 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 57 Geom_Plane 3 aristas
+[contornos] ajustando región 1123 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 58 Geom_Plane 3 aristas
+[contornos] ajustando región 1124 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 59 Geom_Plane 3 aristas
+[contornos] ajustando región 1125 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 60 Geom_Plane 3 aristas
+[contornos] ajustando región 1126 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 61 Geom_Plane 3 aristas
+[contornos] ajustando región 1127 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 62 Geom_Plane 3 aristas
+[contornos] ajustando región 1128 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 63 Geom_Plane 3 aristas
+[contornos] ajustando región 1129 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 64 Geom_Plane 3 aristas
+[contornos] ajustando región 1130 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 65 Geom_Plane 3 aristas
+[contornos] ajustando región 1131 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 66 Geom_Plane 3 aristas
+[contornos] ajustando región 67 Geom_Plane 3 aristas
+[contornos] ajustando región 1132 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 68 Geom_Plane 3 aristas
+[contornos] ajustando región 1133 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 69 Geom_Plane 3 aristas
+[contornos] ajustando región 1134 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 70 Geom_Plane 3 aristas
+[contornos] ajustando región 1135 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 71 Geom_Plane 3 aristas
+[contornos] ajustando región 1136 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 72 Geom_Plane 3 aristas
+[contornos] ajustando región 1137 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 73 Geom_Plane 3 aristas
+[contornos] ajustando región 1138 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 74 Geom_Plane 3 aristas
+[contornos] ajustando región 1139 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 75 Geom_Plane 3 aristas
+[contornos] ajustando región 1140 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 76 Geom_Plane 3 aristas
+[contornos] ajustando región 77 Geom_Plane 3 aristas
+[contornos] ajustando región 1141 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 78 Geom_Plane 3 aristas
+[contornos] ajustando región 1142 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 79 Geom_Plane 3 aristas
+[contornos] ajustando región 1143 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 80 Geom_Plane 3 aristas
+[contornos] ajustando región 1144 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 81 Geom_Plane 3 aristas
+[contornos] ajustando región 1145 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 82 Geom_Plane 3 aristas
+[contornos] ajustando región 1146 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 83 Geom_Plane 3 aristas
+[contornos] ajustando región 1147 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 84 Geom_Plane 3 aristas
+[contornos] ajustando región 1148 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 85 Geom_Plane 3 aristas
+[contornos] ajustando región 1149 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 86 Geom_Plane 3 aristas
+[contornos] ajustando región 1150 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 87 Geom_Plane 3 aristas
+[contornos] ajustando región 88 Geom_Plane 3 aristas
+[contornos] ajustando región 89 Geom_Plane 3 aristas
+[contornos] ajustando región 90 Geom_Plane 3 aristas
+[contornos] ajustando región 91 Geom_Plane 3 aristas
+[contornos] ajustando región 92 Geom_Plane 3 aristas
+[contornos] ajustando región 93 Geom_Plane 3 aristas
+[contornos] ajustando región 94 Geom_Plane 3 aristas
+[contornos] ajustando región 95 Geom_Plane 3 aristas
+[contornos] ajustando región 96 Geom_Plane 3 aristas
+[contornos] ajustando región 97 Geom_Plane 3 aristas
+[contornos] ajustando región 98 Geom_Plane 3 aristas
+[contornos] ajustando región 99 Geom_Plane 3 aristas
+[contornos] ajustando región 100 Geom_Plane 3 aristas
+[contornos] ajustando región 101 Geom_Plane 3 aristas
+[contornos] ajustando región 102 Geom_Plane 3 aristas
+[contornos] ajustando región 103 Geom_Plane 3 aristas
+[contornos] ajustando región 104 Geom_Plane 3 aristas
+[contornos] ajustando región 105 Geom_Plane 3 aristas
+[contornos] ajustando región 106 Geom_Plane 3 aristas
+[contornos] ajustando región 107 Geom_Plane 3 aristas
+[contornos] ajustando región 108 Geom_Plane 3 aristas
+[contornos] ajustando región 109 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 110 Geom_Plane 3 aristas
+[contornos] ajustando región 933 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 111 Geom_Plane 3 aristas
+[contornos] ajustando región 934 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 112 Geom_Plane 3 aristas
+[contornos] ajustando región 935 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 113 Geom_Plane 3 aristas
+[contornos] ajustando región 936 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 114 Geom_Plane 3 aristas
+[contornos] ajustando región 937 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 115 Geom_Plane 3 aristas
+[contornos] ajustando región 938 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 116 Geom_Plane 3 aristas
+[contornos] ajustando región 939 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 117 Geom_Plane 3 aristas
+[contornos] ajustando región 940 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 118 Geom_Plane 3 aristas
+[contornos] ajustando región 941 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 119 Geom_Plane 3 aristas
+[contornos] ajustando región 942 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 120 Geom_Plane 3 aristas
+[contornos] ajustando región 943 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 121 Geom_Plane 3 aristas
+[contornos] ajustando región 944 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 122 Geom_Plane 3 aristas
+[contornos] ajustando región 945 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 123 Geom_Plane 3 aristas
+[contornos] ajustando región 946 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 124 Geom_Plane 3 aristas
+[contornos] ajustando región 947 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 125 Geom_Plane 3 aristas
+[contornos] ajustando región 948 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 126 Geom_Plane 3 aristas
+[contornos] ajustando región 949 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 127 Geom_Plane 3 aristas
+[contornos] ajustando región 950 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 128 Geom_Plane 3 aristas
+[contornos] ajustando región 951 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 129 Geom_Plane 3 aristas
+[contornos] ajustando región 952 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 130 Geom_Plane 3 aristas
+[contornos] ajustando región 953 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 131 Geom_Plane 3 aristas
+[contornos] ajustando región 954 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 132 Geom_Plane 3 aristas
+[contornos] ajustando región 955 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 133 Geom_Plane 3 aristas
+[contornos] ajustando región 956 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 134 Geom_Plane 3 aristas
+[contornos] ajustando región 957 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 135 Geom_Plane 3 aristas
+[contornos] ajustando región 958 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 136 Geom_Plane 3 aristas
+[contornos] ajustando región 959 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 137 Geom_Plane 3 aristas
+[contornos] ajustando región 960 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 138 Geom_Plane 3 aristas
+[contornos] ajustando región 961 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 139 Geom_Plane 3 aristas
+[contornos] ajustando región 962 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 140 Geom_Plane 3 aristas
+[contornos] ajustando región 963 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 141 Geom_Plane 3 aristas
+[contornos] ajustando región 964 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 142 Geom_Plane 3 aristas
+[contornos] ajustando región 965 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 143 Geom_Plane 3 aristas
+[contornos] ajustando región 966 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 144 Geom_Plane 3 aristas
+[contornos] ajustando región 967 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 145 Geom_Plane 3 aristas
+[contornos] ajustando región 968 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 146 Geom_Plane 3 aristas
+[contornos] ajustando región 969 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 147 Geom_Plane 3 aristas
+[contornos] ajustando región 970 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 148 Geom_Plane 3 aristas
+[contornos] ajustando región 971 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 149 Geom_Plane 3 aristas
+[contornos] ajustando región 972 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 150 Geom_Plane 3 aristas
+[contornos] ajustando región 973 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 151 Geom_Plane 3 aristas
+[contornos] ajustando región 974 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 152 Geom_Plane 3 aristas
+[contornos] ajustando región 975 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 153 Geom_Plane 3 aristas
+[contornos] ajustando región 976 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 154 Geom_Plane 3 aristas
+[contornos] ajustando región 977 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 155 Geom_Plane 3 aristas
+[contornos] ajustando región 978 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 156 Geom_Plane 3 aristas
+[contornos] ajustando región 157 Geom_Plane 3 aristas
+[contornos] ajustando región 158 Geom_Plane 3 aristas
+[contornos] ajustando región 159 Geom_Plane 3 aristas
+[contornos] ajustando región 160 Geom_Plane 3 aristas
+[contornos] ajustando región 161 Geom_Plane 3 aristas
+[contornos] ajustando región 162 Geom_Plane 3 aristas
+[contornos] ajustando región 163 Geom_Plane 3 aristas
+[contornos] ajustando región 164 Geom_Plane 3 aristas
+[contornos] ajustando región 165 Geom_Plane 3 aristas
+[contornos] ajustando región 166 Geom_Plane 3 aristas
+[contornos] ajustando región 167 Geom_Plane 3 aristas
+[contornos] ajustando región 168 Geom_Plane 3 aristas
+[contornos] ajustando región 169 Geom_Plane 3 aristas
+[contornos] ajustando región 170 Geom_Plane 3 aristas
+[contornos] ajustando región 171 Geom_Plane 3 aristas
+[contornos] ajustando región 172 Geom_Plane 3 aristas
+[contornos] ajustando región 173 Geom_Plane 3 aristas
+[contornos] ajustando región 174 Geom_Plane 3 aristas
+[contornos] ajustando región 175 Geom_Plane 3 aristas
+[contornos] ajustando región 176 Geom_Plane 3 aristas
+[contornos] ajustando región 177 Geom_Plane 3 aristas
+[contornos] ajustando región 1151 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 178 Geom_Plane 3 aristas
+[contornos] ajustando región 1152 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 179 Geom_Plane 3 aristas
+[contornos] ajustando región 1153 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 180 Geom_Plane 3 aristas
+[contornos] ajustando región 1154 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 181 Geom_Plane 3 aristas
+[contornos] ajustando región 1155 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 182 Geom_Plane 3 aristas
+[contornos] ajustando región 1156 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 183 Geom_Plane 3 aristas
+[contornos] ajustando región 1157 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 184 Geom_Plane 3 aristas
+[contornos] ajustando región 1158 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 185 Geom_Plane 3 aristas
+[contornos] ajustando región 1159 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 186 Geom_Plane 3 aristas
+[contornos] ajustando región 1160 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 187 Geom_Plane 3 aristas
+[contornos] ajustando región 188 Geom_Plane 3 aristas
+[contornos] ajustando región 1161 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 189 Geom_Plane 3 aristas
+[contornos] ajustando región 1162 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 190 Geom_Plane 3 aristas
+[contornos] ajustando región 1163 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 191 Geom_Plane 3 aristas
+[contornos] ajustando región 1164 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 192 Geom_Plane 3 aristas
+[contornos] ajustando región 1165 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 193 Geom_Plane 3 aristas
+[contornos] ajustando región 1166 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 194 Geom_Plane 3 aristas
+[contornos] ajustando región 1167 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 195 Geom_Plane 3 aristas
+[contornos] ajustando región 1168 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 196 Geom_Plane 3 aristas
+[contornos] ajustando región 1169 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 197 Geom_Plane 3 aristas
+[contornos] ajustando región 198 Geom_Plane 3 aristas
+[contornos] ajustando región 1170 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 199 Geom_Plane 3 aristas
+[contornos] ajustando región 1171 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 200 Geom_Plane 3 aristas
+[contornos] ajustando región 1172 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 201 Geom_Plane 3 aristas
+[contornos] ajustando región 1173 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 202 Geom_Plane 3 aristas
+[contornos] ajustando región 1174 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 203 Geom_Plane 3 aristas
+[contornos] ajustando región 1175 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 204 Geom_Plane 3 aristas
+[contornos] ajustando región 1176 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 205 Geom_Plane 3 aristas
+[contornos] ajustando región 1177 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 206 Geom_Plane 3 aristas
+[contornos] ajustando región 1178 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 207 Geom_Plane 3 aristas
+[contornos] ajustando región 1179 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 208 Geom_Plane 3 aristas
+[contornos] ajustando región 209 Geom_Plane 3 aristas
+[contornos] ajustando región 210 Geom_Plane 3 aristas
+[contornos] ajustando región 211 Geom_Plane 3 aristas
+[contornos] ajustando región 1120 Geom_Plane 3 aristas
+[contornos] ajustando región 1121 Geom_Plane 3 aristas
+[contornos] ajustando región 1122 Geom_Plane 3 aristas
+[contornos] ajustando región 1180 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1181 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 221 Geom_Plane 3 aristas
+[contornos] ajustando región 1182 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1183 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1184 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1185 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1186 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1187 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1188 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1189 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1190 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1191 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1192 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1193 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1194 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1195 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1196 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1197 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1198 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1199 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1200 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1201 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1202 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1203 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1204 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1205 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1206 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1207 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1208 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1209 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1210 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1211 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1212 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1213 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1214 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1215 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1216 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1217 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1218 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1219 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1220 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1221 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1222 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1223 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1224 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1225 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1226 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1227 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1228 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1229 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1230 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1231 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1232 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1233 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1234 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1235 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1236 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1237 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1238 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1239 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1240 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1241 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1242 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1243 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1244 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1245 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1246 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1247 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1248 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1249 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1250 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1251 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1252 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1253 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1254 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1255 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1256 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1257 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1258 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1259 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1260 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1261 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1262 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1263 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1264 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1265 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1266 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1267 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1268 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1269 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1270 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1271 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1272 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1273 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1274 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1275 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1276 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1277 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1278 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1279 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1280 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1281 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1282 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1283 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1284 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1285 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1286 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1287 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1288 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1289 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1290 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1291 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1292 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1293 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1294 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1295 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1296 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1297 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1298 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1299 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1300 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1301 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1302 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1303 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1304 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1305 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1306 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1307 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1308 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1309 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1310 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1311 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1312 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1313 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1314 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1315 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1316 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1317 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1318 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1319 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1320 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1321 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1322 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1323 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1324 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1325 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1326 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1327 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1328 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1329 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1330 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1331 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1332 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1333 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1334 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1335 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1336 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1337 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1338 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1339 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1340 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1341 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1342 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1343 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1344 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1345 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1346 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1347 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1348 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 792 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 793 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 794 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 795 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 796 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 797 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 798 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 799 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 800 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 801 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 802 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 803 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 804 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 805 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 806 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 807 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 808 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 809 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 810 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 811 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 812 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 813 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 814 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 815 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 816 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 817 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 818 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 819 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 820 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 821 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 822 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 823 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 824 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 825 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 826 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 827 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 828 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 829 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 830 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 831 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 832 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 833 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 834 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 835 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 836 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 837 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 838 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 839 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 840 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 841 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 842 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 843 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 844 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 845 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 846 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 847 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 848 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 849 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 850 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 851 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 852 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 853 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 854 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 855 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 856 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 857 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 858 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 859 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 860 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 861 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 862 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 863 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 864 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 865 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 866 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 867 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 868 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 869 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 870 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 871 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 872 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 873 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 874 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 875 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 876 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 877 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 878 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 879 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 880 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 881 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 882 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 883 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 884 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 885 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 227 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 228 Geom_Plane 3 aristas
+[contornos] ajustando región 453 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 229 Geom_Plane 3 aristas
+[contornos] ajustando región 454 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 230 Geom_Plane 3 aristas
+[contornos] ajustando región 455 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 231 Geom_Plane 3 aristas
+[contornos] ajustando región 456 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 232 Geom_Plane 3 aristas
+[contornos] ajustando región 457 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 233 Geom_Plane 3 aristas
+[contornos] ajustando región 458 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 234 Geom_Plane 3 aristas
+[contornos] ajustando región 459 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 235 Geom_Plane 3 aristas
+[contornos] ajustando región 460 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 236 Geom_Plane 3 aristas
+[contornos] ajustando región 461 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 237 Geom_Plane 3 aristas
+[contornos] ajustando región 462 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 238 Geom_Plane 3 aristas
+[contornos] ajustando región 463 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 239 Geom_Plane 3 aristas
+[contornos] ajustando región 464 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 240 Geom_Plane 3 aristas
+[contornos] ajustando región 465 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 241 Geom_Plane 3 aristas
+[contornos] ajustando región 466 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 242 Geom_Plane 3 aristas
+[contornos] ajustando región 467 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 243 Geom_Plane 3 aristas
+[contornos] ajustando región 468 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 244 Geom_Plane 3 aristas
+[contornos] ajustando región 469 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 245 Geom_Plane 3 aristas
+[contornos] ajustando región 470 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 246 Geom_Plane 3 aristas
+[contornos] ajustando región 471 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 472 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 247 Geom_Plane 3 aristas
+[contornos] ajustando región 473 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 248 Geom_Plane 3 aristas
+[contornos] ajustando región 474 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 249 Geom_Plane 3 aristas
+[contornos] ajustando región 475 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 250 Geom_Plane 3 aristas
+[contornos] ajustando región 476 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 251 Geom_Plane 3 aristas
+[contornos] ajustando región 477 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 252 Geom_Plane 3 aristas
+[contornos] ajustando región 478 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 253 Geom_Plane 3 aristas
+[contornos] ajustando región 479 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 254 Geom_Plane 3 aristas
+[contornos] ajustando región 480 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 255 Geom_Plane 3 aristas
+[contornos] ajustando región 481 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 256 Geom_Plane 3 aristas
+[contornos] ajustando región 482 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 257 Geom_Plane 3 aristas
+[contornos] ajustando región 483 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 258 Geom_Plane 3 aristas
+[contornos] ajustando región 484 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 259 Geom_Plane 3 aristas
+[contornos] ajustando región 485 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 260 Geom_Plane 3 aristas
+[contornos] ajustando región 486 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 261 Geom_Plane 3 aristas
+[contornos] ajustando región 487 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 262 Geom_Plane 3 aristas
+[contornos] ajustando región 488 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 263 Geom_Plane 3 aristas
+[contornos] ajustando región 264 Geom_Plane 3 aristas
+[contornos] ajustando región 265 Geom_Plane 3 aristas
+[contornos] ajustando región 266 Geom_Plane 3 aristas
+[contornos] ajustando región 267 Geom_Plane 3 aristas
+[contornos] ajustando región 268 Geom_Plane 3 aristas
+[contornos] ajustando región 269 Geom_Plane 3 aristas
+[contornos] ajustando región 270 Geom_Plane 3 aristas
+[contornos] ajustando región 271 Geom_Plane 3 aristas
+[contornos] ajustando región 272 Geom_Plane 3 aristas
+[contornos] ajustando región 886 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 273 Geom_Plane 3 aristas
+[contornos] ajustando región 887 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 274 Geom_Plane 3 aristas
+[contornos] ajustando región 888 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 275 Geom_Plane 3 aristas
+[contornos] ajustando región 889 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 276 Geom_Plane 3 aristas
+[contornos] ajustando región 890 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 277 Geom_Plane 3 aristas
+[contornos] ajustando región 891 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 278 Geom_Plane 3 aristas
+[contornos] ajustando región 892 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 279 Geom_Plane 3 aristas
+[contornos] ajustando región 893 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 280 Geom_Plane 3 aristas
+[contornos] ajustando región 894 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 281 Geom_Plane 3 aristas
+[contornos] ajustando región 895 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 282 Geom_Plane 3 aristas
+[contornos] ajustando región 896 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 283 Geom_Plane 3 aristas
+[contornos] ajustando región 897 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 284 Geom_Plane 3 aristas
+[contornos] ajustando región 898 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 285 Geom_Plane 3 aristas
+[contornos] ajustando región 899 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 286 Geom_Plane 3 aristas
+[contornos] ajustando región 900 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 287 Geom_Plane 3 aristas
+[contornos] ajustando región 901 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 288 Geom_Plane 3 aristas
+[contornos] ajustando región 902 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 289 Geom_Plane 3 aristas
+[contornos] ajustando región 903 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 290 Geom_Plane 3 aristas
+[contornos] ajustando región 904 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 291 Geom_Plane 3 aristas
+[contornos] ajustando región 905 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 292 Geom_Plane 3 aristas
+[contornos] ajustando región 906 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 293 Geom_Plane 3 aristas
+[contornos] ajustando región 907 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 294 Geom_Plane 3 aristas
+[contornos] ajustando región 908 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 295 Geom_Plane 3 aristas
+[contornos] ajustando región 909 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 296 Geom_Plane 3 aristas
+[contornos] ajustando región 910 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 297 Geom_Plane 3 aristas
+[contornos] ajustando región 911 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 298 Geom_Plane 3 aristas
+[contornos] ajustando región 912 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 299 Geom_Plane 3 aristas
+[contornos] ajustando región 913 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 300 Geom_Plane 3 aristas
+[contornos] ajustando región 914 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 301 Geom_Plane 3 aristas
+[contornos] ajustando región 915 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 302 Geom_Plane 3 aristas
+[contornos] ajustando región 916 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 303 Geom_Plane 3 aristas
+[contornos] ajustando región 917 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 304 Geom_Plane 3 aristas
+[contornos] ajustando región 918 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 305 Geom_Plane 3 aristas
+[contornos] ajustando región 919 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 306 Geom_Plane 3 aristas
+[contornos] ajustando región 920 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 307 Geom_Plane 3 aristas
+[contornos] ajustando región 921 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 308 Geom_Plane 3 aristas
+[contornos] ajustando región 922 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 309 Geom_Plane 3 aristas
+[contornos] ajustando región 923 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 310 Geom_Plane 3 aristas
+[contornos] ajustando región 924 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 311 Geom_Plane 3 aristas
+[contornos] ajustando región 925 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 312 Geom_Plane 3 aristas
+[contornos] ajustando región 926 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 313 Geom_Plane 3 aristas
+[contornos] ajustando región 927 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 314 Geom_Plane 3 aristas
+[contornos] ajustando región 928 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 315 Geom_Plane 3 aristas
+[contornos] ajustando región 929 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 316 Geom_Plane 3 aristas
+[contornos] ajustando región 930 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 317 Geom_Plane 3 aristas
+[contornos] ajustando región 931 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 318 Geom_Plane 3 aristas
+[contornos] ajustando región 932 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 319 Geom_Plane 3 aristas
+[contornos] ajustando región 320 Geom_Plane 3 aristas
+[contornos] ajustando región 489 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 321 Geom_Plane 3 aristas
+[contornos] ajustando región 490 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 322 Geom_Plane 3 aristas
+[contornos] ajustando región 491 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 323 Geom_Plane 3 aristas
+[contornos] ajustando región 492 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 324 Geom_Plane 3 aristas
+[contornos] ajustando región 493 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 325 Geom_Plane 3 aristas
+[contornos] ajustando región 494 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 326 Geom_Plane 3 aristas
+[contornos] ajustando región 495 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 327 Geom_Plane 3 aristas
+[contornos] ajustando región 496 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 328 Geom_Plane 3 aristas
+[contornos] ajustando región 497 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 329 Geom_Plane 3 aristas
+[contornos] ajustando región 498 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 330 Geom_Plane 3 aristas
+[contornos] ajustando región 499 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 331 Geom_Plane 3 aristas
+[contornos] ajustando región 500 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 332 Geom_Plane 3 aristas
+[contornos] ajustando región 501 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 333 Geom_Plane 3 aristas
+[contornos] ajustando región 502 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 334 Geom_Plane 3 aristas
+[contornos] ajustando región 503 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 335 Geom_Plane 3 aristas
+[contornos] ajustando región 504 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 336 Geom_Plane 3 aristas
+[contornos] ajustando región 505 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 337 Geom_Plane 3 aristas
+[contornos] ajustando región 506 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 338 Geom_Plane 3 aristas
+[contornos] ajustando región 507 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 339 Geom_Plane 3 aristas
+[contornos] ajustando región 508 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 340 Geom_Plane 3 aristas
+[contornos] ajustando región 509 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 510 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 341 Geom_Plane 3 aristas
+[contornos] ajustando región 511 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 342 Geom_Plane 3 aristas
+[contornos] ajustando región 512 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 343 Geom_Plane 3 aristas
+[contornos] ajustando región 513 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 344 Geom_Plane 3 aristas
+[contornos] ajustando región 514 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 345 Geom_Plane 3 aristas
+[contornos] ajustando región 515 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 346 Geom_Plane 3 aristas
+[contornos] ajustando región 516 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 347 Geom_Plane 3 aristas
+[contornos] ajustando región 517 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 348 Geom_Plane 3 aristas
+[contornos] ajustando región 518 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 349 Geom_Plane 3 aristas
+[contornos] ajustando región 519 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 350 Geom_Plane 3 aristas
+[contornos] ajustando región 520 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 351 Geom_Plane 3 aristas
+[contornos] ajustando región 521 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 352 Geom_Plane 3 aristas
+[contornos] ajustando región 522 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 353 Geom_Plane 3 aristas
+[contornos] ajustando región 523 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 354 Geom_Plane 3 aristas
+[contornos] ajustando región 524 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 355 Geom_Plane 3 aristas
+[contornos] ajustando región 525 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 356 Geom_Plane 3 aristas
+[contornos] ajustando región 357 Geom_Plane 3 aristas
+[contornos] ajustando región 358 Geom_Plane 3 aristas
+[contornos] ajustando región 359 Geom_Plane 3 aristas
+[contornos] ajustando región 360 Geom_Plane 3 aristas
+[contornos] ajustando región 361 Geom_Plane 3 aristas
+[contornos] ajustando región 362 Geom_Plane 3 aristas
+[contornos] ajustando región 363 Geom_Plane 3 aristas
+[contornos] ajustando región 364 Geom_Plane 3 aristas
+[contornos] ajustando región 365 Geom_Plane 3 aristas
+[contornos] ajustando región 366 Geom_Plane 3 aristas
+[contornos] ajustando región 367 Geom_Plane 3 aristas
+[contornos] ajustando región 368 Geom_Plane 3 aristas
+[contornos] ajustando región 369 Geom_Plane 3 aristas
+[contornos] ajustando región 370 Geom_Plane 3 aristas
+[contornos] ajustando región 371 Geom_Plane 3 aristas
+[contornos] ajustando región 372 Geom_Plane 3 aristas
+[contornos] ajustando región 373 Geom_Plane 3 aristas
+[contornos] ajustando región 374 Geom_Plane 3 aristas
+[contornos] ajustando región 375 Geom_Plane 3 aristas
+[contornos] ajustando región 376 Geom_Plane 3 aristas
+[contornos] ajustando región 377 Geom_Plane 3 aristas
+[contornos] ajustando región 378 Geom_Plane 3 aristas
+[contornos] ajustando región 979 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 379 Geom_Plane 3 aristas
+[contornos] ajustando región 980 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 380 Geom_Plane 3 aristas
+[contornos] ajustando región 981 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 381 Geom_Plane 3 aristas
+[contornos] ajustando región 982 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 382 Geom_Plane 3 aristas
+[contornos] ajustando región 983 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 383 Geom_Plane 3 aristas
+[contornos] ajustando región 984 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 384 Geom_Plane 3 aristas
+[contornos] ajustando región 985 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 385 Geom_Plane 3 aristas
+[contornos] ajustando región 986 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 386 Geom_Plane 3 aristas
+[contornos] ajustando región 987 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 387 Geom_Plane 3 aristas
+[contornos] ajustando región 988 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 388 Geom_Plane 3 aristas
+[contornos] ajustando región 989 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 389 Geom_Plane 3 aristas
+[contornos] ajustando región 990 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 390 Geom_Plane 3 aristas
+[contornos] ajustando región 991 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 391 Geom_Plane 3 aristas
+[contornos] ajustando región 992 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 392 Geom_Plane 3 aristas
+[contornos] ajustando región 993 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 393 Geom_Plane 3 aristas
+[contornos] ajustando región 994 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 394 Geom_Plane 3 aristas
+[contornos] ajustando región 995 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 395 Geom_Plane 3 aristas
+[contornos] ajustando región 996 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 396 Geom_Plane 3 aristas
+[contornos] ajustando región 997 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 397 Geom_Plane 3 aristas
+[contornos] ajustando región 998 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 398 Geom_Plane 3 aristas
+[contornos] ajustando región 999 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 399 Geom_Plane 3 aristas
+[contornos] ajustando región 1000 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 400 Geom_Plane 3 aristas
+[contornos] ajustando región 1001 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 401 Geom_Plane 3 aristas
+[contornos] ajustando región 1002 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 402 Geom_Plane 3 aristas
+[contornos] ajustando región 1003 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 403 Geom_Plane 3 aristas
+[contornos] ajustando región 1004 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 404 Geom_Plane 3 aristas
+[contornos] ajustando región 1005 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 405 Geom_Plane 3 aristas
+[contornos] ajustando región 1006 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 406 Geom_Plane 3 aristas
+[contornos] ajustando región 1007 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 407 Geom_Plane 3 aristas
+[contornos] ajustando región 1008 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 408 Geom_Plane 3 aristas
+[contornos] ajustando región 1009 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 409 Geom_Plane 3 aristas
+[contornos] ajustando región 1010 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 410 Geom_Plane 3 aristas
+[contornos] ajustando región 1011 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 411 Geom_Plane 3 aristas
+[contornos] ajustando región 1012 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 412 Geom_Plane 3 aristas
+[contornos] ajustando región 1013 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 413 Geom_Plane 3 aristas
+[contornos] ajustando región 1014 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 414 Geom_Plane 3 aristas
+[contornos] ajustando región 1015 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 415 Geom_Plane 3 aristas
+[contornos] ajustando región 1016 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 416 Geom_Plane 3 aristas
+[contornos] ajustando región 1017 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 417 Geom_Plane 3 aristas
+[contornos] ajustando región 1018 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 418 Geom_Plane 3 aristas
+[contornos] ajustando región 1019 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 419 Geom_Plane 3 aristas
+[contornos] ajustando región 1020 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 420 Geom_Plane 3 aristas
+[contornos] ajustando región 1021 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 421 Geom_Plane 3 aristas
+[contornos] ajustando región 1022 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 422 Geom_Plane 3 aristas
+[contornos] ajustando región 1023 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 423 Geom_Plane 3 aristas
+[contornos] ajustando región 1024 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 424 Geom_Plane 3 aristas
+[contornos] ajustando región 1025 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 425 Geom_Plane 3 aristas
+[contornos] ajustando región 426 Geom_Plane 3 aristas
+[contornos] ajustando región 427 Geom_Plane 3 aristas
+[contornos] ajustando región 428 Geom_Plane 3 aristas
+[contornos] ajustando región 429 Geom_Plane 3 aristas
+[contornos] ajustando región 430 Geom_Plane 3 aristas
+[contornos] ajustando región 431 Geom_Plane 3 aristas
+[contornos] ajustando región 432 Geom_Plane 3 aristas
+[contornos] ajustando región 433 Geom_Plane 3 aristas
+[contornos] ajustando región 434 Geom_Plane 3 aristas
+[contornos] ajustando región 435 Geom_Plane 3 aristas
+[contornos] ajustando región 436 Geom_Plane 3 aristas
+[contornos] ajustando región 437 Geom_Plane 3 aristas
+[contornos] ajustando región 438 Geom_Plane 3 aristas
+[contornos] ajustando región 439 Geom_Plane 3 aristas
+[contornos] ajustando región 1026 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1027 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1028 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1029 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1030 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1031 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1032 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1033 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1034 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1035 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1036 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1037 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1038 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1039 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1040 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1041 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1042 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1043 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1044 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1045 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1046 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1047 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1048 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1049 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1050 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1051 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1052 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1053 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1054 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1055 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1056 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1057 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1058 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1059 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1060 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1061 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1062 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1063 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1064 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1065 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1066 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1067 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1068 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1069 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1070 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1071 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1072 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1073 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1074 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1075 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1076 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1077 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1078 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1079 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1080 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1081 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1082 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1083 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1084 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1085 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1086 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1087 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1088 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1089 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1090 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1091 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1092 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1093 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1094 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1095 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1096 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1097 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1098 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1099 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1100 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1101 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1102 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1103 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1104 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1105 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1106 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1107 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1108 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1109 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1110 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1111 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1112 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1113 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1114 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1115 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1116 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1117 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1118 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 1119 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 526 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 527 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 528 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 529 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 530 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 531 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 532 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 533 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 534 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 535 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 536 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 537 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 538 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 539 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 540 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 541 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 542 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 543 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 544 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 545 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 546 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 547 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 548 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 549 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 550 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 551 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 552 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 553 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 554 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 555 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 556 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 557 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 558 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 559 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 560 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 561 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 562 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 563 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 564 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 565 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 566 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 567 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 568 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 569 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 570 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 571 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 572 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 573 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 574 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 575 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 576 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 577 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 578 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 579 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 580 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 581 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 582 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 583 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 584 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 585 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 586 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 587 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 588 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 589 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 590 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 591 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 592 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 593 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 594 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 595 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 596 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 597 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 598 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 599 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 600 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 601 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 602 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 603 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 604 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 605 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 606 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 607 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 608 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 609 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 610 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 611 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 612 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 613 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 614 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 615 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 616 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 617 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 618 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 619 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 620 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 621 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 622 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 623 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 624 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 625 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 626 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 627 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 628 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 629 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 630 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 631 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 632 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 633 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 634 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 635 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 636 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 637 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 638 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 639 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 640 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 641 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 642 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 643 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 644 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 645 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 646 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 647 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 648 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 649 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 650 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 651 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 652 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 653 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 654 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 655 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 656 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 657 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 658 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 659 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 660 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 661 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 662 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 663 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 664 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 665 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 666 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 667 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 668 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 669 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 670 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 671 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 672 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 673 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 674 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 675 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 676 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 677 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 678 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 679 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 680 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 681 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 682 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 683 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 684 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 685 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 686 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 687 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 688 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 689 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 690 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 691 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 692 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 693 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 694 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 695 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 696 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 697 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 698 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 699 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 700 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 701 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 702 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 703 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 704 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 705 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 706 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 707 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 708 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 709 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 710 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 711 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 712 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 713 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 714 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 715 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 716 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 717 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 718 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 719 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 720 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 721 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 722 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 723 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 724 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 725 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 726 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 727 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 728 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 729 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 730 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 731 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 732 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 733 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 734 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 735 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 736 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 737 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 738 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 739 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 740 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 741 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 742 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 743 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 744 Geom_CylindricalSurface 3 aristas
+[contornos] ajustando región 745 Geom_CylindricalSurface 3 aristas
+[contornos] shell construido 1349 caras en 12.646 s
+  [brep] ronda 0: 1349 caras, 1 con error, 0 bordes libres, sólido=True, válido=False  [construir 13s, ShapeFix 0s, total 17s]
+     · región 441: ConicalSurface 115 tri
+  [brep] sólido=True válido=False vol=248.73
+  [brep] sin sólido válido ({'faces': 1349, 'free_edges': 0, 'bad_faces': 1, 'round': 0, 'solid': True, 'valid': False, 'organic': False, 'volume': 248.73087365352455}); camino clásico
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 218, in trabajador
+    export_step(copy.deepcopy(result),working.copy(),str(destination),organic=True,solid=True,organic_smooth=0.,
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_step.py", line 948, in export_step
+    raise ValueError("El motor B-Rep no ha reconstruido un sólido CAD válido.")
+ValueError: El motor B-Rep no ha reconstruido un sólido CAD válido.
+
+[Rescate R9] Rechazado: El motor B-Rep no ha reconstruido un sólido CAD válido.
+[Encuentros analíticos] Rechazado: Esta reconstrucción conserva superficies analíticas; las superficies libres siguen la estrategia anterior.
+[Contornos compatibles] Descartado: El motor B-Rep no ha reconstruido un sólido CAD válido.
+[Recuperación CAD] 4° rechazada: El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 318, in intentar_refinar
+    return analitico(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_analitica.py", line 79, in intentar_refinar
+    exigir_elegible(shape)
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_analitica.py", line 22, in exigir_elegible
+    raise ValueError('Esta reconstrucción conserva superficies analíticas; las superficies libres siguen la estrategia anterior.')
+ValueError: Esta reconstrucción conserva superficies analíticas; las superficies libres siguen la estrategia anterior.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 493, in convertir
+    quality,saneamiento = intentar_refinar(path_stl,candidate,original,
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 321, in intentar_refinar
+    raise previous from current
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 313, in intentar_refinar
+    return _intentar_refinar_R9(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 280, in _intentar_refinar_R9
+    raise ValueError(reason)
+ValueError: El motor B-Rep no ha reconstruido un sólido CAD válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 814, in _main_cad
+    candidato=convertir(src,alternativa,log,flat_tol_deg=angulo,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/intentos_conversion.py", line 25, in wrapped
+    try:return function(path_stl,path_step,log,**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 508, in convertir
+    raise initial from repair_error
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 479, in convertir
+    quality = _calidad(path_stl,candidate,original,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 174, in _calidad
+    exigir_coherencia_exacta(solid)
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/saneamiento_cad.py", line 25, in exigir_coherencia_exacta
+    if not BRepCheck_Analyzer(shape.wrapped,True,False,True).IsValid():raise IncoherenciaCAD()
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^
+saneamiento_cad.IncoherenciaCAD: El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+VF_CANDIDATOS 0
+EE_CANDIDATOS 0
+ACOPLADO 0 perdida 0.0 malas 0 min inf
+[Control STEP exportado] volumen_STL=248.678390 volumen_STEP=248.678390 caras_STEP=1484
+[Calidad] p95 STL->CAD 0.00000 CAD->STL 0.00000; máximos 0.00000 y 0.00000; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[Cilindros locales] contrastando pared 1 / 2
+[Cilindros locales] contrastando pared 2 / 2
+[Cilindros locales] paredes a reconstruir: 2
+[Cilindros locales] operación 1 / 2
+[Cilindros locales] operación 2 / 2
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/recuperacion_cilindros.py", line 53, in trabajador
+    raise ValueError('La reconstrucción local no reduce suficientemente las caras')
+ValueError: La reconstrucción local no reduce suficientemente las caras
+
+[Cilindros locales] Se conserva el STEP facetado ya validado: El refinamiento local no produjo un STEP aprobado
+{"ok": true, "error": null, "segundos": 41.236}
+
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+  [brep] malla con ruido: diedro mediano 2.6° -> umbrales angulares adaptados
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=6). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=7). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+  [brep] regiones: 0.4s
+  [brep] ronda 0: 62 caras, 2 con error, 0 bordes libres, sólido=True, válido=False  [construir 6s, ShapeFix 0s, total 7s]
+     · región 3: ConicalSurface 115 tri
+     · región 61: ConicalSurface 115 tri
+  [brep] ronda 1: 64 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 7s, ShapeFix 0s, total 9s]
+  [brep] sólido=True válido=True vol=237.47
+  [brep] malla con ruido: diedro mediano 2.6° -> umbrales angulares adaptados
+  [brep] regiones: 0.3s
+  [brep] ronda 0: 62 caras, 2 con error, 0 bordes libres, sólido=True, válido=False  [construir 7s, ShapeFix 0s, total 8s]
+     · región 3: ConicalSurface 115 tri
+     · región 61: ConicalSurface 115 tri
+  [brep] ronda 1: 64 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 7s, ShapeFix 0s, total 8s]
+  [brep] sólido=True válido=True vol=237.47
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_medida.py", line 55, in trabajador
+    seed=generar(source,result,working,tmp/'hipotesis_no_aprobada.step')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/generar_semilla.py", line 23, in generar
+    raise ValueError('No hay hipótesis compacta útil: '+str(records))
+ValueError: No hay hipótesis compacta útil: [{'segmentacion': 8.0, 'error': 'La hipótesis no conserva volumen o excede 192 caras'}, {'segmentacion': 1.3, 'error': 'La hipótesis no conserva volumen o excede 192 caras'}]
+

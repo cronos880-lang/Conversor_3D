@@ -1,0 +1,38 @@
+[
+  {
+    "pieza": "flame",
+    "version": "referencia",
+    "archivo": "/workspace/attachments/8f34962b-1afd-4526-828e-7f3ca34a9749/Flame_Base.step",
+    "sha256": "b56365850d7ef1794ebc723f5812ae28645c37218ad10717c289a09ffac5c8fc",
+    "caras": 1099,
+    "aristas": 2468,
+    "nota": "Superficies y aristas nativas del STEP; no valida Onshape."
+  },
+  {
+    "pieza": "flame",
+    "version": "R18",
+    "archivo": "/workspace/work/cilindros_macizos_R18_20261104/navegador_flame_R18.step",
+    "sha256": "c7092e2f1769322ff514c0478100d8d86426a31a98b9711fcd762d0bbfc28720",
+    "caras": 422,
+    "aristas": 1221,
+    "nota": "Superficies y aristas nativas del STEP; no valida Onshape."
+  },
+  {
+    "pieza": "base",
+    "version": "referencia",
+    "archivo": "/workspace/work/cilindros_macizos_R18_20261104/referencia_R17/Base.step",
+    "sha256": "21a90e9b662dfafdd2a49b5b8fb60dad7505d8eb6cf47789749c374ba23670b2",
+    "caras": 13609,
+    "aristas": 23206,
+    "nota": "Superficies y aristas nativas del STEP; no valida Onshape."
+  },
+  {
+    "pieza": "base",
+    "version": "R18",
+    "archivo": "/workspace/work/cilindros_macizos_R18_20261104/navegador_base_R18.step",
+    "sha256": "15b86dea3b8e06ae0d939d98aa466b8ad8158f12cc782c0fbaf79334e7579880",
+    "caras": 463,
+    "aristas": 1318,
+    "nota": "Superficies y aristas nativas del STEP; no valida Onshape."
+  }
+]

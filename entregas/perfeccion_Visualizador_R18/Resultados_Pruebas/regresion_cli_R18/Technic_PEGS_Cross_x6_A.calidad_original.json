@@ -1,0 +1,172 @@
+{
+  "ok": true,
+  "revision": "R12_ORIGINAL_CGAL3_MATERIAL_20261030",
+  "original_sha256": "2a2844baf0a1cfa4df28257909cfc2060fee828d4e5339c6d4fd21f43f5e2b30",
+  "preparado_sha256": "bf2a3c1c4749e48e789bf8f61c0b05093ea84eda0d01a7c49d0507d50e76130d",
+  "step_sha256": "35b873d6921d51d294653c9543e3a6cc7a243252d009769d6ad8d93f592cc9d7",
+  "trabajador_sha256": "6d606e8bbe6ea8b77f3f13339bf4aba5cf41f899c957b9f6e809373838f5e408",
+  "calidad_original": {
+    "integridad_cad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 1716,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0,
+      "brep_exacto": true
+    },
+    "perfil_validacion": {
+      "id": "precision",
+      "nombre": "Precisi\u00f3n",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    },
+    "caras_step": 845,
+    "bytes_step": 3430417,
+    "volumen_error_pct": 0.000392,
+    "caja_error_mm": 5.9e-05,
+    "caja_error_analitico_mm": 5.9e-05,
+    "caja_modo_verificacion": "OpenCascade",
+    "distancia_stl_step_mm": {
+      "media": 2.3e-05,
+      "p95": 7e-05,
+      "p99": 0.000617,
+      "max_muestreado": 0.001155,
+      "muestras": 800
+    },
+    "distancia_step_stl_mm": {
+      "media": 9.1e-05,
+      "p95": 0.000403,
+      "p99": 0.000488,
+      "max_muestreado": 0.0005,
+      "muestras": 800
+    },
+    "contraste_muestreo_cad": {
+      "muestras_proyectadas": 0,
+      "max_distancia_al_brep_mm": 0.0
+    },
+    "tipos_caras": {
+      "GeomAbs_Plane": 819,
+      "GeomAbs_BSplineSurface": 22,
+      "GeomAbs_SurfaceOfExtrusion": 4
+    },
+    "limites_validacion": {
+      "volumen_error_max_pct": 0.5,
+      "caja_error_max_mm": 0.02,
+      "p95_superficie_max_mm": 0.02,
+      "desviacion_max_observada_mm": 0.06,
+      "margen_preparacion_mm": 0.0
+    },
+    "nota": "Mediciones de muestras, no garant\u00eda absoluta de desviaci\u00f3n global.",
+    "autointerferencias_occ": false,
+    "interferencias_comprobadas_en_frio": true,
+    "control_cad_reutilizado_por_sha256": true,
+    "sin_objetos_sueltos_en_step": true,
+    "inspeccion_densa": {
+      "stl_a_cad": {
+        "muestras": 3000,
+        "p95_mm": 4.0515249951351684e-05,
+        "max_mm": 0.0006870721771227157,
+        "zonas_sospechosas": []
+      },
+      "cad_a_stl": {
+        "muestras": 348925,
+        "p95_mm": 0.0005533154925318861,
+        "max_mm": 0.0011917432158242086,
+        "zonas_sospechosas": []
+      },
+      "limite_p95_mm": 0.02,
+      "limite_max_mm": 0.06,
+      "contraste_muestras_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "nota": "Muestreo determinista, no garant\u00eda Hausdorff global.",
+      "aceptado": true
+    },
+    "precision_alcanzada": "precision",
+    "desviacion_max_verificada_mm": 0.001192,
+    "limites_precision_originales": {
+      "caja_mm": 0.02,
+      "p95_mm": 0.02,
+      "max_mm": 0.06
+    }
+  },
+  "mallado_original": {
+    "resoluciones": [
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 97082,
+        "deflexion_mm": 0.00025,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0011609095413862094,
+          "p95_mm": 0.00039133895975428914,
+          "muestras": [
+            149625,
+            7615
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 157698,
+        "deflexion_mm": 0.0005,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0011659884091408793,
+          "p95_mm": 0.0004955221168491395,
+          "muestras": [
+            240549,
+            7615
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 182580,
+        "deflexion_mm": 0.001,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.001201824464447486,
+          "p95_mm": 0.0005255309765629146,
+          "muestras": [
+            277872,
+            7615
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      }
+    ],
+    "step_modificado": false,
+    "limites_geometricos_modificados": false
+  },
+  "material_original": {
+    "puntos": 3074,
+    "puntos_extra_contacto": 180,
+    "discrepancias": 0,
+    "banda_excluida_mm": 0.002,
+    "clasificador": "CAD_exacto_indexado_doble_rayo",
+    "consultas_nativas": 24998,
+    "fallbacks": 0,
+    "tolerancia_cad_mm": 1e-07
+  },
+  "topologia_referencia": "STL preparado certificado; geometr\u00eda y material se contrastan con el original",
+  "segundos": 65.26231165499485,
+  "limites_aceptacion_modificados": false
+}

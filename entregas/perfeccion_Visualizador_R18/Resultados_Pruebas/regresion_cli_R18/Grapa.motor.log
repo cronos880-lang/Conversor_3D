@@ -1,0 +1,713 @@
+[Estrategia] Motor estable V2.7, sin prioridad ni rescate de Easymeshfit original.
+[Detección] 13 regiones analíticas y 0 regiones libres; segmentación=8.0°
+  [brep] regiones: 49.3s
+  [brep] ronda 0: 18 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 1s]
+  [brep] sólido=True válido=True vol=1339.92
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación CAD] El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+[contornos] cilindros fuente con prioridad: 2
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=4). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_brep.py:166: UserWarning: 
+The coefficients of the spline returned have been computed as the
+minimal norm least-squares solution of a (numerically) rank deficient
+system (deficiency=11). If deficiency is large, the results may be
+inaccurate. Deficiency may strongly depend on the value of eps.
+  sp = LSQBivariateSpline(U, V, Hh, tx, ty, w=W, bbox=bb, kx=3, ky=3)
+  [brep] regiones: 43.6s
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[contornos] triángulos separados de planos aproximados: 2
+[contornos] superficies confirmadas: 10 de 21
+[contornos] parches libres subdivididos: 9 superficies totales: 622
+[contornos] curvas comunes: 1245 en 4.67 s
+[contornos] ajustando región 0 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 21 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 22 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 23 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 24 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 25 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 26 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 27 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 28 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 29 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 30 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 31 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 32 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 33 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 34 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 35 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 36 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 37 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 38 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 39 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 40 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 41 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 42 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 43 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 44 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 45 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 46 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 47 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 48 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 49 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 50 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 51 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 52 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 53 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 54 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 55 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 56 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 57 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 58 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 59 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 1 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 101 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 102 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 103 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 104 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 105 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 106 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 107 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 108 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 109 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 110 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 111 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 112 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 113 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 114 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 115 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 116 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 117 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 118 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 119 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 120 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 121 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 122 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 123 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 124 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 125 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 126 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 127 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 128 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 129 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 130 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 131 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 132 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 133 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 134 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 135 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 136 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 137 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 2 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 140 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 141 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 142 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 143 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 144 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 145 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 146 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 147 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 148 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 149 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 150 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 151 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 152 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 153 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 154 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 155 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 156 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 157 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 158 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 159 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 160 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 161 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 162 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 163 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 164 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 165 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 166 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 167 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 168 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 169 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 170 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 171 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 172 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 173 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 174 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 175 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 176 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 177 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 178 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 179 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 180 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 181 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 182 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 183 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 184 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 185 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 186 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 187 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 188 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 189 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 190 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 191 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 192 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 193 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 194 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 195 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 196 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 197 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 198 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 199 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 200 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 201 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 202 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 203 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 204 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 205 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 206 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 207 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 208 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 209 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 210 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 211 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 212 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 213 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 214 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 215 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 216 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 60 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 61 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 62 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 63 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 64 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 65 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 66 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 67 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 68 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 69 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 70 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 71 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 72 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 73 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 74 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 75 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 76 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 77 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 78 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 79 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 80 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 81 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 82 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 83 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 84 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 85 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 86 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 87 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 88 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 89 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 90 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 91 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 92 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 93 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 94 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 95 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 96 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 97 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 98 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 3 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 219 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 220 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 221 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 222 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 223 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 224 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 225 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 226 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 227 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 228 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 229 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 230 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 231 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 232 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 233 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 234 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 235 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 236 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 237 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 238 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 239 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 240 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 241 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 242 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 243 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 244 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 245 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 246 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 247 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 248 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 249 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 250 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 251 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 252 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 253 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 254 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 255 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 256 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 4 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 259 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 260 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 261 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 262 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 263 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 264 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 265 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 266 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 267 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 268 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 269 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 270 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 271 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 272 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 273 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 274 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 275 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 276 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 277 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 278 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 279 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 280 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 281 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 282 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 283 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 284 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 285 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 286 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 287 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 288 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 289 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 290 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 291 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 292 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 293 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 294 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 295 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 296 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 297 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 298 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 299 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 300 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 301 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 302 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 303 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 304 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 305 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 306 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 307 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 308 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 309 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 310 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 311 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 312 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 313 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 314 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 315 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 316 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 317 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 318 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 319 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 320 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 321 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 322 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 323 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 324 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 325 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 326 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 327 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 328 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 329 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 330 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 331 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 332 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 333 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 334 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 335 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 336 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 337 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 99 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 100 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 6 Geom_Plane 3 aristas
+[contornos] ajustando región 7 Geom_Plane 3 aristas
+[contornos] ajustando región 8 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 338 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 339 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 340 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 341 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 342 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 343 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 344 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 345 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 346 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 347 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 348 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 349 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 350 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 351 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 352 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 353 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 354 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 355 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 356 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 357 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 358 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 359 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 360 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 361 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 362 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 363 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 364 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 365 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 366 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 367 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 368 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 369 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 370 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 371 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 372 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 373 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 374 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 375 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 376 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 377 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 378 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 379 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 380 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 381 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 382 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 383 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 384 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 385 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 386 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 387 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 388 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 389 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 390 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 391 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 392 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 393 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 394 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 395 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 396 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 397 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 398 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 399 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 400 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 401 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 402 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 403 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 404 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 405 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 406 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 407 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 9 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 408 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 409 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 410 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 411 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 10 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 480 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 481 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 482 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 483 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 484 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 11 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 551 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 552 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 553 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 554 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 555 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 556 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 557 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 558 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 559 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 560 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 561 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 562 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 563 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 564 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 565 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 566 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 567 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 568 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 569 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 570 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 571 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 572 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 573 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 574 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 575 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 576 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 577 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 578 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 579 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 580 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 581 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 582 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 583 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 584 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 585 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 586 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 587 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 588 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 589 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 590 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 591 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 592 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 593 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 594 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 595 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 596 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 597 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 598 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 599 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 600 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 601 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 602 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 603 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 604 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 605 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 606 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 607 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 608 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 609 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 610 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 611 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 612 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 613 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 614 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 615 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 616 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 617 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 618 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 619 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 620 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 621 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 217 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 218 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 138 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 139 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 257 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 258 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 412 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 413 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 485 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 486 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 487 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 488 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 489 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 490 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 491 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 492 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 493 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 494 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 495 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 496 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 497 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 498 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 499 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 500 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 501 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 502 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 503 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 504 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 505 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 506 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 507 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 508 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 509 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 510 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 511 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 512 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 513 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 514 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 515 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 516 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 517 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 518 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 519 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 520 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 521 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 522 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 523 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 524 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 525 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 526 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 527 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 528 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 529 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 530 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 531 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 532 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 533 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 534 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 535 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 536 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 537 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 538 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 539 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 540 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 541 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 542 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 543 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 544 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 545 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 546 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 547 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 548 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 549 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 550 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 414 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 415 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 416 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 417 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 418 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 419 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 420 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 421 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 422 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 423 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 424 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 425 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 426 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 427 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 428 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 429 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 430 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 431 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 432 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 433 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 434 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 435 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 436 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 437 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 438 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 439 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 440 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 441 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 442 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 443 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 444 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 445 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 446 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 447 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 448 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 449 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 450 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 451 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 452 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 453 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 454 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 455 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 456 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 457 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 458 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 459 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 460 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 461 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 462 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 463 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 464 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 465 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 466 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 467 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 468 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 469 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 470 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 471 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 472 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 473 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 474 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 475 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 476 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 477 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 478 Geom_BSplineSurface 3 aristas
+[contornos] ajustando región 479 Geom_BSplineSurface 3 aristas
+[contornos] shell construido 622 caras en 10.425 s
+  [brep] ronda 0: 622 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 13s, ShapeFix 0s, total 16s]
+  [brep] sólido=True válido=True vol=1340.06
+[contornos] normalización del STEP candidato: {'aplicado': False, 'ciclos_reunidos': 0, 'superficies_modificadas': False}
+[Control STEP exportado] volumen_STL=1340.233040 volumen_STEP=1340.058270 caras_STEP=622
+[Calidad] p95 STL->CAD 0.00000 CAD->STL 0.00000; máximos 0.00000 y 0.00000; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+  [brep] regiones: 43.0s
+  [brep] ronda 0: 18 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 1s]
+  [brep] sólido=True válido=True vol=1339.92
+SEMILLA FUENTE 8.0 caras 18 volumen_error_pct 0.023370594668115086
+AJUSTE CILINDRO 14 R 2.850000023721 -> 2.8500000095291034 error 3.137768155969667e-06
+AJUSTE CILINDRO 16 R 2.850000217956 -> 2.8500002190194875 error 2.455586193939041e-06
+PLANOS FUENTE PROTEGIDOS 5 triangulos 790
+PERFIL SUAVE 259 polos
+PERFIL EXTENDIDO -0.03 10.399349801720154 cambio 7.944109290391274e-15
+BARRIDO MEDIDO 0 {'eje': [-0.0, 1.0, -0.0], 'vertices_fuente': 83, 'max_testigos_mm': 0.00045551897263730265, 'max_curva_polilinea_mm': 0.00023132996636868094, 'area_fuente': 48.54222092417595, 'triangulos_ampliados': 1}
+PERFIL SUAVE 54 polos
+PERFIL EXTENDIDO -0.03 6.8892972046900445 cambio 0.0
+BARRIDO MEDIDO 1 {'eje': [0.0, 0.0, 1.0], 'vertices_fuente': 82, 'max_testigos_mm': 0.00041140946022689664, 'max_curva_polilinea_mm': 0.0003042083788120283, 'area_fuente': 15.776378337558643, 'triangulos_ampliados': 0}
+PERFIL SUAVE 259 polos
+PERFIL EXTENDIDO -0.03 10.399348298871153 cambio 3.552713678800501e-15
+BARRIDO MEDIDO 2 {'eje': [-0.0, 1.0, -0.0], 'vertices_fuente': 83, 'max_testigos_mm': 0.00045517645767085006, 'max_curva_polilinea_mm': 0.00023124289783046814, 'area_fuente': 48.54221220765218, 'triangulos_ampliados': 1}
+PERFIL SUAVE 54 polos
+PERFIL EXTENDIDO -0.03 6.889299257346659 cambio 1.7763568394002505e-15
+BARRIDO MEDIDO 3 {'eje': [0.0, 0.0, 1.0], 'vertices_fuente': 82, 'max_testigos_mm': 0.0004106808221801081, 'max_curva_polilinea_mm': 0.00030461413957062083, 'area_fuente': 15.776383058667287, 'triangulos_ampliados': 0}
+PERFIL SUAVE 67 polos
+PERFIL EXTENDIDO -0.03 2.9084333644353157 cambio 0.0
+BARRIDO MEDIDO 6 {'eje': [-0.0, 1.0, -0.0], 'vertices_fuente': 73, 'max_testigos_mm': 0.0003371922994982014, 'max_curva_polilinea_mm': 0.0003303448954999235, 'area_fuente': 42.27691157779252, 'triangulos_ampliados': 1}
+PERFIL SUAVE 131 polos
+PERFIL EXTENDIDO -0.03 6.254581405761708 cambio 3.552713678800501e-15
+BARRIDO MEDIDO 7 {'eje': [-0.0, 1.0, -0.0], 'vertices_fuente': 75, 'max_testigos_mm': 0.00032876147223147225, 'max_curva_polilinea_mm': 0.00022825843337276666, 'area_fuente': 92.46913219768841, 'triangulos_ampliados': 1}
+PERFIL SUAVE 131 polos
+PERFIL EXTENDIDO -0.03 6.204013005013975 cambio 1.7763568394002505e-15
+BARRIDO MEDIDO 8 {'eje': [-0.0, 1.0, -0.0], 'vertices_fuente': 74, 'max_testigos_mm': 0.00032600935147804555, 'max_curva_polilinea_mm': 0.0002266817981036497, 'area_fuente': 92.61019507520966, 'triangulos_ampliados': 0}
+PERFIL SUAVE 67 polos
+PERFIL EXTENDIDO -0.03 2.92678842529646 cambio 1.4210854715202004e-14
+BARRIDO MEDIDO 9 {'eje': [-0.0, 1.0, -0.0], 'vertices_fuente': 74, 'max_testigos_mm': 0.0003420927151247317, 'max_curva_polilinea_mm': 0.0003256320046796728, 'area_fuente': 43.45182637944691, 'triangulos_ampliados': 0}
+[contornos] cilindros fuente con prioridad: 2
+  [brep] regiones: 0.1s
+[contornos] triángulos separados de planos aproximados: 2
+PLANOS MEDIDOS 8 max 3.2970757471873636e-16
+ESQUINAS EXTRUIDAS COMPARTIDAS 8
+CONCILIACION SISTEMA (62, 63) residual 1.294275703984178e-31 movimiento 2.1027866278911548e-16
+PLANOS CONCILIADOS 9 esquinas 18 residual 1.294275703984178e-31 offset_max 2.1449187004898412e-19
+[contornos] facetas tangentes reconstruidas aparte: 1
+[contornos] superficies confirmadas: 18 de 19
+[contornos] parches libres subdivididos: 1 superficies totales: 20
+ANCLAJE BARRIDO {'regiones': [0], 'anclajes': 4, 'movimiento_max_polos_mm': 7.944109290391274e-15, 'residual_mm': 0.0}
+ANCLAJE BARRIDO {'regiones': [2], 'anclajes': 4, 'movimiento_max_polos_mm': 5.208141127613197e-05, 'residual_mm': 0.0}
+ANCLAJE BARRIDO {'regiones': [1], 'anclajes': 4, 'movimiento_max_polos_mm': 0.0, 'residual_mm': 0.0}
+ANCLAJE BARRIDO {'regiones': [3], 'anclajes': 4, 'movimiento_max_polos_mm': 8.881784197001252e-16, 'residual_mm': 0.0}
+ANCLAJE BARRIDO {'regiones': [6], 'anclajes': 2, 'movimiento_max_polos_mm': 0.0, 'residual_mm': 0.0}
+ANCLAJE BARRIDO {'regiones': [7], 'anclajes': 4, 'movimiento_max_polos_mm': 0.0001918074141749223, 'residual_mm': 0.0}
+ANCLAJE BARRIDO {'regiones': [8], 'anclajes': 4, 'movimiento_max_polos_mm': 5.340173487524895e-07, 'residual_mm': 0.0}
+ANCLAJE BARRIDO {'regiones': [9], 'anclajes': 4, 'movimiento_max_polos_mm': 7.105427357601002e-15, 'residual_mm': 0.0}
+GENERATRICES ENTRE PERFILES 200
+GENERATRICES ENTRE PERFILES 3
+GENERATRICES ENTRE PERFILES 1
+REFINAMIENTO REVOLUCION 33 1.2878587085651816e-14
+REFINAMIENTO REVOLUCION 33 7.729396011017091e-15
+SECCION CASI PARALELA 17 1.0658141036401503e-14
+SECCION CASI PARALELA 17 1.020439314654103e-14
+[contornos] curvas comunes: 49 en 9.79 s
+[contornos] ajustando región 5 Geom_Plane 3 aristas
+[contornos] ajustando región 19 Geom_Plane 3 aristas
+[contornos] shell construido 20 caras en 11.347 s
+  [brep] ronda 0: 20 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 11s, ShapeFix 0s, total 12s]
+  [brep] sólido=True válido=True vol=1340.39
+[Control STEP exportado] volumen_STL=1340.233040 volumen_STEP=1340.139361 caras_STEP=20
+[Calidad] p95 STL->CAD 0.00023 CAD->STL 0.00010; máximos 0.00033 y 0.00022; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+

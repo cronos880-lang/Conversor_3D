@@ -1,0 +1,3 @@
+Visor STL → STEP · R18 experimental
+Compilación 2026.11.05-nucleos-y-refuerzos
+Reconstrucción de revolución con rebajes originales y controles geométricos completos.

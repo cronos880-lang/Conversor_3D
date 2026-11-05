@@ -1,0 +1,5 @@
+{
+  "completo": false,
+  "motivo": "Se interrumpe la ejecuci\u00f3n inicial para limitar a dos los trabajos CAD simult\u00e1neos; el primer test a\u00fan esperaba el puerto de R17 y ya se ha actualizado a 8781. Se repetir\u00e1 la bater\u00eda completa.",
+  "fallo_inicial": "test_puerto_experimental_distinto_de_r7: esperaba 8780; R18 usa 8781"
+}

@@ -1,0 +1,158 @@
+[Estrategia] Motor estable V2.7, sin prioridad ni rescate de Easymeshfit original.
+[Detección] 105 regiones analíticas y 0 regiones libres; segmentación=8.0°
+  [brep] regiones: 1.1s
+  [brep] ronda 0: 88 caras, 2 con error, 14 bordes libres, sólido=False, válido=False  [construir 1s, ShapeFix 0s, total 2s]
+     · región 40: CylindricalSurface 162 tri
+     · región 87: CylindricalSurface 162 tri
+     · 4 isla(s) pequeña(s) absorbida(s)
+  [brep] ronda 1: 84 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 2s]
+  [brep] sólido=True válido=True vol=3511.66
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación] Primer intento rechazado: Reconstrucción deformada: Error de volumen: 16.572616 % > 0.500000 %.
+[Recuperación de curvas] Probando segmentación 1.3° con reconocimiento de cilindros verificado.
+[Reconocimiento axial verificado] [{'radio': 9.748690859477158, 'caras_malla': 362}]
+[Detección] 146 regiones analíticas y 0 regiones libres; segmentación=1.3°
+  [brep] regiones: 1.8s
+  [brep] ronda 0: 42 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 1s]
+  [brep] sólido=True válido=True vol=3006.30
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación CAD] El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+[contornos] cilindros fuente con prioridad: 3
+  [brep] regiones: 17.3s
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[contornos] triángulos separados de planos aproximados: 305
+[contornos] superficies confirmadas: 46 de 502
+[contornos] parches libres subdivididos: 75 superficies totales: 811
+  [brep] construcción fallida: Esquina incompatible con las superficies confirmadas; no se desplaza silenciosamente. {'vertice': 2178, 'regiones': [(0, 'Geom_ToroidalSurface', 451), (1, 'Geom_ToroidalSurface', 1792)], 'residual': 0.00028075220287959723, 'movimiento': 0.09491651679701331}
+  [brep] sin sólido válido ({'error': "Esquina incompatible con las superficies confirmadas; no se desplaza silenciosamente. {'vertice': 2178, 'regiones': [(0, 'Geom_ToroidalSurface', 451), (1, 'Geom_ToroidalSurface', 1792)], 'residual': 0.00028075220287959723, 'movimiento': 0.09491651679701331}"}); camino clásico
+[contornos] Se conserva la prioridad anterior; tras su rechazo se ensayan costuras cilíndricas completas: El motor B-Rep no ha reconstruido un sólido CAD válido.
+[contornos] cilindros fuente con prioridad: 3
+  [brep] regiones: 16.4s
+[contornos] triángulos separados de planos aproximados: 305
+[contornos] superficies confirmadas: 48 de 504
+[contornos] parches libres subdivididos: 75 superficies totales: 813
+  [brep] construcción fallida: Esquina incompatible con las superficies confirmadas; no se desplaza silenciosamente. {'vertice': 2178, 'regiones': [(0, 'Geom_ToroidalSurface', 451), (1, 'Geom_ToroidalSurface', 1792)], 'residual': 0.00028075220287959723, 'movimiento': 0.09491651679701331}
+  [brep] sin sólido válido ({'error': "Esquina incompatible con las superficies confirmadas; no se desplaza silenciosamente. {'vertice': 2178, 'regiones': [(0, 'Geom_ToroidalSurface', 451), (1, 'Geom_ToroidalSurface', 1792)], 'residual': 0.00028075220287959723, 'movimiento': 0.09491651679701331}"}); camino clásico
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 218, in trabajador
+    export_step(copy.deepcopy(result),working.copy(),str(destination),organic=True,solid=True,organic_smooth=0.,
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_superficies/meshfit_step.py", line 948, in export_step
+    raise ValueError("El motor B-Rep no ha reconstruido un sólido CAD válido.")
+ValueError: El motor B-Rep no ha reconstruido un sólido CAD válido.
+
+[Rescate R9] Rechazado: El motor B-Rep no ha reconstruido un sólido CAD válido.
+[Encuentros analíticos] Rechazado: Esta reconstrucción conserva superficies analíticas; las superficies libres siguen la estrategia anterior.
+[Contornos compatibles] Descartado: El motor B-Rep no ha reconstruido un sólido CAD válido.
+[Recuperación de curvas] Candidato rechazado: El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 318, in intentar_refinar
+    return analitico(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_analitica.py", line 79, in intentar_refinar
+    exigir_elegible(shape)
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_analitica.py", line 22, in exigir_elegible
+    raise ValueError('Esta reconstrucción conserva superficies analíticas; las superficies libres siguen la estrategia anterior.')
+ValueError: Esta reconstrucción conserva superficies analíticas; las superficies libres siguen la estrategia anterior.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 493, in convertir
+    quality,saneamiento = intentar_refinar(path_stl,candidate,original,
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 321, in intentar_refinar
+    raise previous from current
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 313, in intentar_refinar
+    return _intentar_refinar_R9(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 280, in _intentar_refinar_R9
+    raise ValueError(reason)
+ValueError: El motor B-Rep no ha reconstruido un sólido CAD válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 776, in _main_cad
+    recuperado=convertir(src,candidato_curvas,log,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/intentos_conversion.py", line 25, in wrapped
+    try:return function(path_stl,path_step,log,**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 508, in convertir
+    raise initial from repair_error
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 479, in convertir
+    quality = _calidad(path_stl,candidate,original,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 174, in _calidad
+    exigir_coherencia_exacta(solid)
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/saneamiento_cad.py", line 25, in exigir_coherencia_exacta
+    if not BRepCheck_Analyzer(shape.wrapped,True,False,True).IsValid():raise IncoherenciaCAD()
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^
+saneamiento_cad.IncoherenciaCAD: El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+VF_CANDIDATOS 0
+EE_CANDIDATOS 0
+ACOPLADO 0 perdida 0.0 malas 0 min inf
+[Control STEP exportado] volumen_STL=3012.825098 volumen_STEP=3012.825098 caras_STEP=9351
+[Calidad] p95 STL->CAD 0.00000 CAD->STL 0.00000; máximos 0.00000 y 0.00000; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+{"ok": true, "error": null, "segundos": 175.697}
+
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+  [brep] regiones: 0.8s
+  [brep] ronda 0: 88 caras, 2 con error, 12 bordes libres, sólido=False, válido=False  [construir 2s, ShapeFix 0s, total 2s]
+     · región 40: CylindricalSurface 162 tri
+     · región 87: CylindricalSurface 162 tri
+     · 4 isla(s) pequeña(s) absorbida(s)
+  [brep] ronda 1: 84 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 2s]
+  [brep] sólido=True válido=True vol=3511.62
+  [brep] regiones: 1.9s
+  [brep] ronda 0: 42 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 1s]
+  [brep] sólido=True válido=True vol=3006.45
+SEMILLA FUENTE 1.3 caras 42 volumen_error_pct 0.11626206900603453
+AJUSTE CILINDRO 11 R 11.24999982527 -> 11.249999956347537 error 7.427031345486057e-07
+AJUSTE CILINDRO 35 R 2.500000019264 -> 2.5000000193004186 error 1.8559074188573277e-07
+AJUSTE CILINDRO 41 R 6.899999293643 -> 6.900000011100544 error 3.336376490636894e-07
+CILINDRO PROPAGADO 12 11 0.0018755920180204555
+CILINDRO PROPAGADO 14 11 0.0027072380918102823
+REVOLUCION MEDIDA {'tipo': 'revolucion_medida', 'caras': [0, 1, 2, 4, 5, 6], 'vertices_fuente': 4696, 'niveles': 53, 'max_fuente_mm': 0.0012676110959950989}
+PERFIL EXTENDIDO -0.03 5.777705854580957 cambio 8.881784197001252e-16
+[contornos] cilindros fuente con prioridad: 3
+  [brep] regiones: 0.1s
+[contornos] triángulos separados de planos aproximados: 0
+[contornos] superficies confirmadas: 36 de 36
+INTERSECCION UV BARRIDA 149 plano 9.804503875443515e-10 curva 4.825291121565756e-11
+INTERSECCION UV BARRIDA 149 plano 9.804480381211955e-10 curva 4.8252909008615087e-11
+INTERSECCION UV BARRIDA 149 plano 9.804530520796106e-10 curva 4.825319140296711e-11
+INTERSECCION UV BARRIDA 149 plano 9.804489262968496e-10 curva 4.825206840418862e-11
+SECCION CASI PARALELA 17 1.0695084443661336e-14
+SECCION CASI PARALELA 17 1.0658141036401503e-14
+SECCION CASI PARALELA 17 7.215595591812694e-15
+SECCION CASI PARALELA 17 1.0658141036401503e-14
+SECCION CASI PARALELA 17 5.347542221830668e-15
+SECCION CASI PARALELA 17 7.215595591812694e-15
+SECCION CASI PARALELA 17 1.0667388882858398e-14
+SECCION CASI PARALELA 17 5.687116766346677e-15
+SECCION CASI PARALELA 17 5.475099487534308e-15
+SECCION CASI PARALELA 17 7.215595591812694e-15
+SECCION CASI PARALELA 17 4.165926057296536e-15
+SECCION CASI PARALELA 17 5.347542221830668e-15
+SECCION CASI PARALELA 17 7.324120025506357e-15
+SECCION CASI PARALELA 17 1.0695084443661336e-14
+SECCION CASI PARALELA 17 7.16073679395914e-15
+SECCION CASI PARALELA 17 1.0667388882858398e-14
+CILINDROS CASI PARALELOS 17 5.250943475589754e-12
+CILINDROS CASI PARALELOS 17 5.25094283638297e-12
+SECCION CASI PARALELA 17 7.215595591812694e-15
+SECCION CASI PARALELA 17 1.0667388882858398e-14
+CILINDROS CASI PARALELOS 17 4.4707089558156875e-15
+CILINDROS CASI PARALELOS 17 3.6978771204765325e-15
+[contornos] curvas comunes: 94 en 10.04 s
+[contornos] shell construido 36 caras en 10.857 s
+  [brep] ronda 0: 36 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 11s, ShapeFix 0s, total 11s]
+  [brep] sólido=True válido=True vol=3013.49
+[Control STEP exportado] volumen_STL=3012.825098 volumen_STEP=3013.496287 caras_STEP=36
+[Calidad] p95 STL->CAD 0.00030 CAD->STL 0.00216; máximos 0.00127 y 0.00267; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+

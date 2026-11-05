@@ -1,0 +1,623 @@
+{
+  "archivo": "entrada.stl",
+  "sha256": "d452a0992aebf42bc2de20832e6f1f52516789cf743d3b5abe9bd8fb5b586cbf",
+  "limite_s": 2400,
+  "limite_ram_mb": 4200,
+  "segundos": 7.467,
+  "ram_pico_mb": 679.58,
+  "codigo": 0,
+  "informe_motor": {
+    "ok": true,
+    "preprocesamiento": {
+      "version": 1,
+      "original_sha256": "d452a0992aebf42bc2de20832e6f1f52516789cf743d3b5abe9bd8fb5b586cbf",
+      "habilitado": true,
+      "reparado": false,
+      "original_conservado": true,
+      "entrada": {
+        "caras": 1436,
+        "vertices": 720,
+        "topologia_vertices": {
+          "vertices_no_manifold": 0,
+          "vertices_de_borde": 0,
+          "ejemplos": [],
+          "enlaces_regulares_cerrados": true,
+          "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+        },
+        "aristas_1_cara": 0,
+        "aristas_2_caras": 2154,
+        "aristas_mas_2_caras": 0,
+        "caras_degeneradas": 0,
+        "caras_duplicadas": 0,
+        "pares_caras_contacto_opuestas": 0,
+        "componentes": [
+          {
+            "caras": 1436,
+            "estanco": true,
+            "orientacion_consistente": true,
+            "volumen_firmado_mm3": 339.27478152645,
+            "euler": 2
+          }
+        ],
+        "numero_componentes": 1,
+        "estanco_global": true,
+        "caja_mm": [
+          [
+            -6.0,
+            -6.0,
+            0.0
+          ],
+          [
+            6.0,
+            6.0,
+            3.0
+          ]
+        ],
+        "ruta": "paso_directo",
+        "gravedad": "informacion",
+        "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+        "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+      },
+      "ruta_seleccionada": "paso_directo",
+      "resultado": "STL original; reconstrucción CAD medida y validada"
+    },
+    "resultado": {
+      "motor": "CAD medido con detalles originales verificados",
+      "modo": "superficies",
+      "estrategia": "reconstruccion_fuente_verificada_r18",
+      "caras_stl": 1436,
+      "calidad": {
+        "integridad_cad": {
+          "brep_valido": true,
+          "solidos": 1,
+          "aristas": 3,
+          "aristas_parametrizacion_incoherente": 0,
+          "tolerancia_max_mm": 1e-07,
+          "tolerancia_p95_mm": 1e-07,
+          "tolerancia_media_mm": 1e-07,
+          "aristas_tol_mayor_001mm": 0,
+          "brep_exacto": true
+        },
+        "perfil_validacion": {
+          "id": "precision",
+          "nombre": "Precisión",
+          "caja_mm": 0.02,
+          "p95_mm": null,
+          "max_mm": 0.06,
+          "volumen_pct": 0.5
+        },
+        "caras_step": 3,
+        "bytes_step": 6044,
+        "volumen_error_pct": 0.005077,
+        "caja_error_mm": 0.0,
+        "caja_error_analitico_mm": 0.0,
+        "caja_modo_verificacion": "OpenCascade",
+        "distancia_stl_step_mm": {
+          "media": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max_muestreado": 0.0,
+          "muestras": 720
+        },
+        "distancia_step_stl_mm": {
+          "media": 0.000153,
+          "p95": 0.000228,
+          "p99": 0.000228,
+          "max_muestreado": 0.000228,
+          "muestras": 506
+        },
+        "contraste_muestreo_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "tipos_caras": {
+          "GeomAbs_Plane": 2,
+          "GeomAbs_Cylinder": 1
+        },
+        "limites_validacion": {
+          "volumen_error_max_pct": 0.5,
+          "caja_error_max_mm": 0.02,
+          "p95_superficie_max_mm": 0.02,
+          "desviacion_max_observada_mm": 0.06,
+          "margen_preparacion_mm": 0.0
+        },
+        "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+        "autointerferencias_occ": false,
+        "interferencias_comprobadas_en_frio": true,
+        "control_cad_reutilizado_por_sha256": false,
+        "sin_objetos_sueltos_en_step": true,
+        "inspeccion_densa": {
+          "stl_a_cad": {
+            "muestras": 3000,
+            "p95_mm": 0.0002032696263246154,
+            "max_mm": 0.00022869255742931374,
+            "zonas_sospechosas": []
+          },
+          "cad_a_stl": {
+            "muestras": 2536,
+            "p95_mm": 0.00022754555792329763,
+            "max_mm": 0.00025817109994272463,
+            "zonas_sospechosas": []
+          },
+          "limite_p95_mm": 0.02,
+          "limite_max_mm": 0.06,
+          "contraste_muestras_cad": {
+            "muestras_proyectadas": 0,
+            "max_distancia_al_brep_mm": 0.0
+          },
+          "nota": "Muestreo determinista, no garantía Hausdorff global.",
+          "aceptado": true
+        },
+        "precision_alcanzada": "precision",
+        "desviacion_max_verificada_mm": 0.000258,
+        "limites_precision_originales": {
+          "caja_mm": 0.02,
+          "p95_mm": 0.02,
+          "max_mm": 0.06
+        }
+      },
+      "reconstruccion_fuente": {
+        "aplicado": true,
+        "metodo": "nucleo_axial_y_detalles_originales",
+        "original_sha256": "d452a0992aebf42bc2de20832e6f1f52516789cf743d3b5abe9bd8fb5b586cbf",
+        "step_sha256": "4d444cc71d215cd85dd78a44d0e5cd19b5497a2832e0cc125866d04a101046d9",
+        "construccion": {
+          "eje": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "origen": [
+            3.1028949899630363e-16,
+            4.649648002278513e-16,
+            1.5
+          ],
+          "direccion_meridiana": [
+            -0.3623748900804801,
+            -0.9320324238132276,
+            0.0
+          ],
+          "meridianos_contrastados": 10,
+          "perfil": {
+            "type": "source_supported_lines",
+            "segments": 4,
+            "points": [
+              [
+                0.0,
+                -1.5
+              ],
+              [
+                5.999830364166914,
+                -1.5
+              ],
+              [
+                5.999830364166914,
+                1.5
+              ],
+              [
+                0.0,
+                1.5
+              ],
+              [
+                0.0,
+                -1.5
+              ]
+            ],
+            "profile": [
+              [
+                0.0,
+                -1.5
+              ],
+              [
+                6.000000003410147,
+                -1.5
+              ],
+              [
+                6.000000003410147,
+                1.5
+              ],
+              [
+                0.0,
+                1.5
+              ],
+              [
+                0.0,
+                -1.5
+              ]
+            ],
+            "simplificacion_meridiano_mm": 8e-05,
+            "ajuste_circular_confirmado_mm": 0.004,
+            "cilindros_confirmados": [
+              {
+                "z_mm": [
+                  -1.5,
+                  1.5
+                ],
+                "radio_mm": 6.000000003410147,
+                "estaciones": 19,
+                "variacion_evidencia_mm": 0.0
+              }
+            ],
+            "propuesta_no_es_aceptacion": true
+          },
+          "secciones": [
+            {
+              "z": -1.3966744387540988,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -1.2294901687515765,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -1.1261646075056753,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -0.8556547762572517,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -0.7917960675006306,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -0.6884705062547294,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -0.41796067500630585,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -0.2507764050037835,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.01973342624464003,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.18691769624716237,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.29024325749306357,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.4574275274955859,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.6246117974981082,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.7279373587440094,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.998447189992433,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 1.0623058987490541,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 1.3328157299974777,
+              "circulos": [
+                {
+                  "center": [
+                    3.97881422122146e-16,
+                    -1.5789838572446671e-16
+                  ],
+                  "radius": 6.000000003410147,
+                  "error": 2.7468316687873084e-07,
+                  "radial_segment_error": 0.00022869398120928253,
+                  "points": 360,
+                  "parcial": false
+                }
+              ]
+            }
+          ],
+          "resolucion_numerica_union_mm": 0.0001,
+          "normalizacion_aristas_planas_mm": 0.0001,
+          "metodo": "nucleo_axial_y_refuerzos_originales",
+          "rebajes": [],
+          "refuerzos": [],
+          "vaciados_abiertos_refuerzos": [],
+          "caras_finales": 3,
+          "limites_aceptacion_modificados": false,
+          "marco_construccion_centrado": true,
+          "estrategia_construccion": "marco_centrado"
+        },
+        "topologia_material": {
+          "euler_malla": 2,
+          "euler_brep": 2,
+          "shells": 1,
+          "cavidades_preservadas": 0,
+          "probes_cavidades": []
+        },
+        "mallado_fino": {
+          "resoluciones": [
+            {
+              "cerrado": true,
+              "orientado": true,
+              "euler": 2,
+              "intersecciones_cgal": 0,
+              "caras": 1944,
+              "deflexion_mm": 0.00025,
+              "angulo_rad": 0.04,
+              "superficie": {
+                "max_mm": 0.00022856198170099663,
+                "p95_mm": 0.00020278226208509826,
+                "muestras": [
+                  6918,
+                  6156
+                ]
+              },
+              "margen_microbucles_mm": 0.0
+            },
+            {
+              "cerrado": true,
+              "orientado": true,
+              "euler": 2,
+              "intersecciones_cgal": 0,
+              "caras": 1376,
+              "deflexion_mm": 0.0005,
+              "angulo_rad": 0.04,
+              "superficie": {
+                "max_mm": 0.0002487689843144339,
+                "p95_mm": 0.00021318468112531362,
+                "muestras": [
+                  6066,
+                  6156
+                ]
+              },
+              "margen_microbucles_mm": 0.0
+            },
+            {
+              "cerrado": true,
+              "orientado": true,
+              "euler": 2,
+              "intersecciones_cgal": 0,
+              "caras": 1256,
+              "deflexion_mm": 0.001,
+              "angulo_rad": 0.04,
+              "superficie": {
+                "max_mm": 0.00029717373643859974,
+                "p95_mm": 0.00025441261174025776,
+                "muestras": [
+                  5886,
+                  6156
+                ]
+              },
+              "margen_microbucles_mm": 0.0
+            }
+          ],
+          "step_modificado": false,
+          "limites_geometricos_modificados": false
+        },
+        "material_original": {
+          "puntos": 2993,
+          "puntos_extra_contacto": 0,
+          "discrepancias": 0,
+          "banda_excluida_mm": 0.002,
+          "clasificador": "CAD_exacto_indexado_doble_rayo",
+          "consultas_nativas": 9777,
+          "fallbacks": 0,
+          "tolerancia_cad_mm": 1e-07
+        },
+        "detalles_original": {
+          "puntos": 0,
+          "discrepancias": 0,
+          "caras_fuente": 0,
+          "refuerzos": {
+            "puntos": 0,
+            "discrepancias": 0,
+            "caras_fuente": 0
+          }
+        },
+        "segundos": 6.2259851150010945,
+        "ram_pico_mb": 577.21,
+        "limites_aceptacion_modificados": false
+      }
+    }
+  },
+  "ok": true,
+  "sha256_step": "4d444cc71d215cd85dd78a44d0e5cd19b5497a2832e0cc125866d04a101046d9"
+}

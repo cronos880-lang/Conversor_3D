@@ -1,0 +1,6 @@
+[Estrategia] Motor estable V2.7, sin prioridad ni rescate de Easymeshfit original.
+[Detección] 24 regiones analíticas y 0 regiones libres; segmentación=8.0°
+  [brep] regiones: 0.0s
+  [brep] ronda 0: 28 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 0s, ShapeFix 0s, total 0s]
+  [brep] sólido=True válido=True vol=816.45
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}

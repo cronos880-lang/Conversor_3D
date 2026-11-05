@@ -1,0 +1,28 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[R15] estructura_fuente 3.16
+[R15] construccion_CAD_desde_perfiles 8.05
+[R15] Estaciones axiales [0.0, 10.0, 12.0]
+OUTER 0.0 10.0 circle 1
+OUTER 10.0 12.0 circle 1
+BODY 5 6339.674555764432
+[R15] Perfil medido [-3.162121797532349e-16, -5.329070518200751e-15] 8 3
+HOLE [-3.162121797532349e-16, -5.329070518200751e-15] interval 0.0 12.0 samples 3 r 8.5 8.5
+[R15] Perfil medido [14.0, 2.28755891174587e-16] 8 3
+HOLE [14.0, 2.28755891174587e-16] interval 10.0 12.0 samples 3 r 1.1999998092651367 1.1999998092651367
+[R15] Perfil medido [-14.0, 2.28755891174587e-16] 8 3
+HOLE [-14.0, 2.28755891174587e-16] interval 10.0 12.0 samples 3 r 1.1999998092651367 1.1999998092651367
+[R15] Perfil medido [-1.0886790979549985e-16, -14.0] 8 3
+HOLE [-1.0886790979549985e-16, -14.0] interval 10.0 12.0 samples 3 r 1.2000000476837158 1.2000000476837158
+[R15] Perfil medido [-1.0886790979549985e-16, 14.0] 8 3
+HOLE [-1.0886790979549985e-16, 14.0] interval 10.0 12.0 samples 3 r 1.2000000476837158 1.2000000476837158
+TOOLS 5 [3, 3, 3, 3, 3]
+CUT 10 3579.7225820470467 target 3579.7484650141046 True
+[R15] exportacion_y_lectura_fria 8.69
+[R15] CAD_exacto_interferencias_y_geometria_original 8.78
+[Control STEP exportado] volumen_STL=3579.748465 volumen_STEP=3579.722582 caras_STEP=10
+[Calidad] p95 STL->CAD 0.00008 CAD->STL 0.00003; máximos 0.00008 y 0.00006; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+[R15] tres_mallados_finos 10.85
+[R15] material_del_STL_original 18.46
+[R15] validacion_completada 20.91
+

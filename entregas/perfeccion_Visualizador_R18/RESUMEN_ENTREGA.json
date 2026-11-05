@@ -1,0 +1,12 @@
+{
+  "version": "R18 experimental",
+  "fuentes": 342,
+  "modificados": 13,
+  "pruebas_aprobadas": 423,
+  "omitidas": 4,
+  "conversiones_cli": 33,
+  "conversiones_navegador": 3,
+  "codigo_python_sha256": "994a9f8953b554c5a8eb9b45aa5dfdfcf92fbef8aec3b4034922a0845deb9090",
+  "windows_nativo": false,
+  "onshape": false
+}

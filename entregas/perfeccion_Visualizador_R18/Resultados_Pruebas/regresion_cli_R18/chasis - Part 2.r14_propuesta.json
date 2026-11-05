@@ -1,0 +1,11 @@
+{
+  "ok": false,
+  "fases": [
+    {
+      "fase": "lectura_y_comprobacion_de_entradas",
+      "segundos": 0.13978677699924447
+    }
+  ],
+  "error": "Fuera del presupuesto de operaciones medidas",
+  "seconds": 24.59001592599816
+}

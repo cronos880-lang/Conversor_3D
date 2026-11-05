@@ -1,0 +1,27 @@
+{
+  "total": 427,
+  "aprobadas": 423,
+  "omitidas": [
+    {
+      "test": "test_muestreo_no_corrompe_juicio_del_brep",
+      "archivo": "test_correcciones_r2",
+      "motivo": "STEP de regresión de caché no indicado"
+    },
+    {
+      "test": "test_no_acepta_cad_solo_por_ser_valido_sin_interferencias",
+      "archivo": "test_correcciones_r2",
+      "motivo": "STEP de regresión densa no indicado"
+    },
+    {
+      "test": "test_rescate_exige_repetir_control_avanzado",
+      "archivo": "test_mejoras_r3",
+      "motivo": "STEP defectuoso aportado no indicado"
+    },
+    {
+      "test": "test_autointerseccion_real_se_rechaza_en_frio_antes_del_mallado",
+      "archivo": "test_saneamiento_verificado",
+      "motivo": "Fixture CAD externo no disponible"
+    }
+  ],
+  "fallidas": []
+}

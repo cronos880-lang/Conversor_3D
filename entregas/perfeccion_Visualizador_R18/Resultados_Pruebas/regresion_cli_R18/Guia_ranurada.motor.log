@@ -1,0 +1,93 @@
+[Estrategia] Motor estable V2.7, sin prioridad ni rescate de Easymeshfit original.
+[Detección] 61 regiones analíticas y 0 regiones libres; segmentación=8.0°
+  [brep] regiones: 0.5s
+  [brep] ronda 0: 120 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 0s, ShapeFix 0s, total 0s]
+  [brep] sólido=True válido=True vol=151.63
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación] Primer intento rechazado: Reconstrucción deformada: Error de volumen: 1.243066 % > 0.500000 %.
+[Recuperación de curvas] Probando segmentación 1.3° con reconocimiento de cilindros verificado.
+[Reconocimiento axial verificado] []
+[Detección] 61 regiones analíticas y 0 regiones libres; segmentación=1.3°
+  [brep] regiones: 1.5s
+  [brep] ronda 0: 172 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 0s, ShapeFix 0s, total 1s]
+  [brep] sólido=True válido=True vol=149.63
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación CAD] El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 212, in trabajador
+    raise ValueError('No se han confirmado cilindros en la entrada; se omite la reconstrucción que no podría superar ese control.')
+ValueError: No se han confirmado cilindros en la entrada; se omite la reconstrucción que no podría superar ese control.
+
+[Rescate R9] Rechazado: No se han confirmado cilindros en la entrada; se omite la reconstrucción que no podría superar ese control.
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_analitica.py", line 51, in trabajador
+    if not required:raise ValueError('No hay cilindros confirmados por el STL.')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No hay cilindros confirmados por el STL.
+
+[Encuentros analíticos] Rechazado: No hay cilindros confirmados por el STL.
+[Contornos compatibles] Descartado: No se han confirmado cilindros en la entrada; se omite la reconstrucción que no podría superar ese control.
+[Recuperación de curvas] Candidato rechazado: El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 318, in intentar_refinar
+    return analitico(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_analitica.py", line 107, in intentar_refinar
+    raise ValueError(reason)
+ValueError: No hay cilindros confirmados por el STL.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 493, in convertir
+    quality,saneamiento = intentar_refinar(path_stl,candidate,original,
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 321, in intentar_refinar
+    raise previous from current
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 313, in intentar_refinar
+    return _intentar_refinar_R9(source,step,original,validar,log,validar_con_prueba=validar_con_prueba)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/reconstruccion_curvas.py", line 280, in _intentar_refinar_R9
+    raise ValueError(reason)
+ValueError: No se han confirmado cilindros en la entrada; se omite la reconstrucción que no podría superar ese control.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 776, in _main_cad
+    recuperado=convertir(src,candidato_curvas,log,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/intentos_conversion.py", line 25, in wrapped
+    try:return function(path_stl,path_step,log,**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 508, in convertir
+    raise initial from repair_error
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 479, in convertir
+    quality = _calidad(path_stl,candidate,original,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/motor_v2.py", line 174, in _calidad
+    exigir_coherencia_exacta(solid)
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/saneamiento_cad.py", line 25, in exigir_coherencia_exacta
+    if not BRepCheck_Analyzer(shape.wrapped,True,False,True).IsValid():raise IncoherenciaCAD()
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^
+saneamiento_cad.IncoherenciaCAD: El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+VF_CANDIDATOS 0
+EE_CANDIDATOS 0
+ACOPLADO 0 perdida 0.0 malas 0 min inf
+[Control STEP exportado] volumen_STL=149.753982 volumen_STEP=149.753982 caras_STEP=248
+[Calidad] p95 STL->CAD 0.00000 CAD->STL 0.00000; máximos 0.00000 y 0.00000; límite p95 0.04000, máximo 0.08000 (margen preparación 0.000000)
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+Traceback (most recent call last):
+  File "/workspace/work/cilindros_macizos_R18_20261104/prueba paquete R18 con espacios/perfeccion_Visualizador_R18/Visor_experimental_fuentes/recuperacion_cilindros.py", line 47, in trabajador
+    if not patches:raise ValueError('No hay paredes cilíndricas completas respaldadas por el STL')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No hay paredes cilíndricas completas respaldadas por el STL
+
+[Cilindros locales] Se conserva el STEP facetado ya validado: El refinamiento local no produjo un STEP aprobado
+{"ok": true, "error": null, "segundos": 13.688}
+

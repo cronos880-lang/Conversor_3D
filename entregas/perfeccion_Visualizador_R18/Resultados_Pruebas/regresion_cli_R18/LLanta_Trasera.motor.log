@@ -1,0 +1,103 @@
+[Estrategia] Motor estable V2.7, sin prioridad ni rescate de Easymeshfit original.
+[Detección] 38 regiones analíticas y 0 regiones libres; segmentación=8.0°
+  [brep] regiones: 0.1s
+  [brep] ronda 0: 42 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 1s, ShapeFix 0s, total 2s]
+  [brep] sólido=True válido=True vol=667.86
+[Franjas] {'aplicado': False, 'motivo': 'Sin franjas largas, estrechas y casi coplanares.'}
+[Recuperación CAD] El STEP no supera la comprobación CAD exacta de curvas, contornos y superficies.
+[contornos] cilindros fuente con prioridad: 15
+  [brep] regiones: 0.1s
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[contornos] triángulos separados de planos aproximados: 0
+[contornos] superficies confirmadas: 42 de 42
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 3.7616425498895804e-15
+[contornos] refinamiento3D 0 65 puntos, error 2.755389303388256e-07
+[contornos] refinamiento3D 1 69 puntos, error 2.4121428854328997e-08
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 3.925760151196e-15
+[contornos] refinamiento3D 0 65 puntos, error 2.9634050768834186e-10
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 6.440408828902202e-15
+[contornos] refinamiento3D 0 65 puntos, error 3.979680918142492e-08
+[contornos] refinamiento3D 1 67 puntos, error 3.302731421683802e-09
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 6.28264640121322e-15
+[contornos] refinamiento3D 0 65 puntos, error 2.963347345286138e-10
+[contornos] refinamiento3D 0 65 puntos, error 4.926517294112642e-07
+[contornos] refinamiento3D 1 111 puntos, error 6.640045135952732e-08
+[contornos] refinamiento3D 2 117 puntos, error 3.099791867633428e-08
+[contornos] refinamiento3D 3 119 puntos, error 2.9112148247634195e-08
+[contornos] refinamiento3D 0 65 puntos, error 6.902730831370718e-09
+[contornos] refinamiento3D 0 65 puntos, error 2.317355683012501e-06
+[contornos] refinamiento3D 1 129 puntos, error 1.4355297217605312e-07
+[contornos] refinamiento3D 2 133 puntos, error 1.2104631630371898e-08
+[contornos] refinamiento3D 0 65 puntos, error 4.931267207908263e-07
+[contornos] refinamiento3D 1 111 puntos, error 6.642791938737957e-08
+[contornos] refinamiento3D 2 117 puntos, error 3.0975527920418244e-08
+[contornos] refinamiento3D 3 119 puntos, error 2.914200014636492e-08
+[contornos] refinamiento3D 0 65 puntos, error 6.902553195686778e-09
+[contornos] refinamiento3D 0 65 puntos, error 2.3088595221265606e-06
+[contornos] refinamiento3D 1 129 puntos, error 1.430243367073203e-07
+[contornos] refinamiento3D 2 133 puntos, error 1.2105231927961313e-08
+[contornos] cónica condicionada 502839.219494196 7.7499914764867315 error_mm 1.983444569687681e-15
+[contornos] cónica condicionada 501018.3262156589 7.7499914764867315 error_mm 2.1859631079069536e-15
+[contornos] cónica condicionada 1199082.372938986 7.7499914764867315 error_mm 1.9810766743539955e-15
+[contornos] cónica condicionada 1224707.0656061387 7.7499914764867315 error_mm 2.4265927868104726e-15
+[contornos] cónica condicionada 501018.32621038414 7.7499914764867315 error_mm 2.3839810633400824e-15
+[contornos] cónica condicionada 1199082.372938986 7.7499914764867315 error_mm 1.917121134259893e-15
+[contornos] cónica condicionada 1224707.0656061387 7.7499914764867315 error_mm 2.0119432540234785e-15
+[contornos] cónica condicionada 502839.2194888828 7.7499914764867315 error_mm 2.7818454149437484e-15
+[contornos] curvas comunes: 97 en 6.55 s
+[contornos] shell construido 42 caras en 8.832 s
+  [brep] ronda 0: 42 caras, 2 con error, 0 bordes libres, sólido=True, válido=False  [construir 11s, ShapeFix 0s, total 11s]
+     · región 1: CylindricalSurface 518 tri
+     · región 3: CylindricalSurface 518 tri
+  [brep] sólido=True válido=False vol=670.34
+  [brep] sin sólido válido ({'faces': 42, 'free_edges': 0, 'bad_faces': 2, 'round': 0, 'solid': True, 'valid': False, 'organic': False, 'volume': 670.3411357274231}); camino clásico
+[contornos] Se conserva la prioridad anterior; tras su rechazo se ensayan costuras cilíndricas completas: El motor B-Rep no ha reconstruido un sólido CAD válido.
+[contornos] cilindros fuente con prioridad: 15
+  [brep] regiones: 0.1s
+[contornos] triángulos separados de planos aproximados: 0
+[contornos] superficies confirmadas: 53 de 53
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 3.7616425498895804e-15
+[contornos] refinamiento3D 0 65 puntos, error 1.731146981320819e-08
+[contornos] refinamiento3D 0 65 puntos, error 1.730076792938462e-08
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 3.925760151196e-15
+[contornos] refinamiento3D 0 65 puntos, error 2.9634050768834186e-10
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 6.440408828902202e-15
+[contornos] refinamiento3D 0 65 puntos, error 2.794223519231309e-09
+[contornos] refinamiento3D 0 65 puntos, error 2.8060165302434825e-09
+[contornos] cónica condicionada 69761.88651511703 1.1249992948645386 error_mm 6.28264640121322e-15
+[contornos] refinamiento3D 0 65 puntos, error 2.963347345286138e-10
+[contornos] refinamiento3D 0 65 puntos, error 1.573852159708622e-12
+[contornos] refinamiento3D 0 65 puntos, error 7.617677932891809e-08
+[contornos] refinamiento3D 1 66 puntos, error 1.9766433045909082e-08
+[contornos] refinamiento3D 0 65 puntos, error 1.2182957154216467e-07
+[contornos] refinamiento3D 1 69 puntos, error 1.1793191645459444e-08
+[contornos] refinamiento3D 0 65 puntos, error 4.177311385689109e-09
+[contornos] refinamiento3D 0 65 puntos, error 1.2182946296235286e-07
+[contornos] refinamiento3D 1 69 puntos, error 1.1793175547225587e-08
+[contornos] refinamiento3D 0 65 puntos, error 6.670159313770796e-09
+[contornos] refinamiento3D 0 65 puntos, error 1.5736301151036969e-12
+[contornos] refinamiento3D 0 65 puntos, error 7.610051278028607e-08
+[contornos] refinamiento3D 1 66 puntos, error 1.9772880222035383e-08
+[contornos] refinamiento3D 0 65 puntos, error 1.2182680686478875e-07
+[contornos] refinamiento3D 1 69 puntos, error 1.1855688542006249e-08
+[contornos] refinamiento3D 0 65 puntos, error 4.177444168362854e-09
+[contornos] refinamiento3D 0 65 puntos, error 1.2182669872906615e-07
+[contornos] refinamiento3D 1 69 puntos, error 1.1855672332750089e-08
+[contornos] refinamiento3D 0 65 puntos, error 6.675046071435986e-09
+[contornos] cónica condicionada 502839.219494196 7.7499914764867315 error_mm 1.983444569687681e-15
+[contornos] cónica condicionada 501018.3262156589 7.7499914764867315 error_mm 2.1859631079069536e-15
+[contornos] cónica condicionada 1199082.372938986 7.7499914764867315 error_mm 1.9810766743539955e-15
+[contornos] cónica condicionada 1224707.0656061387 7.7499914764867315 error_mm 2.0119432540234785e-15
+[contornos] cónica condicionada 502839.2194888828 7.7499914764867315 error_mm 2.7818454149437484e-15
+[contornos] cónica condicionada 501018.32621038414 7.7499914764867315 error_mm 2.3839810633400824e-15
+[contornos] cónica condicionada 1199082.372938986 7.7499914764867315 error_mm 1.917121134259893e-15
+[contornos] cónica condicionada 1224707.0656061387 7.7499914764867315 error_mm 2.4265927868104726e-15
+[contornos] curvas comunes: 146 en 5.95 s
+[contornos] shell construido 53 caras en 8.757 s
+  [brep] ronda 0: 53 caras, 0 con error, 0 bordes libres, sólido=True, válido=True  [construir 9s, ShapeFix 0s, total 9s]
+  [brep] sólido=True válido=True vol=667.84
+[contornos] normalización del STEP candidato: {'aplicado': False, 'ciclos_reunidos': 0, 'superficies_modificadas': False}
+[Control STEP exportado] volumen_STL=667.617218 volumen_STEP=667.835525 caras_STEP=53
+[Calidad] p95 STL->CAD 0.00003 CAD->STL 0.00198; máximos 0.00008 y 0.00212; límite p95 0.02000, máximo 0.06000 (margen preparación 0.000000)
+

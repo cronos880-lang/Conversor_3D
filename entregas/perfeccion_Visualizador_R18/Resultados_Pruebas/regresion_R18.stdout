@@ -1,0 +1,67 @@
+INICIO Bancada_Motor precision
+INICIO Flame_Base precision
+FINAL Flame_Base True True 422 34.525
+INICIO Base precision
+FINAL Base True True 463 65.841
+INICIO Flame_impresion impresion
+FINAL Flame_impresion True True 422 48.636
+INICIO Base_impresion impresion
+FINAL Base_impresion True True 463 56.417
+INICIO disco_macizo precision
+FINAL disco_macizo True True 3 7.467
+INICIO cilindro_vaciado_profundo_oblicuo precision
+FINAL cilindro_vaciado_profundo_oblicuo True True 13 9.662
+INICIO casquillo_refuerzos_2_oblicuo precision
+FINAL casquillo_refuerzos_2_oblicuo True True 17 18.427
+INICIO casquillo_refuerzos_4 precision
+FINAL casquillo_refuerzos_4 True True 31 14.439
+INICIO Body_usuario precision
+FINAL Body_usuario True True 426 48.889
+INICIO maneta precision
+FINAL maneta True True 36 341.728
+INICIO LLanta_Trasera precision
+FINAL LLanta_Trasera True True 53 52.346
+INICIO Tirante precision
+FINAL Bancada_Motor True True 108 1081.349
+INICIO cubo-carrito precision
+FINAL cubo-carrito True True 1152 99.876
+INICIO cubo-carrito_giro_1 precision
+FINAL cubo-carrito_giro_1 True True 1838 97.224
+INICIO cubo-carrito_giro_2 precision
+FINAL cubo-carrito_giro_2 True True 1195 66.707
+INICIO cubo-carrito_giro_3 precision
+FINAL cubo-carrito_giro_3 True True 1853 100.92
+INICIO brida_independiente precision
+FINAL brida_independiente True True 10 22.878
+INICIO conector precision
+FINAL Tirante True True 22 636.012
+INICIO pinza precision
+FINAL conector True True 192 238.998
+INICIO Technic_PEGS_Cross_x6_A precision
+FINAL pinza True True 147 250.921
+INICIO 1x1-lego-brick precision
+FINAL 1x1-lego-brick True True 2672 180.328
+INICIO Estefi precision
+FINAL Estefi True True 1769 411.142
+INICIO Grapa precision
+FINAL Grapa True True 20 341.225
+INICIO M3 PClip - 2mm precision
+FINAL Technic_PEGS_Cross_x6_A True True 845 1221.134
+INICIO Spoiler_arrière_Porsche_-_5 precision
+FINAL Spoiler_arrière_Porsche_-_5 True True 28 5.3
+INICIO chasis - Part 2 precision
+FINAL M3 PClip - 2mm True True 1484 265.213
+INICIO spur precision
+FINAL spur True True 1405 111.183
+INICIO Body_girada_anonima precision
+FINAL Body_girada_anonima True True 430 48.129
+INICIO Body_impresion impresion
+FINAL Body_impresion True True 426 48.7
+INICIO Independiente_casquillo precision
+FINAL Independiente_casquillo True True 8 9.921
+INICIO Independiente_rebaje_oblicuo precision
+FINAL Independiente_rebaje_oblicuo True True 9 8.764
+INICIO Guia_ranurada impresion
+FINAL Guia_ranurada True True 248 40.191
+FINAL chasis - Part 2 True True 13803 448.457
+{"completo": true, "conversiones": 33, "controles_regresion": 25, "controles_nueva_familia": 8}

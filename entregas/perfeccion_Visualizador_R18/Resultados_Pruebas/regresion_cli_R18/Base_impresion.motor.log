@@ -1,0 +1,12 @@
+Cannot create cache home directory: '/home/agent/.cache/ezdxf', cache files will not be saved.
+See also issue https://github.com/mozman/ezdxf/issues/923.
+[R18] estructura_fuente 5.64
+[R18] propuesta_CAD_con_detalles_del_original 6.42
+[R18] exportacion_y_lectura_fria 12.11
+[R18] CAD_exacto_BOP_y_geometria_original 21.48
+[Control STEP exportado] volumen_STL=469104.113620 volumen_STEP=469111.653133 caras_STEP=463
+[Calidad] p95 STL->CAD 0.00218 CAD->STL 0.00146; máximos 0.00226 y 0.00197; límite p95 0.04000, máximo 0.08000 (margen preparación 0.000000)
+[R18] tres_mallados_finos 30.71
+[R18] material_y_detalles_del_original 51.68
+[R18] validacion_completada 53.3
+

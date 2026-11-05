@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "original_sha256": "f0597ebfe07ff907247c96cecb493cf13904b476d413bfe7abba14eb2f078ea2",
+  "habilitado": true,
+  "reparado": false,
+  "original_conservado": true,
+  "entrada": {
+    "caras": 6704,
+    "vertices": 3352,
+    "topologia_vertices": {
+      "vertices_no_manifold": 0,
+      "vertices_de_borde": 0,
+      "ejemplos": [],
+      "enlaces_regulares_cerrados": true,
+      "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+    },
+    "aristas_1_cara": 0,
+    "aristas_2_caras": 10056,
+    "aristas_mas_2_caras": 0,
+    "caras_degeneradas": 0,
+    "caras_duplicadas": 0,
+    "pares_caras_contacto_opuestas": 0,
+    "componentes": [
+      {
+        "caras": 6704,
+        "estanco": true,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": 1193.7604683453712,
+        "euler": 0
+      }
+    ],
+    "numero_componentes": 1,
+    "estanco_global": true,
+    "caja_mm": [
+      [
+        -5.999831199645996,
+        -5.999958038330078,
+        0.0
+      ],
+      [
+        6.0,
+        5.999958038330078,
+        15.0
+      ]
+    ],
+    "ruta": "paso_directo",
+    "gravedad": "informacion",
+    "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+    "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+  },
+  "ruta_seleccionada": "paso_directo",
+  "resultado": "STL original; reconstrucción CAD medida y validada"
+}

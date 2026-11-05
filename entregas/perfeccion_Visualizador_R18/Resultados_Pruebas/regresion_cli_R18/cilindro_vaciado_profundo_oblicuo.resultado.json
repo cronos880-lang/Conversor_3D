@@ -1,0 +1,648 @@
+{
+  "archivo": "entrada.stl",
+  "sha256": "bb3bd039639d5363b434ae528c484057cfc9ad0cc0430247408e8d3179283a6c",
+  "limite_s": 2400,
+  "limite_ram_mb": 4200,
+  "segundos": 9.662,
+  "ram_pico_mb": 678.03,
+  "codigo": 0,
+  "informe_motor": {
+    "ok": true,
+    "preprocesamiento": {
+      "version": 1,
+      "original_sha256": "bb3bd039639d5363b434ae528c484057cfc9ad0cc0430247408e8d3179283a6c",
+      "habilitado": true,
+      "reparado": false,
+      "original_conservado": true,
+      "entrada": {
+        "caras": 1468,
+        "vertices": 736,
+        "topologia_vertices": {
+          "vertices_no_manifold": 0,
+          "vertices_de_borde": 0,
+          "ejemplos": [],
+          "enlaces_regulares_cerrados": true,
+          "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+        },
+        "aristas_1_cara": 0,
+        "aristas_2_caras": 2202,
+        "aristas_mas_2_caras": 0,
+        "caras_degeneradas": 0,
+        "caras_duplicadas": 0,
+        "pares_caras_contacto_opuestas": 0,
+        "componentes": [
+          {
+            "caras": 1468,
+            "estanco": true,
+            "orientacion_consistente": true,
+            "volumen_firmado_mm3": 993.7091232482417,
+            "euler": 2
+          }
+        ],
+        "numero_componentes": 1,
+        "estanco_global": true,
+        "caja_mm": [
+          [
+            7.125371932983398,
+            -16.28557777404785,
+            19.482524871826172
+          ],
+          [
+            20.704504013061523,
+            -3.0682756900787354,
+            31.224864959716797
+          ]
+        ],
+        "ruta": "paso_directo",
+        "gravedad": "informacion",
+        "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+        "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+      },
+      "ruta_seleccionada": "paso_directo",
+      "resultado": "STL original; reconstrucción CAD medida y validada"
+    },
+    "resultado": {
+      "motor": "CAD medido con detalles originales verificados",
+      "modo": "superficies",
+      "estrategia": "reconstruccion_fuente_verificada_r18",
+      "caras_stl": 1468,
+      "calidad": {
+        "integridad_cad": {
+          "brep_valido": true,
+          "solidos": 1,
+          "aristas": 27,
+          "aristas_parametrizacion_incoherente": 0,
+          "tolerancia_max_mm": 1e-07,
+          "tolerancia_p95_mm": 1e-07,
+          "tolerancia_media_mm": 1e-07,
+          "aristas_tol_mayor_001mm": 0,
+          "brep_exacto": true
+        },
+        "perfil_validacion": {
+          "id": "precision",
+          "nombre": "Precisión",
+          "caja_mm": 0.02,
+          "p95_mm": null,
+          "max_mm": 0.06,
+          "volumen_pct": 0.5
+        },
+        "caras_step": 13,
+        "bytes_step": 41259,
+        "volumen_error_pct": 0.002652,
+        "caja_error_mm": 7.5e-05,
+        "caja_error_analitico_mm": 7.5e-05,
+        "caja_modo_verificacion": "OpenCascade",
+        "distancia_stl_step_mm": {
+          "media": 7.3e-05,
+          "p95": 7.6e-05,
+          "p99": 7.7e-05,
+          "max_muestreado": 7.7e-05,
+          "muestras": 736
+        },
+        "distancia_step_stl_mm": {
+          "media": 7.7e-05,
+          "p95": 0.000153,
+          "p99": 0.000154,
+          "max_muestreado": 0.000154,
+          "muestras": 554
+        },
+        "contraste_muestreo_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "tipos_caras": {
+          "GeomAbs_Plane": 12,
+          "GeomAbs_Cylinder": 1
+        },
+        "limites_validacion": {
+          "volumen_error_max_pct": 0.5,
+          "caja_error_max_mm": 0.02,
+          "p95_superficie_max_mm": 0.02,
+          "desviacion_max_observada_mm": 0.06,
+          "margen_preparacion_mm": 0.0
+        },
+        "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+        "autointerferencias_occ": false,
+        "interferencias_comprobadas_en_frio": true,
+        "control_cad_reutilizado_por_sha256": false,
+        "sin_objetos_sueltos_en_step": true,
+        "inspeccion_densa": {
+          "stl_a_cad": {
+            "muestras": 3000,
+            "p95_mm": 0.00013331079724152977,
+            "max_mm": 0.00015475939012862697,
+            "zonas_sospechosas": []
+          },
+          "cad_a_stl": {
+            "muestras": 2760,
+            "p95_mm": 0.0002341760274516646,
+            "max_mm": 0.000335827336861031,
+            "zonas_sospechosas": []
+          },
+          "limite_p95_mm": 0.02,
+          "limite_max_mm": 0.06,
+          "contraste_muestras_cad": {
+            "muestras_proyectadas": 0,
+            "max_distancia_al_brep_mm": 0.0
+          },
+          "nota": "Muestreo determinista, no garantía Hausdorff global.",
+          "aceptado": true
+        },
+        "precision_alcanzada": "precision",
+        "desviacion_max_verificada_mm": 0.000336,
+        "limites_precision_originales": {
+          "caja_mm": 0.02,
+          "p95_mm": 0.02,
+          "max_mm": 0.06
+        }
+      },
+      "reconstruccion_fuente": {
+        "aplicado": true,
+        "metodo": "nucleo_axial_y_detalles_originales",
+        "original_sha256": "bb3bd039639d5363b434ae528c484057cfc9ad0cc0430247408e8d3179283a6c",
+        "step_sha256": "5ca55c5841956a36f0d7d970274b32a9852ae5bf8f041e1720409a3885befead",
+        "construccion": {
+          "eje": [
+            0.20331947480599463,
+            -0.1504280903496011,
+            0.9674877677771365
+          ],
+          "origen": [
+            13.90844031859323,
+            -9.67211797229757,
+            25.322777606275853
+          ],
+          "direccion_meridiana": [
+            0.6838627003210329,
+            0.7289783233025956,
+            -0.030371224284860176
+          ],
+          "meridianos_contrastados": 10,
+          "perfil": {
+            "type": "source_supported_lines",
+            "segments": 4,
+            "points": [
+              [
+                0.0,
+                -4.468044283206518
+              ],
+              [
+                5.99977134525431,
+                -4.46804291609381
+              ],
+              [
+                5.999771854348395,
+                4.5319571351259045
+              ],
+              [
+                0.0,
+                4.5319571351259045
+              ],
+              [
+                0.0,
+                -4.468044283206518
+              ]
+            ],
+            "profile": [
+              [
+                0.0,
+                -4.468043599650164
+              ],
+              [
+                5.999925070695696,
+                -4.468043599650164
+              ],
+              [
+                5.999925070695696,
+                4.5319571351259045
+              ],
+              [
+                0.0,
+                4.5319571351259045
+              ],
+              [
+                0.0,
+                -4.468043599650164
+              ]
+            ],
+            "simplificacion_meridiano_mm": 8e-05,
+            "ajuste_circular_confirmado_mm": 0.004,
+            "cilindros_confirmados": [
+              {
+                "z_mm": [
+                  -4.46804291609381,
+                  4.5319571351259045
+                ],
+                "radio_mm": 5.999925070695696,
+                "estaciones": 19,
+                "variacion_evidencia_mm": 8.533677559530162e-05
+              }
+            ],
+            "propuesta_no_es_aceptacion": true
+          },
+          "secciones": [
+            {
+              "z": -4.158067790259894,
+              "circulos": [
+                {
+                  "center": [
+                    1.1593167438816998e-06,
+                    -4.0584613407446124e-07
+                  ],
+                  "radius": 5.999989976020153,
+                  "error": 2.2919119349928962e-05,
+                  "radial_segment_error": 0.0002210348684448249,
+                  "points": 542,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -3.6565148601215918,
+              "circulos": [
+                {
+                  "center": [
+                    -3.815045245339488e-07,
+                    6.916762433292756e-07
+                  ],
+                  "radius": 5.999970426184766,
+                  "error": 4.719778033912547e-05,
+                  "radial_segment_error": 0.00020060026648405227,
+                  "points": 595,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -3.346538102139011,
+              "circulos": [
+                {
+                  "center": [
+                    -3.302335110991206e-07,
+                    4.1750463559628304e-07
+                  ],
+                  "radius": 5.9999597572304975,
+                  "error": 6.105848975046513e-05,
+                  "radial_segment_error": 0.00018969660330725446,
+                  "points": 604,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -2.535008414018127,
+              "circulos": [
+                {
+                  "center": [
+                    -2.4825082443197255e-07,
+                    4.5418991514133145e-07
+                  ],
+                  "radius": 5.999936409937957,
+                  "error": 9.218751801665093e-05,
+                  "radial_segment_error": 0.0001663654910251111,
+                  "points": 613,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -2.3434322418624056,
+              "circulos": [
+                {
+                  "center": [
+                    -4.851859411077186e-07,
+                    2.084840435869189e-08
+                  ],
+                  "radius": 5.999931680644946,
+                  "error": 9.765088154711776e-05,
+                  "radial_segment_error": 0.00016112911288246323,
+                  "points": 615,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -2.033455483879824,
+              "circulos": [
+                {
+                  "center": [
+                    -6.33518141557321e-08,
+                    2.883594500224622e-08
+                  ],
+                  "radius": 5.999925070695696,
+                  "error": 0.00010691961915654247,
+                  "radial_segment_error": 0.00015493000016419956,
+                  "points": 616,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -1.2219257957589407,
+              "circulos": [
+                {
+                  "center": [
+                    1.4508511034239113e-07,
+                    2.3353355276987346e-08
+                  ],
+                  "radius": 5.999912436058675,
+                  "error": 0.00012486905796915693,
+                  "radial_segment_error": 0.00014252244592682928,
+                  "points": 616,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": -0.7203728656206385,
+              "circulos": [
+                {
+                  "center": [
+                    1.9777839309342848e-07,
+                    -3.954929949940428e-07
+                  ],
+                  "radius": 5.999907504701593,
+                  "error": 0.00013130671099226277,
+                  "radial_segment_error": 0.00013767130696606955,
+                  "points": 617,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.09115682250024548,
+              "circulos": [
+                {
+                  "center": [
+                    2.2486527295056957e-07,
+                    6.833531318253426e-09
+                  ],
+                  "radius": 5.999904639244558,
+                  "error": 0.00013485846057470496,
+                  "radial_segment_error": 0.00013489419961310034,
+                  "points": 618,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.5927097526385481,
+              "circulos": [
+                {
+                  "center": [
+                    2.2219463747391588e-07,
+                    -4.1783038309470277e-07
+                  ],
+                  "radius": 5.999906313143282,
+                  "error": 0.00013300619489431398,
+                  "radial_segment_error": 0.00013654781899496982,
+                  "points": 617,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 0.9026865106211286,
+              "circulos": [
+                {
+                  "center": [
+                    1.911324812933768e-07,
+                    -4.1279117737533233e-07
+                  ],
+                  "radius": 5.999908395910199,
+                  "error": 0.00013005833053014726,
+                  "radial_segment_error": 0.00013860289172296092,
+                  "points": 617,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 1.4042394407594312,
+              "circulos": [
+                {
+                  "center": [
+                    1.3342155832929414e-07,
+                    -1.0648202097813348e-08
+                  ],
+                  "radius": 5.99991387424343,
+                  "error": 0.00012282646065120417,
+                  "radial_segment_error": 0.0001439824658282518,
+                  "points": 616,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 1.9057923708977338,
+              "circulos": [
+                {
+                  "center": [
+                    1.570605586559415e-08,
+                    -1.6874497253238207e-08
+                  ],
+                  "radius": 5.9999215033880295,
+                  "error": 0.0001119927449266811,
+                  "radial_segment_error": 0.00015148443200274642,
+                  "points": 616,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 2.215769128880315,
+              "circulos": [
+                {
+                  "center": [
+                    -7.50410029115578e-08,
+                    -2.0246470448966047e-08
+                  ],
+                  "radius": 5.999927397802823,
+                  "error": 0.00010362307516320612,
+                  "radial_segment_error": 0.00015728497646616546,
+                  "points": 616,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 3.0272988170011983,
+              "circulos": [
+                {
+                  "center": [
+                    -3.7934157690044934e-07,
+                    3.2244664693002745e-07
+                  ],
+                  "radius": 5.999947461562851,
+                  "error": 7.619345169906921e-05,
+                  "radial_segment_error": 0.0001772236736581334,
+                  "points": 613,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 3.2188749891569204,
+              "circulos": [
+                {
+                  "center": [
+                    -3.872467051468931e-07,
+                    2.490694816503769e-07
+                  ],
+                  "radius": 5.9999536361252,
+                  "error": 6.896603827133418e-05,
+                  "radial_segment_error": 0.00018334560810284728,
+                  "points": 607,
+                  "parcial": false
+                }
+              ]
+            },
+            {
+              "z": 4.0304046772778035,
+              "circulos": [
+                {
+                  "center": [
+                    1.1675316949344428e-07,
+                    -4.3859488734615537e-07
+                  ],
+                  "radius": 5.999981804621468,
+                  "error": 3.1675140372833255e-05,
+                  "radial_segment_error": 0.00021198307712211317,
+                  "points": 579,
+                  "parcial": false
+                }
+              ]
+            }
+          ],
+          "resolucion_numerica_union_mm": 0.0001,
+          "normalizacion_aristas_planas_mm": 0.0001,
+          "metodo": "nucleo_axial_y_refuerzos_originales",
+          "rebajes": [
+            {
+              "faces": 2,
+              "faces_fuente": [
+                1464,
+                1465
+              ],
+              "vertices": 4,
+              "depth_mm": 6.000000198787941,
+              "area_mm2": 3.9999994811599144,
+              "contornos": 1
+            },
+            {
+              "faces": 2,
+              "faces_fuente": [
+                1466,
+                1467
+              ],
+              "vertices": 4,
+              "depth_mm": 0.11999981476211463,
+              "area_mm2": 0.9600007404445172,
+              "contornos": 1
+            }
+          ],
+          "refuerzos": [],
+          "vaciados_abiertos_refuerzos": [],
+          "caras_finales": 13,
+          "limites_aceptacion_modificados": false,
+          "marco_construccion_centrado": true,
+          "estrategia_construccion": "marco_centrado"
+        },
+        "topologia_material": {
+          "euler_malla": 2,
+          "euler_brep": 2,
+          "shells": 1,
+          "cavidades_preservadas": 0,
+          "probes_cavidades": []
+        },
+        "mallado_fino": {
+          "resoluciones": [
+            {
+              "cerrado": true,
+              "orientado": true,
+              "euler": 2,
+              "intersecciones_cgal": 0,
+              "caras": 1976,
+              "deflexion_mm": 0.00025,
+              "angulo_rad": 0.04,
+              "superficie": {
+                "max_mm": 0.00020151297980171,
+                "p95_mm": 0.00018077011097582732,
+                "muestras": [
+                  6966,
+                  6204
+                ]
+              },
+              "margen_microbucles_mm": 0.0
+            },
+            {
+              "cerrado": true,
+              "orientado": true,
+              "euler": 2,
+              "intersecciones_cgal": 0,
+              "caras": 1408,
+              "deflexion_mm": 0.0005,
+              "angulo_rad": 0.04,
+              "superficie": {
+                "max_mm": 0.00032580118164607326,
+                "p95_mm": 0.00028612179084529075,
+                "muestras": [
+                  6114,
+                  6204
+                ]
+              },
+              "margen_microbucles_mm": 0.0
+            },
+            {
+              "cerrado": true,
+              "orientado": true,
+              "euler": 2,
+              "intersecciones_cgal": 0,
+              "caras": 1288,
+              "deflexion_mm": 0.001,
+              "angulo_rad": 0.04,
+              "superficie": {
+                "max_mm": 0.00037399984141872085,
+                "p95_mm": 0.0003381592311923153,
+                "muestras": [
+                  5934,
+                  6204
+                ]
+              },
+              "margen_microbucles_mm": 0.0
+            }
+          ],
+          "step_modificado": false,
+          "limites_geometricos_modificados": false
+        },
+        "material_original": {
+          "puntos": 2998,
+          "puntos_extra_contacto": 0,
+          "discrepancias": 0,
+          "banda_excluida_mm": 0.002,
+          "clasificador": "CAD_exacto_indexado_doble_rayo",
+          "consultas_nativas": 10859,
+          "fallbacks": 0,
+          "tolerancia_cad_mm": 1e-07
+        },
+        "detalles_original": {
+          "puntos": 8,
+          "discrepancias": 0,
+          "caras_fuente": 4,
+          "distancia_probe_mm": 0.0005,
+          "consultas_nativas": 60,
+          "refuerzos": {
+            "puntos": 0,
+            "discrepancias": 0,
+            "caras_fuente": 0
+          }
+        },
+        "segundos": 8.658646452997345,
+        "ram_pico_mb": 575.9,
+        "limites_aceptacion_modificados": false
+      }
+    }
+  },
+  "ok": true,
+  "sha256_step": "5ca55c5841956a36f0d7d970274b32a9852ae5bf8f041e1720409a3885befead"
+}

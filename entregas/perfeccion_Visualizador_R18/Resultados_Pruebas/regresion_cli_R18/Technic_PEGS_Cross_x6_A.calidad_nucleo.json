@@ -1,0 +1,615 @@
+{
+  "ok": true,
+  "hipotesis_descartada": "No hay hipótesis compacta útil: [{'segmentacion': 8.0, 'error': 'La hipótesis no conserva volumen o excede 256 caras'}, {'segmentacion': 1.3, 'error': 'La hipótesis no conserva volumen o excede 256 caras'}]",
+  "esferas_fuente": [],
+  "realimentacion_bop": [
+    {
+      "iteracion": 0,
+      "caras": 826,
+      "interferencias": 4,
+      "retiros": [
+        [
+          475,
+          810
+        ],
+        [
+          478,
+          1070
+        ],
+        [
+          515,
+          1074
+        ]
+      ],
+      "refinar": [],
+      "defectos": [
+        {
+          "estado": "BOPAlgo_CheckStatus.BOPAlgo_SelfIntersect",
+          "regiones": [
+            475,
+            476,
+            478
+          ],
+          "retirar": 475
+        },
+        {
+          "estado": "BOPAlgo_CheckStatus.BOPAlgo_SelfIntersect",
+          "regiones": [
+            478,
+            513
+          ],
+          "retirar": 478
+        },
+        {
+          "estado": "BOPAlgo_CheckStatus.BOPAlgo_SelfIntersect",
+          "regiones": [
+            478,
+            514,
+            515
+          ],
+          "retirar": 515
+        },
+        {
+          "estado": "BOPAlgo_CheckStatus.BOPAlgo_SelfIntersect",
+          "regiones": [
+            478,
+            513,
+            514
+          ],
+          "retirar": 478
+        }
+      ]
+    },
+    {
+      "iteracion": 1,
+      "caras": 845,
+      "interferencias": 0,
+      "retiros": [],
+      "refinar": []
+    }
+  ],
+  "reunion_cilindros_omitida": "No hay caras cilíndricas que reunir",
+  "subdivisiones_contorno": [],
+  "hipotesis_retiradas": [
+    {
+      "region_anterior": 101,
+      "triangulos": 16,
+      "vertice": 515,
+      "parche_completo": true,
+      "motivo": "La hipótesis de perfil no admite una esquina próxima y coherente"
+    },
+    {
+      "region_anterior": 93,
+      "triangulos": 3,
+      "vertice": 36,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 212,
+      "triangulos": 4,
+      "vertice": 87,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 408,
+      "triangulos": 4,
+      "vertice": 1104,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 416,
+      "triangulos": 4,
+      "vertice": 914,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 44,
+      "triangulos": 4,
+      "vertice": 100,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 81,
+      "triangulos": 4,
+      "vertice": 270,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 125,
+      "triangulos": 10,
+      "vertice": 47,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 162,
+      "triangulos": 2,
+      "vertice": 265,
+      "parche_completo": false,
+      "motivo": "El ajuste une vértices distintos por debajo de las tolerancias CAD; retirar la hipótesis"
+    },
+    {
+      "region_anterior": 162,
+      "triangulos": 5,
+      "vertice": 271,
+      "parche_completo": true,
+      "motivo": "El corte de los planos medidos no conserva el contorno fuente; retirar una hipótesis plana"
+    },
+    {
+      "region_anterior": 169,
+      "triangulos": 20,
+      "vertice": 271,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 216,
+      "triangulos": 23,
+      "vertice": 111,
+      "parche_completo": true,
+      "motivo": "Una frontera propuesta fuerza autointerferencias en una transición triangular"
+    },
+    {
+      "region_anterior": 488,
+      "triangulos": 2,
+      "vertice": 1054,
+      "parche_completo": true,
+      "motivo": "Una frontera propuesta fuerza autointerferencias en una transición triangular"
+    },
+    {
+      "region_anterior": 530,
+      "triangulos": 23,
+      "vertice": 1178,
+      "parche_completo": true,
+      "motivo": "La hipótesis medida produce un contorno CAD inválido; conservar la fuente como transición libre"
+    },
+    {
+      "region_anterior": 602,
+      "triangulos": 2,
+      "vertice": 1136,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 560,
+      "triangulos": 3,
+      "vertice": 911,
+      "parche_completo": true,
+      "motivo": "La hipótesis medida produce un contorno CAD inválido; conservar la fuente como transición libre"
+    },
+    {
+      "region_anterior": 565,
+      "triangulos": 4,
+      "vertice": 911,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 724,
+      "triangulos": 3,
+      "vertice": 911,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 615,
+      "triangulos": 12,
+      "vertice": 937,
+      "parche_completo": true,
+      "motivo": "La hipótesis medida produce un contorno CAD inválido; conservar la fuente como transición libre"
+    },
+    {
+      "region_anterior": 475,
+      "triangulos": 5,
+      "vertice": 810,
+      "parche_completo": true,
+      "motivo": "La comprobación BOP del conjunto identifica un encuentro incompatible"
+    },
+    {
+      "region_anterior": 478,
+      "triangulos": 20,
+      "vertice": 1070,
+      "parche_completo": true,
+      "motivo": "La comprobación BOP del conjunto identifica un encuentro incompatible"
+    },
+    {
+      "region_anterior": 515,
+      "triangulos": 3,
+      "vertice": 1074,
+      "parche_completo": true,
+      "motivo": "La comprobación BOP del conjunto identifica un encuentro incompatible"
+    },
+    {
+      "region_anterior": 458,
+      "triangulos": 5,
+      "vertice": 1105,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    },
+    {
+      "region_anterior": 239,
+      "triangulos": 5,
+      "vertice": 86,
+      "parche_completo": true,
+      "motivo": "El ajuste invierte un triángulo de transición frente al STL; retirar la hipótesis responsable"
+    }
+  ],
+  "refinamiento_regiones_libres": [
+    {
+      "region": 81,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 125,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 138,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 148,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 148,
+      "nivel": 2,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 162,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 169,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 738,
+      "nivel": 2,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 258,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 258,
+      "nivel": 2,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 467,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 530,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 561,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 565,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 606,
+      "nivel": 2,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 632,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 821,
+      "nivel": 2,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 478,
+      "nivel": 1,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    },
+    {
+      "region": 478,
+      "nivel": 2,
+      "motivo": "No hay una superficie de fronteras exactas para la región; requiere subdivisión local"
+    }
+  ],
+  "exportacion_solida": {
+    "tipo_entrada": "Solid",
+    "shell_cerrado_solidificado": false,
+    "solid_reconstruido_desde_frontera": true,
+    "banderas_cierre_antes": [
+      true
+    ],
+    "caras": 845,
+    "aristas": 1716,
+    "shells": 1,
+    "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "auditoria_step_crudo": {
+      "ok": true,
+      "modified": false,
+      "corrected_bounds": [],
+      "audit": {
+        "ok": true,
+        "complete": true,
+        "solids": 1,
+        "shells": [
+          {
+            "shell": 16,
+            "faces": 845,
+            "edges": 1716,
+            "errors": []
+          }
+        ],
+        "unsupported": [],
+        "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+      }
+    },
+    "ok": true,
+    "modo": "STEPControl_ManifoldSolidBrep",
+    "solidos_reimportados": 1,
+    "caras_reimportadas": 845,
+    "tolerancia_max_mm": 1e-07,
+    "step_sha256": "35b873d6921d51d294653c9543e3a6cc7a243252d009769d6ad8d93f592cc9d7",
+    "requiere_validacion_original": true
+  },
+  "original_sha256": "bf2a3c1c4749e48e789bf8f61c0b05093ea84eda0d01a7c49d0507d50e76130d",
+  "base_sha256": "17151eba81a9f575b25a5726553a278696d022006fc520264eff4a2cb2beae8a",
+  "step_sha256": "35b873d6921d51d294653c9543e3a6cc7a243252d009769d6ad8d93f592cc9d7",
+  "calidad": {
+    "integridad_cad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 1716,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0,
+      "brep_exacto": true
+    },
+    "perfil_validacion": {
+      "id": "precision",
+      "nombre": "Precisión",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    },
+    "caras_step": 845,
+    "bytes_step": 3430417,
+    "volumen_error_pct": 0.000392,
+    "caja_error_mm": 5.9e-05,
+    "caja_error_analitico_mm": 5.9e-05,
+    "caja_modo_verificacion": "OpenCascade",
+    "distancia_stl_step_mm": {
+      "media": 2e-05,
+      "p95": 5.9e-05,
+      "p99": 0.000608,
+      "max_muestreado": 0.001155,
+      "muestras": 800
+    },
+    "distancia_step_stl_mm": {
+      "media": 9.1e-05,
+      "p95": 0.000403,
+      "p99": 0.000488,
+      "max_muestreado": 0.0005,
+      "muestras": 800
+    },
+    "contraste_muestreo_cad": {
+      "muestras_proyectadas": 0,
+      "max_distancia_al_brep_mm": 0.0
+    },
+    "tipos_caras": {
+      "GeomAbs_Plane": 819,
+      "GeomAbs_BSplineSurface": 22,
+      "GeomAbs_SurfaceOfExtrusion": 4
+    },
+    "limites_validacion": {
+      "volumen_error_max_pct": 0.5,
+      "caja_error_max_mm": 0.02,
+      "p95_superficie_max_mm": 0.02,
+      "desviacion_max_observada_mm": 0.06,
+      "margen_preparacion_mm": 0.0
+    },
+    "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+    "autointerferencias_occ": false,
+    "interferencias_comprobadas_en_frio": true,
+    "control_cad_reutilizado_por_sha256": false,
+    "sin_objetos_sueltos_en_step": true,
+    "inspeccion_densa": {
+      "stl_a_cad": {
+        "muestras": 3000,
+        "p95_mm": 4.134268776897784e-05,
+        "max_mm": 0.001154549967750541,
+        "zonas_sospechosas": []
+      },
+      "cad_a_stl": {
+        "muestras": 348925,
+        "p95_mm": 0.0005533154925318861,
+        "max_mm": 0.0011917432158242086,
+        "zonas_sospechosas": []
+      },
+      "limite_p95_mm": 0.02,
+      "limite_max_mm": 0.06,
+      "contraste_muestras_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "nota": "Muestreo determinista, no garantía Hausdorff global.",
+      "aceptado": true
+    },
+    "precision_alcanzada": "precision",
+    "desviacion_max_verificada_mm": 0.001192,
+    "limites_precision_originales": {
+      "caja_mm": 0.02,
+      "p95_mm": 0.02,
+      "max_mm": 0.06
+    }
+  },
+  "topologia_material": {
+    "euler_malla": 2,
+    "euler_brep": 2,
+    "shells": 1,
+    "cavidades_preservadas": 0,
+    "probes_cavidades": []
+  },
+  "mallado_fino": {
+    "resoluciones": [
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 97082,
+        "deflexion_mm": 0.00025,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0011571120577926225,
+          "p95_mm": 0.00039133895975428914,
+          "muestras": [
+            149625,
+            7560
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 157698,
+        "deflexion_mm": 0.0005,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0011659884091408793,
+          "p95_mm": 0.0004955221168491395,
+          "muestras": [
+            240549,
+            7560
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 182580,
+        "deflexion_mm": 0.001,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.001201824464447486,
+          "p95_mm": 0.0005255309765629146,
+          "muestras": [
+            277872,
+            7560
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      }
+    ],
+    "step_modificado": false,
+    "limites_geometricos_modificados": false
+  },
+  "cilindros_respaldados": {
+    "confirmados": 0,
+    "preservados": 0,
+    "control_mm": 0.008,
+    "cilindros": []
+  },
+  "inventario": {
+    "caras": 845,
+    "cilindros": 0,
+    "area_cilindrica_mm2": 0
+  },
+  "metodo": "perfiles_medidos_certificados",
+  "brep_exacto": true,
+  "revision_cad": "R8_BOP_FRIO_20261027",
+  "circulos_canonicos": 0,
+  "perfiles_fuente": [],
+  "barridos_fuente": [
+    {
+      "tipo": "resto_medido_desde_fuente",
+      "triangulos": 18,
+      "max_triangulos_mm": 0.0011545499689020607,
+      "eje": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "vertices_fuente": 20,
+      "max_testigos_mm": 0.0011573529250901314,
+      "max_curva_polilinea_mm": 0.0011320405877527336,
+      "area_fuente": 13.471170745370426
+    },
+    {
+      "tipo": "resto_medido_desde_fuente",
+      "triangulos": 14,
+      "max_triangulos_mm": 0.001070134904486102,
+      "eje": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "vertices_fuente": 16,
+      "max_testigos_mm": 0.0010703288244675324,
+      "max_curva_polilinea_mm": 0.0010482938389208866,
+      "area_fuente": 9.001860878651895
+    },
+    {
+      "tipo": "resto_medido_desde_fuente",
+      "triangulos": 14,
+      "max_triangulos_mm": 0.0006273109250943468,
+      "eje": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "vertices_fuente": 16,
+      "max_testigos_mm": 0.0006274658846735101,
+      "max_curva_polilinea_mm": 0.000619494226013083,
+      "area_fuente": 7.007201221246119
+    },
+    {
+      "tipo": "resto_medido_desde_fuente",
+      "triangulos": 14,
+      "max_triangulos_mm": 0.0006273096576383447,
+      "eje": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "vertices_fuente": 16,
+      "max_testigos_mm": 0.000627466151781837,
+      "max_curva_polilinea_mm": 0.0006195054578499654,
+      "area_fuente": 7.007202186928971
+    }
+  ]
+}

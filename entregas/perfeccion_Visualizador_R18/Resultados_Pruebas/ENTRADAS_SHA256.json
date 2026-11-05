@@ -1,0 +1,23 @@
+{
+  "flame_stl": {
+    "path": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Flame_Base.stl",
+    "bytes": 137084,
+    "sha256": "cd7b90af65d0dcc75e57bebe30029c802e5df8ee85aaa7c17895f42e88be808b"
+  },
+  "base_stl": {
+    "path": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Base.stl",
+    "bytes": 962684,
+    "sha256": "94746b2d37f2211b3ab80ae292a3f9a57cd5dc2a7f5b75406f3568e3c28d22da"
+  },
+  "body_step": {
+    "path": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Body.step",
+    "bytes": 1761452,
+    "sha256": "b34483b611e7d77fcffe4db6832ff55239ccb4914005897e4b5f2652eb7277ac"
+  },
+  "body_stl": {
+    "path": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Body.stl",
+    "sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+    "bytes": 788884,
+    "procedencia": "original previo de Body; STEP del usuario coincide con R17"
+  }
+}

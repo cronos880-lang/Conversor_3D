@@ -1,0 +1,130 @@
+{
+  "fuentes_33_verificadas": true,
+  "referencias": [
+    {
+      "id": "Bancada_Motor",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Bancada_Motor.step",
+      "sha256": "4fde5eef21daf0c17b198fa038a27dc55c80338db0176c652c620b573ab26f60"
+    },
+    {
+      "id": "Body_usuario",
+      "path": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Body.step",
+      "sha256": "b34483b611e7d77fcffe4db6832ff55239ccb4914005897e4b5f2652eb7277ac"
+    },
+    {
+      "id": "maneta",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/maneta.step",
+      "sha256": "0e6943da55685cad0212edf388f9e7836be802e660ea44970b6888e4c60e38d8"
+    },
+    {
+      "id": "LLanta_Trasera",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/LLanta_Trasera.step",
+      "sha256": "58b2bf2deaa7749a729d7cc66e0b48d03f441c36fbe2a0a2530f50d253fc07f8"
+    },
+    {
+      "id": "Tirante",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Tirante.step",
+      "sha256": "aa00b67b0a0860347e93e505458edf9bb14eba7c9b9ab1f77cd2dcb64e8dc20e"
+    },
+    {
+      "id": "cubo-carrito",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/cubo-carrito.step",
+      "sha256": "dc897048a10ec06d49cf7c24e61520e07ea8be42c71c48ff8681391f3085cccf"
+    },
+    {
+      "id": "cubo-carrito_giro_1",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/cubo-carrito_giro_1.step",
+      "sha256": "365a9d72095d1046b19bc39eebd003412f755dff910efb055c2c54197ac6993c"
+    },
+    {
+      "id": "cubo-carrito_giro_2",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/cubo-carrito_giro_2.step",
+      "sha256": "b1ecb5f08b0d0c43de6ac085eb471879706ba5bb43903e6bbebbff4bfd6f8b01"
+    },
+    {
+      "id": "cubo-carrito_giro_3",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/cubo-carrito_giro_3.step",
+      "sha256": "ff1a1729e882bad4695225870ae83d4d2fa4846ba64c4aa46beafa95880a48a1"
+    },
+    {
+      "id": "brida_independiente",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/brida_independiente.step",
+      "sha256": "f8bb7e7c5fd3920ed09aef6db2041e5ca2f1d366257070b8ce93849b64732f49"
+    },
+    {
+      "id": "conector",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/conector.step",
+      "sha256": "72d30e1c9b4a235c48109d36649ac544fb08200cd14376a064fa48bec8220c7b"
+    },
+    {
+      "id": "pinza",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/pinza.step",
+      "sha256": "ba75050c2aa768ccb4beb9dfd3613c1a53c6c17f62fa98001df291fcca315d46"
+    },
+    {
+      "id": "Technic_PEGS_Cross_x6_A",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Technic_PEGS_Cross_x6_A.step",
+      "sha256": "0c2787fa0ee85da5a46d2df6da9b2df02692fe77feac450f36dfa35806aa0e37"
+    },
+    {
+      "id": "1x1-lego-brick",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/1x1-lego-brick.step",
+      "sha256": "a43e1fe06eacb8c4821a7d84d524a6164f6d6de1a6750510d41f4b95f1ddd34c"
+    },
+    {
+      "id": "Estefi",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Estefi.step",
+      "sha256": "7a962f28b059c599e4144d60e56dd9de47a7455ecc37491c02f59060de6f6305"
+    },
+    {
+      "id": "Grapa",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Grapa.step",
+      "sha256": "eefd007d97ddf4fb95049deb28acc74f2605e59d6c57bedf1ceefb91a64154e6"
+    },
+    {
+      "id": "M3 PClip - 2mm",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/M3 PClip - 2mm.step",
+      "sha256": "ff2b84eca50440e34f9d600687ea542fe4a8bfda37598ffbc9acd7f4641003c0"
+    },
+    {
+      "id": "Spoiler_arri\u00e8re_Porsche_-_5",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Spoiler_arri\u00e8re_Porsche_-_5.step",
+      "sha256": "600ce26560061bbea9b71dc922539ee2162dbe0d9b271daeb858d78638b17c12"
+    },
+    {
+      "id": "chasis - Part 2",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/chasis - Part 2.step",
+      "sha256": "f7ed92bc3410d13754f9ea308ceab15eb4fba7e7007760bc1b86e3e72ab4b75c"
+    },
+    {
+      "id": "spur",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/spur.step",
+      "sha256": "353616137193428550224a4ebd784bb71c07c6d7b231fe1d3eefcf71f7919a7d"
+    },
+    {
+      "id": "Body_girada_anonima",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Body_girada_anonima.step",
+      "sha256": "276a485fa2ae3d2eab0b25d38a74d70e2d8e3e11a23b8138d706013514f93a14"
+    },
+    {
+      "id": "Body_impresion",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Body_impresion.step",
+      "sha256": "fea65e9704b30679934e7edade8a86c0ffa8d6fd0509802fafba9f5a60729436"
+    },
+    {
+      "id": "Independiente_casquillo",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Independiente_casquillo.step",
+      "sha256": "da49b5190f652ac49c3aacd8ab32ea4660d946cd09fbfa58f85fa3712ad5efd2"
+    },
+    {
+      "id": "Independiente_rebaje_oblicuo",
+      "path": "/workspace/work/curvas_nuevas_20261104/regresion_cli_R17/Independiente_rebaje_oblicuo.step",
+      "sha256": "e9bda0cbef473a30850d5170ff1ae03c67f72fce87501b3c47771c25a852cd4a"
+    },
+    {
+      "id": "Guia_ranurada",
+      "path": "/workspace/work/curvas_nuevas_20261104/navegador_guia_R17.step",
+      "sha256": "bd2c3e85f9ab1746522d4d7e1faa9eca0a549f251ba8836f580302c296959890"
+    }
+  ]
+}

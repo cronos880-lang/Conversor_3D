@@ -1,0 +1,351 @@
+{
+  "ok": true,
+  "tipo_cad": "recuperacion_facetada",
+  "version_recuperacion": 1,
+  "aceptacion_sin_relajar": true,
+  "normalizacion_referencia_material": {
+    "redundancias": {
+      "aplicado": true,
+      "caras_retiradas": 10,
+      "degeneradas_exactas": 6,
+      "duplicadas_redundantes": 0,
+      "caras_opuestas_canceladas": 4,
+      "vertices_movidos": 0,
+      "cota_superficie_redundancias_cubiertas_mm": 0.0,
+      "limite_mm": 1e-05,
+      "cobertura_convexa": {
+        "caras_duplicadas_con_soporte_identico": 0,
+        "cota_mm": 0.0
+      },
+      "caras_cadena_orientada_nula": 10,
+      "preservacion_material_cadena_nula": "Área exactamente cero o par de triángulos idénticos con orientaciones opuestas: contribución orientada neta nula en todo el espacio.",
+      "superficie_bruta": "Las láminas internas pueden distar de la frontera material; el STEP debe superar además la validación geométrica contra el STL original."
+    },
+    "costuras": {
+      "aplicado": false
+    },
+    "fundamento": "Certificado regenerado desde la referencia; no se añade ninguna tapa."
+  },
+  "estabilizacion": {
+    "grupos_movidos": [
+      {
+        "grupo_vertices": 13,
+        "factor": 1.0,
+        "perdida_antes": 545.426511427242,
+        "perdida_despues": 533.4351081970275,
+        "malas_despues": 535
+      },
+      {
+        "grupo_vertices": 15,
+        "factor": 1.0,
+        "perdida_antes": 533.4351081970275,
+        "perdida_despues": 211.76169254729945,
+        "malas_despues": 246
+      },
+      {
+        "grupo_vertices": 10,
+        "factor": 1.0,
+        "perdida_antes": 211.76169254729945,
+        "perdida_despues": 0.35254982364698434,
+        "malas_despues": 59
+      },
+      {
+        "grupo_vertices": 15,
+        "factor": 1.0,
+        "perdida_antes": 0.35254982364698434,
+        "perdida_despues": 0.07946280322662386,
+        "malas_despues": 25
+      },
+      {
+        "grupo_vertices": 11,
+        "factor": 1.0,
+        "perdida_antes": 0.07946280322662386,
+        "perdida_despues": 6.955115307096026e-05,
+        "malas_despues": 5
+      },
+      {
+        "grupo_vertices": 15,
+        "factor": 1.0,
+        "perdida_antes": 6.955115307096026e-05,
+        "perdida_despues": 6.851015379770719e-05,
+        "malas_despues": 5
+      },
+      {
+        "grupo_vertices": 11,
+        "factor": 1.0,
+        "perdida_antes": 6.851015379770719e-05,
+        "perdida_despues": 8.240897143994266e-11,
+        "malas_despues": 0
+      }
+    ],
+    "objetivo_mm": 5e-06,
+    "perdida": 8.240897143994266e-11,
+    "pares_bajo_objetivo": 0,
+    "min_holgura_mm": 4.9999811167509964e-06,
+    "superficie": {
+      "max_mm": 9.807651368547107e-06,
+      "p95_mm": 5.329070518200751e-15,
+      "muestras": [
+        7596,
+        7596
+      ]
+    }
+  },
+  "geometria_local": {
+    "cota_global_superficie_mm": 9.807653563136034e-06,
+    "margen_redondeo_mm": 2.1396925030392477e-12,
+    "volumen_error_pct": 1.1807682098497487e-10,
+    "caja_error_mm": 0.0,
+    "caras_con_correspondencia": 2396,
+    "fundamento": "Misma triangulación: cada punto baricéntrico se desplaza como máximo el mayor desplazamiento de sus vértices.",
+    "limites": {
+      "superficie_mm": 0.002,
+      "volumen_pct": 0.001,
+      "caja_mm": 0.002
+    }
+  },
+  "material_original": {
+    "puntos": 2991,
+    "discrepancias": 0,
+    "banda_excluida_mm": 0.002,
+    "referencia": "Número de giro orientado positivo del STL original.",
+    "nota": "Muestreo reproducible; no demostración global del campo de material."
+  },
+  "topologia": {
+    "euler_malla": 2,
+    "euler_brep": 2,
+    "shells": 1,
+    "cavidades_preservadas": 0,
+    "probes_cavidades": []
+  },
+  "cilindros_locales": {
+    "aplicado": false,
+    "error": "El refinamiento local no produjo un STEP aprobado"
+  },
+  "resultado": {
+    "caras_stl": 2402,
+    "modo": "recuperacion_facetada",
+    "estrategia": "recuperacion_numerica_verificada",
+    "motor": "Recuperación B-Rep facetada verificada; las curvas conservan las facetas del STL",
+    "calidad": {
+      "integridad_cad": {
+        "brep_valido": true,
+        "solidos": 1,
+        "aristas": 3242,
+        "aristas_parametrizacion_incoherente": 0,
+        "tolerancia_max_mm": 1e-07,
+        "tolerancia_p95_mm": 1e-07,
+        "tolerancia_media_mm": 1e-07,
+        "aristas_tol_mayor_001mm": 0,
+        "brep_exacto": true
+      },
+      "perfil_validacion": {
+        "id": "precision",
+        "nombre": "Precisión",
+        "caja_mm": 0.02,
+        "p95_mm": null,
+        "max_mm": 0.06,
+        "volumen_pct": 0.5
+      },
+      "caras_step": 2044,
+      "bytes_step": 4903956,
+      "volumen_error_pct": 0.0,
+      "caja_error_mm": 0.0,
+      "caja_error_analitico_mm": 0.0,
+      "caja_modo_verificacion": "OpenCascade",
+      "distancia_stl_step_mm": {
+        "media": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "max_muestreado": 5e-05,
+        "muestras": 800
+      },
+      "distancia_step_stl_mm": {
+        "media": 0.0,
+        "p95": 0.0,
+        "p99": 4e-06,
+        "max_muestreado": 7e-06,
+        "muestras": 800
+      },
+      "contraste_muestreo_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "tipos_caras": {
+        "GeomAbs_Plane": 2044
+      },
+      "limites_validacion": {
+        "volumen_error_max_pct": 0.5,
+        "caja_error_max_mm": 0.02,
+        "p95_superficie_max_mm": 0.02,
+        "desviacion_max_observada_mm": 0.06,
+        "margen_preparacion_mm": 0.0
+      },
+      "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+      "autointerferencias_occ": false,
+      "interferencias_comprobadas_en_frio": true,
+      "control_cad_reutilizado_por_sha256": false,
+      "sin_objetos_sueltos_en_step": true,
+      "inspeccion_densa": {
+        "stl_a_cad": {
+          "muestras": 3000,
+          "p95_mm": 1.0860730428033254e-11,
+          "max_mm": 5.002451214283869e-05,
+          "zonas_sospechosas": []
+        },
+        "cad_a_stl": {
+          "muestras": 18880,
+          "p95_mm": 9.289215189630687e-12,
+          "max_mm": 9.337137000856368e-06,
+          "zonas_sospechosas": []
+        },
+        "limite_p95_mm": 0.02,
+        "limite_max_mm": 0.06,
+        "contraste_muestras_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "nota": "Muestreo determinista, no garantía Hausdorff global.",
+        "aceptado": true
+      },
+      "precision_alcanzada": "precision",
+      "desviacion_max_verificada_mm": 5e-05,
+      "limites_precision_originales": {
+        "caja_mm": 0.02,
+        "p95_mm": 0.02,
+        "max_mm": 0.06
+      },
+      "control_referencia_material": {
+        "integridad_cad": {
+          "brep_valido": true,
+          "solidos": 1,
+          "aristas": 3242,
+          "aristas_parametrizacion_incoherente": 0,
+          "tolerancia_max_mm": 1e-07,
+          "tolerancia_p95_mm": 1e-07,
+          "tolerancia_media_mm": 1e-07,
+          "aristas_tol_mayor_001mm": 0,
+          "brep_exacto": true
+        },
+        "perfil_validacion": {
+          "id": "precision",
+          "nombre": "Precisión",
+          "caja_mm": 0.02,
+          "p95_mm": null,
+          "max_mm": 0.06,
+          "volumen_pct": 0.5
+        },
+        "caras_step": 2044,
+        "bytes_step": 4903956,
+        "volumen_error_pct": 0.0,
+        "caja_error_mm": 0.0,
+        "caja_error_analitico_mm": 0.0,
+        "caja_modo_verificacion": "OpenCascade",
+        "distancia_stl_step_mm": {
+          "media": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max_muestreado": 5e-05,
+          "muestras": 800
+        },
+        "distancia_step_stl_mm": {
+          "media": 0.0,
+          "p95": 0.0,
+          "p99": 4e-06,
+          "max_muestreado": 7e-06,
+          "muestras": 800
+        },
+        "contraste_muestreo_cad": {
+          "muestras_proyectadas": 0,
+          "max_distancia_al_brep_mm": 0.0
+        },
+        "tipos_caras": {
+          "GeomAbs_Plane": 2044
+        },
+        "limites_validacion": {
+          "volumen_error_max_pct": 0.5,
+          "caja_error_max_mm": 0.02,
+          "p95_superficie_max_mm": 0.02,
+          "desviacion_max_observada_mm": 0.06,
+          "margen_preparacion_mm": 0.0
+        },
+        "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+        "autointerferencias_occ": false,
+        "interferencias_comprobadas_en_frio": true,
+        "control_cad_reutilizado_por_sha256": false,
+        "sin_objetos_sueltos_en_step": true,
+        "inspeccion_densa": {
+          "stl_a_cad": {
+            "muestras": 3000,
+            "p95_mm": 1.0860730428033254e-11,
+            "max_mm": 5.002451214283869e-05,
+            "zonas_sospechosas": []
+          },
+          "cad_a_stl": {
+            "muestras": 18880,
+            "p95_mm": 9.289215189630687e-12,
+            "max_mm": 9.337137000856368e-06,
+            "zonas_sospechosas": []
+          },
+          "limite_p95_mm": 0.02,
+          "limite_max_mm": 0.06,
+          "contraste_muestras_cad": {
+            "muestras_proyectadas": 0,
+            "max_distancia_al_brep_mm": 0.0
+          },
+          "nota": "Muestreo determinista, no garantía Hausdorff global.",
+          "aceptado": true
+        },
+        "precision_alcanzada": "precision",
+        "desviacion_max_verificada_mm": 5e-05,
+        "limites_precision_originales": {
+          "caja_mm": 0.02,
+          "p95_mm": 0.02,
+          "max_mm": 0.06
+        }
+      },
+      "recuperacion_numerica": {
+        "original_sha256": "2a2844baf0a1cfa4df28257909cfc2060fee828d4e5339c6d4fd21f43f5e2b30",
+        "preparado_sha256": "ff1834fff11d33fdf9fd7d55dda2e43c60220969483428d9dc550f2d30416768",
+        "geometria_local": {
+          "cota_global_superficie_mm": 9.807653563136034e-06,
+          "margen_redondeo_mm": 2.1396925030392477e-12,
+          "volumen_error_pct": 1.1807682098497487e-10,
+          "caja_error_mm": 0.0,
+          "caras_con_correspondencia": 2396,
+          "fundamento": "Misma triangulación: cada punto baricéntrico se desplaza como máximo el mayor desplazamiento de sus vértices.",
+          "limites": {
+            "superficie_mm": 0.002,
+            "volumen_pct": 0.001,
+            "caja_mm": 0.002
+          }
+        },
+        "topologia": {
+          "euler_malla": 2,
+          "euler_brep": 2,
+          "shells": 1,
+          "cavidades_preservadas": 0,
+          "probes_cavidades": []
+        },
+        "material_original": {
+          "puntos": 2991,
+          "discrepancias": 0,
+          "banda_excluida_mm": 0.002,
+          "referencia": "Número de giro orientado positivo del STL original.",
+          "nota": "Muestreo reproducible; no demostración global del campo de material."
+        },
+        "reparacion_previa": null,
+        "preparacion_verificada": null
+      }
+    },
+    "diagnostico": {
+      "consolidaciones_rechazadas": [],
+      "nodos_protegidos": 0
+    },
+    "reconstruccion_parametrica": false
+  },
+  "original_sha256": "2a2844baf0a1cfa4df28257909cfc2060fee828d4e5339c6d4fd21f43f5e2b30",
+  "preparado_sha256": "ff1834fff11d33fdf9fd7d55dda2e43c60220969483428d9dc550f2d30416768",
+  "step_sha256": "17151eba81a9f575b25a5726553a278696d022006fc520264eff4a2cb2beae8a",
+  "segundos": 42.919
+}

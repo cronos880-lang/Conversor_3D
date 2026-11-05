@@ -1,0 +1,42 @@
+[
+  {
+    "id": "disco_macizo",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/disco_macizo/entrada.stl",
+    "sha256": "d452a0992aebf42bc2de20832e6f1f52516789cf743d3b5abe9bd8fb5b586cbf",
+    "modelo": "CAD independiente: disco macizo, radio6 y altura3",
+    "perfil": "precision",
+    "euler": 2,
+    "caras": 1436,
+    "volumen_CAD": 339.29200658769764
+  },
+  {
+    "id": "cilindro_vaciado_profundo_oblicuo",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/cilindro_vaciado_profundo_oblicuo/entrada.stl",
+    "sha256": "bb3bd039639d5363b434ae528c484057cfc9ad0cc0430247408e8d3179283a6c",
+    "modelo": "CAD independiente: cilindro, cavidad cuadrada profunda y rebaje inferior0.12; giro/traslaci\u00f3n",
+    "perfil": "precision",
+    "euler": 2,
+    "caras": 1468,
+    "volumen_CAD": 993.7608197630933
+  },
+  {
+    "id": "casquillo_refuerzos_2_oblicuo",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/casquillo_refuerzos_2_oblicuo/entrada.stl",
+    "sha256": "42cf6199d9f47cf3228bfd6b170ef4272d41eac3c7b65b868416d12456eb47fc",
+    "modelo": "CAD independiente: casquillo con2refuerzos y vaciados abiertos/cubiertos sobre techos inclinados; radios6/3, altura10",
+    "perfil": "precision",
+    "euler": 0,
+    "caras": 2864,
+    "volumen_CAD": 901.3290795095265
+  },
+  {
+    "id": "casquillo_refuerzos_4",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/casquillo_refuerzos_4/entrada.stl",
+    "sha256": "18d4989d31a85a2737d4cd4c3e357d2ecffff59008c836efc0f2916c690d7b97",
+    "modelo": "CAD independiente: casquillo con4refuerzos y vaciados abiertos/cubiertos sobre techos inclinados; radios6/3, altura10",
+    "perfil": "precision",
+    "euler": 0,
+    "caras": 2852,
+    "volumen_CAD": 954.4281425498096
+  }
+]

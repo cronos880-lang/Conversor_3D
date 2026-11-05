@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "original_sha256": "679f77d60cd7a52c662956e05f7330737f60e9fda26b47a509702bdc0aba5a1c",
+  "habilitado": true,
+  "reparado": false,
+  "original_conservado": true,
+  "entrada": {
+    "caras": 2072,
+    "vertices": 1038,
+    "topologia_vertices": {
+      "vertices_no_manifold": 0,
+      "vertices_de_borde": 0,
+      "ejemplos": [],
+      "enlaces_regulares_cerrados": true,
+      "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+    },
+    "aristas_1_cara": 0,
+    "aristas_2_caras": 3108,
+    "aristas_mas_2_caras": 0,
+    "caras_degeneradas": 0,
+    "caras_duplicadas": 0,
+    "pares_caras_contacto_opuestas": 0,
+    "componentes": [
+      {
+        "caras": 2072,
+        "estanco": true,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": 1340.2330402478658,
+        "euler": 2
+      }
+    ],
+    "numero_componentes": 1,
+    "estanco_global": true,
+    "caja_mm": [
+      [
+        -30.914052963256836,
+        -15.0,
+        -42.49220275878906
+      ],
+      [
+        -13.006872177124023,
+        3.297075747187364e-16,
+        -29.00742530822754
+      ]
+    ],
+    "ruta": "paso_directo",
+    "gravedad": "informacion",
+    "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+    "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+  },
+  "ruta_seleccionada": "paso_directo",
+  "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+}

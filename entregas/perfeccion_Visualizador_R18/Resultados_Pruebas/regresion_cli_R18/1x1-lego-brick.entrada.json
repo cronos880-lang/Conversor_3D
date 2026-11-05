@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "original_sha256": "d4d10b56cbc29e941b7bce823b052e8403fe2c6d6e82acd11a72959ac3c69f2a",
+  "habilitado": true,
+  "reparado": false,
+  "original_conservado": true,
+  "entrada": {
+    "caras": 2850,
+    "vertices": 1431,
+    "topologia_vertices": {
+      "vertices_no_manifold": 0,
+      "vertices_de_borde": 8,
+      "ejemplos": [],
+      "enlaces_regulares_cerrados": false,
+      "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+    },
+    "aristas_1_cara": 8,
+    "aristas_2_caras": 4271,
+    "aristas_mas_2_caras": 0,
+    "caras_degeneradas": 0,
+    "caras_duplicadas": 0,
+    "pares_caras_contacto_opuestas": 0,
+    "componentes": [
+      {
+        "caras": 2728,
+        "estanco": false,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": 647.6643894337581,
+        "euler": 1
+      },
+      {
+        "caras": 122,
+        "estanco": false,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": -184.48992858294517,
+        "euler": 1
+      }
+    ],
+    "numero_componentes": 2,
+    "estanco_global": false,
+    "caja_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        8.0,
+        8.0,
+        11.300000190734863
+      ]
+    ],
+    "ruta": "abertura_ambigua_requiere_referencia",
+    "gravedad": "error",
+    "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+    "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+  },
+  "lectura_heredada_motor": {
+    "caras": 2850,
+    "vertices": 1427,
+    "topologia_vertices": {
+      "vertices_no_manifold": 0,
+      "vertices_de_borde": 0,
+      "ejemplos": [],
+      "enlaces_regulares_cerrados": true,
+      "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+    },
+    "aristas_1_cara": 0,
+    "aristas_2_caras": 4275,
+    "aristas_mas_2_caras": 0,
+    "caras_degeneradas": 0,
+    "caras_duplicadas": 0,
+    "pares_caras_contacto_opuestas": 0,
+    "componentes": [
+      {
+        "caras": 2850,
+        "estanco": true,
+        "orientacion_consistente": true,
+        "volumen_firmado_mm3": 463.1744608508127,
+        "euler": 2
+      }
+    ],
+    "numero_componentes": 1,
+    "estanco_global": true,
+    "caja_mm": [
+      [
+        0.0,
+        0.0,
+        3.5236570605778894e-16
+      ],
+      [
+        8.0,
+        8.0,
+        11.300000190734863
+      ]
+    ],
+    "ruta": "paso_directo",
+    "gravedad": "informacion",
+    "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+    "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+  },
+  "nota_costura": "La lectura histórica process=True ya suelda esta costura de redondeo; archivo original intacto.",
+  "ruta_seleccionada": "paso_directo",
+  "resultado": "mismo archivo; sin reescritura ni cambio de estrategia"
+}

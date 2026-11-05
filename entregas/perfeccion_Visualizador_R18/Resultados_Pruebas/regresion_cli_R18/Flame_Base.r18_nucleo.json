@@ -1,0 +1,1184 @@
+{
+  "ok": true,
+  "intentos": [
+    {
+      "estrategia": "marco_centrado",
+      "aceptada": true,
+      "segundos": 27.448521364000044
+    }
+  ],
+  "estrategia_construccion": "marco_centrado",
+  "fases": [
+    {
+      "fase": "propuesta_CAD_con_detalles_del_original",
+      "segundos": 4.489242278999882
+    },
+    {
+      "fase": "exportacion_y_lectura_fria",
+      "segundos": 6.672328863001894
+    },
+    {
+      "fase": "CAD_exacto_BOP_y_geometria_original",
+      "segundos": 11.426764624004136
+    },
+    {
+      "fase": "tres_mallados_finos",
+      "segundos": 27.225451624006382
+    },
+    {
+      "fase": "material_y_detalles_del_original",
+      "segundos": 30.367603932005295
+    },
+    {
+      "fase": "validacion_completada",
+      "segundos": 32.00148885700037
+    }
+  ],
+  "construccion": {
+    "eje": [
+      2.194111488018257e-10,
+      1.5997701348619405e-07,
+      0.9999999999999871
+    ],
+    "origen": [
+      483.3800550606953,
+      -246.32778362479667,
+      3.309773209498146
+    ],
+    "direccion_meridiana": [
+      0.3623748900804801,
+      0.9320324238132156,
+      -1.4918327272486835e-07
+    ],
+    "meridianos_contrastados": 10,
+    "perfil": {
+      "type": "source_supported_lines",
+      "segments": 4,
+      "points": [
+        [
+          23.79799153097679,
+          -3.309769659235926
+        ],
+        [
+          23.79798920497716,
+          12.278571100041269
+        ],
+        [
+          0.0,
+          12.278571100041269
+        ],
+        [
+          0.0,
+          -3.3097700416327385
+        ],
+        [
+          23.79799153097679,
+          -3.309769659235926
+        ]
+      ],
+      "profile": [
+        [
+          0.0,
+          -3.309769850434332
+        ],
+        [
+          23.79914305608952,
+          -3.309769850434332
+        ],
+        [
+          23.79914305608952,
+          12.278571100041269
+        ],
+        [
+          0.0,
+          12.278571100041269
+        ],
+        [
+          0.0,
+          -3.309769850434332
+        ]
+      ],
+      "simplificacion_meridiano_mm": 8e-05,
+      "ajuste_circular_confirmado_mm": 0.004,
+      "cilindros_confirmados": [
+        {
+          "z_mm": [
+            -3.309769659235926,
+            12.278571100041269
+          ],
+          "radio_mm": 23.79914305608952,
+          "estaciones": 19,
+          "variacion_evidencia_mm": 0.00020586183228488153
+        }
+      ],
+      "propuesta_no_es_aceptacion": true
+    },
+    "secciones": [
+      {
+        "z": -2.772878736744475,
+        "circulos": [
+          {
+            "center": [
+              8.057787453767673e-08,
+              -0.0001291458231107434
+            ],
+            "radius": 23.799299098158723,
+            "error": 0.00019200505147409785,
+            "radial_segment_error": 0.001515156424471087,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": -1.9041702509453575,
+        "circulos": [
+          {
+            "center": [
+              -6.20811838915325e-08,
+              -7.969802302509876e-05
+            ],
+            "radius": 23.799252684592695,
+            "error": 0.00046890548489031403,
+            "radial_segment_error": 0.0015178884933995107,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": -1.3672788804060323,
+        "circulos": [
+          {
+            "center": [
+              -1.1631788956849298e-07,
+              -5.2292445434698465e-05
+            ],
+            "radius": 23.7992269587856,
+            "error": 0.000622410129970774,
+            "radial_segment_error": 0.0015193939039157556,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 0.03832097593241057,
+        "circulos": [
+          {
+            "center": [
+              -1.532565751267284e-07,
+              8.044189599765161e-06
+            ],
+            "radius": 23.799170315288045,
+            "error": 0.0009605572848698785,
+            "radial_segment_error": 0.0015226739860239036,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 0.370138091192203,
+        "circulos": [
+          {
+            "center": [
+              -1.4282005817833204e-07,
+              1.987850909968003e-05
+            ],
+            "radius": 23.799159204507102,
+            "error": 0.0010269346141065228,
+            "radial_segment_error": 0.0015233089458632776,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 0.9070294617315287,
+        "circulos": [
+          {
+            "center": [
+              -1.1288298516331369e-07,
+              3.7078050695082965e-05
+            ],
+            "radius": 23.79914305608952,
+            "error": 0.0011234624310461072,
+            "radial_segment_error": 0.0015242237783574808,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 2.312629318069971,
+        "circulos": [
+          {
+            "center": [
+              2.7563576873636947e-08,
+              7.070050592217214e-05
+            ],
+            "radius": 23.79911148773194,
+            "error": 0.0013125656031363064,
+            "radial_segment_error": 0.0015259610953251013,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 3.181337803869089,
+        "circulos": [
+          {
+            "center": [
+              1.4646327930133672e-07,
+              8.322819141470816e-05
+            ],
+            "radius": 23.799099726699485,
+            "error": 0.0013834466118574085,
+            "radial_segment_error": 0.0015265599260558815,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 4.586937660207532,
+        "circulos": [
+          {
+            "center": [
+              3.6364078346545607e-07,
+              9.014985879884918e-05
+            ],
+            "radius": 23.79909323632644,
+            "error": 0.0014237992953667344,
+            "radial_segment_error": 0.0015267627756010427,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 5.45564614600665,
+        "circulos": [
+          {
+            "center": [
+              4.988595451206612e-07,
+              8.617980423641924e-05
+            ],
+            "radius": 23.79909697522443,
+            "error": 0.001402839722000948,
+            "radial_segment_error": 0.0015264159377643693,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 5.992537516545974,
+        "circulos": [
+          {
+            "center": [
+              5.779148415695559e-07,
+              8.057645203463082e-05
+            ],
+            "radius": 23.79910224643138,
+            "error": 0.0013723689231284197,
+            "radial_segment_error": 0.001526021653582177,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 6.8612460023450925,
+        "circulos": [
+          {
+            "center": [
+              6.921172473277858e-07,
+              6.641458969847136e-05
+            ],
+            "radius": 23.79911556570086,
+            "error": 0.0012947424081275472,
+            "radial_segment_error": 0.0015250931506365362,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 7.729954488144211,
+        "circulos": [
+          {
+            "center": [
+              7.814515639702896e-07,
+              4.595554564001958e-05
+            ],
+            "radius": 23.799134806305894,
+            "error": 0.0011821301166321518,
+            "radial_segment_error": 0.0015238062638154304,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 8.266845858683535,
+        "circulos": [
+          {
+            "center": [
+              8.202696141490495e-07,
+              3.0163152138662497e-05
+            ],
+            "radius": 23.799149658435976,
+            "error": 0.0010950512308980365,
+            "radial_segment_error": 0.001522832116005901,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 9.67244571502198,
+        "circulos": [
+          {
+            "center": [
+              8.448771726945678e-07,
+              -2.2568879590068036e-05
+            ],
+            "radius": 23.7991992545364,
+            "error": 0.0008038852558165388,
+            "radial_segment_error": 0.0015196365359493313,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 10.004262830281771,
+        "circulos": [
+          {
+            "center": [
+              8.313993955363572e-07,
+              -3.742108718407522e-05
+            ],
+            "radius": 23.799213224618768,
+            "error": 0.000721817390765267,
+            "radial_segment_error": 0.0015187462271128993,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      },
+      {
+        "z": 11.409862686620214,
+        "circulos": [
+          {
+            "center": [
+              6.749015638574107e-07,
+              -0.00011051629422054177
+            ],
+            "radius": 23.799281985468742,
+            "error": 0.0003177493136590215,
+            "radial_segment_error": 0.0015144007887464284,
+            "points": 340,
+            "parcial": false
+          }
+        ]
+      }
+    ],
+    "resolucion_numerica_union_mm": 0.0001,
+    "normalizacion_aristas_planas_mm": 0.0001,
+    "metodo": "nucleo_axial_y_refuerzos_originales",
+    "rebajes": [
+      {
+        "faces": 2,
+        "faces_fuente": [
+          1473,
+          1474
+        ],
+        "vertices": 4,
+        "depth_mm": 12.636500841236979,
+        "area_mm2": 257.67121353419776,
+        "contornos": 1
+      },
+      {
+        "faces": 45,
+        "faces_fuente": [
+          1569,
+          1570,
+          1571,
+          1572,
+          1573,
+          1574,
+          1575,
+          1576,
+          1577,
+          1578,
+          1579,
+          1580,
+          1581,
+          1582,
+          1583,
+          1584,
+          1585,
+          1586,
+          1587,
+          1588,
+          1589,
+          1590,
+          1591,
+          1592,
+          1593,
+          1594,
+          1595,
+          1596,
+          1597,
+          1598,
+          1599,
+          1600,
+          1601,
+          1602,
+          1603,
+          1604,
+          1605,
+          1606,
+          1607,
+          1608,
+          1609,
+          1610,
+          1611,
+          1612,
+          1613
+        ],
+        "vertices": 47,
+        "depth_mm": 0.2540003435359779,
+        "area_mm2": 2.793176957871777,
+        "contornos": 1
+      },
+      {
+        "faces": 63,
+        "faces_fuente": [
+          1688,
+          1689,
+          1690,
+          1691,
+          1692,
+          1693,
+          1694,
+          1695,
+          1696,
+          1697,
+          1698,
+          1699,
+          1700,
+          1701,
+          1702,
+          1703,
+          1704,
+          1705,
+          1706,
+          1707,
+          1708,
+          1709,
+          1710,
+          1711,
+          1712,
+          1713,
+          1714,
+          1715,
+          1716,
+          1717,
+          1718,
+          1719,
+          1720,
+          1721,
+          1722,
+          1723,
+          1724,
+          1725,
+          1726,
+          1727,
+          1728,
+          1729,
+          1730,
+          1731,
+          1732,
+          1733,
+          1734,
+          1735,
+          1736,
+          1737,
+          1738,
+          1739,
+          1740,
+          1741,
+          1742,
+          1743,
+          1744,
+          1745,
+          1746,
+          1747,
+          1748,
+          1749,
+          1750
+        ],
+        "vertices": 63,
+        "depth_mm": 0.2540003948813947,
+        "area_mm2": 5.291334296809518,
+        "contornos": 2
+      },
+      {
+        "faces": 9,
+        "faces_fuente": [
+          1825,
+          1826,
+          1827,
+          1828,
+          1829,
+          1830,
+          1831,
+          1832,
+          1833
+        ],
+        "vertices": 11,
+        "depth_mm": 0.25400033863021054,
+        "area_mm2": 4.828791045118228,
+        "contornos": 1
+      },
+      {
+        "faces": 66,
+        "faces_fuente": [
+          1916,
+          1917,
+          1918,
+          1919,
+          1920,
+          1921,
+          1922,
+          1923,
+          1924,
+          1925,
+          1926,
+          1927,
+          1928,
+          1929,
+          1930,
+          1931,
+          1932,
+          1933,
+          1934,
+          1935,
+          1936,
+          1937,
+          1938,
+          1939,
+          1940,
+          1941,
+          1942,
+          1943,
+          1944,
+          1945,
+          1946,
+          1947,
+          1948,
+          1949,
+          1950,
+          1951,
+          1952,
+          1953,
+          1954,
+          1955,
+          1956,
+          1957,
+          1958,
+          1959,
+          1960,
+          1961,
+          1962,
+          1963,
+          1964,
+          1965,
+          1966,
+          1967,
+          1968,
+          1969,
+          1970,
+          1971,
+          1972,
+          1973,
+          1974,
+          1975,
+          1976,
+          1977,
+          1978,
+          1979,
+          1980,
+          1981
+        ],
+        "vertices": 66,
+        "depth_mm": 0.25400041128711237,
+        "area_mm2": 4.095243558521914,
+        "contornos": 2
+      },
+      {
+        "faces": 63,
+        "faces_fuente": [
+          2106,
+          2107,
+          2108,
+          2109,
+          2110,
+          2111,
+          2112,
+          2113,
+          2114,
+          2115,
+          2116,
+          2117,
+          2118,
+          2119,
+          2120,
+          2121,
+          2122,
+          2123,
+          2124,
+          2125,
+          2126,
+          2127,
+          2128,
+          2129,
+          2130,
+          2131,
+          2132,
+          2133,
+          2134,
+          2135,
+          2136,
+          2137,
+          2138,
+          2139,
+          2140,
+          2141,
+          2142,
+          2143,
+          2144,
+          2145,
+          2146,
+          2147,
+          2148,
+          2149,
+          2150,
+          2151,
+          2152,
+          2153,
+          2154,
+          2155,
+          2156,
+          2157,
+          2158,
+          2159,
+          2160,
+          2161,
+          2162,
+          2163,
+          2164,
+          2165,
+          2166,
+          2167,
+          2168
+        ],
+        "vertices": 63,
+        "depth_mm": 0.25400007397147917,
+        "area_mm2": 5.291324520951235,
+        "contornos": 2
+      },
+      {
+        "faces": 2,
+        "faces_fuente": [
+          2229,
+          2230
+        ],
+        "vertices": 4,
+        "depth_mm": 0.25400023592026866,
+        "area_mm2": 2.1987686157226842,
+        "contornos": 1
+      },
+      {
+        "faces": 8,
+        "faces_fuente": [
+          2251,
+          2252,
+          2253,
+          2254,
+          2255,
+          2256,
+          2257,
+          2258
+        ],
+        "vertices": 10,
+        "depth_mm": 0.25400030685313046,
+        "area_mm2": 6.090045214631219,
+        "contornos": 1
+      },
+      {
+        "faces": 6,
+        "faces_fuente": [
+          2275,
+          2276,
+          2277,
+          2278,
+          2279,
+          2280
+        ],
+        "vertices": 8,
+        "depth_mm": 0.2540003471168566,
+        "area_mm2": 2.9879966098816166,
+        "contornos": 1
+      },
+      {
+        "faces": 128,
+        "faces_fuente": [
+          2541,
+          2542,
+          2543,
+          2544,
+          2545,
+          2546,
+          2547,
+          2548,
+          2549,
+          2550,
+          2551,
+          2552,
+          2553,
+          2554,
+          2555,
+          2556,
+          2557,
+          2558,
+          2559,
+          2560,
+          2561,
+          2562,
+          2563,
+          2564,
+          2565,
+          2566,
+          2567,
+          2568,
+          2569,
+          2570,
+          2571,
+          2572,
+          2573,
+          2574,
+          2575,
+          2576,
+          2577,
+          2578,
+          2579,
+          2580,
+          2581,
+          2582,
+          2583,
+          2584,
+          2585,
+          2586,
+          2587,
+          2588,
+          2589,
+          2590,
+          2591,
+          2592,
+          2593,
+          2594,
+          2595,
+          2596,
+          2597,
+          2598,
+          2599,
+          2600,
+          2601,
+          2602,
+          2603,
+          2604,
+          2605,
+          2606,
+          2607,
+          2608,
+          2609,
+          2610,
+          2611,
+          2612,
+          2613,
+          2614,
+          2615,
+          2616,
+          2617,
+          2618,
+          2619,
+          2620,
+          2621,
+          2622,
+          2623,
+          2624,
+          2625,
+          2626,
+          2627,
+          2628,
+          2629,
+          2630,
+          2631,
+          2632,
+          2633,
+          2634,
+          2635,
+          2636,
+          2637,
+          2638,
+          2639,
+          2640,
+          2641,
+          2642,
+          2643,
+          2644,
+          2645,
+          2646,
+          2647,
+          2648,
+          2649,
+          2650,
+          2651,
+          2652,
+          2653,
+          2654,
+          2655,
+          2656,
+          2657,
+          2658,
+          2659,
+          2660,
+          2661,
+          2662,
+          2663,
+          2664,
+          2665,
+          2666,
+          2667,
+          2668
+        ],
+        "vertices": 130,
+        "depth_mm": 0.25400016711576967,
+        "area_mm2": 4.071061096156524,
+        "contornos": 1
+      }
+    ],
+    "refuerzos": [],
+    "vaciados_abiertos_refuerzos": [],
+    "caras_finales": 422,
+    "limites_aceptacion_modificados": false,
+    "marco_construccion_centrado": true,
+    "estrategia_construccion": "marco_centrado"
+  },
+  "exportacion": {
+    "tipo_entrada": "Solid",
+    "shell_cerrado_solidificado": false,
+    "solid_reconstruido_desde_frontera": true,
+    "banderas_cierre_antes": [
+      true
+    ],
+    "caras": 422,
+    "aristas": 1221,
+    "shells": 1,
+    "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "auditoria_step_crudo": {
+      "ok": true,
+      "modified": false,
+      "corrected_bounds": [],
+      "audit": {
+        "ok": true,
+        "complete": true,
+        "solids": 1,
+        "shells": [
+          {
+            "shell": 16,
+            "faces": 422,
+            "edges": 1221,
+            "errors": []
+          }
+        ],
+        "unsupported": [],
+        "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+      }
+    },
+    "ok": true,
+    "modo": "STEPControl_ManifoldSolidBrep",
+    "solidos_reimportados": 1,
+    "caras_reimportadas": 422,
+    "tolerancia_max_mm": 1.5e-07,
+    "step_sha256": "6b47e3ef5e9b06ccc4dcdecfd71bc149bf5050a67d147e1631b4abc4c07857b8",
+    "requiere_validacion_original": true
+  },
+  "calidad": {
+    "integridad_cad": {
+      "brep_valido": true,
+      "solidos": 1,
+      "aristas": 1221,
+      "aristas_parametrizacion_incoherente": 0,
+      "tolerancia_max_mm": 1e-07,
+      "tolerancia_p95_mm": 1e-07,
+      "tolerancia_media_mm": 1e-07,
+      "aristas_tol_mayor_001mm": 0,
+      "brep_exacto": true
+    },
+    "perfil_validacion": {
+      "id": "precision",
+      "nombre": "Precisión",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    },
+    "caras_step": 422,
+    "bytes_step": 1813640,
+    "volumen_error_pct": 0.007725,
+    "caja_error_mm": 0.000349,
+    "caja_error_analitico_mm": 0.000349,
+    "caja_modo_verificacion": "OpenCascade",
+    "distancia_stl_step_mm": {
+      "media": 7.6e-05,
+      "p95": 0.000339,
+      "p99": 0.000352,
+      "max_muestreado": 0.000358,
+      "muestras": 800
+    },
+    "distancia_step_stl_mm": {
+      "media": 0.000139,
+      "p95": 0.001152,
+      "p99": 0.001398,
+      "max_muestreado": 0.001482,
+      "muestras": 800
+    },
+    "contraste_muestreo_cad": {
+      "muestras_proyectadas": 0,
+      "max_distancia_al_brep_mm": 0.0
+    },
+    "tipos_caras": {
+      "GeomAbs_Plane": 421,
+      "GeomAbs_Cylinder": 1
+    },
+    "limites_validacion": {
+      "volumen_error_max_pct": 0.5,
+      "caja_error_max_mm": 0.02,
+      "p95_superficie_max_mm": 0.02,
+      "desviacion_max_observada_mm": 0.06,
+      "margen_preparacion_mm": 0.0
+    },
+    "nota": "Mediciones de muestras, no garantía absoluta de desviación global.",
+    "autointerferencias_occ": false,
+    "interferencias_comprobadas_en_frio": true,
+    "control_cad_reutilizado_por_sha256": false,
+    "sin_objetos_sueltos_en_step": true,
+    "inspeccion_densa": {
+      "stl_a_cad": {
+        "muestras": 3000,
+        "p95_mm": 0.0012454850171848809,
+        "max_mm": 0.0014709504706983492,
+        "zonas_sospechosas": []
+      },
+      "cad_a_stl": {
+        "muestras": 13904,
+        "p95_mm": 0.0009396262298335633,
+        "max_mm": 0.0014842315276248936,
+        "zonas_sospechosas": []
+      },
+      "limite_p95_mm": 0.02,
+      "limite_max_mm": 0.06,
+      "contraste_muestras_cad": {
+        "muestras_proyectadas": 0,
+        "max_distancia_al_brep_mm": 0.0
+      },
+      "nota": "Muestreo determinista, no garantía Hausdorff global.",
+      "aceptado": true
+    },
+    "precision_alcanzada": "precision",
+    "desviacion_max_verificada_mm": 0.001484,
+    "limites_precision_originales": {
+      "caja_mm": 0.02,
+      "p95_mm": 0.02,
+      "max_mm": 0.06
+    }
+  },
+  "topologia_material": {
+    "euler_malla": 2,
+    "euler_brep": 2,
+    "shells": 1,
+    "cavidades_preservadas": 0,
+    "probes_cavidades": []
+  },
+  "mallado_fino": {
+    "resoluciones": [
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 5500,
+        "deflexion_mm": 0.00025,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0014799339514823843,
+          "p95_mm": 0.0012626267079853043,
+          "muestras": [
+            12252,
+            8112
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 4364,
+        "deflexion_mm": 0.0005,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0014842315276248936,
+          "p95_mm": 0.0011877816588346446,
+          "muestras": [
+            10548,
+            8112
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      },
+      {
+        "cerrado": true,
+        "orientado": true,
+        "euler": 2,
+        "intersecciones_cgal": 0,
+        "caras": 3560,
+        "deflexion_mm": 0.001,
+        "angulo_rad": 0.04,
+        "superficie": {
+          "max_mm": 0.0014799339515390525,
+          "p95_mm": 0.0010792482443900396,
+          "muestras": [
+            9342,
+            8112
+          ]
+        },
+        "margen_microbucles_mm": 0.0
+      }
+    ],
+    "step_modificado": false,
+    "limites_geometricos_modificados": false
+  },
+  "material_original": {
+    "puntos": 2999,
+    "puntos_extra_contacto": 0,
+    "discrepancias": 0,
+    "banda_excluida_mm": 0.002,
+    "clasificador": "CAD_exacto_indexado_doble_rayo",
+    "consultas_nativas": 9441,
+    "fallbacks": 0,
+    "tolerancia_cad_mm": 1e-07
+  },
+  "detalles_original": {
+    "puntos": 784,
+    "discrepancias": 0,
+    "caras_fuente": 392,
+    "distancia_probe_mm": 0.0005,
+    "consultas_nativas": 2898,
+    "refuerzos": {
+      "puntos": 0,
+      "discrepancias": 0,
+      "caras_fuente": 0
+    }
+  },
+  "preprocesamiento": {
+    "version": 1,
+    "original_sha256": "cd7b90af65d0dcc75e57bebe30029c802e5df8ee85aaa7c17895f42e88be808b",
+    "habilitado": true,
+    "reparado": false,
+    "original_conservado": true,
+    "entrada": {
+      "caras": 2740,
+      "vertices": 1372,
+      "topologia_vertices": {
+        "vertices_no_manifold": 0,
+        "vertices_de_borde": 0,
+        "ejemplos": [],
+        "enlaces_regulares_cerrados": true,
+        "criterio": "Un ciclo por vértice interior; un camino por vértice de borde."
+      },
+      "aristas_1_cara": 0,
+      "aristas_2_caras": 4110,
+      "aristas_mas_2_caras": 0,
+      "caras_degeneradas": 0,
+      "caras_duplicadas": 0,
+      "pares_caras_contacto_opuestas": 0,
+      "componentes": [
+        {
+          "caras": 2740,
+          "estanco": true,
+          "orientacion_consistente": true,
+          "volumen_firmado_mm3": 24470.30982967206,
+          "euler": 2
+        }
+      ],
+      "numero_componentes": 1,
+      "estanco_global": true,
+      "caja_mm": [
+        [
+          459.5807189941406,
+          -270.126953125,
+          0.0
+        ],
+        [
+          507.17938232421875,
+          -222.52828979492188,
+          15.588347434997559
+        ]
+      ],
+      "ruta": "paso_directo",
+      "gravedad": "informacion",
+      "autointersecciones": "no evaluadas en diagnóstico rápido; OCC obligatorio para unión",
+      "contactos": "pendiente de booleano; no inferido solo por caja envolvente"
+    },
+    "ruta_seleccionada": "paso_directo",
+    "resultado": "STL original; reconstrucción CAD medida y validada"
+  },
+  "certificado": {
+    "revision": "R15_CONTROL_COMPLETO_INMUTABLE_V1",
+    "source_sha256": "cd7b90af65d0dcc75e57bebe30029c802e5df8ee85aaa7c17895f42e88be808b",
+    "step_sha256": "6b47e3ef5e9b06ccc4dcdecfd71bc149bf5050a67d147e1631b4abc4c07857b8",
+    "nonce": "64f25354e86e7cc28be71a7649c8b117cc87dbc6d58c9229",
+    "motor_sha256": "994a9f8953b554c5a8eb9b45aa5dfdfcf92fbef8aec3b4034922a0845deb9090",
+    "dependencias": {
+      "cadquery": "2.8.0",
+      "cadquery-ocp": "7.9.3.1.1",
+      "numpy": "2.3.5",
+      "trimesh": "4.11.1",
+      "vtk": "9.6.2",
+      "libigl": "2.6.3",
+      "cgal": "6.0.1.post202410241521"
+    },
+    "perfil": {
+      "id": "precision",
+      "nombre": "Precisión",
+      "caja_mm": 0.02,
+      "p95_mm": null,
+      "max_mm": 0.06,
+      "volumen_pct": 0.5
+    }
+  },
+  "original_sha256": "cd7b90af65d0dcc75e57bebe30029c802e5df8ee85aaa7c17895f42e88be808b",
+  "step_sha256": "6b47e3ef5e9b06ccc4dcdecfd71bc149bf5050a67d147e1631b4abc4c07857b8",
+  "limites_aceptacion_modificados": false,
+  "seconds": 32.00340839400451
+}

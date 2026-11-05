@@ -1,0 +1,2943 @@
+{
+  "ok": false,
+  "fases": [
+    {
+      "fase": "lectura_y_comprobacion_de_entradas",
+      "segundos": 0.00929933600127697
+    },
+    {
+      "fase": "CAD_exacto_interferencias_y_distancia_original",
+      "segundos": 295.9499902259995
+    }
+  ],
+  "cota_propuesta_local_mm": 5.96e-05,
+  "exportacion_solida": {
+    "tipo_entrada": "Solid",
+    "shell_cerrado_solidificado": false,
+    "solid_reconstruido_desde_frontera": true,
+    "banderas_cierre_antes": [
+      true
+    ],
+    "caras": 716,
+    "aristas": 1587,
+    "shells": 1,
+    "transferencia": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "escritura": "IFSelect_ReturnStatus.IFSelect_RetDone",
+    "auditoria_step_crudo": {
+      "ok": true,
+      "modified": false,
+      "corrected_bounds": [],
+      "audit": {
+        "ok": true,
+        "complete": true,
+        "solids": 1,
+        "shells": [
+          {
+            "shell": 16,
+            "faces": 716,
+            "edges": 1587,
+            "errors": []
+          }
+        ],
+        "unsupported": [],
+        "scope": "Incidencia y orientación topológica serializada; no valida geometría ni áreas UV"
+      }
+    },
+    "ok": true,
+    "modo": "STEPControl_ManifoldSolidBrep",
+    "solidos_reimportados": 1,
+    "caras_reimportadas": 716,
+    "tolerancia_max_mm": 1e-07,
+    "step_sha256": "845a71513a5dc1ec38f73e4bd9ffd7b6400e661a6815f7fe59bf980ef6014fd4",
+    "requiere_validacion_original": true
+  },
+  "retroacciones_cgal": [
+    {
+      "cad_faces": [
+        58
+      ],
+      "source_regions_retracted": [
+        25,
+        26
+      ],
+      "resolution_mm": 0.00025,
+      "pairs": 227,
+      "step_sha256": "7a93f3c5ad665201060305995844aeb27fdf9cdc06e53760ac74cb22ae5c6621"
+    }
+  ],
+  "construccion": [
+    {
+      "faces": [
+        242,
+        332
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        248,
+        332
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.8421696331407993e-06,
+      "new_face_signature": {
+        "center": [
+          131.6182178929113,
+          -92.95923954186864,
+          2.7054894573935733
+        ],
+        "area": 1.1861550276404826
+      }
+    },
+    {
+      "faces": [
+        619,
+        620
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.5971861975765874e-05,
+      "new_face_signature": {
+        "center": [
+          130.64907026158295,
+          -84.67281122281915,
+          2.1805233679037093
+        ],
+        "area": 1.2401175923452152
+      }
+    },
+    {
+      "faces": [
+        186,
+        636
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 6.092635698751672e-06,
+      "new_face_signature": {
+        "center": [
+          132.8379101937103,
+          -85.94071476446062,
+          1.7362705783428911
+        ],
+        "area": 1.3064091898391708
+      }
+    },
+    {
+      "faces": [
+        400,
+        401
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        401,
+        402
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.032742689271813e-06,
+      "new_face_signature": {
+        "center": [
+          140.9540909756859,
+          -93.18299357281688,
+          1.783276600555139
+        ],
+        "area": 0.38573916338919717
+      }
+    },
+    {
+      "faces": [
+        17,
+        18
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.35563331642988e-06,
+      "new_face_signature": {
+        "center": [
+          134.48671193032715,
+          -91.6952235383537,
+          0.9750789968371639
+        ],
+        "area": 0.27705332169767133
+      }
+    },
+    {
+      "faces": [
+        489,
+        490
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.058740806008874e-06,
+      "new_face_signature": {
+        "center": [
+          143.61149094837123,
+          -94.69001322359809,
+          2.3016882605117686
+        ],
+        "area": 0.1776671453199631
+      }
+    },
+    {
+      "faces": [
+        568,
+        569
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.13872871519654e-05,
+      "new_face_signature": {
+        "center": [
+          144.7000533450919,
+          -87.64521514369765,
+          2.3016778753369826
+        ],
+        "area": 0.17759799524626257
+      }
+    },
+    {
+      "faces": [
+        369,
+        370
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.570980988153493e-06,
+      "new_face_signature": {
+        "center": [
+          142.45170813718858,
+          -88.20389799473625,
+          0.9443565128453575
+        ],
+        "area": 0.29069944971603384
+      }
+    },
+    {
+      "faces": [
+        249,
+        250
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.865453508670484e-06,
+      "new_face_signature": {
+        "center": [
+          134.08887761487932,
+          -91.53290784424601,
+          2.7054651774015888
+        ],
+        "area": 0.16873447068782604
+      }
+    },
+    {
+      "faces": [
+        580,
+        581
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.559251915243431e-06,
+      "new_face_signature": {
+        "center": [
+          141.76401942626995,
+          -88.72314605234314,
+          0.997604733805718
+        ],
+        "area": 0.14620927248293997
+      }
+    },
+    {
+      "faces": [
+        397,
+        498
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        488,
+        498
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.0484728064066452e-06,
+      "new_face_signature": {
+        "center": [
+          141.1407578664288,
+          -93.26388349154766,
+          2.301688243623939
+        ],
+        "area": 0.027833545262973654
+      }
+    },
+    {
+      "faces": [
+        621,
+        624
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        623,
+        624
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.599932778629022e-06,
+      "new_face_signature": {
+        "center": [
+          134.96485324759894,
+          -87.18664703209778,
+          2.301700291413497
+        ],
+        "area": 0.02783956052976323
+      }
+    },
+    {
+      "faces": [
+        621,
+        622
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.6620677837577e-06,
+      "new_face_signature": {
+        "center": [
+          134.3575413656931,
+          -86.83611033888131,
+          2.3016948757086673
+        ],
+        "area": 0.02268242318213179
+      }
+    },
+    {
+      "faces": [
+        100,
+        101
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.257219214519034e-05,
+      "new_face_signature": {
+        "center": [
+          144.87028441544817,
+          -96.09223564214045,
+          0.7572673753760931
+        ],
+        "area": 3.4047969158987543
+      }
+    },
+    {
+      "faces": [
+        207,
+        769
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        208,
+        769
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        209,
+        210
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        209,
+        212
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        58,
+        59
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.901088072186275e-05,
+      "new_face_signature": {
+        "center": [
+          142.62844241248345,
+          -85.32846826943114,
+          1.1370365954894546
+        ],
+        "area": 2.9955376450870372
+      }
+    },
+    {
+      "faces": [
+        695,
+        696
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.4710857550433255e-12,
+      "new_face_signature": {
+        "center": [
+          137.22026555328213,
+          -96.52554777787108,
+          2.7226543407232473
+        ],
+        "area": 1.6855367069525369
+      }
+    },
+    {
+      "faces": [
+        242,
+        667
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        486,
+        487
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.626689215084383e-06,
+      "new_face_signature": {
+        "center": [
+          143.30386817517916,
+          -94.39312539023837,
+          2.5126815054254106
+        ],
+        "area": 1.5279109905218953
+      }
+    },
+    {
+      "faces": [
+        293,
+        294
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        294,
+        295
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.4088844060295e-06,
+      "new_face_signature": {
+        "center": [
+          132.77477234364613,
+          -86.19926129677626,
+          2.705512528532163
+        ],
+        "area": 1.3549981787328937
+      }
+    },
+    {
+      "faces": [
+        152,
+        153
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.88207643856331e-05,
+      "new_face_signature": {
+        "center": [
+          130.9291932216615,
+          -87.41190751929905,
+          1.8625420151737895
+        ],
+        "area": 1.4235122959283675
+      }
+    },
+    {
+      "faces": [
+        398,
+        497
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.264500078100102e-06,
+      "new_face_signature": {
+        "center": [
+          143.2582838286024,
+          -94.5291539956933,
+          2.069459753516216
+        ],
+        "area": 1.3025931862261433
+      }
+    },
+    {
+      "faces": [
+        556,
+        588
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.2908967586723943e-05,
+      "new_face_signature": {
+        "center": [
+          143.2582546101152,
+          -85.92141423096896,
+          1.8680445132538501
+        ],
+        "area": 1.3025865867064588
+      }
+    },
+    {
+      "faces": [
+        625,
+        626
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.7469575918788284e-06,
+      "new_face_signature": {
+        "center": [
+          132.50340801334553,
+          -85.72276483441624,
+          2.0692449829667887
+        ],
+        "area": 1.1238003458445915
+      }
+    },
+    {
+      "faces": [
+        493,
+        494
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.1245543043369254e-05,
+      "new_face_signature": {
+        "center": [
+          145.73816170667365,
+          -95.93935635542697,
+          2.1854879319997145
+        ],
+        "area": 1.305840160444281
+      }
+    },
+    {
+      "faces": [
+        154,
+        155
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.0584735859569485e-06,
+      "new_face_signature": {
+        "center": [
+          129.58433774870684,
+          -86.6078811415459,
+          1.7118207104816507
+        ],
+        "area": 1.1823121290482748
+      }
+    },
+    {
+      "faces": [
+        118,
+        119
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.7111965747976065e-05,
+      "new_face_signature": {
+        "center": [
+          130.6850806602498,
+          -95.74815761178888,
+          1.7118114195496732
+        ],
+        "area": 1.1821510746328714
+      }
+    },
+    {
+      "faces": [
+        358,
+        359
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.958314318048452e-05,
+      "new_face_signature": {
+        "center": [
+          145.42015220848808,
+          -84.70229328141538,
+          1.7117232761139367
+        ],
+        "area": 1.1819155705014033
+      }
+    },
+    {
+      "faces": [
+        429,
+        431
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.0621531685476623e-06,
+      "new_face_signature": {
+        "center": [
+          145.73810332613584,
+          -95.95769485531497,
+          1.8525657995028089
+        ],
+        "area": 1.3009382878706552
+      }
+    },
+    {
+      "faces": [
+        633,
+        634
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 6.58411080560732e-06,
+      "new_face_signature": {
+        "center": [
+          130.29323258870275,
+          -84.44996502783951,
+          1.852565611716086
+        ],
+        "area": 1.2554969234399782
+      }
+    },
+    {
+      "faces": [
+        731,
+        736
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.2638422508930865e-06,
+      "new_face_signature": {
+        "center": [
+          143.17274243865774,
+          -94.88923988335009,
+          0.5669626588192546
+        ],
+        "area": 2.186750700291546
+      }
+    },
+    {
+      "faces": [
+        293,
+        299
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.7730531262507278e-05,
+      "new_face_signature": {
+        "center": [
+          130.26195289530907,
+          -84.8460039928229,
+          2.7887695788437292
+        ],
+        "area": 1.3527775927791323
+      }
+    },
+    {
+      "faces": [
+        65,
+        819
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.499514772231367e-06,
+      "new_face_signature": {
+        "center": [
+          142.34720413015103,
+          -89.632933605229,
+          0.3357537714637059
+        ],
+        "area": 0.8772843194984258
+      }
+    },
+    {
+      "faces": [
+        20,
+        839
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        371,
+        372
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        0,
+        843
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        8,
+        843
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        563,
+        564
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.631192144844462e-06,
+      "new_face_signature": {
+        "center": [
+          148.84126894350774,
+          -84.95490673519924,
+          3.847297331647467
+        ],
+        "area": 0.5491584208373678
+      }
+    },
+    {
+      "faces": [
+        254,
+        325
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.75937057194968e-05,
+      "new_face_signature": {
+        "center": [
+          127.16228285405205,
+          -95.31903127441568,
+          3.699022822257443
+        ],
+        "area": 0.9754827505793487
+      }
+    },
+    {
+      "faces": [
+        518,
+        519
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.7348472510602e-05,
+      "new_face_signature": {
+        "center": [
+          148.01208543655022,
+          -83.51977515622451,
+          3.847614164961009
+        ],
+        "area": 0.5478021963571544
+      }
+    },
+    {
+      "faces": [
+        205,
+        206
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.871519504952861e-12,
+      "new_face_signature": {
+        "center": [
+          139.03840034799276,
+          -83.90794327842642,
+          2.5142313808509904
+        ],
+        "area": 1.715777515607049
+      }
+    },
+    {
+      "faces": [
+        38,
+        39
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        38,
+        795
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.779237835465345e-06,
+      "new_face_signature": {
+        "center": [
+          126.97055133205538,
+          -85.46343610525551,
+          1.2216970605019213
+        ],
+        "area": 1.203962058380054
+      }
+    },
+    {
+      "faces": [
+        542,
+        543
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.418761051281985e-06,
+      "new_face_signature": {
+        "center": [
+          145.84361962790882,
+          -84.75921481548659,
+          2.7145488136320086
+        ],
+        "area": 1.3297286514972426
+      }
+    },
+    {
+      "faces": [
+        282,
+        283
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        282,
+        654
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.8610160704260107e-06,
+      "new_face_signature": {
+        "center": [
+          127.0757080151655,
+          -85.28180523919428,
+          3.4738137840461345
+        ],
+        "area": 0.5741256807028872
+      }
+    },
+    {
+      "faces": [
+        452,
+        453
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.664519242966157e-05,
+      "new_face_signature": {
+        "center": [
+          148.957929202524,
+          -95.29336218050528,
+          3.617006813932289
+        ],
+        "area": 0.8241969940063052
+      }
+    },
+    {
+      "faces": [
+        442,
+        483
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.700599194194235e-06,
+      "new_face_signature": {
+        "center": [
+          147.82385358443312,
+          -97.25729077412824,
+          3.4739964765766436
+        ],
+        "area": 0.5745211246927269
+      }
+    },
+    {
+      "faces": [
+        289,
+        302
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.1314724314864385e-05,
+      "new_face_signature": {
+        "center": [
+          128.28224010068044,
+          -83.19325111071086,
+          3.4739019245417695
+        ],
+        "area": 0.5740826282471428
+      }
+    },
+    {
+      "faces": [
+        520,
+        521
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.39121355949779e-06,
+      "new_face_signature": {
+        "center": [
+          147.8233827089122,
+          -83.193281177646,
+          3.473853963981878
+        ],
+        "area": 0.5741367414496239
+      }
+    },
+    {
+      "faces": [
+        460,
+        461
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.910900427324995e-06,
+      "new_face_signature": {
+        "center": [
+          149.18963371361193,
+          -94.89205794576843,
+          3.036950267947763
+        ],
+        "area": 0.5943792205742143
+      }
+    },
+    {
+      "faces": [
+        547,
+        597
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.91700660826006e-06,
+      "new_face_signature": {
+        "center": [
+          147.66373149231111,
+          -82.91671338970569,
+          3.0369646522159326
+        ],
+        "area": 0.5943571196258353
+      }
+    },
+    {
+      "faces": [
+        211,
+        215
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        213,
+        215
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        701,
+        702
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        702,
+        704
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.721093214287783e-12,
+      "new_face_signature": {
+        "center": [
+          137.42796214780893,
+          -98.77705014223594,
+          2.9046840988369964
+        ],
+        "area": 0.7480135983117159
+      }
+    },
+    {
+      "faces": [
+        140,
+        141
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.0123634352896603e-06,
+      "new_face_signature": {
+        "center": [
+          126.77185490187564,
+          -94.64242932433505,
+          2.4837287332136078
+        ],
+        "area": 0.4518053252624489
+      }
+    },
+    {
+      "faces": [
+        194,
+        195
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.050535666813705e-06,
+      "new_face_signature": {
+        "center": [
+          128.58603041878413,
+          -82.66704024172141,
+          2.483750608357455
+        ],
+        "area": 0.4517196457285064
+      }
+    },
+    {
+      "faces": [
+        283,
+        311
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.75820752252987e-06,
+      "new_face_signature": {
+        "center": [
+          127.25866541212415,
+          -84.96500192311015,
+          3.824265143803493
+        ],
+        "area": 0.5204400168307486
+      }
+    },
+    {
+      "faces": [
+        447,
+        482
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.984486396388632e-06,
+      "new_face_signature": {
+        "center": [
+          148.00664556959984,
+          -96.94082332175168,
+          3.8251034176527305
+        ],
+        "area": 0.5186933333092651
+      }
+    },
+    {
+      "faces": [
+        115,
+        116
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.1548404525813128e-05,
+      "new_face_signature": {
+        "center": [
+          128.49397677893302,
+          -97.62402994479986,
+          1.4617922675398085
+        ],
+        "area": 0.4974825234684705
+      }
+    },
+    {
+      "faces": [
+        357,
+        592
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.520375160278881e-06,
+      "new_face_signature": {
+        "center": [
+          147.6115804839366,
+          -82.82643892980265,
+          1.4617362205049536
+        ],
+        "area": 0.49730015443096637
+      }
+    },
+    {
+      "faces": [
+        98,
+        99
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.5818531271655215e-06,
+      "new_face_signature": {
+        "center": [
+          147.77844061834662,
+          -97.33602221953053,
+          0.9048196508437497
+        ],
+        "area": 0.41001288292557303
+      }
+    },
+    {
+      "faces": [
+        179,
+        781
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.757557580054112e-06,
+      "new_face_signature": {
+        "center": [
+          128.32772161322032,
+          -83.11456818967895,
+          0.9048234623368395
+        ],
+        "area": 0.4098802937479246
+      }
+    },
+    {
+      "faces": [
+        375,
+        750
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.9776881327674978e-05,
+      "new_face_signature": {
+        "center": [
+          149.04673544335998,
+          -85.31065491787574,
+          0.9020280066625894
+        ],
+        "area": 0.4874120776660564
+      }
+    },
+    {
+      "faces": [
+        322,
+        342
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.8599622469264344e-06,
+      "new_face_signature": {
+        "center": [
+          133.6918045869549,
+          -90.9333102166131,
+          4.264873732182109
+        ],
+        "area": 0.5420869189352471
+      }
+    },
+    {
+      "faces": [
+        491,
+        492
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.863083928280426e-06,
+      "new_face_signature": {
+        "center": [
+          145.77460787306552,
+          -95.8732644763476,
+          2.4220890999676397
+        ],
+        "area": 1.3067970383560636
+      }
+    },
+    {
+      "faces": [
+        279,
+        280
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        280,
+        343
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.0411891854287827e-08,
+      "new_face_signature": {
+        "center": [
+          133.758491629977,
+          -89.63310576639448,
+          4.164211464007079
+        ],
+        "area": 0.8770651409317809
+      }
+    },
+    {
+      "faces": [
+        463,
+        464
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 6.014251988958322e-06,
+      "new_face_signature": {
+        "center": [
+          142.25993018238964,
+          -90.66689617629258,
+          4.04775214682395
+        ],
+        "area": 0.5323593244397512
+      }
+    },
+    {
+      "faces": [
+        19,
+        839
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.244138944459068e-06,
+      "new_face_signature": {
+        "center": [
+          133.42154475684677,
+          -92.34622158064636,
+          0.959425905361008
+        ],
+        "area": 0.49422301213894587
+      }
+    },
+    {
+      "faces": [
+        237,
+        239
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        239,
+        240
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.380513270385187e-06,
+      "new_face_signature": {
+        "center": [
+          133.85780483631152,
+          -92.03933672114137,
+          2.9541968795430518
+        ],
+        "area": 0.4362610339019063
+      }
+    },
+    {
+      "faces": [
+        658,
+        659
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.6777938313975437e-06,
+      "new_face_signature": {
+        "center": [
+          130.1500278682659,
+          -93.52769021993812,
+          2.288472271025842
+        ],
+        "area": 0.4303538165828587
+      }
+    },
+    {
+      "faces": [
+        572,
+        573
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.796119660557728e-05,
+      "new_face_signature": {
+        "center": [
+          146.84533723968798,
+          -86.42817649698397,
+          2.1854721946726188
+        ],
+        "area": 1.3052412729497012
+      }
+    },
+    {
+      "faces": [
+        39,
+        791
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        630,
+        635
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.004904126247476e-06,
+      "new_face_signature": {
+        "center": [
+          132.4792383683369,
+          -85.71469196241374,
+          1.83968829224868
+        ],
+        "area": 0.22660125652829122
+      }
+    },
+    {
+      "faces": [
+        360,
+        361
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        646,
+        647
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.312862900970095e-05,
+      "new_face_signature": {
+        "center": [
+          134.16296565081538,
+          -89.25574960500799,
+          1.7381971766844277
+        ],
+        "area": 0.23328611705116176
+      }
+    },
+    {
+      "faces": [
+        627,
+        639
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.1809048163767774e-05,
+      "new_face_signature": {
+        "center": [
+          135.15176906218727,
+          -87.26333315151201,
+          2.131057730792162
+        ],
+        "area": 0.38670702604933216
+      }
+    },
+    {
+      "faces": [
+        120,
+        121
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.74866231158773e-05,
+      "new_face_signature": {
+        "center": [
+          135.26762316221163,
+          -93.10779397214057,
+          1.7381854504841887
+        ],
+        "area": 0.2332586887276933
+      }
+    },
+    {
+      "faces": [
+        371,
+        372
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        697,
+        701
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.582997848251375e-07,
+      "new_face_signature": {
+        "center": [
+          137.50505630113662,
+          -95.2785016839101,
+          2.9433791678815733
+        ],
+        "area": 0.36660641431880936
+      }
+    },
+    {
+      "faces": [
+        538,
+        539
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        539,
+        540
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.107347031499393e-05,
+      "new_face_signature": {
+        "center": [
+          140.71420526454637,
+          -87.99625653280613,
+          2.4001122140091393
+        ],
+        "area": 0.3976615698062019
+      }
+    },
+    {
+      "faces": [
+        362,
+        587
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        164,
+        165
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        165,
+        166
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        363,
+        364
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.1188153251522284e-05,
+      "new_face_signature": {
+        "center": [
+          140.71413346561744,
+          -87.99613220633748,
+          1.5375814638690055
+        ],
+        "area": 0.3979301232112209
+      }
+    },
+    {
+      "faces": [
+        161,
+        162
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.452111151072575e-05,
+      "new_face_signature": {
+        "center": [
+          134.7907589380747,
+          -89.03649226599515,
+          2.400063231280586
+        ],
+        "area": 0.3977316872116723
+      }
+    },
+    {
+      "faces": [
+        171,
+        172
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.784394663417512e-05,
+      "new_face_signature": {
+        "center": [
+          135.39146645981367,
+          -87.99615607459903,
+          1.5375902111103605
+        ],
+        "area": 0.3979308953732944
+      }
+    },
+    {
+      "faces": [
+        166,
+        167
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        167,
+        168
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.7826200987378845e-05,
+      "new_face_signature": {
+        "center": [
+          135.39145603433576,
+          -87.99617416503715,
+          2.3999497703160735
+        ],
+        "area": 0.39800906497591787
+      }
+    },
+    {
+      "faces": [
+        12,
+        13
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        12,
+        801
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.7827844522372404e-05,
+      "new_face_signature": {
+        "center": [
+          135.39145509297794,
+          -92.45437046882608,
+          1.5375542926383987
+        ],
+        "area": 0.39800475434026295
+      }
+    },
+    {
+      "faces": [
+        124,
+        125
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.7986355091261804e-05,
+      "new_face_signature": {
+        "center": [
+          135.39144189924238,
+          -92.45434788163297,
+          2.3999486374433356
+        ],
+        "area": 0.3979545324431477
+      }
+    },
+    {
+      "faces": [
+        388,
+        389
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.831080894736914e-05,
+      "new_face_signature": {
+        "center": [
+          141.3148853954332,
+          -91.4140169554185,
+          2.4000010740221818
+        ],
+        "area": 0.39779734355880236
+      }
+    },
+    {
+      "faces": [
+        393,
+        394
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        394,
+        395
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.124679942763708e-05,
+      "new_face_signature": {
+        "center": [
+          140.71416365044664,
+          -92.45436173536658,
+          2.399899783569964
+        ],
+        "area": 0.3978997223718949
+      }
+    },
+    {
+      "faces": [
+        404,
+        405
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 5.12638042547574e-05,
+      "new_face_signature": {
+        "center": [
+          140.7141540269622,
+          -92.45437841678937,
+          1.5375981749328163
+        ],
+        "area": 0.3979107688434821
+      }
+    },
+    {
+      "faces": [
+        530,
+        531
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.0849857225496576e-05,
+      "new_face_signature": {
+        "center": [
+          141.31490468831683,
+          -89.03656092490743,
+          2.399959432557283
+        ],
+        "area": 0.3976704014469928
+      }
+    },
+    {
+      "faces": [
+        13,
+        14
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        14,
+        15
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.022069214050711e-06,
+      "new_face_signature": {
+        "center": [
+          135.09111086618884,
+          -91.93382886895515,
+          1.2356315049381141
+        ],
+        "area": 0.39814646484123756
+      }
+    },
+    {
+      "faces": [
+        387,
+        507
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        391,
+        392
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.769551486282493e-07,
+      "new_face_signature": {
+        "center": [
+          141.01453476911982,
+          -91.93378683090212,
+          2.7018701500907616
+        ],
+        "area": 0.3982617588146896
+      }
+    },
+    {
+      "faces": [
+        409,
+        410
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        410,
+        411
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.2356862037639215e-05,
+      "new_face_signature": {
+        "center": [
+          141.31491055317338,
+          -91.41397705601301,
+          1.5375724126477908
+        ],
+        "area": 0.39769091298207904
+      }
+    },
+    {
+      "faces": [
+        126,
+        127
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        127,
+        128
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.0178729946550194e-06,
+      "new_face_signature": {
+        "center": [
+          135.0910946930348,
+          -91.93380085227312,
+          2.7018730778294726
+        ],
+        "area": 0.3980941160499113
+      }
+    },
+    {
+      "faces": [
+        362,
+        587
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        577,
+        578
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.083737955734067e-05,
+      "new_face_signature": {
+        "center": [
+          141.3149117470576,
+          -89.03657313289395,
+          1.537559397789986
+        ],
+        "area": 0.39771081798331165
+      }
+    },
+    {
+      "faces": [
+        129,
+        130
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        130,
+        131
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.6363351745953116e-05,
+      "new_face_signature": {
+        "center": [
+          134.79071468718814,
+          -91.413978673471,
+          2.3999309277034655
+        ],
+        "area": 0.39771028579027107
+      }
+    },
+    {
+      "faces": [
+        365,
+        366
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        366,
+        583
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.277864021937335e-07,
+      "new_face_signature": {
+        "center": [
+          141.01450286179048,
+          -88.51670800120934,
+          1.2356367700196778
+        ],
+        "area": 0.398161554501024
+      }
+    },
+    {
+      "faces": [
+        532,
+        533
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        122,
+        123
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        157,
+        158
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.455734535393434e-05,
+      "new_face_signature": {
+        "center": [
+          134.79070743568144,
+          -89.03658148955576,
+          1.537581415647554
+        ],
+        "area": 0.39766600627407644
+      }
+    },
+    {
+      "faces": [
+        122,
+        123
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        169,
+        170
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        169,
+        170
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        132,
+        133
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        133,
+        664
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        396,
+        499
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        396,
+        499
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        532,
+        533
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        132,
+        133
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        159,
+        160
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        387,
+        507
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        181,
+        182
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        406,
+        407
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        407,
+        408
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.0047744393272446e-06,
+      "new_face_signature": {
+        "center": [
+          141.01451587139604,
+          -91.93381954355951,
+          1.2356421872033865
+        ],
+        "area": 0.39783250187019076
+      }
+    },
+    {
+      "faces": [
+        181,
+        182
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        182,
+        183
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        535,
+        536
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        536,
+        537
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.59287105619154e-07,
+      "new_face_signature": {
+        "center": [
+          141.01449111117066,
+          -88.51668761363166,
+          2.701882046372698
+        ],
+        "area": 0.3978793581838347
+      }
+    },
+    {
+      "faces": [
+        159,
+        160
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        163,
+        164
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        164,
+        165
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        183,
+        790
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        165,
+        166
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        133,
+        664
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        664,
+        800
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.472470152026336e-05,
+      "new_face_signature": {
+        "center": [
+          134.79042927906832,
+          -91.41411743041502,
+          1.5375566555664404
+        ],
+        "area": 0.3977285830396653
+      }
+    },
+    {
+      "faces": [
+        182,
+        183
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        183,
+        790
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        163,
+        164
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        175,
+        176
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.3392171797474048e-05,
+      "new_face_signature": {
+        "center": [
+          128.09643630592893,
+          -83.51500247778509,
+          0.6871341572722875
+        ],
+        "area": 0.23695948176742576
+      }
+    },
+    {
+      "faces": [
+        93,
+        94
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.217308431484514e-06,
+      "new_face_signature": {
+        "center": [
+          148.00312130323704,
+          -96.94680130527006,
+          0.5181355433301361
+        ],
+        "area": 0.3388214246374092
+      }
+    },
+    {
+      "faces": [
+        330,
+        331
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 6.347174353399085e-06,
+      "new_face_signature": {
+        "center": [
+          130.86660835260886,
+          -93.64808958402169,
+          2.9028541860682435
+        ],
+        "area": 0.6110133667548852
+      }
+    },
+    {
+      "faces": [
+        677,
+        679
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.931187392500602e-05,
+      "new_face_signature": {
+        "center": [
+          132.84719439013534,
+          -94.52883799846545,
+          1.8682273584083173
+        ],
+        "area": 1.3044442348714176
+      }
+    },
+    {
+      "faces": [
+        400,
+        495
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.121016870039539e-06,
+      "new_face_signature": {
+        "center": [
+          143.2676911613927,
+          -94.5311616680899,
+          1.85256553611182
+        ],
+        "area": 0.21032524754292733
+      }
+    },
+    {
+      "faces": [
+        298,
+        617
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.905169069526163e-06,
+      "new_face_signature": {
+        "center": [
+          128.37555400108374,
+          -83.0314966025659,
+          2.6313495057117624
+        ],
+        "area": 0.22090918691562633
+      }
+    },
+    {
+      "faces": [
+        548,
+        549
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.495425822879078e-07,
+      "new_face_signature": {
+        "center": [
+          147.73004035268568,
+          -83.03148691709863,
+          2.6313747583607485
+        ],
+        "area": 0.2209010235456893
+      }
+    },
+    {
+      "faces": [
+        226,
+        227
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.0279846895236393e-05,
+      "new_face_signature": {
+        "center": [
+          128.37557787519137,
+          -97.41905556275162,
+          2.631373043379038
+        ],
+        "area": 0.22090341065665411
+      }
+    },
+    {
+      "faces": [
+        246,
+        657
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.7181731528008532e-06,
+      "new_face_signature": {
+        "center": [
+          126.98233076325204,
+          -95.00688914873982,
+          2.631364201275562
+        ],
+        "area": 0.2209094337508412
+      }
+    },
+    {
+      "faces": [
+        384,
+        511
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.066487457231508e-05,
+      "new_face_signature": {
+        "center": [
+          149.28548501760181,
+          -94.72602428732377,
+          2.534169400132037
+        ],
+        "area": 0.5811577372493784
+      }
+    },
+    {
+      "faces": [
+        146,
+        147
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.8548435433369565e-07,
+      "new_face_signature": {
+        "center": [
+          126.92741475102956,
+          -85.53879417958407,
+          2.1787121764999338
+        ],
+        "area": 0.20654356671692986
+      }
+    },
+    {
+      "faces": [
+        112,
+        682
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.886992436366931e-06,
+      "new_face_signature": {
+        "center": [
+          128.55668097465428,
+          -97.73268608831849,
+          1.9950793254675878
+        ],
+        "area": 0.5470112070615657
+      }
+    },
+    {
+      "faces": [
+        354,
+        595
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.0215774651573165e-06,
+      "new_face_signature": {
+        "center": [
+          147.54878138004028,
+          -82.71760490482995,
+          1.9951178143008534
+        ],
+        "area": 0.5467109995167565
+      }
+    },
+    {
+      "faces": [
+        242,
+        667
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        301,
+        641
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.9841689298335566e-05,
+      "new_face_signature": {
+        "center": [
+          135.17350043693258,
+          -87.69055852287127,
+          2.7968135512026455
+        ],
+        "area": 0.18411627504340664
+      }
+    },
+    {
+      "faces": [
+        544,
+        557
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.401555228873361e-07,
+      "new_face_signature": {
+        "center": [
+          143.3728249096294,
+          -86.18535122216021,
+          2.714540408413516
+        ],
+        "area": 0.18921661009856644
+      }
+    },
+    {
+      "faces": [
+        39,
+        791
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        788,
+        791
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.485309360674748e-07,
+      "new_face_signature": {
+        "center": [
+          127.26338238083761,
+          -84.95688729410128,
+          0.33480876972264617
+        ],
+        "area": 0.18046883104956732
+      }
+    },
+    {
+      "faces": [
+        21,
+        22
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        22,
+        837
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.73906504777931e-06,
+      "new_face_signature": {
+        "center": [
+          127.26324200058961,
+          -95.49347247279472,
+          0.33453209583899135
+        ],
+        "area": 0.18006493572246915
+      }
+    },
+    {
+      "faces": [
+        478,
+        479
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 9.34213169374763e-06,
+      "new_face_signature": {
+        "center": [
+          148.842403794131,
+          -95.49341120467449,
+          4.165604854132698
+        ],
+        "area": 0.17974053536726242
+      }
+    },
+    {
+      "faces": [
+        782,
+        783
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.817650075244718e-06,
+      "new_face_signature": {
+        "center": [
+          128.0948645311309,
+          -83.5177078102871,
+          0.3337958846620143
+        ],
+        "area": 0.1787106271526769
+      }
+    },
+    {
+      "faces": [
+        256,
+        320
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.6010549381812294e-05,
+      "new_face_signature": {
+        "center": [
+          133.9611080104473,
+          -90.46703743684654,
+          3.9339819597785466
+        ],
+        "area": 0.16693681338431374
+      }
+    },
+    {
+      "faces": [
+        238,
+        668
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.826303315199903e-05,
+      "new_face_signature": {
+        "center": [
+          134.62683323451427,
+          -91.67092093741343,
+          2.9871020643608497
+        ],
+        "area": 0.14525570814539404
+      }
+    },
+    {
+      "faces": [
+        690,
+        691
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.379588951410815e-13,
+      "new_face_signature": {
+        "center": [
+          138.2885793426013,
+          -95.35410237156155,
+          3.059165591000668
+        ],
+        "area": 0.45929425858515127
+      }
+    },
+    {
+      "faces": [
+        185,
+        637
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.399043344873172e-06,
+      "new_face_signature": {
+        "center": [
+          128.3215901223804,
+          -83.12504988802817,
+          1.2843869816708124
+        ],
+        "area": 0.1753459496953353
+      }
+    },
+    {
+      "faces": [
+        730,
+        732
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        211,
+        215
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        211,
+        216
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        117,
+        803
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.726133690782378e-06,
+      "new_face_signature": {
+        "center": [
+          128.32158606228606,
+          -97.32549398970615,
+          1.2843826375139547
+        ],
+        "area": 0.1753455902901246
+      }
+    },
+    {
+      "faces": [
+        590,
+        591
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.464313691618954e-05,
+      "new_face_signature": {
+        "center": [
+          147.7840078423071,
+          -83.12503861497329,
+          1.2843881062525448
+        ],
+        "area": 0.17532213336598634
+      }
+    },
+    {
+      "faces": [
+        804,
+        805
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 7.386375850690637e-06,
+      "new_face_signature": {
+        "center": [
+          132.29790745044636,
+          -95.86408858882623,
+          1.2396135174679117
+        ],
+        "area": 5.897346857012583
+      }
+    },
+    {
+      "faces": [
+        189,
+        190
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.003013708290025e-06,
+      "new_face_signature": {
+        "center": [
+          128.41204895091167,
+          -82.96834087452368,
+          1.7145509215642813
+        ],
+        "area": 0.19070828654542854
+      }
+    },
+    {
+      "faces": [
+        806,
+        807
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.572799532261289e-06,
+      "new_face_signature": {
+        "center": [
+          135.97365091764925,
+          -93.75869755111286,
+          1.2671469726158135
+        ],
+        "area": 0.04223206582810898
+      }
+    },
+    {
+      "faces": [
+        360,
+        361
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        570,
+        571
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.143388044930469e-05,
+      "new_face_signature": {
+        "center": [
+          142.22938347885705,
+          -89.07151898036463,
+          2.3017053774351126
+        ],
+        "area": 0.027827631635600925
+      }
+    },
+    {
+      "faces": [
+        45,
+        46
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.921707763828032e-06,
+      "new_face_signature": {
+        "center": [
+          132.32590607446446,
+          -84.6025430673714,
+          1.2397373394336475
+        ],
+        "area": 5.94245499282924
+      }
+    },
+    {
+      "faces": [
+        223,
+        231
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.609133225742018e-06,
+      "new_face_signature": {
+        "center": [
+          132.3263586112848,
+          -95.84776033230531,
+          3.2602389847758784
+        ],
+        "area": 5.941960544828066
+      }
+    },
+    {
+      "faces": [
+        85,
+        86
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.882239367728766e-06,
+      "new_face_signature": {
+        "center": [
+          145.78931104978858,
+          -92.37349504391355,
+          1.2396750750016898
+        ],
+        "area": 5.939263058842513
+      }
+    },
+    {
+      "faces": [
+        308,
+        312
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        350,
+        351
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.2523325507400514e-06,
+      "new_face_signature": {
+        "center": [
+          143.78182311548895,
+          -84.60138298291938,
+          3.2603455917845983
+        ],
+        "area": 5.93897753184374
+      }
+    },
+    {
+      "faces": [
+        436,
+        437
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        91,
+        92
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        446,
+        501
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        436,
+        437
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        585,
+        586
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        91,
+        92
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        650,
+        651
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        674,
+        675
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        694,
+        706
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 3.259672882294448e-12,
+      "new_face_signature": {
+        "center": [
+          137.046663288654,
+          -97.92194366452,
+          2.4744010481974317
+        ],
+        "area": 3.02254951864905
+      }
+    },
+    {
+      "faces": [
+        575,
+        576
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        527,
+        534
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        213,
+        215
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        674,
+        675
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        650,
+        651
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        285,
+        645
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        456,
+        505
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        235,
+        671
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        523,
+        524
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        424,
+        735
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        174,
+        785
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        174,
+        785
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        424,
+        735
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        523,
+        524
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        235,
+        671
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        285,
+        645
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        456,
+        505
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        233,
+        337
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        585,
+        586
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        699,
+        700
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.072198774720106e-13,
+      "new_face_signature": {
+        "center": [
+          137.8759735353191,
+          -94.92641448973998,
+          3.068359220523723
+        ],
+        "area": 0.9185178588754472
+      }
+    },
+    {
+      "faces": [
+        730,
+        732
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        446,
+        501
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        751,
+        752
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 2.9653868590581402e-06,
+      "new_face_signature": {
+        "center": [
+          148.84385550812073,
+          -84.95839941655848,
+          0.5353112139922869
+        ],
+        "area": 0.4161344478458287
+      }
+    },
+    {
+      "faces": [
+        741,
+        742
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 1.032763087717312e-05,
+      "new_face_signature": {
+        "center": [
+          148.8439018540507,
+          -95.49206548142507,
+          0.5352492598427778
+        ],
+        "area": 0.41589472413632833
+      }
+    },
+    {
+      "faces": [
+        575,
+        576
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        308,
+        312
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        8,
+        843
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        291,
+        292
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.166458234346976e-06,
+      "new_face_signature": {
+        "center": [
+          128.25248257310963,
+          -83.24465342448117,
+          3.0285388304079475
+        ],
+        "area": 0.23382270822624918
+      }
+    },
+    {
+      "faces": [
+        444,
+        445
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 4.811344817065258e-05,
+      "new_face_signature": {
+        "center": [
+          147.8531756363623,
+          -97.20590678687671,
+          3.0285418684289733
+        ],
+        "area": 0.23382956425041865
+      }
+    },
+    {
+      "faces": [
+        243,
+        251
+      ],
+      "construction": "loft_cuatro_curvas_nativo",
+      "max_soporte_bidireccional_mm": 8.53938309847556e-06,
+      "new_face_signature": {
+        "center": [
+          127.10542757077553,
+          -95.2200631868595,
+          3.0285478167842665
+        ],
+        "area": 0.2338478287338288
+      }
+    },
+    {
+      "faces": [
+        211,
+        216
+      ],
+      "rejected": "El loft abandona la fuente local"
+    },
+    {
+      "faces": [
+        527,
+        534
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        208,
+        769
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        209,
+        212
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        0,
+        843
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        233,
+        337
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        207,
+        769
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "faces": [
+        209,
+        210
+      ],
+      "rejected": "El loft cambia área de región"
+    },
+    {
+      "global_volume_constraint": true,
+      "target_mm3": 708.6334483666641,
+      "initial_mm3": 708.6181277373607,
+      "final_mm3": 708.6334483666702,
+      "interior_pole_shift_mm": 0.0019855621777976006,
+      "boundary_and_tangents_unchanged": true,
+      "improves_source_volume": false,
+      "source_volume_mm3": 708.6362239863047
+    }
+  ],
+  "tolerancias_nativas": {
+    "antes_mm": 1e-07,
+    "despues_mm": 1e-07,
+    "asignadas_por_occt": true,
+    "limites_geometricos_R13_modificados": false
+  },
+  "error": "La propuesta medida empeora el máximo anterior; se conserva la conversión validada",
+  "seconds": 379.0724740439982
+}

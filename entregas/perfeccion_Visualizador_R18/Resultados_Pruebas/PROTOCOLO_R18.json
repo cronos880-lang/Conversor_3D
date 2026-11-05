@@ -1,0 +1,349 @@
+[
+  {
+    "id": "Bancada_Motor",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/Bancada_Motor.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/Bancada_Motor.step",
+    "sha256": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Flame_Base",
+    "grupo_control": "nueva_familia_R18",
+    "perfil": "precision",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Flame_Base.stl",
+    "sha256": "cd7b90af65d0dcc75e57bebe30029c802e5df8ee85aaa7c17895f42e88be808b"
+  },
+  {
+    "id": "Base",
+    "grupo_control": "nueva_familia_R18",
+    "perfil": "precision",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Base.stl",
+    "sha256": "94746b2d37f2211b3ab80ae292a3f9a57cd5dc2a7f5b75406f3568e3c28d22da"
+  },
+  {
+    "id": "Flame_impresion",
+    "grupo_control": "nueva_familia_R18",
+    "perfil": "impresion",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Flame_Base.stl",
+    "sha256": "cd7b90af65d0dcc75e57bebe30029c802e5df8ee85aaa7c17895f42e88be808b"
+  },
+  {
+    "id": "Base_impresion",
+    "grupo_control": "nueva_familia_R18",
+    "perfil": "impresion",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Base.stl",
+    "sha256": "94746b2d37f2211b3ab80ae292a3f9a57cd5dc2a7f5b75406f3568e3c28d22da"
+  },
+  {
+    "id": "disco_macizo",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/disco_macizo/entrada.stl",
+    "sha256": "d452a0992aebf42bc2de20832e6f1f52516789cf743d3b5abe9bd8fb5b586cbf",
+    "modelo": "CAD independiente: disco macizo, radio6 y altura3",
+    "perfil": "precision",
+    "euler": 2,
+    "caras": 1436,
+    "volumen_CAD": 339.29200658769764,
+    "grupo_control": "nueva_familia_R18"
+  },
+  {
+    "id": "cilindro_vaciado_profundo_oblicuo",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/cilindro_vaciado_profundo_oblicuo/entrada.stl",
+    "sha256": "bb3bd039639d5363b434ae528c484057cfc9ad0cc0430247408e8d3179283a6c",
+    "modelo": "CAD independiente: cilindro, cavidad cuadrada profunda y rebaje inferior0.12; giro/traslaci\u00f3n",
+    "perfil": "precision",
+    "euler": 2,
+    "caras": 1468,
+    "volumen_CAD": 993.7608197630933,
+    "grupo_control": "nueva_familia_R18"
+  },
+  {
+    "id": "casquillo_refuerzos_2_oblicuo",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/casquillo_refuerzos_2_oblicuo/entrada.stl",
+    "sha256": "42cf6199d9f47cf3228bfd6b170ef4272d41eac3c7b65b868416d12456eb47fc",
+    "modelo": "CAD independiente: casquillo con2refuerzos y vaciados abiertos/cubiertos sobre techos inclinados; radios6/3, altura10",
+    "perfil": "precision",
+    "euler": 0,
+    "caras": 2864,
+    "volumen_CAD": 901.3290795095265,
+    "grupo_control": "nueva_familia_R18"
+  },
+  {
+    "id": "casquillo_refuerzos_4",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/controles_independientes/casquillo_refuerzos_4/entrada.stl",
+    "sha256": "18d4989d31a85a2737d4cd4c3e357d2ecffff59008c836efc0f2916c690d7b97",
+    "modelo": "CAD independiente: casquillo con4refuerzos y vaciados abiertos/cubiertos sobre techos inclinados; radios6/3, altura10",
+    "perfil": "precision",
+    "euler": 0,
+    "caras": 2852,
+    "volumen_CAD": 954.4281425498096,
+    "grupo_control": "nueva_familia_R18"
+  },
+  {
+    "id": "Body_usuario",
+    "grupo_control": "regresion_R17",
+    "perfil": "precision",
+    "source": "/workspace/work/cilindros_macizos_R18_20261104/entradas/Body.stl",
+    "sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24"
+  },
+  {
+    "id": "maneta",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/maneta.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/maneta.step",
+    "sha256": "9dcf990e18273731a9d15176a224a94e7f65158164e98c2769b6b03dc1f929b3",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "LLanta_Trasera",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/LLanta_Trasera.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/LLanta_Trasera.step",
+    "sha256": "ea2e1508b5766f2a3ac17aaa077544c79fb49a33de1d1e3aea9ccd24835597c1",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Tirante",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/Tirante.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/Tirante.step",
+    "sha256": "8e43440fa46395d66528571401946aed80207e68255cfe292937a509948f6883",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "cubo-carrito",
+    "grupo": "cubo4",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/casos_cubo/cubo-carrito.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/cubo_precision/cubo-carrito.step",
+    "sha256": "b01a54cc18b65532bd4e0f388742c35291987c3dde5ba9f1d32c2ee78fa16600",
+    "limite_s": 900,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "cubo-carrito_giro_1",
+    "grupo": "cubo4",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/casos_cubo/cubo-carrito_giro_1.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/cubo_precision/cubo-carrito_giro_1.step",
+    "sha256": "23af55a2f063e152547250648c3a0bd2123b8e0ae43b1667a0cde870fb0564c9",
+    "limite_s": 900,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "cubo-carrito_giro_2",
+    "grupo": "cubo4",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/casos_cubo/cubo-carrito_giro_2.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/cubo_precision/cubo-carrito_giro_2.step",
+    "sha256": "56d7013015f9ac52693b697a159b108965682a1608e12893b72b451d2d77d71c",
+    "limite_s": 900,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "cubo-carrito_giro_3",
+    "grupo": "cubo4",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/casos_cubo/cubo-carrito_giro_3.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/cubo_precision/cubo-carrito_giro_3.step",
+    "sha256": "ca340a5e77d73748816c6a2bf0810c8e08a3018a69b19727a9c2ffa15dde85a6",
+    "limite_s": 900,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "brida_independiente",
+    "grupo_control": "regresion_R17",
+    "perfil": "precision",
+    "source": "/workspace/work/desarrollo_R15_20261103/brida_independiente_R15.stl",
+    "sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932"
+  },
+  {
+    "id": "conector",
+    "grupo": "otras_aceptadas_R7",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/conector.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/conector_con_rechazo_anticipado/conector.step",
+    "sha256": "35e4dec24c14d2fb21c5a7bfc6bf184f6152cd13ed91bed6f6f7dc9fbc3187f2",
+    "limite_s": 2300,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "pinza",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/pinza.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/pinza.step",
+    "sha256": "dde8c6b4e723db51b3571525b06550f864a90745592874139d4a2c7ff2a51d34",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Technic_PEGS_Cross_x6_A",
+    "grupo_control": "regresion_R17",
+    "perfil": "precision",
+    "source": "/workspace/work/mejora_cad_post_avance_20261026/entradas_nuevas/Technic_PEGS_Cross_x6_A.stl",
+    "sha256": "2a2844baf0a1cfa4df28257909cfc2060fee828d4e5339c6d4fd21f43f5e2b30"
+  },
+  {
+    "id": "1x1-lego-brick",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/1x1-lego-brick.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/1x1-lego-brick.step",
+    "sha256": "d4d10b56cbc29e941b7bce823b052e8403fe2c6d6e82acd11a72959ac3c69f2a",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Estefi",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/Estefi.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/Estefi.step",
+    "sha256": "5fe8837a20045ce6a669575de11e41515093afbaebec2d0bb3b3680b2d7c3b9d",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Grapa",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/Grapa.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/Grapa.step",
+    "sha256": "679f77d60cd7a52c662956e05f7330737f60e9fda26b47a509702bdc0aba5a1c",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "M3 PClip - 2mm",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/M3 PClip - 2mm.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/M3 PClip - 2mm.step",
+    "sha256": "efdbb2489474e3d1cd0c486980c0aede256cd4577ae3957a4460849738538743",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Spoiler_arri\u00e8re_Porsche_-_5",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/Spoiler_arri\u00e8re_Porsche_-_5.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/Spoiler_arri\u00e8re_Porsche_-_5.step",
+    "sha256": "af06f20112ed3b134ac8d2235be0edd9e84651dcdb0c03e573be0ac9bee5cbca",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "chasis - Part 2",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/chasis - Part 2.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/chasis - Part 2.step",
+    "sha256": "3b7e731e88402a2cb88d088bec9e1a9164b25aa1747093e7988a663b14ad026c",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "spur",
+    "grupo": "historica12",
+    "source": "/workspace/work/paquete_perfeccion_Visualizador_R7/material_pruebas/stl_regresion_14/spur.stl",
+    "referencia_step": "/workspace/work/paquete_perfeccion_Visualizador_R7/evidencias/regresion_precision/spur.step",
+    "sha256": "224dd26593686bc9908039a7b92add4841e6b86b281db78a1424a9b5bc505eef",
+    "limite_s": 1800,
+    "ok_previo": true,
+    "perfil": "precision",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Body_girada_anonima",
+    "source": "/workspace/work/curvas_nuevas_20261104/controles_independientes/body_girada/entrada_anonima.stl",
+    "perfil": "precision",
+    "expect_r17": true,
+    "transformacion": [
+      [
+        0.8993134104670912,
+        -0.34762660868301887,
+        0.2653132689663155,
+        -354.55681146478474
+      ],
+      [
+        0.37860709777006774,
+        0.9225487772823778,
+        -0.07456821744494113,
+        -282.73242568365737
+      ],
+      [
+        -0.21884253533574222,
+        0.16750968470608774,
+        0.961274388641189,
+        22.64056241538729
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sha256": "8df30985231b53c8784a6a4e42d8c97918df4af3593241d5c4f2f69ee93bd24d",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Body_impresion",
+    "source": "/workspace/work/curvas_nuevas_20261104/entradas/Body.stl",
+    "perfil": "impresion",
+    "expect_r17": true,
+    "sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Independiente_casquillo",
+    "source": "/workspace/work/curvas_nuevas_20261104/controles_independientes/casquillo_escalonado/entrada.stl",
+    "perfil": "precision",
+    "expect_r17": true,
+    "modelo": "CAD independiente generado, dos cambios de di\u00e1metro y taladro pasante",
+    "sha256": "f0597ebfe07ff907247c96cecb493cf13904b476d413bfe7abba14eb2f078ea2",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Independiente_rebaje_oblicuo",
+    "source": "/workspace/work/curvas_nuevas_20261104/controles_independientes/casquillo_rebaje_oblicuo/entrada.stl",
+    "perfil": "precision",
+    "expect_r17": true,
+    "modelo": "CAD independiente generado, rebaje de 0,1 mm y orientaci\u00f3n oblicua",
+    "sha256": "7aa212e4909e9f89a933d5184285246f0e244d1c35d2a71fddb601d1649e53c7",
+    "grupo_control": "regresion_R17"
+  },
+  {
+    "id": "Guia_ranurada",
+    "grupo_control": "regresion_R17",
+    "perfil": "impresion",
+    "source": "/workspace/work/curvas_nuevas_20261104/entradas/Lego_Guia circulos .stl",
+    "sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652"
+  }
+]
