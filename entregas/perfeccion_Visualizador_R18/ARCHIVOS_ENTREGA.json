@@ -1,0 +1,16 @@
+[
+  {
+    "nombre": "perfeccion_Visualizador_R18_EXPERIMENTAL_COMPLETA.zip",
+    "bytes": 6888594,
+    "sha256": "3af0b410e707b6132f4ccb11ab10c7c0e1d6b53d9c76a875c5f4bb4dfb5106cd",
+    "git_blob_sha": "dedbe427b0f98ff414f02307b7340af0dc8f3c29",
+    "url": "https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R18/entregas/perfeccion_Visualizador_R18/perfeccion_Visualizador_R18_EXPERIMENTAL_COMPLETA.zip?raw=true"
+  },
+  {
+    "nombre": "perfeccion_Visualizador_R18_ARCHIVOS_MODIFICADOS.zip",
+    "bytes": 85412,
+    "sha256": "da4b8bac13037e989072542a0dd3c2bef99be910d4520262c25f35a3f4f1e94f",
+    "git_blob_sha": "99b10d9740de602ec44d4b6194fd3dca4875ec50",
+    "url": "https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R18/entregas/perfeccion_Visualizador_R18/perfeccion_Visualizador_R18_ARCHIVOS_MODIFICADOS.zip?raw=true"
+  }
+]
