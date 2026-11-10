@@ -1,0 +1,164 @@
+{
+  "tests": {
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0
+  },
+  "real_environment_check": {
+    "ok": true,
+    "steps": [
+      {
+        "etapa": "Python 3.12 de 64 bits",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "Coherencia de dependencias (pip check)",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.3
+      },
+      {
+        "etapa": "[1/17] Cargando gpytoolbox_bindings_copyleft",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[2/17] Cargando CGAL.CGAL_Kernel",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[3/17] Cargando CGAL.CGAL_Polygon_mesh_processing",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[4/17] Cargando igl",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.3
+      },
+      {
+        "etapa": "[5/17] Cargando OCP",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.9
+      },
+      {
+        "etapa": "[6/17] Cargando cadquery",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 1.8
+      },
+      {
+        "etapa": "[7/17] Cargando numpy",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[8/17] Cargando scipy",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[9/17] Cargando trimesh",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.6
+      },
+      {
+        "etapa": "[10/17] Cargando vtk",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.5
+      },
+      {
+        "etapa": "[11/17] Cargando shapely",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[12/17] Cargando uvicorn",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[13/17] Cargando fastapi",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.3
+      },
+      {
+        "etapa": "[14/17] Cargando multipart",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[15/17] Cargando manifold3d",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[16/17] Cargando psutil",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.1
+      },
+      {
+        "etapa": "[17/17] Cargando networkx",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 0.2
+      },
+      {
+        "etapa": "Comprobacion conjunta de librerias CAD",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 2.4
+      },
+      {
+        "etapa": "Prueba basica del nucleo CAD",
+        "ok": true,
+        "codigo": 0,
+        "codigo_hex": "0x00000000",
+        "segundos": 1.8
+      }
+    ]
+  },
+  "engine_fingerprint_unchanged": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+  "overlay_all_source_hashes_verified": true,
+  "native_windows_test_pending": true,
+  "diagnosis_user_windows": "No se ha determinado la causa; las capturas sólo muestran mensajes de pip",
+  "original_zip_sha256": "99ba000c02b42734e20cfad9c4d49f5233c95b704182b432697b5888904c77ce"
+}

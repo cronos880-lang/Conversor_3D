@@ -1,0 +1,13 @@
+CORRECCION DEL INSTALADOR R19
+
+1. Usa la carpeta R19 que ya has extraido, donde esta Iniciar_R19.bat.
+2. Copia AHI todo el contenido del ZIP del parche. Acepta reemplazar los lanzadores y manifiestos incluidos. No borres la carpeta .venv.
+3. Ejecuta Comprobar_Entorno_R19.bat. No reinstala paquetes. Muestra cada libreria y conserva el motivo exacto de cualquier fallo.
+4. Si todas las comprobaciones pasan, abre el Visor R19 automaticamente.
+5. Si falla, copia el nombre de la etapa y las ultimas lineas visibles. El registro completo y su resumen JSON quedan en Diagnosticos_Instalacion.
+
+Instalar_Entorno_R19.bat y el instalador interior usan ahora el mismo comprobador. Solo instalas paquetes si eliges ejecutar el instalador; se reutiliza la .venv existente y las dependencias ya instaladas.
+
+El instalador anterior comprobaba todas las librerias con un unico import sin mostrar progreso ni limitar el tiempo. La captura no permite saber si pip seguia trabajando o si habia comenzado esa comprobacion. Este parche muestra la etapa real, limita las esperas y guarda la salida completa. No se atribuye todavia el fallo de tu Windows a una libreria concreta.
+
+No cambia el motor de conversion, las tolerancias ni las superficies R19. Las pruebas de esta correccion se ejecutan en Linux y con casos controlados de error; la ejecucion nativa en tu Windows debe confirmar el resultado.
