@@ -1,0 +1,429 @@
+{
+  "version": "R19 experimental",
+  "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+  "base_R18_verified": {
+    "entries_per_tree": 342,
+    "trees": 2
+  },
+  "tests": {
+    "total": 442,
+    "passed": 438,
+    "skipped": 4,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 300.677,
+    "skipped_reasons": [
+      {
+        "test": "test_muestreo_no_corrompe_juicio_del_brep",
+        "reason": "STEP de regresión de caché no indicado"
+      },
+      {
+        "test": "test_no_acepta_cad_solo_por_ser_valido_sin_interferencias",
+        "reason": "STEP de regresión densa no indicado"
+      },
+      {
+        "test": "test_rescate_exige_repetir_control_avanzado",
+        "reason": "STEP defectuoso aportado no indicado"
+      },
+      {
+        "test": "test_autointerseccion_real_se_rechaza_en_frio_antes_del_mallado",
+        "reason": "Fixture CAD externo no disponible"
+      }
+    ]
+  },
+  "bancada": {
+    "origin": "Conversión completa nueva STL → API asíncrona R19 → descarga STEP",
+    "source_sha256": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+    "selected_step_sha256": "a54f6b442f70469d991e78f3d6e93947a41e16407437ad806fe81dec250f4099",
+    "faces_before": 108,
+    "faces_after": 101,
+    "verified_max_mm": 0.003438,
+    "common_points": {
+      "muestras": 17987,
+      "maximo_base_mm": 0.00232237493026195,
+      "maximo_candidato_mm": 0.00232237493026195,
+      "aumento_maximo_mm": 8.084914631317484e-07,
+      "regresiones_sobre_00001_mm": 0,
+      "source_sha256": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+      "baseline_sha256": "c01ec6f5e4f6efb279be77eb66abae6bc82e497130fbb2de3c0397c5482c998e",
+      "candidate_sha256": "a54f6b442f70469d991e78f3d6e93947a41e16407437ad806fe81dec250f4099"
+    },
+    "material_discrepancies": 0,
+    "material_points": 2998,
+    "mesh_intersections": [
+      0,
+      0,
+      0
+    ],
+    "step_reimported": true,
+    "exact_brep": true,
+    "euler": {
+      "euler_malla": -14,
+      "euler_brep": -14,
+      "shells": 1,
+      "cavidades_preservadas": 0,
+      "probes_cavidades": []
+    },
+    "seconds": 786.6298767019998,
+    "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006"
+  },
+  "postprocessing_trials": [
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "CAD sintético construido y validado; no conversión R18",
+      "selected_method": "planos",
+      "faces_before": 12,
+      "faces_after": 6,
+      "verified_max_mm": 0.0,
+      "baseline_preserved": true,
+      "source_sha256": "f4409d294fe83ad8e27ac117f7ed2d5891fa85e0b09102c7058e89447bded61c",
+      "baseline_sha256": "218e483a4932b6342df6a49a72147ba2704b4bd2f7808e474a912e2cac15042f",
+      "selected_sha256": "1493a6457498a509c9fa48397d5542ef1767e8a8d352660863f4d171a70ef7b8",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "caja_fragmentada",
+      "seconds": 29.49070486600067,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": true,
+          "validated": true,
+          "error": null,
+          "caras_antes": 12,
+          "caras_despues": 6
+        },
+        {
+          "method": "costuras",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin cilindros contiguos del mismo soporte",
+          "caras_antes": null,
+          "caras_despues": null
+        }
+      ]
+    },
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "CAD sintético construido y validado; no conversión R18",
+      "selected_method": "planos",
+      "faces_before": 16,
+      "faces_after": 8,
+      "verified_max_mm": 2.5e-05,
+      "baseline_preserved": true,
+      "source_sha256": "d397d08ab76427955953799137204c9a948596eb62fce0591567093eac31488d",
+      "baseline_sha256": "bde09faa5d9e96997dbb5a6dc1e5650647510ab52c94492110d4bd1026f6cb2c",
+      "selected_sha256": "5052c032894c87c90175ad27e926579b3d0f165280b36edf5ed9e0df66f7ff1c",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "planos_y_taladro",
+      "seconds": 21.74696064100135,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": true,
+          "validated": true,
+          "error": null,
+          "caras_antes": 16,
+          "caras_despues": 8
+        },
+        {
+          "method": "costuras",
+          "accepted": false,
+          "validated": false,
+          "error": "La reducción preliminar es insuficiente",
+          "caras_antes": 16,
+          "caras_despues": 15
+        }
+      ]
+    },
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "CAD sintético controlado y validado; no es una conversión R18",
+      "selected_method": "costuras",
+      "faces_before": 18,
+      "faces_after": 12,
+      "verified_max_mm": 6.2e-05,
+      "baseline_preserved": true,
+      "source_sha256": "c57ffa6496a8307c39e2b8cf41cbe0c35ee0a8b1cfbbf50d0a0a0fdb0dc5ebb4",
+      "baseline_sha256": "c3d9ad4315143ef9215bc7e2ef6b3dcf266a6b90d9e487fb9384df96bccc1fb9",
+      "selected_sha256": "d86fbabe7519277b80d2ad0f85d3beef6b78c5237eefbd1e9e93303a32d16576",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "placa_seis_taladros",
+      "seconds": 34.05981827799951,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin planos contiguos coplanares",
+          "caras_antes": null,
+          "caras_despues": null
+        },
+        {
+          "method": "costuras",
+          "accepted": true,
+          "validated": true,
+          "error": null,
+          "caras_antes": 18,
+          "caras_despues": 12
+        }
+      ]
+    },
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "Referencia de conversión R18",
+      "selected_method": "r18",
+      "faces_before": 463,
+      "faces_after": 463,
+      "verified_max_mm": 0.005532,
+      "baseline_preserved": true,
+      "source_sha256": "94746b2d37f2211b3ab80ae292a3f9a57cd5dc2a7f5b75406f3568e3c28d22da",
+      "baseline_sha256": "ca8b098767d68021a806e4379f6d5f71f896a1bc1c062885519434e7a6fc9214",
+      "selected_sha256": "ca8b098767d68021a806e4379f6d5f71f896a1bc1c062885519434e7a6fc9214",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "Base",
+      "seconds": 21.188929763999113,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin planos contiguos coplanares",
+          "caras_antes": null,
+          "caras_despues": null
+        },
+        {
+          "method": "costuras",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin cilindros contiguos del mismo soporte",
+          "caras_antes": null,
+          "caras_despues": null
+        }
+      ]
+    },
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "Referencia de conversión R18",
+      "selected_method": "r18",
+      "faces_before": 426,
+      "faces_after": 426,
+      "verified_max_mm": 0.00565,
+      "baseline_preserved": true,
+      "source_sha256": "01cc464258db90829e1ab2a265847d534437ef30a5e7a5f32cce70238b283e24",
+      "baseline_sha256": "193c612a8a82bc387cd1fc228c95171fd1c1d153e5cd7d7a82d73c42ce3ddd03",
+      "selected_sha256": "193c612a8a82bc387cd1fc228c95171fd1c1d153e5cd7d7a82d73c42ce3ddd03",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "Body",
+      "seconds": 14.330842146999203,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin planos contiguos coplanares",
+          "caras_antes": null,
+          "caras_despues": null
+        },
+        {
+          "method": "costuras",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin cilindros contiguos del mismo soporte",
+          "caras_antes": null,
+          "caras_despues": null
+        }
+      ]
+    },
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "Referencia de conversión R18",
+      "selected_method": "r18",
+      "faces_before": 422,
+      "faces_after": 422,
+      "verified_max_mm": 0.001484,
+      "baseline_preserved": true,
+      "source_sha256": "cd7b90af65d0dcc75e57bebe30029c802e5df8ee85aaa7c17895f42e88be808b",
+      "baseline_sha256": "7da22965b9fe896acf3788777220fbf84ccacaef57e90bf5f792d4b8f859d23e",
+      "selected_sha256": "7da22965b9fe896acf3788777220fbf84ccacaef57e90bf5f792d4b8f859d23e",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "Flame_Base",
+      "seconds": 17.975395981000474,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin planos contiguos coplanares",
+          "caras_antes": null,
+          "caras_despues": null
+        },
+        {
+          "method": "costuras",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin cilindros contiguos del mismo soporte",
+          "caras_antes": null,
+          "caras_despues": null
+        }
+      ]
+    },
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "Referencia de conversión R18",
+      "selected_method": "r18",
+      "faces_before": 248,
+      "faces_after": 248,
+      "verified_max_mm": 0.0,
+      "baseline_preserved": true,
+      "source_sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652",
+      "baseline_sha256": "f62a1e743f96fe5eb361120fe455e16dcf5568aa74197da4bda2e3c3306423f0",
+      "selected_sha256": "f62a1e743f96fe5eb361120fe455e16dcf5568aa74197da4bda2e3c3306423f0",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "Lego_Guia circulos ",
+      "seconds": 11.730465567001374,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin planos contiguos coplanares",
+          "caras_antes": null,
+          "caras_despues": null
+        },
+        {
+          "method": "costuras",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin cilindros contiguos del mismo soporte",
+          "caras_antes": null,
+          "caras_despues": null
+        }
+      ]
+    },
+    {
+      "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+      "input_origin": "Referencia de conversión R18",
+      "selected_method": "r18",
+      "faces_before": 36,
+      "faces_after": 36,
+      "verified_max_mm": 0.016033,
+      "baseline_preserved": true,
+      "source_sha256": "9dcf990e18273731a9d15176a224a94e7f65158164e98c2769b6b03dc1f929b3",
+      "baseline_sha256": "c6e7d9c8c92c3e011b771313be389214c60394b85cbe8cf89adb8269461bb65a",
+      "selected_sha256": "c6e7d9c8c92c3e011b771313be389214c60394b85cbe8cf89adb8269461bb65a",
+      "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+      "name": "maneta",
+      "seconds": 22.138187377000577,
+      "stage_results": [
+        {
+          "method": "planos",
+          "accepted": false,
+          "validated": false,
+          "error": "Sin planos contiguos coplanares",
+          "caras_antes": null,
+          "caras_despues": null
+        },
+        {
+          "method": "costuras",
+          "accepted": false,
+          "validated": false,
+          "error": "La reducción preliminar es insuficiente",
+          "caras_antes": 36,
+          "caras_despues": 34
+        }
+      ]
+    }
+  ],
+  "rotated_control": {
+    "origin": "Postproceso de referencia CAD; no conversión STL completa nueva",
+    "input_origin": "Referencia CAD sintética transformada rígidamente; no nueva conversión R18",
+    "faces_before": 18,
+    "faces_after": 12,
+    "verified_max_mm": 6.5e-05,
+    "selected_method": "costuras",
+    "baseline_preserved": true,
+    "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+    "common_points": {
+      "muestras": 12420,
+      "maximo_base_mm": 6.453053798633824e-05,
+      "maximo_candidato_mm": 6.453053798633824e-05,
+      "aumento_maximo_mm": 1.5329105674268445e-06,
+      "regresiones_sobre_00001_mm": 0,
+      "source_sha256": "f705cd6f64ef600b885d3c19e5da21e4743d94e583212cb3dbd34603a73bd05b",
+      "baseline_sha256": "48b2c67bc3f20ecbabdd14af98e4fb4594e319f6729330326ced109436170fd1",
+      "candidate_sha256": "fa8fb1929630f3419f79b26e970615e9a7b91e10876c823fd2e7ed2391467ae3"
+    }
+  },
+  "periodic_regression_rejected": {
+    "accepted": false,
+    "error": "Aumenta el máximo verificado de desviación",
+    "seconds": 111.11750168300023,
+    "candidate_faces": 99,
+    "candidate_verified_max_mm": 0.035239
+  },
+  "browser": {
+    "title": "Visor STL · R19 experimental · 10/11/2026",
+    "file": "caja.stl",
+    "buttons": [
+      "\n        Nuevo\n      ",
+      "\n        Importar STL\n      ",
+      "Convertir",
+      "Exportar STEP"
+    ],
+    "errors": [],
+    "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+    "backend_selection": {
+      "aplicado": false,
+      "metodo": "pipeline_brep_r19",
+      "etapa_seleccionada": "r18",
+      "caras_antes": 6,
+      "caras_despues": 6,
+      "base_sha256": "77f2e4aaf91755f527f1ae3db8e0e3fe92612f357a178b68b7e0a376a9d40172",
+      "step_sha256": "77f2e4aaf91755f527f1ae3db8e0e3fe92612f357a178b68b7e0a376a9d40172",
+      "original_sha256": "d9b9cbd65636dbcd37c15f33d647740ab44f65fd22f81232a4cf7fdbba1b9431",
+      "tolerancias_modificadas": false
+    },
+    "screenshot": "interfaz_r19_convertida_final.png",
+    "details": "STEP de recuperación · curvas facetadas · Precisión alcanzada · máx. medido 0 mm · 6 caras",
+    "download": "Caja_R19_verificada.step",
+    "download_validation": {
+      "solidos": 1,
+      "shells": 1,
+      "caras": 6,
+      "cerrado": true,
+      "brep_exacto": true,
+      "volumen_mm3": 120.0
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "packages": {
+      "cadquery": "2.8.0",
+      "cadquery-ocp": "7.9.3.1.1",
+      "numpy": "2.3.5",
+      "trimesh": "4.11.1",
+      "scipy": "1.17.0",
+      "vtk": "9.6.2",
+      "cgal": "6.0.1.post202410241521",
+      "libigl": "2.6.3",
+      "fastapi": "0.128.2",
+      "psutil": "7.2.2"
+    }
+  },
+  "pending": [
+    "Windows nativo",
+    "Onshape",
+    "SolidWorks",
+    "Inventor"
+  ],
+  "independent_extraction": {
+    "source_files_verified": 357,
+    "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+    "positive_control_faces": [
+      16,
+      8
+    ],
+    "cli_box_completed": true
+  },
+  "private_models_added_to_delivery": false
+}

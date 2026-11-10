@@ -1,0 +1,54 @@
+{
+  "base_commit": "50b59da94d1df81a6703ff52122fadb0a6698baf",
+  "base_files": 342,
+  "source_files": 357,
+  "modified": {
+    "Instalar_Entorno.bat": {
+      "r18_sha256": "0c0db52393bd66fb1272610d1c51470f02605e447076dd9742feba743b869851",
+      "r19_sha256": "1ebb51fc5435ba755f943ace8e5fe0bc6c4efa3af164730b3301689c7ed7aa26"
+    },
+    "Visor_STL_STEP.html": {
+      "r18_sha256": "3fa9564d9a37fa0b3c7f3c7fa581f756e62cee4fa4523caab780df14930d142d",
+      "r19_sha256": "6212378b1eecede1413d8dfd91e27145923034c58563893613ac4fc2be60cdb8"
+    },
+    "entorno_local.py": {
+      "r18_sha256": "5d6fdbcebbdf721be91f946d6d2aaf8489719375f063cd909517f44deb6c4d9c",
+      "r19_sha256": "46271306b3aaf6921b9ad96f4c48373dd9e801356d25b4bdf4a8e11ef088233e"
+    },
+    "servidor.py": {
+      "r18_sha256": "82d60af96977a0b0fec1a2f1bbec91b7215a517d6758f7d967f4815484cf0b31",
+      "r19_sha256": "708eeafcd2721f2a17b874dbbe29ada80fae009e7de81bc91f2573f417ca9685"
+    },
+    "test_arranque_r8.py": {
+      "r18_sha256": "c9b2d67dc1bbd6dccde37e696170e499f243d14edf9f9118cde7cfe6481f2df9",
+      "r19_sha256": "a956b805e439e19cb42bcbf74a37ef8ae1834426284be1b591def628895a74cf"
+    },
+    "test_recuperacion_servidor.py": {
+      "r18_sha256": "2f90d9112d90f1fd50b9d6266752b2dc3641d4489584f15b9bf1199735679269",
+      "r19_sha256": "ccc0f406c60caaf5132028236c07eba7d45db0630160552eedf966b7c0ebb1d3"
+    },
+    "version_programa.py": {
+      "r18_sha256": "d59e8073ab8224ad80575f045e807d4f89ede9fbe10ad6f8b4ec481cade933d1",
+      "r19_sha256": "3edf6db3cb5f985fcc48f910823cafd102731a8f3d10c7f77fb8fd944234fd12"
+    }
+  },
+  "added": {
+    "contratos_r19.py": "63a869686fd50b7a0186707cf3416b1de2f255d9018369212b15f9f3ac882786",
+    "costuras_r19.py": "b5259be87c28b54d8fed288bde6c79cd310ea252ab2c008bac3221621e9b3833",
+    "exportacion_r19.py": "6e699fc892377bf409dd3b4ad4edcfce3d36c738ee668b6a5e2c9dcfe6be598d",
+    "ingesta_r19.py": "7f19e5583668d1c68db4fa2c8dfa9a0f006aa943aeaa81e23a65d596ed6d9631",
+    "motor_r19.py": "abe7a978abe28d25aa51c93ce62584632d2e9089ebcbc1be672a1ba5e16e894b",
+    "optimizacion_r19.py": "6a157d8dc348b68b81f11a15f52d2cdad1b957f3075f4f1685fecae3a7024b55",
+    "pipeline_r19.py": "bb891bab0b4dc0c6aee0ebfb5a8433b5980bb7f3a91315582afcb3bec5c6f2d6",
+    "procesos_r19.py": "5cea3dd279df570c1fe3c40126442f8535a85d3d40f661406759a30d35005321",
+    "reconocimiento_r19.py": "9fabe7e6f04880769c09061bddbbc44409e673398639b4ca3a3d4304b88ffc72",
+    "respaldo_r19.py": "5d2c29a9784d0945780fa01a6b6179336fcc5f768cacf2c4971c31bba76d0b38",
+    "test_pipeline_r19.py": "c30998f6b5217575f7a08ad0e5d98aaa7b98d5d238670afe29c57eb03c41f192",
+    "topologia_r19.py": "ebc8946ce8896e991f009e2e4a51bc2e4ae306509ee8ecaedf3bdabd62214a1c",
+    "trabajador_r19.py": "7dff307e7fb3fe7902db123a46dabda710000a61c40461bbd7b02d85823c83fe",
+    "validacion_fria_r19.py": "dda74816b008b7b288c0b6770488df5aec99d0012779490bcfb9cc6d5908cb6a",
+    "validacion_r19.py": "a3bcd68978fb6a5af506ceaf21795f7741c1ba184cf0726db37eda621570ed5b"
+  },
+  "motor_sha256": "96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006",
+  "geometry_kernel_and_profiles_preserved": true
+}

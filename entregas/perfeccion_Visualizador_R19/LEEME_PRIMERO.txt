@@ -1,0 +1,15 @@
+VISOR STL / STEP — R19 EXPERIMENTAL
+
+1. Extrae el ZIP entero en una carpeta nueva, distinta de R18 y de tu Visor instalado.
+2. Ejecuta Iniciar_R19.bat. El Visor abre http://127.0.0.1:8782.
+3. Si pide un entorno CAD, selecciona la carpeta de tu Visor anterior para reutilizar sus dependencias. No modifica esa instalación.
+4. También puedes crear un entorno independiente con Instalar_Entorno_R19.bat. Requiere Python 3.12 de 64 bits y conexión para descargar las dependencias.
+5. Importa tu STL, pulsa Convertir y después Exportar STEP. La interfaz y los dos modos de precisión se conservan.
+
+R19 añade un pipeline modular de evaluación de la malla, reconstrucción B-Rep, consolidación de planos y reconstrucción de costuras cilíndricas. Sólo selecciona propuestas que superan los controles geométricos y de material; ante rechazo conserva la conversión aprobada de R18.
+
+R18 puede seguir abierta en su puerto 8781. R19 tiene identidad y puerto propios.
+
+Consulta INFORME_RESULTADOS.md para los ensayos terminados y ARQUITECTURA_R19.md para el diseño. Las pruebas se realizan en Linux con OCP/CGAL y Chromium. La ejecución nativa en Windows y las importaciones en Onshape, SolidWorks e Inventor requieren comprobación en esos programas.
+
+El ZIP contiene el programa completo en fuentes y lanzadores; las dependencias CAD se reutilizan o se instalan aparte, igual que en la entrega R18. No incluye los modelos privados aportados por el usuario ni modifica su copia instalada.
