@@ -30,4 +30,4 @@ entregas del proyecto.
 La carpeta de prueba incluye `THIRD_PARTY_LICENSES.md`, los textos de OCCT y
 `THIRD_PARTY_INVENTORY.json` generado desde su propio entorno Windows.
 Consúltese [la auditoría](../THIRD_PARTY_LICENSES.md) para las condiciones
-identificadas y el alcance de autorización del motor que falta documentar.
+identificadas y la confirmación recibida sobre el permiso del motor.

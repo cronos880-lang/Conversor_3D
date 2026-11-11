@@ -181,13 +181,14 @@ Se distingue la licencia Apache de OCP de la LGPL del núcleo, y la metadata MIT
 de gpytoolbox de sus componentes copyleft. CGAL también se usa en el control
 frío obligatorio; no se elimina esa comprobación para cambiar condiciones.
 
-La auditoría está en THIRD_PARTY_LICENSES.md. Queda pendiente aclarar el alcance
-del permiso Easymeshfit, que en CREDITOS_MOTOR.txt sólo figura como autorización
-«para este proyecto». No se ha elegido una licencia global ni se presume una
-prohibición. La distribución externa del conjunto no se declara autorizada.
+La auditoría está en THIRD_PARTY_LICENSES.md. CREDITOS_MOTOR.txt sólo recogía
+autorización «para este proyecto». A la pregunta expresa sobre fuentes y binarios,
+el usuario confirmó «tengo permiso total, es un colaborador». Se registra esa
+aclaración sin elegir una licencia global ni presumir una prohibición. La
+distribución externa del conjunto sigue sujeta a las condiciones de terceros.
 
-Conforme a la excepción expresa del punto 10, se solicita esa aclaración antes
-de avanzar a las fases 11–12. Las fuentes congeladas y las entregas se conservan.
+La aclaración solicitada conforme al punto 10 está recibida; el desarrollo
+continúa con las fases 11–12. Las fuentes congeladas y las entregas se conservan.
 
 Verificación local: 40 pruebas del desarrollo aprobadas; 427 históricas
 aprobadas y 15 omitidas. Compilación de scripts y enlaces locales de la auditoría

@@ -16,10 +16,12 @@ exacto depende de la plataforma: Windows genera su propio inventario en CI y
 dentro de la carpeta portable de prueba. Los 77/78 paquetes de los locks incluyen
 también herramientas de pruebas; no son el número de componentes del portable.
 
-**La redistribución del conjunto queda pendiente de aclarar el permiso del motor
-Easymeshfit y su compatibilidad con los componentes copyleft utilizados.** No se
-deduce que esté prohibida ni que una autorización fuera del repositorio no
-exista. Tampoco se considera que ejecutar una biblioteca en otro proceso elimine
+El usuario confirmó en este chat el 11 de noviembre de 2026, al preguntarle
+expresamente por fuentes y binarios: **«tengo permiso total, es un colaborador»**.
+Queda aclarado ese alcance para continuar el desarrollo. La confirmación no
+asigna una licencia global al repositorio ni sustituye las condiciones de las
+bibliotecas de terceros. La redistribución de un paquete completo seguirá
+necesitando satisfacerlas. Ejecutar una biblioteca en otro proceso no elimina
 automáticamente sus condiciones de licencia.
 
 ## Motor original y código del proyecto
@@ -33,12 +35,14 @@ La evidencia disponible es
 El mismo documento identifica Easymeshfit V2.2, aportado por el usuario y
 conservado en `motor_original_amigo/`. No se encontró en esos módulos un texto
 que especifique permiso de redistribución en fuentes/binarios o sublicencia.
-La auditoría conserva la autorización declarada; falta documentar su alcance.
+La auditoría conserva la autorización declarada y la confirmación posterior del
+usuario sobre fuentes y binarios. No inventa un identificador SPDX ni concede
+permisos en nombre del colaborador.
 
-Antes de declarar distribuible un paquete completo hay que confirmar con el
-titular qué permite esa autorización y bajo qué condiciones. No se cambia la
-licencia del motor ni se impone GPL al resto del repositorio para resolverlo.
-Las copias históricas y sus créditos se mantienen intactos.
+Antes de una entrega externa habrá que recoger sus condiciones en el aviso de
+esa entrega y comprobar la compatibilidad del conjunto concreto. No se cambia
+la licencia del motor ni se impone GPL al resto del repositorio. Las copias
+históricas y sus créditos se mantienen intactos.
 
 ## Dependencias directas fijadas
 
@@ -120,6 +124,15 @@ Casos que requieren conservar condiciones adicionales:
   incluidos textos EPL. Se conservan los archivos de `casadi/include/licenses/`.
   El archivo BQPD de este wheel concede redistribución tipo BSD; su nombre por sí
   solo no demuestra una restricción comercial.
+  También contiene `libcoinmetis`, cabeceras METIS y el aviso histórico
+  `metis-external/metis-4.0/LICENSE`, que restringe la redistribución sin permiso;
+  la licencia EPL del envoltorio no basta para descartar ese aviso. El upstream
+  [INSTALL.Metis](https://github.com/coin-or-tools/ThirdParty-Metis/blob/stable/2.0/INSTALL.Metis)
+  incluye una aclaración de su autor sobre uso comercial y reventa. Antes de
+  distribuir ese binario hay que comprobar su procedencia/permiso concreto;
+  no se concluye una prohibición sobre todo CasADi desde el nombre del archivo.
+  El texto FMI 2.0.2 distingue código BSD-2-Clause y especificación con términos
+  Creative Commons; tampoco debe atribuirse su cláusula NonCommercial al motor.
 - llvmlite 0.50.0: BSD-2-Clause y Apache-2.0 con excepción LLVM; Numba 0.68.1
   incorpora también avisos de terceros.
 - NLopt 2.11.0: el texto de esta versión es MIT; no se aplica por suposición la
@@ -150,10 +163,11 @@ trabajo combinado puede distribuirse bajo una licencia concreta.
 
 Antes de autorizar una entrega externa quedan estos puntos verificables:
 
-1. Documentar el alcance del permiso Easymeshfit y resolver su compatibilidad
-   con las condiciones copyleft del conjunto que se pretenda distribuir.
+1. Conservar la confirmación del permiso Easymeshfit y recoger las condiciones
+   de la entrega; comprobar compatibilidad con el conjunto que se distribuya.
 2. Revisar el inventario del Windows exacto que se entregaría, conservar los
-   avisos y atender las obligaciones de fuentes/reemplazo de bibliotecas.
+   avisos y atender las obligaciones de fuentes/reemplazo de bibliotecas,
+   incluida la procedencia y autorización de los componentes METIS indicados.
 3. Resolver el aviso ausente de `cadquery-ocp-proxy` y comprobar los componentes
    nativos incluidos en cada wheel, no sólo su metadata.
 4. Acordar expresamente la entrega. Esta auditoría no crea una versión, ZIP,
