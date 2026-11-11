@@ -165,3 +165,31 @@ Validación con el entorno nuevo:38pruebas del desarrollo aprobadas y427pruebas
 históricas aprobadas,15omitidas. SmokeHTTP real con Origin/Host, conversión y
 certificado descargable aprobado enLinux. Los357archivos congelados permanecen
 intactos. La matrizCI vuelve a ejecutar los mismos controles y el portable.
+
+Resultado nativo del hito 9: Windows y Linux en verde en
+https://github.com/cronos880-lang/Conversor_3D/actions/runs/43042892418
+(commit `02bf18c`). Windows instaló el lock con hashes y comprobó los imports
+nativos, la conversión HTTP, el certificado y el portable aislado de 70 paquetes.
+No se publicó la carpeta de prueba ni se cambió la entrega R19.
+
+## 10. Licencias y procedencia
+
+Inventario reproducible de los 70 componentes del runtime, sus declaraciones y
+todos los avisos encontrados en los wheels con SHA-256. El constructor añade el
+inventario de su Windows, el resumen y los textos LGPL/excepción de OCCT.
+Se distingue la licencia Apache de OCP de la LGPL del núcleo, y la metadata MIT
+de gpytoolbox de sus componentes copyleft. CGAL también se usa en el control
+frío obligatorio; no se elimina esa comprobación para cambiar condiciones.
+
+La auditoría está en THIRD_PARTY_LICENSES.md. Queda pendiente aclarar el alcance
+del permiso Easymeshfit, que en CREDITOS_MOTOR.txt sólo figura como autorización
+«para este proyecto». No se ha elegido una licencia global ni se presume una
+prohibición. La distribución externa del conjunto no se declara autorizada.
+
+Conforme a la excepción expresa del punto 10, se solicita esa aclaración antes
+de avanzar a las fases 11–12. Las fuentes congeladas y las entregas se conservan.
+
+Verificación local: 40 pruebas del desarrollo aprobadas; 427 históricas
+aprobadas y 15 omitidas. Compilación de scripts y enlaces locales de la auditoría
+correctos; 357 archivos congelados conservan sus hashes. El inventario registra
+208 avisos y señala el paquete proxy sin texto independiente, sin ocultarlo.

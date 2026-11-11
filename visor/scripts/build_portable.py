@@ -111,6 +111,13 @@ def build(output: Path):
                 'if errorlevel 1 pause\r\n')
     (output / 'Iniciar_Visor.bat').write_bytes(launcher.encode('ascii'))
     (output / 'DEPENDENCIES.json').write_text(json.dumps(inventory, indent=2), encoding='utf-8')
+    # Auditoría de los archivos realmente instalados, además de sus metadatos.
+    # La importación local evita un ciclo con las funciones de selección comunes.
+    from audit_licenses import audit
+    (output / 'THIRD_PARTY_INVENTORY.json').write_text(
+        json.dumps(audit(requirements), ensure_ascii=False, indent=2), encoding='utf-8')
+    shutil.copy2(REPO / 'visor/THIRD_PARTY_LICENSES.md', output / 'THIRD_PARTY_LICENSES.md')
+    shutil.copytree(REPO / 'visor/licenses', output / 'licenses')
     (output / 'LEEME.txt').write_text(
         'Carpeta de prueba autocontenida para Windows. Ejecutar Iniciar_Visor.bat.\n'
         'No requiere instalar Python ni descargar paquetes al abrirla.\n'

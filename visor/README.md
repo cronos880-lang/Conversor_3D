@@ -28,3 +28,6 @@ La hoja de ruta y sus comprobaciones están en `ROADMAP.md`.
 Para el usuario Windows, el constructor del punto 7 prepara una carpeta con
 Python y sus dependencias, sin configuración manual al abrirla. Véase
 `docs/PORTABLE_WINDOWS.md`. No se ha publicado una nueva versión.
+
+La procedencia de las dependencias y las condiciones pendientes para una
+redistribución están documentadas en [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).

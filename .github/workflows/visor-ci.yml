@@ -36,6 +36,8 @@ jobs:
           python visor/scripts/install_dependencies.py
       - name: Integridad de las fuentes congeladas
         run: python visor/scripts/audit_frozen.py
+      - name: Inventario de licencias del runtime instalado
+        run: python visor/scripts/audit_licenses.py --output third-party-native.json
       - name: Pruebas nuevas y geometría con control frío
         run: python -m pytest -q -p no:cacheprovider visor/tests --junitxml=visor-tests.xml
       - name: Batería histórica congelada

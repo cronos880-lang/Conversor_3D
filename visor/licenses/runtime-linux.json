@@ -1,0 +1,2099 @@
+{
+  "schema": 1,
+  "python": "3.12.14",
+  "platform": "linux",
+  "scope": "Cierre de dependencias utilizado por el constructor portable, sin paquetes de tests",
+  "redistribution_approved": false,
+  "missing_notice_packages": [
+    "cadquery-ocp-proxy"
+  ],
+  "distributions": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "license_expression": "",
+      "license_metadata_first_line": "PSF-2.0",
+      "license_metadata_sha256": "606b04e71db9ca7a05d4fcb08cc69001946922a9b909de4932413ea640da9486",
+      "license_classifiers": [
+        "License :: OSI Approved :: Python Software Foundation License"
+      ],
+      "project_urls": [
+        "Bug Tracker, https://github.com/aio-libs/aiohappyeyeballs/issues",
+        "Changelog, https://github.com/aio-libs/aiohappyeyeballs/blob/main/CHANGELOG.md",
+        "Documentation, https://aiohappyeyeballs.readthedocs.io",
+        "Repository, https://github.com/aio-libs/aiohappyeyeballs"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "aiohappyeyeballs-2.7.1.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.5",
+      "license_expression": "Apache-2.0 AND MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/aio-libs/aiohttp",
+        "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+        "CI: GitHub Actions, https://github.com/aio-libs/aiohttp/actions?query=workflow%3ACI",
+        "Coverage: codecov, https://codecov.io/github/aio-libs/aiohttp",
+        "Docs: Changelog, https://docs.aiohttp.org/en/stable/changes.html",
+        "Docs: RTD, https://docs.aiohttp.org",
+        "GitHub: issues, https://github.com/aio-libs/aiohttp/issues",
+        "GitHub: repo, https://github.com/aio-libs/aiohttp"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "aiohttp-3.14.5.dist-info/licenses/LICENSE.txt",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        },
+        {
+          "path": "aiohttp-3.14.5.dist-info/licenses/vendor/llhttp/LICENSE",
+          "sha256": "628168d68bb5a8a17e0bbefb3bd74e326e1edc20583d76f52f457c82c921867d"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache 2.0",
+      "license_metadata_sha256": "cf989ea142f203f532233fa944ee1d8d5acfe6f6875e4d611f515ee108ba26df",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Chat: Gitter, https://gitter.im/aio-libs/Lobby",
+        "CI: GitHub Actions, https://github.com/aio-libs/aiosignal/actions",
+        "Coverage: codecov, https://codecov.io/github/aio-libs/aiosignal",
+        "Docs: RTD, https://docs.aiosignal.org",
+        "GitHub: issues, https://github.com/aio-libs/aiosignal/issues",
+        "GitHub: repo, https://github.com/aio-libs/aiosignal"
+      ],
+      "home_page": "https://github.com/aio-libs/aiosignal",
+      "notice_files": [
+        {
+          "path": "aiosignal-1.4.0.dist-info/licenses/LICENSE",
+          "sha256": "6fd5243e92dd7f98ec69c7ac377728e74905709ff527a5bf98d6d0263c04f5b6"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.6",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/fastapi/annotated-doc",
+        "Documentation, https://github.com/fastapi/annotated-doc",
+        "Repository, https://github.com/fastapi/annotated-doc",
+        "Issues, https://github.com/fastapi/annotated-doc/issues",
+        "Changelog, https://github.com/fastapi/annotated-doc/release-notes.md"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "annotated_doc-0.0.6.dist-info/licenses/LICENSE",
+          "sha256": "fff170779a6acbf65abdb405c087f1cee1786691e4a96a4034517e4a504a0cdf"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/annotated-types/annotated-types",
+        "Source, https://github.com/annotated-types/annotated-types",
+        "Changelog, https://github.com/annotated-types/annotated-types/releases"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "annotated_types-0.8.0.dist-info/licenses/LICENSE",
+          "sha256": "fe1049884b1a0d9342901e88e07f32925d24b3121d9972b6a6805fb9824b095d"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Documentation, https://anyio.readthedocs.io/en/latest/",
+        "Changelog, https://anyio.readthedocs.io/en/stable/versionhistory.html",
+        "Source code, https://github.com/agronholm/anyio",
+        "Issue tracker, https://github.com/agronholm/anyio/issues"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "anyio-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Documentation, https://www.attrs.org/",
+        "Changelog, https://www.attrs.org/en/stable/changelog.html",
+        "GitHub, https://github.com/python-attrs/attrs",
+        "Funding, https://github.com/sponsors/hynek",
+        "Tidelift, https://tidelift.com/subscription/pkg/pypi-attrs?utm_source=pypi-attrs&utm_medium=pypi"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "attrs-26.1.0.dist-info/licenses/LICENSE",
+          "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "cadquery",
+      "version": "2.8.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache Public License 2.0",
+      "license_metadata_sha256": "df88563f4a5033ddf5f2fda1edab99b6c4fa1f5bf7bd778a40b49a4704241b1d",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "https://github.com/CadQuery/cadquery",
+      "notice_files": [
+        {
+          "path": "cadquery-2.8.0.dist-info/licenses/LICENSE",
+          "sha256": "7f598e7f729c8fde66f0e0a660e53d784d04cfd028d3a74478c0d58730da0fbe"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "cadquery-ocp",
+      "version": "7.9.3.1.1",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache-2.0",
+      "license_metadata_sha256": "2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "cadquery_ocp/LICENSE",
+          "sha256": "a13caea71627202ad33cc4cafafdd18e667e16716488f8d9c568127121fb89fd"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "cadquery-ocp-proxy",
+      "version": "7.9.3.1.1",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache-2.0",
+      "license_metadata_sha256": "2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "casadi",
+      "version": "3.8.2",
+      "license_expression": "",
+      "license_metadata_first_line": "GNU Lesser General Public License v3 or later (LGPLv3+)",
+      "license_metadata_sha256": "7481b0a8b4f42ba990137aac764ff255c088ba4b559da87430c06529d1fa3d2a",
+      "license_classifiers": [
+        "License :: OSI Approved"
+      ],
+      "project_urls": [
+        "Documentation, http://docs.casadi.org",
+        "Bug Tracker, https://github.com/casadi/casadi/issues",
+        "Source Code, https://github.com/casadi/casadi"
+      ],
+      "home_page": "http://casadi.org",
+      "notice_files": [
+        {
+          "path": "casadi/include/licenses/BQPD/LICENSE",
+          "sha256": "29eff7f2afdefd33b3e2d40737c0da07dde3ab7df55becec252670a9d2e13f73"
+        },
+        {
+          "path": "casadi/include/licenses/FMI-Standard-2.0.2/LICENSE.txt",
+          "sha256": "556454be7c7e0ae60a03e95615a060fda0b3ca6c64292a84d7c4304941d4330b"
+        },
+        {
+          "path": "casadi/include/licenses/FMI-Standard-3.0/LICENSE.txt",
+          "sha256": "e95981dfdc77107e8bdb475b67ca8cda087e377cc60dde1fa2b213fad65e9dd7"
+        },
+        {
+          "path": "casadi/include/licenses/alpaqa-external/LICENSE",
+          "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+        },
+        {
+          "path": "casadi/include/licenses/blasfeo-external/LICENSE.txt",
+          "sha256": "03bf34700337cb892d143a84398e43319a11cab1494fd78aa047b55972129542"
+        },
+        {
+          "path": "casadi/include/licenses/bonmin-external/Bonmin/LICENSE",
+          "sha256": "29e7b414f74c59a451641f757d830da1d0a4ab62a6f968e6ce9eb68933aa6429"
+        },
+        {
+          "path": "casadi/include/licenses/bonmin-external/LICENSE",
+          "sha256": "75512a9a60082bb4a57923dbc81213faa6f32f4037c8b6d68226ab822fe80380"
+        },
+        {
+          "path": "casadi/include/licenses/casadi-sundials/LICENSE",
+          "sha256": "143af3839b9381a05f790ec83c56736c3da23ca97a017fc57b4fdeb7ac4cdb87"
+        },
+        {
+          "path": "casadi/include/licenses/casadi-sundials/cvodes/LICENSE",
+          "sha256": "4915668a75fa96761bcf2c873a54af37bbb2acef75d77b609c6a800f5b6f11fe"
+        },
+        {
+          "path": "casadi/include/licenses/casadi-sundials/idas/LICENSE",
+          "sha256": "13ff7e5e3ee962e45e92f043bf39df4dc1377967a9101cf1d0686daca0d9be52"
+        },
+        {
+          "path": "casadi/include/licenses/casadi-sundials/kinsol/LICENSE",
+          "sha256": "7efdbd7c966e1a16e87c212addf6a785e7ddb344cfa62a59f3de55ae45cea509"
+        },
+        {
+          "path": "casadi/include/licenses/casadi-sundials/sundials/LICENSE",
+          "sha256": "e370e97c66d151eeb23b4f2c5042a6ca2064b16d10aafcec627a674c3aa64ec1"
+        },
+        {
+          "path": "casadi/include/licenses/casadi/LICENSE/LICENSE.txt",
+          "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768"
+        },
+        {
+          "path": "casadi/include/licenses/cbc-external/Cbc/LICENSE",
+          "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f"
+        },
+        {
+          "path": "casadi/include/licenses/cbc-external/LICENSE",
+          "sha256": "5af94e656b0a51f0694901e8ee715dfb738ab65b88e8e2b9c52fa80340fa1500"
+        },
+        {
+          "path": "casadi/include/licenses/cgl-external/Cgl/LICENSE",
+          "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f"
+        },
+        {
+          "path": "casadi/include/licenses/cgl-external/LICENSE",
+          "sha256": "5af94e656b0a51f0694901e8ee715dfb738ab65b88e8e2b9c52fa80340fa1500"
+        },
+        {
+          "path": "casadi/include/licenses/clp-external/Clp/LICENSE",
+          "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f"
+        },
+        {
+          "path": "casadi/include/licenses/clp-external/LICENSE",
+          "sha256": "5af94e656b0a51f0694901e8ee715dfb738ab65b88e8e2b9c52fa80340fa1500"
+        },
+        {
+          "path": "casadi/include/licenses/coinutils-external/CoinUtils/LICENSE",
+          "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f"
+        },
+        {
+          "path": "casadi/include/licenses/coinutils-external/LICENSE",
+          "sha256": "5af94e656b0a51f0694901e8ee715dfb738ab65b88e8e2b9c52fa80340fa1500"
+        },
+        {
+          "path": "casadi/include/licenses/daqp-external/LICENSE",
+          "sha256": "7cdcdca1aa7718d09d527371aadc387d5685e8460b9f9b7827a54118efbb2d1e"
+        },
+        {
+          "path": "casadi/include/licenses/fatrop-external/LICENSE-EPL-2.0.txt",
+          "sha256": "0becf16567beb77fa252b7664631dd177c8f9a1889e48995b45379c7130e5303"
+        },
+        {
+          "path": "casadi/include/licenses/fatrop-external/LICENSE.txt",
+          "sha256": "6c40b88c44716a23c3218303d90203a1dadfd012b1be1b3321be0c4dc2369e25"
+        },
+        {
+          "path": "casadi/include/licenses/ghc-external/LICENSE",
+          "sha256": "1b265537c97cfb422ffb52492c96979943f54fab8746a6dd38d8329953d487cc"
+        },
+        {
+          "path": "casadi/include/licenses/highs-external/LICENSE.txt",
+          "sha256": "795e6090936bcf2e1a0bfb339053de0c5bb6f3102035ead0ecc0ed4a7c41f1b7"
+        },
+        {
+          "path": "casadi/include/licenses/highs-external/extern/metis/LICENSE.txt",
+          "sha256": "64ab947d7b289ad76e935adff51b31e4ac160df7dfad24480dbaa452e39bbe79"
+        },
+        {
+          "path": "casadi/include/licenses/highs-external/extern/rcm/LICENSE",
+          "sha256": "0d706fbfd83795f271c730a679ce8a84c2f922aade7d9fe0af518e7e6b5de3e5"
+        },
+        {
+          "path": "casadi/include/licenses/highs-external/extern/zstr/LICENSE",
+          "sha256": "bd61d5fb15992f4c188a0f96dd836b20d449cd080b4e949ab89f9eda3f61c59a"
+        },
+        {
+          "path": "casadi/include/licenses/highs-external/highs/io/filereaderlp/LICENSE",
+          "sha256": "4374bb8064e5302f5ac6b82fd3e153a36670f04d0a6ee1bc55b3dc3faee923cc"
+        },
+        {
+          "path": "casadi/include/licenses/hpipm-external/LICENSE.txt",
+          "sha256": "9d35e846dd1c2f122c7edf1512cf2952c14574c3b773be76c3d1e4ad749d9d07"
+        },
+        {
+          "path": "casadi/include/licenses/ipopt-external/LICENSE",
+          "sha256": "0becf16567beb77fa252b7664631dd177c8f9a1889e48995b45379c7130e5303"
+        },
+        {
+          "path": "casadi/include/licenses/lacemodelica-external-build/_deps/antlr4_runtime-src/LICENSE.txt",
+          "sha256": "3db1fb3ee79a4b4f9918fc4d0f6133bf18a3cf787f126cd22f8aa9b862281c0c"
+        },
+        {
+          "path": "casadi/include/licenses/lacemodelica-external-build/_deps/antlr4_runtime-src/runtime/Dart/LICENSE",
+          "sha256": "b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a"
+        },
+        {
+          "path": "casadi/include/licenses/lacemodelica-external-build/_deps/antlr4_runtime-src/runtime/Go/antlr/v4/LICENSE",
+          "sha256": "683fcd416d83b64781e229a3c2a598462fbf55c5c9fea54be244766b22c033cf"
+        },
+        {
+          "path": "casadi/include/licenses/lacemodelica-external-build/_deps/tinyxml2-src/LICENSE.txt",
+          "sha256": "9332252e9b9e46db8285d4a3f0bf25f139bf1dca6781b956d57f2302efca6432"
+        },
+        {
+          "path": "casadi/include/licenses/lacemodelica-external/LICENSE",
+          "sha256": "9a7c1fcc8af68418ba0e388f14efca4ae3e2a17200a32753b828695d14df68ee"
+        },
+        {
+          "path": "casadi/include/licenses/libz-external/LICENSE",
+          "sha256": "845efc77857d485d91fb3e0b884aaa929368c717ae8186b66fe1ed2495753243"
+        },
+        {
+          "path": "casadi/include/licenses/libz-external/contrib/dotzlib/LICENSE_1_0.txt",
+          "sha256": "36266a8fd073568394cb81cdb2b124f7fdae2c64c1a7ed09db34b4d22efa2951"
+        },
+        {
+          "path": "casadi/include/licenses/libzip-external/LICENSE",
+          "sha256": "01c022eca6d566e2e8792fd0f091a28653b2a608319922bcd4de91c49d1438e1"
+        },
+        {
+          "path": "casadi/include/licenses/metis-external/LICENSE",
+          "sha256": "29e7b414f74c59a451641f757d830da1d0a4ab62a6f968e6ce9eb68933aa6429"
+        },
+        {
+          "path": "casadi/include/licenses/metis-external/metis-4.0/LICENSE",
+          "sha256": "2ecd4c415834a03b26950118da215aded2698b10836ea0e8235ed557a380dc1e"
+        },
+        {
+          "path": "casadi/include/licenses/mockups-external/LICENSE",
+          "sha256": "bd6747c8f97941c4f1eb581caf7d1eeced95d2fc42bf7594cfa318265bc1ef07"
+        },
+        {
+          "path": "casadi/include/licenses/mumps-external/LICENSE",
+          "sha256": "0becf16567beb77fa252b7664631dd177c8f9a1889e48995b45379c7130e5303"
+        },
+        {
+          "path": "casadi/include/licenses/mumps-external/MUMPS/LICENSE",
+          "sha256": "5813fefd30a36fd7550cd2b62274be6586a0db51c11c3f2d4b852283e22ccc42"
+        },
+        {
+          "path": "casadi/include/licenses/onnx-external/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "casadi/include/licenses/onnx-external/third_party/pybind11/LICENSE",
+          "sha256": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb"
+        },
+        {
+          "path": "casadi/include/licenses/openblas-external/LICENSE",
+          "sha256": "190b5a9c8d9723fe958ad33916bd7346d96fab3c5ea90832bb02d854f620fcff"
+        },
+        {
+          "path": "casadi/include/licenses/openblas-external/ctest/LICENSE",
+          "sha256": "c1ceeff23f242ddac805ba9d332f58b559454ec00447e65540c0e818f7de69da"
+        },
+        {
+          "path": "casadi/include/licenses/openblas-external/lapack-netlib/LAPACKE/LICENSE",
+          "sha256": "871f415ebd2fd06c7ab8cc3c0016aa2d26b918622345116e2d0c740b688d4843"
+        },
+        {
+          "path": "casadi/include/licenses/openblas-external/lapack-netlib/LICENSE",
+          "sha256": "d56bd4441b999b80c88df04faf0d8b3d7d3b2bd781cf91242c4188e8a6d0f8be"
+        },
+        {
+          "path": "casadi/include/licenses/openblas-external/reference/LICENSE",
+          "sha256": "c1ceeff23f242ddac805ba9d332f58b559454ec00447e65540c0e818f7de69da"
+        },
+        {
+          "path": "casadi/include/licenses/openblas-external/relapack/LICENSE",
+          "sha256": "abd17b9664b38cfab093e7cca625ac08d3a686fc63142ea58c27bae15969dd3a"
+        },
+        {
+          "path": "casadi/include/licenses/openblas-external/test/LICENSE",
+          "sha256": "c1ceeff23f242ddac805ba9d332f58b559454ec00447e65540c0e818f7de69da"
+        },
+        {
+          "path": "casadi/include/licenses/osi-external/LICENSE",
+          "sha256": "5af94e656b0a51f0694901e8ee715dfb738ab65b88e8e2b9c52fa80340fa1500"
+        },
+        {
+          "path": "casadi/include/licenses/osi-external/Osi/LICENSE",
+          "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f"
+        },
+        {
+          "path": "casadi/include/licenses/osqp-external-build/_deps/qdldl-src/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "casadi/include/licenses/osqp-external/LICENSE",
+          "sha256": "ae5e69b1fea4c316b80e4bc2cb49ac82c0e9b34785415e128e00c975bd10f687"
+        },
+        {
+          "path": "casadi/include/licenses/osqp-external/algebra/_common/lin_sys/qdldl/amd/LICENSE",
+          "sha256": "09d5c2e5ee64fd5fd338ca8d0fce940385ef61bb0d36b855531a675a46176f00"
+        },
+        {
+          "path": "casadi/include/licenses/piqp-external/LICENSE",
+          "sha256": "425d165ce5ac62bc3fd1cef83734fa6780bc844658bfc5e904ca45a011dfec70"
+        },
+        {
+          "path": "casadi/include/licenses/piqp-external/docs/LICENSE",
+          "sha256": "f52ad0b0a841afa7cc929a48c3ea8d430cdb1380ddf8cafef45dce8e12770539"
+        },
+        {
+          "path": "casadi/include/licenses/piqp-external/tests/data/maros_meszaros/LICENSE",
+          "sha256": "1ba4b493de3d310787fa8e6d092eab2ea9c27cc2e649754e0ce1cecf93a96a78"
+        },
+        {
+          "path": "casadi/include/licenses/protobuf-external-build/_deps/absl-src/LICENSE",
+          "sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747"
+        },
+        {
+          "path": "casadi/include/licenses/protobuf-external/LICENSE",
+          "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d"
+        },
+        {
+          "path": "casadi/include/licenses/protobuf-external/third_party/utf8_range/LICENSE",
+          "sha256": "02de69b64fc36d9e938f418e52723e42f0b2b226d58a9cb3c8dcbdf7059f5074"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/LICENSE",
+          "sha256": "1ee924b875b4d9804a934792fc1a312977d833bb5a710bbd2c40909b17eb30cf"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/bindings/python/external/nanobind/LICENSE",
+          "sha256": "f305091a4e57805870b217a28ea4b1f16610eece8457d2370f822a9696b75836"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/bindings/python/external/nanobind/ext/robin_map/LICENSE",
+          "sha256": "11f2c685ba565a31aef1219f63a7a8845602c97bff70016b9e3278dfe51a2ec5"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/cmake-module/LICENSE",
+          "sha256": "12ff64a7549f77bd49e99bcda4651ed31c7d58560f88bb9796c9141b0d665ebd"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/cmake-module/doxygen/MathJax/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/external/cereal/LICENSE",
+          "sha256": "58604a126af6a671ea390ee3d5b3e42228aa59b2858fb7af1d5b20b31739ccbb"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/external/cereal/include/cereal/external/LICENSE",
+          "sha256": "642e7003561473f4f1f3dd09e053ee2a6ecfb0563e961a3392e914295f9d350c"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/external/cereal/include/cereal/external/rapidjson/LICENSE",
+          "sha256": "dc2ef044e52a4c0ea784f9b54229775ce5275505cc09f21283dfa301e9c962fa"
+        },
+        {
+          "path": "casadi/include/licenses/proxqp-external/external/cereal/include/cereal/external/rapidjson/msinttypes/LICENSE",
+          "sha256": "bf3c9bf6a176c890c7387c71f9ae5bcaf9d33324b9d4a5f8524a6f8bf3063097"
+        },
+        {
+          "path": "casadi/include/licenses/qpOASES/LICENSE.txt",
+          "sha256": "b673293d21e887eaa9b971696b33f0f9141839900c65c83e560afa469d291ba6"
+        },
+        {
+          "path": "casadi/include/licenses/sleqp-external/LICENSE",
+          "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+        },
+        {
+          "path": "casadi/include/licenses/superscs-external/LICENSE.txt",
+          "sha256": "08f771ceb0ecb7222247379ba8d2f415cbdaa34cefcb4fe46c010187c8e49e59"
+        },
+        {
+          "path": "casadi/include/licenses/tinyxml2-9.0.0/LICENSE.txt",
+          "sha256": "9332252e9b9e46db8285d4a3f0bf25f139bf1dca6781b956d57f2302efca6432"
+        },
+        {
+          "path": "casadi/include/licenses/trlib-external/LICENSE",
+          "sha256": "3652a54dc588bf6a9dda7323b1dfd17381e8f703d9da44f06877b16549784b6d"
+        },
+        {
+          "path": "casadi/include/licenses/uno-external/LICENSE",
+          "sha256": "94c14b50808a18e384fe79f1b3d43513a5a04a903af42fa2a889bfcfa7ed9947"
+        },
+        {
+          "path": "casadi/include/licenses/uno-external/interfaces/Julia/LICENSE",
+          "sha256": "1829891fcd71319f7a5644beba526fe196dfc48a2668a14b02d3aad1da1dd24f"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "cgal",
+      "version": "6.0.1.post202410241521",
+      "license_expression": "",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+      ],
+      "project_urls": [],
+      "home_page": "https://github.com/CGAL/cgal-swig-bindings",
+      "notice_files": [
+        {
+          "path": "cgal-6.0.1.post202410241521.dist-info/LICENSE.COMMERCIAL",
+          "sha256": "efe84ac0bdfb270ca3abf0f5e0e547542da82baf9fec7fa85e2685352def0ef4"
+        },
+        {
+          "path": "cgal-6.0.1.post202410241521.dist-info/LICENSE.GPL",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "click",
+      "version": "8.5.1",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Changes, https://click.palletsprojects.com/page/changes/",
+        "Chat, https://discord.gg/pallets",
+        "Documentation, https://click.palletsprojects.com/",
+        "Donate, https://palletsprojects.com/donate",
+        "Source, https://github.com/pallets/click/"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "click-8.5.1.dist-info/licenses/LICENSE.txt",
+          "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/contourpy/contourpy",
+        "Changelog, https://contourpy.readthedocs.io/en/latest/changelog.html",
+        "Documentation, https://contourpy.readthedocs.io",
+        "Repository, https://github.com/contourpy/contourpy"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "contourpy-1.4.0.dist-info/licenses/LICENSE",
+          "sha256": "11401c428c7014a75728e8679f9c000aacf262015aaba65a760d41aa1130b3af"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "license_expression": "",
+      "license_metadata_first_line": "Copyright (c) 2015, matplotlib project",
+      "license_metadata_sha256": "f1218143d766da3fea66f13396b7f15df46a83303f29bf96ba6e98eb4d42f408",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "homepage, https://matplotlib.org/cycler/",
+        "repository, https://github.com/matplotlib/cycler"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "cycler-0.12.1.dist-info/LICENSE",
+          "sha256": "f1218143d766da3fea66f13396b7f15df46a83303f29bf96ba6e98eb4d42f408"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "ezdxf",
+      "version": "1.4.5",
+      "license_expression": "",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Repository, https://github.com/mozman/ezdxf",
+        "Documentation, https://ezdxf.readthedocs.io",
+        "Changelog, https://ezdxf.mozman.at/notes/#/page/changelog",
+        "Forum, https://github.com/mozman/ezdxf/discussions",
+        "Issues, https://github.com/mozman/ezdxf/issues",
+        "Website, https://ezdxf.mozman.at",
+        "Download, https://pypi.org/project/ezdxf"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "ezdxf-1.4.5.dist-info/licenses/LICENSE",
+          "sha256": "db97ca426fc0d2b8124145de0f36181db73e6e713ce642d42fed2efc442edf19"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.128.2",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/fastapi/fastapi",
+        "Documentation, https://fastapi.tiangolo.com/",
+        "Repository, https://github.com/fastapi/fastapi",
+        "Issues, https://github.com/fastapi/fastapi/issues",
+        "Changelog, https://fastapi.tiangolo.com/release-notes/"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "fastapi-0.128.2.dist-info/licenses/LICENSE",
+          "sha256": "4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.68.0",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [],
+      "project_urls": [],
+      "home_page": "http://github.com/fonttools/fonttools",
+      "notice_files": [
+        {
+          "path": "fonttools-4.68.0.dist-info/licenses/LICENSE",
+          "sha256": "6787208f83f659ccbc2223b2fde952ffa6f7e8aca62f1a8a2bf5bc51bb1b2383"
+        },
+        {
+          "path": "fonttools-4.68.0.dist-info/licenses/LICENSE.external",
+          "sha256": "94a83aaee0729a0f302d34acc4acecbd9d58366f262429075fe557e4a54b2e69"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache-2.0",
+      "license_metadata_sha256": "2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
+      "license_classifiers": [],
+      "project_urls": [
+        "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+        "CI: Github Actions, https://github.com/aio-libs/frozenlist/actions",
+        "Code of Conduct, https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov, https://codecov.io/github/aio-libs/frozenlist",
+        "Docs: Changelog, https://github.com/aio-libs/frozenlist/blob/master/CHANGES.rst#changelog",
+        "Docs: RTD, https://frozenlist.aio-libs.org",
+        "GitHub: issues, https://github.com/aio-libs/frozenlist/issues",
+        "GitHub: repo, https://github.com/aio-libs/frozenlist"
+      ],
+      "home_page": "https://github.com/aio-libs/frozenlist",
+      "notice_files": [
+        {
+          "path": "frozenlist-1.8.0.dist-info/licenses/LICENSE",
+          "sha256": "6fd5243e92dd7f98ec69c7ac377728e74905709ff527a5bf98d6d0263c04f5b6"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "gpytoolbox",
+      "version": "0.3.8",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [],
+      "project_urls": [],
+      "home_page": "https://gpytoolbox.org",
+      "notice_files": [
+        {
+          "path": "gpytoolbox-0.3.8.dist-info/licenses/LICENSE.GPL",
+          "sha256": "f4c4d0364505f92f9742b557dad8d42aa775cdaa293398bc586a29bb80d6b853"
+        },
+        {
+          "path": "gpytoolbox-0.3.8.dist-info/licenses/LICENSE.MIT",
+          "sha256": "c6c0b584799acb67662d316c770f4de97ba569bb0efb452e69b26027131c4592"
+        },
+        {
+          "path": "gpytoolbox-0.3.8.dist-info/licenses/LICENSE.MPL2",
+          "sha256": "e5774e5cf601074ebb0a2e1efcb41327ffa104da9eed40def0b2611f6505872e"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [],
+      "home_page": "https://github.com/python-hyper/h11",
+      "notice_files": [
+        {
+          "path": "h11-0.16.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.md",
+        "Issue tracker, https://github.com/kjd/idna/issues",
+        "Source, https://github.com/kjd/idna"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "idna-3.20.dist-info/licenses/LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "imageio",
+      "version": "2.38.1",
+      "license_expression": "BSD-2-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "homepage, https://github.com/imageio/imageio",
+        "download, http://pypi.python.org/pypi/imageio",
+        "source, https://github.com/imageio/imageio",
+        "documentation, https://imageio.readthedocs.io"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "imageio-2.38.1.dist-info/licenses/LICENSE",
+          "sha256": "c453cf1368bb9e009e4d7e5334fc78511e665316a612ef54ee4fe1245678fe2c"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "license_expression": "",
+      "license_metadata_first_line": "=========================",
+      "license_metadata_sha256": "529c40e5f67f2f88904657a9f7879ae2f8dc76bc9bfef9cb10d988b48804ed61",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "homepage, https://github.com/nucleic/kiwi",
+        "documentation, https://kiwisolver.readthedocs.io/en/latest/",
+        "repository, https://github.com/nucleic/kiwi",
+        "changelog, https://github.com/nucleic/kiwi/blob/main/releasenotes.rst"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "kiwisolver-1.5.1.dist-info/licenses/LICENSE",
+          "sha256": "529c40e5f67f2f88904657a9f7879ae2f8dc76bc9bfef9cb10d988b48804ed61"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "lazy-loader",
+      "version": "0.6",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Home, https://scientific-python.org/specs/spec-0001/",
+        "Source, https://github.com/scientific-python/lazy-loader"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "lazy_loader-0.6.dist-info/licenses/LICENSE.md",
+          "sha256": "797b6937a4f976836efbbbb3ae333d7866ddc3eb3cb152972b2be348d3529372"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "libigl",
+      "version": "2.6.3",
+      "license_expression": "",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/libigl/libigl-python-bindings"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "libigl-2.6.3.dist-info/licenses/LICENSE.GPL",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "path": "libigl-2.6.3.dist-info/licenses/LICENSE.MPL2",
+          "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+        },
+        {
+          "path": "share/doc/libigl/LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "llvmlite",
+      "version": "0.50.0",
+      "license_expression": "BSD-2-Clause AND Apache-2.0 WITH LLVM-exception",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Source, https://github.com/numba/llvmlite"
+      ],
+      "home_page": "http://llvmlite.readthedocs.io",
+      "notice_files": [
+        {
+          "path": "llvmlite-0.50.0.dist-info/licenses/LICENSE",
+          "sha256": "5d0772f4dc4cb16e6bee2419bfa57c0a129808400e341b87fd9f87cbe6a5963d"
+        },
+        {
+          "path": "llvmlite-0.50.0.dist-info/licenses/LICENSE.thirdparty",
+          "sha256": "dc527293cfc2e4b4d59042e0b204667162845d8548651932f5a9d2f4adfc928b"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "manifold3d",
+      "version": "3.4.0",
+      "license_expression": "",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/elalish/manifold",
+        "Bug Tracker, https://github.com/elalish/manifold/issues"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "manifold3d-3.4.0.dist-info/licenses/AUTHORS",
+          "sha256": "074a43d4b1626a34a0a14a036d00100524dd463604b2570c4d76c7baa63608f3"
+        },
+        {
+          "path": "manifold3d-3.4.0.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2",
+      "license_expression": "",
+      "license_metadata_first_line": "License agreement for matplotlib versions 1.3.0 and later",
+      "license_metadata_sha256": "11b43b00dc032aba34426bfb8f93d48714076cbad3753cacec31b9d0f522aa2f",
+      "license_classifiers": [
+        "License :: OSI Approved :: Python Software Foundation License"
+      ],
+      "project_urls": [
+        "Homepage, https://matplotlib.org",
+        "Download, https://matplotlib.org/stable/install/index.html",
+        "Documentation, https://matplotlib.org",
+        "Source Code, https://github.com/matplotlib/matplotlib",
+        "Bug Tracker, https://github.com/matplotlib/matplotlib/issues",
+        "Forum, https://discourse.matplotlib.org/",
+        "Donate, https://numfocus.org/donate-to-matplotlib"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "matplotlib-3.11.2.dist-info/LICENSE",
+          "sha256": "822e8e528147569a41975592aee19c11992ab667ba50451cd929031d5fc74491"
+        },
+        {
+          "path": "matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU",
+          "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+        },
+        {
+          "path": "matplotlib/mpl-data/fonts/ttf/LICENSE_STIX",
+          "sha256": "bab3d31dfef07f483624f2f65f2711e76065b8e7273278b1c071ede1041c9959"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "more-itertools",
+      "version": "11.2.1",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Documentation, https://more-itertools.readthedocs.io/en/stable/",
+        "Homepage, https://github.com/more-itertools/more-itertools"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "more_itertools-11.2.1.dist-info/licenses/LICENSE",
+          "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "msgpack",
+      "version": "1.2.4",
+      "license_expression": "Apache-2.0",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://msgpack.org/",
+        "Documentation, https://msgpack-python.readthedocs.io/",
+        "Repository, https://github.com/msgpack/msgpack-python/",
+        "Tracker, https://github.com/msgpack/msgpack-python/issues",
+        "Changelog, https://github.com/msgpack/msgpack-python/blob/main/CHANGELOG.md"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "msgpack-1.2.4.dist-info/licenses/COPYING",
+          "sha256": "492dedba85da5872f78e6091bcd1fea474d660d35acb4dee964b8aab3f007427"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "multidict",
+      "version": "7.2.1",
+      "license_expression": "Apache-2.0",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/aio-libs/multidict",
+        "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+        "CI: GitHub, https://github.com/aio-libs/multidict/actions",
+        "Code of Conduct, https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov, https://codecov.io/github/aio-libs/multidict",
+        "Docs: Changelog, https://multidict.aio-libs.org/en/latest/changes/",
+        "Docs: RTD, https://multidict.aio-libs.org",
+        "GitHub: issues, https://github.com/aio-libs/multidict/issues",
+        "GitHub: repo, https://github.com/aio-libs/multidict"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "multidict-7.2.1.dist-info/licenses/LICENSE",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "multimethod",
+      "version": "1.12",
+      "license_expression": "",
+      "license_metadata_first_line": "Copyright 2022 Aric Coady",
+      "license_metadata_sha256": "50477e9b01163e9f1754d3318cc38059278cc6586316c4e627de3076691c8bea",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/coady/multimethod",
+        "Documentation, https://coady.github.io/multimethod",
+        "Changelog, https://github.com/coady/multimethod/blob/main/CHANGELOG.md",
+        "Issues, https://github.com/coady/multimethod/issues"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "multimethod-1.12.dist-info/LICENSE.txt",
+          "sha256": "50477e9b01163e9f1754d3318cc38059278cc6586316c4e627de3076691c8bea"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://networkx.org/",
+        "Bug Tracker, https://github.com/networkx/networkx/issues",
+        "Documentation, https://networkx.org/documentation/stable/",
+        "Source Code, https://github.com/networkx/networkx"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "networkx-3.6.1.dist-info/licenses/LICENSE.txt",
+          "sha256": "3cf7c3a179d817b23b8b8568211769fefdf93797d207d984b8b2fa24d0220b33"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "nlopt",
+      "version": "2.11.0",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Documentation, https://nlopt.readthedocs.io/en/latest/",
+        "Code, https://github.com/DanielBok/nlopt-python",
+        "Issue tracker, https://github.com/DanielBok/nlopt-python/issues"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "nlopt-2.11.0.dist-info/licenses/LICENSE",
+          "sha256": "50a32dafa8ba44e6e68dd59466d7a8d7e90c06294f672c9ab55c32b60fe4a8e6"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "numba",
+      "version": "0.68.1",
+      "license_expression": "",
+      "license_metadata_first_line": "BSD",
+      "license_metadata_sha256": "49d9777da612e1f4e9269fa9f93ea324a66f9dcc7722ad812de124ef3f266d93",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [],
+      "home_page": "https://numba.pydata.org",
+      "notice_files": [
+        {
+          "path": "numba-0.68.1.dist-info/licenses/LICENSE",
+          "sha256": "3a70e0a21cad03147246f6363d07bf76fae216c72779707f4ae5db06bcacf067"
+        },
+        {
+          "path": "numba-0.68.1.dist-info/licenses/LICENSES.third-party",
+          "sha256": "fdc60ca21d827beb3835ffc6b7a99bda14a5cfcb379d0c82c05e3c1ff4a482f2"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "numpy",
+      "version": "2.3.5",
+      "license_expression": "",
+      "license_metadata_first_line": "Copyright (c) 2005-2025, NumPy Developers.",
+      "license_metadata_sha256": "51d7a8a64ff01ee106146134efc1d8211e1a5fde5049fb7602367327f42e08a0",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "homepage, https://numpy.org",
+        "documentation, https://numpy.org/doc/",
+        "source, https://github.com/numpy/numpy",
+        "download, https://pypi.org/project/numpy/#files",
+        "tracker, https://github.com/numpy/numpy/issues",
+        "release notes, https://numpy.org/doc/stable/release"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "numpy-2.3.5.dist-info/LICENSE.txt",
+          "sha256": "2046a3130e50b11c01659b3a0d963e6ae0b7436ff8e89cbcfd9e87bc6112d595"
+        },
+        {
+          "path": "numpy/_core/include/numpy/random/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec"
+        },
+        {
+          "path": "numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6"
+        },
+        {
+          "path": "numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Documentation, https://packaging.pypa.io/",
+        "Source, https://github.com/pypa/packaging"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        },
+        {
+          "path": "packaging/licenses/__init__.py",
+          "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b"
+        },
+        {
+          "path": "packaging/licenses/__pycache__/__init__.cpython-312.pyc",
+          "sha256": "2503238d52da20fc78b3bc99275edcb90b8187592169b6e9346d436262cbd7c7"
+        },
+        {
+          "path": "packaging/licenses/__pycache__/_spdx.cpython-312.pyc",
+          "sha256": "7ea0b644a3c4aa648d11767e310ad6751e4d89cfef0a1cc6268caefa08926f05"
+        },
+        {
+          "path": "packaging/licenses/_spdx.py",
+          "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "license_expression": "MIT-CMU",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Release notes, https://pillow.readthedocs.io/en/stable/releasenotes/index.html",
+        "Changelog, https://github.com/python-pillow/Pillow/releases",
+        "Documentation, https://pillow.readthedocs.io",
+        "Funding, https://tidelift.com/lifter/search/pypi/pillow",
+        "Homepage, https://python-pillow.org",
+        "Mastodon, https://fosstodon.org/@pillow",
+        "Security, https://pillow.readthedocs.io/en/stable/handbook/security.html",
+        "Source, https://github.com/python-pillow/Pillow"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "pillow-13.0.0.dist-info/licenses/LICENSE",
+          "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache-2.0",
+      "license_metadata_sha256": "2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
+      "license_classifiers": [],
+      "project_urls": [
+        "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+        "CI: GitHub Workflows, https://github.com/aio-libs/propcache/actions?query=branch:master",
+        "Code of Conduct, https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov, https://codecov.io/github/aio-libs/propcache",
+        "Docs: Changelog, https://propcache.readthedocs.io/en/latest/changes/",
+        "Docs: RTD, https://propcache.readthedocs.io",
+        "GitHub: issues, https://github.com/aio-libs/propcache/issues",
+        "GitHub: repo, https://github.com/aio-libs/propcache"
+      ],
+      "home_page": "https://github.com/aio-libs/propcache",
+      "notice_files": [
+        {
+          "path": "propcache-0.5.4.dist-info/licenses/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "propcache-0.5.4.dist-info/licenses/NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "license_expression": "",
+      "license_metadata_first_line": "BSD-3-Clause",
+      "license_metadata_sha256": "118dbcd2d5c9f9b296a9ede9fcc469c5840f7b98ad2c88461055bf2ceda38037",
+      "license_classifiers": [],
+      "project_urls": [],
+      "home_page": "https://github.com/giampaolo/psutil",
+      "notice_files": [
+        {
+          "path": "psutil-7.2.2.dist-info/LICENSE",
+          "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/pydantic/pydantic",
+        "Documentation, https://pydantic.dev/docs/validation/latest/get-started/",
+        "Funding, https://github.com/sponsors/samuelcolvin",
+        "Source, https://github.com/pydantic/pydantic",
+        "Changelog, https://pydantic.dev/docs/validation/latest/get-started/changelog/"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "pydantic-2.14.3.dist-info/licenses/LICENSE",
+          "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Funding, https://github.com/sponsors/samuelcolvin",
+        "Homepage, https://github.com/pydantic",
+        "Source, https://github.com/pydantic/pydantic/tree/main/pydantic-core"
+      ],
+      "home_page": "https://github.com/pydantic/pydantic",
+      "notice_files": [
+        {
+          "path": "pydantic_core-2.50.4.dist-info/licenses/LICENSE",
+          "sha256": "2afdd30d54b4d62b6f488a6bcc1546e84ec5061f13f4209c03d012348783795a"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Documentation, https://pyparsing-docs.readthedocs.io/en/latest/",
+        "Homepage, https://github.com/pyparsing/pyparsing/",
+        "Source, https://github.com/pyparsing/pyparsing.git"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "pyparsing-3.3.3.dist-info/licenses/LICENSE",
+          "sha256": "a5425f9dc14ac74d4c5f0b679e941f2442e32cca7452a4418d5b1a49893ebe4e"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/dateutil/dateutil",
+        "Documentation, https://dateutil.readthedocs.io/en/stable/",
+        "Source, https://github.com/dateutil/dateutil"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+          "sha256": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640"
+        },
+        {
+          "path": "python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+          "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.31",
+      "license_expression": "Apache-2.0",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/Kludex/python-multipart",
+        "Documentation, https://kludex.github.io/python-multipart/",
+        "Changelog, https://github.com/Kludex/python-multipart/blob/master/CHANGELOG.md",
+        "Source, https://github.com/Kludex/python-multipart"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "python_multipart-0.0.31.dist-info/licenses/LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Bug Tracker, https://github.com/yaml/pyyaml/issues",
+        "CI, https://github.com/yaml/pyyaml/actions",
+        "Documentation, https://pyyaml.org/wiki/PyYAMLDocumentation",
+        "Mailing lists, http://lists.sourceforge.net/lists/listinfo/yaml-core",
+        "Source Code, https://github.com/yaml/pyyaml"
+      ],
+      "home_page": "https://pyyaml.org/",
+      "notice_files": [
+        {
+          "path": "pyyaml-6.0.3.dist-info/licenses/LICENSE",
+          "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "runtype",
+      "version": "0.5.3",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "Repository, https://github.com/erezsh/runtype"
+      ],
+      "home_page": "https://github.com/erezsh/runtype",
+      "notice_files": [
+        {
+          "path": "runtype-0.5.3.dist-info/LICENSE",
+          "sha256": "973c57bf5d9df70d897c02ec40996767c5d108ec77fafe66d200b4a550fcb7bf"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "scikit-image",
+      "version": "0.26.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Files: *",
+      "license_metadata_sha256": "c2cf8973387cb6f571aea745a8d5d7c46e413be71e3558fe3fa9854aa5d99b6e",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "homepage, https://scikit-image.org",
+        "documentation, https://scikit-image.org/docs/stable",
+        "source, https://github.com/scikit-image/scikit-image",
+        "download, https://pypi.org/project/scikit-image/#files",
+        "tracker, https://github.com/scikit-image/scikit-image/issues"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "scikit_image-0.26.0.dist-info/LICENSE.txt",
+          "sha256": "611d3207504dcb4a808df209d2e7c9b4f2e89fe690f84735c0d548160966b527"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "scipy",
+      "version": "1.17.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers.",
+      "license_metadata_sha256": "f5322e8eb7c9d0155475f23c903dc68d59a62ff146eb0d41acef061cd7fef874",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "homepage, https://scipy.org/",
+        "documentation, https://docs.scipy.org/doc/scipy/",
+        "source, https://github.com/scipy/scipy",
+        "download, https://github.com/scipy/scipy/releases",
+        "tracker, https://github.com/scipy/scipy/issues"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "scipy-1.17.0.dist-info/LICENSE.txt",
+          "sha256": "4daf14e37432e7026165979ecb7a39930707a3e89bef4876cfaf9dad36ed364a"
+        },
+        {
+          "path": "scipy/_lib/_uarray/LICENSE",
+          "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4"
+        },
+        {
+          "path": "scipy/fft/_pocketfft/LICENSE.md",
+          "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789"
+        },
+        {
+          "path": "scipy/integrate/LICENSE_DOP",
+          "sha256": "ed9bf58c6d74d3fad9d92d1d67d9bff8141d8ab60de784516b0711364fd43357"
+        },
+        {
+          "path": "scipy/spatial/qhull_src/COPYING_QHULL.txt",
+          "sha256": "106d55c931fd6a84822e5345d900273d059f1c27310d02567ccb313c5d18c55d"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "scs",
+      "version": "3.3.1",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT License",
+      "license_metadata_sha256": "e69527618fe44b24423fe8fa91f835c15dd9196ef7bfdcf554674b141d9ed773",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "scs-3.3.1.dist-info/LICENSE",
+          "sha256": "971225e60de450908b7d98dbef667b2ba5ef89a6cf01c9080a5c9ae813fed018"
+        },
+        {
+          "path": "scs/LICENSE-INTEL-MKL.txt",
+          "sha256": "7721633d0ddff43fae25ebfd405f8166a0ce730cbcec44f2f3ad9d5eb8ac9a6f"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "setuptools",
+      "version": "80.9.0",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Source, https://github.com/pypa/setuptools",
+        "Documentation, https://setuptools.pypa.io/",
+        "Changelog, https://setuptools.pypa.io/en/stable/history.html"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "setuptools-80.9.0.dist-info/licenses/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+          "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+        },
+        {
+          "path": "setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/importlib_metadata-8.0.0.dist-info/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "setuptools/_vendor/inflect-7.3.1.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.collections-5.1.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.context-5.3.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.functools-4.0.1.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.text-3.12.1.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/more_itertools-10.3.0.dist-info/LICENSE",
+          "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-24.2.dist-info/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-24.2.dist-info/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-24.2.dist-info/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        },
+        {
+          "path": "setuptools/_vendor/packaging/licenses/__init__.py",
+          "sha256": "d71e4cd671188dc83011b2edd1d5f0cf6ba48ebd7c0e20b30b4b2b690a89f96c"
+        },
+        {
+          "path": "setuptools/_vendor/packaging/licenses/__pycache__/__init__.cpython-312.pyc",
+          "sha256": "dbbba8e3a14b077a3f950a5d2d56cb083e64efaf68676cce8caf619cdf98d98f"
+        },
+        {
+          "path": "setuptools/_vendor/packaging/licenses/__pycache__/_spdx.cpython-312.pyc",
+          "sha256": "f145d386b00853eb87c5663f8bbe8280f6135027389347aed051103b3f0736e0"
+        },
+        {
+          "path": "setuptools/_vendor/packaging/licenses/_spdx.py",
+          "sha256": "a009b5ced3c5c25b2608a7bb94002cbff38839f4b57160eef5b34191ebbeda7b"
+        },
+        {
+          "path": "setuptools/_vendor/platformdirs-4.2.2.dist-info/licenses/LICENSE",
+          "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+        },
+        {
+          "path": "setuptools/_vendor/tomli-2.0.1.dist-info/LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+        },
+        {
+          "path": "setuptools/_vendor/typeguard-4.3.0.dist-info/LICENSE",
+          "sha256": "6163f7987dfb38d6bc320ce2b70b2f02b862bc41126516d552ef1cd43247e758"
+        },
+        {
+          "path": "setuptools/_vendor/typing_extensions-4.12.2.dist-info/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        },
+        {
+          "path": "setuptools/_vendor/wheel-0.45.1.dist-info/LICENSE.txt",
+          "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654"
+        },
+        {
+          "path": "setuptools/_vendor/wheel/vendored/packaging/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "setuptools/_vendor/wheel/vendored/packaging/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "setuptools/_vendor/wheel/vendored/packaging/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        },
+        {
+          "path": "setuptools/_vendor/zipp-3.19.2.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/config/NOTICE",
+          "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8"
+        },
+        {
+          "path": "setuptools/config/_validate_pyproject/NOTICE",
+          "sha256": "5d300dbfa643138b013b75ac9caeee591f951b8b0ee24288c34ccd926c4780c8"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "shapely",
+      "version": "2.1.2",
+      "license_expression": "",
+      "license_metadata_first_line": "BSD 3-Clause",
+      "license_metadata_sha256": "f4efa249eada90291d5db535412acdb1b0fc8ed21129a070dc3667af7631ef5c",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [
+        "Documentation, https://shapely.readthedocs.io/",
+        "Repository, https://github.com/shapely/shapely"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "shapely-2.1.2.dist-info/licenses/LICENSE.txt",
+          "sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754"
+        },
+        {
+          "path": "shapely-2.1.2.dist-info/licenses/LICENSE_GEOS",
+          "sha256": "138b2c2f9450073d7c116abe397ca4382625671c752b7a9a5f320b33fc3f3f2a"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "starlette",
+      "version": "0.50.0",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/Kludex/starlette",
+        "Documentation, https://starlette.dev/",
+        "Changelog, https://starlette.dev/release-notes/",
+        "Funding, https://github.com/sponsors/Kludex",
+        "Source, https://github.com/Kludex/starlette"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "starlette-0.50.0.dist-info/licenses/LICENSE.md",
+          "sha256": "dcb95677a02240243187e964f941847d19b17821cf99e5afae684fab328c19bf"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "tifffile",
+      "version": "2026.11.8",
+      "license_expression": "",
+      "license_metadata_first_line": "BSD-3-Clause",
+      "license_metadata_sha256": "118dbcd2d5c9f9b296a9ede9fcc469c5840f7b98ad2c88461055bf2ceda38037",
+      "license_classifiers": [],
+      "project_urls": [
+        "Bug Tracker, https://github.com/cgohlke/tifffile/issues",
+        "Source Code, https://github.com/cgohlke/tifffile",
+        "Documentation, https://www.cgohlke.com/docs/tifffile/"
+      ],
+      "home_page": "https://www.cgohlke.com",
+      "notice_files": [
+        {
+          "path": "tifffile-2026.11.8.dist-info/licenses/LICENSE",
+          "sha256": "3cf196b1625812d2d119518294043e71017fe858355a58eb48e1e35b61213ce9"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trame",
+      "version": "4.0.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache License 2.0",
+      "license_metadata_sha256": "e99dd4b311146507c3d0a887ca12e50387fe644c8aaa86cb500b50c068062543",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trame-4.0.0.dist-info/licenses/LICENSE",
+          "sha256": "a0e8a7cd61a4e04aee1cad9718f5afbaac4341059fb4c3f0b9223e93750b858e"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trame-client",
+      "version": "4.1.4",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trame_client-4.1.4.dist-info/licenses/LICENSE",
+          "sha256": "dc7bd3fd126419153790338e50a1ebb314a014c8f1798009ff50441fa424909a"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trame-common",
+      "version": "1.2.9",
+      "license_expression": "",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trame_common-1.2.9.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trame-components",
+      "version": "2.5.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache License 2.0",
+      "license_metadata_sha256": "e99dd4b311146507c3d0a887ca12e50387fe644c8aaa86cb500b50c068062543",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trame_components-2.5.0.dist-info/LICENSE",
+          "sha256": "a0e8a7cd61a4e04aee1cad9718f5afbaac4341059fb4c3f0b9223e93750b858e"
+        },
+        {
+          "path": "trame_components/LICENSE",
+          "sha256": "a0e8a7cd61a4e04aee1cad9718f5afbaac4341059fb4c3f0b9223e93750b858e"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trame-server",
+      "version": "4.1.0",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache License 2.0",
+      "license_metadata_sha256": "e99dd4b311146507c3d0a887ca12e50387fe644c8aaa86cb500b50c068062543",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trame_server-4.1.0.dist-info/licenses/LICENSE",
+          "sha256": "5a6ba2e198e96e1ee6c17b17e6c614812f0271eff28f2b6c8215ab6d51afdf7e"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trame-vtk",
+      "version": "2.11.17",
+      "license_expression": "",
+      "license_metadata_first_line": "BSD License",
+      "license_metadata_sha256": "170c0f4cee6fc262f8902676b7aa0e88e11f1777f1531934116898c43fd5086a",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trame_vtk-2.11.17.dist-info/licenses/LICENSE",
+          "sha256": "27198113c2a9a21461dbdba5a9a22639ba4e65f97c15203fbc701a15d6f4d600"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trame-vuetify",
+      "version": "3.3.0",
+      "license_expression": "",
+      "license_metadata_first_line": "MIT",
+      "license_metadata_sha256": "e5dcffe836b6ec8a58e492419b550e65fb8cbdc308503979e5dacb33ac7ea3b7",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trame_vuetify-3.3.0.dist-info/licenses/LICENSE",
+          "sha256": "00495a89884cbd1b3828013d40fa9b5aeffe155bbe642bd3753e6b10f5c5e8a8"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "trimesh",
+      "version": "4.11.1",
+      "license_expression": "",
+      "license_metadata_first_line": "The MIT License (MIT)",
+      "license_metadata_sha256": "fe27b5ef8710676cc85255da28a32f394e2ef3f4ce47075a1c732a9ea1d7bd03",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "project_urls": [
+        "homepage, https://github.com/mikedh/trimesh",
+        "documentation, https://trimesh.org"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "trimesh-4.11.1.dist-info/licenses/LICENSE.md",
+          "sha256": "fe27b5ef8710676cc85255da28a32f394e2ef3f4ce47075a1c732a9ea1d7bd03"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "license_expression": "PSF-2.0",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Bug Tracker, https://github.com/python/typing_extensions/issues",
+        "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+        "Documentation, https://typing-extensions.readthedocs.io/",
+        "Home, https://github.com/python/typing_extensions",
+        "Q & A, https://github.com/python/typing/discussions",
+        "Repository, https://github.com/python/typing_extensions"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "license_expression": "MIT",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Homepage, https://github.com/pydantic/typing-inspection",
+        "Documentation, https://pydantic.github.io/typing-inspection/dev/",
+        "Source, https://github.com/pydantic/typing-inspection",
+        "Changelog, https://github.com/pydantic/typing-inspection/blob/main/HISTORY.md"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "typing_inspection-0.4.5.dist-info/licenses/LICENSE",
+          "sha256": "804b59b25f2c31bd278f9202a19ae49a3945aa2664387e2d0a128c7cacc61ec3"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache-2.0",
+      "license_metadata_sha256": "2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
+      "license_classifiers": [],
+      "project_urls": [
+        "Bug Reports, https://github.com/python/tzdata/issues",
+        "Source, https://github.com/python/tzdata",
+        "Documentation, https://tzdata.python.org"
+      ],
+      "home_page": "https://github.com/python/tzdata",
+      "notice_files": [
+        {
+          "path": "tzdata-2026.6.dist-info/licenses/LICENSE",
+          "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46"
+        },
+        {
+          "path": "tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.48.0",
+      "license_expression": "BSD-3-Clause",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [],
+      "project_urls": [
+        "Changelog, https://uvicorn.dev/release-notes",
+        "Funding, https://github.com/sponsors/encode",
+        "Homepage, https://uvicorn.dev/",
+        "Source, https://github.com/Kludex/uvicorn"
+      ],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "uvicorn-0.48.0.dist-info/licenses/LICENSE.md",
+          "sha256": "efe1acf3e62fb99c288b0ec73e5a773b7268ef4320fe757ea994214e4b63c371"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "vtk",
+      "version": "9.6.2",
+      "license_expression": "",
+      "license_metadata_first_line": "BSD",
+      "license_metadata_sha256": "49d9777da612e1f4e9269fa9f93ea324a66f9dcc7722ad812de124ef3f266d93",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [],
+      "home_page": "https://vtk.org",
+      "notice_files": [
+        {
+          "path": "vtk-9.6.2.dist-info/licenses/LICENSE",
+          "sha256": "11232448be82e0ea2c2c66219c2e36389f42249894070ee10c549ff182fc08b6"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "wslink",
+      "version": "2.6.0",
+      "license_expression": "",
+      "license_metadata_first_line": "",
+      "license_metadata_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "project_urls": [],
+      "home_page": "",
+      "notice_files": [
+        {
+          "path": "wslink-2.6.0.dist-info/licenses/LICENSE",
+          "sha256": "28e401d582c42ba0d2904c99118b457c6595030fd4235d24f0a82e44e463edb3"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "license_expression": "",
+      "license_metadata_first_line": "Apache-2.0",
+      "license_metadata_sha256": "2af71558e438db0b73a20beab92dc278a94e1bbe974c00c1a33e3ab62d53a608",
+      "license_classifiers": [],
+      "project_urls": [
+        "Chat: Matrix, https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space, https://matrix.to/#/#aio-libs-space:matrix.org",
+        "CI: GitHub Workflows, https://github.com/aio-libs/yarl/actions?query=branch:master",
+        "Code of Conduct, https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov, https://codecov.io/github/aio-libs/yarl",
+        "Docs: Changelog, https://yarl.aio-libs.org/en/latest/changes/",
+        "Docs: RTD, https://yarl.aio-libs.org",
+        "GitHub: issues, https://github.com/aio-libs/yarl/issues",
+        "GitHub: repo, https://github.com/aio-libs/yarl"
+      ],
+      "home_page": "https://github.com/aio-libs/yarl",
+      "notice_files": [
+        {
+          "path": "yarl-1.25.1.dist-info/licenses/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "yarl-1.25.1.dist-info/licenses/NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "review": "No equivale a autorización global de redistribución"
+    }
+  ]
+}
