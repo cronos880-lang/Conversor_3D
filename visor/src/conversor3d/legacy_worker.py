@@ -25,10 +25,28 @@ def execute(job):
         value = {'returncode': 0, 'source_sha256': sha(job['source']),
                  'step_sha256': sha(job['baseline']),
                  'payload': {'ok': True, 'resultado': {'calidad': quality}}}
-    elif action == 'validate_candidate':
-        from validacion_r19 import validar
-        value = validar(job['source'], job['candidate'], job['baseline'], job['baseline_run'], job['evidence'])
-        verificar(value['final_validation'], job['source'], job['candidate'], value['nonce'], ROOT)
+    elif action == 'certify_final':
+        import subprocess
+        from .legacy import native_env
+        nonce = secrets.token_hex(24)
+        report = job['evidence'] / 'cold.json'
+        code = subprocess.run([
+            sys.executable, str(FROZEN / 'validacion_fria_r19.py'), str(job['source']),
+            str(job['candidate']), str(job['baseline_run']), nonce, str(report),
+        ], cwd=FROZEN, env=native_env(), timeout=450).returncode
+        if code or not report.is_file():
+            raise ValueError('El entregable no supera el control frío completo')
+        record = json.loads(report.read_text(encoding='utf-8'))
+        quality = verificar(record, job['source'], job['candidate'], nonce, ROOT)
+        value = {'record': record, 'quality': quality, 'nonce': nonce}
+    elif action == 'serve':
+        from .server import serve_in_legacy
+        serve_in_legacy(int(job['port']), bool(job['open_browser']))
+        value = {'stopped': True}
+    elif action == 'verify_final':
+        record = json.loads(Path(job['certificate']).read_text(encoding='utf-8'))
+        quality = verificar(record['record'], job['source'], job['candidate'], record['nonce'], ROOT)
+        value = {'verified': True, 'quality': quality}
     else:
         raise ValueError('Acción no reconocida: ' + action)
     if firma_motor(ROOT) != FINGERPRINT:

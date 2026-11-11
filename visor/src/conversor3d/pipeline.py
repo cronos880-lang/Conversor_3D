@@ -1,0 +1,120 @@
+"""R19 como referencia, propuesta aislada y certificado final obligatorio."""
+from pathlib import Path
+import copy
+import hashlib
+import json
+import shutil
+import sys
+from .legacy import FROZEN, native_env, run_worker, sha
+from .processes import execute
+from .validation import evaluate
+
+
+def code_fingerprint():
+    root = Path(__file__).parent
+    digest = hashlib.sha256()
+    files = [path for path in root.rglob('*') if path.is_file() and path.suffix in {'.py', '.json'}]
+    for path in sorted(files, key=lambda p: p.relative_to(root).as_posix()):
+        digest.update(path.relative_to(root).as_posix().encode())
+        digest.update(bytes.fromhex(sha(path)))
+    return digest.hexdigest()
+
+
+def _last_result(path):
+    for line in Path(path).read_text(encoding='utf-8', errors='replace').splitlines()[::-1]:
+        try:
+            value = json.loads(line)
+            if isinstance(value, dict) and 'ok' in value:
+                return value
+        except ValueError:
+            continue
+    raise ValueError('El motor no emitió un resultado completo')
+
+
+def optimize_reference(source, baseline, baseline_run, evidence):
+    """La propuesta no puede sustituir la referencia sin decisión del evaluador."""
+    source, baseline, baseline_run, evidence = map(Path, (source, baseline, baseline_run, evidence))
+    evidence.mkdir(exist_ok=False)
+    candidate = evidence / 'candidate.step'
+    job = evidence / 'proposal-job.json'
+    job.write_text(json.dumps({'baseline': str(baseline), 'candidate': str(candidate)}), encoding='utf-8')
+    status = execute([sys.executable, '-m', 'conversor3d.reconstruction_worker', str(job)],
+                     evidence, 'proposal', env=native_env(), timeout=120)
+    proposal = json.loads((evidence / 'proposal.json').read_text(encoding='utf-8'))
+    if status['returncode'] or proposal.get('ok') is not True:
+        return {'accepted': False, 'selected': str(baseline),
+                'selected_sha256': sha(baseline), 'reason': proposal.get('error', 'Proponente interrumpido')}
+    return evaluate(source, baseline, baseline_run, candidate, evidence / 'validation')
+
+
+def convert(source: Path, destination: Path):
+    source, destination = Path(source).resolve(), Path(destination).resolve()
+    evidence = destination.with_name(destination.name + '.development')
+    cold_sidecar = destination.with_suffix('.r19_nucleo.json')
+    pipeline_sidecar = destination.with_suffix('.r19_pipeline.json')
+    if (not source.is_file() or source == destination or destination.exists() or evidence.exists()
+            or cold_sidecar.exists() or pipeline_sidecar.exists()):
+        raise ValueError('Entrada existente y salida nueva e independiente obligatorias')
+    if not destination.parent.is_dir():
+        raise ValueError('El directorio de salida debe existir')
+    evidence.mkdir()
+    fingerprint, source_hash = code_fingerprint(), sha(source)
+    report = {'state': 'baseline', 'source_sha256': source_hash, 'development_sha256': fingerprint}
+    baseline = evidence / 'baseline.step'
+    status = execute([sys.executable, str(FROZEN / 'motor_r19.py'), str(source), str(baseline)],
+                     evidence, 'baseline', cwd=FROZEN, env=native_env(), timeout=3600)
+    result = _last_result(evidence / 'baseline.stdout.txt')
+    if status['returncode'] or result.get('ok') is not True:
+        raise ValueError(result.get('error', 'Referencia R19 interrumpida'))
+    baseline_run = evidence / 'baseline-run.json'
+    baseline_run.write_text(json.dumps({'returncode': 0, 'payload': result,
+                                       'source_sha256': source_hash, 'step_sha256': sha(baseline)}), encoding='utf-8')
+    try:
+        selection = optimize_reference(source, baseline, baseline_run, evidence / 'optimization')
+    except Exception as error:
+        selection = {'accepted': False, 'selected': str(baseline),
+                     'selected_sha256': sha(baseline), 'reason': str(error)}
+    selected = Path(selection['selected']) if selection.get('selected') else None
+    if selected is None or sha(selected) != selection['selected_sha256']:
+        raise ValueError('No hay selección íntegra')
+    report.update(state='final_validation', selection=selection)
+    (evidence / 'pipeline.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+    certified = run_worker({'action': 'certify_final', 'source': str(source),
+                            'candidate': str(selected), 'baseline_run': str(baseline_run),
+                            'evidence': str(evidence / 'final')}, evidence / 'final')
+    certificate = evidence / 'certificate.json'
+    certificate.write_text(json.dumps(certified['value'], indent=2), encoding='utf-8')
+    if sha(source) != source_hash or code_fingerprint() != fingerprint:
+        raise ValueError('La entrada o el programa cambió durante la conversión')
+    with selected.open('rb') as src, destination.open('xb') as dst:
+        shutil.copyfileobj(src, dst)
+    try:
+        verified = run_worker({'action': 'verify_final', 'source': str(source),
+                               'candidate': str(destination), 'certificate': str(certificate)}, evidence / 'verify')
+        if (sha(destination) != selection['selected_sha256'] or sha(source) != source_hash
+                or code_fingerprint() != fingerprint):
+            raise ValueError('El archivo final no corresponde a la selección')
+    except BaseException:
+        destination.unlink(missing_ok=True)
+        raise
+    final = copy.deepcopy(result)
+    final['resultado']['calidad'] = verified['value']['quality']
+    if selection['accepted']:
+        improvement = copy.deepcopy(final['resultado'].get('mejora_superficies', {}))
+        improvement.update(aplicado=True, caras_despues=verified['value']['quality']['caras_step'],
+                           step_sha256=sha(destination), etapa_extra='contornos_compartidos')
+        final['resultado']['mejora_superficies'] = improvement
+        final['mejora_superficies'] = improvement
+    final['development'] = {'selected_candidate': selection['accepted'],
+                            'reason': selection['reason'], 'development_sha256': fingerprint,
+                            'step_sha256': sha(destination), 'certificate': str(certificate)}
+    report.update(state='finished', step_sha256=sha(destination))
+    (evidence / 'pipeline.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+    cold_record = copy.deepcopy(certified['value']['record'])
+    cold_record.update(development_sha256=fingerprint, step_sha256=sha(destination),
+                       original_sha256=source_hash)
+    # Nombres compatibles con el servidor: conserva los certificados tras borrar temporales.
+    for path, payload in [(cold_sidecar, cold_record), (pipeline_sidecar, report)]:
+        with path.open('x', encoding='utf-8') as stream:
+            json.dump(payload, stream, indent=2)
+    return final

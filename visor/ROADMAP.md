@@ -58,3 +58,25 @@ Conversiones completas locales de cilindro, pared y taladro aprobadas, sin
 pérdida de aberturas. Se añaden las mismas conversiones obligatorias a CI.
 Los casos curvos más generales se registran como sondeos de capacidad: un
 rechazo o tiempo agotado no se cuenta como STEP válido. Véase BENCHMARKS.md.
+
+## 4. Propuesta y validación independientes
+
+El coordinador de desarrollo está conectado a ambos endpoints mediante un
+adaptador local del servidor existente. El proponente ejecuta en su proceso;
+la puerta previa se conserva byte a byte como recurso con hashes. Cada salida
+final tiene control frío completo y comprobación del certificado después de
+copiar sus bytes; cambiar el STEP invalida el certificado. Los sidecars se
+conservan también al descargar desde el servidor. Un rechazo del proponente
+mantiene la referencia, sin convertir una interrupción en aprobación.
+
+Verificación: 17 pruebas aprobadas, incluidos perfiles Precisión e Impresión,
+rechazo de un certificado sobre otro STEP, control de material y tres mallados.
+Smoke real de desarrollo por HTTP aprobado en Linux, incluido certificado
+descargable y volumen 120 mm³. CI mantiene el smoke original y añade el nuevo.
+El hito 3 también terminó en verde en Windows y Linux en la ejecución
+https://github.com/cronos880-lang/Conversor_3D/actions/runs/43031074761
+
+Límite observado del catálogo: el STL de redondeos teselado automáticamente
+convierte, pero conserva 19.891 caras y tarda unos 259 s. No se presenta como
+reconstrucción analítica de 5 caras. El loft libre agotó el límite de sondeo
+300 s sin resultado completo. Se conservan esas limitaciones para el perfilado.

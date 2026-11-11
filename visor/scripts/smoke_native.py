@@ -16,7 +16,7 @@ repo = Path(__file__).resolve().parents[2]
 frozen = repo / 'entregas/perfeccion_Visualizador_R19/Visor_experimental_fuentes'
 
 
-def smoke(output: Path):
+def smoke(output: Path, development=False):
     import httpx
     import cadquery as cq
     import trimesh
@@ -33,12 +33,15 @@ def smoke(output: Path):
         with socket.socket() as probe:
             probe.bind(('127.0.0.1', 0))
             port = probe.getsockname()[1]
-        env = {**os.environ, 'VISOR_PORT': str(port), 'VISOR_NO_ABRIR_NAVEGADOR': '1',
+        env = {**os.environ, 'CONVERSOR3D_DATA_DIR': str(output.resolve() / 'logs'), 'VISOR_PORT': str(port), 'VISOR_NO_ABRIR_NAVEGADOR': '1',
                'PYTHONDONTWRITEBYTECODE': '1', 'OPENBLAS_NUM_THREADS': '1',
                'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1'}
+        command = [sys.executable, str(root / 'arrancar.py'), '--entorno-listo']
+        if development:
+            command = [sys.executable, '-m', 'conversor3d', 'serve', '--port', str(port), '--no-browser']
+            env['PYTHONPATH'] = str(repo / 'visor/src')
         with (output / 'server.log').open('xb') as log:
-            process = subprocess.Popen([sys.executable, str(root / 'arrancar.py'), '--entorno-listo'],
-                                       cwd=root, env=env, stdout=log, stderr=log)
+            process = subprocess.Popen(command, cwd=repo if development else root, env=env, stdout=log, stderr=log)
             try:
                 url = f'http://127.0.0.1:{port}'
                 with httpx.Client(base_url=url, timeout=30, trust_env=False) as client:
@@ -79,17 +82,24 @@ def smoke(output: Path):
                               'version': version.json(), 'state': state, 'volume_mm3': shape.Volume(),
                               'faces': len(shape.Faces()), 'exact_valid': True}
                     (output / 'result.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+                    if development:
+                        proof = client.get(f'/reparacion/{job}/r19_nucleo')
+                        proof.raise_for_status()
+                        assert proof.json()['ok'] is True
+                        assert proof.json()['development_sha256']
                     print('CONVERSION NATIVA OK', shape.Volume(), flush=True)
             finally:
                 if process.poll() is None:
-                    process.terminate()
-                    try:
-                        process.wait(timeout=10)
-                    except subprocess.TimeoutExpired:
-                        process.kill(); process.wait()
+                    import psutil
+                    for child in psutil.Process(process.pid).children(recursive=True):
+                        try:child.kill()
+                        except psutil.NoSuchProcess:pass
+                    process.kill(); process.wait(timeout=15)
 
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output', required=True, type=Path)
-    smoke(p.parse_args().output)
+    p.add_argument('--development', action='store_true')
+    args = p.parse_args()
+    smoke(args.output, args.development)

@@ -3,7 +3,6 @@ from pathlib import Path
 import hashlib
 import json
 import os
-import subprocess
 import sys
 
 REPO = Path(__file__).resolve().parents[3]
@@ -17,7 +16,7 @@ def sha(path: Path) -> str:
 
 def native_env() -> dict:
     return {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1', 'OPENBLAS_NUM_THREADS': '1',
-            'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1', 'VISOR_PERFIL': 'precision',
+            'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1', 'VISOR_PERFIL': os.environ.get('VISOR_PERFIL', 'precision'),
             'PYTHONPATH': str(Path(__file__).resolve().parents[1])}
 
 
@@ -26,11 +25,10 @@ def run_worker(job: dict, evidence: Path, timeout=540) -> dict:
     evidence.mkdir(exist_ok=False)
     specification = evidence / 'job.json'
     specification.write_text(json.dumps(job), encoding='utf-8')
-    with (evidence / 'stdout.txt').open('xb') as out, (evidence / 'stderr.txt').open('xb') as err:
-        subprocess.run([sys.executable, '-m', 'conversor3d.legacy_worker', str(specification)],
-                       cwd=REPO, env=native_env(), stdout=out, stderr=err,
-                       timeout=timeout, check=False)
+    from .processes import execute
+    status = execute([sys.executable, '-m', 'conversor3d.legacy_worker', str(specification)],
+                     evidence, 'worker', cwd=REPO, env=native_env(), timeout=timeout)
     result = json.loads((evidence / 'result.json').read_text(encoding='utf-8'))
-    if result.get('ok') is not True:
+    if status['returncode'] != 0 or result.get('ok') is not True:
         raise ValueError(result.get('error', 'Trabajador sin aprobación'))
     return result

@@ -37,6 +37,7 @@ def test_boundary_check_covers_arc_interior():
 def test_new_proposer_passes_original_full_validation(tmp_path):
     import trimesh
     from conversor3d.legacy import run_worker
+    from conversor3d.validation import evaluate
     shape = residual_box()
     baseline, candidate, source = (tmp_path / name for name in ('base.step', 'candidate.step', 'source.stl'))
     cq.exporters.export(shape, str(baseline))
@@ -50,10 +51,8 @@ def test_new_proposer_passes_original_full_validation(tmp_path):
     spec = tmp_path / 'baseline.json'
     spec.write_text(json.dumps(assessed['value']))
     evidence = tmp_path / 'validation'
-    validated = run_worker({'action': 'validate_candidate', 'source': str(source),
-                            'candidate': str(candidate), 'baseline': str(baseline),
-                            'baseline_run': str(spec), 'evidence': str(evidence)}, evidence)
-    approval = validated['value']
+    decision = evaluate(source, baseline, spec, candidate, evidence)
+    approval = decision['validation']
     assert approval['accepted'] and approval['validated']
     assert approval['calidad']['caras_step'] == 6
     assert approval['calidad']['integridad_cad']['tolerancia_max_mm'] == 1e-7
@@ -64,6 +63,7 @@ def test_new_proposer_passes_original_full_validation(tmp_path):
 def test_shared_boundaries_keep_small_cylindrical_hole(tmp_path):
     import trimesh
     from conversor3d.legacy import run_worker
+    from conversor3d.validation import evaluate
     original = residual_box().cut(cq.Solid.makeCylinder(.3, 2, cq.Vector(3.2, 2, 0)))
     baseline, candidate, source = (tmp_path / name for name in ('base.step', 'candidate.step', 'source.stl'))
     cq.exporters.export(original, str(baseline))
@@ -78,9 +78,7 @@ def test_shared_boundaries_keep_small_cylindrical_hole(tmp_path):
                            'baseline': str(baseline)}, tmp_path / 'assess')
     spec = tmp_path / 'baseline.json'; spec.write_text(json.dumps(assessed['value']))
     evidence = tmp_path / 'validation'
-    approval = run_worker({'action': 'validate_candidate', 'source': str(source),
-                           'candidate': str(candidate), 'baseline': str(baseline),
-                           'baseline_run': str(spec), 'evidence': str(evidence)}, evidence)['value']
+    approval = evaluate(source, baseline, spec, candidate, evidence)['validation']
     assert approval['accepted'] and approval['cilindros']
     assert approval['final_validation']['material_original']['discrepancias'] == 0
     assert approval['contraste_comun']['regresiones_sobre_00001_mm'] == 0

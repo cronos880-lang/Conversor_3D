@@ -17,3 +17,6 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "--import-mode=importlib"
+
+[tool.setuptools.package-data]
+conversor3d = ["resources/evaluator/*"]
