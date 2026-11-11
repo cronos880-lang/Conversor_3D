@@ -22,10 +22,17 @@ def smoke(output: Path, archive=None):
     output = Path(output).resolve()
     output.mkdir(exist_ok=False)
     if archive is None:
-        published = REPO / 'entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA.zip'
-        if published.is_file():
-            archive = published
-        else:
+        delivery = REPO / 'entregas/perfeccion_Visualizador_R20'
+        for name in ('perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA_CORREGIDA.zip',
+                     'perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA.zip'):
+            published = delivery / name
+            if published.is_file():
+                with zipfile.ZipFile(published) as bundle:
+                    identity = json.loads(bundle.read(PREFIX + '/R20_VERSION.json'))
+                if identity == release_identity():
+                    archive = published
+                    break
+        if archive is None:
             archive = output / 'candidato_R20.zip'
             build(archive)
     archive = Path(archive).resolve()
@@ -55,6 +62,18 @@ def smoke(output: Path, archive=None):
         own_python = root / '.venv_r20/Scripts/python.exe'
         if not own_python.is_file():
             raise ValueError('El instalador no preparó su entorno independiente')
+        installed_log = (output / 'instalacion.log').read_text(encoding='utf-8', errors='replace')
+        assert '[PAQUETE 1/' in installed_log and 'Paquetes verificados:' in installed_log
+        # Reproducir una extracción interrumpida: versión instalada, archivo ausente.
+        subprocess.run([str(own_python), '-B', '-c',
+            "from importlib.metadata import distribution; distribution('typing-inspection').locate_file('typing_inspection/introspection.py').unlink()"],
+            cwd=root, env=env, check=True, timeout=30)
+        with (output / 'reparacion.log').open('wb') as log:
+            subprocess.run(['cmd.exe', '/d', '/c', 'Reparar_Entorno_R20.bat'], cwd=root,
+                           env=env, check=True, stdout=log, stderr=subprocess.STDOUT, timeout=600)
+        repaired_log = (output / 'reparacion.log').read_text(encoding='utf-8', errors='replace')
+        assert 'typing-inspection' in repaired_log and 'incompleta' in repaired_log
+        print('ZIP R20: REPARACIÓN DE PAQUETE INCOMPLETO OK', flush=True)
         with (output / 'diagnostico.log').open('wb') as log:
             subprocess.run(['cmd.exe', '/d', '/c', 'Diagnostico_R20.bat'], cwd=root,
                            env=env, check=True, stdout=log, stderr=subprocess.STDOUT, timeout=120)
@@ -135,7 +154,7 @@ if __name__ == '__main__':
     try:
         smoke(args.output, args.archive)
     except Exception:
-        for name in ('instalacion.log', 'diagnostico.log', 'arranque.log'):
+        for name in ('instalacion.log', 'reparacion.log', 'diagnostico.log', 'arranque.log'):
             log = args.output / name
             if log.is_file():
                 print(name + ':\n' + log.read_text(encoding='utf-8', errors='replace')[-5000:], flush=True)

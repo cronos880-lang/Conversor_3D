@@ -21,6 +21,10 @@ Consulta [la guía de uso](visor/docs/R20_USUARIO.md),
 [Descargar R20 completa en fuentes con instalador](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R20/entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA.zip?raw=true)
 · [Resultados de la entrega](entregas/perfeccion_Visualizador_R20/INFORME_RESULTADOS.md)
 
+La revisión 2 corrige la espera sin mensajes del instalador y recupera paquetes
+incompletos conservando el entorno y los datos. Véase
+[reparación del instalador](visor/docs/R20_REPARACION_INSTALADOR.md).
+
 ## Visor R19 ya publicado
 
 [ZIP histórico R19 completo](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R19/entregas/perfeccion_Visualizador_R19/perfeccion_Visualizador_R19_EXPERIMENTAL_COMPLETA.zip?raw=true)

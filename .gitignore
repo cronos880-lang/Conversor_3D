@@ -2,3 +2,6 @@ __pycache__/
 .pytest_cache/
 .venv/
 node_modules/
+.venv_r20/
+datos/
+Diagnostico_Entorno_R20.json

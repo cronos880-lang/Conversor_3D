@@ -15,9 +15,16 @@ No modifica tu R19 ni reutiliza su entorno para instalar paquetes encima.
 5. Carga tu STL, convierte y exporta el STEP. Conserva también sus diagnósticos.
 
 `Instalar_Entorno_R20.bat` permite preparar el entorno antes de abrir el programa.
+`Reparar_Entorno_R20.bat` retoma o repara una instalación incompleta, conservando
+los paquetes correctos y tus datos. Muestra `PAQUETE N/TOTAL` y actividad durante
+las operaciones largas. Cierra la ventana de instalación anterior antes de usarlo.
 `Diagnostico_R20.bat` genera `Diagnostico_Entorno_R20.json` con identidad y versiones.
 La ventana indica expresamente si la instalación termina o encuentra un error;
 los registros quedan en `datos/instalacion_R20.log`.
+
+Esta entrega incorpora la revisión 2 del instalador: instala sin compilar
+bytecode, comprueba los archivos de cada paquete y conserva todos los hashes
+del lock. El motor y sus tolerancias siguen intactos.
 
 El ZIP contiene el programa completo en fuentes, sus lanzadores y los requisitos
 con hashes. Las librerías se descargan desde PyPI al entorno propio `.venv_r20`.

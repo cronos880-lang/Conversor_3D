@@ -276,3 +276,23 @@ Preparación local R20: 43 pruebas del desarrollo y 427 históricas aprobadas,
 15 omisiones históricas; los 357 archivos congelados mantienen sus hashes.
 El ZIP preliminar se ha extraído y ha arrancado/convertido por HTTP en Linux,
 releyendo un sólido válido de 120 mm³ y descargando su certificado completo.
+
+## Corrección del instalador R20
+
+El usuario informa de espera sin mensajes en `Installing collected packages`.
+La revisión 2 cambia la instalación masiva silenciosa por pins individuales con
+todos sus hashes, progreso por paquete, actividad durante silencios y plazos
+acotados. Se desactiva compilación de bytecode de pip y se vacía el registro en
+cada línea. Se verifican los archivos usando el RECORD original: la API files
+puede filtrar los ausentes y no sirve para diagnosticar una extracción parcial.
+
+El reparador conserva entorno y datos, bloquea ejecuciones simultáneas y repara
+paquetes incompletos. Se prueba explícitamente una interrupción simulada antes
+del arranque/conversión Windows. No cambia ningún archivo de visor/src/conversor3d
+ni del núcleo R19. La reparación se entrega como superposición sobre R20 y como
+ZIP completo corregido; los archivos originales publicados se conservan.
+
+Verificación local de la corrección: ocho pruebas de instalador/paquete
+aprobadas. La prueba real retiró un archivo de un paquete de un entorno
+controlado, lo recuperó desde su wheel con hashes y conservó los paquetes
+correctos; después pasaron los imports de la aplicación y pip check.

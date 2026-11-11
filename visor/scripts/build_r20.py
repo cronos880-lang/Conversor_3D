@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import re
 import subprocess
 import zipfile
 
@@ -18,7 +19,9 @@ def release_identity():
     spec.loader.exec_module(module)
     return {'release': module.RELEASE_NAME, 'version': module.__version__,
             'label': module.APPLICATION_LABEL, 'port': module.DEFAULT_PORT,
-            'base_engine': module.BASE_ENGINE}
+            'base_engine': module.BASE_ENGINE,
+            'installer_revision': int(re.search(r'^INSTALLER_REVISION = (\d+)',
+                (REPO / 'visor/scripts/manage_environment.py').read_text(encoding='utf-8'), re.MULTILINE)[1])}
 
 
 def launcher(action):
@@ -81,7 +84,7 @@ def payload():
             raise ValueError('La fuente congelada cambió: ' + relative)
         files[(frozen / relative).as_posix()] = data
     for name, action in [('Iniciar_R20.bat', 'start'), ('Instalar_Entorno_R20.bat', 'install'),
-                         ('Diagnostico_R20.bat', 'diagnose')]:
+                         ('Diagnostico_R20.bat', 'diagnose'), ('Reparar_Entorno_R20.bat', 'install')]:
         files[name] = launcher(action)
     for source, target in [('R20_USUARIO.md', 'LEEME_PRIMERO.md'),
                            ('R20_INFORME.md', 'INFORME_R20.md'),
@@ -117,6 +120,7 @@ def build(output: Path):
     with zipfile.ZipFile(output, 'x', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for name, data in sorted(files.items()):
             info = zipfile.ZipInfo(PREFIX + '/' + name, date_time=(1980, 1, 1, 0, 0, 0))
+            info.create_system = 0  # Misma cabecera Windows en ambos sistemas de construcción.
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             archive.writestr(info, data, compresslevel=9)
