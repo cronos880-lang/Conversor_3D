@@ -80,3 +80,15 @@ Límite observado del catálogo: el STL de redondeos teselado automáticamente
 convierte, pero conserva 19.891 caras y tarda unos 259 s. No se presenta como
 reconstrucción analítica de 5 caras. El loft libre agotó el límite de sondeo
 300 s sin resultado completo. Se conservan esas limitaciones para el perfilado.
+
+## 5. Inventario y protección de copias
+
+Auditoría completa: 357 archivos congelados intactos; 32 nombres con variantes
+divergentes y 84 grupos de contenidos idénticos. Se documenta el papel de cada
+núcleo; no se fusionan implementaciones distintas ni se eliminan las copias
+independientes de calidad. El desarrollo nuevo y la factoría de pruebas tienen
+una sola implementación. El manifiesto se comprueba también en CI.
+
+Dos pruebas nuevas aprobadas: integridad de los 357 archivos y detección de
+modificación sin importar el código auditado. No hay cambios de lógica en esta
+fase; siguen vigentes las 17 pruebas del flujo y la batería histórica anterior.
