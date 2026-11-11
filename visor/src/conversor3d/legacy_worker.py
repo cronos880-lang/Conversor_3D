@@ -13,7 +13,8 @@ def execute(job):
     from contratos_r19 import ROOT
     from certificado_calidad_r15 import firma_motor, verificar
     if ROOT.resolve() != FROZEN.resolve() or firma_motor(ROOT) != FINGERPRINT:
-        raise ValueError('La dependencia R19 no coincide con su firma congelada')
+        raise ValueError('La dependencia R19 no coincide con su firma congelada: '
+                         + firma_motor(ROOT) + '; esperada ' + FINGERPRINT)
     job = {key: Path(value) if key in {'source', 'baseline', 'candidate', 'baseline_run', 'evidence'} else value
            for key, value in job.items()}
     action = job['action']
