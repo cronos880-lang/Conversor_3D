@@ -61,6 +61,8 @@ def serve(port=None, open_browser=True):
 
 def serve_in_legacy(port, open_browser):
     """Se llama únicamente dentro del trabajador con R19 importado explícitamente."""
+    from .dependencies import runtime_identity
+    runtime_identity()
     import servidor
     import uvicorn
     configuration = Settings.read()
@@ -77,11 +79,46 @@ def serve_in_legacy(port, open_browser):
     servidor.app.router.routes[:] = [r for r in servidor.app.router.routes if getattr(r, 'path', None) != '/']
     servidor.app.add_api_route('/', development_index, methods=['GET'])
     servidor.app.title, servidor.app.version = APPLICATION_LABEL, __version__
+    from starlette.middleware.cors import CORSMiddleware
+    from .security import LocalAccessMiddleware
+    allowed_origins = [f'http://127.0.0.1:{port}', f'http://localhost:{port}']
+    servidor.app.add_middleware(CORSMiddleware, allow_origins=allowed_origins,
+                                allow_methods=['GET', 'POST'], allow_headers=['Content-Type'])
+    servidor.app.add_middleware(LocalAccessMiddleware, port=port)
+
     # El respaldo histórico no sustituye el certificado final del pipeline nuevo.
     servidor._recuperar_salida = lambda *args, **kwargs: None
     data = configuration.data_dir
     data.mkdir(parents=True, exist_ok=True)
     servidor.LOG_DIR = data
+    original_diagnostic = servidor._diagnostico
+    def owned_diagnostic(job_id, metadata, *args):
+        metadata['conversor3d_owned'] = True
+        metadata['conversor3d_completed_at'] = time.time()
+        return original_diagnostic(job_id, metadata, *args)
+    servidor._diagnostico = owned_diagnostic
+    if configuration.retention_days:
+        import logging
+        from .retention import cleanup_records
+        stopped = threading.Event()
+        servidor.app.add_event_handler('shutdown', stopped.set)
+        def clean_finished():
+            while not stopped.is_set():
+                with servidor.JOBS_LOCK:
+                    active = [key for key, job in servidor.JOBS.items()
+                              if job['status'] in ('ejecutando', 'cancelando')]
+                try:
+                    cleaned = cleanup_records(data, configuration.retention_days, active)
+                    with servidor.JOBS_LOCK:
+                        for job_id in cleaned['removed_jobs']:
+                            servidor.JOBS.pop(job_id, None)
+                    for skipped in cleaned['skipped']:
+                        logging.getLogger(__name__).warning('Registro conservado: %s', skipped)
+                except OSError as error:
+                    logging.getLogger(__name__).warning('No se pudo limpiar registros: %s', error)
+                stopped.wait(60)
+        threading.Thread(target=clean_finished, daemon=True).start()
+
     if open_browser:
         def open_when_ready():
             opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))

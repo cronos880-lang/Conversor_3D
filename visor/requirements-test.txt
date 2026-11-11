@@ -1,2 +1,4 @@
--r ../entregas/perfeccion_Visualizador_R19/Visor_experimental_fuentes/requirements_pruebas.txt
+-r requirements-runtime.txt
+pytest==9.0.2
+httpx==0.28.1
 setuptools==80.9.0

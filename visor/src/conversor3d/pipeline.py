@@ -15,7 +15,7 @@ from .validation import evaluate
 def code_fingerprint():
     root = Path(__file__).parent
     digest = hashlib.sha256()
-    files = [path for path in root.rglob('*') if path.is_file() and path.suffix in {'.py', '.json'}]
+    files = [path for path in root.rglob('*') if path.is_file() and path.suffix in {'.py', '.json', '.txt'}]
     for path in sorted(files, key=lambda p: p.relative_to(root).as_posix()):
         digest.update(path.relative_to(root).as_posix().encode())
         digest.update(bytes.fromhex(sha(path)))
@@ -79,6 +79,8 @@ def convert(source: Path, destination: Path):
         raise ValueError('Entrada existente y salida nueva e independiente obligatorias')
     if not destination.parent.is_dir():
         raise ValueError('El directorio de salida debe existir')
+    from .dependencies import runtime_identity
+    runtime = runtime_identity()
     evidence.mkdir()
     started = time.monotonic()
     fingerprint, source_hash = code_fingerprint(), sha(source)
@@ -92,7 +94,7 @@ def convert(source: Path, destination: Path):
         summary = {'enabled': False, 'seconds': 0., 'authorizes_geometry': False}
     timings['input_analysis_seconds'] = summary['seconds']
     report = {'state': 'baseline', 'source_sha256': source_hash, 'development_sha256': fingerprint, 'input_analysis': summary, 'timings': timings,
-              'configuration': configuration.describe()}
+              'configuration': configuration.describe(), 'runtime': runtime}
     baseline = evidence / 'baseline.step'
     status = execute([sys.executable, str(FROZEN / 'motor_r19.py'), str(source), str(baseline)],
                      evidence, 'baseline', cwd=FROZEN, env=native_env(), timeout=3600)
@@ -130,7 +132,7 @@ def convert(source: Path, destination: Path):
         verified = run_worker({'action': 'verify_final', 'source': str(source),
                                'candidate': str(destination), 'certificate': str(certificate)}, evidence / 'verify')
         if (sha(destination) != selection['selected_sha256'] or sha(source) != source_hash
-                or code_fingerprint() != fingerprint):
+                or code_fingerprint() != fingerprint or runtime_identity() != runtime):
             raise ValueError('El archivo final no corresponde a la selección')
     except BaseException:
         destination.unlink(missing_ok=True)
@@ -152,7 +154,7 @@ def convert(source: Path, destination: Path):
     (evidence / 'pipeline.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     cold_record = copy.deepcopy(certificate_value['record'])
     cold_record.update(development_sha256=fingerprint, step_sha256=sha(destination),
-                       original_sha256=source_hash)
+                       original_sha256=source_hash, runtime=runtime)
     # Nombres compatibles con el servidor: conserva los certificados tras borrar temporales.
     for path, payload in [(cold_sidecar, cold_record), (pipeline_sidecar, report)]:
         with path.open('x', encoding='utf-8') as stream:

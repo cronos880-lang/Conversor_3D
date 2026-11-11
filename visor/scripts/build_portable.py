@@ -15,9 +15,26 @@ from packaging.utils import canonicalize_name
 REPO = Path(__file__).resolve().parents[2]
 
 
+def requirement_lines(path, seen=None):
+    seen = set() if seen is None else seen
+    path = Path(path).resolve()
+    if path in seen:
+        raise ValueError('Inclusión cíclica de requisitos')
+    seen.add(path)
+    lines = []
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        if line.startswith('-r '):
+            lines.extend(requirement_lines(path.parent / line[3:].strip(), seen))
+        else:
+            lines.append(line)
+    return lines
+
+
 def distributions(requirements: Path):
-    queue = [Requirement(line.strip()) for line in requirements.read_text().splitlines()
-             if line.strip() and not line.lstrip().startswith('#')]
+    queue = [Requirement(line) for line in requirement_lines(requirements)]
     queue.append(Requirement('setuptools==80.9.0'))
     visited, result = set(), {}
     while queue:

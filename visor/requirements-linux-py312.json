@@ -1,0 +1,626 @@
+[
+  {
+    "name": "aiohappyeyeballs",
+    "version": "2.7.1",
+    "pypi": "https://pypi.org/project/aiohappyeyeballs/2.7.1/",
+    "wheels": [
+      "aiohappyeyeballs-2.7.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "aiohttp",
+    "version": "3.14.5",
+    "pypi": "https://pypi.org/project/aiohttp/3.14.5/",
+    "wheels": [
+      "aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "aiohttp-3.14.5-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "aiosignal",
+    "version": "1.4.0",
+    "pypi": "https://pypi.org/project/aiosignal/1.4.0/",
+    "wheels": [
+      "aiosignal-1.4.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "annotated-doc",
+    "version": "0.0.6",
+    "pypi": "https://pypi.org/project/annotated-doc/0.0.6/",
+    "wheels": [
+      "annotated_doc-0.0.6-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "annotated-types",
+    "version": "0.8.0",
+    "pypi": "https://pypi.org/project/annotated-types/0.8.0/",
+    "wheels": [
+      "annotated_types-0.8.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "anyio",
+    "version": "4.16.0",
+    "pypi": "https://pypi.org/project/anyio/4.16.0/",
+    "wheels": [
+      "anyio-4.16.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "attrs",
+    "version": "26.1.0",
+    "pypi": "https://pypi.org/project/attrs/26.1.0/",
+    "wheels": [
+      "attrs-26.1.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "cadquery",
+    "version": "2.8.0",
+    "pypi": "https://pypi.org/project/cadquery/2.8.0/",
+    "wheels": [
+      "cadquery-2.8.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "cadquery-ocp",
+    "version": "7.9.3.1.1",
+    "pypi": "https://pypi.org/project/cadquery-ocp/7.9.3.1.1/",
+    "wheels": [
+      "cadquery_ocp-7.9.3.1.1-cp312-cp312-manylinux_2_31_x86_64.whl"
+    ]
+  },
+  {
+    "name": "cadquery-ocp-proxy",
+    "version": "7.9.3.1.1",
+    "pypi": "https://pypi.org/project/cadquery-ocp-proxy/7.9.3.1.1/",
+    "wheels": [
+      "cadquery_ocp_proxy-7.9.3.1.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "casadi",
+    "version": "3.8.2",
+    "pypi": "https://pypi.org/project/casadi/3.8.2/",
+    "wheels": [
+      "casadi-3.8.2-cp311-abi3-manylinux2014_x86_64.whl",
+      "casadi-3.8.2-cp311-abi3-manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "certifi",
+    "version": "2026.10.23",
+    "pypi": "https://pypi.org/project/certifi/2026.10.23/",
+    "wheels": [
+      "certifi-2026.10.23-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "cgal",
+    "version": "6.0.1.post202410241521",
+    "pypi": "https://pypi.org/project/cgal/6.0.1.post202410241521/",
+    "wheels": [
+      "cgal-6.0.1.post202410241521-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    ]
+  },
+  {
+    "name": "click",
+    "version": "8.5.1",
+    "pypi": "https://pypi.org/project/click/8.5.1/",
+    "wheels": [
+      "click-8.5.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "contourpy",
+    "version": "1.4.0",
+    "pypi": "https://pypi.org/project/contourpy/1.4.0/",
+    "wheels": [
+      "contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "cycler",
+    "version": "0.12.1",
+    "pypi": "https://pypi.org/project/cycler/0.12.1/",
+    "wheels": [
+      "cycler-0.12.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "ezdxf",
+    "version": "1.4.5",
+    "pypi": "https://pypi.org/project/ezdxf/1.4.5/",
+    "wheels": [
+      "ezdxf-1.4.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "ezdxf-1.4.5-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "fastapi",
+    "version": "0.128.2",
+    "pypi": "https://pypi.org/project/fastapi/0.128.2/",
+    "wheels": [
+      "fastapi-0.128.2-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "fonttools",
+    "version": "4.68.0",
+    "pypi": "https://pypi.org/project/fonttools/4.68.0/",
+    "wheels": [
+      "fonttools-4.68.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "fonttools-4.68.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "frozenlist",
+    "version": "1.8.0",
+    "pypi": "https://pypi.org/project/frozenlist/1.8.0/",
+    "wheels": [
+      "frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "frozenlist-1.8.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "gpytoolbox",
+    "version": "0.3.8",
+    "pypi": "https://pypi.org/project/gpytoolbox/0.3.8/",
+    "wheels": [
+      "gpytoolbox-0.3.8-cp312-cp312-manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "h11",
+    "version": "0.16.0",
+    "pypi": "https://pypi.org/project/h11/0.16.0/",
+    "wheels": [
+      "h11-0.16.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "httpcore",
+    "version": "1.0.9",
+    "pypi": "https://pypi.org/project/httpcore/1.0.9/",
+    "wheels": [
+      "httpcore-1.0.9-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "httpx",
+    "version": "0.28.1",
+    "pypi": "https://pypi.org/project/httpx/0.28.1/",
+    "wheels": [
+      "httpx-0.28.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "idna",
+    "version": "3.20",
+    "pypi": "https://pypi.org/project/idna/3.20/",
+    "wheels": [
+      "idna-3.20-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "imageio",
+    "version": "2.38.1",
+    "pypi": "https://pypi.org/project/imageio/2.38.1/",
+    "wheels": [
+      "imageio-2.38.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "iniconfig",
+    "version": "2.3.1",
+    "pypi": "https://pypi.org/project/iniconfig/2.3.1/",
+    "wheels": [
+      "iniconfig-2.3.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "kiwisolver",
+    "version": "1.5.1",
+    "pypi": "https://pypi.org/project/kiwisolver/1.5.1/",
+    "wheels": [
+      "kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    ]
+  },
+  {
+    "name": "lazy-loader",
+    "version": "0.6",
+    "pypi": "https://pypi.org/project/lazy-loader/0.6/",
+    "wheels": [
+      "lazy_loader-0.6-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "libigl",
+    "version": "2.6.3",
+    "pypi": "https://pypi.org/project/libigl/2.6.3/",
+    "wheels": [
+      "libigl-2.6.3-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "llvmlite",
+    "version": "0.50.0",
+    "pypi": "https://pypi.org/project/llvmlite/0.50.0/",
+    "wheels": [
+      "llvmlite-0.50.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "manifold3d",
+    "version": "3.4.0",
+    "pypi": "https://pypi.org/project/manifold3d/3.4.0/",
+    "wheels": [
+      "manifold3d-3.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "matplotlib",
+    "version": "3.11.2",
+    "pypi": "https://pypi.org/project/matplotlib/3.11.2/",
+    "wheels": [
+      "matplotlib-3.11.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    ]
+  },
+  {
+    "name": "more-itertools",
+    "version": "11.2.1",
+    "pypi": "https://pypi.org/project/more-itertools/11.2.1/",
+    "wheels": [
+      "more_itertools-11.2.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "msgpack",
+    "version": "1.2.4",
+    "pypi": "https://pypi.org/project/msgpack/1.2.4/",
+    "wheels": [
+      "msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "multidict",
+    "version": "7.2.1",
+    "pypi": "https://pypi.org/project/multidict/7.2.1/",
+    "wheels": [
+      "multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "multidict-7.2.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "multimethod",
+    "version": "1.12",
+    "pypi": "https://pypi.org/project/multimethod/1.12/",
+    "wheels": [
+      "multimethod-1.12-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "networkx",
+    "version": "3.6.1",
+    "pypi": "https://pypi.org/project/networkx/3.6.1/",
+    "wheels": [
+      "networkx-3.6.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "nlopt",
+    "version": "2.11.0",
+    "pypi": "https://pypi.org/project/nlopt/2.11.0/",
+    "wheels": [
+      "nlopt-2.11.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "numba",
+    "version": "0.68.1",
+    "pypi": "https://pypi.org/project/numba/0.68.1/",
+    "wheels": [
+      "numba-0.68.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "numpy",
+    "version": "2.3.5",
+    "pypi": "https://pypi.org/project/numpy/2.3.5/",
+    "wheels": [
+      "numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "packaging",
+    "version": "26.3",
+    "pypi": "https://pypi.org/project/packaging/26.3/",
+    "wheels": [
+      "packaging-26.3-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "pillow",
+    "version": "13.0.0",
+    "pypi": "https://pypi.org/project/pillow/13.0.0/",
+    "wheels": [
+      "pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "pluggy",
+    "version": "1.7.0",
+    "pypi": "https://pypi.org/project/pluggy/1.7.0/",
+    "wheels": [
+      "pluggy-1.7.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "propcache",
+    "version": "0.5.4",
+    "pypi": "https://pypi.org/project/propcache/0.5.4/",
+    "wheels": [
+      "propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "propcache-0.5.4-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "psutil",
+    "version": "7.2.2",
+    "pypi": "https://pypi.org/project/psutil/7.2.2/",
+    "wheels": [
+      "psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "pydantic",
+    "version": "2.14.3",
+    "pypi": "https://pypi.org/project/pydantic/2.14.3/",
+    "wheels": [
+      "pydantic-2.14.3-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "pydantic-core",
+    "version": "2.50.4",
+    "pypi": "https://pypi.org/project/pydantic-core/2.50.4/",
+    "wheels": [
+      "pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    ]
+  },
+  {
+    "name": "pygments",
+    "version": "2.21.0",
+    "pypi": "https://pypi.org/project/pygments/2.21.0/",
+    "wheels": [
+      "pygments-2.21.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "pyparsing",
+    "version": "3.3.3",
+    "pypi": "https://pypi.org/project/pyparsing/3.3.3/",
+    "wheels": [
+      "pyparsing-3.3.3-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "pytest",
+    "version": "9.0.2",
+    "pypi": "https://pypi.org/project/pytest/9.0.2/",
+    "wheels": [
+      "pytest-9.0.2-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "python-dateutil",
+    "version": "4.0.0",
+    "pypi": "https://pypi.org/project/python-dateutil/4.0.0/",
+    "wheels": [
+      "python_dateutil-4.0.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "python-multipart",
+    "version": "0.0.31",
+    "pypi": "https://pypi.org/project/python-multipart/0.0.31/",
+    "wheels": [
+      "python_multipart-0.0.31-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "pyyaml",
+    "version": "6.0.3",
+    "pypi": "https://pypi.org/project/pyyaml/6.0.3/",
+    "wheels": [
+      "pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "runtype",
+    "version": "0.5.3",
+    "pypi": "https://pypi.org/project/runtype/0.5.3/",
+    "wheels": [
+      "runtype-0.5.3-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "scikit-image",
+    "version": "0.26.0",
+    "pypi": "https://pypi.org/project/scikit-image/0.26.0/",
+    "wheels": [
+      "scikit_image-0.26.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "scipy",
+    "version": "1.17.0",
+    "pypi": "https://pypi.org/project/scipy/1.17.0/",
+    "wheels": [
+      "scipy-1.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "scs",
+    "version": "3.3.1",
+    "pypi": "https://pypi.org/project/scs/3.3.1/",
+    "wheels": [
+      "scs-3.3.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+    ]
+  },
+  {
+    "name": "setuptools",
+    "version": "80.9.0",
+    "pypi": "https://pypi.org/project/setuptools/80.9.0/",
+    "wheels": [
+      "setuptools-80.9.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "shapely",
+    "version": "2.1.2",
+    "pypi": "https://pypi.org/project/shapely/2.1.2/",
+    "wheels": [
+      "shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    ]
+  },
+  {
+    "name": "starlette",
+    "version": "0.50.0",
+    "pypi": "https://pypi.org/project/starlette/0.50.0/",
+    "wheels": [
+      "starlette-0.50.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "tifffile",
+    "version": "2026.11.8",
+    "pypi": "https://pypi.org/project/tifffile/2026.11.8/",
+    "wheels": [
+      "tifffile-2026.11.8-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trame",
+    "version": "4.0.0",
+    "pypi": "https://pypi.org/project/trame/4.0.0/",
+    "wheels": [
+      "trame-4.0.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trame-client",
+    "version": "4.1.4",
+    "pypi": "https://pypi.org/project/trame-client/4.1.4/",
+    "wheels": [
+      "trame_client-4.1.4-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trame-common",
+    "version": "1.2.9",
+    "pypi": "https://pypi.org/project/trame-common/1.2.9/",
+    "wheels": [
+      "trame_common-1.2.9-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trame-components",
+    "version": "2.5.0",
+    "pypi": "https://pypi.org/project/trame-components/2.5.0/",
+    "wheels": [
+      "trame_components-2.5.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trame-server",
+    "version": "4.1.0",
+    "pypi": "https://pypi.org/project/trame-server/4.1.0/",
+    "wheels": [
+      "trame_server-4.1.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trame-vtk",
+    "version": "2.11.17",
+    "pypi": "https://pypi.org/project/trame-vtk/2.11.17/",
+    "wheels": [
+      "trame_vtk-2.11.17-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trame-vuetify",
+    "version": "3.3.0",
+    "pypi": "https://pypi.org/project/trame-vuetify/3.3.0/",
+    "wheels": [
+      "trame_vuetify-3.3.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "trimesh",
+    "version": "4.11.1",
+    "pypi": "https://pypi.org/project/trimesh/4.11.1/",
+    "wheels": [
+      "trimesh-4.11.1-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "typing-extensions",
+    "version": "4.16.0",
+    "pypi": "https://pypi.org/project/typing-extensions/4.16.0/",
+    "wheels": [
+      "typing_extensions-4.16.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "typing-inspection",
+    "version": "0.4.5",
+    "pypi": "https://pypi.org/project/typing-inspection/0.4.5/",
+    "wheels": [
+      "typing_inspection-0.4.5-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "tzdata",
+    "version": "2026.6",
+    "pypi": "https://pypi.org/project/tzdata/2026.6/",
+    "wheels": [
+      "tzdata-2026.6-py2.py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "uvicorn",
+    "version": "0.48.0",
+    "pypi": "https://pypi.org/project/uvicorn/0.48.0/",
+    "wheels": [
+      "uvicorn-0.48.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "vtk",
+    "version": "9.6.2",
+    "pypi": "https://pypi.org/project/vtk/9.6.2/",
+    "wheels": [
+      "vtk-9.6.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    ]
+  },
+  {
+    "name": "wslink",
+    "version": "2.6.0",
+    "pypi": "https://pypi.org/project/wslink/2.6.0/",
+    "wheels": [
+      "wslink-2.6.0-py3-none-any.whl"
+    ]
+  },
+  {
+    "name": "yarl",
+    "version": "1.25.1",
+    "pypi": "https://pypi.org/project/yarl/1.25.1/",
+    "wheels": [
+      "yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "yarl-1.25.1-py3-none-any.whl"
+    ]
+  }
+]

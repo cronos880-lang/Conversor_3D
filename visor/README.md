@@ -9,10 +9,10 @@ usa R19 congelada en un proceso independiente. No se aumentan tolerancias y un
 fallo conserva la referencia validada. No se promete recuperar un historial CAD
 paramétrico a partir del STL.
 
-Desarrollo con Python 3.12 de 64 bits y las dependencias de R19:
+Desarrollo con Python 3.12 de 64 bits en un entorno propio:
 
 ```
-python -m pip install -e ./visor --no-deps
+python visor/scripts/install_dependencies.py
 python -m pytest visor/tests
 python visor/scripts/run_legacy_tests.py --xml resultado_legacy.xml
 ```
@@ -24,3 +24,7 @@ copias congeladas ni ejecutar pytest sobre todas las entregas a la vez.
 `python -m conversor3d propose referencia.step candidato_nuevo.step` sólo
 construye un candidato pendiente de validación. No sustituye el STEP final.
 La hoja de ruta y sus comprobaciones están en `ROADMAP.md`.
+
+Para el usuario Windows, el constructor del punto 7 prepara una carpeta con
+Python y sus dependencias, sin configuración manual al abrirla. Véase
+`docs/PORTABLE_WINDOWS.md`. No se ha publicado una nueva versión.

@@ -59,6 +59,9 @@ def smoke(output: Path, development=False):
                     if development:
                         assert 'Desarrollo sobre R19' in page.text
                         assert 'Desarrollo sobre R19' in version.json()['version']
+                        assert client.get('/version', headers={'Host': 'foreign.invalid'}).status_code == 400
+                        assert client.post('/iniciar-conversion', headers={'Origin': 'https://foreign.invalid'},
+                                           content=b'unparsed body').status_code == 403
                     source = trimesh.creation.box(extents=[4, 5, 6]).export(file_type='stl')
                     response = client.post('/iniciar-conversion',
                                            files={'archivo': ('caja con espacios.stl', source, 'application/octet-stream')},

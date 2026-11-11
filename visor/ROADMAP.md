@@ -147,3 +147,21 @@ abre el navegador sobre otra instancia que ocupe el puerto.
 (incluyen rechazo de rutas vacías). Smoke HTTP con identidad de desarrollo,
 conversión y certificado descargable aprobado en Linux. Los errores finales
 incluyen código de etapa y causa del control frío cuando está disponible.
+
+## 9. Dependencias, acceso local y conservación
+
+Locks completos con hashes de wheels para CPython3.12 x64:77paquetesLinux,
+78Windows. Instalación limpia independiente aprobada con --require-hashes,
+--only-binary y pipcheck. Actualizado multipart0.0.31; probado el parser real
+urlencoded y registrado el motivo de la actualización. Las versiones directas
+y su especificación forman parte de la identidad del entregable.
+
+El middleware verificaHost/Origin antes de leer cuerpos; CORS sólo permite
+orígenes locales de esta instancia. La conservación predeterminada no borra.
+Con plazo explícito sólo limpia registros propios terminales, nuncaactivos,
+ajenos, enlaces o diagnósticos incompletos. No se recorren originales externos.
+
+Validación con el entorno nuevo:38pruebas del desarrollo aprobadas y427pruebas
+históricas aprobadas,15omitidas. SmokeHTTP real con Origin/Host, conversión y
+certificado descargable aprobado enLinux. Los357archivos congelados permanecen
+intactos. La matrizCI vuelve a ejecutar los mismos controles y el portable.
