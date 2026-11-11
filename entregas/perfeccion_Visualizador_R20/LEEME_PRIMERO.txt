@@ -1,0 +1,12 @@
+VISOR STL A STEP - R20 EXPERIMENTAL
+
+Extrae TODO el ZIP en una carpeta nueva. Dentro de Conversor_3D_R20_experimental abre Iniciar_R20.bat.
+La primera vez prepara su propio entorno .venv_r20; necesita Python 3.12 x64 e Internet.
+Veras cuatro etapas de instalacion; al terminar abre el Visor R20 en http://127.0.0.1:8784.
+No modifica R19 ni tu instalacion anterior.
+
+Instalar_Entorno_R20.bat permite prepararlo antes. Diagnostico_R20.bat guarda las versiones del entorno.
+Dentro estan LEEME_PRIMERO.md, INFORME_R20.md y GUIA_REVISION_EXTERNA.md para contrastar avances.
+El paquete incluye fuentes y fixtures historicos R19; no incluye runtime Python ni DLLs de terceros.
+
+La Bancada conserva 101 caras; no se anuncia una reduccion adicional no aceptada.

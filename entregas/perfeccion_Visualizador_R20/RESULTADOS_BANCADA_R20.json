@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "release": "R20",
+  "source_sha256": "1b0dac5808f07b68a1ec91b8baa83d11a56c20dd0d83611c02e0a0bc12b2a0c1",
+  "step_sha256": "0ed0c5736b7e0cd6f472ea5bb8d34d0da9ff6b2e17bccfa4f2312bcfab7b8da4",
+  "development_sha256": "7dbe27fc765962b76c1a5dee6de4761640a8d003c6514962e791a7a8d9bfe015",
+  "archive_code_matches_certificate": true,
+  "faces": 101,
+  "surface_types": {
+    "GeomAbs_Plane": 53,
+    "GeomAbs_Cylinder": 18,
+    "GeomAbs_BSplineSurface": 18,
+    "GeomAbs_SurfaceOfExtrusion": 12
+  },
+  "solids": 1,
+  "exact_brep": true,
+  "max_brep_mm": 1e-07,
+  "material_points": 2998,
+  "material_discrepancies": 0,
+  "mesh_closed": [
+    true,
+    true,
+    true
+  ],
+  "mesh_oriented": [
+    true,
+    true,
+    true
+  ],
+  "mesh_intersections_cgal": [
+    0,
+    0,
+    0
+  ],
+  "selected_additional_candidate": false,
+  "reason": "No reduce las caras seg\u00fan el contrato R19",
+  "timings": {
+    "traceability_start_seconds": 0.003414188999158796,
+    "input_analysis_seconds": 2.030015837000974,
+    "baseline_total_seconds": 758.9045089229985,
+    "proposal_and_gate_seconds": 8.92271827100194,
+    "final_certificate_seconds": 63.10683216100006,
+    "copy_and_verify_seconds": 0.13073970299592474,
+    "total_seconds": 833.2168505119989
+  }
+}

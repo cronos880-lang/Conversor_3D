@@ -1,0 +1,36 @@
+{
+  "archive_sha256": "6f6435c745fc6ea81c76da691b6ecbcf5575748c5897a05d63c093d33e086f7d",
+  "bytes": 2700092,
+  "files": 437,
+  "source_commit": "de7afbaecaed34b8cb72aeb0a3a9bab3e4fbbdc5",
+  "source_tree_clean": true,
+  "exact_match_with_tested_windows_zip": true,
+  "windows_test_ci_run": 43089880586,
+  "normalization": "Solo campo HostOS de cabecera central ZIP: Windows=0. Contenidos y manifiesto sin cambios.",
+  "ci_result": "success",
+  "ci_url": "https://github.com/cronos880-lang/Conversor_3D/actions/runs/43089880586",
+  "linux_tests": {
+    "development": 43,
+    "legacy": 427,
+    "skipped": 15
+  },
+  "windows_tests": {
+    "development": 43,
+    "legacy": 426,
+    "skipped": 16
+  },
+  "windows_zip_checks": [
+    "instalacion_venv_nuevo",
+    "rutas_con_espacios",
+    "bat_instalar",
+    "bat_diagnostico",
+    "bat_iniciar",
+    "conversion_HTTP",
+    "STEP_reimportado_python_propio",
+    "certificado_completo"
+  ],
+  "frozen_r19_files": 357,
+  "bancada_code_matches_archive": true,
+  "third_party_binaries_in_zip": false,
+  "new_private_models_in_zip": false
+}

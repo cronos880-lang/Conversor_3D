@@ -11,12 +11,15 @@ del Visor. Sus motores y sus comprobaciones no son intercambiables.
 
 ## Probar R20 experimental
 
-R20 se prepara en la rama `perfeccion_Visualizador_R20`, conservando las ramas
+R20 está disponible en la rama `perfeccion_Visualizador_R20`, conservando las ramas
 anteriores. El paquete completo en fuentes incluye lanzadores y un instalador
 para su propio entorno Python 3.12 x64. No incorpora runtimes de terceros.
 Consulta [la guía de uso](visor/docs/R20_USUARIO.md),
 [el informe de avances](visor/docs/R20_INFORME.md) y
 [la guía para revisión externa](visor/docs/R20_REVISION_EXTERNA.md).
+
+[Descargar R20 completa en fuentes con instalador](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R20/entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA.zip?raw=true)
+· [Resultados de la entrega](entregas/perfeccion_Visualizador_R20/INFORME_RESULTADOS.md)
 
 ## Visor R19 ya publicado
 
