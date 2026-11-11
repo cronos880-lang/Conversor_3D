@@ -10,6 +10,8 @@ import time
 import urllib.request
 import webbrowser
 from .legacy import FROZEN, REPO, native_env
+from .settings import Settings
+from ._version import APPLICATION_LABEL, __version__
 
 
 class PipelineCommands:
@@ -35,16 +37,19 @@ class PipelineCommands:
         return getattr(subprocess, name)
 
 
-def serve(port=8783, open_browser=True):
+def serve(port=None, open_browser=True):
     """Inicia el adaptador de imports en un proceso propio, sin mezclar núcleos."""
+    configuration = Settings.read()
+    port = configuration.port if port is None else port
     if not 1024 <= port <= 65535:
         raise ValueError('El puerto debe estar entre 1024 y 65535')
     with tempfile.TemporaryDirectory(prefix='visor server ') as folder:
         path = Path(folder) / 'server.json'
         path.write_text(json.dumps({'action': 'serve', 'port': port, 'open_browser': open_browser}), encoding='utf-8')
         from .processes import stop_tree
+        environment = {**native_env(), 'CONVERSOR3D_PORT': str(port)}
         process = subprocess.Popen([sys.executable, '-m', 'conversor3d.legacy_worker', str(path)],
-                                   cwd=REPO, env=native_env(), start_new_session=True)
+                                   cwd=REPO, env=environment, start_new_session=True)
         try:
             code = process.wait()
         except BaseException:
@@ -58,10 +63,23 @@ def serve_in_legacy(port, open_browser):
     """Se llama únicamente dentro del trabajador con R19 importado explícitamente."""
     import servidor
     import uvicorn
+    configuration = Settings.read()
+    identity = configuration.identity(port)
     servidor.subprocess = PipelineCommands()
+    servidor.identidad = lambda root: identity.copy()
+    servidor.VERSION, servidor.COMPILACION = APPLICATION_LABEL, __version__
+    from fastapi.responses import HTMLResponse
+    async def development_index():
+        html = (FROZEN / 'Visor_STL_STEP.html').read_text(encoding='utf-8')
+        html = html.replace('R19 experimental · 10/11/2026', APPLICATION_LABEL)
+        html = html.replace('R19 experimental', APPLICATION_LABEL)
+        return HTMLResponse(html, headers={'Cache-Control': 'no-store'})
+    servidor.app.router.routes[:] = [r for r in servidor.app.router.routes if getattr(r, 'path', None) != '/']
+    servidor.app.add_api_route('/', development_index, methods=['GET'])
+    servidor.app.title, servidor.app.version = APPLICATION_LABEL, __version__
     # El respaldo histórico no sustituye el certificado final del pipeline nuevo.
     servidor._recuperar_salida = lambda *args, **kwargs: None
-    data = Path(os.environ.get('CONVERSOR3D_DATA_DIR', str(REPO / 'visor/data')))
+    data = configuration.data_dir
     data.mkdir(parents=True, exist_ok=True)
     servidor.LOG_DIR = data
     if open_browser:
@@ -70,7 +88,7 @@ def serve_in_legacy(port, open_browser):
             for _ in range(300):
                 try:
                     with opener.open(f'http://127.0.0.1:{port}/version', timeout=.5) as response:
-                        if response.status == 200:
+                        if response.status == 200 and json.load(response) == identity:
                             webbrowser.open(f'http://127.0.0.1:{port}')
                             return
                 except OSError:

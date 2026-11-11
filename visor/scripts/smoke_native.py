@@ -54,7 +54,11 @@ def smoke(output: Path, development=False):
                             if time.monotonic() > deadline or process.poll() is not None:
                                 raise RuntimeError('El servidor nativo no arrancó')
                             time.sleep(.2)
-                    assert client.get('/').status_code == 200
+                    page = client.get('/')
+                    assert page.status_code == 200
+                    if development:
+                        assert 'Desarrollo sobre R19' in page.text
+                        assert 'Desarrollo sobre R19' in version.json()['version']
                     source = trimesh.creation.box(extents=[4, 5, 6]).export(file_type='stl')
                     response = client.post('/iniciar-conversion',
                                            files={'archivo': ('caja con espacios.stl', source, 'application/octet-stream')},

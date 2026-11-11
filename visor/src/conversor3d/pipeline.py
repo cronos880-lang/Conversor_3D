@@ -84,10 +84,15 @@ def convert(source: Path, destination: Path):
     fingerprint, source_hash = code_fingerprint(), sha(source)
     timings = {'traceability_start_seconds': time.monotonic() - started}
     from .cache import input_summary
-    cache_root = Path(os.environ.get('CONVERSOR3D_CACHE_DIR', str(REPO / 'visor/data/cache')))
-    summary = input_summary(source, cache_root, os.environ.get('VISOR_PERFIL', 'precision'))
+    from .settings import Settings
+    configuration = Settings.read()
+    if configuration.cache_enabled:
+        summary = input_summary(source, configuration.cache_dir, configuration.profile)
+    else:
+        summary = {'enabled': False, 'seconds': 0., 'authorizes_geometry': False}
     timings['input_analysis_seconds'] = summary['seconds']
-    report = {'state': 'baseline', 'source_sha256': source_hash, 'development_sha256': fingerprint, 'input_analysis': summary, 'timings': timings}
+    report = {'state': 'baseline', 'source_sha256': source_hash, 'development_sha256': fingerprint, 'input_analysis': summary, 'timings': timings,
+              'configuration': configuration.describe()}
     baseline = evidence / 'baseline.step'
     status = execute([sys.executable, str(FROZEN / 'motor_r19.py'), str(source), str(baseline)],
                      evidence, 'baseline', cwd=FROZEN, env=native_env(), timeout=3600)

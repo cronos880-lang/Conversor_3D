@@ -2,10 +2,12 @@
 import argparse
 import json
 from pathlib import Path
+from ._version import APPLICATION_LABEL, __version__
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--version', action='version', version=APPLICATION_LABEL + ' ' + __version__)
     subcommands = parser.add_subparsers(dest='command', required=True)
     proposal = subcommands.add_parser('propose', help='Crear candidato pendiente de validación')
     proposal.add_argument('baseline', type=Path)
@@ -14,7 +16,8 @@ def main():
     conversion.add_argument('source', type=Path)
     conversion.add_argument('destination', type=Path)
     server = subcommands.add_parser('serve', help='Abrir el Visor de desarrollo')
-    server.add_argument('--port', type=int, default=8783)
+    server.add_argument('--port', type=int)
+    subcommands.add_parser('config', help='Mostrar ajustes y unidades')
     server.add_argument('--no-browser', action='store_true')
     args = parser.parse_args()
     if args.command == 'propose':
@@ -27,9 +30,13 @@ def main():
         except Exception as error:
             import traceback
             traceback.print_exc()
-            print(json.dumps({'ok': False, 'error': str(error)}, ensure_ascii=True))
+            print(json.dumps({'ok': False, 'error': str(error),
+                              'tipo_error': getattr(error, 'code', type(error).__name__)}, ensure_ascii=True))
             return 2
         print(json.dumps(value, ensure_ascii=True))
+    elif args.command == 'config':
+        from .settings import Settings
+        print(json.dumps(Settings.read().describe(), ensure_ascii=False, indent=2))
     elif args.command == 'serve':
         from .server import serve
         serve(args.port, not args.no_browser)

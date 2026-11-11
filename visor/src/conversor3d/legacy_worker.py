@@ -48,7 +48,9 @@ def execute(job):
             str(job['candidate']), str(job['baseline_run']), nonce, str(report),
         ], cwd=FROZEN, env=native_env(), timeout=450).returncode
         if code or not report.is_file():
-            raise ValueError('El entregable no supera el control frío completo')
+            from .errors import FinalValidationError
+            detail = json.loads(report.read_text(encoding='utf-8')).get('error') if report.is_file() else None
+            raise FinalValidationError('El entregable no supera el control frío completo: ' + str(detail or 'proceso interrumpido'))
         record = json.loads(report.read_text(encoding='utf-8'))
         quality = verificar(record, job['source'], job['candidate'], nonce, ROOT)
         value = {'record': record, 'quality': quality, 'nonce': nonce}
@@ -76,7 +78,8 @@ def main():
         result = execute(json.loads(path.read_text(encoding='utf-8')))
     except Exception as error:
         traceback.print_exc()
-        result = {'ok': False, 'error': str(error)}
+        result = {'ok': False, 'error': str(error),
+                  'tipo_error': getattr(error, 'code', type(error).__name__)}
     (path.parent / 'result.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
     return 0 if result['ok'] else 2
 

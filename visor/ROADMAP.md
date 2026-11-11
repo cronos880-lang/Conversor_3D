@@ -128,3 +128,22 @@ Verificación local Linux: 21 pruebas aprobadas tras añadir la resolución de
 rutas; construcción/ejecución portable requieren Windows y se verifican en CI.
 No se afirma que el paquete haya sido probado en el ordenador del usuario ni
 se autoriza redistribuir componentes sin el inventario legal posterior.
+
+Resultado Windows del hito 7: ejecución
+https://github.com/cronos880-lang/Conversor_3D/actions/runs/43036702478
+en verde en ambos sistemas. Se construyó una carpeta de prueba con 70
+distribuciones y 13.966 archivos, sin publicarla. El runtime aislado importó
+OCP/VTK/CGAL, convirtió y certificó una caja y releyó su STEP por sí mismo.
+
+## 8. Identidad, ajustes y causas
+
+Una fuente de versión para paquete, CLI y UI; pyproject la obtiene del módulo
+_version. Configuración validada con unidades, directorios explícitos, puerto,
+perfil, caché y conservación. Las tolerancias no son parámetros editables.
+El desarrollo se identifica como tal, mantiene la interfaz y los perfiles, y no
+abre el navegador sobre otra instancia que ocupe el puerto.
+
+27 pruebas generales aprobadas y siete comprobaciones de configuración
+(incluyen rechazo de rutas vacías). Smoke HTTP con identidad de desarrollo,
+conversión y certificado descargable aprobado en Linux. Los errores finales
+incluyen código de etapa y causa del control frío cuando está disponible.

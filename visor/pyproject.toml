@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "conversor3d-visor"
-version = "0.0.0.dev0"
+dynamic = ["version"]
 description = "Desarrollo del Visor STL a STEP, con núcleo R19 congelado"
 requires-python = ">=3.12,<3.13"
 
@@ -20,3 +20,6 @@ addopts = "--import-mode=importlib"
 
 [tool.setuptools.package-data]
 conversor3d = ["resources/evaluator/*", "resources/profiling/*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "conversor3d._version.__version__"}
