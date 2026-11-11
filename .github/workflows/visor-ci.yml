@@ -1,8 +1,8 @@
 name: Visor - pruebas nativas
 on:
   push:
-    branches: ['desarrollo/hoja-ruta-visor']
-    paths: ['visor/**', '.github/workflows/visor-ci.yml']
+    branches: ['desarrollo/hoja-ruta-visor', 'perfeccion_Visualizador_R20']
+    paths: ['visor/**', 'entregas/perfeccion_Visualizador_R20/**', '.github/workflows/visor-ci.yml']
   pull_request:
     paths: ['visor/**', '.github/workflows/visor-ci.yml']
   workflow_dispatch:
@@ -53,3 +53,6 @@ jobs:
           python visor/scripts/smoke_portable.py portable-test
       - name: Arranque y conversión real en el sistema nativo
         run: python visor/scripts/smoke_native.py --output smoke-native
+      - name: Instalar y probar la entrega ZIP R20 con sus lanzadores Windows
+        if: runner.os == 'Windows'
+        run: python visor/scripts/smoke_r20_delivery.py --output smoke-r20-zip

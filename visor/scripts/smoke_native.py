@@ -57,8 +57,9 @@ def smoke(output: Path, development=False):
                     page = client.get('/')
                     assert page.status_code == 200
                     if development:
-                        assert 'Desarrollo sobre R19' in page.text
-                        assert 'Desarrollo sobre R19' in version.json()['version']
+                        from conversor3d._version import APPLICATION_LABEL
+                        assert APPLICATION_LABEL in page.text
+                        assert version.json()['version'] == APPLICATION_LABEL
                         assert client.get('/version', headers={'Host': 'foreign.invalid'}).status_code == 400
                         assert client.post('/iniciar-conversion', headers={'Origin': 'https://foreign.invalid'},
                                            content=b'unparsed body').status_code == 403

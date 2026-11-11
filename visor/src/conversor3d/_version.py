@@ -1,5 +1,6 @@
-"""Única fuente de identidad del desarrollo; no crea una entrega R20."""
-__version__ = '0.0.0.dev0'
+"""Identidad única de la entrega experimental autorizada R20."""
+__version__ = '20.0.0'
 BASE_ENGINE = 'R19'
-APPLICATION_LABEL = f'Visor STL a STEP · Desarrollo sobre {BASE_ENGINE}'
-DEFAULT_PORT = 8783
+RELEASE_NAME = 'R20'
+APPLICATION_LABEL = f'Visor STL a STEP · {RELEASE_NAME} experimental'
+DEFAULT_PORT = 8784

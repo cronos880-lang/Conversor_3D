@@ -7,7 +7,16 @@ del Visor. Sus motores y sus comprobaciones no son intercambiables.
 | --- | --- | --- |
 | Conversor web | [index.html](index.html), `static/` | HTML, JavaScript y WebAssembly. Trabaja en el navegador; las curvas conservan las facetas del STL. |
 | Visor completo R19 experimental | [Entrega histórica](entregas/perfeccion_Visualizador_R19/LEEME_PRIMERO.txt) | Aplicación con interfaz local y motor Python/OCP. Fuentes y validadores congelados. |
-| Desarrollo sobre R19 | [visor/](visor/README.md) | Reconstrucción opcional con contornos compartidos, evaluación independiente y certificado final completo. No es una nueva entrega publicada. |
+| Visor R20 experimental | [visor/](visor/README.md) | Reconstrucción opcional con contornos compartidos, evaluación independiente y certificado final completo. Entrega autorizada para pruebas. |
+
+## Probar R20 experimental
+
+R20 se prepara en la rama `perfeccion_Visualizador_R20`, conservando las ramas
+anteriores. El paquete completo en fuentes incluye lanzadores y un instalador
+para su propio entorno Python 3.12 x64. No incorpora runtimes de terceros.
+Consulta [la guía de uso](visor/docs/R20_USUARIO.md),
+[el informe de avances](visor/docs/R20_INFORME.md) y
+[la guía para revisión externa](visor/docs/R20_REVISION_EXTERNA.md).
 
 ## Visor R19 ya publicado
 
@@ -22,8 +31,9 @@ R18 y las demás entregas se mantienen en sus directorios y ramas.
 
 ## Desarrollo actual del Visor
 
-Rama `desarrollo/hoja-ruta-visor`, código en `visor/`. La identidad de desarrollo
-se define en un único módulo; no se anuncia otra versión R numerada.
+El desarrollo previo está en `desarrollo/hoja-ruta-visor`; su entrega autorizada
+R20 está en `perfeccion_Visualizador_R20`, con código en `visor/`. La identidad
+se define en un único módulo, conservando la dependencia R19 congelada.
 
 - [Instalación y comandos](visor/README.md).
 - [Hoja de ruta y resultados por fase](visor/ROADMAP.md).
@@ -50,6 +60,7 @@ prueba también una carpeta portable aislada. Esto no equivale a probar el PC
 del usuario ni a importar en SolidWorks, Inventor u Onshape. El conversor web
 tiene sus propias pruebas en `tests/`: las pruebas del Visor no lo validan.
 
-No se crean ZIPs, etiquetas, releases ni nuevas publicaciones de producto durante
-este desarrollo. El constructor sólo prepara una carpeta nueva de prueba; una
-entrega futura requiere acuerdo y cumplir las condiciones de sus componentes.
+El usuario ha autorizado R20 experimental en un ZIP de fuentes con instalador.
+La carpeta portable de prueba con todos los binarios incorporados es otra
+modalidad, sujeta a la auditoría de redistribución. Se mantiene el sistema actual
+de entregas en el repositorio, sin cambiar visibilidad ni reescribir historial.

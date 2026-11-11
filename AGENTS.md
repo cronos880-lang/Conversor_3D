@@ -8,6 +8,10 @@ en la rama `desarrollo/hoja-ruta-visor`; utiliza las fuentes R19 congeladas sin
 modificar sus validadores, tolerancias ni hashes. Las instrucciones estáticas
 del apartado siguiente corresponden al producto web.
 
+La entrega R20 está autorizada en la rama `perfeccion_Visualizador_R20`, con su
+ZIP completo en fuentes e instalador independiente. El constructor de entrega
+es `visor/scripts/build_r20.py`; no modifica las fuentes ni los ZIPs históricos.
+
 ## Conversor web y reglas de trabajo
 
 - La aplicación debe abrirse mediante un enlace web, sin instalar programas. Mantener el flujo completamente estático con HTML, JavaScript y WebAssembly.

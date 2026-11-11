@@ -3,7 +3,8 @@
 Trabajo autorizado el 11 de noviembre de 2026. Rama de desarrollo independiente
 sin reescribir historial, cambiar visibilidad, licencias ni sistema de ZIP.
 R19, R18 y sus validadores permanecen congelados. El desarrollo vive en `visor/`.
-No se anuncia una nueva versión ni se integra una propuesta sin aprobación fría.
+No se integra una propuesta sin aprobación fría. La solicitud posterior de
+entrega R20 y sus comprobaciones se documentan al final de esta hoja de ruta.
 
 ## 1. Superficies y contornos compartidos
 
@@ -255,3 +256,23 @@ en 2.998 puntos de material. Tres mallados cerrados/orientados con cero
 autointersecciones CGAL. La propuesta adicional no reduce conforme al contrato
 y se rechaza, conservando la referencia. No se atribuye una nueva reducción a
 Bancada. Sus archivos de prueba permanecen locales, fuera del repositorio.
+
+## Entrega R20 autorizada
+
+El usuario solicita crear R20 para probarla y contrastarla con otro informe.
+Se prepara en la rama independiente `perfeccion_Visualizador_R20`: identidad
+20.0.0, puerto propio, lanzadores, entorno `.venv_r20` y diagnóstico. El ZIP
+contiene las fuentes completas y los fixtures históricos inalterados de R19;
+no redistribuye runtimes ni modelos privados nuevos. Instala las dependencias
+fijadas con hashes en el equipo del usuario, sin modificar su R19.
+
+Se añaden pruebas de integridad del paquete y de rechazo de fuentes alteradas.
+La comprobación Windows extrae el ZIP en una ruta con espacios, ejecuta sus
+lanzadores de instalación/diagnóstico/arranque, convierte por HTTP y verifica
+el STEP y su certificado usando el Python del nuevo entorno. La publicación
+del ZIP se realiza después de esas comprobaciones.
+
+Preparación local R20: 43 pruebas del desarrollo y 427 históricas aprobadas,
+15 omisiones históricas; los 357 archivos congelados mantienen sus hashes.
+El ZIP preliminar se ha extraído y ha arrancado/convertido por HTTP en Linux,
+releyendo un sólido válido de 120 mm³ y descargando su certificado completo.

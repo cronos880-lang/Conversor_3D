@@ -1,6 +1,6 @@
-# Visor en desarrollo sobre R19
+# Visor R20 experimental
 
-Este directorio contiene el desarrollo incremental del Visor completo para
+Este directorio contiene R20, el desarrollo incremental del Visor completo para
 Windows. El conversor estático del navegador permanece en la raíz y es otro
 producto. Las entregas históricas de `entregas/` no se modifican.
 
@@ -41,9 +41,12 @@ Las fuentes históricas son una dependencia deliberada y firmada. Consulta
 [FROZEN_DEPENDENCY.md](docs/FROZEN_DEPENDENCY.md) antes de interpretar una copia
 como duplicado prescindible. El evaluador congelado no se refactoriza.
 
-Para el usuario Windows, el constructor del punto 7 prepara una carpeta con
-Python y sus dependencias, sin configuración manual al abrirla. Véase
-`docs/PORTABLE_WINDOWS.md`. No se ha publicado una nueva versión.
+La entrega R20 autorizada incluye los lanzadores y un instalador con hashes,
+que crea su entorno propio. Véase [la guía de uso](docs/R20_USUARIO.md),
+[el informe](docs/R20_INFORME.md) y [la guía de revisión externa](docs/R20_REVISION_EXTERNA.md).
+El constructor del punto 7 prepara además una carpeta de prueba con runtime
+incluido; sus condiciones son distintas de las del ZIP en fuentes. Véase
+`docs/PORTABLE_WINDOWS.md`.
 
 La procedencia de las dependencias y las condiciones pendientes para una
 redistribución están documentadas en [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).

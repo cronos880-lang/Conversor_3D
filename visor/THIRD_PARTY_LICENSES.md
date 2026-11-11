@@ -9,7 +9,9 @@ Visor Python/OCP; el conversor web de la raíz es otro producto.
 El constructor Windows conserva los archivos instalados de las dependencias,
 incluidos sus metadatos y avisos. Ahora incorpora este documento, los textos de
 OpenCascade y un inventario de los paquetes realmente incluidos, con hashes de
-sus archivos de licencia. No se han publicado binarios, ZIPs ni artefactos de CI.
+sus archivos de licencia. La fase de auditoría no publicó binarios ni artefactos
+de CI. La entrega R20 autorizada después consiste en un ZIP de fuentes y un
+instalador, sin redistribuir esos binarios de terceros.
 
 La selección actual del runtime contiene 70 distribuciones en Linux. El cierre
 exacto depende de la plataforma: Windows genera su propio inventario en CI y

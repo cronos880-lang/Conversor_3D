@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "conversor3d-visor"
 dynamic = ["version", "dependencies"]
-description = "Desarrollo del Visor STL a STEP, con núcleo R19 congelado"
+description = "Visor experimental STL a STEP, con núcleo R19 congelado"
 requires-python = ">=3.12,<3.13"
 
 [project.scripts]
