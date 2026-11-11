@@ -1,5 +1,15 @@
 # Instrucciones del proyecto
 
+## Ámbito de los productos
+
+El conversor web de `index.html` y `static/` es distinto del Visor completo
+Python/OCP para Windows. El desarrollo incremental del Visor vive en `visor/`,
+en la rama `desarrollo/hoja-ruta-visor`; utiliza las fuentes R19 congeladas sin
+modificar sus validadores, tolerancias ni hashes. Las instrucciones estáticas
+del apartado siguiente corresponden al producto web.
+
+## Conversor web y reglas de trabajo
+
 - La aplicación debe abrirse mediante un enlace web, sin instalar programas. Mantener el flujo completamente estático con HTML, JavaScript y WebAssembly.
 - El usuario autoriza guardar y publicar los cambios terminados y probados en GitHub sin confirmación adicional. No forzar pushes ni sobrescribir trabajo ajeno.
 - Probar el flujo real en navegador y la lectura de los STEP exportados. No describir pruebas del antiguo backend como validación de la conversión WebAssembly.

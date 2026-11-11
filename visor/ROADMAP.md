@@ -20,9 +20,9 @@ No atribuir esta reducción a Bancada. Las pruebas sintéticas se generan sin
 incorporar piezas privadas. La conexión al flujo de desarrollo se consolida
 con las interfaces del punto 4; la entrega R19 no cambia.
 
-Estado de las fases posteriores: 2–3 en preparación inmediata como soporte del
-punto 1; 4–12 pendientes. Los resultados exactos de pruebas se anotan al cerrar
-cada fase. Windows sólo se considera validado cuando termina su ejecución nativa.
+Estado al cerrar inicialmente el punto 1: 2–3 en preparación inmediata y 4–12
+pendientes. Los hitos posteriores se documentan a continuación. Windows sólo
+se considera validado cuando termina su ejecución nativa.
 
 Verificación del hito 1: 3 pruebas nuevas aprobadas; batería histórica 427
 aprobadas y 15 omitidas por fixtures opcionales. La ejecución inicial detectó
@@ -211,3 +211,34 @@ el rechazo temprano y la conservación exacta de los bytes.
 Validación del hito 11: compilan las fuentes del desarrollo, 41 pruebas nuevas
 aprobadas y batería histórica de 427 aprobadas/15 omitidas. No se modifican
 fuentes ni validadores congelados.
+
+## 12. Documentación, Git y entregas
+
+README principal distingue el conversor web, R19 histórica y el desarrollo del
+Visor. Se corrige el encabezado que sólo anunciaba R18 y se enlaza la R19 ya
+existente, sin reconstruir su ZIP. El enlace histórico responde HTTP 200 y su
+blob coincide con el árbol del commit publicado `e105759`.
+
+Se documentan comandos, certificados y condiciones del portable. Sus enlaces
+locales de créditos y requisitos se adaptan a la estructura real de la carpeta
+autocontenida. Las instrucciones del repositorio aclaran el ámbito de cada
+producto sin cambiar el procedimiento de entrega.
+
+No se han identificado archivos huérfanos que se puedan borrar con seguridad:
+las copias congeladas, los lanzadores antiguos y los ZIPs tienen una función
+histórica deliberada. Los resultados temporales propios quedan fuera del árbol
+versionado o en rutas ignoradas. No se reescribe historial ni se cambian ramas
+de entrega, visibilidad, etiquetas, releases o el sistema actual de ZIPs.
+
+Las 12 fases tienen implementación y evidencia registradas. La auditoría anota
+la autorización del colaborador; las obligaciones de terceros se conservan para
+cualquier entrega futura. La matriz nativa final se consulta en el workflow del
+Visor, sin equipararla a ensayos en el ordenador del usuario o CADs de destino.
+
+Verificación local de cierre: 41 pruebas del desarrollo y 427 históricas
+aprobadas, 15 omisiones históricas. Compilación correcta; 13 documentos y 22
+enlaces locales revisados sin ausencias. R19 conserva los 357 hashes; también
+se verificaron las dos copias R18 de 342 archivos, 22 entradas y 21 selecciones
+anteriores sin alteraciones. El checkout independiente del conversor web está
+limpio. CI comprueba además avisos de licencia, hashes y enlaces dentro del
+portable Windows real, además de su conversión certificada.

@@ -1,8 +1,10 @@
 """Verificar el runtime portable con PATH sin Python externo y STEP certificado."""
 from pathlib import Path
 import argparse
+import hashlib
 import json
 import os
+import re
 import subprocess
 import tempfile
 import trimesh
@@ -12,6 +14,19 @@ p.add_argument('folder', type=Path)
 args = p.parse_args(); folder = args.folder.resolve()
 if os.name != 'nt':
     raise SystemExit('Esta prueba requiere Windows nativo')
+notices = folder / 'THIRD_PARTY_LICENSES.md'
+for target in re.findall(r'\]\(([^)]+)\)', notices.read_text(encoding='utf-8')):
+    if not target.startswith(('http://', 'https://', '#')) and not (folder / target).is_file():
+        raise ValueError('Enlace local ausente en los avisos del portable: ' + target)
+inventory = json.loads((folder / 'THIRD_PARTY_INVENTORY.json').read_text(encoding='utf-8'))
+if inventory['platform'] != 'win32' or inventory['redistribution_approved'] is not False:
+    raise ValueError('El inventario debe pertenecer al Windows construido y no conceder permisos')
+for distribution in inventory['distributions']:
+    for notice in distribution['notice_files']:
+        path = folder / 'runtime/Lib/site-packages' / notice['path']
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != notice['sha256']:
+            raise ValueError('Aviso de licencia no conservado: ' + notice['path'])
+print('AVISOS Y ENLACES PORTABLE OK', flush=True)
 env = {k: v for k, v in os.environ.items() if k.upper() not in ('PYTHONHOME', 'PYTHONPATH', 'VIRTUAL_ENV')}
 windows = Path(os.environ['SystemRoot'])
 env.update(PATH=os.pathsep.join(map(str, [folder / 'runtime', windows / 'System32', windows])),

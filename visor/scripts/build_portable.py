@@ -116,7 +116,13 @@ def build(output: Path):
     from audit_licenses import audit
     (output / 'THIRD_PARTY_INVENTORY.json').write_text(
         json.dumps(audit(requirements), ensure_ascii=False, indent=2), encoding='utf-8')
-    shutil.copy2(REPO / 'visor/THIRD_PARTY_LICENSES.md', output / 'THIRD_PARTY_LICENSES.md')
+    notices = (REPO / 'visor/THIRD_PARTY_LICENSES.md').read_text(encoding='utf-8')
+    notices = notices.replace(
+        '../entregas/perfeccion_Visualizador_R19/Visor_experimental_fuentes/CREDITOS_MOTOR.txt',
+        'engine/CREDITOS_MOTOR.txt'
+    ).replace('src/conversor3d/resources/runtime-requirements.txt',
+              'app/conversor3d/resources/runtime-requirements.txt')
+    (output / 'THIRD_PARTY_LICENSES.md').write_text(notices, encoding='utf-8')
     shutil.copytree(REPO / 'visor/licenses', output / 'licenses')
     (output / 'LEEME.txt').write_text(
         'Carpeta de prueba autocontenida para Windows. Ejecutar Iniciar_Visor.bat.\n'
