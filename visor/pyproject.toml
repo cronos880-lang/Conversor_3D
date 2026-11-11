@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conversor3d-visor"
+version = "0.0.0.dev0"
+description = "Desarrollo del Visor STL a STEP, con núcleo R19 congelado"
+requires-python = ">=3.12,<3.13"
+
+[project.scripts]
+conversor3d = "conversor3d.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"
