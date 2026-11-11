@@ -29,3 +29,13 @@ aprobadas y 15 omitidas por fixtures opcionales. La ejecución inicial detectó
 rutas de importación incompletas y dos fixtures R5 sin configurar; el ejecutor
 ahora lee esos fixtures de entradas concretas del ZIP histórico ya existente,
 sin alterar código congelado ni publicar nuevas copias de modelos.
+
+## 2. Pruebas nativas automatizadas
+
+Workflow `visor-ci.yml` para Windows y Linux, Python 3.12 x64, acciones fijadas
+por SHA y permisos de sólo lectura. Instala dependencias, ejecuta pruebas nuevas
+y congeladas, arranca el servidor en un puerto libre y convierte realmente un
+STL por HTTP. Reimporta el STEP, exige un sólido exacto válido y volumen conocido.
+El smoke usa una copia temporal de las fuentes para no escribir registros en
+las entregas. Linux: arranque y conversión 120 mm³ aprobados. El resultado de
+Windows se registra por separado al terminar la ejecución de Actions.

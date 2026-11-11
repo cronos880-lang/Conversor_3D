@@ -1,0 +1,2 @@
+-r ../entregas/perfeccion_Visualizador_R19/Visor_experimental_fuentes/requirements_pruebas.txt
+setuptools==80.9.0
