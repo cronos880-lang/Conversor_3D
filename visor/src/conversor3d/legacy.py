@@ -5,8 +5,9 @@ import json
 import os
 import sys
 
-REPO = Path(__file__).resolve().parents[3]
-FROZEN = REPO / 'entregas/perfeccion_Visualizador_R19/Visor_experimental_fuentes'
+REPO = Path(os.environ.get('CONVERSOR3D_PROJECT_ROOT', str(Path(__file__).resolve().parents[3]))).resolve()
+FROZEN = Path(os.environ.get('CONVERSOR3D_FROZEN_ROOT',
+    str(REPO / 'entregas/perfeccion_Visualizador_R19/Visor_experimental_fuentes'))).resolve()
 FINGERPRINT = '96429bbba84ee5abb202198d0a769f0f32c5a91a31989e7859d8ae0cf7276006'
 
 

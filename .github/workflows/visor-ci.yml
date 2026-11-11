@@ -46,5 +46,10 @@ jobs:
         run: python visor/scripts/run_benchmarks.py --output benchmarks-native --cases cylinder thin_wall small_hole
       - name: Flujo de desarrollo y certificado descargable
         run: python visor/scripts/smoke_native.py --development --output smoke-development
+      - name: Construir y probar carpeta portable Windows
+        if: runner.os == 'Windows'
+        run: |
+          python visor/scripts/build_portable.py --output portable-test
+          python visor/scripts/smoke_portable.py portable-test
       - name: Arranque y conversión real en el sistema nativo
         run: python visor/scripts/smoke_native.py --output smoke-native

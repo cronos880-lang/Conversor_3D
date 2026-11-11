@@ -115,3 +115,16 @@ CI detectó además un test histórico que elegía el primer JSON de un director
 y a veces leía un sidecar en lugar del diagnóstico. El ejecutor fija el orden
 sólo para ese directorio temporal y ese test, manteniendo todas sus aserciones y
 sin modificar el archivo congelado. El caso vuelve a pasar sin omitirlo.
+
+## 7. Preparación autocontenida Windows
+
+Constructor y smoke de carpeta portable, sin ZIP ni publicación: runtimeCPython,
+selección de dependencias transitivas, fuentes y manifiesto de hashes. Lanzador
+usa su propio Python; imports aislados mediante _pth. El smoke comprueba OCP/VTK,
+conversión real, certificado y volumen con PATH sin Python externo. El motor
+congelado admite ruta explícita verificada para la carpeta portable.
+
+Verificación local Linux: 21 pruebas aprobadas tras añadir la resolución de
+rutas; construcción/ejecución portable requieren Windows y se verifican en CI.
+No se afirma que el paquete haya sido probado en el ordenador del usuario ni
+se autoriza redistribuir componentes sin el inventario legal posterior.
