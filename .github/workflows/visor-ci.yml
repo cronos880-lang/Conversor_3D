@@ -40,5 +40,7 @@ jobs:
         run: python -m pytest -q -p no:cacheprovider visor/tests --junitxml=visor-tests.xml
       - name: Batería histórica congelada
         run: python visor/scripts/run_legacy_tests.py --xml legacy-tests.xml
+      - name: Conversiones de cilindro, pared fina y taladro pequeño
+        run: python visor/scripts/run_benchmarks.py --output benchmarks-native --cases cylinder thin_wall small_hole
       - name: Arranque y conversión real en el sistema nativo
         run: python visor/scripts/smoke_native.py --output smoke-native

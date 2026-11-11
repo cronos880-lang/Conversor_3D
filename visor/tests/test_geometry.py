@@ -11,20 +11,7 @@ from OCP.BRepCheck import BRepCheck_Analyzer
 from conversor3d.geometry import propose, curve_poles
 
 
-def residual_box():
-    faces = [f for f in cq.Solid.makeBox(6, 4, 2).Faces() if f.Center().z < 1.99]
-    for x in range(6):
-        poles = TColgp_Array2OfPnt(1, 2, 1, 2)
-        for i, xx in enumerate((x, x + 1), 1):
-            for j, yy in enumerate((0, 4), 1):
-                poles.SetValue(i, j, gp_Pnt(xx, yy, 2))
-        surf = GeomConvert.SurfaceToBSplineSurface_s(Geom_BezierSurface(poles))
-        faces.append(cq.Face(BRepBuilderAPI_MakeFace(surf, 1e-7).Face()))
-    sew = BRepBuilderAPI_Sewing(1e-7)
-    for face in faces:
-        sew.Add(face.wrapped)
-    sew.Perform()
-    return cq.Solid.makeSolid(cq.Shape.cast(sew.SewedShape()))
+from conversor3d.benchmarks import residual_box
 
 
 def test_shared_boundaries_reduce_residual_faces(tmp_path):
@@ -70,5 +57,30 @@ def test_new_proposer_passes_original_full_validation(tmp_path):
     assert approval['accepted'] and approval['validated']
     assert approval['calidad']['caras_step'] == 6
     assert approval['calidad']['integridad_cad']['tolerancia_max_mm'] == 1e-7
+    assert approval['final_validation']['material_original']['discrepancias'] == 0
+    assert approval['contraste_comun']['regresiones_sobre_00001_mm'] == 0
+
+
+def test_shared_boundaries_keep_small_cylindrical_hole(tmp_path):
+    import trimesh
+    from conversor3d.legacy import run_worker
+    original = residual_box().cut(cq.Solid.makeCylinder(.3, 2, cq.Vector(3.2, 2, 0)))
+    baseline, candidate, source = (tmp_path / name for name in ('base.step', 'candidate.step', 'source.stl'))
+    cq.exporters.export(original, str(baseline))
+    vertices, triangles = original.tessellate(.00025, .04)
+    mesh = trimesh.Trimesh([p.toTuple() for p in vertices], triangles, process=True)
+    mesh.fix_normals(); mesh.export(source)
+    proposed = propose(baseline, candidate)
+    assert proposed['faces_after'] < proposed['faces_before'] - 4
+    result = cq.importers.importStep(str(candidate)).val()
+    assert not result.isInside(cq.Vector(3.2, 2, 1))
+    assessed = run_worker({'action': 'assess_baseline', 'source': str(source),
+                           'baseline': str(baseline)}, tmp_path / 'assess')
+    spec = tmp_path / 'baseline.json'; spec.write_text(json.dumps(assessed['value']))
+    evidence = tmp_path / 'validation'
+    approval = run_worker({'action': 'validate_candidate', 'source': str(source),
+                           'candidate': str(candidate), 'baseline': str(baseline),
+                           'baseline_run': str(spec), 'evidence': str(evidence)}, evidence)['value']
+    assert approval['accepted'] and approval['cilindros']
     assert approval['final_validation']['material_original']['discrepancias'] == 0
     assert approval['contraste_comun']['regresiones_sobre_00001_mm'] == 0

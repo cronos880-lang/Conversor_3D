@@ -39,3 +39,22 @@ STL por HTTP. Reimporta el STEP, exige un sólido exacto válido y volumen conoc
 El smoke usa una copia temporal de las fuentes para no escribir registros en
 las entregas. Linux: arranque y conversión 120 mm³ aprobados. El resultado de
 Windows se registra por separado al terminar la ejecución de Actions.
+
+Resultado nativo del hito 2: Windows y Linux en verde en
+https://github.com/cronos880-lang/Conversor_3D/actions/runs/43029754390
+(commit `ceddcd2`). La primera ejecución Windows detectó que Git cambiaba los
+saltos de línea; se corrigió el checkout para conservar bytes, sin desactivar
+la firma. Se verificaron instalación, pruebas nuevas, batería histórica y
+conversión HTTP con relectura STEP en ambos sistemas. Esto valida esos casos
+en Windows Server del runner; no se atribuye a una prueba en el PC del usuario.
+
+## 3. Catálogo representativo
+
+Siete referencias sintéticas conocidas: cilindro, redondeos, pared de 0,15 mm,
+taladro de 0,3 mm, loft libre, variante girada y seis parches B-Spline coplanares.
+Quince pruebas nuevas aprobadas, incluyendo control frío de un dominio residual
+atravesado por un taladro y reconstrucción bajo tres movimientos rígidos.
+Conversiones completas locales de cilindro, pared y taladro aprobadas, sin
+pérdida de aberturas. Se añaden las mismas conversiones obligatorias a CI.
+Los casos curvos más generales se registran como sondeos de capacidad: un
+rechazo o tiempo agotado no se cuenta como STEP válido. Véase BENCHMARKS.md.
