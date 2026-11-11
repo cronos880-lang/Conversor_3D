@@ -9,3 +9,9 @@ class NativeWorkerError(PipelineError):
 
 class FinalValidationError(PipelineError):
     code = 'final_validation_rejected'
+
+
+class ProposalBudgetExceeded(PipelineError):
+    """La optimización opcional excede su presupuesto; no invalida la referencia."""
+
+    code = 'proposal_budget_exceeded'

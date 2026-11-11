@@ -194,3 +194,20 @@ Verificación local: 40 pruebas del desarrollo aprobadas; 427 históricas
 aprobadas y 15 omitidas. Compilación de scripts y enlaces locales de la auditoría
 correctos; 357 archivos congelados conservan sus hashes. El inventario registra
 208 avisos y señala el paquete proxy sin texto independiente, sin ocultarlo.
+
+## 11. Limpieza gradual del desarrollo
+
+Docstrings, tipos y nombres más explícitos en la propuesta y su coordinación,
+sin reformatear el núcleo congelado. Los errores de la propuesta incluyen un
+código estable y el motivo se conserva en la selección de referencia.
+
+La propuesta opcional respeta ahora el mismo presupuesto de 1.200 caras que
+las costuras R19. Una referencia mayor no entra en el análisis costoso y no se
+reescribe. Este límite de trabajo no altera el presupuesto de error, no evita
+la conversión base y no exime al STEP final de su certificado completo.
+Se prueba con un prisma real de 1.203 caras, incluidos el proceso separado,
+el rechazo temprano y la conservación exacta de los bytes.
+
+Validación del hito 11: compilan las fuentes del desarrollo, 41 pruebas nuevas
+aprobadas y batería histórica de 427 aprobadas/15 omitidas. No se modifican
+fuentes ni validadores congelados.

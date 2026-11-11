@@ -4,15 +4,17 @@ import copy
 import hashlib
 import json
 import os
-import time
 import shutil
 import sys
-from .legacy import FROZEN, REPO, native_env, run_worker, sha
+import time
+
+from .legacy import FROZEN, native_env, run_worker, sha
 from .processes import execute
 from .validation import evaluate
 
 
 def code_fingerprint():
+    """Identificar fuentes y recursos del desarrollo; no sustituye el certificado."""
     root = Path(__file__).parent
     digest = hashlib.sha256()
     files = [path for path in root.rglob('*') if path.is_file() and path.suffix in {'.py', '.json', '.txt'}]
@@ -33,9 +35,17 @@ def _last_result(path):
     raise ValueError('El motor no emitió un resultado completo')
 
 
-def optimize_reference(source, baseline, baseline_run, evidence):
-    """La propuesta no puede sustituir la referencia sin decisión del evaluador."""
-    source, baseline, baseline_run, evidence = map(Path, (source, baseline, baseline_run, evidence))
+def optimize_reference(
+    source: Path, baseline: Path, baseline_run: Path, evidence: Path
+) -> dict:
+    """Proponer en otro proceso y aceptar exclusivamente mediante el evaluador.
+
+    Un rechazo de construcción o presupuesto conserva los bytes de referencia.
+    El coordinador todavía debe certificar completamente el archivo final.
+    """
+    source, baseline, baseline_run, evidence = map(
+        Path, (source, baseline, baseline_run, evidence)
+    )
     evidence.mkdir(exist_ok=False)
     candidate = evidence / 'candidate.step'
     job = evidence / 'proposal-job.json'
@@ -45,7 +55,9 @@ def optimize_reference(source, baseline, baseline_run, evidence):
     proposal = json.loads((evidence / 'proposal.json').read_text(encoding='utf-8'))
     if status['returncode'] or proposal.get('ok') is not True:
         return {'accepted': False, 'selected': str(baseline),
-                'selected_sha256': sha(baseline), 'reason': proposal.get('error', 'Proponente interrumpido')}
+                'selected_sha256': sha(baseline),
+                'reason': proposal.get('error', 'Proponente interrumpido'),
+                'proposal_error_code': proposal.get('error_code', 'proposal_rejected')}
     return evaluate(source, baseline, baseline_run, candidate, evidence / 'validation')
 
 

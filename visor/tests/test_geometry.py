@@ -1,17 +1,10 @@
-from pathlib import Path
 import json
-import cadquery as cq
-import numpy as np
-from OCP.TColgp import TColgp_Array2OfPnt
-from OCP.gp import gp_Pnt
-from OCP.Geom import Geom_BezierSurface
-from OCP.GeomConvert import GeomConvert
-from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace, BRepBuilderAPI_Sewing
-from OCP.BRepCheck import BRepCheck_Analyzer
-from conversor3d.geometry import propose, curve_poles
 
+import cadquery as cq
+from OCP.BRepCheck import BRepCheck_Analyzer
 
 from conversor3d.benchmarks import residual_box
+from conversor3d.geometry import curve_poles, propose
 
 
 def test_shared_boundaries_reduce_residual_faces(tmp_path):
@@ -86,3 +79,30 @@ def test_shared_boundaries_keep_small_cylindrical_hole(tmp_path):
     assert approval['accepted'] and approval['cilindros']
     assert approval['final_validation']['material_original']['discrepancias'] == 0
     assert approval['contraste_comun']['regresiones_sobre_00001_mm'] == 0
+
+
+def test_large_reference_rejects_optional_proposal_without_touching_bytes(tmp_path):
+    """El caso facetado grande conserva referencia y diagnóstico, sin agotar 120 s."""
+    import hashlib
+    import pytest
+    from conversor3d.errors import ProposalBudgetExceeded
+    from conversor3d.pipeline import optimize_reference
+
+    shape = cq.Workplane('XY').polygon(1201, 10).extrude(2).val()
+    baseline = tmp_path / 'large.step'
+    candidate = tmp_path / 'candidate.step'
+    cq.exporters.export(shape, str(baseline))
+    original_bytes = baseline.read_bytes()
+    assert len(shape.Faces()) == 1203
+    with pytest.raises(ProposalBudgetExceeded, match='1200 caras'):
+        propose(baseline, candidate)
+    assert not candidate.exists() and baseline.read_bytes() == original_bytes
+
+    # La puerta no se invoca: estos archivos no son necesarios si no hay propuesta.
+    selection = optimize_reference(tmp_path / 'unused.stl', baseline,
+                                   tmp_path / 'unused-run.json', tmp_path / 'evidence')
+    assert not selection['accepted'] and selection['selected'] == str(baseline)
+    assert selection['proposal_error_code'] == 'proposal_budget_exceeded'
+    assert selection['selected_sha256'] == hashlib.sha256(original_bytes).hexdigest()
+    assert not (tmp_path / 'evidence/candidate.step').exists()
+    assert baseline.read_bytes() == original_bytes

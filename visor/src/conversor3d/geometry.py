@@ -21,18 +21,23 @@ from OCP.TopTools import TopTools_FormatVersion_VERSION_3
 from OCP.TopoDS import TopoDS_Face
 from OCP.gp import gp_Pln, gp_Pnt, gp_Dir
 
+from .errors import ProposalBudgetExceeded
+
 BREP_MM = 1e-7
 BORDER_MM = 5e-8
 RECOGNITION_MM = 1e-4  # Propuesta exclusivamente; nunca tolerancia de aceptación.
+MAX_PROPOSAL_FACES = 1200  # Mismo presupuesto local que contratos_r19.MAX_CARAS_CAD.
 
 
 def face_digest(face: cq.Face) -> str:
+    """Firmar el B-Rep completo de una cara protegida, sin teselarla."""
     stream = io.BytesIO()
     BRepTools.Write_s(face.wrapped, stream, False, False, TopTools_FormatVersion_VERSION_3)
     return hashlib.sha256(stream.getvalue()).hexdigest()
 
 
 def curve_poles(edge: cq.Edge) -> np.ndarray:
+    """Envolvente convexa de toda la curva recortada, con pesos positivos."""
     curve = BRep_Tool.Curve_s(edge.wrapped, 0., 0.)
     start, end = BRep_Tool.Range_s(edge.wrapped)
     spline = GeomConvert.CurveToBSplineCurve_s(Geom_TrimmedCurve(curve, start, end))
@@ -80,8 +85,14 @@ def boundary_plane(face: cq.Face) -> tuple[Geom_Plane, dict]:
         'boundary_fit_seconds': time.monotonic() - recognized}
 
 
-def check_intersections(face, surface, neighbors):
-    """Contrasta intersecciones manteniendo fijas las aristas compartidas."""
+def check_intersections(
+    surface: Geom_Plane, neighbors: list[tuple[cq.Edge, cq.Face]]
+) -> list[dict]:
+    """Contrastar intersecciones sin desplazar las aristas compartidas.
+
+    Los puntos de contraste son testigos de rechazo, no una demostración global
+    de conservación. La propuesta necesita después el evaluador independiente.
+    """
     rows = []
     for edge, neighbor in neighbors:
         kind = BRepAdaptor_Surface(neighbor.wrapped).GetType()
@@ -124,9 +135,14 @@ def propose(baseline: Path, destination: Path) -> dict:
         raise ValueError('La salida debe ser nueva e independiente')
     original_hash = hashlib.sha256(baseline.read_bytes()).hexdigest()
     original = cq.importers.importStep(str(baseline)).val()
+    faces = original.Faces()
+    if len(faces) > MAX_PROPOSAL_FACES:
+        raise ProposalBudgetExceeded(
+            f'Optimización opcional fuera del presupuesto de {MAX_PROPOSAL_FACES} caras '
+            f'({len(faces)} en la referencia); se conserva la referencia para su validación final'
+        )
     if len(original.Solids()) != 1 or not BRepCheck_Analyzer(original.wrapped, True, False, True).IsValid():
         raise ValueError('La referencia debe ser un sólido exacto válido')
-    faces = original.Faces()
     protected = [f for f in faces if BRepAdaptor_Surface(f.wrapped).GetType()
                  in (GeomAbs_Plane, GeomAbs_Cylinder)]
     snapshots = [face_digest(f) for f in protected]
@@ -149,7 +165,7 @@ def propose(baseline: Path, destination: Path) -> dict:
             neighbors = [(edge, faces[j]) for edge in face.Edges()
                          for j in edges[edge] - {index}]
             intersection_start = time.monotonic()
-            proof['intersections'] = check_intersections(face, surface, neighbors)
+            proof['intersections'] = check_intersections(surface, neighbors)
             timings['intersections_seconds'] += time.monotonic() - intersection_start
             builder, replacement = BRep_Builder(), TopoDS_Face()
             builder.MakeFace(replacement, surface, BREP_MM)
