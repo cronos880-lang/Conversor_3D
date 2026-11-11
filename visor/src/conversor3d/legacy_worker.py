@@ -4,6 +4,7 @@ import json
 import secrets
 import sys
 import traceback
+import time
 from .legacy import FROZEN, FINGERPRINT, sha
 
 
@@ -12,7 +13,10 @@ def execute(job):
     sys.path.insert(0, str(FROZEN))
     from contratos_r19 import ROOT
     from certificado_calidad_r15 import firma_motor, verificar
-    if ROOT.resolve() != FROZEN.resolve() or firma_motor(ROOT) != FINGERPRINT:
+    trace_start = time.monotonic()
+    observed_fingerprint = firma_motor(ROOT)
+    trace_seconds = time.monotonic() - trace_start
+    if ROOT.resolve() != FROZEN.resolve() or observed_fingerprint != FINGERPRINT:
         raise ValueError('La dependencia R19 no coincide con su firma congelada: '
                          + firma_motor(ROOT) + '; esperada ' + FINGERPRINT)
     job = {key: Path(value) if key in {'source', 'baseline', 'candidate', 'baseline_run', 'evidence'} else value
@@ -25,6 +29,15 @@ def execute(job):
         value = {'returncode': 0, 'source_sha256': sha(job['source']),
                  'step_sha256': sha(job['baseline']),
                  'payload': {'ok': True, 'resultado': {'calidad': quality}}}
+    elif action == 'describe_input':
+        import numpy as np
+        from preprocesador_stl import cargar_exacto, diagnosticar
+        original_hash = sha(job['source'])
+        mesh = cargar_exacto(job['source'])
+        value = diagnosticar(mesh)
+        np.savez_compressed(job['arrays'], vertices=mesh.vertices, faces=mesh.faces)
+        if sha(job['source']) != original_hash:
+            raise ValueError('Cambió el STL durante la lectura')
     elif action == 'certify_final':
         import subprocess
         from .legacy import native_env
@@ -49,9 +62,12 @@ def execute(job):
         value = {'verified': True, 'quality': quality}
     else:
         raise ValueError('Acción no reconocida: ' + action)
+    trace_start = time.monotonic()
     if firma_motor(ROOT) != FINGERPRINT:
         raise ValueError('La dependencia cambió durante el trabajo')
-    return {'ok': True, 'value': value, 'frozen_fingerprint': FINGERPRINT}
+    trace_seconds += time.monotonic() - trace_start
+    return {'ok': True, 'value': value, 'frozen_fingerprint': FINGERPRINT,
+            'traceability_seconds': trace_seconds}
 
 
 def main():

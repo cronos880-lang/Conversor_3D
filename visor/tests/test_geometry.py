@@ -55,6 +55,10 @@ def test_new_proposer_passes_original_full_validation(tmp_path):
     approval = decision['validation']
     assert approval['accepted'] and approval['validated']
     assert approval['calidad']['caras_step'] == 6
+    from conversor3d.pipeline import certify_selection
+    reused, hit = certify_selection(decision, source, candidate, spec, tmp_path / 'unused-final')
+    assert hit and reused['record']['ok']
+    assert not (tmp_path / 'unused-final').exists()
     assert approval['calidad']['integridad_cad']['tolerancia_max_mm'] == 1e-7
     assert approval['final_validation']['material_original']['discrepancias'] == 0
     assert approval['contraste_comun']['regresiones_sobre_00001_mm'] == 0

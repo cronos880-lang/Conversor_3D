@@ -92,3 +92,26 @@ una sola implementación. El manifiesto se comprueba también en CI.
 Dos pruebas nuevas aprobadas: integridad de los 357 archivos y detección de
 modificación sin importar el código auditado. No hay cambios de lógica en esta
 fase; siguen vigentes las 17 pruebas del flujo y la batería histórica anterior.
+
+## 6. Perfilado y reutilización verificable
+
+Se registran tiempos de reconocimiento, ajuste/intersecciones de bordes,
+exportación, referencia completa, puerta, certificado final y comprobación de
+trazabilidad. cProfile optativo mide también los procesos internos históricos
+sin cambiar sus fuentes. Ensayo completo perfilado de cilindro aprobado,
+27,9 s totales en este entorno; no se presenta como comparación de velocidad.
+
+La caché del lector sólo usa bytes, perfil, versión del lector/núcleo y
+bibliotecas idénticos; verifica arrays por hash y no usa pickle. Es análisis
+auxiliar, nunca autoridad de geometría. Un control frío completo recién emitido
+por la puerta puede reutilizarse para sus mismos bytes y perfil dentro de la
+misma selección; el archivo copiado vuelve a verificar su certificado.
+
+21 pruebas aprobadas: incluyen cambio de entrada/perfil, caché corrupta,
+reutilización del control completo y certificado final. Se conserva el coste
+de las firmas. No se amplían tolerancias ni se omite material/mallado final.
+
+CI detectó además un test histórico que elegía el primer JSON de un directorio,
+y a veces leía un sidecar en lugar del diagnóstico. El ejecutor fija el orden
+sólo para ese directorio temporal y ese test, manteniendo todas sus aserciones y
+sin modificar el archivo congelado. El caso vuelve a pasar sin omitirlo.

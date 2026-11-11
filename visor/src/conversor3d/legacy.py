@@ -15,9 +15,14 @@ def sha(path: Path) -> str:
 
 
 def native_env() -> dict:
+    package_root = Path(__file__).resolve().parents[1]
+    paths = [str(package_root)]
+    if os.environ.get('CONVERSOR3D_PROFILE_DIR'):
+        paths.insert(0, str(Path(__file__).parent / 'resources/profiling'))
     return {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1', 'OPENBLAS_NUM_THREADS': '1',
-            'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1', 'VISOR_PERFIL': os.environ.get('VISOR_PERFIL', 'precision'),
-            'PYTHONPATH': str(Path(__file__).resolve().parents[1])}
+            'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1',
+            'VISOR_PERFIL': os.environ.get('VISOR_PERFIL', 'precision'),
+            'PYTHONPATH': os.pathsep.join(paths)}
 
 
 def run_worker(job: dict, evidence: Path, timeout=540) -> dict:

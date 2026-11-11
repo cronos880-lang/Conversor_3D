@@ -3,9 +3,11 @@ from pathlib import Path
 import copy
 import hashlib
 import json
+import os
+import time
 import shutil
 import sys
-from .legacy import FROZEN, native_env, run_worker, sha
+from .legacy import FROZEN, REPO, native_env, run_worker, sha
 from .processes import execute
 from .validation import evaluate
 
@@ -47,6 +49,26 @@ def optimize_reference(source, baseline, baseline_run, evidence):
     return evaluate(source, baseline, baseline_run, candidate, evidence / 'validation')
 
 
+def certify_selection(selection, source, selected, baseline_run, evidence):
+    """Reutiliza sólo el control completo ya realizado en ESTA selección."""
+    approval = selection.get('validation', {})
+    record = approval.get('final_validation', {})
+    identity = record.get('certificado', {})
+    if (selection.get('accepted') is True and approval.get('validated') is True
+            and identity.get('source_sha256') == sha(source)
+            and identity.get('step_sha256') == sha(selected)
+            and identity.get('perfil', {}).get('id') == os.environ.get('VISOR_PERFIL', 'precision')
+            and approval.get('nonce') == identity.get('nonce')):
+        # La copia final volverá a pasar verificar() con sus bytes, perfil,
+        # dependencias y núcleo actuales. Nunca se acepta un certificado antiguo
+        # por nombre de archivo o por una bandera del proponente.
+        return {'record': record, 'quality': approval['calidad'], 'nonce': approval['nonce']}, True
+    certified = run_worker({'action': 'certify_final', 'source': str(source),
+                            'candidate': str(selected), 'baseline_run': str(baseline_run),
+                            'evidence': str(evidence)}, evidence)
+    return certified['value'], False
+
+
 def convert(source: Path, destination: Path):
     source, destination = Path(source).resolve(), Path(destination).resolve()
     evidence = destination.with_name(destination.name + '.development')
@@ -58,34 +80,45 @@ def convert(source: Path, destination: Path):
     if not destination.parent.is_dir():
         raise ValueError('El directorio de salida debe existir')
     evidence.mkdir()
+    started = time.monotonic()
     fingerprint, source_hash = code_fingerprint(), sha(source)
-    report = {'state': 'baseline', 'source_sha256': source_hash, 'development_sha256': fingerprint}
+    timings = {'traceability_start_seconds': time.monotonic() - started}
+    from .cache import input_summary
+    cache_root = Path(os.environ.get('CONVERSOR3D_CACHE_DIR', str(REPO / 'visor/data/cache')))
+    summary = input_summary(source, cache_root, os.environ.get('VISOR_PERFIL', 'precision'))
+    timings['input_analysis_seconds'] = summary['seconds']
+    report = {'state': 'baseline', 'source_sha256': source_hash, 'development_sha256': fingerprint, 'input_analysis': summary, 'timings': timings}
     baseline = evidence / 'baseline.step'
     status = execute([sys.executable, str(FROZEN / 'motor_r19.py'), str(source), str(baseline)],
                      evidence, 'baseline', cwd=FROZEN, env=native_env(), timeout=3600)
+    timings['baseline_total_seconds'] = status['seconds']
     result = _last_result(evidence / 'baseline.stdout.txt')
     if status['returncode'] or result.get('ok') is not True:
         raise ValueError(result.get('error', 'Referencia R19 interrumpida'))
     baseline_run = evidence / 'baseline-run.json'
     baseline_run.write_text(json.dumps({'returncode': 0, 'payload': result,
                                        'source_sha256': source_hash, 'step_sha256': sha(baseline)}), encoding='utf-8')
+    optimization_start = time.monotonic()
     try:
         selection = optimize_reference(source, baseline, baseline_run, evidence / 'optimization')
     except Exception as error:
         selection = {'accepted': False, 'selected': str(baseline),
                      'selected_sha256': sha(baseline), 'reason': str(error)}
+    timings['proposal_and_gate_seconds'] = time.monotonic() - optimization_start
     selected = Path(selection['selected']) if selection.get('selected') else None
     if selected is None or sha(selected) != selection['selected_sha256']:
         raise ValueError('No hay selección íntegra')
     report.update(state='final_validation', selection=selection)
     (evidence / 'pipeline.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
-    certified = run_worker({'action': 'certify_final', 'source': str(source),
-                            'candidate': str(selected), 'baseline_run': str(baseline_run),
-                            'evidence': str(evidence / 'final')}, evidence / 'final')
+    final_start = time.monotonic()
+    certificate_value, reused = certify_selection(selection, source, selected, baseline_run, evidence / 'final')
+    timings['final_certificate_seconds'] = time.monotonic() - final_start
+    report['reused_full_validation_for_identical_bytes'] = reused
     certificate = evidence / 'certificate.json'
-    certificate.write_text(json.dumps(certified['value'], indent=2), encoding='utf-8')
+    certificate.write_text(json.dumps(certificate_value, indent=2), encoding='utf-8')
     if sha(source) != source_hash or code_fingerprint() != fingerprint:
         raise ValueError('La entrada o el programa cambió durante la conversión')
+    copy_start = time.monotonic()
     with selected.open('rb') as src, destination.open('xb') as dst:
         shutil.copyfileobj(src, dst)
     try:
@@ -97,6 +130,8 @@ def convert(source: Path, destination: Path):
     except BaseException:
         destination.unlink(missing_ok=True)
         raise
+    timings['copy_and_verify_seconds'] = time.monotonic() - copy_start
+    timings['total_seconds'] = time.monotonic() - started
     final = copy.deepcopy(result)
     final['resultado']['calidad'] = verified['value']['quality']
     if selection['accepted']:
@@ -110,7 +145,7 @@ def convert(source: Path, destination: Path):
                             'step_sha256': sha(destination), 'certificate': str(certificate)}
     report.update(state='finished', step_sha256=sha(destination))
     (evidence / 'pipeline.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
-    cold_record = copy.deepcopy(certified['value']['record'])
+    cold_record = copy.deepcopy(certificate_value['record'])
     cold_record.update(development_sha256=fingerprint, step_sha256=sha(destination),
                        original_sha256=source_hash)
     # Nombres compatibles con el servidor: conserva los certificados tras borrar temporales.

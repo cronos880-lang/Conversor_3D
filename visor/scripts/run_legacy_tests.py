@@ -13,11 +13,12 @@ p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--xml', required=True)
 args = p.parse_args()
 paths = [root, root / 'motor_superficies', root / 'motor_calidad',
-         root / 'motor_calidad/motor_superficies']
+         root / 'motor_calidad/motor_superficies', repo / 'visor/scripts']
 env = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1', 'OPENBLAS_NUM_THREADS': '1',
        'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1',
        'PYTHONPATH': os.pathsep.join(map(str, paths))}
 command = [sys.executable, '-m', 'pytest', '-q', '-p', 'no:cacheprovider',
+           '-p', 'legacy_test_plugin',
            '--junitxml=' + str(Path(args.xml).resolve())]
 command.extend(str(path) for path in sorted(root.glob('test_*.py')))
 # Dos pruebas históricas necesitan archivos que YA están en el ZIP R5.

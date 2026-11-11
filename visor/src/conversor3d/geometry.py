@@ -1,6 +1,7 @@
 """Proponer planos de borde compartido sin modificar las caras analíticas."""
 import hashlib
 import io
+import time
 from pathlib import Path
 
 import cadquery as cq
@@ -42,10 +43,12 @@ def curve_poles(edge: cq.Edge) -> np.ndarray:
 
 def boundary_plane(face: cq.Face) -> tuple[Geom_Plane, dict]:
     """Ajuste minimax de la curva completa; no modifica sus puntos ni tolerancias."""
+    start = time.monotonic()
     seed = gp_Pln()
     recognizer = ShapeAnalysis_CanonicalRecognition(face.wrapped)
     if not recognizer.IsPlane(RECOGNITION_MM, seed) or recognizer.GetGap() > RECOGNITION_MM:
         raise ValueError('El soporte no propone un plano suficientemente próximo')
+    recognized = time.monotonic()
     poles = np.vstack([curve_poles(edge) for edge in face.Edges()])
     center = poles.mean(axis=0)
     normal = np.array(seed.Axis().Direction().Coord())
@@ -72,7 +75,9 @@ def boundary_plane(face: cq.Face) -> tuple[Geom_Plane, dict]:
         raise ValueError(f'El borde requiere {bound:.9g} mm; límite {BORDER_MM:g} mm')
     return Geom_Plane(gp_Pln(gp_Pnt(*point), gp_Dir(*axis))), {
         'boundary_hull_max_mm': bound, 'recognition_gap_mm': recognizer.GetGap(),
-        'point_mm': point.tolist(), 'normal': axis.tolist()}
+        'point_mm': point.tolist(), 'normal': axis.tolist(),
+        'recognition_seconds': recognized - start,
+        'boundary_fit_seconds': time.monotonic() - recognized}
 
 
 def check_intersections(face, surface, neighbors):
@@ -131,14 +136,21 @@ def propose(baseline: Path, destination: Path) -> dict:
             edges.setdefault(edge, set()).add(i)
     context = BRepTools_ReShape()
     changed, created, rejections = [], [], []
+    timings = {'recognition_seconds': 0., 'boundary_fit_seconds': 0.,
+               'intersections_seconds': 0., 'rejected_proposals_seconds': 0.}
     for index, face in enumerate(faces):
         if any(face.wrapped.IsSame(p.wrapped) for p in protected):
             continue
+        attempt_start = time.monotonic()
         try:
             surface, proof = boundary_plane(face)
+            for key in ('recognition_seconds', 'boundary_fit_seconds'):
+                timings[key] += proof[key]
             neighbors = [(edge, faces[j]) for edge in face.Edges()
                          for j in edges[edge] - {index}]
+            intersection_start = time.monotonic()
             proof['intersections'] = check_intersections(face, surface, neighbors)
+            timings['intersections_seconds'] += time.monotonic() - intersection_start
             builder, replacement = BRep_Builder(), TopoDS_Face()
             builder.MakeFace(replacement, surface, BREP_MM)
             for wire in face.Wires():
@@ -150,6 +162,7 @@ def propose(baseline: Path, destination: Path) -> dict:
             created.append(cq.Face(replacement))
             changed.append({'face': index, **proof})
         except (ValueError, RuntimeError) as error:
+            timings['rejected_proposals_seconds'] += time.monotonic() - attempt_start
             rejections.append({'face': index, 'reason': str(error)})
     result = cq.Shape.cast(context.Apply(original.wrapped)) if changed else original
     if changed:
@@ -173,9 +186,11 @@ def propose(baseline: Path, destination: Path) -> dict:
         raise ValueError('El candidato aumenta las tolerancias B-Rep')
     if hashlib.sha256(baseline.read_bytes()).hexdigest() != original_hash:
         raise ValueError('La referencia cambió durante la propuesta')
+    export_start = time.monotonic()
     cq.exporters.export(result, str(destination))
+    timings['export_seconds'] = time.monotonic() - export_start
     return {'candidate': str(destination), 'baseline_sha256': original_hash,
             'candidate_sha256': hashlib.sha256(destination.read_bytes()).hexdigest(),
             'faces_before': len(faces), 'faces_after': len(result.Faces()),
             'protected_faces': len(protected), 'changes': changed, 'rejections': rejections,
-            'accepted': False, 'requires_full_validation': True}
+            'accepted': False, 'requires_full_validation': True, 'timings': timings}

@@ -10,6 +10,7 @@ from conversor3d.legacy import sha, run_worker
 @pytest.mark.parametrize('profile', ['precision', 'impresion'])
 def test_final_output_always_has_full_certificate(tmp_path, monkeypatch, profile):
     monkeypatch.setenv('VISOR_PERFIL', profile)
+    monkeypatch.setenv('CONVERSOR3D_CACHE_DIR', str(tmp_path / 'cache'))
     source, target = tmp_path / 'source.stl', tmp_path / 'output.step'
     trimesh.creation.box(extents=[4, 5, 6]).export(source)
     before = sha(source)
@@ -19,7 +20,10 @@ def test_final_output_always_has_full_certificate(tmp_path, monkeypatch, profile
     assert certificate['record']['certificado']['perfil']['id'] == profile
     sidecar = json.loads(target.with_suffix('.r19_nucleo.json').read_text())
     assert sidecar['certificado'] == certificate['record']['certificado']
-    assert target.with_suffix('.r19_pipeline.json').is_file()
+    pipeline = json.loads(target.with_suffix('.r19_pipeline.json').read_text())
+    assert pipeline['timings']['baseline_total_seconds'] >= 0
+    assert pipeline['timings']['final_certificate_seconds'] >= 0
+    assert pipeline['input_analysis']['authorizes_geometry'] is False
     identity = certificate['record']['certificado']
     assert identity['source_sha256'] == before == sha(source)
     assert identity['step_sha256'] == sha(target)
