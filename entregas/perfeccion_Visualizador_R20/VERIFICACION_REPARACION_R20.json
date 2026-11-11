@@ -1,0 +1,47 @@
+{
+  "release": "R20",
+  "installer_revision": 2,
+  "source_commit": "e839c5da4dce4111f788c81a022fe2e534bb2011",
+  "ci_run": 43108213969,
+  "ci_url": "https://github.com/cronos880-lang/Conversor_3D/actions/runs/43108213969",
+  "ci_result": "success",
+  "linux_tests": {
+    "development": 49,
+    "legacy": 427,
+    "skipped": 15
+  },
+  "windows_tests": {
+    "development": 49,
+    "legacy": 426,
+    "skipped": 16
+  },
+  "corrected_full_zip": {
+    "zip": "entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA_CORREGIDA.zip",
+    "sha256": "ab80bce95899d6063f5d3e81bbfaf1e7db2c44b83b469b0f0c7098e0dafbe944",
+    "bytes": 2710945,
+    "files": 442,
+    "source_commit": "e839c5da4dce4111f788c81a022fe2e534bb2011",
+    "source_tree_clean": true,
+    "identity": {
+      "release": "R20",
+      "version": "20.0.0",
+      "label": "Visor STL a STEP · R20 experimental",
+      "port": 8784,
+      "base_engine": "R19",
+      "installer_revision": 2
+    }
+  },
+  "repair_zip": {
+    "zip": "entregas/perfeccion_Visualizador_R20/Reparacion_Instalador_R20.zip",
+    "files": 18,
+    "bytes": 52745,
+    "sha256": "04ddf9c9bbe2fec1908da9c4d9023d352efb1bc6cecfdcd1e315ed151d030adc"
+  },
+  "same_full_zip_sha256_as_tested_in_windows": true,
+  "repair_overlay_verified": true,
+  "partial_package_recovery_verified_windows": true,
+  "start_and_conversion_after_repair_verified_windows": true,
+  "cad_code_changed": false,
+  "frozen_r19_changed": false,
+  "existing_environment_and_data_preserved": true
+}

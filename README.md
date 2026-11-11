@@ -18,8 +18,11 @@ Consulta [la guía de uso](visor/docs/R20_USUARIO.md),
 [el informe de avances](visor/docs/R20_INFORME.md) y
 [la guía para revisión externa](visor/docs/R20_REVISION_EXTERNA.md).
 
-[Descargar R20 completa en fuentes con instalador](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R20/entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA.zip?raw=true)
+[Descargar R20 completa con instalador corregido](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R20/entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA_CORREGIDA.zip?raw=true)
 · [Resultados de la entrega](entregas/perfeccion_Visualizador_R20/INFORME_RESULTADOS.md)
+
+[Reparación pequeña para R20 ya instalada](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R20/entregas/perfeccion_Visualizador_R20/Reparacion_Instalador_R20.zip?raw=true)
+· [Cómo aplicarla y pruebas](entregas/perfeccion_Visualizador_R20/REPARACION_INSTALADOR.md)
 
 La revisión 2 corrige la espera sin mensajes del instalador y recupera paquetes
 incompletos conservando el entorno y los datos. Véase

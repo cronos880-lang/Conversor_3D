@@ -1,3 +1,7 @@
+> Actualización: ya está disponible la [reparación del instalador, revisión 2](REPARACION_INSTALADOR.md).
+> Usa el ZIP corregido o la reparación pequeña. El informe que sigue conserva
+> las mediciones de la entrega inicial; el motor CAD no ha cambiado.
+
 # R20 experimental — resultados de la entrega
 
 Programa completo en fuentes con instalador, autorizado por el usuario para
