@@ -19,14 +19,16 @@ def test_preserves_mixed_notices_despite_mit_metadata(tmp_path):
     metadata['License'] = 'MIT'
     metadata['Classifier'] = 'License :: OSI Approved :: MIT License'
     paths = ['example.dist-info/licenses/LICENSE.MIT', 'example.dist-info/licenses/LICENSE.GPL']
-    for relative in paths:
+    ignored = ['example/licenses/__init__.py',
+               'example/licenses/__pycache__/__init__.cpython-312.pyc']
+    for relative in paths + ignored:
         file = tmp_path / relative
         file.parent.mkdir(parents=True, exist_ok=True)
         file.write_text(relative, encoding='utf-8')
 
     class Distribution:
         version = '1.0'
-        files = paths
+        files = paths + ignored
 
         def locate_file(self, file):
             return tmp_path / file

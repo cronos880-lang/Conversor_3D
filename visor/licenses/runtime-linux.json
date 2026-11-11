@@ -1232,22 +1232,6 @@
         {
           "path": "packaging-26.3.dist-info/licenses/LICENSE.BSD",
           "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
-        },
-        {
-          "path": "packaging/licenses/__init__.py",
-          "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b"
-        },
-        {
-          "path": "packaging/licenses/__pycache__/__init__.cpython-312.pyc",
-          "sha256": "2503238d52da20fc78b3bc99275edcb90b8187592169b6e9346d436262cbd7c7"
-        },
-        {
-          "path": "packaging/licenses/__pycache__/_spdx.cpython-312.pyc",
-          "sha256": "7ea0b644a3c4aa648d11767e310ad6751e4d89cfef0a1cc6268caefa08926f05"
-        },
-        {
-          "path": "packaging/licenses/_spdx.py",
-          "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314"
         }
       ],
       "review": "No equivale a autorización global de redistribución"
@@ -1640,22 +1624,6 @@
         {
           "path": "setuptools/_vendor/packaging-24.2.dist-info/LICENSE.BSD",
           "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
-        },
-        {
-          "path": "setuptools/_vendor/packaging/licenses/__init__.py",
-          "sha256": "d71e4cd671188dc83011b2edd1d5f0cf6ba48ebd7c0e20b30b4b2b690a89f96c"
-        },
-        {
-          "path": "setuptools/_vendor/packaging/licenses/__pycache__/__init__.cpython-312.pyc",
-          "sha256": "dbbba8e3a14b077a3f950a5d2d56cb083e64efaf68676cce8caf619cdf98d98f"
-        },
-        {
-          "path": "setuptools/_vendor/packaging/licenses/__pycache__/_spdx.cpython-312.pyc",
-          "sha256": "f145d386b00853eb87c5663f8bbe8280f6135027389347aed051103b3f0736e0"
-        },
-        {
-          "path": "setuptools/_vendor/packaging/licenses/_spdx.py",
-          "sha256": "a009b5ced3c5c25b2608a7bb94002cbff38839f4b57160eef5b34191ebbeda7b"
         },
         {
           "path": "setuptools/_vendor/platformdirs-4.2.2.dist-info/licenses/LICENSE",

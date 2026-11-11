@@ -19,6 +19,11 @@ def distribution_record(name, dist):
     notices = []
     for file in dist.files or []:
         relative = Path(str(file))
+        # packaging/licenses es también un módulo Python. Sus fuentes y caches
+        # no son avisos legales; el constructor omite deliberadamente bytecode.
+        if ('__pycache__' in relative.parts
+                or relative.suffix.lower() in {'.py', '.pyc', '.pyo', '.pyd', '.so', '.dll'}):
+            continue
         if (not NOTICE_NAME.match(relative.name)
                 and not any(part.lower() == 'licenses' for part in relative.parts[:-1])):
             continue

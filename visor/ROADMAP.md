@@ -193,7 +193,7 @@ continúa con las fases 11–12. Las fuentes congeladas y las entregas se conser
 Verificación local: 40 pruebas del desarrollo aprobadas; 427 históricas
 aprobadas y 15 omitidas. Compilación de scripts y enlaces locales de la auditoría
 correctos; 357 archivos congelados conservan sus hashes. El inventario registra
-208 avisos y señala el paquete proxy sin texto independiente, sin ocultarlo.
+los avisos legales y señala el paquete proxy sin texto independiente, sin ocultarlo.
 
 ## 11. Limpieza gradual del desarrollo
 
@@ -242,3 +242,16 @@ se verificaron las dos copias R18 de 342 archivos, 22 entradas y 21 selecciones
 anteriores sin alteraciones. El checkout independiente del conversor web está
 limpio. CI comprueba además avisos de licencia, hashes y enlaces dentro del
 portable Windows real, además de su conversión certificada.
+
+La última matriz detectó una clasificación incorrecta del inventario: el módulo
+`packaging/licenses` aportaba fuentes/cachés Python como si fueran avisos legales.
+Se excluyen esos archivos de código y bytecode, se regenera el inventario y se
+añade el caso a la prueba de avisos mixtos. El constructor sigue conservando los
+textos reales y el smoke verifica sus hashes; no se desactiva la comprobación.
+
+Ensayo real del flujo final con Bancada: conversión completa en 764 s en Linux,
+101 caras, un sólido exacto válido, tolerancia máxima 1e-7 mm y cero discrepancias
+en 2.998 puntos de material. Tres mallados cerrados/orientados con cero
+autointersecciones CGAL. La propuesta adicional no reduce conforme al contrato
+y se rechaza, conservando la referencia. No se atribuye una nueva reducción a
+Bancada. Sus archivos de prueba permanecen locales, fuera del repositorio.
