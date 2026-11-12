@@ -1,8 +1,0 @@
-{
-  "procedencia": "Generada por construcci\u00f3n CAD reproducible; independiente de los STL del usuario",
-  "triangulos": 93920,
-  "volumen_STL": 3579.7484687197443,
-  "volumen_CAD_origen": 3579.781996912497,
-  "sha256": "8bfaf5624566a202bfb1e472437130ba0b5caacf3ae08fbaa4e50dda5389e932",
-  "subdivision": "Cada tri\u00e1ngulo se divide en cuatro coplanares; no se cambia la geometr\u00eda"
-}

@@ -12,6 +12,16 @@ La entrega R20 está autorizada en la rama `perfeccion_Visualizador_R20`, con su
 ZIP completo en fuentes e instalador independiente. El constructor de entrega
 es `visor/scripts/build_r20.py`; no modifica las fuentes ni los ZIPs históricos.
 
+## Versiones y fixtures conservados
+
+Tras la limpieza autorizada, el árbol activo conserva R18, R19, R20 y la
+corrección del instalador R19. Las versiones anteriores se recuperan desde Git
+y sus ramas; el inventario está en `MANTENIMIENTO_VERSIONES.md`.
+Las pruebas históricas usan los seis archivos originales con hashes en
+`visor/test-data/r5_regression.zip`, no la entrega completa R5. Esta carpeta de
+datos queda fuera de los ZIP de producto. Conservar los 357 archivos R19 y
+los checksums de los paquetes R18/R19/R20 que siguen publicados.
+
 ## Conversor web y reglas de trabajo
 
 - La aplicación debe abrirse mediante un enlace web, sin instalar programas. Mantener el flujo completamente estático con HTML, JavaScript y WebAssembly.

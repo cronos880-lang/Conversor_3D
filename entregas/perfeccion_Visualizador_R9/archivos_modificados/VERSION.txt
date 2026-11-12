@@ -1,6 +1,0 @@
-perfeccion_Visualizador_R9
-2026-10-27
-2026.10.27-cilindros-verificados
-EXPERIMENTAL. Recuperación automática con contornos compatibles y comprobación CAD exacta.
-Python 3.12 de 64 bits. Puerto 8775; R7 puede seguir en 8771.
-No modifica GitHub Pages/WebAssembly. Windows nativo pendiente de prueba.

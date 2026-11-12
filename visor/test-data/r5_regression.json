@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "source_commit": "81d9e201d1d223e0a9b2d9471954c3b245a4e321",
+  "source_path": "entregas/perfeccion_Visualizador_R5/perfeccion_Visualizador_R5_EXPERIMENTAL.zip",
+  "source_zip_sha256": "a657d20bb86db1aedd456cd882380872d661c3857ecf21c6a2a9ed88028e98bd",
+  "archive": "r5_regression.zip",
+  "archive_sha256": "ee24c67ea6acdaf1d008268cdb4831b0ad99ef90680987a3ee1b51e29707e59b",
+  "files": {
+    "material_pruebas/casos_usuario_r5/6558_fixed.stl": {
+      "sha256": "6811a538af4fa3b2a69bbbccf9db416522f1913ce1700764528427c12d317bea",
+      "bytes": 578384
+    },
+    "evidencias/reparador_integrado/6558_fixed.json": {
+      "sha256": "0b9e609f3b669c3350e7d1f9cb292aca46e7e5ae5615f40ef95b0fdfc0bcc09c",
+      "bytes": 162912
+    },
+    "evidencias/reparador_integrado/6558_fixed.reparado.stl": {
+      "sha256": "64e8d88816120de12ae37519911edbccd8a82188f644200a5f4e77276e3344a1",
+      "bytes": 3550630
+    },
+    "material_pruebas/casos_usuario_r5/Pieza_Nueva_Detenida.stl": {
+      "sha256": "3e756da87a638a487263d912253cc3a482d6636c10f66f1e85b9419e6ce38d1e",
+      "bytes": 1006384
+    },
+    "evidencias/reparador_integrado/Pieza_Nueva_Detenida.json": {
+      "sha256": "0c7f01bcb8acab3b4547bc36652dadabf7ebb301df83150420189d66c69c437d",
+      "bytes": 328188
+    },
+    "evidencias/reparador_integrado/Pieza_Nueva_Detenida.reparado.stl": {
+      "sha256": "63034c615ae4fc30fba20abf130566fb62d1e7fadd99a9edc82cab9c390afa60",
+      "bytes": 4331865
+    }
+  }
+}

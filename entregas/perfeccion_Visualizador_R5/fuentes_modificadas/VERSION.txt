@@ -1,4 +1,0 @@
-perfeccion_Visualizador_R5
-2026-10-24
-AVANCE EXPERIMENTAL NO ESTABLE. Reparación de mallas verificada; aceptación STEP pendiente.
-Python 3.12 de 64 bits. Puerto 8769. No modifica GitHub Pages/WebAssembly.

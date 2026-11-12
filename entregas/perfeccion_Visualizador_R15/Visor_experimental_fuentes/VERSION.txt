@@ -1,4 +1,0 @@
-Visor STL → STEP · R15 experimental
-Compilación 2026.11.03-perfiles-cad-directos
-Puerto 8779
-Versión completa para Windows, independiente de R14.

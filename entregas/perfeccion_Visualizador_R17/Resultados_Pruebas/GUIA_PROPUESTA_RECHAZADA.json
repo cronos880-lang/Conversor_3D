@@ -1,9 +1,0 @@
-{
-  "ok": false,
-  "perfil": "precision",
-  "step": "/workspace/work/curvas_nuevas_20261104/propuesta_estratos_fuzzy/guia.step",
-  "source_sha256": "6635dfc10c63eed1e03db6f1a4fbe1005e5e672cd5528c63da265cfe9181b652",
-  "step_sha256": "501b469bfe173d0e827ba9b744124c67701acb6028611ed4d0744d1de46b96e1",
-  "error": "La reconstrucción presenta defectos topológicos avanzados: 2 posibles interferencias entre caras, aristas o vértices.",
-  "seconds": 5.0735951800015755
-}

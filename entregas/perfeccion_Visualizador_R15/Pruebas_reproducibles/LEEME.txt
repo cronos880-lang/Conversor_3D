@@ -1,5 +1,0 @@
-La brida se genera mediante crear_caso_axial_independiente.py con el entorno CAD preparado.
-Su STL incluido tiene 93.920 triángulos coplanares subdivididos; no usa geometría del conector.
-Para repetir el motor, desde Visor_experimental_fuentes: python motor_v2.py "ruta\brida_independiente_R15.stl" "salida.step".
-Los STL originales del usuario se identifican por SHA-256 en Resultados_pruebas/PROTOCOLO.json.
-Las pruebas del informe se ejecutaron con Python 3.12, cadquery2.8/OCC7.9.3 y Linux; no equivalen a ejecutar Windows u Onshape.

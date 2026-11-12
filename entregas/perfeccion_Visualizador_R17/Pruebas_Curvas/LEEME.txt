@@ -1,3 +1,0 @@
-Body_R17.step: 426 caras; cilindros y conos reales, nueve rebajes conservados.
-Guia_SIN_MEJORA_R17.step: 248 planos; resultado R16 conservado, mejora pendiente.
-Ambos STEP se descargaron desde la interfaz R17 real. Ver informe y evidencias.

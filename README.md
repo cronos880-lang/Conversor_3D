@@ -37,7 +37,9 @@ incompletos conservando el entorno y los datos. Véase
 Descomprimir en una carpeta independiente y seguir su `LEEME_PRIMERO.txt`.
 La entrega histórica requiere su entorno CAD; no incluye un runtime portable.
 El trabajo actual conserva ese ZIP, sus lanzadores y la instalación anterior.
-R18 y las demás entregas se mantienen en sus directorios y ramas.
+R18 se mantiene como respaldo. Las entregas anteriores se han retirado del árbol
+activo y siguen recuperables en sus ramas y en Git. Véase
+[la limpieza y el procedimiento de recuperación](MANTENIMIENTO_VERSIONES.md).
 
 ## Desarrollo actual del Visor
 

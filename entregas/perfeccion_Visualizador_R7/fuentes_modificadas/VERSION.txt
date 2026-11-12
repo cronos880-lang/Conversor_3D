@@ -1,6 +1,0 @@
-perfeccion_Visualizador_R7
-2026-10-25
-EXPERIMENTAL. Recuperación B-Rep facetada verificada de fronteras cerradas.
-6558 y Pieza Nueva convierten; cavidades conservadas y tolerancias originales.
-Python 3.12 de 64 bits. Puerto 8771. No modifica GitHub Pages/WebAssembly.
-Windows nativo y validación histórica de 14 piezas pendientes.

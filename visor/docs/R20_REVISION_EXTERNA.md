@@ -43,10 +43,11 @@ python visor/scripts/run_benchmarks.py --output resultados_nuevos --cases cylind
 python visor/scripts/smoke_native.py --development --output smoke_nuevo
 ```
 
-La batería histórica utiliza fixtures de un ZIP R5 existente en el repositorio;
-esos modelos no se duplican en la entrega R20. Para esa batería hay que usar el
-repositorio completo. Las pruebas nuevas, las fuentes del núcleo y el programa
-sí están en el ZIP. Los directorios de salida deben ser nuevos.
+La batería histórica utiliza seis fixtures R5 conservados con sus hashes en
+`visor/test-data/r5_regression.zip`; no necesita la entrega completa obsoleta.
+Esos modelos no se duplican en el ZIP de producto. Para la batería histórica hay
+que usar el repositorio completo. Las fuentes del núcleo y el programa sí están
+en la entrega. Los directorios de salida deben ser nuevos.
 
 ## Preguntas para el informe
 

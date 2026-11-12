@@ -1,5 +1,0 @@
-perfeccion_Visualizador_R11
-2026-10-28
-2026.10.28-perfiles-medidos
-EXPERIMENTAL. Reconstrucción de perfiles medidos con validación geométrica y CAD.
-Python 3.12 de 64 bits. Puerto 8777. Windows nativo pendiente de prueba.

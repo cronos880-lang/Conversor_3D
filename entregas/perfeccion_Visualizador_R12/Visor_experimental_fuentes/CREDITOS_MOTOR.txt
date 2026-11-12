@@ -1,8 +1,0 @@
-Motor geométrico basado en el código Easymeshfit compartido con autorización
-para este proyecto. Integración propia: motor_v2.py, servidor independiente,
-validación de superficies bidireccional, control de deformaciones en mallas
-extensas y protección de la versión estable. Interfaz original intacta.
-No afirmar que el árbol paramétrico original se recupera desde STL.
-
-Motor original Easymeshfit V2.2 de los archivos proporcionados por el usuario,
-conservado íntegro en motor_original_amigo/ y ejecutado solo como recuperación.

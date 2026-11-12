@@ -31,5 +31,7 @@ python visor/scripts/audit_frozen.py
 ```
 
 El resultado distingue hashes idénticos de variantes y falla si falta o cambia
-cualquier fuente del manifiesto. Los ZIP, ramas y fuentes de las entregas no se
-han eliminado ni se ha reescrito Git.
+cualquier fuente del manifiesto. R18, R19 y R20 se conservan; la limpieza
+autorizada de versiones anteriores se documenta en `MANTENIMIENTO_VERSIONES.md`
+en la raíz. Los seis fixtures históricos utilizados por las pruebas permanecen
+con hashes en `visor/test-data`. No se reescribe el historial Git.

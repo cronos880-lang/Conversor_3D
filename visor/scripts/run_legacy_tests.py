@@ -1,6 +1,8 @@
 """Ejecuta la batería congelada con sus cuatro raíces de importación explícitas."""
 from pathlib import Path
 import argparse
+import hashlib
+import json
 import os
 import subprocess
 import sys
@@ -21,13 +23,16 @@ command = [sys.executable, '-m', 'pytest', '-q', '-p', 'no:cacheprovider',
            '-p', 'legacy_test_plugin',
            '--junitxml=' + str(Path(args.xml).resolve())]
 command.extend(str(path) for path in sorted(root.glob('test_*.py')))
-# Dos pruebas históricas necesitan archivos que YA están en el ZIP R5.
-# Se leen entradas concretas, sin extractall ni publicar copias de modelos.
+# Dos pruebas históricas conservan sus seis entradas R5 byte a byte, con hashes.
+# El paquete de fixtures sustituye la dependencia de toda la entrega obsoleta.
 with tempfile.TemporaryDirectory(prefix='visor legacy fixtures ') as temporary:
     fixtures = Path(temporary)
     sources, results = fixtures / 'sources', fixtures / 'results'
     sources.mkdir(); results.mkdir()
-    archive = repo / 'entregas/perfeccion_Visualizador_R5/perfeccion_Visualizador_R5_EXPERIMENTAL.zip'
+    archive = repo / 'visor/test-data/r5_regression.zip'
+    manifest = json.loads((archive.with_suffix('.json')).read_text(encoding='utf-8'))
+    if hashlib.sha256(archive.read_bytes()).hexdigest() != manifest['archive_sha256']:
+        raise ValueError('El paquete de regresión R5 no coincide con su hash')
     with zipfile.ZipFile(archive) as bundle:
         for name in ('6558_fixed', 'Pieza_Nueva_Detenida'):
             for member, target in [
@@ -36,7 +41,10 @@ with tempfile.TemporaryDirectory(prefix='visor legacy fixtures ') as temporary:
                 (f'evidencias/reparador_integrado/{name}.reparado.stl', results / (name + '.reparado.stl')),
             ]:
                 with target.open('xb') as output:
-                    output.write(bundle.read(member))
+                    data = bundle.read(member)
+                    if hashlib.sha256(data).hexdigest() != manifest['files'][member]['sha256']:
+                        raise ValueError('Cambió un fixture histórico: ' + member)
+                    output.write(data)
     env.setdefault('VISOR_CASOS_R5', str(sources))
     env.setdefault('VISOR_RESULTADOS_R5', str(results))
     raise SystemExit(subprocess.run(command, cwd=root, env=env, timeout=1800).returncode)
