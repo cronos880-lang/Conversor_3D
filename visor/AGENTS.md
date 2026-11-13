@@ -1,6 +1,6 @@
 # Instrucciones técnicas del Visor completo para Windows
 
-Estas instrucciones complementan la V2.3 íntegra de `../AGENTS.md`, que se debe
+Estas instrucciones complementan la V2.3.1 íntegra de `../AGENTS.md`, que se debe
 leer y aplicar. No sustituyen sus reglas de autonomía, publicación, consulta,
 licencias ni aprobación de versiones. Su ámbito es el Visor Python/OCP;
 el conversor web estático de la raíz es un producto distinto.
@@ -59,7 +59,7 @@ existente es `scripts/build_r20.py` (ruta desde la raíz:
 - Mantener el proceso legacy aislado y la arquitectura de `docs/ARCHITECTURE.md`.
   No intercambiar variantes de módulos ni ejecutar pytest sobre todas las
   entregas a la vez. Un cambio de arquitectura o motor requiere consulta
-  conforme a la V2.3.
+  conforme a la V2.3.1.
 - Ejecutar las comprobaciones aplicables al cambio y documentar los resultados
   reales. Para cambios del motor o su integración, comprobar la integridad con
   `python visor/scripts/audit_frozen.py`, las pruebas actuales de `visor/tests`
@@ -74,7 +74,7 @@ existente es `scripts/build_r20.py` (ruta desde la raíz:
 ## Autonomía y publicación
 
 Los cambios ordinarios de un encargo se comprueban y se publican mediante
-commit y push en su rama conforme a la V2.3. Esa autonomía no permite relajar
+commit y push en su rama conforme a la V2.3.1. Esa autonomía no permite relajar
 validadores, sustituir motores ni comprometer datos o versiones protegidas.
 No generar versiones, etiquetas, releases ni ZIP nuevos sin una solicitud
 expresa del usuario; publicar código no equivale a aprobar una versión oficial.
