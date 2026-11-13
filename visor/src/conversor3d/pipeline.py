@@ -17,7 +17,7 @@ def code_fingerprint():
     """Identificar fuentes y recursos del desarrollo; no sustituye el certificado."""
     root = Path(__file__).parent
     digest = hashlib.sha256()
-    files = [path for path in root.rglob('*') if path.is_file() and path.suffix in {'.py', '.json', '.txt'}]
+    files = [path for path in root.rglob('*') if path.is_file() and path.suffix in {'.py', '.json', '.txt', '.html', '.js'}]
     for path in sorted(files, key=lambda p: p.relative_to(root).as_posix()):
         digest.update(path.relative_to(root).as_posix().encode())
         digest.update(bytes.fromhex(sha(path)))

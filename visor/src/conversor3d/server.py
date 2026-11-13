@@ -14,6 +14,15 @@ from .settings import Settings
 from ._version import APPLICATION_LABEL, __version__
 
 
+VIEWER = Path(__file__).parent / 'resources/viewer'
+
+
+def viewer_html():
+    """Interfaz de desarrollo propia; las fuentes R19 permanecen congeladas."""
+    html = (VIEWER / 'viewer.html').read_text(encoding='utf-8')
+    return html.replace('__APPLICATION_LABEL__', APPLICATION_LABEL)
+
+
 class PipelineCommands:
     """Adaptador local al módulo servidor; no altera subprocess globalmente."""
     def translate(self, command, options):
@@ -70,14 +79,15 @@ def serve_in_legacy(port, open_browser):
     servidor.subprocess = PipelineCommands()
     servidor.identidad = lambda root: identity.copy()
     servidor.VERSION, servidor.COMPILACION = APPLICATION_LABEL, __version__
-    from fastapi.responses import HTMLResponse
+    from fastapi.responses import HTMLResponse, Response
     async def development_index():
-        html = (FROZEN / 'Visor_STL_STEP.html').read_text(encoding='utf-8')
-        html = html.replace('R19 experimental · 10/11/2026', APPLICATION_LABEL)
-        html = html.replace('R19 experimental', APPLICATION_LABEL)
-        return HTMLResponse(html, headers={'Cache-Control': 'no-store'})
+        return HTMLResponse(viewer_html(), headers={'Cache-Control': 'no-store'})
+    async def presentation_script():
+        return Response((VIEWER / 'presentation.js').read_text(encoding='utf-8'),
+                        media_type='text/javascript', headers={'Cache-Control': 'no-store'})
     servidor.app.router.routes[:] = [r for r in servidor.app.router.routes if getattr(r, 'path', None) != '/']
     servidor.app.add_api_route('/', development_index, methods=['GET'])
+    servidor.app.add_api_route('/viewer/presentation.js', presentation_script, methods=['GET'])
     servidor.app.title, servidor.app.version = APPLICATION_LABEL, __version__
     from starlette.middleware.cors import CORSMiddleware
     from .security import LocalAccessMiddleware

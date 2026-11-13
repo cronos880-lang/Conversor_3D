@@ -19,7 +19,7 @@ testpaths = ["tests"]
 addopts = "--import-mode=importlib"
 
 [tool.setuptools.package-data]
-conversor3d = ["resources/evaluator/*", "resources/profiling/*", "resources/runtime-requirements.txt"]
+conversor3d = ["resources/evaluator/*", "resources/profiling/*", "resources/runtime-requirements.txt", "resources/viewer/*"]
 
 [tool.setuptools.dynamic]
 version = {attr = "conversor3d._version.__version__"}

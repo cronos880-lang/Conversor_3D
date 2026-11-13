@@ -62,8 +62,10 @@ def test_repair_overlay_matches_corrected_manifest_and_preserves_user_data(tmp_p
     builder = script('build_r20')
     patcher = script('build_installer_patch')
     original = builder.REPO / 'entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA.zip'
-    corrected, repair = tmp_path / 'corrected.zip', tmp_path / 'repair.zip'
-    builder.build(corrected)
+    # El parche histórico repara el instalador de sus dos entregas publicadas.
+    # El desarrollo posterior del Visor no pertenece a ese parche del instalador.
+    corrected = builder.REPO / 'entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA_CORREGIDA.zip'
+    repair = tmp_path / 'repair.zip'
     patcher.build(original, corrected, repair)
     with zipfile.ZipFile(original) as archive:
         archive.extractall(tmp_path / 'installed')
