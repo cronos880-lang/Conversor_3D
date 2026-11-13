@@ -11,6 +11,10 @@ class FinalValidationError(PipelineError):
     code = 'final_validation_rejected'
 
 
+class BaselineConversionError(PipelineError):
+    code = 'baseline_conversion_failed'
+
+
 class ProposalBudgetExceeded(PipelineError):
     """La optimización opcional excede su presupuesto; no invalida la referencia."""
 

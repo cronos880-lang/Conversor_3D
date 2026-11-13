@@ -8,7 +8,8 @@ el conversor web estático de la raíz es un producto distinto.
 ## Desarrollo y entregas históricas
 
 El código incremental está en `src/conversor3d/` dentro de este directorio,
-en la rama de trabajo `perfeccion_Visualizador_R20`. La rama
+en la rama de trabajo `perfeccion_Visualizador_R21`. La rama R20 anterior
+es `perfeccion_Visualizador_R20`. La rama
 `desarrollo/hoja-ruta-visor` conserva el desarrollo previo. Utilizar las fuentes
 R19 congeladas sin modificar sus validadores, tolerancias ni hashes.
 
@@ -81,3 +82,18 @@ expresa del usuario; publicar código no equivale a aprobar una versión oficial
 Cuando se solicite una entrega, aplicar el formato de ZIP y enlace directo
 visible de `../AGENTS.md`, indicando COMPLETA o ACTUALIZACIÓN, compatibilidad,
 instalación y recuperación sin pérdida de datos.
+
+
+## Entrega R21 ligera y caché de referencias
+
+- R21 conserva la interfaz, los perfiles, las dependencias y los validadores.
+- El entorno R20 y sus fuentes R19 se leen sin modificarlos. R21 tiene código,
+  datos, caché, registros y puerto propios. No incluir runtimes duplicados.
+- La caché guarda geometría de referencia, nunca certificados ni aprobaciones.
+  Cada lectura requiere un control frío completo nuevo antes de seleccionar
+  geometría. Un rechazo vuelve a R19; no relajar controles para aprovechar caché.
+- Sólo se reutiliza un certificado completo generado dentro de la misma
+  ejecución si STL, STEP, perfil y nonce coinciden y el verificador original lo
+  comprueba. Nunca reutilizar un certificado entre conversiones.
+- Mantener los ZIP R18/R19/R20 y las 357 fuentes R19 intactos. El constructor
+  `scripts/build_r21_update.py` prepara la actualización cuando se solicita.

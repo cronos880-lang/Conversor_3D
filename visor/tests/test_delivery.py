@@ -24,14 +24,19 @@ def script(name):
 
 def test_r20_archive_keeps_frozen_bytes_and_excludes_new_models_and_environments(tmp_path):
     builder = script('build_r20')
-    archive = tmp_path / 'R20.zip'
-    summary = builder.build(archive)
-    assert summary['identity']['release'] == 'R20'
-    assert summary['identity']['version'] == '20.0.0'
-    assert summary['identity']['installer_revision'] == 2
-    assert summary['identity']['port'] == 8784
+    from conversor3d._version import RELEASE_NAME
+    if RELEASE_NAME == 'R20':
+        archive = tmp_path / 'R20.zip'
+        builder.build(archive)
+    else:
+        # La versión anterior se contrasta con sus bytes publicados, sin regenerarla.
+        archive = builder.REPO / 'entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA_CORREGIDA.zip'
     with zipfile.ZipFile(archive) as bundle:
         manifest = json.loads(bundle.read(builder.PREFIX + '/R20_MANIFEST.json'))
+        assert manifest['identity']['release'] == 'R20'
+        assert manifest['identity']['version'] == '20.0.0'
+        assert manifest['identity']['installer_revision'] == 2
+        assert manifest['identity']['port'] == 8784
         assert manifest['bundled_third_party_binaries'] is False
         assert not any('/.venv' in name or '/datos/' in name or '/data/' in name
                        or '/runtime/' in name for name in bundle.namelist())

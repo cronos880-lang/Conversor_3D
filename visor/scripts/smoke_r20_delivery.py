@@ -144,6 +144,11 @@ def smoke(output: Path, archive=None):
                     print('ZIP R20: LANZADOR, CONVERSIÓN Y STEP CERTIFICADO OK', flush=True)
             finally:
                 stop_tree(process)
+        # R21 reutiliza este entorno R20 real: no se prepara otro runtime para la prueba.
+        from conversor3d._version import RELEASE_NAME
+        if RELEASE_NAME == 'R21':
+            from smoke_r21_update import smoke as smoke_update
+            smoke_update(output / 'r21-light', root)
 
 
 if __name__ == '__main__':

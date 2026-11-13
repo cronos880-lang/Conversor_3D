@@ -1,0 +1,25 @@
+R21 EXPERIMENTAL - ACTUALIZACION LIGERA PARA R20
+
+Necesita R20 ya instalada con su entorno preparado. No es una entrega completa.
+No incluye Python ni bibliotecas CAD duplicadas. No instala dependencias nuevas.
+
+1. Extrae TODO el ZIP en una carpeta nueva, junto a tu carpeta R20.
+   Debe quedar una carpeta Conversor_3D_R21_actualizacion.
+   No extraigas ni sobrescribas los archivos dentro de R20.
+2. Abre Iniciar_R21.bat. Si R20 no se localiza automaticamente, selecciona su carpeta.
+
+Para comprobar la preparacion sin abrir el visor: Diagnostico_R21.bat.
+Si falta el entorno de R20, ejecuta su Reparar_Entorno_R20.bat y vuelve a abrir R21.
+
+R21 conserva los cuatro botones y los perfiles. Incluye la mejora visual y evita
+trabajo repetido. Las reconversiones identicas reutilizan la geometria de referencia,
+pero ejecutan siempre un control frio nuevo y verifican el STEP final.
+La primera conversion de una pieza dificil puede seguir tardando varios minutos.
+No se anuncia una reduccion nueva de caras ni una reconstruccion nueva aceptada.
+
+Los datos y registros propios de R21 quedan en datos dentro de su carpeta.
+R20, su entorno y tus modelos se conservan. Para volver a R20, cierra R21 y abre
+el lanzador R20 de siempre. No hace falta desinstalar nada.
+
+R21 usa el puerto 8785; R20 conserva su puerto anterior.
+Consulta INFORME_R21.md para ver las pruebas y los limites conocidos.

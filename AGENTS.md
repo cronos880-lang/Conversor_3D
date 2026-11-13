@@ -79,7 +79,8 @@ autorizaciones para cambiar arquitectura, integrar motores o aprobar versiones.
 
 El conversor web de `index.html` y `static/` es distinto del Visor completo
 Python/OCP para Windows. El desarrollo incremental del Visor vive en `visor/`.
-La rama de trabajo actual es `perfeccion_Visualizador_R20`;
+La rama de trabajo actual es `perfeccion_Visualizador_R21`;
+R20 permanece en `perfeccion_Visualizador_R20`;
 `desarrollo/hoja-ruta-visor` contiene el desarrollo previo a la entrega R20.
 Comprobar siempre la rama y el estado reales antes de continuar.
 
@@ -119,3 +120,14 @@ están autorizados conforme a la V2.3.1; no crean una versión oficial aprobada 
 autorizan por sí solos una etiqueta, release o ZIP nuevos. Los despliegues
 vinculados a pushes sólo quedan cubiertos si están dentro de la tarea y sus
 pruebas aplicables son satisfactorias. No se alteran las automatizaciones web.
+
+
+## R21 experimental autorizada
+
+El usuario autorizó una R21 ligera si se demostraba una mejora sustancial. La
+batería local de ocho piezas pasó 24 conversiones sin regresión de geometría ni
+controles. R21 se entrega como ACTUALIZACIÓN en carpeta independiente: reutiliza
+el entorno preparado de R20 y su motor R19, sin modificarlos ni duplicarlos.
+El constructor es `visor/scripts/build_r21_update.py`. Se conserva íntegra la
+reglamentación general V2.3.1. La mejora principal es de rendimiento; no se
+anuncia una reconstrucción analítica nueva aceptada.

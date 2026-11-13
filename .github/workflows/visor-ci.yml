@@ -1,7 +1,7 @@
 name: Visor - pruebas nativas
 on:
   push:
-    branches: ['desarrollo/hoja-ruta-visor', 'perfeccion_Visualizador_R20']
+    branches: ['desarrollo/hoja-ruta-visor', 'perfeccion_Visualizador_R20', 'perfeccion_Visualizador_R21']
     paths: ['visor/**', 'entregas/perfeccion_Visualizador_R20/**', '.github/workflows/visor-ci.yml']
   pull_request:
     paths: ['visor/**', '.github/workflows/visor-ci.yml']

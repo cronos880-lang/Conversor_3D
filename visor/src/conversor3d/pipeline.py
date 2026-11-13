@@ -11,6 +11,53 @@ import time
 from .legacy import FROZEN, native_env, run_worker, sha
 from .processes import execute
 from .validation import evaluate
+from .progress import milestone
+from .errors import BaselineConversionError
+
+
+def run_baseline(source, baseline, evidence, report):
+    """Conservar el fallo nativo y sus registros, sin llamarlo conversión válida."""
+    started = time.monotonic()
+    status = None
+    try:
+        status = execute([sys.executable, str(FROZEN / 'motor_r19.py'), str(source), str(baseline)],
+                         evidence, 'baseline', cwd=FROZEN, env=native_env(), timeout=3600)
+        result = _last_result(evidence / 'baseline.stdout.txt')
+        if status['returncode'] or result.get('ok') is not True:
+            raise ValueError(result.get('error') or 'El proceso terminó sin una salida aprobada')
+        return result
+    except Exception as error:
+        stderr = evidence / 'baseline.stderr.txt'
+        lines = stderr.read_text(encoding='utf-8', errors='replace').splitlines() if stderr.exists() else []
+        detail = next((line.strip() for line in reversed(lines) if line.strip()), '')[:600]
+        code = status.get('returncode') if status else None
+        record = {'error': str(error), 'native_returncode': code, 'last_native_message': detail,
+                  'stdout': str(evidence / 'baseline.stdout.txt'), 'stderr': str(stderr)}
+        report.update(state='baseline_rejected', baseline_failure=record)
+        report['timings']['baseline_total_seconds'] = time.monotonic() - started
+        (evidence / 'pipeline.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+        message = f'Fallo en la reconstrucción R19 (código {code}): {error}'
+        if detail and detail not in message:
+            message += ' · ' + detail
+        raise BaselineConversionError(message + ' · Registros: ' + str(evidence)) from error
+
+
+def current_run_certificate(source, baseline, evidence):
+    """Verificar el control frío R19 que acaba de generarse en ESTA ejecución."""
+    path = baseline.with_suffix('.r19_nucleo.json')
+    if not path.is_file():
+        return None
+    record = json.loads(path.read_text(encoding='utf-8'))
+    required = {'calidad', 'topologia_material', 'mallado_fino', 'material_original',
+                'auditoria_step_crudo', 'certificado'}
+    if record.get('ok') is not True or not required <= record.keys():
+        return None
+    value = {'record': record, 'quality': record['calidad'], 'nonce': record['certificado']['nonce']}
+    envelope = evidence / 'current-r19-certificate.json'
+    envelope.write_text(json.dumps(value), encoding='utf-8')
+    run_worker({'action': 'verify_final', 'source': str(source), 'candidate': str(baseline),
+                'certificate': str(envelope)}, evidence / 'verify-r19-current')
+    return value
 
 
 def code_fingerprint():
@@ -47,6 +94,19 @@ def optimize_reference(
         Path, (source, baseline, baseline_run, evidence)
     )
     evidence.mkdir(exist_ok=False)
+    quality = (json.loads(baseline_run.read_text(encoding='utf-8'))['payload']['resultado']['calidad']
+               if baseline_run.is_file() else {})
+    types = quality.get('tipos_caras', {})
+    canonical_only = (types and set(types) <= {'GeomAbs_Plane', 'GeomAbs_Cylinder'}
+                      and sum(types.values()) == quality['caras_step'])
+    if (isinstance(quality.get('caras_step'), int) and quality['caras_step'] <= 5) or canonical_only:
+        # El proponente actual sólo sustituye soportes residuales. No cambia estas caras.
+        reason = ('La referencia sólo contiene planos y cilindros protegidos' if canonical_only
+                  else 'El contrato no admite una reducción suficiente con cinco caras o menos')
+        report = {'accepted': False, 'selected': str(baseline), 'selected_sha256': sha(baseline),
+                  'reason': reason, 'proposal_skipped': True}
+        (evidence / 'skipped.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+        return report
     candidate = evidence / 'candidate.step'
     job = evidence / 'proposal-job.json'
     job.write_text(json.dumps({'baseline': str(baseline), 'candidate': str(candidate)}), encoding='utf-8')
@@ -61,7 +121,7 @@ def optimize_reference(
     return evaluate(source, baseline, baseline_run, candidate, evidence / 'validation')
 
 
-def certify_selection(selection, source, selected, baseline_run, evidence):
+def certify_selection(selection, source, selected, baseline_run, evidence, reference_certificate=None):
     """Reutiliza sólo el control completo ya realizado en ESTA selección."""
     approval = selection.get('validation', {})
     record = approval.get('final_validation', {})
@@ -75,6 +135,15 @@ def certify_selection(selection, source, selected, baseline_run, evidence):
         # dependencias y núcleo actuales. Nunca se acepta un certificado antiguo
         # por nombre de archivo o por una bandera del proponente.
         return {'record': record, 'quality': approval['calidad'], 'nonce': approval['nonce']}, True
+    if reference_certificate is not None:
+        record = reference_certificate['record']
+        identity = record.get('certificado', {})
+        if (record.get('ok') is True and identity.get('source_sha256') == sha(source)
+                and identity.get('step_sha256') == sha(selected)
+                and identity.get('perfil', {}).get('id') == os.environ.get('VISOR_PERFIL', 'precision')
+                and identity.get('nonce') == reference_certificate['nonce']):
+            # Creado en ESTE convert(), nunca leído de la caché. Se verifica tras la copia.
+            return reference_certificate, True
     certified = run_worker({'action': 'certify_final', 'source': str(source),
                             'candidate': str(selected), 'baseline_run': str(baseline_run),
                             'evidence': str(evidence)}, evidence)
@@ -108,15 +177,44 @@ def convert(source: Path, destination: Path):
     report = {'state': 'baseline', 'source_sha256': source_hash, 'development_sha256': fingerprint, 'input_analysis': summary, 'timings': timings,
               'configuration': configuration.describe(), 'runtime': runtime}
     baseline = evidence / 'baseline.step'
-    status = execute([sys.executable, str(FROZEN / 'motor_r19.py'), str(source), str(baseline)],
-                     evidence, 'baseline', cwd=FROZEN, env=native_env(), timeout=3600)
-    timings['baseline_total_seconds'] = status['seconds']
-    result = _last_result(evidence / 'baseline.stdout.txt')
-    if status['returncode'] or result.get('ok') is not True:
-        raise ValueError(result.get('error', 'Referencia R19 interrumpida'))
     baseline_run = evidence / 'baseline-run.json'
-    baseline_run.write_text(json.dumps({'returncode': 0, 'payload': result,
-                                       'source_sha256': source_hash, 'step_sha256': sha(baseline)}), encoding='utf-8')
+    reference_certificate, result, cache_identity = None, None, None
+    reference_start = time.monotonic()
+    reference_report = {'enabled': configuration.cache_enabled, 'cache_hit': False,
+                        'certificate_reused_from_cache': False}
+    if configuration.cache_enabled:
+        from .reference_cache import identity, load
+        cache_identity = identity(source, configuration.profile, runtime)
+        result = load(configuration.cache_dir, cache_identity, baseline, baseline_run)
+        if result is not None:
+            try:
+                milestone(1, 'Referencia guardada íntegra; ejecutando un control frío nuevo')
+                reference_certificate = run_worker(
+                    {'action': 'certify_final', 'source': str(source), 'candidate': str(baseline),
+                     'baseline_run': str(baseline_run), 'evidence': str(evidence / 'reference-worker')},
+                    evidence / 'reference-worker')['value']
+                result['resultado']['calidad'] = reference_certificate['quality']
+                baseline_run.write_text(json.dumps({'returncode': 0, 'payload': result,
+                    'source_sha256': source_hash, 'step_sha256': sha(baseline)}), encoding='utf-8')
+                reference_report.update(cache_hit=True, fresh_cold_validation=True)
+                milestone(90, 'Referencia comprobada de nuevo; revisando la optimización')
+            except Exception as error:
+                reference_report['rejected_cached_reference'] = str(error)
+                baseline.unlink(missing_ok=True)
+                baseline_run.unlink(missing_ok=True)
+                result, reference_certificate = None, None
+    if result is None:
+        result = run_baseline(source, baseline, evidence, report)
+        baseline_run.write_text(json.dumps({'returncode': 0, 'payload': result,
+            'source_sha256': source_hash, 'step_sha256': sha(baseline)}), encoding='utf-8')
+        try:
+            reference_certificate = current_run_certificate(source, baseline, evidence)
+            reference_report['r19_certificate_verified_within_this_run'] = reference_certificate is not None
+        except (ValueError, KeyError, OSError) as error:
+            reference_report['current_certificate_not_reused'] = str(error)
+    baseline_result = copy.deepcopy(result)
+    timings['baseline_total_seconds'] = time.monotonic() - reference_start
+    report['reference_cache'] = reference_report
     optimization_start = time.monotonic()
     try:
         selection = optimize_reference(source, baseline, baseline_run, evidence / 'optimization')
@@ -130,7 +228,8 @@ def convert(source: Path, destination: Path):
     report.update(state='final_validation', selection=selection)
     (evidence / 'pipeline.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     final_start = time.monotonic()
-    certificate_value, reused = certify_selection(selection, source, selected, baseline_run, evidence / 'final')
+    certificate_value, reused = certify_selection(selection, source, selected, baseline_run,
+                                                 evidence / 'final', reference_certificate)
     timings['final_certificate_seconds'] = time.monotonic() - final_start
     report['reused_full_validation_for_identical_bytes'] = reused
     certificate = evidence / 'certificate.json'
@@ -138,6 +237,7 @@ def convert(source: Path, destination: Path):
     if sha(source) != source_hash or code_fingerprint() != fingerprint:
         raise ValueError('La entrada o el programa cambió durante la conversión')
     copy_start = time.monotonic()
+    milestone(98, 'Geometría validada; verificando los bytes del STEP final')
     with selected.open('rb') as src, destination.open('xb') as dst:
         shutil.copyfileobj(src, dst)
     try:
@@ -167,8 +267,15 @@ def convert(source: Path, destination: Path):
     cold_record = copy.deepcopy(certificate_value['record'])
     cold_record.update(development_sha256=fingerprint, step_sha256=sha(destination),
                        original_sha256=source_hash, runtime=runtime)
+    if configuration.cache_enabled:
+        from .reference_cache import store
+        try:
+            reference_report['store'] = store(configuration.cache_dir, cache_identity, baseline, baseline_result)
+        except OSError as error:
+            reference_report['store_error'] = str(error)
     # Nombres compatibles con el servidor: conserva los certificados tras borrar temporales.
     for path, payload in [(cold_sidecar, cold_record), (pipeline_sidecar, report)]:
         with path.open('x', encoding='utf-8') as stream:
             json.dump(payload, stream, indent=2)
+    milestone(99, 'STEP final verificado y preparado para descargar')
     return final

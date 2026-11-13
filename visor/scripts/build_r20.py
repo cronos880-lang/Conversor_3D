@@ -17,6 +17,10 @@ def release_identity():
         REPO / 'visor/src/conversor3d/_version.py')
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    if module.RELEASE_NAME != 'R20':
+        historical = REPO / 'entregas/perfeccion_Visualizador_R20/perfeccion_Visualizador_R20_EXPERIMENTAL_COMPLETA_CORREGIDA.zip'
+        with zipfile.ZipFile(historical) as archive:
+            return json.loads(archive.read(PREFIX + '/R20_VERSION.json'))
     return {'release': module.RELEASE_NAME, 'version': module.__version__,
             'label': module.APPLICATION_LABEL, 'port': module.DEFAULT_PORT,
             'base_engine': module.BASE_ENGINE,
@@ -95,6 +99,9 @@ def payload():
 
 
 def build(output: Path):
+    current = (REPO / 'visor/src/conversor3d/_version.py').read_text(encoding='utf-8')
+    if not re.search(r"^RELEASE_NAME = ['\"]R20['\"]", current, re.MULTILINE):
+        raise ValueError('La fuente ya no es R20; utilizar el constructor de su entrega actual')
     output = Path(output)
     if output.exists():
         raise ValueError('El ZIP de salida debe ser nuevo')
