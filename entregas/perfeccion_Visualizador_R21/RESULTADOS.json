@@ -1,0 +1,442 @@
+{
+  "schema": 1,
+  "release": "R21 experimental",
+  "delivery": "ACTUALIZACION",
+  "source_commit": "583f73e7376cf1acd08518cc06f160cb6e3a9505",
+  "source_tree_clean_at_build": true,
+  "platform_measurements": "Linux; carga variable entre tandas",
+  "archive": {
+    "name": "Conversor_3D_R21_ACTUALIZACION_LIGERA.zip",
+    "bytes": 83795,
+    "sha256": "0e1778d70e371ae697447e42989f201264ba31f08fe939b88b1b9f1ddb573900"
+  },
+  "source_ci_url": "https://github.com/cronos880-lang/Conversor_3D/actions/runs/43460470807",
+  "local_tests": {
+    "current_passed": 57,
+    "legacy_passed": 427,
+    "legacy_skipped": 15,
+    "frozen_hashes": 357,
+    "light_zip_actual_r20_environment_smoke": true,
+    "final_zip_browser_import_convert_progress_export": {
+      "ok": true,
+      "page_errors": [],
+      "progress": "100 %",
+      "export_step": true,
+      "four_buttons": 4,
+      "screenshot": "R21_interfaz_final.png"
+    },
+    "browser_exported_step_reimport": {
+      "valid": true,
+      "solids": 1,
+      "faces": 6,
+      "volume_mm3": 120
+    }
+  },
+  "synthetic_conversions": [
+    {
+      "case": "cylinder",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 33.948,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000593
+    },
+    {
+      "case": "cylinder",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 29.152,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000593
+    },
+    {
+      "case": "cylinder",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 6.382,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000593
+    },
+    {
+      "case": "thin_wall",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 38.188,
+      "faces": 10,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "thin_wall",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 29.285,
+      "faces": 10,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "thin_wall",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 5.643,
+      "faces": 10,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "small_hole",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 47.914,
+      "faces": 7,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 3e-05
+    },
+    {
+      "case": "small_hole",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 40.761,
+      "faces": 7,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 3e-05
+    },
+    {
+      "case": "small_hole",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 10.99,
+      "faces": 7,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 3e-05
+    },
+    {
+      "case": "rotated_cylinder",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 43.611,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000386
+    },
+    {
+      "case": "rotated_cylinder",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 20.305,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000386
+    },
+    {
+      "case": "rotated_cylinder",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 4.501,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000386
+    },
+    {
+      "case": "two_holes",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 22.414,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000395
+    },
+    {
+      "case": "two_holes",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 16.938,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000395
+    },
+    {
+      "case": "two_holes",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 4.433,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.000395
+    },
+    {
+      "case": "prismatic_L",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 20.699,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "prismatic_L",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 15.631,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "prismatic_L",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 3.376,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "box",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 30.142,
+      "faces": 6,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "box",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 29.306,
+      "faces": 6,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "box",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 6.041,
+      "faces": 6,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "stepped_prism",
+      "variant": "R20_cold",
+      "returncode": 0,
+      "elapsed_s": 32.706,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "stepped_prism",
+      "variant": "new_cold",
+      "returncode": 0,
+      "elapsed_s": 27.824,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "stepped_prism",
+      "variant": "new_warm",
+      "returncode": 0,
+      "elapsed_s": 5.991,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "max_deviation_mm": 0.0
+    },
+    {
+      "case": "box",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 23.038,
+      "faces": 6,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    },
+    {
+      "case": "cylinder",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 22.283,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    },
+    {
+      "case": "prismatic_L",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 19.482,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    },
+    {
+      "case": "rotated_cylinder",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 22.014,
+      "faces": 3,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    },
+    {
+      "case": "small_hole",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 21.914,
+      "faces": 7,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    },
+    {
+      "case": "stepped_prism",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 19.764,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    },
+    {
+      "case": "thin_wall",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 25.439,
+      "faces": 10,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    },
+    {
+      "case": "two_holes",
+      "variant": "R20_warm",
+      "returncode": 0,
+      "elapsed_s": 23.058,
+      "faces": 8,
+      "max_brep_mm": 1e-07,
+      "material_discrepancies": 0,
+      "mesh_checks": 3
+    }
+  ],
+  "bancada_conversions": [
+    {
+      "variant": "r20_bancada_cold",
+      "ok": true,
+      "seconds": 892.169656176,
+      "faces": 101,
+      "solids": 1,
+      "max_brep_mm": 1e-07,
+      "max_deviation_mm": 0.003438,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "step_sha256": "137f7295b79e92deb8742b281be0d7e34854e5c1dd8ab0e0f105966e9e126d15"
+    },
+    {
+      "variant": "r21_bancada_cold",
+      "ok": true,
+      "seconds": 891.3001754970028,
+      "faces": 101,
+      "solids": 1,
+      "max_brep_mm": 1e-07,
+      "max_deviation_mm": 0.003438,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "step_sha256": "61d025a44bac16e9258876941452df01ee3649e29f9c574eac7368f0c9ec4217"
+    },
+    {
+      "variant": "r21_bancada_warm",
+      "ok": true,
+      "seconds": 77.66531246299928,
+      "faces": 101,
+      "solids": 1,
+      "max_brep_mm": 1e-07,
+      "max_deviation_mm": 0.003438,
+      "material_discrepancies": 0,
+      "mesh_checks": 3,
+      "step_sha256": "61d025a44bac16e9258876941452df01ee3649e29f9c574eac7368f0c9ec4217"
+    }
+  ],
+  "bancada_new_first_vs_repeat_identical_step_bytes": true,
+  "fresh_nonce_per_conversion_observed": true,
+  "face_count_improvement_accepted": false,
+  "new_geometry_prototype": "Rejected by frozen gate; not integrated",
+  "native_ci": {
+    "run_id": 43460470807,
+    "head_sha": "583f73e7376cf1acd08518cc06f160cb6e3a9505",
+    "status": "completed",
+    "conclusion": "success",
+    "linux": {
+      "current_passed": 57,
+      "legacy_passed": 427,
+      "legacy_skipped": 15
+    },
+    "windows": {
+      "current_passed": 57,
+      "legacy_passed": 426,
+      "legacy_skipped": 16,
+      "portable_smoke": true,
+      "r20_real_bat_install_repair_convert": true,
+      "r21_real_bat_two_conversions_fresh_certificates_r20_unchanged": true
+    }
+  }
+}

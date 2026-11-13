@@ -8,6 +8,22 @@ del Visor. Sus motores y sus comprobaciones no son intercambiables.
 | Conversor web | [index.html](index.html), `static/` | HTML, JavaScript y WebAssembly. Trabaja en el navegador; las curvas conservan las facetas del STL. |
 | Visor completo R19 experimental | [Entrega histórica](entregas/perfeccion_Visualizador_R19/LEEME_PRIMERO.txt) | Aplicación con interfaz local y motor Python/OCP. Fuentes y validadores congelados. |
 | Visor R20 experimental | [visor/](visor/README.md) | Reconstrucción opcional con contornos compartidos, evaluación independiente y certificado final completo. Entrega autorizada para pruebas. |
+| Visor R21 experimental | [Actualización ligera](entregas/perfeccion_Visualizador_R21/INFORME_RESULTADOS.md) | Rendimiento y diagnóstico, con control frío nuevo y geometría conservada. Reutiliza R20 sin modificarla. |
+
+## Probar R21 experimental — ACTUALIZACIÓN ligera
+
+[Descargar R21 para una R20 ya instalada](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R21/entregas/perfeccion_Visualizador_R21/Conversor_3D_R21_ACTUALIZACION_LIGERA.zip?raw=true)
+· [Resultados y límites de R21](entregas/perfeccion_Visualizador_R21/INFORME_RESULTADOS.md)
+
+El ZIP ocupa 83.795 bytes y necesita R20 con su entorno preparado. Extraerlo en
+una carpeta nueva junto a R20 y abrir `Iniciar_R21.bat`; si no se localiza R20,
+seleccionar su carpeta. No hay otro instalador ni bibliotecas CAD duplicadas.
+Los datos R21 quedan separados; para volver a R20 basta abrir su lanzador original.
+
+La Bancada midió 891,3 s en su primera conversión con las mejoras y 77,7 s al
+repetirla: STEP idéntico y certificado nuevo. Mantiene 101 caras y tolerancia
+B-Rep de `1e-7 mm`. La primera conversión difícil sigue siendo lenta y esta
+entrega no reduce caras ni anuncia una precisión geométrica nueva.
 
 ## Probar R20 experimental
 
@@ -43,8 +59,9 @@ activo y siguen recuperables en sus ramas y en Git. Véase
 
 ## Desarrollo actual del Visor
 
-El desarrollo previo está en `desarrollo/hoja-ruta-visor`; su entrega autorizada
-R20 está en `perfeccion_Visualizador_R20`, con código en `visor/`. La identidad
+El desarrollo previo está en `desarrollo/hoja-ruta-visor`; R20 permanece en
+`perfeccion_Visualizador_R20` y R21 en `perfeccion_Visualizador_R21`, con código
+en `visor/`. La identidad
 se define en un único módulo, conservando la dependencia R19 congelada.
 
 - [Instalación y comandos](visor/README.md).
