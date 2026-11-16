@@ -111,6 +111,20 @@ def smoke(output, base, archive=None):
                 print('R21 LIGERA: ARRANQUE, DOS CONVERSIONES Y STEP VALIDOS; R20 INTACTA', flush=True)
         finally:
             stop_tree(process)
+    diagnostic = [str(python), '-B', str(root / 'r21_launcher.py'),
+                  '--base-r20', str(base), '--diagnostico', '--no-browser']
+    if os.name == 'nt':
+        diagnostic = [str(system32 / 'cmd.exe'), '/d', '/c',
+                      'Diagnostico_R21.bat', '--no-browser']
+    with (output / 'diagnostic.log').open('xb') as log:
+        subprocess.run(diagnostic, cwd=root, env=env, stdout=log, stderr=log,
+                       check=True, timeout=300)
+    path = next((root / 'datos').glob('diagnostico_R21_*.json'))
+    proof = json.loads(path.read_text(encoding='utf-8'))
+    assert proof['ok'] and proof['separate_process_per_module']
+    assert len(proof['modules']) == 11 and all(m['ok'] for m in proof['modules'])
+    (output / 'native-diagnostic.json').write_text(json.dumps(proof, indent=2), encoding='utf-8')
+    print('R21: DIAGNOSTICO REAL DE 11 BIBLIOTECAS EN PROCESOS SEPARADOS OK', flush=True)
 
 
 if __name__ == '__main__':

@@ -21,6 +21,15 @@ la politica de scripts de Windows ni instala herramientas.
 Los mensajes y fallos del arranque se guardan en datos\arranque_R21.log.
 Diagnostico_R21.bat mantiene la ventana abierta para poder leer el resultado.
 
+REVISION 3 - ARRANQUE SIN LA IMPORTACION NATIVA CONJUNTA
+El arranque comprueba Python, las versiones y los hashes sin importar juntas
+las ocho bibliotecas CAD. El servidor carga las que necesita para abrir el Visor;
+las conversiones conservan todos sus controles y bibliotecas originales.
+Diagnostico_R21.bat importa cada biblioteca en un proceso independiente, muestra
+su nombre y su tiempo, e identifica el modulo si falla o supera su propio plazo.
+Mientras espera muestra mensajes de actividad. Un sondeo agotado se detiene;
+el diagnostico continua con las demas bibliotecas y guarda un JSON en datos.
+
 R21 conserva los cuatro botones y los perfiles. Incluye la mejora visual y evita
 trabajo repetido. Las reconversiones identicas reutilizan la geometria de referencia,
 pero ejecutan siempre un control frio nuevo y verifican el STEP final.

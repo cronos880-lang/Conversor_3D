@@ -72,7 +72,9 @@ def serve_in_legacy(port, open_browser):
     """Se llama únicamente dentro del trabajador con R19 importado explícitamente."""
     from .dependencies import runtime_identity
     runtime_identity()
+    print('R21: cargando el servidor y sus bibliotecas CAD necesarias...', flush=True)
     import servidor
+    print('R21: bibliotecas del servidor cargadas.', flush=True)
     import uvicorn
     configuration = Settings.read()
     identity = configuration.identity(port)

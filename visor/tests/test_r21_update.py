@@ -101,3 +101,47 @@ def test_windows_bootstrap_needs_no_global_python_and_preserves_spaces(tmp_path)
     assert run.returncode == 0, run.stdout + run.stderr
     payload = json.loads(next(line for line in run.stdout.splitlines() if line.startswith('{')))
     assert payload['args'] == ['--base-r20', str(base), '--no-browser']
+
+
+def test_startup_checks_versions_without_importing_native_modules(tmp_path):
+    import sys
+    launcher = script('r21_launcher')
+    for module in launcher.NATIVE_MODULES:
+        (tmp_path / (module + '.py')).write_text("raise RuntimeError('La carga nativa no corresponde al prearranque')\n")
+    env = {**os.environ, 'PYTHONPATH': os.pathsep.join([str(tmp_path), str(SCRIPTS.parent / 'src')])}
+    result = launcher.run_probe(sys.executable, launcher.RUNTIME_PROBE, env, 'Versiones', lambda line: None)
+    assert result['ok'] and result['runtime']['libraries']['cadquery']
+
+
+def test_slow_probe_shows_progress_while_waiting():
+    import sys
+    launcher = script('r21_launcher')
+    messages = []
+    result = launcher.run_probe(sys.executable,
+        "import time; print('fase lenta', flush=True); time.sleep(.3); "
+        "print('R21_PROBE_RESULT={\"ok\":true}', flush=True)",
+        os.environ.copy(), 'Prueba de espera', messages.append, heartbeat=.05, timeout=10)
+    assert result['ok']
+    assert 'fase lenta' in messages
+    assert any('sigue en curso' in line for line in messages)
+
+
+def test_diagnosis_names_blocked_module_stops_it_and_continues(tmp_path):
+    import sys
+    import psutil
+    launcher = script('r21_launcher')
+    pid = tmp_path / 'blocked.pid'
+    (tmp_path / 'r21_blocked.py').write_text(
+        'import os,time\nfrom pathlib import Path\nPath(' + repr(str(pid)) +
+        ').write_text(str(os.getpid()))\ntime.sleep(30)\n')
+    (tmp_path / 'r21_broken.py').write_text("raise ImportError('DLL de prueba no disponible')\n")
+    messages = []
+    result = launcher.diagnose_native(sys.executable,
+        {**os.environ, 'PYTHONPATH': str(tmp_path)}, messages.append,
+        modules=('r21_blocked', 'r21_broken', 'json'), timeout=2)
+    assert result['ok'] is False
+    blocked, broken, success = result['modules']
+    assert not blocked['ok'] and 'Importando r21_blocked' in blocked['error']
+    assert not broken['ok'] and 'DLL de prueba' in broken['error']
+    assert success['ok'] and success['module'] == 'json'
+    assert not psutil.pid_exists(int(pid.read_text()))

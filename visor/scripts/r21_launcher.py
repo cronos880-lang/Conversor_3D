@@ -4,11 +4,115 @@ import argparse
 import hashlib
 import json
 import os
+import queue
+import signal
 import subprocess
 import sys
+import threading
+import time
 from datetime import datetime
 
 ROOT = Path(__file__).resolve().parent
+NATIVE_MODULES = ('OCP', 'vtk', 'cadquery', 'trimesh', 'scipy', 'CGAL',
+                  'gpytoolbox', 'igl', 'fastapi', 'uvicorn', 'manifold3d')
+RUNTIME_PROBE = """import json,sys,struct
+print('Comprobando Python 3.12 x64...', flush=True)
+assert sys.version_info[:2]==(3,12) and struct.calcsize('P')==8, 'Se necesita Python 3.12 x64'
+print('Comprobando versiones bloqueadas (sin cargar bibliotecas CAD)...', flush=True)
+from conversor3d.dependencies import runtime_identity
+from conversor3d._version import APPLICATION_LABEL
+runtime=runtime_identity()
+print('R21_PROBE_RESULT='+json.dumps({'ok':True,'version':APPLICATION_LABEL,'runtime':runtime}), flush=True)
+"""
+
+
+def stop_probe(process):
+    if process.poll() is not None:
+        return
+    if os.name == 'nt':
+        taskkill = Path(os.environ['SystemRoot']) / 'System32/taskkill.exe'
+        try:
+            subprocess.run([str(taskkill), '/PID', str(process.pid), '/T', '/F'],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=15)
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+        finally:
+            if process.poll() is None:
+                process.kill()
+    else:
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    process.wait(timeout=15)
+
+
+def run_probe(python, code, env, label, status=print, *, timeout=90, heartbeat=10):
+    """Sondeo aislado, con salida visible, límite propio y cierre de descendientes."""
+    status('R21: ' + label)
+    started = time.monotonic()
+    process = subprocess.Popen([str(python), '-B', '-u', '-c', code], env=env,
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                               text=True, encoding='utf-8', errors='replace',
+                               start_new_session=True)
+    output = queue.Queue()
+    def read_output():
+        try:
+            for line in process.stdout:
+                output.put(line.rstrip())
+        finally:
+            output.put(None)
+    reader = threading.Thread(target=read_output, daemon=True)
+    reader.start()
+    result, lines = None, []
+    try:
+        while True:
+            remaining = timeout - (time.monotonic() - started)
+            if remaining <= 0:
+                raise TimeoutError(label + ': superó ' + str(timeout) +
+                                   ' s. El sondeo se ha detenido; consulta datos/arranque_R21.log.')
+            try:
+                line = output.get(timeout=min(heartbeat, remaining))
+            except queue.Empty:
+                status('R21: ' + label + ' sigue en curso (' +
+                       str(int(time.monotonic() - started)) + ' s)')
+                continue
+            if line is None:
+                break
+            if line.startswith('R21_PROBE_RESULT='):
+                result = json.loads(line.partition('=')[2])
+            else:
+                lines.append(line)
+                status(line)
+        code = process.wait(timeout=max(.1, timeout - (time.monotonic() - started)))
+        if code or not isinstance(result, dict) or result.get('ok') is not True:
+            raise ValueError(label + ': fallo (código ' + str(code) + '). ' + '\n'.join(lines[-12:]))
+        return result
+    except subprocess.TimeoutExpired as error:
+        raise TimeoutError(label + ': el proceso no terminó dentro del plazo.') from error
+    finally:
+        stop_probe(process)
+        reader.join(timeout=2)
+        process.stdout.close()
+
+
+def diagnose_native(python, env, status, *, modules=NATIVE_MODULES, timeout=90):
+    results = []
+    for module in modules:
+        started = time.monotonic()
+        code = ('import importlib,json\nimportlib.import_module(' + repr(module) + ')\n'
+                "print('R21_PROBE_RESULT='+json.dumps({'ok':True}), flush=True)\n")
+        try:
+            run_probe(python, code, env, 'Importando ' + module, status, timeout=timeout)
+            item = {'module': module, 'ok': True}
+            status('R21: ' + module + ' OK')
+        except (OSError, ValueError, TimeoutError) as error:
+            item = {'module': module, 'ok': False, 'error': str(error)}
+            status('R21: ' + module + ' ERROR: ' + str(error))
+        item['seconds'] = round(time.monotonic() - started, 3)
+        results.append(item)
+    return {'ok': all(item['ok'] for item in results), 'modules': results,
+            'separate_process_per_module': True}
 
 
 def verify_update(root=ROOT):
@@ -73,7 +177,7 @@ def choose_base(root, explicit=None, interactive=True):
     raise ValueError('No se localizó R20. Selecciona su carpeta o ejecuta --base-r20 RUTA. No se ha instalado nada.')
 
 
-def prepare(root, base):
+def prepare(root, base, status=print):
     root, base = Path(root).resolve(), Path(base).resolve()
     verify_update(root)
     engine = base / 'entregas/perfeccion_Visualizador_R19/Visor_experimental_fuentes'
@@ -91,22 +195,11 @@ def prepare(root, base):
                CONVERSOR3D_DATA_DIR=str(data), CONVERSOR3D_CACHE_DIR=str(data / 'cache'),
                CONVERSOR3D_PORT='8785', CONVERSOR3D_RETENTION_DAYS='0',
                CONVERSOR3D_CACHE_ENABLED='1', VISOR_PERFIL='precision')
-    probe = """import json,sys,struct
-assert sys.version_info[:2]==(3,12) and struct.calcsize('P')==8, 'Se necesita Python 3.12 x64'
-from conversor3d.dependencies import runtime_identity
-from conversor3d._version import APPLICATION_LABEL
-runtime_identity()
-import OCP,vtk,CGAL,gpytoolbox,igl,fastapi,uvicorn,manifold3d
-print(json.dumps({'ok':True,'version':APPLICATION_LABEL}))
-"""
-    result = subprocess.run([str(base_python(base)), '-B', '-c', probe], env=env,
-                            capture_output=True, text=True, timeout=90)
-    if result.returncode:
-        raise ValueError('El entorno R20 no está preparado. Ejecuta Reparar_Entorno_R20.bat en R20.\n'
-                         + result.stderr[-1600:])
+    result = run_probe(base_python(base), RUNTIME_PROBE, env,
+                       'Comprobación de Python y versiones bloqueadas', status)
     data.mkdir(parents=True, exist_ok=True)
     (data / 'base_r20.json').write_text(json.dumps({'base_r20': str(base)}, indent=2), encoding='utf-8')
-    return env, json.loads(result.stdout.splitlines()[-1])
+    return env, result
 
 
 def main():
@@ -127,16 +220,20 @@ def main():
         verify_update(ROOT)
         base = choose_base(ROOT, args.base_r20, interactive=not args.no_browser)
         status('R21: entorno localizado en ' + str(base))
-        status('R21: verificando los 357 archivos R19 y las bibliotecas CAD...')
-        env, result = prepare(ROOT, base)
-        status('R21 preparada. R20 y su entorno se conservan sin modificaciones.')
+        status('R21: verificando los 357 archivos R19 y las versiones instaladas...')
+        env, result = prepare(ROOT, base, status)
+        status('R21: integridad y versiones comprobadas. R20 se conserva sin modificaciones.')
         if args.diagnostico:
-            print(json.dumps(result, ensure_ascii=False), flush=True)
-            return 0
+            diagnostic = diagnose_native(base_python(base), env, status)
+            diagnostic['runtime'] = result
+            path = ROOT / 'datos' / ('diagnostico_R21_' + datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.json')
+            path.write_text(json.dumps(diagnostic, ensure_ascii=False, indent=2), encoding='utf-8')
+            status('R21: diagnóstico guardado en ' + str(path))
+            return 0 if diagnostic['ok'] else 2
         command = [str(base_python(base)), '-B', '-m', 'conversor3d', 'serve', '--port', str(args.port)]
         if args.no_browser:
             command.append('--no-browser')
-        status('R21: abriendo el Visor en el puerto ' + str(args.port))
+        status('R21: iniciando el servidor; dirección local http://127.0.0.1:' + str(args.port))
         with subprocess.Popen(command, env=env, cwd=ROOT, stdout=subprocess.PIPE,
                               stderr=subprocess.STDOUT, text=True, encoding='utf-8',
                               errors='replace', bufsize=1) as process:

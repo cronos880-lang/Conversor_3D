@@ -20,7 +20,7 @@ def release_identity():
     return {'release': version.RELEASE_NAME, 'version': version.__version__,
             'label': version.APPLICATION_LABEL, 'port': version.DEFAULT_PORT,
             'base_release': 'R20', 'base_engine': version.BASE_ENGINE,
-            'kind': 'ACTUALIZACION', 'launcher_revision': 2,
+            'kind': 'ACTUALIZACION', 'launcher_revision': 3,
             'bundled_runtime': False, 'bundled_historical_engine': False}
 
 
