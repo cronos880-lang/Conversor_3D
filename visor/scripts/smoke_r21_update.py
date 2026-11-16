@@ -41,8 +41,13 @@ def smoke(output, base, archive=None):
         command = [str(python), '-B', str(root / 'r21_launcher.py'), '--base-r20', str(base),
                    '--no-browser', '--port', str(port)]
         if os.name == 'nt':
-            command = ['cmd.exe', '/d', '/c', 'Iniciar_R21.bat', '--base-r20', str(base),
-                       '--no-browser', '--port', str(port)]
+            # Sin py/python global, con base guardada y una carpeta R21 anidada.
+            (root / 'datos').mkdir()
+            (root / 'datos/base_r20.json').write_text(json.dumps({'base_r20': str(base)}), encoding='utf-8')
+            system32 = Path(os.environ['SystemRoot']) / 'System32'
+            env['PATH'] = str(system32)
+            command = [str(system32 / 'cmd.exe'), '/d', '/c',
+                       'Iniciar_R21.bat', '--no-browser', '--port', str(port)]
         process = subprocess.Popen(command, cwd=root, env=env, stdout=log, stderr=log,
                                    start_new_session=True)
         try:

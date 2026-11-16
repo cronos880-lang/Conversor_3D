@@ -6,6 +6,7 @@ import json
 import os
 import subprocess
 import sys
+from datetime import datetime
 
 ROOT = Path(__file__).resolve().parent
 
@@ -41,14 +42,20 @@ def choose_base(root, explicit=None, interactive=True):
         if not valid_base(path):
             raise ValueError('La carpeta elegida no contiene R20 con su entorno preparado')
         return path
-    candidates = [root.parent / 'Conversor_3D_R20_experimental', root.parent]
+    candidates = []
+    if os.environ.get('CONVERSOR3D_BASE_R20'):
+        candidates.append(Path(os.environ['CONVERSOR3D_BASE_R20']))
+    for parent in (root.parent, root.parent.parent):
+        candidates.append(parent)
+        for child in parent.iterdir():
+            if child.is_dir():
+                candidates.extend((child, child / 'Conversor_3D_R20_experimental'))
     config = root / 'datos/base_r20.json'
     if config.is_file():
         try:
             candidates.insert(0, Path(json.loads(config.read_text())['base_r20']))
         except (OSError, ValueError, KeyError, TypeError):
             pass
-    candidates.extend(root.parent.glob('*R20*'))
     for path in candidates:
         if valid_base(path):
             return path.resolve()
@@ -109,20 +116,41 @@ def main():
     parser.add_argument('--diagnostico', action='store_true')
     parser.add_argument('--port', type=int, default=8785)
     args = parser.parse_args()
+    log = ROOT / 'datos/arranque_R21.log'
+    def status(message):
+        print(message, flush=True)
+        log.parent.mkdir(parents=True, exist_ok=True)
+        with log.open('a', encoding='utf-8') as stream:
+            stream.write(datetime.now().isoformat(timespec='seconds') + ' ' + message + '\n')
     try:
+        status('R21: comprobando la actualización...')
         verify_update(ROOT)
         base = choose_base(ROOT, args.base_r20, interactive=not args.no_browser)
+        status('R21: entorno localizado en ' + str(base))
+        status('R21: verificando los 357 archivos R19 y las bibliotecas CAD...')
         env, result = prepare(ROOT, base)
-        print('R21 preparada. R20 y su entorno se conservan sin modificaciones.', flush=True)
+        status('R21 preparada. R20 y su entorno se conservan sin modificaciones.')
         if args.diagnostico:
             print(json.dumps(result, ensure_ascii=False), flush=True)
             return 0
         command = [str(base_python(base)), '-B', '-m', 'conversor3d', 'serve', '--port', str(args.port)]
         if args.no_browser:
             command.append('--no-browser')
-        return subprocess.call(command, env=env, cwd=ROOT)
+        status('R21: abriendo el Visor en el puerto ' + str(args.port))
+        with subprocess.Popen(command, env=env, cwd=ROOT, stdout=subprocess.PIPE,
+                              stderr=subprocess.STDOUT, text=True, encoding='utf-8',
+                              errors='replace', bufsize=1) as process:
+            for line in process.stdout:
+                status(line.rstrip())
+            code = process.wait()
+        if code:
+            status('ERROR R21: el servidor terminó con código ' + str(code))
+        return code
     except Exception as error:
-        print('ERROR R21: ' + str(error), flush=True)
+        try:
+            status('ERROR R21: ' + str(error))
+        except OSError:
+            print('ERROR R21: ' + str(error), flush=True)
         return 2
 
 

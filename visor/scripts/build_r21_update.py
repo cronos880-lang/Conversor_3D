@@ -20,7 +20,8 @@ def release_identity():
     return {'release': version.RELEASE_NAME, 'version': version.__version__,
             'label': version.APPLICATION_LABEL, 'port': version.DEFAULT_PORT,
             'base_release': 'R20', 'base_engine': version.BASE_ENGINE,
-            'kind': 'ACTUALIZACION', 'bundled_runtime': False, 'bundled_historical_engine': False}
+            'kind': 'ACTUALIZACION', 'launcher_revision': 2,
+            'bundled_runtime': False, 'bundled_historical_engine': False}
 
 
 def build(output):
@@ -30,6 +31,7 @@ def build(output):
         if path.is_file() and '__pycache__' not in path.parts and path.suffix not in ('.pyc', '.pyo'):
             files[path.relative_to(REPO).as_posix()] = path.read_bytes()
     files['r21_launcher.py'] = (REPO / 'visor/scripts/r21_launcher.py').read_bytes()
+    files['r21_bootstrap.ps1'] = (REPO / 'visor/scripts/r21_bootstrap.ps1').read_bytes()
     files['R19_FROZEN_SHA256.json'] = (REPO / 'visor/frozen-r19.sha256.json').read_bytes()
     files['LEEME_R21.txt'] = (REPO / 'visor/docs/R21_USUARIO.txt').read_bytes()
     files['INFORME_R21.md'] = (REPO / 'visor/docs/R21_INFORME.md').read_bytes()
@@ -42,12 +44,17 @@ setlocal
 cd /d "%~dp0"
 set "PYTHONUTF8=1"
 set "PYTHONDONTWRITEBYTECODE=1"
-if exist "..\\Conversor_3D_R20_experimental\\.venv_r20\\Scripts\\python.exe" (
-  "..\\Conversor_3D_R20_experimental\\.venv_r20\\Scripts\\python.exe" -B "r21_launcher.py" OPTIONS %*
-) else (
-  py -3.12 -B "r21_launcher.py" OPTIONS %*
-)
-if errorlevel 1 pause
+set "PYTHONHOME="
+set "PYTHONPATH="
+echo Preparando R21. El entorno y los datos de R20 se conservan.
+"%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -NoProfile -STA -ExecutionPolicy Bypass -File "%~dp0r21_bootstrap.ps1" OPTIONS %*
+if errorlevel 1 goto error
+if not "%CONVERSOR3D_SIN_PAUSA%"=="1" if "OPTIONS"=="--diagnostico" pause
+exit /b 0
+:error
+echo Consulta datos\\arranque_R21.log. El programa no ha terminado correctamente.
+if not "%CONVERSOR3D_SIN_PAUSA%"=="1" pause
+exit /b 2
 '''.replace('OPTIONS', options)
         files[name] = text.replace('\n', '\r\n').encode('ascii')
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPO, text=True).strip()

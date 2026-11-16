@@ -11,6 +11,16 @@ No incluye Python ni bibliotecas CAD duplicadas. No instala dependencias nuevas.
 Para comprobar la preparacion sin abrir el visor: Diagnostico_R21.bat.
 Si falta el entorno de R20, ejecuta su Reparar_Entorno_R20.bat y vuelve a abrir R21.
 
+CORRECCION DE ARRANQUE R21
+Los lanzadores usan Windows PowerShell y el Python del entorno R20 localizado;
+no necesitan que py o python esten disponibles como comandos globales.
+Buscan tambien carpetas renombradas y las carpetas anidadas de Extraer todo.
+Si no encuentran R20, muestran un selector de carpeta.
+La opcion de ejecucion de PowerShell afecta solo a ese proceso: no modifica
+la politica de scripts de Windows ni instala herramientas.
+Los mensajes y fallos del arranque se guardan en datos\arranque_R21.log.
+Diagnostico_R21.bat mantiene la ventana abierta para poder leer el resultado.
+
 R21 conserva los cuatro botones y los perfiles. Incluye la mejora visual y evita
 trabajo repetido. Las reconversiones identicas reutilizan la geometria de referencia,
 pero ejecutan siempre un control frio nuevo y verifican el STEP final.
