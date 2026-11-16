@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "release": "R21",
+  "launcher_revision": 2,
+  "source_commit": "1bf36ab9c5746b7669abc24b980b4eba47ab9c14",
+  "source_ci_url": "https://github.com/cronos880-lang/Conversor_3D/actions/runs/43823752713",
+  "archive": {
+    "name": "Conversor_3D_R21_ACTUALIZACION_LIGERA_CORREGIDA.zip",
+    "bytes": 86476,
+    "sha256": "77581e99a8ac97c9da06d684c1728fed7b20eff06da5e16c58eb63d581fab3d9"
+  },
+  "local_tests": {
+    "passed": 58,
+    "skipped_windows_only": 1,
+    "frozen_hashes": 357,
+    "two_real_conversions_from_final_archive": true,
+    "r20_version_preserved": true,
+    "new_certificate_nonce_per_conversion": true
+  },
+  "changes": {
+    "added_files": 1,
+    "changed_files": 5,
+    "unchanged_files": 32,
+    "removed_files": 0,
+    "converter_source_changed": false,
+    "cgal_or_ocp_dependencies_changed": false
+  },
+  "tools_connection_summary": "HERRAMIENTAS_CONECTADAS.json",
+  "native_ci": {
+    "run_id": 43823752713,
+    "head_sha": "1bf36ab9c5746b7669abc24b980b4eba47ab9c14",
+    "status": "completed",
+    "conclusion": "success",
+    "linux": {
+      "current_passed": 58,
+      "current_skipped_windows_only": 1,
+      "legacy_passed": 427,
+      "legacy_skipped": 15
+    },
+    "windows": {
+      "current_passed": 59,
+      "legacy_passed": 426,
+      "legacy_skipped": 16,
+      "renamed_r20_nested_r21_no_global_python_bootstrap": true,
+      "r20_real_install_and_repair": true,
+      "r21_real_bat_two_conversions_without_global_python": true
+    }
+  }
+}

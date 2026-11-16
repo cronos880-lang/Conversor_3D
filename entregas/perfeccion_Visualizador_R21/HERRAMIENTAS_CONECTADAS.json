@@ -1,0 +1,29 @@
+{
+  "rea": {
+    "connected": true,
+    "server": {
+      "name": "rea",
+      "version": "6.8.0"
+    },
+    "tools": 229,
+    "actual_mcp_inspection_ok": true,
+    "platform": "Linux cloud",
+    "windows_access": false
+  },
+  "craft_anything": {
+    "connected": true,
+    "server": {
+      "name": "craft-anything",
+      "title": "Craft Anything",
+      "version": "0.6.1"
+    },
+    "tools": 323,
+    "platform": "Linux cloud",
+    "windows_access": false,
+    "session_call_ok": true,
+    "actual_archive_comparison_ok": true
+  },
+  "scope": "Conexiones MCP locales en Linux Cloud; sin acceso al Windows del usuario",
+  "craft_official_release": "https://github.com/storytold/craft-anything/releases/tag/v0.6.1",
+  "craft_official_archive_sha256": "83ec0730c9117f399122b315c63ed4c3a8d31ac55bddd74cb8b33cd2f76ef704"
+}

@@ -12,12 +12,15 @@ del Visor. Sus motores y sus comprobaciones no son intercambiables.
 
 ## Probar R21 experimental — ACTUALIZACIÓN ligera
 
-[Descargar R21 para una R20 ya instalada](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R21/entregas/perfeccion_Visualizador_R21/Conversor_3D_R21_ACTUALIZACION_LIGERA.zip?raw=true)
+[Descargar R21 con arranque corregido para una R20 ya instalada](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R21/entregas/perfeccion_Visualizador_R21/Conversor_3D_R21_ACTUALIZACION_LIGERA_CORREGIDA.zip?raw=true)
+· [Corrección de arranque y conexiones REA/Craft Anything](entregas/perfeccion_Visualizador_R21/REPARACION_ARRANQUE_R21.md)
 · [Resultados y límites de R21](entregas/perfeccion_Visualizador_R21/INFORME_RESULTADOS.md)
 
-El ZIP ocupa 83.795 bytes y necesita R20 con su entorno preparado. Extraerlo en
+El ZIP corregido ocupa 86.476 bytes y necesita R20 con su entorno preparado. Extraerlo en
 una carpeta nueva junto a R20 y abrir `Iniciar_R21.bat`; si no se localiza R20,
 seleccionar su carpeta. No hay otro instalador ni bibliotecas CAD duplicadas.
+El arranque ya no necesita los comandos globales `py` ni `python`; busca también
+carpetas renombradas o anidadas. Los fallos se guardan en `datos/arranque_R21.log`.
 Los datos R21 quedan separados; para volver a R20 basta abrir su lanzador original.
 
 La Bancada midió 891,3 s en su primera conversión con las mejoras y 77,7 s al
