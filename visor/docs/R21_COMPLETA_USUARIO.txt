@@ -1,0 +1,29 @@
+R21 EXPERIMENTAL COMPLETA - FUENTES E INSTALADOR INDEPENDIENTE
+
+Esta entrega incluye el programa y el motor protegido. No requiere R20, sus
+carpetas ni su entorno. Crea su propio entorno .venv_r21 y guarda sus datos aqui.
+No es la actualizacion ligera. Conserva las instalaciones anteriores.
+
+1. Extrae TODO el ZIP en una carpeta nueva. No lo ejecutes dentro del ZIP.
+2. Abre Iniciar_R21.bat. En la primera apertura prepara su entorno y despues
+   abre el Visor. Las siguientes aperturas conservan ese entorno.
+
+Requisito: Python 3.12 x64 instalado (el Python base ya usado para R20 sirve).
+No se utiliza ni se copia .venv_r20. Se necesita Internet en la primera preparacion
+para descargar los paquetes bloqueados y comprobar sus hashes. No se compilan.
+No incluye un runtime portable ni binarios CAD de terceros dentro del ZIP.
+
+Instalar_Entorno_R21.bat prepara el entorno sin abrir el Visor.
+Reparar_Entorno_R21.bat verifica paquetes y recupera extracciones incompletas.
+Diagnostico_R21.bat comprueba cada biblioteca en un proceso separado, muestra
+su nombre y guarda el resultado en datos. El inicio no carga juntas las ocho
+bibliotecas del antiguo sondeo de 90 segundos.
+
+Registros: datos\arranque_R21.log y datos\instalacion_R21.log.
+Direccion local: http://127.0.0.1:8785 si el navegador no se abre automaticamente.
+La primera preparacion puede tardar varios minutos: muestra cada paquete y
+mensajes de actividad. No borra entornos ni datos al encontrar un fallo.
+
+Conserva los cuatro botones, perfiles, conversiones, tolerancias y validadores.
+No se anuncia una precision nueva ni una reduccion adicional de caras.
+Para volver a otra version, cierra esta y utiliza su lanzador anterior.

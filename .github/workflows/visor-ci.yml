@@ -41,6 +41,8 @@ jobs:
         run: python visor/scripts/audit_licenses.py --output third-party-native.json
       - name: Pruebas nuevas y geometría con control frío
         run: python -m pytest -q -p no:cacheprovider visor/tests --junitxml=visor-tests.xml
+      - name: Instalar R21 completa desde cero sin R20 y probar sus lanzadores
+        run: python visor/scripts/smoke_r21_full.py --output smoke-r21-completa
       - name: Batería histórica congelada
         run: python visor/scripts/run_legacy_tests.py --xml legacy-tests.xml
       - name: Conversiones de cilindro, pared fina y taladro pequeño

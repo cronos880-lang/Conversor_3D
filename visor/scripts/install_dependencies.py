@@ -67,7 +67,7 @@ def install(root=ROOT):
     packages = locked_packages(lock)
     env = {**os.environ, 'PYTHONUTF8': '1', 'PYTHONUNBUFFERED': '1',
            'PYTHONDONTWRITEBYTECODE': '1', 'PIP_DISABLE_PIP_VERSION_CHECK': '1'}
-    with tempfile.TemporaryDirectory(prefix='R20 requisitos ') as temporary:
+    with tempfile.TemporaryDirectory(prefix='Visor requisitos ') as temporary:
         one_package = Path(temporary) / 'paquete.lock'
         for index, (name, version, requirement) in enumerate(packages, 1):
             label = f'[PAQUETE {index}/{len(packages)}] {name} {version}'
@@ -92,9 +92,9 @@ def install(root=ROOT):
             if not complete_distribution(installed, version):
                 raise RuntimeError(label + ': siguen faltando archivos después de instalar')
         print(f'Paquetes verificados: {len(packages)}/{len(packages)}.', flush=True)
-    print('Preparando el programa R20...', flush=True)
+    print('Preparando el programa del Visor...', flush=True)
     run_progress([sys.executable, '-u', '-m', 'pip', 'install', '--no-compile', '-e', str(root),
-                  '--no-deps', '--no-build-isolation'], env=env, label='Programa R20', timeout=300)
+                  '--no-deps', '--no-build-isolation'], env=env, label='Programa del Visor', timeout=300)
     print('Comprobando la coherencia completa de dependencias...', flush=True)
     run_progress([sys.executable, '-u', '-m', 'pip', 'check'], env=env,
                  label='Coherencia de dependencias', timeout=120)

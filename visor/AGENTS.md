@@ -97,3 +97,14 @@ instalación y recuperación sin pérdida de datos.
   comprueba. Nunca reutilizar un certificado entre conversiones.
 - Mantener los ZIP R18/R19/R20 y las 357 fuentes R19 intactos. El constructor
   `scripts/build_r21_update.py` prepara la actualización cuando se solicita.
+
+## R21 completa independiente autorizada
+
+La petición posterior del usuario autoriza R21 completa en fuentes, con sus
+357 fuentes R19, su instalador y `.venv_r21` propios. No usa ni modifica R20.
+El constructor es `scripts/build_r21_full.py`; el gestor independiente es
+`scripts/manage_environment_r21.py`. Conservar versiones, hashes, motores,
+validadores y tolerancias anteriores. La preparación comprueba archivos,
+paquetes y versiones sin importar juntas las bibliotecas nativas; el diagnóstico
+las comprueba en procesos separados. La primera apertura puede instalar sólo
+las dependencias ya declaradas y fijadas en los locks de esta entrega.

@@ -131,3 +131,13 @@ el entorno preparado de R20 y su motor R19, sin modificarlos ni duplicarlos.
 El constructor es `visor/scripts/build_r21_update.py`. Se conserva íntegra la
 reglamentación general V2.3.1. La mejora principal es de rendimiento; no se
 anuncia una reconstrucción analítica nueva aceptada.
+
+## Entrega R21 completa solicitada después
+
+El 16 de noviembre de 2026 el usuario pidió expresamente una R21 completa,
+independiente de la instalación R20 que falla en su PC. Esta solicitud autoriza
+el ZIP completo en fuentes con instalador y entorno propio `.venv_r21`, mediante
+`visor/scripts/build_r21_full.py`. Incluye las 357 fuentes R19 intactas; descarga
+las dependencias bloqueadas al preparar su entorno, sin redistribuir sus binarios.
+La regla de reutilizar R20 sin duplicarla sigue aplicándose a las actualizaciones
+ligeras, no a esta entrega completa solicitada. No se elimina ni modifica R20.

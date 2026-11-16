@@ -28,7 +28,7 @@ def installation_lock(path):
                 import fcntl
                 fcntl.flock(stream, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except OSError as error:
-            raise RuntimeError('Ya hay otra instalación R20 en ejecución. Usa su ventana y consulta el registro.') from error
+            raise RuntimeError('Ya hay otra instalación del Visor en ejecución. Usa su ventana y consulta el registro.') from error
         try:
             yield
         finally:
