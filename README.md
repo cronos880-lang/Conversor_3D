@@ -10,7 +10,23 @@ del Visor. Sus motores y sus comprobaciones no son intercambiables.
 | Visor R20 experimental | [visor/](visor/README.md) | Reconstrucción opcional con contornos compartidos, evaluación independiente y certificado final completo. Entrega autorizada para pruebas. |
 | Visor R21 experimental | [Actualización ligera](entregas/perfeccion_Visualizador_R21/INFORME_RESULTADOS.md) | Rendimiento y diagnóstico, con control frío nuevo y geometría conservada. Reutiliza R20 sin modificarla. |
 
-## Probar R21 experimental — ACTUALIZACIÓN ligera
+## Probar R21 experimental — COMPLETA independiente
+
+[Descargar R21 COMPLETA con instalador propio](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R21/entregas/perfeccion_Visualizador_R21/Conversor_3D_R21_EXPERIMENTAL_COMPLETA.zip?raw=true)
+· [Pruebas de instalación independiente](entregas/perfeccion_Visualizador_R21/COMPLETA_RESULTADOS.md)
+
+Esta entrega ocupa 2.747.484 bytes e incluye las fuentes completas y el motor
+protegido. No necesita R20 ni `.venv_r20`: prepara su propio `.venv_r21`.
+Extraer TODO en una carpeta nueva y abrir `Iniciar_R21.bat`; la primera apertura
+instala los paquetes bloqueados y después abre el Visor. Las posteriores
+conservan el entorno. Incluye instalador, reparación y diagnóstico R21 propios.
+
+Requiere Python 3.12 x64 ya instalado e Internet en esa primera preparación.
+Es COMPLETA en fuentes con instalador; no incluye Python ni los binarios CAD
+de terceros dentro del ZIP. No utiliza la comprobación conjunta de bibliotecas
+que agotaba los 90 segundos en R20. Las versiones anteriores se conservan.
+
+## Actualizaciones ligeras R21 anteriores
 
 [Descargar R21 revisión 3 para una R20 ya instalada](https://github.com/cronos880-lang/Conversor_3D/blob/perfeccion_Visualizador_R21/entregas/perfeccion_Visualizador_R21/Conversor_3D_R21_ACTUALIZACION_REV3.zip?raw=true)
 · [Corrección del bloqueo de 90 segundos](entregas/perfeccion_Visualizador_R21/REV3_INICIO_Y_DIAGNOSTICO.md)

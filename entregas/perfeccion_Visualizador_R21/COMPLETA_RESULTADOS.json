@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "kind": "COMPLETA en fuentes con instalador",
+  "requires_r20": false,
+  "source_commit": "69f676f7745c73c87a4557a027d22af6c6f9b4c9",
+  "archive": {
+    "name": "Conversor_3D_R21_EXPERIMENTAL_COMPLETA.zip",
+    "bytes": 2747484,
+    "sha256": "3c2e3816ba6419dfe1749083b4ef449e87462c02964b1fd958fb37d2531bcc05"
+  },
+  "local_tests": {
+    "passed": 63,
+    "windows_only_skipped": 2,
+    "frozen_hashes": 357
+  },
+  "local_full_zip_first_start_test": {
+    "ok": true,
+    "platform": "linux",
+    "archive_sha256": "3c2e3816ba6419dfe1749083b4ef449e87462c02964b1fd958fb37d2531bcc05",
+    "first_start_installed_own_environment": true,
+    "requires_r20": false,
+    "fresh_nonces": true,
+    "step_hashes": [
+      "89b9e09266f9c2c8648f0edc53935160e9b1e58f2b214eb18277df5da182b94a",
+      "89b9e09266f9c2c8648f0edc53935160e9b1e58f2b214eb18277df5da182b94a"
+    ],
+    "valid_reimported_step_own_environment": true,
+    "material_discrepancies": 0,
+    "mesh_checks": 3,
+    "max_brep_mm": 1e-07,
+    "repaired_missing_package_file": true,
+    "native_diagnostic": {
+      "runtime": {
+        "ok": true,
+        "version": "Visor STL a STEP · R21 experimental",
+        "runtime": {
+          "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "libraries": {
+            "cadquery": "2.8.0",
+            "cadquery-ocp": "7.9.3.1.1",
+            "trimesh": "4.11.1",
+            "numpy": "2.3.5",
+            "scipy": "1.17.0",
+            "vtk": "9.6.2",
+            "shapely": "2.1.2",
+            "fastapi": "0.128.2",
+            "uvicorn": "0.48.0",
+            "python-multipart": "0.0.31",
+            "manifold3d": "3.4.0",
+            "psutil": "7.2.2",
+            "networkx": "3.6.1",
+            "gpytoolbox": "0.3.8",
+            "cgal": "6.0.1.post202410241521",
+            "libigl": "2.6.3"
+          },
+          "specification_sha256": "0e6428675c97d68ff665c0ad5ecec902cade6b620f6cd450688b122dbf4b9c8e"
+        }
+      },
+      "ok": true,
+      "modules": [
+        {
+          "module": "OCP",
+          "ok": true,
+          "seconds": 0.754
+        },
+        {
+          "module": "vtk",
+          "ok": true,
+          "seconds": 0.555
+        },
+        {
+          "module": "cadquery",
+          "ok": true,
+          "seconds": 2.603
+        },
+        {
+          "module": "trimesh",
+          "ok": true,
+          "seconds": 1.509
+        },
+        {
+          "module": "scipy",
+          "ok": true,
+          "seconds": 0.208
+        },
+        {
+          "module": "CGAL",
+          "ok": true,
+          "seconds": 0.019
+        },
+        {
+          "module": "gpytoolbox",
+          "ok": true,
+          "seconds": 1.272
+        },
+        {
+          "module": "igl",
+          "ok": true,
+          "seconds": 0.568
+        },
+        {
+          "module": "fastapi",
+          "ok": true,
+          "seconds": 0.498
+        },
+        {
+          "module": "uvicorn",
+          "ok": true,
+          "seconds": 0.127
+        },
+        {
+          "module": "manifold3d",
+          "ok": true,
+          "seconds": 0.022
+        }
+      ],
+      "separate_process_per_module": true
+    }
+  },
+  "source_ci_url": "https://github.com/cronos880-lang/Conversor_3D/actions/runs/43838930582",
+  "native_ci": {
+    "run_id": 43838930582,
+    "source_commit": "69f676f7745c73c87a4557a027d22af6c6f9b4c9",
+    "status": "completed",
+    "conclusion": "success",
+    "windows": {
+      "current_passed": 65,
+      "legacy_passed": 426,
+      "legacy_skipped": 16,
+      "full_independent_install_start_convert_repair_diagnose_passed": true,
+      "real_windows_bat_launchers": true
+    },
+    "linux": {
+      "current_passed": 63,
+      "current_windows_only_skipped": 2,
+      "legacy_passed": 427,
+      "legacy_skipped": 15,
+      "full_independent_install_start_convert_repair_diagnose_passed": true
+    }
+  }
+}
